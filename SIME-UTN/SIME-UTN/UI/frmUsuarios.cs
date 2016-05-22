@@ -19,13 +19,13 @@ namespace SIME_UTN.UI
         public frmUsuarios()
         {
             InitializeComponent();
-            dgvUsuarios.AutoGenerateColumns = false;
-           
+          
+
         }
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
-          
+
             try
             {
 
@@ -54,21 +54,22 @@ namespace SIME_UTN.UI
             dt.Columns.Add(new DataColumn("CodigoUsuario"));
             dt.Columns.Add(new DataColumn("Usuario"));
             dt.Columns.Add(new DataColumn("Perfil"));
-          
+
             try
             {
                 gestor = GestorUsuarioTable.GetInstance();
                 this.lstUsuarios.Items.Clear();
                 CambiarEstado(EstadoMantenimiento.Ninguno);
                 List<UsuarioTable> lista = new List<UsuarioTable>(gestor.ObtenerUsuarios());
-                for (int i=0; i<lista.Count; i++)
+                for (int i = 0; i < lista.Count; i++)
                 {
                     DataRow dr = dt.NewRow();
                     dr["CodigoUsuario"] = lista[i].codigoUsuario;
                     dr["Usuario"] = lista[i].usuario;
                     dr["Perfil"] = lista[i].perfil;
-                    dt.Rows.Add(dr);                }
-              
+                    dt.Rows.Add(dr);
+                }
+
             }
             catch (Exception ex)
             {
@@ -95,10 +96,10 @@ namespace SIME_UTN.UI
             chkAdministrador.Enabled = false;
             txtConfirmacion.Text = "";
 
-          
+
             chkAdministrador.Checked = false;
 
-         
+
 
             switch (estado)
             {
@@ -116,7 +117,7 @@ namespace SIME_UTN.UI
                     break;
                 case EstadoMantenimiento.Editar:
 
-                  
+
 
                     break;
                 case EstadoMantenimiento.Borrar:
@@ -214,47 +215,10 @@ namespace SIME_UTN.UI
 
 
 
-  
-     
-
-        /// <summary>
-        /// Metodo por el cual eliminas un Usuario por medio del ID y el nombre
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripbtnEliminar_Click(object sender, EventArgs e)
-        {
-            gestor = GestorUsuarioTable.GetInstance();
-            try
-            {
-                string UsuarioNombre = (this.dgvUsuarios[1, dgvUsuarios.CurrentCell.RowIndex].Value.ToString());
-                int UsuarioID = int.Parse(this.dgvUsuarios[0, dgvUsuarios.CurrentCell.RowIndex].Value.ToString());
-
-                if (this.dgvUsuarios.SelectedRows.Count > 0)
-                {
-                    if (MessageBox.Show("¿Seguro que desea al Usuario " + UsuarioNombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        gestor.EliminarUsuario(UsuarioID, UsuarioNombre);
-
-                        RefrescarLista();
-                    }
-
-                }
 
 
 
 
-            }
-            catch (ApplicationException app)
-            {
-                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
 
         /// <summary>
         /// Metodo que cierra la ventana Usuario
@@ -266,8 +230,8 @@ namespace SIME_UTN.UI
             this.Close();
         }
 
-   
-    
+
+
 
         /// <summary>
         /// Manda a llamar al metodo Refresca Lista
@@ -280,7 +244,7 @@ namespace SIME_UTN.UI
         }
 
 
-        
+
 
 
         #region Checkbox de Agregar Usuarios y Permisos
@@ -346,7 +310,7 @@ namespace SIME_UTN.UI
         #region Checkbox de Modificar y Eliminar Usuarios
 
 
-    
+
 
 
 
@@ -373,10 +337,10 @@ namespace SIME_UTN.UI
                 usuario.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
 
                 gestor.AgregarUsuario(usuario);
-                    gestor.GuardarUsuario();
-                    RefrescarLista();
+                gestor.GuardarUsuario();
+                RefrescarLista();
 
-          
+
 
             }
             catch (ApplicationException app)
@@ -391,13 +355,13 @@ namespace SIME_UTN.UI
 
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Delete)
+            if (e.KeyCode == Keys.Delete)
             {
 
-          
-            string UsuarioNombre = gridView1.GetFocusedRowCellValue("Usuario").ToString(); ;
-            int UsuarioID = Int32.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-          
+
+                string UsuarioNombre = gridView1.GetFocusedRowCellValue("Usuario").ToString(); ;
+                int UsuarioID = Int32.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
+
                 if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + UsuarioNombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     gestor.EliminarUsuario(UsuarioID, UsuarioNombre);
@@ -415,7 +379,7 @@ namespace SIME_UTN.UI
 
         private void txtUsuario_Validated(object sender, EventArgs e)
         {
-            if(txtUsuario.Text.Trim() == "")
+            if (txtUsuario.Text.Trim() == "")
             {
                 ePError.SetError(txtUsuario, "Campo Usuario en Blanco");
                 txtUsuario.Focus();
@@ -453,4 +417,3 @@ namespace SIME_UTN.UI
         }
     }
 }
-

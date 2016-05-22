@@ -19,16 +19,11 @@ namespace SIME_UTN.UI
         GestorUsuarioTable gestor = null;
         public frmInicio()
         {
-            Thread tardar = new Thread(new ThreadStart(this.SplashScreen));
-            tardar.Start();
-            Thread.Sleep(6000); // Tardanza para iniciar aplicacion (6000)
+
             InitializeComponent();
-            tardar.Abort();
+
         }
-        public void SplashScreen()
-        {
-            Application.Run(new frmSplashScreen());
-        }
+
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
             if (this.txtUsuario.Text.Trim().Length != 0)

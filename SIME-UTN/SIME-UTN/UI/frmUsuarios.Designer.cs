@@ -60,7 +60,6 @@
             this.colUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPerfil = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tbcAgregarUsuario.SuspendLayout();
             this.tapAgregarUsuarios.SuspendLayout();
@@ -73,18 +72,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcAgregarUsuario
             // 
+            this.tbcAgregarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbcAgregarUsuario.Controls.Add(this.tapAgregarUsuarios);
             this.tbcAgregarUsuario.Controls.Add(this.tapModificarEliminarUsuarios);
             this.tbcAgregarUsuario.Location = new System.Drawing.Point(1, 2);
             this.tbcAgregarUsuario.Name = "tbcAgregarUsuario";
             this.tbcAgregarUsuario.SelectedIndex = 0;
-            this.tbcAgregarUsuario.Size = new System.Drawing.Size(467, 541);
+            this.tbcAgregarUsuario.Size = new System.Drawing.Size(461, 526);
             this.tbcAgregarUsuario.TabIndex = 1;
             // 
             // tapAgregarUsuarios
@@ -108,7 +109,7 @@
             this.tapAgregarUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tapAgregarUsuarios.Name = "tapAgregarUsuarios";
             this.tapAgregarUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tapAgregarUsuarios.Size = new System.Drawing.Size(459, 515);
+            this.tapAgregarUsuarios.Size = new System.Drawing.Size(453, 500);
             this.tapAgregarUsuarios.TabIndex = 0;
             this.tapAgregarUsuarios.Text = "Agregar Usuarios y Permisos";
             // 
@@ -123,18 +124,21 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Location = new System.Drawing.Point(3, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(453, 109);
+            this.panel1.Size = new System.Drawing.Size(450, 109);
             this.panel1.TabIndex = 16;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(319, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(318, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(118, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -143,10 +147,11 @@
             // 
             // lblTitulo
             // 
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTitulo.Location = new System.Drawing.Point(15, 28);
+            this.lblTitulo.Location = new System.Drawing.Point(14, 28);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(267, 37);
             this.lblTitulo.TabIndex = 0;
@@ -154,10 +159,11 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(22, 284);
+            this.label1.Location = new System.Drawing.Point(21, 284);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 18);
             this.label1.TabIndex = 15;
@@ -165,7 +171,8 @@
             // 
             // txtConfirmacion
             // 
-            this.txtConfirmacion.Location = new System.Drawing.Point(143, 246);
+            this.txtConfirmacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtConfirmacion.Location = new System.Drawing.Point(142, 245);
             this.txtConfirmacion.Name = "txtConfirmacion";
             this.txtConfirmacion.PasswordChar = '*';
             this.txtConfirmacion.Size = new System.Drawing.Size(276, 20);
@@ -174,10 +181,11 @@
             // 
             // lblConfirmacion
             // 
+            this.lblConfirmacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblConfirmacion.AutoSize = true;
             this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmacion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblConfirmacion.Location = new System.Drawing.Point(22, 245);
+            this.lblConfirmacion.Location = new System.Drawing.Point(21, 245);
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(101, 18);
             this.lblConfirmacion.TabIndex = 13;
@@ -185,11 +193,12 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancelar.Location = new System.Drawing.Point(322, 451);
+            this.btnCancelar.Location = new System.Drawing.Point(300, 371);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(93, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(93, 34);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -198,12 +207,13 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(223, 451);
+            this.btnAgregar.Location = new System.Drawing.Point(201, 371);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(93, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(93, 34);
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -212,12 +222,13 @@
             // 
             // chkAdministrador
             // 
+            this.chkAdministrador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chkAdministrador.AutoSize = true;
             this.chkAdministrador.BackColor = System.Drawing.Color.SteelBlue;
             this.chkAdministrador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.chkAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAdministrador.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkAdministrador.Location = new System.Drawing.Point(301, 163);
+            this.chkAdministrador.Location = new System.Drawing.Point(300, 163);
             this.chkAdministrador.Name = "chkAdministrador";
             this.chkAdministrador.Size = new System.Drawing.Size(118, 22);
             this.chkAdministrador.TabIndex = 6;
@@ -227,16 +238,18 @@
             // 
             // lstUsuarios
             // 
+            this.lstUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lstUsuarios.FormattingEnabled = true;
             this.lstUsuarios.HorizontalScrollbar = true;
-            this.lstUsuarios.Location = new System.Drawing.Point(143, 284);
+            this.lstUsuarios.Location = new System.Drawing.Point(142, 284);
             this.lstUsuarios.Name = "lstUsuarios";
-            this.lstUsuarios.Size = new System.Drawing.Size(276, 147);
+            this.lstUsuarios.Size = new System.Drawing.Size(276, 69);
             this.lstUsuarios.TabIndex = 5;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(143, 203);
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtPassword.Location = new System.Drawing.Point(142, 203);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(276, 20);
@@ -245,7 +258,8 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(143, 163);
+            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtUsuario.Location = new System.Drawing.Point(142, 163);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(152, 20);
             this.txtUsuario.TabIndex = 3;
@@ -253,10 +267,11 @@
             // 
             // lblPassword
             // 
+            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPassword.Location = new System.Drawing.Point(22, 202);
+            this.lblPassword.Location = new System.Drawing.Point(21, 202);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(79, 18);
             this.lblPassword.TabIndex = 2;
@@ -264,10 +279,11 @@
             // 
             // lblNombreUsuario
             // 
+            this.lblNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblNombreUsuario.AutoSize = true;
             this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(22, 163);
+            this.lblNombreUsuario.Location = new System.Drawing.Point(21, 163);
             this.lblNombreUsuario.Name = "lblNombreUsuario";
             this.lblNombreUsuario.Size = new System.Drawing.Size(64, 18);
             this.lblNombreUsuario.TabIndex = 1;
@@ -283,7 +299,7 @@
             this.toolStripSalir});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(453, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(447, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -314,28 +330,30 @@
             this.tapModificarEliminarUsuarios.BackColor = System.Drawing.Color.SteelBlue;
             this.tapModificarEliminarUsuarios.Controls.Add(this.panel2);
             this.tapModificarEliminarUsuarios.Controls.Add(this.gCUsuarios);
-            this.tapModificarEliminarUsuarios.Controls.Add(this.dgvUsuarios);
             this.tapModificarEliminarUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tapModificarEliminarUsuarios.Name = "tapModificarEliminarUsuarios";
             this.tapModificarEliminarUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tapModificarEliminarUsuarios.Size = new System.Drawing.Size(459, 515);
+            this.tapModificarEliminarUsuarios.Size = new System.Drawing.Size(453, 500);
             this.tapModificarEliminarUsuarios.TabIndex = 1;
             this.tapModificarEliminarUsuarios.Text = "Modificar y Eliminar Usarios";
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(453, 109);
+            this.panel2.Size = new System.Drawing.Size(450, 109);
             this.panel2.TabIndex = 20;
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(319, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(318, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(118, 93);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -344,10 +362,11 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(15, 28);
+            this.label2.Location = new System.Drawing.Point(14, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(284, 37);
             this.label2.TabIndex = 0;
@@ -355,12 +374,14 @@
             // 
             // gCUsuarios
             // 
-            this.gCUsuarios.Location = new System.Drawing.Point(9, 137);
+            this.gCUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCUsuarios.Location = new System.Drawing.Point(7, 131);
             this.gCUsuarios.MainView = this.gridView1;
             this.gCUsuarios.Name = "gCUsuarios";
             this.gCUsuarios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1});
-            this.gCUsuarios.Size = new System.Drawing.Size(447, 271);
+            this.gCUsuarios.Size = new System.Drawing.Size(440, 319);
             this.gCUsuarios.TabIndex = 19;
             this.gCUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -414,14 +435,6 @@
             this.UsuarioItemLookUpEdit1.Name = "UsuarioItemLookUpEdit1";
             this.UsuarioItemLookUpEdit1.NullText = "";
             // 
-            // dgvUsuarios
-            // 
-            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(206, 329);
-            this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.Size = new System.Drawing.Size(115, 58);
-            this.dgvUsuarios.TabIndex = 18;
-            // 
             // ePError
             // 
             this.ePError.ContainerControl = this;
@@ -430,8 +443,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 540);
+            this.ClientSize = new System.Drawing.Size(464, 540);
             this.Controls.Add(this.tbcAgregarUsuario);
+            this.MaximumSize = new System.Drawing.Size(742, 579);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Usuarios";
@@ -451,7 +465,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.ResumeLayout(false);
 
@@ -480,7 +493,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtConfirmacion;
         private System.Windows.Forms.ComboBox cmbUsuarioId;
-        private System.Windows.Forms.DataGridView dgvUsuarios;
         private DevExpress.XtraGrid.GridControl gCUsuarios;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colCodigoUsuario;

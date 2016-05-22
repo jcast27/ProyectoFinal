@@ -33,9 +33,9 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.pBSplashScreen = new System.Windows.Forms.ProgressBar();
             this.lblNombreProyecto = new System.Windows.Forms.Label();
-            this.pbUTN = new System.Windows.Forms.PictureBox();
-            this.overlyControl21 = new SIME_UTN.OverlyControl2();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUTN)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer
@@ -46,52 +46,71 @@
             // 
             // pBSplashScreen
             // 
-            this.pBSplashScreen.Location = new System.Drawing.Point(91, 253);
+            this.pBSplashScreen.Location = new System.Drawing.Point(0, 348);
             this.pBSplashScreen.Name = "pBSplashScreen";
-            this.pBSplashScreen.Size = new System.Drawing.Size(276, 23);
-            this.pBSplashScreen.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pBSplashScreen.Size = new System.Drawing.Size(940, 34);
             this.pBSplashScreen.TabIndex = 0;
             // 
             // lblNombreProyecto
             // 
             this.lblNombreProyecto.AutoSize = true;
+            this.lblNombreProyecto.BackColor = System.Drawing.Color.Transparent;
             this.lblNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreProyecto.Location = new System.Drawing.Point(130, 298);
+            this.lblNombreProyecto.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblNombreProyecto.Location = new System.Drawing.Point(143, 25);
             this.lblNombreProyecto.Name = "lblNombreProyecto";
-            this.lblNombreProyecto.Size = new System.Drawing.Size(154, 31);
+            this.lblNombreProyecto.Size = new System.Drawing.Size(642, 31);
             this.lblNombreProyecto.TabIndex = 2;
-            this.lblNombreProyecto.Text = "SIME-UTN";
+            this.lblNombreProyecto.Text = "BIENVENIDOS AL SISTEMA DE INVENTARIOS";
             // 
-            // pbUTN
+            // label1
             // 
-            this.pbUTN.Image = ((System.Drawing.Image)(resources.GetObject("pbUTN.Image")));
-            this.pbUTN.Location = new System.Drawing.Point(107, 36);
-            this.pbUTN.Name = "pbUTN";
-            this.pbUTN.Size = new System.Drawing.Size(245, 189);
-            this.pbUTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUTN.TabIndex = 0;
-            this.pbUTN.TabStop = false;
-            this.pbUTN.Click += new System.EventHandler(this.timerSplashScreen_Tick);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(233, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(470, 31);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Y MANTENIMIENTO DE EQUIPOS";
             // 
-            // overlyControl21
+            // label2
             // 
-            this.overlyControl21.Location = new System.Drawing.Point(4, 12);
-            this.overlyControl21.Name = "overlyControl21";
-            this.overlyControl21.Size = new System.Drawing.Size(473, 331);
-            this.overlyControl21.TabIndex = 3;
-            this.overlyControl21.Text = "overlyControl21";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(379, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 31);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "SIME-UTN";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.SpringGreen;
+            this.label3.Location = new System.Drawing.Point(346, 394);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(247, 31);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "INICIANDO.........";
             // 
             // frmSplashScreen
             // 
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(478, 349);
-            this.Controls.Add(this.overlyControl21);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(941, 524);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNombreProyecto);
             this.Controls.Add(this.pBSplashScreen);
-            this.Controls.Add(this.pbUTN);
             this.Name = "frmSplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.pbUTN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,8 +120,9 @@
 
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ProgressBar pBSplashScreen;
-        private System.Windows.Forms.PictureBox pbUTN;
         private System.Windows.Forms.Label lblNombreProyecto;
-        private OverlyControl2 overlyControl21;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

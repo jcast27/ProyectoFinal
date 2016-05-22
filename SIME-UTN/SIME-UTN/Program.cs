@@ -18,16 +18,18 @@ namespace SIME_UTN
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
-            // Instancia a Login
+            
+            //Instancia a Login
             frmInicio ofrmInicio = new frmInicio();
             Application.Run(ofrmInicio);
 
             //  si el resultado fue OK con el DialogResult
-            if (ofrmInicio.DialogResult == DialogResult.OK)
-            {
-                Application.Run(new frmPrincipal());
-            }
+             if (ofrmInicio.DialogResult == DialogResult.OK)
+             {
+                 Application.Run(new frmMDI());
+             }
+       
+
         }
     }
 }
