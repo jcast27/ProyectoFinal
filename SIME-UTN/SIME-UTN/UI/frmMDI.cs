@@ -14,8 +14,10 @@ namespace SIME_UTN.UI
 {
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
+        
         public frmMDI()
         {
+           
             Thread tardar = new Thread(new ThreadStart(this.SplashScreen));
             tardar.Start();
             Thread.Sleep(6000); // Tardanza para iniciar aplicacion (6000)
@@ -23,6 +25,7 @@ namespace SIME_UTN.UI
             tardar.Abort();
             // Handling the QueryControl event that will populate all automatically generated Documents
             this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+           
         }
 
         public void SplashScreen()
@@ -38,26 +41,13 @@ namespace SIME_UTN.UI
                 e.Control = new SIME_UTN.UI.frmUsuarios();
             if (e.Document == frmProductosDocument)
                 e.Control = new SIME_UTN.UI.frmProductos();
-
             if (e.Control == null)
                 e.Control = new System.Windows.Forms.Control();
+
+
+    
         }
 
-        private void bBtnUsuarios_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            /* Form unForm = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "frmUsuarios").SingleOrDefault<Form>();
-             if (unForm != null)
-             {
-                 // MessageBox.Show("El formulario 2 esta abierto");
-                 unForm.Close();
-
-             }*/
-            
-                frmUsuariosTile.Visible = true;
-              
-            
-           
-        }
         private FlyoutAction createCloseAction(Flyout flyout)
         {
             FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmacion", Description = "Desea Cerrar Esta Aplicacion?" };
@@ -102,9 +92,28 @@ namespace SIME_UTN.UI
           //  frmUsuariosTile.Visible = false;
         }
 
-        private void rCMenu_Click(object sender, EventArgs e)
+
+
+
+
+
+        private void mBtnAdministracion_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            /* Form unForm = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "frmUsuarios").SingleOrDefault<Form>();
+          if (unForm != null)
+          {
+              // MessageBox.Show("El formulario 2 esta abierto");
+              unForm.Close();
+
+          }*/
+            frmProductosTile.Visible = true;
+            frmUsuariosTile.Visible = true;
+        }
+
+        private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             frmUsuariosTile.Visible = false;
+            frmProductosTile.Visible = false;
         }
     }
 }

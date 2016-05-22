@@ -55,5 +55,10 @@ namespace SIME_UTN.BLL
         {
             UsuarioDAL.EliminarUsuario(UsuarioIdp, UsuarioNombrep);
         }
+
+        internal static int ValidarUsuario(string usuario)
+        {
+           return UsuarioDAL.ValidarUsuario(usuario);
+        }
     }
 }

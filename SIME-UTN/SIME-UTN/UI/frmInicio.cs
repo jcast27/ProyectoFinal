@@ -78,7 +78,6 @@ namespace SIME_UTN.UI
                 //Se utliza el gestor User, para almacenar el usuario que ingresa al programa
                 gestor.InsertarNombreUsuario(txtUsuario.Text.Trim());
                 oUsuario.contrasenna = txtContrasena.Text.Trim();
-
                 //  validar la conexion 
                 BLL.LoginBLL.Conexion(txtUsuario.Text.Trim(), txtContrasena.Text.Trim());
                 // devolver OK

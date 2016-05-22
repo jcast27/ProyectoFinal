@@ -30,30 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
-            this.tbcAgregarUsuario = new System.Windows.Forms.TabControl();
-            this.tapAgregarUsuarios = new System.Windows.Forms.TabPage();
             this.cmbUsuarioId = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtConfirmacion = new System.Windows.Forms.TextBox();
             this.lblConfirmacion = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.chkAdministrador = new System.Windows.Forms.CheckBox();
-            this.lstUsuarios = new System.Windows.Forms.ListBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripbtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSalir = new System.Windows.Forms.ToolStripButton();
-            this.tapModificarEliminarUsuarios = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.gCUsuarios = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodigoUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,62 +48,32 @@
             this.colPerfil = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tbcAgregarUsuario.SuspendLayout();
-            this.tapAgregarUsuarios.SuspendLayout();
+            this.chkDespachador = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblApellido1 = new System.Windows.Forms.Label();
+            this.lblApellido2 = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.bBtnAgregar = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.txtApellido1 = new System.Windows.Forms.TextBox();
+            this.txtApellido2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.tapModificarEliminarUsuarios.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rControl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbcAgregarUsuario
-            // 
-            this.tbcAgregarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbcAgregarUsuario.Controls.Add(this.tapAgregarUsuarios);
-            this.tbcAgregarUsuario.Controls.Add(this.tapModificarEliminarUsuarios);
-            this.tbcAgregarUsuario.Location = new System.Drawing.Point(1, 2);
-            this.tbcAgregarUsuario.Name = "tbcAgregarUsuario";
-            this.tbcAgregarUsuario.SelectedIndex = 0;
-            this.tbcAgregarUsuario.Size = new System.Drawing.Size(461, 526);
-            this.tbcAgregarUsuario.TabIndex = 1;
-            // 
-            // tapAgregarUsuarios
-            // 
-            this.tapAgregarUsuarios.BackColor = System.Drawing.Color.SteelBlue;
-            this.tapAgregarUsuarios.Controls.Add(this.cmbUsuarioId);
-            this.tapAgregarUsuarios.Controls.Add(this.panel1);
-            this.tapAgregarUsuarios.Controls.Add(this.label1);
-            this.tapAgregarUsuarios.Controls.Add(this.txtConfirmacion);
-            this.tapAgregarUsuarios.Controls.Add(this.lblConfirmacion);
-            this.tapAgregarUsuarios.Controls.Add(this.btnCancelar);
-            this.tapAgregarUsuarios.Controls.Add(this.btnAgregar);
-            this.tapAgregarUsuarios.Controls.Add(this.chkAdministrador);
-            this.tapAgregarUsuarios.Controls.Add(this.lstUsuarios);
-            this.tapAgregarUsuarios.Controls.Add(this.txtPassword);
-            this.tapAgregarUsuarios.Controls.Add(this.txtUsuario);
-            this.tapAgregarUsuarios.Controls.Add(this.lblPassword);
-            this.tapAgregarUsuarios.Controls.Add(this.lblNombreUsuario);
-            this.tapAgregarUsuarios.Controls.Add(this.toolStrip1);
-            this.tapAgregarUsuarios.ForeColor = System.Drawing.SystemColors.Control;
-            this.tapAgregarUsuarios.Location = new System.Drawing.Point(4, 22);
-            this.tapAgregarUsuarios.Name = "tapAgregarUsuarios";
-            this.tapAgregarUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tapAgregarUsuarios.Size = new System.Drawing.Size(453, 500);
-            this.tapAgregarUsuarios.TabIndex = 0;
-            this.tapAgregarUsuarios.Text = "Agregar Usuarios y Permisos";
             // 
             // cmbUsuarioId
             // 
             this.cmbUsuarioId.FormattingEnabled = true;
-            this.cmbUsuarioId.Location = new System.Drawing.Point(398, 285);
+            this.cmbUsuarioId.Location = new System.Drawing.Point(803, 120);
             this.cmbUsuarioId.Name = "cmbUsuarioId";
             this.cmbUsuarioId.Size = new System.Drawing.Size(17, 21);
             this.cmbUsuarioId.TabIndex = 17;
@@ -124,23 +81,22 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Location = new System.Drawing.Point(3, 27);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 109);
+            this.panel1.Size = new System.Drawing.Size(820, 88);
             this.panel1.TabIndex = 16;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(318, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(503, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(118, 93);
+            this.pictureBox1.Size = new System.Drawing.Size(99, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -151,33 +107,21 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTitulo.Location = new System.Drawing.Point(14, 28);
+            this.lblTitulo.Location = new System.Drawing.Point(199, 28);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(267, 37);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Agregar Usuario";
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(21, 284);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Grupo:";
-            // 
             // txtConfirmacion
             // 
             this.txtConfirmacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtConfirmacion.Location = new System.Drawing.Point(142, 245);
+            this.txtConfirmacion.Location = new System.Drawing.Point(546, 300);
             this.txtConfirmacion.Name = "txtConfirmacion";
             this.txtConfirmacion.PasswordChar = '*';
-            this.txtConfirmacion.Size = new System.Drawing.Size(276, 20);
+            this.txtConfirmacion.Size = new System.Drawing.Size(248, 20);
             this.txtConfirmacion.TabIndex = 14;
-            this.txtConfirmacion.Validated += new System.EventHandler(this.txtConfirmacion_Validated);
+            this.txtConfirmacion.Text = "123";
             // 
             // lblConfirmacion
             // 
@@ -185,50 +129,21 @@
             this.lblConfirmacion.AutoSize = true;
             this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmacion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblConfirmacion.Location = new System.Drawing.Point(21, 245);
+            this.lblConfirmacion.Location = new System.Drawing.Point(428, 299);
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(101, 18);
             this.lblConfirmacion.TabIndex = 13;
             this.lblConfirmacion.Text = "Confirmacion:";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancelar.Location = new System.Drawing.Point(300, 371);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(93, 34);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(201, 371);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(93, 34);
-            this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.Text = "&Agregar";
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // chkAdministrador
             // 
             this.chkAdministrador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chkAdministrador.AutoSize = true;
-            this.chkAdministrador.BackColor = System.Drawing.Color.SteelBlue;
+            this.chkAdministrador.BackColor = System.Drawing.Color.Transparent;
             this.chkAdministrador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.chkAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAdministrador.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkAdministrador.Location = new System.Drawing.Point(300, 163);
+            this.chkAdministrador.Location = new System.Drawing.Point(12, 191);
             this.chkAdministrador.Name = "chkAdministrador";
             this.chkAdministrador.Size = new System.Drawing.Size(118, 22);
             this.chkAdministrador.TabIndex = 6;
@@ -236,34 +151,24 @@
             this.chkAdministrador.UseVisualStyleBackColor = false;
             this.chkAdministrador.CheckedChanged += new System.EventHandler(this.chkAdministrador_CheckedChanged);
             // 
-            // lstUsuarios
-            // 
-            this.lstUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lstUsuarios.FormattingEnabled = true;
-            this.lstUsuarios.HorizontalScrollbar = true;
-            this.lstUsuarios.Location = new System.Drawing.Point(142, 284);
-            this.lstUsuarios.Name = "lstUsuarios";
-            this.lstUsuarios.Size = new System.Drawing.Size(276, 69);
-            this.lstUsuarios.TabIndex = 5;
-            // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtPassword.Location = new System.Drawing.Point(142, 203);
+            this.txtPassword.Location = new System.Drawing.Point(546, 239);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(276, 20);
+            this.txtPassword.Size = new System.Drawing.Size(248, 20);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.Validated += new System.EventHandler(this.txtPassword_Validated);
+            this.txtPassword.Text = "123";
             // 
-            // txtUsuario
+            // txtNombre
             // 
-            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtUsuario.Location = new System.Drawing.Point(142, 163);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(152, 20);
-            this.txtUsuario.TabIndex = 3;
-            this.txtUsuario.Validated += new System.EventHandler(this.txtUsuario_Validated);
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtNombre.Location = new System.Drawing.Point(150, 237);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(138, 20);
+            this.txtNombre.TabIndex = 3;
+            this.txtNombre.Text = "jose";
             // 
             // lblPassword
             // 
@@ -271,117 +176,33 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPassword.Location = new System.Drawing.Point(21, 202);
+            this.lblPassword.Location = new System.Drawing.Point(428, 237);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(79, 18);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             // 
-            // lblNombreUsuario
+            // lblNombre
             // 
-            this.lblNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(21, 163);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(64, 18);
-            this.lblNombreUsuario.TabIndex = 1;
-            this.lblNombreUsuario.Text = "Usuario:";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 33);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripbtnNuevo,
-            this.toolStripSalir});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(447, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripbtnNuevo
-            // 
-            this.toolStripbtnNuevo.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripbtnNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripbtnNuevo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripbtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripbtnNuevo.Name = "toolStripbtnNuevo";
-            this.toolStripbtnNuevo.Size = new System.Drawing.Size(50, 22);
-            this.toolStripbtnNuevo.Text = "Nuevo";
-            this.toolStripbtnNuevo.Click += new System.EventHandler(this.toolStripbtnNuevo_Click);
-            // 
-            // toolStripSalir
-            // 
-            this.toolStripSalir.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripSalir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripSalir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSalir.Name = "toolStripSalir";
-            this.toolStripSalir.Size = new System.Drawing.Size(37, 22);
-            this.toolStripSalir.Text = "Salir";
-            this.toolStripSalir.Click += new System.EventHandler(this.toolStripSalir_Click);
-            // 
-            // tapModificarEliminarUsuarios
-            // 
-            this.tapModificarEliminarUsuarios.BackColor = System.Drawing.Color.SteelBlue;
-            this.tapModificarEliminarUsuarios.Controls.Add(this.panel2);
-            this.tapModificarEliminarUsuarios.Controls.Add(this.gCUsuarios);
-            this.tapModificarEliminarUsuarios.Location = new System.Drawing.Point(4, 22);
-            this.tapModificarEliminarUsuarios.Name = "tapModificarEliminarUsuarios";
-            this.tapModificarEliminarUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tapModificarEliminarUsuarios.Size = new System.Drawing.Size(453, 500);
-            this.tapModificarEliminarUsuarios.TabIndex = 1;
-            this.tapModificarEliminarUsuarios.Text = "Modificar y Eliminar Usarios";
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(450, 109);
-            this.panel2.TabIndex = 20;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(318, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(118, 93);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(14, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(284, 37);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Modificar Usuario";
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblNombre.Location = new System.Drawing.Point(9, 238);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(66, 18);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre:";
             // 
             // gCUsuarios
             // 
-            this.gCUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gCUsuarios.Location = new System.Drawing.Point(7, 131);
+            this.gCUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gCUsuarios.Location = new System.Drawing.Point(12, 451);
             this.gCUsuarios.MainView = this.gridView1;
             this.gCUsuarios.Name = "gCUsuarios";
             this.gCUsuarios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1});
-            this.gCUsuarios.Size = new System.Drawing.Size(440, 319);
+            this.gCUsuarios.Size = new System.Drawing.Size(753, 212);
             this.gCUsuarios.TabIndex = 19;
             this.gCUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -439,58 +260,185 @@
             // 
             this.ePError.ContainerControl = this;
             // 
+            // chkDespachador
+            // 
+            this.chkDespachador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.chkDespachador.AutoSize = true;
+            this.chkDespachador.BackColor = System.Drawing.Color.Transparent;
+            this.chkDespachador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.chkDespachador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDespachador.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chkDespachador.Location = new System.Drawing.Point(150, 191);
+            this.chkDespachador.Name = "chkDespachador";
+            this.chkDespachador.Size = new System.Drawing.Size(116, 22);
+            this.chkDespachador.TabIndex = 20;
+            this.chkDespachador.Text = "Despachador";
+            this.chkDespachador.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(428, 357);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 18);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Usuario:";
+            // 
+            // lblApellido1
+            // 
+            this.lblApellido1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblApellido1.AutoSize = true;
+            this.lblApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblApellido1.Location = new System.Drawing.Point(10, 299);
+            this.lblApellido1.Name = "lblApellido1";
+            this.lblApellido1.Size = new System.Drawing.Size(111, 18);
+            this.lblApellido1.TabIndex = 22;
+            this.lblApellido1.Text = "Primer Apellido:";
+            // 
+            // lblApellido2
+            // 
+            this.lblApellido2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblApellido2.AutoSize = true;
+            this.lblApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblApellido2.Location = new System.Drawing.Point(10, 357);
+            this.lblApellido2.Name = "lblApellido2";
+            this.lblApellido2.Size = new System.Drawing.Size(126, 18);
+            this.lblApellido2.TabIndex = 23;
+            this.lblApellido2.Text = "Segundo Apellido:";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtUsuario.Enabled = false;
+            this.txtUsuario.Location = new System.Drawing.Point(546, 358);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(138, 20);
+            this.txtUsuario.TabIndex = 26;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.txtApellido2);
+            this.panel2.Controls.Add(this.txtApellido1);
+            this.panel2.Controls.Add(this.lblApellido2);
+            this.panel2.Controls.Add(this.rControl);
+            this.panel2.Controls.Add(this.txtUsuario);
+            this.panel2.Controls.Add(this.gCUsuarios);
+            this.panel2.Controls.Add(this.txtConfirmacion);
+            this.panel2.Controls.Add(this.chkDespachador);
+            this.panel2.Controls.Add(this.lblConfirmacion);
+            this.panel2.Controls.Add(this.lblNombre);
+            this.panel2.Controls.Add(this.txtPassword);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lblPassword);
+            this.panel2.Controls.Add(this.chkAdministrador);
+            this.panel2.Controls.Add(this.lblApellido1);
+            this.panel2.Controls.Add(this.txtNombre);
+            this.panel2.Controls.Add(this.cmbUsuarioId);
+            this.panel2.Location = new System.Drawing.Point(0, 88);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(820, 686);
+            this.panel2.TabIndex = 29;
+            // 
+            // rControl
+            // 
+            this.rControl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rControl.Dock = System.Windows.Forms.DockStyle.None;
+            this.rControl.ExpandCollapseItem.Id = 0;
+            this.rControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.rControl.ExpandCollapseItem,
+            this.bBtnAgregar});
+            this.rControl.Location = new System.Drawing.Point(0, 0);
+            this.rControl.MaxItemId = 1;
+            this.rControl.Name = "rControl";
+            this.rControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1});
+            this.rControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.MacOffice;
+            this.rControl.Size = new System.Drawing.Size(820, 128);
+            this.rControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
+            // 
+            // bBtnAgregar
+            // 
+            this.bBtnAgregar.Caption = "Agregar";
+            this.bBtnAgregar.Glyph = ((System.Drawing.Image)(resources.GetObject("bBtnAgregar.Glyph")));
+            this.bBtnAgregar.Id = 1;
+            this.bBtnAgregar.Name = "bBtnAgregar";
+            this.bBtnAgregar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bBtnAgregar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnAgregar_ItemClick);
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.bBtnAgregar);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
+            // txtApellido1
+            // 
+            this.txtApellido1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtApellido1.Location = new System.Drawing.Point(150, 300);
+            this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.Size = new System.Drawing.Size(248, 20);
+            this.txtApellido1.TabIndex = 27;
+            this.txtApellido1.Text = "castro";
+            // 
+            // txtApellido2
+            // 
+            this.txtApellido2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtApellido2.Location = new System.Drawing.Point(150, 358);
+            this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.Size = new System.Drawing.Size(248, 20);
+            this.txtApellido2.TabIndex = 28;
+            this.txtApellido2.Text = "morera";
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 540);
-            this.Controls.Add(this.tbcAgregarUsuario);
-            this.MaximumSize = new System.Drawing.Size(742, 579);
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ClientSize = new System.Drawing.Size(821, 779);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Usuarios";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
-            this.tbcAgregarUsuario.ResumeLayout(false);
-            this.tapAgregarUsuarios.ResumeLayout(false);
-            this.tapAgregarUsuarios.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.tapModificarEliminarUsuarios.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rControl)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tbcAgregarUsuario;
-        private System.Windows.Forms.TabPage tapAgregarUsuarios;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.CheckBox chkAdministrador;
-        private System.Windows.Forms.ListBox lstUsuarios;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblNombreUsuario;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripbtnNuevo;
-        private System.Windows.Forms.TabPage tapModificarEliminarUsuarios;
-        private System.Windows.Forms.ToolStripButton toolStripSalir;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblConfirmacion;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtConfirmacion;
         private System.Windows.Forms.ComboBox cmbUsuarioId;
         private DevExpress.XtraGrid.GridControl gCUsuarios;
@@ -499,9 +447,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUsuario;
         private DevExpress.XtraGrid.Columns.GridColumn colPerfil;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit UsuarioItemLookUpEdit1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider ePError;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkDespachador;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label lblApellido2;
+        private System.Windows.Forms.Label lblApellido1;
+        private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraBars.Ribbon.RibbonControl rControl;
+        private DevExpress.XtraBars.BarButtonItem bBtnAgregar;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private System.Windows.Forms.TextBox txtApellido2;
+        private System.Windows.Forms.TextBox txtApellido1;
     }
 }

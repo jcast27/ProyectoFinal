@@ -28,35 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
-            this.button1 = new System.Windows.Forms.Button();
+            this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.SuspendLayout();
             // 
-            // button1
+            // tileNavPane1
             // 
-            this.button1.Location = new System.Drawing.Point(378, 94);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
+            // 
+            // tileNavCategory1
+            // 
+            this.tileNavPane1.DefaultCategory.Name = "tileNavCategory1";
+            this.tileNavPane1.DefaultCategory.OptionsDropDown.BackColor = System.Drawing.Color.Empty;
+            this.tileNavPane1.DefaultCategory.OwnerCollection = null;
+            // 
+            // 
+            // 
+            this.tileNavPane1.DefaultCategory.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileNavPane1.DefaultCategory.Tile.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Default;
+            this.tileNavPane1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tileNavPane1.Location = new System.Drawing.Point(0, 0);
+            this.tileNavPane1.Name = "tileNavPane1";
+            this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
+            this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
+            this.tileNavPane1.Size = new System.Drawing.Size(621, 40);
+            this.tileNavPane1.TabIndex = 0;
+            this.tileNavPane1.Text = "tileNavPane1";
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
-            this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
-            this.ClientSize = new System.Drawing.Size(610, 461);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(621, 428);
+            this.Controls.Add(this.tileNavPane1);
             this.Name = "frmProductos";
-            this.Text = "frmProductos";
+            this.Text = "Productos";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
     }
 }

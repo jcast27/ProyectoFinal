@@ -58,8 +58,7 @@ namespace SIME_UTN.UI
             try
             {
                 gestor = GestorUsuarioTable.GetInstance();
-                this.lstUsuarios.Items.Clear();
-                CambiarEstado(EstadoMantenimiento.Ninguno);
+               
                 List<UsuarioTable> lista = new List<UsuarioTable>(gestor.ObtenerUsuarios());
                 for (int i = 0; i < lista.Count; i++)
                 {
@@ -87,33 +86,21 @@ namespace SIME_UTN.UI
         public void CambiarEstado(EstadoMantenimiento estado)
         {
             usuario = new UsuarioTable();
-            txtUsuario.Text = "";
-            txtPassword.Text = "";
-            txtUsuario.Enabled = false;
-            txtUsuario.Clear();
-            txtPassword.Enabled = false;
-            txtPassword.Clear();
-            chkAdministrador.Enabled = false;
-            txtConfirmacion.Text = "";
+          
 
-
-            chkAdministrador.Checked = false;
 
 
 
             switch (estado)
             {
                 case EstadoMantenimiento.Nuevo:
-                    txtUsuario.Enabled = true;
-                    txtUsuario.Text = "";
-                    txtPassword.Enabled = true;
+                    txtNombre.Text = "";
+                    txtApellido1.Text = "";
+                    txtApellido2.Text = "";
                     txtPassword.Text = "";
-                    chkAdministrador.Enabled = true;
-                    chkAdministrador.Checked = true;
-                    //chkFacturador.Enabled = true;
-                    //chkJefe.Enabled = false;
-                    //chkReporteador.Enabled = true;
-                    //chkNaturista.Enabled = true;
+                    txtUsuario.Text = "";
+                    txtPassword.Text = "";
+                    txtConfirmacion.Text = "";
                     break;
                 case EstadoMantenimiento.Editar:
 
@@ -121,7 +108,7 @@ namespace SIME_UTN.UI
 
                     break;
                 case EstadoMantenimiento.Borrar:
-                    txtUsuario.Clear();
+                    txtNombre.Clear();
                     txtPassword.Clear();
                     break;
                 case EstadoMantenimiento.Ninguno:
@@ -130,16 +117,8 @@ namespace SIME_UTN.UI
         }
 
 
-        /// <summary>
-        /// Metodo que llama al metodo Cambiar estado y le manda el parametro nuevo
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripbtnNuevo_Click(object sender, EventArgs e)
-        {
-            CambiarEstado(EstadoMantenimiento.Nuevo);
-            cmbUsuarioId.DataSource = GestorUsuarioTable.OptenerId();
-        }
+
+
 
         /// <summary>
         /// Metodo que cierra la ventana Usuario
@@ -151,55 +130,7 @@ namespace SIME_UTN.UI
             this.Close();
         }
 
-        /// <summary>
-        /// Metodo que optiene los valores de los objetos y se los asigna a 
-        /// un usuario por medio del gesotor y puego por este mismo manda a guardar a la base de datos
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            gestor = GestorUsuarioTable.GetInstance();
-            usuario = new UsuarioTable();
-            try
-            {
-                if (txtPassword.Text.Trim() != "" && txtConfirmacion.Text.Trim() != "")
-                {
-                    if (txtPassword.Text.Equals(txtConfirmacion.Text))
-                    {
-                        string ID = (cmbUsuarioId.SelectedValue.ToString());
-                        usuario.codigoUsuario = int.Parse(ID);
-                        usuario.usuario = txtUsuario.Text;
-                        usuario.contrasena = txtPassword.Text;
-                        if (chkAdministrador.Checked)
-                        {
-                            usuario.perfil = "Administrador";
-                        }
 
-
-
-                        gestor.AgregarUsuario(usuario);
-                        gestor.GuardarUsuario();
-
-                        CambiarEstado(EstadoMantenimiento.Borrar);
-                        RefrescarLista();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Confirmar contrasena", "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-
-            catch (ApplicationException app)
-            {
-                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         /// <summary>
         /// Manda a llamar al metodo Refresca Lista
@@ -252,20 +183,13 @@ namespace SIME_UTN.UI
         {
             if (chkAdministrador.Checked)
             {
-                this.lstUsuarios.Items.Clear();
-                this.lstUsuarios.Items.Add("Este Perfil de Usuario posse accesos a:");
-                this.lstUsuarios.Items.Add("A) Sistemas");
-                this.lstUsuarios.Items.Add("B) Mantenimientos");
-                this.lstUsuarios.Items.Add("C) Procesos");
-                this.lstUsuarios.Items.Add("D) Reportes");
-                this.lstUsuarios.Items.Add("E) Facturacion");
-
+              
                 chkAdministrador.Enabled = true;
 
             }
             else
             {
-                this.lstUsuarios.Items.Clear();
+
                 chkAdministrador.Enabled = true;
                 chkAdministrador.Checked = false;
 
@@ -284,20 +208,14 @@ namespace SIME_UTN.UI
         {
             if (chkAdministrador.Checked)
             {
-                this.lstUsuarios.Items.Clear();
-                this.lstUsuarios.Items.Add("Este Perfil de Usuario posse accesos a:");
-                this.lstUsuarios.Items.Add("A) Sistemas");
-                this.lstUsuarios.Items.Add("B) Mantenimientos");
-                this.lstUsuarios.Items.Add("C) Procesos");
-                this.lstUsuarios.Items.Add("D) Reportes");
-                this.lstUsuarios.Items.Add("E) Facturacion");
+
                 chkAdministrador.Enabled = true;
 
 
             }
             else
             {
-                this.lstUsuarios.Items.Clear();
+
 
 
                 chkAdministrador.Checked = false;
@@ -365,7 +283,7 @@ namespace SIME_UTN.UI
                 if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + UsuarioNombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     gestor.EliminarUsuario(UsuarioID, UsuarioNombre);
-
+                    CambiarEstado(EstadoMantenimiento.Nuevo);
                     RefrescarLista();
                 }
                 e.Handled = true;
@@ -376,22 +294,17 @@ namespace SIME_UTN.UI
 
 
         }
-
-        private void txtUsuario_Validated(object sender, EventArgs e)
+        public void ValidarCampos()
         {
-            if (txtUsuario.Text.Trim() == "")
+            if (txtNombre.Text.Trim() == "")
             {
-                ePError.SetError(txtUsuario, "Campo Usuario en Blanco");
-                txtUsuario.Focus();
+                ePError.SetError(txtNombre, "Campo Usuario en Blanco");
+                txtNombre.Focus();
             }
             else
             {
                 ePError.Clear();
             }
-        }
-
-        private void txtPassword_Validated(object sender, EventArgs e)
-        {
             if (txtPassword.Text.Trim() == "")
             {
                 ePError.SetError(txtPassword, "Campo Password en Blanco");
@@ -401,10 +314,6 @@ namespace SIME_UTN.UI
             {
                 ePError.Clear();
             }
-        }
-
-        private void txtConfirmacion_Validated(object sender, EventArgs e)
-        {
             if (txtConfirmacion.Text.Trim() == "")
             {
                 ePError.SetError(txtConfirmacion, "Campo Confirmacion en Blanco");
@@ -413,6 +322,71 @@ namespace SIME_UTN.UI
             else
             {
                 ePError.Clear();
+            }
+        }
+
+
+        private void bBtnAgregar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gestor = GestorUsuarioTable.GetInstance();
+            usuario = new UsuarioTable();
+            try
+            {
+                if (txtPassword.Text.Trim() != "" && txtConfirmacion.Text.Trim() != "")
+                {
+                    if (txtPassword.Text.Equals(txtConfirmacion.Text))
+                    {
+                        cmbUsuarioId.DataSource = GestorUsuarioTable.OptenerId();
+                        string ID = (cmbUsuarioId.SelectedValue.ToString());
+                        usuario.codigoUsuario = int.Parse(ID);
+                        usuario.nombre = txtNombre.Text;
+                        usuario.apellido1 = txtApellido1.Text;
+                        usuario.apellido2 = txtApellido2.Text;
+                        usuario.contrasena = txtPassword.Text;
+                        string user = (txtNombre.Text.Substring(0, 1) + txtApellido1.Text).ToLower();
+                        int numeroUsuario= gestor.ValidarUsuario(user);
+                        if (numeroUsuario==0)
+                        {
+                            
+                        }
+                        else
+                        {
+                            user += numeroUsuario;
+                        }
+                      
+                        usuario.usuario = user;
+
+                        if (chkAdministrador.Checked)
+                        {
+                            usuario.perfil = "Administrador";
+                        }
+                        if (chkDespachador.Checked)
+                        {
+                            usuario.perfil = "Despachador";
+                        }
+                        usuario.estado = 1;
+
+
+                        gestor.AgregarUsuario(usuario);
+                        gestor.GuardarUsuario();
+                        txtUsuario.Text = user;
+                        //CambiarEstado(EstadoMantenimiento.Borrar);
+                        RefrescarLista();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Confirmar contrasena", "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+            catch (ApplicationException app)
+            {
+                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

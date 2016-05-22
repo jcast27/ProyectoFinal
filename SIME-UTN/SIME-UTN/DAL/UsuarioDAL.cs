@@ -52,6 +52,69 @@ namespace SIME_UTN.DAL
 
         }
 
+        internal static int ValidarUsuario(string usuario)
+        {
+            int numero = 0;
+            string sql = @" SELECT * FROM [SIMEUTN].[dbo].[Usuario] WHERE Usuario like'%"+ usuario+"%'and  CodigoUsuario= (SELECT MAX(CodigoUsuario) from [SIMEUTN].[dbo].[Usuario])";
+
+            List<UsuarioTable> lista = new List<UsuarioTable>();
+
+            SqlCommand command = new SqlCommand(sql);
+            command.Parameters.AddWithValue("@usuario", usuario);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(command, "consulta");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    UsuarioTable unUsuario = new UsuarioTable();
+                    unUsuario.usuario = ds.Tables[0].Rows[0]["Usuario"].ToString();
+
+                    numero = obtenerNumeroDeUsuario(unUsuario.usuario);
+
+
+                }
+            }
+            return numero;
+        }
+
+        internal static int obtenerNumeroDeUsuario(string usuario)
+        {
+            int numero = 0;
+            string sql = @"SELECT dbo.udf_ObtenerNumero(Usuario) as Numero FROM [SIMEUTN].[dbo].[Usuario] where Usuario=@usuario";
+
+            List<UsuarioTable> lista = new List<UsuarioTable>();
+
+            SqlCommand command = new SqlCommand(sql);
+            command.Parameters.AddWithValue("@usuario", usuario);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(command, "consulta");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                   string numero1 = ds.Tables[0].Rows[0]["Numero"].ToString();
+                    if (numero1 == "")
+                    {
+                        numero = 1;
+                    }else
+                    {
+                        numero = int.Parse(numero1)+1;
+                    }
+
+
+
+
+
+                }
+            }
+            return numero;
+        }
+
         /// <summary>
         /// Optiene un usuario por el nombre
         /// </summary>
@@ -108,7 +171,7 @@ namespace SIME_UTN.DAL
 
 
 
-            sql.AppendFormat(@"use SIMEUTN; insert into Usuario(Usuario,Perfil,Contrasena)values ('{0}','{1}','{2}')", usuario.usuario, usuario.perfil, usuario.contrasena);
+            sql.AppendFormat(@"use SIMEUTN; insert into Usuario(Usuario,Nombre,Apellido1,Apellido2,Perfil,Contrasena,Estado)values ('{0}','{1}','{2}','{3}','{4}','{5}',{6})", usuario.usuario,usuario.nombre,usuario.apellido1,usuario.apellido2, usuario.perfil, usuario.contrasena,usuario.estado);
 
 
             SqlCommand command = new SqlCommand(sql.ToString());

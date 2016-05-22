@@ -108,6 +108,11 @@ namespace SIME_UTN.Gestores
         {
             return NombreUsuario;
         }
+
+        internal int ValidarUsuario(string usuario)
+        {
+           return UsuarioBLL.ValidarUsuario(usuario);
+        }
     }
   
 }
