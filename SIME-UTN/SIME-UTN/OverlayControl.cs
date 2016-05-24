@@ -26,7 +26,7 @@ namespace OverlayControl
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            Pen pen = new Pen(Color.White, 4f);
+            Pen pen = new Pen(Color.Black, 4f);
             e.Graphics.DrawRectangle(pen, this.ClientRectangle);
 
         }

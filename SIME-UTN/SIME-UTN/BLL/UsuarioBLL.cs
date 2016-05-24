@@ -46,6 +46,11 @@ namespace SIME_UTN.BLL
             return UsuarioDAL.OptenerId();
         }
 
+        internal static string ObtenerUsuarioLogeado()
+        {
+            return UsuarioDAL.ObtenerUsuarioLogeado();
+        }
+
         internal static UsuarioTable OptenerUsuarioID(int usuarioId)
         {
             return UsuarioDAL.OptenerUsuarioID(usuarioId);

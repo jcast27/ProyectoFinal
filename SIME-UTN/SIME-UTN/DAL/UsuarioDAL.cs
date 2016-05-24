@@ -19,8 +19,7 @@ namespace SIME_UTN.DAL
         /// <returns></returns>
         public static List<UsuarioTable> ObtenerUsuarios()
         {
-            string sql = @"select Usuario.CodigoUsuario, Usuario.Usuario, Usuario.Perfil, Usuario.Contrasena 
-                           from Usuario";
+            string sql = @"select * from Usuario order by CodigoUsuario";
 
             List<UsuarioTable> lista = new List<UsuarioTable>();
 
@@ -37,8 +36,12 @@ namespace SIME_UTN.DAL
                         UsuarioTable usuario = new UsuarioTable();
                         usuario.codigoUsuario = Convert.ToInt32(dr["CodigoUsuario"].ToString());
                         usuario.usuario = dr["Usuario"].ToString();
+                        usuario.nombre = dr["Nombre"].ToString();
+                        usuario.apellido1 = dr["Apellido1"].ToString();
+                        usuario.apellido2 = dr["Apellido2"].ToString();
                         usuario.perfil = dr["Perfil"].ToString();
                         usuario.contrasena = dr["Contrasena"].ToString();
+                        usuario.estado = Convert.ToInt32(dr["Estado"].ToString());
                         lista.Add(usuario);
                     }
                     catch (Exception)
@@ -52,10 +55,31 @@ namespace SIME_UTN.DAL
 
         }
 
+        internal static string ObtenerUsuarioLogeado()
+        {
+            string usuarioLogueado = "";
+            string sql = @"select SUSER_SNAME() as UsuarioLogueado";
+
+            SqlCommand command = new SqlCommand(sql);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(command, "consulta");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    usuarioLogueado = ds.Tables[0].Rows[0]["UsuarioLogueado"].ToString();
+
+                }
+            }
+            return usuarioLogueado;
+        }
+
         internal static int ValidarUsuario(string usuario)
         {
             int numero = 0;
-            string sql = @" SELECT * FROM [SIMEUTN].[dbo].[Usuario] WHERE Usuario like'%"+ usuario+"%'and  CodigoUsuario= (SELECT MAX(CodigoUsuario) from [SIMEUTN].[dbo].[Usuario])";
+            string sql = @" SELECT * FROM [SIMEUTN].[dbo].[Usuario] WHERE Usuario like'%"+ usuario+ "%'and  CodigoUsuario= (SELECT MAX(CodigoUsuario) from [SIMEUTN].[dbo].[Usuario] where Usuario like'%" + usuario + "%')";
 
             List<UsuarioTable> lista = new List<UsuarioTable>();
 
@@ -84,8 +108,6 @@ namespace SIME_UTN.DAL
         {
             int numero = 0;
             string sql = @"SELECT dbo.udf_ObtenerNumero(Usuario) as Numero FROM [SIMEUTN].[dbo].[Usuario] where Usuario=@usuario";
-
-            List<UsuarioTable> lista = new List<UsuarioTable>();
 
             SqlCommand command = new SqlCommand(sql);
             command.Parameters.AddWithValue("@usuario", usuario);

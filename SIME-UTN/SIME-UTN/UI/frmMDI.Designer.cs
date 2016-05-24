@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame2 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame3 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
             this.tileNavPane2 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAdministracion = new DevExpress.XtraBars.Navigation.NavButton();
@@ -43,20 +43,21 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView(this.components);
-            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
-            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
-            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
             this.tileContainer1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer(this.components);
+            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
+            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
+            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
+            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
             this.FlyoutCloseAction = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout(this.components);
             this.btnUsuarioLogueado = new System.Windows.Forms.Button();
+            this.lblNombreProyecto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             this.tileNavPane2.Name = "tileNavPane2";
             this.tileNavPane2.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane2.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane2.Size = new System.Drawing.Size(854, 93);
+            this.tileNavPane2.Size = new System.Drawing.Size(936, 93);
             this.tileNavPane2.TabIndex = 3;
             this.tileNavPane2.Text = "tileNavPane2";
             // 
@@ -155,7 +156,7 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(854, 154);
+            this.splitter1.Size = new System.Drawing.Size(936, 154);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
@@ -179,39 +180,16 @@
             this.frmUsuariosTile,
             this.frmProductosTile});
             // 
-            // frmUsuariosDocument
+            // tileContainer1
             // 
-            this.frmUsuariosDocument.Caption = "Ventana Usuarios";
-            this.frmUsuariosDocument.ControlName = "frmUsuarios";
-            this.frmUsuariosDocument.ControlTypeName = "SIME_UTN.UI.frmUsuarios";
-            // 
-            // frmProductosDocument
-            // 
-            this.frmProductosDocument.Caption = "frmProductos";
-            this.frmProductosDocument.ControlName = "frmProductos";
-            this.frmProductosDocument.ControlTypeName = "SIME_UTN.UI.frmProductos";
+            this.tileContainer1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BaseTile[] {
+            this.frmUsuariosTile,
+            this.frmProductosTile});
+            this.tileContainer1.Name = "tileContainer1";
             // 
             // frmUsuariosTile
             // 
             this.frmUsuariosTile.Document = this.frmUsuariosDocument;
-            tileItemFrame1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            tileItemFrame1.Appearance.BorderColor = System.Drawing.Color.Black;
-            tileItemFrame1.Appearance.Options.UseBackColor = true;
-            tileItemFrame1.Appearance.Options.UseBorderColor = true;
-            tileItemElement1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement1.Image")));
-            tileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement1.Text = "element1";
-            tileItemFrame1.Elements.Add(tileItemElement1);
-            tileItemFrame1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame1.Image")));
-            this.frmUsuariosTile.Frames.Add(tileItemFrame1);
-            this.frmUsuariosTile.Group = "TileGroup1";
-            this.tileContainer1.SetID(this.frmUsuariosTile, 1);
-            this.frmUsuariosTile.Name = "frmUsuariosTile";
-            this.frmUsuariosTile.Visible = false;
-            // 
-            // frmProductosTile
-            // 
-            this.frmProductosTile.Document = this.frmProductosDocument;
             tileItemFrame2.Appearance.BackColor = System.Drawing.Color.Transparent;
             tileItemFrame2.Appearance.BorderColor = System.Drawing.Color.Black;
             tileItemFrame2.Appearance.Options.UseBackColor = true;
@@ -221,17 +199,40 @@
             tileItemElement2.Text = "element1";
             tileItemFrame2.Elements.Add(tileItemElement2);
             tileItemFrame2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame2.Image")));
-            this.frmProductosTile.Frames.Add(tileItemFrame2);
+            this.frmUsuariosTile.Frames.Add(tileItemFrame2);
+            this.frmUsuariosTile.Group = "TileGroup1";
+            this.tileContainer1.SetID(this.frmUsuariosTile, 1);
+            this.frmUsuariosTile.Name = "frmUsuariosTile";
+            this.frmUsuariosTile.Visible = false;
+            // 
+            // frmUsuariosDocument
+            // 
+            this.frmUsuariosDocument.Caption = "Ventana Usuarios";
+            this.frmUsuariosDocument.ControlName = "frmUsuarios";
+            this.frmUsuariosDocument.ControlTypeName = "SIME_UTN.UI.frmUsuarios";
+            // 
+            // frmProductosTile
+            // 
+            this.frmProductosTile.Document = this.frmProductosDocument;
+            tileItemFrame3.Appearance.BackColor = System.Drawing.Color.Transparent;
+            tileItemFrame3.Appearance.BorderColor = System.Drawing.Color.Black;
+            tileItemFrame3.Appearance.Options.UseBackColor = true;
+            tileItemFrame3.Appearance.Options.UseBorderColor = true;
+            tileItemElement3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement3.Image")));
+            tileItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement3.Text = "element1";
+            tileItemFrame3.Elements.Add(tileItemElement3);
+            tileItemFrame3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame3.Image")));
+            this.frmProductosTile.Frames.Add(tileItemFrame3);
             this.tileContainer1.SetID(this.frmProductosTile, 2);
             this.frmProductosTile.Name = "frmProductosTile";
             this.frmProductosTile.Visible = false;
             // 
-            // tileContainer1
+            // frmProductosDocument
             // 
-            this.tileContainer1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BaseTile[] {
-            this.frmUsuariosTile,
-            this.frmProductosTile});
-            this.tileContainer1.Name = "tileContainer1";
+            this.frmProductosDocument.Caption = "frmProductos";
+            this.frmProductosDocument.ControlName = "frmProductos";
+            this.frmProductosDocument.ControlTypeName = "SIME_UTN.UI.frmProductos";
             // 
             // FlyoutCloseAction
             // 
@@ -244,15 +245,29 @@
             this.btnUsuarioLogueado.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnUsuarioLogueado.FlatAppearance.BorderSize = 0;
             this.btnUsuarioLogueado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarioLogueado.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarioLogueado.ForeColor = System.Drawing.Color.Black;
             this.btnUsuarioLogueado.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarioLogueado.Image")));
             this.btnUsuarioLogueado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarioLogueado.Location = new System.Drawing.Point(665, 9);
+            this.btnUsuarioLogueado.Location = new System.Drawing.Point(747, 9);
             this.btnUsuarioLogueado.Name = "btnUsuarioLogueado";
             this.btnUsuarioLogueado.Size = new System.Drawing.Size(177, 43);
             this.btnUsuarioLogueado.TabIndex = 8;
-            this.btnUsuarioLogueado.Text = "Usuario: jcastro";
             this.btnUsuarioLogueado.UseVisualStyleBackColor = false;
+            // 
+            // lblNombreProyecto
+            // 
+            this.lblNombreProyecto.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblNombreProyecto.AutoSize = true;
+            this.lblNombreProyecto.BackColor = System.Drawing.Color.DimGray;
+            this.lblNombreProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreProyecto.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblNombreProyecto.Location = new System.Drawing.Point(16, 15);
+            this.lblNombreProyecto.Name = "lblNombreProyecto";
+            this.lblNombreProyecto.Size = new System.Drawing.Size(710, 24);
+            this.lblNombreProyecto.TabIndex = 9;
+            this.lblNombreProyecto.Text = "SISTEMA DE INVENTARIOS Y MANTENIMIENTO DE EQUIPOS SIME-UTN";
             // 
             // frmMDI
             // 
@@ -260,24 +275,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
-            this.ClientSize = new System.Drawing.Size(854, 548);
+            this.ClientSize = new System.Drawing.Size(936, 548);
+            this.Controls.Add(this.lblNombreProyecto);
             this.Controls.Add(this.btnUsuarioLogueado);
             this.Controls.Add(this.tileNavPane2);
             this.Controls.Add(this.splitter1);
             this.IsMdiContainer = true;
             this.Name = "frmMDI";
-            this.Text = "SIME-UTN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -301,5 +317,6 @@
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile frmProductosTile;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout FlyoutCloseAction;
         private System.Windows.Forms.Button btnUsuarioLogueado;
+        private System.Windows.Forms.Label lblNombreProyecto;
     }
 }

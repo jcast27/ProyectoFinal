@@ -14,6 +14,7 @@ namespace SIME_UTN.UI
 {
     public partial class frmUsuarios : Form
     {
+        string usuarioLogueado = "";
         UsuarioTable usuario = null;
         GestorUsuarioTable gestor = null;
         public frmUsuarios()
@@ -22,6 +23,12 @@ namespace SIME_UTN.UI
           
 
         }
+        public void UsuarioLogueado()
+        {
+            gestor = GestorUsuarioTable.GetInstance();
+            usuarioLogueado = gestor.ObtenerUsuarioLogeado();
+        }
+
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
@@ -47,12 +54,15 @@ namespace SIME_UTN.UI
         /// <summary>
         /// Actualiza el datagridview con los usuarios agredados
         /// </summary>
-        private void RefrescarLista()
+       private void RefrescarLista()
         {
             DataTable dt = new DataTable();
             dt.TableName = "Usuarios";
             dt.Columns.Add(new DataColumn("CodigoUsuario"));
             dt.Columns.Add(new DataColumn("Usuario"));
+            dt.Columns.Add(new DataColumn("Nombre"));
+            dt.Columns.Add(new DataColumn("PrimerApellido"));
+            dt.Columns.Add(new DataColumn("SegundoApellido"));
             dt.Columns.Add(new DataColumn("Perfil"));
 
             try
@@ -65,6 +75,9 @@ namespace SIME_UTN.UI
                     DataRow dr = dt.NewRow();
                     dr["CodigoUsuario"] = lista[i].codigoUsuario;
                     dr["Usuario"] = lista[i].usuario;
+                    dr["Nombre"] = lista[i].nombre;
+                    dr["PrimerApellido"] = lista[i].apellido1;
+                    dr["SegundoApellido"] = lista[i].apellido2;
                     dr["Perfil"] = lista[i].perfil;
                     dt.Rows.Add(dr);
                 }
@@ -76,7 +89,7 @@ namespace SIME_UTN.UI
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.gCUsuarios.DataSource = dt;
-        }
+        }   
 
 
         /// <summary>
@@ -139,6 +152,7 @@ namespace SIME_UTN.UI
         /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+
             RefrescarLista();
             ePError.Clear();
         }
@@ -171,7 +185,7 @@ namespace SIME_UTN.UI
         /// <param name="e"></param>
         private void btnCancelar1_Click(object sender, EventArgs e)
         {
-            RefrescarLista();
+           RefrescarLista();
         }
 
 
@@ -256,7 +270,7 @@ namespace SIME_UTN.UI
 
                 gestor.AgregarUsuario(usuario);
                 gestor.GuardarUsuario();
-                RefrescarLista();
+               RefrescarLista();
 
 
 
@@ -276,18 +290,24 @@ namespace SIME_UTN.UI
             if (e.KeyCode == Keys.Delete)
             {
 
-
-                string UsuarioNombre = gridView1.GetFocusedRowCellValue("Usuario").ToString(); ;
+                this.UsuarioLogueado();
+                string usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString(); ;
                 int UsuarioID = Int32.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-
-                if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + UsuarioNombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (usuario == usuarioLogueado)
                 {
-                    gestor.EliminarUsuario(UsuarioID, UsuarioNombre);
-                    CambiarEstado(EstadoMantenimiento.Nuevo);
-                    RefrescarLista();
+                    MessageBox.Show("El usuario: "+ usuario +" tiene sesiones abierta, no se puede eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                e.Handled = true;
+                else { 
 
+                if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gestor.EliminarUsuario(UsuarioID, usuario);
+                    CambiarEstado(EstadoMantenimiento.Nuevo);
+                   RefrescarLista();
+                }
+
+                e.Handled = true;
+            }
             }
 
 
@@ -371,7 +391,7 @@ namespace SIME_UTN.UI
                         gestor.GuardarUsuario();
                         txtUsuario.Text = user;
                         //CambiarEstado(EstadoMantenimiento.Borrar);
-                        RefrescarLista();
+                       RefrescarLista();
                     }
                     else
                     {
@@ -389,5 +409,7 @@ namespace SIME_UTN.UI
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }

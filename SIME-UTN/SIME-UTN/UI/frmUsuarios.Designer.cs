@@ -45,6 +45,9 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodigoUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrimerApellido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSegundoApellido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPerfil = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
@@ -54,12 +57,13 @@
             this.lblApellido2 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtApellido2 = new System.Windows.Forms.TextBox();
+            this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.rControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bBtnAgregar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.txtApellido1 = new System.Windows.Forms.TextBox();
-            this.txtApellido2 = new System.Windows.Forms.TextBox();
+            this.overlayControl1 = new OverlayControl.OverlayControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
@@ -73,7 +77,7 @@
             // cmbUsuarioId
             // 
             this.cmbUsuarioId.FormattingEnabled = true;
-            this.cmbUsuarioId.Location = new System.Drawing.Point(803, 120);
+            this.cmbUsuarioId.Location = new System.Drawing.Point(803, 107);
             this.cmbUsuarioId.Name = "cmbUsuarioId";
             this.cmbUsuarioId.Size = new System.Drawing.Size(17, 21);
             this.cmbUsuarioId.TabIndex = 17;
@@ -85,18 +89,18 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Location = new System.Drawing.Point(23, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 88);
+            this.panel1.Size = new System.Drawing.Size(819, 88);
             this.panel1.TabIndex = 16;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(503, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(498, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(99, 77);
+            this.pictureBox1.Size = new System.Drawing.Size(99, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -107,7 +111,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTitulo.Location = new System.Drawing.Point(199, 28);
+            this.lblTitulo.Location = new System.Drawing.Point(198, 25);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(267, 37);
             this.lblTitulo.TabIndex = 0;
@@ -116,7 +120,7 @@
             // txtConfirmacion
             // 
             this.txtConfirmacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtConfirmacion.Location = new System.Drawing.Point(546, 300);
+            this.txtConfirmacion.Location = new System.Drawing.Point(559, 297);
             this.txtConfirmacion.Name = "txtConfirmacion";
             this.txtConfirmacion.PasswordChar = '*';
             this.txtConfirmacion.Size = new System.Drawing.Size(248, 20);
@@ -129,7 +133,7 @@
             this.lblConfirmacion.AutoSize = true;
             this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmacion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblConfirmacion.Location = new System.Drawing.Point(428, 299);
+            this.lblConfirmacion.Location = new System.Drawing.Point(441, 296);
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(101, 18);
             this.lblConfirmacion.TabIndex = 13;
@@ -143,7 +147,7 @@
             this.chkAdministrador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.chkAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAdministrador.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkAdministrador.Location = new System.Drawing.Point(12, 191);
+            this.chkAdministrador.Location = new System.Drawing.Point(25, 188);
             this.chkAdministrador.Name = "chkAdministrador";
             this.chkAdministrador.Size = new System.Drawing.Size(118, 22);
             this.chkAdministrador.TabIndex = 6;
@@ -154,7 +158,7 @@
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtPassword.Location = new System.Drawing.Point(546, 239);
+            this.txtPassword.Location = new System.Drawing.Point(559, 236);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(248, 20);
@@ -164,7 +168,7 @@
             // txtNombre
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtNombre.Location = new System.Drawing.Point(150, 237);
+            this.txtNombre.Location = new System.Drawing.Point(163, 234);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(138, 20);
             this.txtNombre.TabIndex = 3;
@@ -176,7 +180,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPassword.Location = new System.Drawing.Point(428, 237);
+            this.lblPassword.Location = new System.Drawing.Point(441, 234);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(79, 18);
             this.lblPassword.TabIndex = 2;
@@ -188,7 +192,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNombre.Location = new System.Drawing.Point(9, 238);
+            this.lblNombre.Location = new System.Drawing.Point(22, 235);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(66, 18);
             this.lblNombre.TabIndex = 1;
@@ -197,12 +201,13 @@
             // gCUsuarios
             // 
             this.gCUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gCUsuarios.Location = new System.Drawing.Point(12, 451);
+            this.gCUsuarios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCUsuarios.BackgroundImage")));
+            this.gCUsuarios.Location = new System.Drawing.Point(25, 444);
             this.gCUsuarios.MainView = this.gridView1;
             this.gCUsuarios.Name = "gCUsuarios";
             this.gCUsuarios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1});
-            this.gCUsuarios.Size = new System.Drawing.Size(753, 212);
+            this.gCUsuarios.Size = new System.Drawing.Size(752, 212);
             this.gCUsuarios.TabIndex = 19;
             this.gCUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -212,14 +217,19 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colCodigoUsuario,
             this.colUsuario,
+            this.colNombre,
+            this.colPrimerApellido,
+            this.colSegundoApellido,
             this.colPerfil});
             this.gridView1.GridControl = this.gCUsuarios;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Perfil", null, "({0})")});
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplace;
+            this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
+            this.gridView1.OptionsEditForm.FormCaptionFormat = "{Name} {Modification";
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
@@ -237,16 +247,41 @@
             // 
             this.colUsuario.FieldName = "Usuario";
             this.colUsuario.Name = "colUsuario";
-            this.colUsuario.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colUsuario.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.colUsuario.Visible = true;
             this.colUsuario.VisibleIndex = 1;
+            // 
+            // colNombre
+            // 
+            this.colNombre.Caption = "Nombre";
+            this.colNombre.FieldName = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Visible = true;
+            this.colNombre.VisibleIndex = 2;
+            // 
+            // colPrimerApellido
+            // 
+            this.colPrimerApellido.Caption = "P. Apellido";
+            this.colPrimerApellido.FieldName = "PrimerApellido";
+            this.colPrimerApellido.Name = "colPrimerApellido";
+            this.colPrimerApellido.Visible = true;
+            this.colPrimerApellido.VisibleIndex = 3;
+            // 
+            // colSegundoApellido
+            // 
+            this.colSegundoApellido.Caption = "S. Apellido";
+            this.colSegundoApellido.FieldName = "SegundoApellido";
+            this.colSegundoApellido.Name = "colSegundoApellido";
+            this.colSegundoApellido.Visible = true;
+            this.colSegundoApellido.VisibleIndex = 4;
             // 
             // colPerfil
             // 
             this.colPerfil.FieldName = "Perfil";
             this.colPerfil.Name = "colPerfil";
+            this.colPerfil.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.colPerfil.Visible = true;
-            this.colPerfil.VisibleIndex = 2;
+            this.colPerfil.VisibleIndex = 5;
             // 
             // UsuarioItemLookUpEdit1
             // 
@@ -268,7 +303,7 @@
             this.chkDespachador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.chkDespachador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDespachador.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkDespachador.Location = new System.Drawing.Point(150, 191);
+            this.chkDespachador.Location = new System.Drawing.Point(163, 188);
             this.chkDespachador.Name = "chkDespachador";
             this.chkDespachador.Size = new System.Drawing.Size(116, 22);
             this.chkDespachador.TabIndex = 20;
@@ -281,7 +316,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(428, 357);
+            this.label1.Location = new System.Drawing.Point(441, 354);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 21;
@@ -293,7 +328,7 @@
             this.lblApellido1.AutoSize = true;
             this.lblApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblApellido1.Location = new System.Drawing.Point(10, 299);
+            this.lblApellido1.Location = new System.Drawing.Point(23, 296);
             this.lblApellido1.Name = "lblApellido1";
             this.lblApellido1.Size = new System.Drawing.Size(111, 18);
             this.lblApellido1.TabIndex = 22;
@@ -305,7 +340,7 @@
             this.lblApellido2.AutoSize = true;
             this.lblApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblApellido2.Location = new System.Drawing.Point(10, 357);
+            this.lblApellido2.Location = new System.Drawing.Point(23, 354);
             this.lblApellido2.Name = "lblApellido2";
             this.lblApellido2.Size = new System.Drawing.Size(126, 18);
             this.lblApellido2.TabIndex = 23;
@@ -315,7 +350,7 @@
             // 
             this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtUsuario.Enabled = false;
-            this.txtUsuario.Location = new System.Drawing.Point(546, 358);
+            this.txtUsuario.Location = new System.Drawing.Point(559, 355);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(138, 20);
             this.txtUsuario.TabIndex = 26;
@@ -327,7 +362,6 @@
             this.panel2.Controls.Add(this.txtApellido2);
             this.panel2.Controls.Add(this.txtApellido1);
             this.panel2.Controls.Add(this.lblApellido2);
-            this.panel2.Controls.Add(this.rControl);
             this.panel2.Controls.Add(this.txtUsuario);
             this.panel2.Controls.Add(this.gCUsuarios);
             this.panel2.Controls.Add(this.txtConfirmacion);
@@ -341,10 +375,29 @@
             this.panel2.Controls.Add(this.lblApellido1);
             this.panel2.Controls.Add(this.txtNombre);
             this.panel2.Controls.Add(this.cmbUsuarioId);
-            this.panel2.Location = new System.Drawing.Point(0, 88);
+            this.panel2.Controls.Add(this.rControl);
+            this.panel2.Location = new System.Drawing.Point(25, 82);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(820, 686);
+            this.panel2.Size = new System.Drawing.Size(820, 674);
             this.panel2.TabIndex = 29;
+            // 
+            // txtApellido2
+            // 
+            this.txtApellido2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtApellido2.Location = new System.Drawing.Point(163, 355);
+            this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.Size = new System.Drawing.Size(248, 20);
+            this.txtApellido2.TabIndex = 28;
+            this.txtApellido2.Text = "morera";
+            // 
+            // txtApellido1
+            // 
+            this.txtApellido1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtApellido1.Location = new System.Drawing.Point(163, 297);
+            this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.Size = new System.Drawing.Size(248, 20);
+            this.txtApellido1.TabIndex = 27;
+            this.txtApellido1.Text = "castro";
             // 
             // rControl
             // 
@@ -354,7 +407,7 @@
             this.rControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rControl.ExpandCollapseItem,
             this.bBtnAgregar});
-            this.rControl.Location = new System.Drawing.Point(0, 0);
+            this.rControl.Location = new System.Drawing.Point(0, 14);
             this.rControl.MaxItemId = 1;
             this.rControl.Name = "rControl";
             this.rControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -377,30 +430,20 @@
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
             // 
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.bBtnAgregar);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
-            // txtApellido1
+            // overlayControl1
             // 
-            this.txtApellido1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtApellido1.Location = new System.Drawing.Point(150, 300);
-            this.txtApellido1.Name = "txtApellido1";
-            this.txtApellido1.Size = new System.Drawing.Size(248, 20);
-            this.txtApellido1.TabIndex = 27;
-            this.txtApellido1.Text = "castro";
-            // 
-            // txtApellido2
-            // 
-            this.txtApellido2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtApellido2.Location = new System.Drawing.Point(150, 358);
-            this.txtApellido2.Name = "txtApellido2";
-            this.txtApellido2.Size = new System.Drawing.Size(248, 20);
-            this.txtApellido2.TabIndex = 28;
-            this.txtApellido2.Text = "morera";
+            this.overlayControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.overlayControl1.Location = new System.Drawing.Point(12, 2);
+            this.overlayControl1.Name = "overlayControl1";
+            this.overlayControl1.Size = new System.Drawing.Size(847, 769);
+            this.overlayControl1.TabIndex = 30;
+            this.overlayControl1.Text = "overlayControl1";
             // 
             // frmUsuarios
             // 
@@ -408,9 +451,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(821, 779);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(871, 779);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.overlayControl1);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Usuarios";
@@ -460,5 +504,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private System.Windows.Forms.TextBox txtApellido2;
         private System.Windows.Forms.TextBox txtApellido1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNombre;
+        private DevExpress.XtraGrid.Columns.GridColumn colPrimerApellido;
+        private DevExpress.XtraGrid.Columns.GridColumn colSegundoApellido;
+        private OverlayControl.OverlayControl overlayControl1;
     }
 }

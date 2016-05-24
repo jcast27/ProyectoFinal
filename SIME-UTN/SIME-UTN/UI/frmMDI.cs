@@ -9,12 +9,14 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Threading;
 using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
+using SIME_UTN.Gestores;
 
 namespace SIME_UTN.UI
 {
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
         
+        GestorUsuarioTable gestor = null;
         public frmMDI()
         {
            
@@ -25,7 +27,14 @@ namespace SIME_UTN.UI
             tardar.Abort();
             // Handling the QueryControl event that will populate all automatically generated Documents
             this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+            this.UsuarioLogueado();
            
+           
+        }
+        public void UsuarioLogueado()
+        {
+            gestor = GestorUsuarioTable.GetInstance();
+            btnUsuarioLogueado.Text = "Usuario: " + gestor.ObtenerUsuarioLogeado();
         }
 
         public void SplashScreen()

@@ -36,6 +36,12 @@ namespace SIME_UTN.Gestores
         {
             return UsuarioBLL.ObtenerUsuarios();
         }
+
+        internal string ObtenerUsuarioLogeado()
+        {
+            return UsuarioBLL.ObtenerUsuarioLogeado();
+        }
+
         public List<UsuarioTable> ObtenerUsuariosporNombre(string nombrep)
         {
             return UsuarioBLL.ObtenerUsuariosporNombre(nombrep);

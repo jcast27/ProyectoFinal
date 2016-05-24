@@ -26,8 +26,8 @@ namespace SIME_UTN
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            Pen pen = new Pen(Color.Black, 6f);
-            e.Graphics.DrawLine(pen, 5,5,5,5);
+            Pen pen = new Pen(Color.Black, 4f);
+            e.Graphics.DrawLine(pen, 10,10,10,10);
 
         }
     }
