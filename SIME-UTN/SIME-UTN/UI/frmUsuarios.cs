@@ -211,12 +211,6 @@ namespace SIME_UTN.UI
 
         }
 
-        private void chkJefe_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-
 
         private void chkAdministrador_CheckedChanged(object sender, EventArgs e)
         {
@@ -225,13 +219,9 @@ namespace SIME_UTN.UI
 
                 chkAdministrador.Enabled = true;
 
-
             }
             else
             {
-
-
-
                 chkAdministrador.Checked = false;
 
             }
@@ -242,10 +232,6 @@ namespace SIME_UTN.UI
         #region Checkbox de Modificar y Eliminar Usuarios
 
 
-
-
-
-
         #endregion
 
         private void toolStripSalir_Click(object sender, EventArgs e)
@@ -253,10 +239,7 @@ namespace SIME_UTN.UI
             this.Close();
         }
 
-        private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
-        {
 
-        }
 
         private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
@@ -346,7 +329,7 @@ namespace SIME_UTN.UI
         }
 
 
-        private void bBtnAgregar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             gestor = GestorUsuarioTable.GetInstance();
             usuario = new UsuarioTable();
@@ -364,16 +347,16 @@ namespace SIME_UTN.UI
                         usuario.apellido2 = txtApellido2.Text;
                         usuario.contrasena = txtPassword.Text;
                         string user = (txtNombre.Text.Substring(0, 1) + txtApellido1.Text).ToLower();
-                        int numeroUsuario= gestor.ValidarUsuario(user);
-                        if (numeroUsuario==0)
+                        int numeroUsuario = gestor.ValidarUsuario(user);
+                        if (numeroUsuario == 0)
                         {
-                            
+
                         }
                         else
                         {
                             user += numeroUsuario;
                         }
-                      
+
                         usuario.usuario = user;
 
                         if (chkAdministrador.Checked)
@@ -391,7 +374,7 @@ namespace SIME_UTN.UI
                         gestor.GuardarUsuario();
                         txtUsuario.Text = user;
                         //CambiarEstado(EstadoMantenimiento.Borrar);
-                       RefrescarLista();
+                        RefrescarLista();
                     }
                     else
                     {
@@ -409,7 +392,5 @@ namespace SIME_UTN.UI
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }

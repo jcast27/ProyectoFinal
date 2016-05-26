@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame2 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame3 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
             this.tileNavPane2 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAdministracion = new DevExpress.XtraBars.Navigation.NavButton();
@@ -190,16 +190,16 @@
             // frmUsuariosTile
             // 
             this.frmUsuariosTile.Document = this.frmUsuariosDocument;
-            tileItemFrame2.Appearance.BackColor = System.Drawing.Color.Transparent;
-            tileItemFrame2.Appearance.BorderColor = System.Drawing.Color.Black;
-            tileItemFrame2.Appearance.Options.UseBackColor = true;
-            tileItemFrame2.Appearance.Options.UseBorderColor = true;
-            tileItemElement2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement2.Image")));
-            tileItemElement2.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement2.Text = "element1";
-            tileItemFrame2.Elements.Add(tileItemElement2);
-            tileItemFrame2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame2.Image")));
-            this.frmUsuariosTile.Frames.Add(tileItemFrame2);
+            tileItemFrame1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            tileItemFrame1.Appearance.BorderColor = System.Drawing.Color.Black;
+            tileItemFrame1.Appearance.Options.UseBackColor = true;
+            tileItemFrame1.Appearance.Options.UseBorderColor = true;
+            tileItemElement1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement1.Image")));
+            tileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement1.Text = "element1";
+            tileItemFrame1.Elements.Add(tileItemElement1);
+            tileItemFrame1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame1.Image")));
+            this.frmUsuariosTile.Frames.Add(tileItemFrame1);
             this.frmUsuariosTile.Group = "TileGroup1";
             this.tileContainer1.SetID(this.frmUsuariosTile, 1);
             this.frmUsuariosTile.Name = "frmUsuariosTile";
@@ -214,16 +214,16 @@
             // frmProductosTile
             // 
             this.frmProductosTile.Document = this.frmProductosDocument;
-            tileItemFrame3.Appearance.BackColor = System.Drawing.Color.Transparent;
-            tileItemFrame3.Appearance.BorderColor = System.Drawing.Color.Black;
-            tileItemFrame3.Appearance.Options.UseBackColor = true;
-            tileItemFrame3.Appearance.Options.UseBorderColor = true;
-            tileItemElement3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement3.Image")));
-            tileItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement3.Text = "element1";
-            tileItemFrame3.Elements.Add(tileItemElement3);
-            tileItemFrame3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame3.Image")));
-            this.frmProductosTile.Frames.Add(tileItemFrame3);
+            tileItemFrame2.Appearance.BackColor = System.Drawing.Color.Transparent;
+            tileItemFrame2.Appearance.BorderColor = System.Drawing.Color.Black;
+            tileItemFrame2.Appearance.Options.UseBackColor = true;
+            tileItemFrame2.Appearance.Options.UseBorderColor = true;
+            tileItemElement2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement2.Image")));
+            tileItemElement2.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement2.Text = "element1";
+            tileItemFrame2.Elements.Add(tileItemElement2);
+            tileItemFrame2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame2.Image")));
+            this.frmProductosTile.Frames.Add(tileItemFrame2);
             this.tileContainer1.SetID(this.frmProductosTile, 2);
             this.frmProductosTile.Name = "frmProductosTile";
             this.frmProductosTile.Visible = false;
