@@ -16,8 +16,9 @@ namespace SIME_UTN.UI
 {
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
-    
+       
         GestorUsuarioTable gestor = null;
+        frmUsuarios ofrmUsuarios = new frmUsuarios();
         public frmMDI()
         {
            
@@ -27,7 +28,7 @@ namespace SIME_UTN.UI
             InitializeComponent();
             tardar.Abort();
             // Handling the QueryControl event that will populate all automatically generated Documents
-            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+           // CrearDocuemtnos();
             this.UsuarioLogueado();
            
            
@@ -38,6 +39,8 @@ namespace SIME_UTN.UI
             btnUsuarioLogueado.Text = "Usuario: " + gestor.ObtenerUsuarioLogeado();
         }
 
+
+
         public void SplashScreen()
         {
             Application.Run(new frmSplashScreen());
@@ -47,15 +50,15 @@ namespace SIME_UTN.UI
         void windowsUIView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
 
-            if (e.Document == frmUsuariosDocument)
+            if (e.Document.Caption == "Ventana Usuarios")
                 e.Control = new SIME_UTN.UI.frmUsuarios();
-            if (e.Document == frmProductosDocument)
+            if (e.Document.Caption == "frmProductosDocument")
                 e.Control = new SIME_UTN.UI.frmProductos();
-            if (e.Control == null)
-                e.Control = new System.Windows.Forms.Control();
+            //if (e.Control == null)
+            //    e.Control = new System.Windows.Forms.Control();
 
 
-    
+
         }
 
         private FlyoutAction createCloseAction(Flyout flyout)
@@ -86,16 +89,10 @@ namespace SIME_UTN.UI
 
         private void mBtnAdministracion_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            /* Form unForm = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "frmUsuarios").SingleOrDefault<Form>();
-          if (unForm != null)
-          {
-              // MessageBox.Show("El formulario 2 esta abierto");
-              unForm.Close();
 
-          }*/
-            frmUsuariosTile.Visible = true;
-            frmProductosTile.Visible = true;
-            
+ 
+            this.CrearDocuemtoUsuarios();
+       
         }
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -104,53 +101,69 @@ namespace SIME_UTN.UI
             frmProductosTile.Visible = false;
         }
 
+        public void CrearDocuemtoUsuarios()
+        {
+
+            this.windowsUIView1.BeginUpdate();
+            this.windowsUIView1.Controller.CloseAll();
+            this.windowsUIView1.Documents.Clear();
+            //Creating documents
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Usuarios" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1 });
+            //Creating and populating content container
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
+            tileContainer2.Properties.ItemSize = 200;
+          
+            //Se crea un elemento que sera agregado al frame
+            TileItemElement elemento = new TileItemElement();
+            elemento.Text = "Usuarios";
+            elemento.Image = Image.FromFile("C:\\Projects\\SIME-UTN\\SIME-UTN\\Resources\\usuarios1.jpg");
+            elemento.ImageScaleMode = TileItemImageScaleMode.Stretch;
+
+            //Se crea el frame que contiene el elemento y q sera agregado a un tile
+            TileItemFrame frame = new TileItemFrame();
+            frame.Appearance.BackColor = Color.Transparent;
+            frame.Appearance.BorderColor = Color.Black;
+            frame.Elements.Add(elemento);
+
+            //Se crea un tile que contendra el frame
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile tile1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
+            tile1.Group = "Group 1";
+            tile1.Document = doc1;
+            tile1.Frames.Add(frame);
+            tileContainer2.Items.Add(tile1);
+            windowsUIView1.ContentContainers.Add(tileContainer2);
+            this.windowsUIView1.ActivateContainer(tileContainer2);
+            this.windowsUIView1.EndUpdate();
+            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+
+
+
+        }
 
 
         private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
         {
-            Form unForm = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "frmUsuarios").SingleOrDefault<Form>();
-            if (unForm != null)
-            {
-                unForm.Close();
-                
-                
-            }
+            this.CrearDocuemtoUsuarios();
+           
+        }
 
+        private void frmMDI_Load(object sender, EventArgs e)
+        {
 
-            /*Document frmUsuariosDoc = new Document();
-            QueryControlEventArgs f = new QueryControlEventArgs(frmUsuariosDoc);
-            if (f.Document == frmUsuariosDoc)
-            {
-                //f.Control = new SIME_UTN.UI.frmUsuarios();
-                frmUsuarios ofrmUusarios = new frmUsuarios();
-            }*/
-
-            frmUsuarios ofrmUusarios = new frmUsuarios();
-             ofrmUusarios.MdiParent = this;
-             ofrmUusarios.Show();
-
-
-
-            /*TileItemFrame tile = new TileItemFrame();
-            tile.Appearance.BackColor = Color.Transparent;
-            tile.Appearance.BorderColor = Color.Black;
           
-            frmUsuariosDoc.Caption = "Ventana Usuarios";
-            frmUsuariosTile.Frames.Add(tile);
-            frmUsuariosTile.Document = frmUsuariosDoc;
-            frmUsuariosDoc.ControlName = "frmUsuarios";
-            frmUsuariosDoc.ControlTypeName = "SIME_UTN.UI.frmUsuarios";
-            frmUsuariosTile.Visible = true;*/
+        }
 
+        private void windowsUIView1_ControlReleasing(object sender, ControlReleasingEventArgs e)
+        {
+            e.DisposeControl = true;
+        }
 
+     
 
-
-
-
-
-
-
-
+        private void tileContainer1_Click(object sender, TileClickEventArgs e)
+        {
+          
         }
     }
 }

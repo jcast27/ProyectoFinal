@@ -17,12 +17,14 @@ namespace SIME_UTN.UI
         string usuarioLogueado = "";
         UsuarioTable usuario = null;
         GestorUsuarioTable gestor = null;
+        static string nombre = "";
         public  frmUsuarios()
         {
             InitializeComponent();
           
         }
 
+      
         public void UsuarioLogueado()
         {
             gestor = GestorUsuarioTable.GetInstance();
@@ -98,11 +100,7 @@ namespace SIME_UTN.UI
         /// <param name="estado"></param>
         public  void CambiarEstado(EstadoMantenimiento estado)
         {
-            usuario = new UsuarioTable();
-          
-
-
-
+           
 
             switch (estado)
             {
@@ -499,6 +497,18 @@ namespace SIME_UTN.UI
                     RefrescarLista();
                 }
             }
+        }
+
+        private  void mBtnSalir_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            CambiarEstado(EstadoMantenimiento.Nuevo);
+        }
+        public  void Limpear()
+        {
+            frmUsuarios NewForm = new frmUsuarios();
+            this.Show();
+            this.Hide();
+            this.Dispose(false);
         }
     }
 }

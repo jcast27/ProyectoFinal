@@ -30,10 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame3 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame2 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
             this.tileNavPane2 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAdministracion = new DevExpress.XtraBars.Navigation.NavButton();
@@ -43,7 +45,6 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView(this.components);
-            this.tileContainer1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer(this.components);
             this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
             this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
             this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
@@ -53,7 +54,6 @@
             this.lblNombreProyecto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).BeginInit();
@@ -171,7 +171,6 @@
             // windowsUIView1
             // 
             this.windowsUIView1.ContentContainers.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.IContentContainer[] {
-            this.tileContainer1,
             this.FlyoutCloseAction});
             this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
             this.frmUsuariosDocument,
@@ -179,31 +178,28 @@
             this.windowsUIView1.Tiles.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BaseTile[] {
             this.frmUsuariosTile,
             this.frmProductosTile});
-            this.windowsUIView1.BackButtonClick += new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BackButtonClickEventHandler(this.windowsUIView1_BackButtonClick);
-            // 
-            // tileContainer1
-            // 
-            this.tileContainer1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BaseTile[] {
-            this.frmUsuariosTile,
-            this.frmProductosTile});
-            this.tileContainer1.Name = "tileContainer1";
 
+            this.windowsUIView1.BackButtonClick += new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BackButtonClickEventHandler(this.windowsUIView1_BackButtonClick);
+            this.windowsUIView1.ControlReleasing += new DevExpress.XtraBars.Docking2010.Views.ControlReleasingEventHandler(this.windowsUIView1_ControlReleasing);
             // 
             // frmUsuariosTile
             // 
             this.frmUsuariosTile.Document = this.frmUsuariosDocument;
-            tileItemFrame3.Appearance.BackColor = System.Drawing.Color.Transparent;
-            tileItemFrame3.Appearance.BorderColor = System.Drawing.Color.Black;
-            tileItemFrame3.Appearance.Options.UseBackColor = true;
-            tileItemFrame3.Appearance.Options.UseBorderColor = true;
-            tileItemElement3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement3.Image")));
-            tileItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement3.Text = "element1";
-            tileItemFrame3.Elements.Add(tileItemElement3);
-            tileItemFrame3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame3.Image")));
-            this.frmUsuariosTile.Frames.Add(tileItemFrame3);
-            this.frmUsuariosTile.Group = "TileGroup1";
-            this.tileContainer1.SetID(this.frmUsuariosTile, 1);
+            tileItemElement1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement1.Image")));
+            tileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement1.Text = "element1";
+            this.frmUsuariosTile.Elements.Add(tileItemElement1);
+            tileItemFrame1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            tileItemFrame1.Appearance.BorderColor = System.Drawing.Color.Black;
+            tileItemFrame1.Appearance.Options.UseBackColor = true;
+            tileItemFrame1.Appearance.Options.UseBorderColor = true;
+            tileItemElement2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement2.Image")));
+            tileItemElement2.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement2.Text = "element1";
+            tileItemFrame1.Elements.Add(tileItemElement2);
+            tileItemFrame1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame1.Image")));
+            this.frmUsuariosTile.Frames.Add(tileItemFrame1);
+            this.frmUsuariosTile.Group = "TileGroup2";
             this.frmUsuariosTile.Name = "frmUsuariosTile";
             this.frmUsuariosTile.Visible = false;
             // 
@@ -216,17 +212,20 @@
             // frmProductosTile
             // 
             this.frmProductosTile.Document = this.frmProductosDocument;
-            tileItemFrame1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            tileItemFrame1.Appearance.BorderColor = System.Drawing.Color.Black;
-            tileItemFrame1.Appearance.Options.UseBackColor = true;
-            tileItemFrame1.Appearance.Options.UseBorderColor = true;
-            tileItemElement1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement1.Image")));
-            tileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement1.Text = "element1";
-            tileItemFrame1.Elements.Add(tileItemElement1);
-            tileItemFrame1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame1.Image")));
-            this.frmProductosTile.Frames.Add(tileItemFrame1);
-            this.tileContainer1.SetID(this.frmProductosTile, 2);
+            tileItemElement3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement3.Image")));
+            tileItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement3.Text = "element1";
+            this.frmProductosTile.Elements.Add(tileItemElement3);
+            tileItemFrame2.Appearance.BackColor = System.Drawing.Color.Transparent;
+            tileItemFrame2.Appearance.BorderColor = System.Drawing.Color.Black;
+            tileItemFrame2.Appearance.Options.UseBackColor = true;
+            tileItemFrame2.Appearance.Options.UseBorderColor = true;
+            tileItemElement4.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement4.Image")));
+            tileItemElement4.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement4.Text = "element1";
+            tileItemFrame2.Elements.Add(tileItemElement4);
+            tileItemFrame2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame2.Image")));
+            this.frmProductosTile.Frames.Add(tileItemFrame2);
             this.frmProductosTile.Name = "frmProductosTile";
             this.frmProductosTile.Visible = false;
             // 
@@ -286,9 +285,9 @@
             this.Name = "frmMDI";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
+            this.Load += new System.EventHandler(this.frmMDI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).EndInit();
@@ -314,11 +313,10 @@
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView windowsUIView1;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document frmUsuariosDocument;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document frmProductosDocument;
-        private DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer1;
+        private System.Windows.Forms.Button btnUsuarioLogueado;
+        private System.Windows.Forms.Label lblNombreProyecto;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile frmUsuariosTile;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile frmProductosTile;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout FlyoutCloseAction;
-        private System.Windows.Forms.Button btnUsuarioLogueado;
-        private System.Windows.Forms.Label lblNombreProyecto;
     }
 }

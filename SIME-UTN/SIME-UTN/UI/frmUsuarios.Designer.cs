@@ -64,6 +64,7 @@
             this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
+            this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
@@ -340,6 +341,7 @@
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
+            this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
             // tileNavCategory1
             // 
@@ -494,6 +496,14 @@
             this.gbGridViewUsuario.TabStop = false;
             this.gbGridViewUsuario.Text = "Seleccionar Usuario";
             // 
+            // mBtnSalir
+            // 
+            this.mBtnSalir.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnSalir.Caption = "Salir";
+            this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
+            this.mBtnSalir.Name = "mBtnSalir";
+            this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,5 +566,6 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private System.Windows.Forms.GroupBox gbGridViewUsuario;
         private System.Windows.Forms.Label lblCodigoUsuario;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
     }
 }
