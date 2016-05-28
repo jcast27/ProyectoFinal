@@ -28,7 +28,7 @@
       <property name="Properties" isnull="true" iskey="true" />
       <property name="IsFloating">false</property>
       <property name="Location">@1,X=0@1,Y=0</property>
-      <property name="Size">@3,Width=300@3,Height=300</property>
+      <property name="Size">@1,Width=0@1,Height=0</property>
       <property name="IsActive">false</property>
       <property name="Name">frmUsuarios</property>
       <property name="TypeName">Document</property>
@@ -43,7 +43,7 @@
       <property name="TypeName">Document</property>
     </property>
     <property name="Item3" isnull="true" iskey="true">
-      <property name="TileId">2,1</property>
+      <property name="TileId">1,2</property>
       <property name="Items">frmUsuariosTile,frmProductosTile</property>
       <property name="Parent" isnull="true" />
       <property name="IsActive">true</property>
@@ -64,7 +64,7 @@
     <property name="Item5" isnull="true" iskey="true">
       <property name="Document">frmUsuarios</property>
       <property name="ActivateTarget" isnull="true" />
-      <property name="Group" />
+      <property name="Group">TileGroup1</property>
       <property name="Properties" isnull="true" iskey="true" />
       <property name="Name">frmUsuariosTile</property>
       <property name="TypeName">Tile</property>

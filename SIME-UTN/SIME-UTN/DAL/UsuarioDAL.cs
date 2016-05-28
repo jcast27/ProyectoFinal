@@ -319,12 +319,16 @@ namespace SIME_UTN.DAL
         {
             string sql = @"Update Usuario
                            set
-                           Usuario =@Usuario,
+                           Nombre =@Nombre,
+                           Apellido1=@Apellido1,
+                           Apellido2=@Apellido2,
                            Perfil =@Perfil
                            where Usuario.CodigoUsuario = @CodigoUsuario";
 
             SqlCommand command = new SqlCommand(sql);
-            command.Parameters.AddWithValue("@Usuario", usuariop.usuario);
+            command.Parameters.AddWithValue("@Nombre", usuariop.nombre);
+            command.Parameters.AddWithValue("@Apellido1", usuariop.apellido1);
+            command.Parameters.AddWithValue("@Apellido2", usuariop.apellido2);
             command.Parameters.AddWithValue("@Perfil", usuariop.perfil);
             command.Parameters.AddWithValue("@CodigoUsuario", usuariop.codigoUsuario);
 

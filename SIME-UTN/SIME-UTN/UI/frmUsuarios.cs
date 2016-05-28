@@ -17,12 +17,12 @@ namespace SIME_UTN.UI
         string usuarioLogueado = "";
         UsuarioTable usuario = null;
         GestorUsuarioTable gestor = null;
-        public frmUsuarios()
+        public  frmUsuarios()
         {
             InitializeComponent();
           
-
         }
+
         public void UsuarioLogueado()
         {
             gestor = GestorUsuarioTable.GetInstance();
@@ -49,7 +49,7 @@ namespace SIME_UTN.UI
             }
         }
 
-
+       
 
         /// <summary>
         /// Actualiza el datagridview con los usuarios agredados
@@ -96,7 +96,7 @@ namespace SIME_UTN.UI
         /// Cambiar el estad de los objetos al seleccionar Nuevo,Editar,Borrar o Ninguno
         /// </summary>
         /// <param name="estado"></param>
-        public void CambiarEstado(EstadoMantenimiento estado)
+        public  void CambiarEstado(EstadoMantenimiento estado)
         {
             usuario = new UsuarioTable();
           
@@ -114,17 +114,50 @@ namespace SIME_UTN.UI
                     txtUsuario.Text = "";
                     txtPassword.Text = "";
                     txtConfirmacion.Text = "";
+                    txtNombre.Enabled = true;
+                    txtApellido1.Enabled = true;
+                    txtApellido2.Enabled = true;
+                    txtPassword.Enabled = true;
+                    txtUsuario.Enabled = true;
+                    txtPassword.Enabled = true;
+                    txtConfirmacion.Enabled = false;
+                    this.mBtnNuevo.Enabled = true;
+                    this.mBtnAgregar.Enabled = true;
+                    this.mBtnModificar.Enabled = false;
+                    this.mBtnEliminar.Enabled = false;
+                    this.txtPassword.Enabled = true;
+                    this.txtConfirmacion.Enabled = true;
+                    this.chkAdministrador.Enabled = true;
+                    this.chkDespachador.Enabled = true;
+                    this.chkAdministrador.Checked = false;
+                    this.chkDespachador.Checked = false;
                     break;
+
                 case EstadoMantenimiento.Editar:
-
-
-
+                    this.mBtnNuevo.Enabled = false;
+                    this.mBtnAgregar.Enabled = false;
+                    this.mBtnModificar.Enabled = true;
+                    this.mBtnEliminar.Enabled = true;
+                    this.chkAdministrador.Enabled = true;
+                    this.chkDespachador.Enabled = true;
+                    txtNombre.Enabled = true;
+                    txtApellido1.Enabled = true;
+                    txtApellido2.Enabled = true;
+                    txtPassword.Enabled = false;
+                    txtUsuario.Enabled = false;
+                    txtPassword.Enabled = false;
+                    txtConfirmacion.Enabled = false;
                     break;
-                case EstadoMantenimiento.Borrar:
-                    txtNombre.Clear();
-                    txtPassword.Clear();
-                    break;
-                case EstadoMantenimiento.Ninguno:
+                case EstadoMantenimiento.Agregar:
+                    txtNombre.Enabled = false;
+                    txtApellido1.Enabled = false;
+                    txtApellido2.Enabled = false;
+                    txtPassword.Enabled = false;
+                    txtUsuario.Enabled = false;
+                    txtPassword.Enabled = false;
+                    txtConfirmacion.Enabled = false;
+                    this.chkAdministrador.Enabled = false;
+                    this.chkDespachador.Enabled = false;
                     break;
             }
         }
@@ -142,25 +175,6 @@ namespace SIME_UTN.UI
         {
             this.Close();
         }
-
-
-
-        /// <summary>
-        /// Manda a llamar al metodo Refresca Lista
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-            RefrescarLista();
-            ePError.Clear();
-        }
-
-
-
-
-
 
 
 
@@ -198,33 +212,40 @@ namespace SIME_UTN.UI
             if (chkAdministrador.Checked)
             {
               
-                chkAdministrador.Enabled = true;
+
+                chkDespachador.Checked = false;
 
             }
             else
             {
 
-                chkAdministrador.Enabled = true;
                 chkAdministrador.Checked = false;
+                chkDespachador.Checked = true;
+
 
             }
 
         }
 
-
-        private void chkAdministrador_CheckedChanged(object sender, EventArgs e)
+        private void chkDespachador_MouseClick(object sender, MouseEventArgs e)
         {
-            if (chkAdministrador.Checked)
+            if (chkDespachador.Checked)
             {
 
-                chkAdministrador.Enabled = true;
-
+                chkAdministrador.Checked = false;
             }
             else
             {
-                chkAdministrador.Checked = false;
+
+
+                chkDespachador.Checked = false;
+                chkAdministrador.Checked = true;
 
             }
+        }
+
+        public void validarCheckBox()
+        {
 
         }
         #endregion
@@ -243,29 +264,7 @@ namespace SIME_UTN.UI
 
         private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
-            gestor = GestorUsuarioTable.GetInstance();
-            usuario = new UsuarioTable();
-            try
-            {
-                usuario.codigoUsuario = Int32.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-                usuario.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
-                usuario.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
-
-                gestor.AgregarUsuario(usuario);
-                gestor.GuardarUsuario();
-               RefrescarLista();
-
-
-
-            }
-            catch (ApplicationException app)
-            {
-                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+          
         }
 
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
@@ -285,7 +284,8 @@ namespace SIME_UTN.UI
                 if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     gestor.EliminarUsuario(UsuarioID, usuario);
-                    CambiarEstado(EstadoMantenimiento.Nuevo);
+                        MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CambiarEstado(EstadoMantenimiento.Nuevo);
                    RefrescarLista();
                 }
 
@@ -339,9 +339,7 @@ namespace SIME_UTN.UI
                 {
                     if (txtPassword.Text.Equals(txtConfirmacion.Text))
                     {
-                        cmbUsuarioId.DataSource = GestorUsuarioTable.OptenerId();
-                        string ID = (cmbUsuarioId.SelectedValue.ToString());
-                        usuario.codigoUsuario = int.Parse(ID);
+
                         usuario.nombre = txtNombre.Text;
                         usuario.apellido1 = txtApellido1.Text;
                         usuario.apellido2 = txtApellido2.Text;
@@ -373,7 +371,8 @@ namespace SIME_UTN.UI
                         gestor.AgregarUsuario(usuario);
                         gestor.GuardarUsuario();
                         txtUsuario.Text = user;
-                        //CambiarEstado(EstadoMantenimiento.Borrar);
+                        MessageBox.Show("El Usuario " + usuario.usuario + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CambiarEstado(EstadoMantenimiento.Agregar);
                         RefrescarLista();
                     }
                     else
@@ -390,6 +389,115 @@ namespace SIME_UTN.UI
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            CambiarEstado(EstadoMantenimiento.Nuevo);
+            
+        }
+
+        private void gCUsuarios_Click(object sender, EventArgs e)
+        {
+            CambiarEstado(EstadoMantenimiento.Editar);
+            gestor = GestorUsuarioTable.GetInstance();
+            try
+            {
+                string perfil = "";
+                lblCodigoUsuario.Text = gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString();
+                txtNombre.Text  = gridView1.GetFocusedRowCellValue("Nombre").ToString();
+                txtApellido1.Text = gridView1.GetFocusedRowCellValue("PrimerApellido").ToString();
+                txtApellido2.Text = gridView1.GetFocusedRowCellValue("SegundoApellido").ToString();
+                txtUsuario.Text = gridView1.GetFocusedRowCellValue("Usuario").ToString();
+                perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
+                if (perfil.Equals("Administrador"))
+                {
+                    this.chkAdministrador.Checked = true;
+                    this.chkDespachador.Checked = false;
+                }else
+                {
+                    if (perfil.Equals("Despachador"))
+                    {
+                        this.chkAdministrador.Checked = false;
+                        this.chkDespachador.Checked = true;
+                    }else
+                    {
+                        this.chkAdministrador.Checked = false;
+                        this.chkDespachador.Checked = false;
+                    }
+                }
+
+
+                CambiarEstado(EstadoMantenimiento.Editar);
+
+
+
+            }
+            catch (ApplicationException app)
+            {
+                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            gestor = GestorUsuarioTable.GetInstance();
+            usuario = new UsuarioTable();
+            try
+            {
+
+
+                string ID = lblCodigoUsuario.Text;
+                usuario.codigoUsuario = int.Parse(ID);
+                usuario.nombre = txtNombre.Text;
+                usuario.apellido1 = txtApellido1.Text;
+                usuario.apellido2 = txtApellido2.Text;
+                usuario.usuario = txtUsuario.Text;
+                if (chkAdministrador.Checked)
+                {
+                    usuario.perfil = "Administrador";
+                }
+                if (chkDespachador.Checked)
+                {
+                    usuario.perfil = "Despachador";
+                }
+
+                gestor.AgregarUsuario(usuario);
+                gestor.GuardarUsuario();
+                MessageBox.Show("El Usuario " + usuario.usuario + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CambiarEstado(EstadoMantenimiento.Nuevo);
+                RefrescarLista();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            this.UsuarioLogueado();
+            string usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
+            int UsuarioID = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
+            if (usuario == usuarioLogueado)
+            {
+                MessageBox.Show("El usuario: " + usuario + " tiene sesiones abierta, no se puede eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+
+                if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gestor.EliminarUsuario(UsuarioID, usuario);
+                    MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CambiarEstado(EstadoMantenimiento.Nuevo);
+                    RefrescarLista();
+                }
             }
         }
     }

@@ -53,16 +53,23 @@
             this.lblApellido2 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
+            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
-            this.cmbUsuarioId = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
+            this.lblCodigoUsuario = new System.Windows.Forms.Label();
+            this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
+            this.gbInformacionPersonal.SuspendLayout();
+            this.gbGridViewUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtConfirmacion
@@ -70,10 +77,11 @@
             this.txtConfirmacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConfirmacion.Location = new System.Drawing.Point(315, 386);
+            this.txtConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmacion.Location = new System.Drawing.Point(166, 362);
             this.txtConfirmacion.Name = "txtConfirmacion";
             this.txtConfirmacion.PasswordChar = '*';
-            this.txtConfirmacion.Size = new System.Drawing.Size(97, 20);
+            this.txtConfirmacion.Size = new System.Drawing.Size(45, 22);
             this.txtConfirmacion.TabIndex = 14;
             this.txtConfirmacion.Text = "123";
             // 
@@ -85,7 +93,7 @@
             this.lblConfirmacion.AutoSize = true;
             this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmacion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblConfirmacion.Location = new System.Drawing.Point(165, 384);
+            this.lblConfirmacion.Location = new System.Drawing.Point(16, 360);
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(101, 18);
             this.lblConfirmacion.TabIndex = 13;
@@ -101,23 +109,24 @@
             this.chkAdministrador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.chkAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAdministrador.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkAdministrador.Location = new System.Drawing.Point(167, 83);
+            this.chkAdministrador.Location = new System.Drawing.Point(18, 59);
             this.chkAdministrador.Name = "chkAdministrador";
             this.chkAdministrador.Size = new System.Drawing.Size(118, 22);
             this.chkAdministrador.TabIndex = 6;
             this.chkAdministrador.Text = "Administrador";
             this.chkAdministrador.UseVisualStyleBackColor = false;
-            this.chkAdministrador.CheckedChanged += new System.EventHandler(this.chkAdministrador_CheckedChanged);
+            this.chkAdministrador.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkAdministrador_MouseClick);
             // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(315, 324);
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(166, 300);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(97, 20);
+            this.txtPassword.Size = new System.Drawing.Size(45, 22);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.Text = "123";
             // 
@@ -126,9 +135,10 @@
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.Location = new System.Drawing.Point(315, 130);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(166, 106);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(97, 20);
+            this.txtNombre.Size = new System.Drawing.Size(45, 22);
             this.txtNombre.TabIndex = 3;
             this.txtNombre.Text = "jose";
             // 
@@ -140,7 +150,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPassword.Location = new System.Drawing.Point(165, 322);
+            this.lblPassword.Location = new System.Drawing.Point(16, 298);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(79, 18);
             this.lblPassword.TabIndex = 2;
@@ -154,7 +164,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNombre.Location = new System.Drawing.Point(164, 130);
+            this.lblNombre.Location = new System.Drawing.Point(15, 106);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(66, 18);
             this.lblNombre.TabIndex = 1;
@@ -162,19 +172,19 @@
             // 
             // gCUsuarios
             // 
-            this.gCUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gCUsuarios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCUsuarios.BackgroundImage")));
-            this.gCUsuarios.Location = new System.Drawing.Point(524, 150);
+            this.gCUsuarios.Location = new System.Drawing.Point(60, 106);
             this.gCUsuarios.MainView = this.gridView1;
             this.gCUsuarios.MaximumSize = new System.Drawing.Size(787, 232);
             this.gCUsuarios.Name = "gCUsuarios";
             this.gCUsuarios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1});
-            this.gCUsuarios.Size = new System.Drawing.Size(556, 232);
+            this.gCUsuarios.Size = new System.Drawing.Size(570, 232);
             this.gCUsuarios.TabIndex = 19;
             this.gCUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gCUsuarios.Click += new System.EventHandler(this.gCUsuarios_Click);
             // 
             // gridView1
             // 
@@ -190,9 +200,9 @@
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Perfil", null, "({0})")});
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
-            this.gridView1.OptionsEditForm.FormCaptionFormat = "{Name} {Modification";
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
@@ -202,17 +212,12 @@
             this.colCodigoUsuario.FieldName = "CodigoUsuario";
             this.colCodigoUsuario.Name = "colCodigoUsuario";
             this.colCodigoUsuario.OptionsColumn.AllowEdit = false;
-            this.colCodigoUsuario.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
-            this.colCodigoUsuario.Visible = true;
-            this.colCodigoUsuario.VisibleIndex = 0;
             // 
             // colUsuario
             // 
             this.colUsuario.FieldName = "Usuario";
             this.colUsuario.Name = "colUsuario";
             this.colUsuario.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
-            this.colUsuario.Visible = true;
-            this.colUsuario.VisibleIndex = 1;
             // 
             // colNombre
             // 
@@ -220,7 +225,7 @@
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
             this.colNombre.Visible = true;
-            this.colNombre.VisibleIndex = 2;
+            this.colNombre.VisibleIndex = 0;
             // 
             // colPrimerApellido
             // 
@@ -228,7 +233,7 @@
             this.colPrimerApellido.FieldName = "PrimerApellido";
             this.colPrimerApellido.Name = "colPrimerApellido";
             this.colPrimerApellido.Visible = true;
-            this.colPrimerApellido.VisibleIndex = 3;
+            this.colPrimerApellido.VisibleIndex = 1;
             // 
             // colSegundoApellido
             // 
@@ -236,15 +241,13 @@
             this.colSegundoApellido.FieldName = "SegundoApellido";
             this.colSegundoApellido.Name = "colSegundoApellido";
             this.colSegundoApellido.Visible = true;
-            this.colSegundoApellido.VisibleIndex = 4;
+            this.colSegundoApellido.VisibleIndex = 2;
             // 
             // colPerfil
             // 
             this.colPerfil.FieldName = "Perfil";
             this.colPerfil.Name = "colPerfil";
             this.colPerfil.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
-            this.colPerfil.Visible = true;
-            this.colPerfil.VisibleIndex = 5;
             // 
             // UsuarioItemLookUpEdit1
             // 
@@ -268,12 +271,13 @@
             this.chkDespachador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.chkDespachador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDespachador.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkDespachador.Location = new System.Drawing.Point(305, 83);
+            this.chkDespachador.Location = new System.Drawing.Point(156, 59);
             this.chkDespachador.Name = "chkDespachador";
             this.chkDespachador.Size = new System.Drawing.Size(116, 22);
             this.chkDespachador.TabIndex = 20;
             this.chkDespachador.Text = "Despachador";
             this.chkDespachador.UseVisualStyleBackColor = false;
+            this.chkDespachador.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkDespachador_MouseClick);
             // 
             // label1
             // 
@@ -283,7 +287,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(165, 442);
+            this.label1.Location = new System.Drawing.Point(16, 418);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 21;
@@ -297,7 +301,7 @@
             this.lblApellido1.AutoSize = true;
             this.lblApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblApellido1.Location = new System.Drawing.Point(165, 191);
+            this.lblApellido1.Location = new System.Drawing.Point(16, 167);
             this.lblApellido1.Name = "lblApellido1";
             this.lblApellido1.Size = new System.Drawing.Size(111, 18);
             this.lblApellido1.TabIndex = 22;
@@ -311,7 +315,7 @@
             this.lblApellido2.AutoSize = true;
             this.lblApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblApellido2.Location = new System.Drawing.Point(165, 249);
+            this.lblApellido2.Location = new System.Drawing.Point(16, 225);
             this.lblApellido2.Name = "lblApellido2";
             this.lblApellido2.Size = new System.Drawing.Size(126, 18);
             this.lblApellido2.TabIndex = 23;
@@ -319,13 +323,11 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsuario.Enabled = false;
-            this.txtUsuario.Location = new System.Drawing.Point(315, 444);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(166, 420);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(97, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(147, 22);
             this.txtUsuario.TabIndex = 26;
             // 
             // tileNavPane1
@@ -334,7 +336,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
+            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
+            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
+            this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
             // 
             // tileNavCategory1
             // 
@@ -346,13 +351,21 @@
             // 
             this.tileNavPane1.DefaultCategory.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             this.tileNavPane1.DefaultCategory.Tile.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Default;
-            this.tileNavPane1.Location = new System.Drawing.Point(-1, 0);
+            this.tileNavPane1.Location = new System.Drawing.Point(144, 0);
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(1307, 45);
+            this.tileNavPane1.Size = new System.Drawing.Size(1162, 45);
             this.tileNavPane1.TabIndex = 29;
-            this.tileNavPane1.Text = "tileNavPane1";
+            this.tileNavPane1.Text = "Nuevo";
+            // 
+            // mBtnNuevo
+            // 
+            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnNuevo.Caption = "Nuevo";
+            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
+            this.mBtnNuevo.Name = "mBtnNuevo";
+            this.mBtnNuevo.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnNuevo_ElementClick);
             // 
             // mBtnAgregar
             // 
@@ -366,14 +379,33 @@
             this.mBtnAgregar.Name = "mBtnAgregar";
             this.mBtnAgregar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAgregar_ElementClick);
             // 
+            // mBtnModificar
+            // 
+            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Enabled = false;
+            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
+            this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
+            // 
+            // mBtnEliminar
+            // 
+            this.mBtnEliminar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnEliminar.Caption = "Eliminar";
+            this.mBtnEliminar.Enabled = false;
+            this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
+            this.mBtnEliminar.Name = "mBtnEliminar";
+            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
+            // 
             // txtApellido2
             // 
             this.txtApellido2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApellido2.Location = new System.Drawing.Point(315, 251);
+            this.txtApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido2.Location = new System.Drawing.Point(166, 227);
             this.txtApellido2.Name = "txtApellido2";
-            this.txtApellido2.Size = new System.Drawing.Size(97, 20);
+            this.txtApellido2.Size = new System.Drawing.Size(45, 22);
             this.txtApellido2.TabIndex = 28;
             this.txtApellido2.Text = "morera";
             // 
@@ -382,29 +414,21 @@
             this.txtApellido1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApellido1.Location = new System.Drawing.Point(315, 193);
+            this.txtApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido1.Location = new System.Drawing.Point(166, 169);
             this.txtApellido1.Name = "txtApellido1";
-            this.txtApellido1.Size = new System.Drawing.Size(97, 20);
+            this.txtApellido1.Size = new System.Drawing.Size(45, 22);
             this.txtApellido1.TabIndex = 27;
             this.txtApellido1.Text = "castro";
-            // 
-            // cmbUsuarioId
-            // 
-            this.cmbUsuarioId.FormattingEnabled = true;
-            this.cmbUsuarioId.Location = new System.Drawing.Point(1018, 150);
-            this.cmbUsuarioId.Name = "cmbUsuarioId";
-            this.cmbUsuarioId.Size = new System.Drawing.Size(15, 21);
-            this.cmbUsuarioId.TabIndex = 17;
-            this.cmbUsuarioId.Visible = false;
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Location = new System.Drawing.Point(-1, 41);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(147, 509);
+            this.panel1.Size = new System.Drawing.Size(147, 568);
             this.panel1.TabIndex = 30;
             // 
             // panel2
@@ -414,34 +438,74 @@
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Location = new System.Drawing.Point(1159, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(147, 509);
+            this.panel2.Size = new System.Drawing.Size(147, 527);
             this.panel2.TabIndex = 31;
+            // 
+            // gbInformacionPersonal
+            // 
+            this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInformacionPersonal.Controls.Add(this.lblCodigoUsuario);
+            this.gbInformacionPersonal.Controls.Add(this.chkAdministrador);
+            this.gbInformacionPersonal.Controls.Add(this.txtPassword);
+            this.gbInformacionPersonal.Controls.Add(this.txtUsuario);
+            this.gbInformacionPersonal.Controls.Add(this.label1);
+            this.gbInformacionPersonal.Controls.Add(this.lblApellido1);
+            this.gbInformacionPersonal.Controls.Add(this.chkDespachador);
+            this.gbInformacionPersonal.Controls.Add(this.txtApellido2);
+            this.gbInformacionPersonal.Controls.Add(this.txtNombre);
+            this.gbInformacionPersonal.Controls.Add(this.lblApellido2);
+            this.gbInformacionPersonal.Controls.Add(this.lblNombre);
+            this.gbInformacionPersonal.Controls.Add(this.txtConfirmacion);
+            this.gbInformacionPersonal.Controls.Add(this.lblConfirmacion);
+            this.gbInformacionPersonal.Controls.Add(this.lblPassword);
+            this.gbInformacionPersonal.Controls.Add(this.txtApellido1);
+            this.gbInformacionPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbInformacionPersonal.Location = new System.Drawing.Point(167, 64);
+            this.gbInformacionPersonal.Name = "gbInformacionPersonal";
+            this.gbInformacionPersonal.Size = new System.Drawing.Size(281, 456);
+            this.gbInformacionPersonal.TabIndex = 32;
+            this.gbInformacionPersonal.TabStop = false;
+            this.gbInformacionPersonal.Text = "Informacion del Usuario";
+            // 
+            // lblCodigoUsuario
+            // 
+            this.lblCodigoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCodigoUsuario.AutoSize = true;
+            this.lblCodigoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCodigoUsuario.Location = new System.Drawing.Point(14, 25);
+            this.lblCodigoUsuario.Name = "lblCodigoUsuario";
+            this.lblCodigoUsuario.Size = new System.Drawing.Size(0, 18);
+            this.lblCodigoUsuario.TabIndex = 29;
+            this.lblCodigoUsuario.Visible = false;
+            // 
+            // gbGridViewUsuario
+            // 
+            this.gbGridViewUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbGridViewUsuario.Controls.Add(this.gCUsuarios);
+            this.gbGridViewUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGridViewUsuario.Location = new System.Drawing.Point(454, 64);
+            this.gbGridViewUsuario.Name = "gbGridViewUsuario";
+            this.gbGridViewUsuario.Size = new System.Drawing.Size(699, 456);
+            this.gbGridViewUsuario.TabIndex = 33;
+            this.gbGridViewUsuario.TabStop = false;
+            this.gbGridViewUsuario.Text = "Seleccionar Usuario";
             // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1307, 542);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1307, 560);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtApellido2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.tileNavPane1);
-            this.Controls.Add(this.txtApellido1);
-            this.Controls.Add(this.lblApellido2);
-            this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.gCUsuarios);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtConfirmacion);
-            this.Controls.Add(this.lblApellido1);
-            this.Controls.Add(this.chkDespachador);
-            this.Controls.Add(this.chkAdministrador);
-            this.Controls.Add(this.lblConfirmacion);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.cmbUsuarioId);
+            this.Controls.Add(this.gbInformacionPersonal);
+            this.Controls.Add(this.gbGridViewUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Usuarios";
@@ -450,8 +514,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
+            this.gbInformacionPersonal.ResumeLayout(false);
+            this.gbInformacionPersonal.PerformLayout();
+            this.gbGridViewUsuario.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -482,8 +548,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSegundoApellido;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnAgregar;
-        private System.Windows.Forms.ComboBox cmbUsuarioId;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox gbInformacionPersonal;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
+        private System.Windows.Forms.GroupBox gbGridViewUsuario;
+        private System.Windows.Forms.Label lblCodigoUsuario;
     }
 }

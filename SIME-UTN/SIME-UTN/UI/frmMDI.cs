@@ -10,12 +10,13 @@ using DevExpress.XtraEditors;
 using System.Threading;
 using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using SIME_UTN.Gestores;
+using DevExpress.XtraBars.Docking2010.Views;
 
 namespace SIME_UTN.UI
 {
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
-        
+    
         GestorUsuarioTable gestor = null;
         public frmMDI()
         {
@@ -77,29 +78,6 @@ namespace SIME_UTN.UI
             }
         }
 
-        private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
-        {
-            /*
-           Form unForm = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "frmUsuarios").SingleOrDefault<Form>();
-           if (unForm != null)
-           {
-               // MessageBox.Show("El formulario 2 esta abierto");
-               unForm.Close();
-
-           }
-
-             foreach (Form frm in Application.OpenForms)
-              {
-                  if (frm.GetType() != typeof(frmMDI))
-                  {
-
-                      frm.Close();
-
-                      break;
-                  }
-              }*/
-          //  frmUsuariosTile.Visible = false;
-        }
 
 
 
@@ -115,14 +93,64 @@ namespace SIME_UTN.UI
               unForm.Close();
 
           }*/
-            frmProductosTile.Visible = true;
             frmUsuariosTile.Visible = true;
+            frmProductosTile.Visible = true;
+            
         }
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             frmUsuariosTile.Visible = false;
             frmProductosTile.Visible = false;
+        }
+
+
+
+        private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
+        {
+            Form unForm = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "frmUsuarios").SingleOrDefault<Form>();
+            if (unForm != null)
+            {
+                unForm.Close();
+                
+                
+            }
+
+
+            /*Document frmUsuariosDoc = new Document();
+            QueryControlEventArgs f = new QueryControlEventArgs(frmUsuariosDoc);
+            if (f.Document == frmUsuariosDoc)
+            {
+                //f.Control = new SIME_UTN.UI.frmUsuarios();
+                frmUsuarios ofrmUusarios = new frmUsuarios();
+            }*/
+
+            frmUsuarios ofrmUusarios = new frmUsuarios();
+             ofrmUusarios.MdiParent = this;
+             ofrmUusarios.Show();
+
+
+
+            /*TileItemFrame tile = new TileItemFrame();
+            tile.Appearance.BackColor = Color.Transparent;
+            tile.Appearance.BorderColor = Color.Black;
+          
+            frmUsuariosDoc.Caption = "Ventana Usuarios";
+            frmUsuariosTile.Frames.Add(tile);
+            frmUsuariosTile.Document = frmUsuariosDoc;
+            frmUsuariosDoc.ControlName = "frmUsuarios";
+            frmUsuariosDoc.ControlTypeName = "SIME_UTN.UI.frmUsuarios";
+            frmUsuariosTile.Visible = true;*/
+
+
+
+
+
+
+
+
+
+
         }
     }
 }
