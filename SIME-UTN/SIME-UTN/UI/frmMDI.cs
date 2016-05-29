@@ -16,9 +16,8 @@ namespace SIME_UTN.UI
 {
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
-       
+        static string tipoDeProceso ="";
         GestorUsuarioTable gestor = null;
-        frmUsuarios ofrmUsuarios = new frmUsuarios();
         public frmMDI()
         {
            
@@ -51,9 +50,11 @@ namespace SIME_UTN.UI
         {
 
             if (e.Document.Caption == "Ventana Usuarios")
-                e.Control = new SIME_UTN.UI.frmUsuarios();
-            if (e.Document.Caption == "frmProductosDocument")
-                e.Control = new SIME_UTN.UI.frmProductos();
+                e.Control = new SIME_UTN.UI.Administracion.frmUsuarios();
+            if (e.Document.Caption == "Ventana Productos")
+                e.Control = new SIME_UTN.UI.Administracion.frmProductos();
+            if (e.Document.Caption == "Ventana Ingreso Producto")
+                e.Control = new SIME_UTN.UI.Procesos.frmRegistroProducto();
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
 
@@ -82,76 +83,136 @@ namespace SIME_UTN.UI
         }
 
 
-
-
-
-
-
         private void mBtnAdministracion_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
+            CrearDocuemtosProceso(false);
+            this.CrearDocuemtosAdministracion(true);
+            tipoDeProceso = "Administracion";
 
- 
-            this.CrearDocuemtoUsuarios();
-       
         }
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            frmUsuariosTile.Visible = false;
-            frmProductosTile.Visible = false;
+            this.CrearDocuemtosAdministracion(false);
+            CrearDocuemtosProceso(true);
+            tipoDeProceso = "Procesos";
         }
 
-        public void CrearDocuemtoUsuarios()
+        //Se crea un elemento que sera agregado al frame
+        public TileItemElement CrearElemento(String nombreElemento,Image imagen)
         {
+            Font font = new Font("Tahoma", 20.0f,FontStyle.Underline| FontStyle.Underline);
+            TileItemElement elemento = new TileItemElement();
+            elemento.Text = nombreElemento;
+            elemento.Image = imagen;
+            elemento.ImageScaleMode = TileItemImageScaleMode.Stretch;
+            elemento.TextAlignment = TileItemContentAlignment.BottomLeft;
+            elemento.Appearance.Normal.ForeColor = Color.Maroon;
+            elemento.Appearance.Normal.BackColor = Color.MediumAquamarine;
+            elemento.Appearance.Normal.Font = font;
+            return elemento;
+        }
 
+        //Se crea el frame que contiene el elemento y q sera agregado a un tile
+        public TileItemFrame crearFrame(String nombreElemento, Image imagen)
+        {
+            TileItemFrame frame = new TileItemFrame();
+            frame.Appearance.BackColor = Color.Transparent;
+            frame.Appearance.BorderColor = Color.Black;
+            frame.Elements.Add(this.CrearElemento(nombreElemento, imagen));
+            return frame;
+        }
+
+        //Se crea un tile que contendra el frame
+        public DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile crearTile(Document document, String nombreElemento, String grupo, Image imagen,Boolean estado)
+        {
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile tile1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
+            tile1.Group = grupo;
+            tile1.Document = document;
+            tile1.Frames.Add(this.crearFrame(nombreElemento, imagen));
+            tile1.Visible = estado;
+            return tile1;
+        }
+
+        public void CrearDocuemtosAdministracion(Boolean estado)
+        {
+            string nombreElemento = "";
+            string grupo = "";
+            Image imagen = null;
+           
             this.windowsUIView1.BeginUpdate();
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Usuarios" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1 });
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Productos" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2 });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 200;
-          
-            //Se crea un elemento que sera agregado al frame
-            TileItemElement elemento = new TileItemElement();
-            elemento.Text = "Usuarios";
-            elemento.Image = Image.FromFile("C:\\Projects\\SIME-UTN\\SIME-UTN\\Resources\\usuarios1.jpg");
-            elemento.ImageScaleMode = TileItemImageScaleMode.Stretch;
 
-            //Se crea el frame que contiene el elemento y q sera agregado a un tile
-            TileItemFrame frame = new TileItemFrame();
-            frame.Appearance.BackColor = Color.Transparent;
-            frame.Appearance.BorderColor = Color.Black;
-            frame.Elements.Add(elemento);
+            //Propiedades para el decumento Usuarios
+            grupo = "Group 1";
+            imagen = Properties.Resources.usuarios1;
+            nombreElemento = "Usuarios";
+            tileContainer2.Items.Add(this.crearTile(doc1,nombreElemento,grupo,imagen,estado));
 
-            //Se crea un tile que contendra el frame
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile tile1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
-            tile1.Group = "Group 1";
-            tile1.Document = doc1;
-            tile1.Frames.Add(frame);
-            tileContainer2.Items.Add(tile1);
+            //Propiedades para el decumento Productos
+            grupo = "Group 2";
+            imagen = Properties.Resources.productos1;
+            nombreElemento = "Productos";
+            tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
+
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);
             this.windowsUIView1.EndUpdate();
             this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
 
+        }
 
+        public void CrearDocuemtosProceso(Boolean estado)
+        {
+            string nombreElemento = "";
+            string grupo = "";
+            Image imagen = null;
+
+            this.windowsUIView1.BeginUpdate();
+            this.windowsUIView1.Controller.CloseAll();
+            this.windowsUIView1.Documents.Clear();
+            //Creating documents
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Ingreso Producto" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1});
+            //Creating and populating content container
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
+            tileContainer2.Properties.ItemSize = 200;
+
+            //Propiedades para el decumento Ingreso Productos
+            grupo = "Group 1";
+            imagen = Properties.Resources.registroProducto;
+            nombreElemento = "Ingreso De Productos";
+            tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
+
+
+
+            windowsUIView1.ContentContainers.Add(tileContainer2);
+            this.windowsUIView1.ActivateContainer(tileContainer2);
+            this.windowsUIView1.EndUpdate();
+            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
 
         }
 
 
         private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
         {
-            this.CrearDocuemtoUsuarios();
-           
-        }
-
-        private void frmMDI_Load(object sender, EventArgs e)
-        {
-
-          
+          if (tipoDeProceso == "Administracion")
+            {
+                this.CrearDocuemtosAdministracion(true);
+            }
+            if (tipoDeProceso == "Procesos")
+            {
+                this.CrearDocuemtosProceso(true);
+            }
+             
         }
 
         private void windowsUIView1_ControlReleasing(object sender, ControlReleasingEventArgs e)
@@ -159,11 +220,6 @@ namespace SIME_UTN.UI
             e.DisposeControl = true;
         }
 
-     
 
-        private void tileContainer1_Click(object sender, TileClickEventArgs e)
-        {
-          
-        }
     }
 }

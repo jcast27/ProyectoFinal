@@ -285,7 +285,6 @@
             this.Name = "frmMDI";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
-            this.Load += new System.EventHandler(this.frmMDI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).EndInit();

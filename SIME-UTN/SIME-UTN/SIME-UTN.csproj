@@ -67,16 +67,13 @@
     <Compile Include="Entities\UsuarioTable.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
-    <Compile Include="frmSplashScreen.cs">
+    <Compile Include="UI\frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSplashScreen.Designer.cs">
+    <Compile Include="UI\frmSplashScreen.Designer.cs">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestores\GestorUsuarioTable.cs" />
-    <Compile Include="OverlyControl2.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Persistencia\DataBase.cs" />
     <Compile Include="Persistencia\DataBaseFactory.cs" />
     <Compile Include="UI\frmMDI.cs">
@@ -91,24 +88,30 @@
     <Compile Include="UI\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="OverlayControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\frmProductos.cs">
+    <Compile Include="UI\Administracion\frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmProductos.Designer.cs">
-      <DependentUpon>frmProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\frmUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmUsuarios.Designer.cs">
+    <Compile Include="UI\Administracion\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmSplashScreen.resx">
+    <Compile Include="UI\Administracion\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Administracion\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Procesos\frmRegistroProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Procesos\frmRegistroProducto.Designer.cs">
+      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Administracion\frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmMDI.resx">
@@ -128,11 +131,11 @@
     <EmbeddedResource Include="UI\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmProductos.resx">
-      <DependentUpon>frmProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmUsuarios.resx">
+    <EmbeddedResource Include="UI\Administracion\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Procesos\frmRegistroProducto.resx">
+      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -148,14 +151,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\alpha-dista-grey-icon-19.png" />
-    <Content Include="Resources\boton.png" />
-    <Content Include="Resources\gnome_panel_force_quit.png" />
-    <None Include="Resources\gnome_panel_force_quit1.png" />
-    <Content Include="Resources\login.jpg" />
-    <Content Include="Resources\login1.jpg" />
-    <Content Include="Resources\utn.png" />
-    <Content Include="Resources\utn1.png" />
+    <Content Include="Resources\alpha-dista-grey-icon-19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\boton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\gnome_panel_force_quit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\gnome_panel_force_quit1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\login.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\login1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\productos1.jpg" />
+    <None Include="Resources\registroProducto.jpg" />
+    <Content Include="Resources\usuarios1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\utn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\utn1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
