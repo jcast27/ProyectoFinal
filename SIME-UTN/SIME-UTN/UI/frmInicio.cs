@@ -24,33 +24,15 @@ namespace SIME_UTN.UI
 
         }
 
-        private void txtUsuario_Leave(object sender, EventArgs e)
-        {
-            if (this.txtUsuario.Text.Trim().Length != 0)
-            {
-                this.errorProvider1.Clear();
-            }
-            else
-            {
-                this.errorProvider1.SetError(txtUsuario, "Usuario requerido");
-            }
-        }
-
-        private void txtContrasena_Leave(object sender, EventArgs e)
-        {
-            if (this.txtContrasena.Text.Trim().Length != 0)
-            {
-                this.errorProvider1.Clear();
-            }
-            else
-            {
-                this.errorProvider1.SetError(txtContrasena, "Usuario requerido");
-            }
-        }
 
 
 
 
+        /// <summary>
+        /// Metodo que valida el Usuario y crea una conexion a la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.errorProvider1.Clear();
@@ -64,7 +46,7 @@ namespace SIME_UTN.UI
 
             if (this.txtContrasena.Text.Trim().Length == 0)
             {
-                this.errorProvider1.SetError(txtUsuario, "Contraseña requerida");
+                this.errorProvider1.SetError(txtContrasena, "Contraseña requerida");
                 txtContrasena.Focus();
                 return;
             }
@@ -109,6 +91,12 @@ namespace SIME_UTN.UI
 
         }
 
+
+        /// <summary>
+        /// Metodo que cierra la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

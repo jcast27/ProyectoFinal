@@ -17,6 +17,7 @@ namespace SIME_UTN.UI
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
         static string tipoDeProceso ="";
+        static string usuarioLogueado = "";
         GestorUsuarioTable gestor = null;
         public frmMDI()
         {
@@ -32,10 +33,18 @@ namespace SIME_UTN.UI
            
            
         }
+        public frmMDI(bool estado)
+        {
+
+            InitializeComponent();
+            this.UsuarioLogueado();
+
+        }
         public void UsuarioLogueado()
         {
             gestor = GestorUsuarioTable.GetInstance();
-            btnUsuarioLogueado.Text = "Usuario: " + gestor.ObtenerUsuarioLogeado();
+            usuarioLogueado = gestor.ObtenerUsuarioLogeado();
+            btnUsuarioLogueado.Text = "Usuario: " + usuarioLogueado;
         }
 
 
@@ -220,6 +229,21 @@ namespace SIME_UTN.UI
             e.DisposeControl = true;
         }
 
+        private void btnUsuarioLogueado_Click(object sender, EventArgs e)
+        {
+
+            frmNuevoUsuario ofrNuevoUsuario = new frmNuevoUsuario(usuarioLogueado);
+            ofrNuevoUsuario.ShowDialog(this);
+
+
+            if (ofrNuevoUsuario.DialogResult == DialogResult.OK)
+            {
+
+                this.UsuarioLogueado();
+            }
+
+
+        }
 
     }
 }

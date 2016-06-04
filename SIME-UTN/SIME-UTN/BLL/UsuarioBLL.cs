@@ -41,9 +41,10 @@ namespace SIME_UTN.BLL
             }
         }
 
-        internal static List<UsuarioTable> OptenerId()
+
+        internal static UsuarioTable ValidarUsuarioPorUsuario(string usuariop)
         {
-            return UsuarioDAL.OptenerId();
+            return UsuarioDAL.ValidarUsuarioPorUsuario(usuariop);
         }
 
         internal static string ObtenerUsuarioLogeado()
@@ -51,9 +52,9 @@ namespace SIME_UTN.BLL
             return UsuarioDAL.ObtenerUsuarioLogeado();
         }
 
-        internal static UsuarioTable OptenerUsuarioID(int usuarioId)
+        internal static UsuarioTable OptenerUsuarioID(int usuarioIdp)
         {
-            return UsuarioDAL.OptenerUsuarioID(usuarioId);
+            return UsuarioDAL.OptenerUsuarioID(usuarioIdp);
         }
 
         internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep)
@@ -61,9 +62,9 @@ namespace SIME_UTN.BLL
             UsuarioDAL.EliminarUsuario(UsuarioIdp, UsuarioNombrep);
         }
 
-        internal static int ValidarUsuario(string usuario)
+        internal static int ValidarUsuario(string usuariop)
         {
-           return UsuarioDAL.ValidarUsuario(usuario);
+           return UsuarioDAL.ValidarUsuario(usuariop);
         }
     }
 }

@@ -25,11 +25,7 @@ namespace SIME_UTN.UI.Administracion
         }
 
       
-        public void UsuarioLogueado()
-        {
-            gestor = GestorUsuarioTable.GetInstance();
-            usuarioLogueado = gestor.ObtenerUsuarioLogeado();
-        }
+    
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
@@ -51,12 +47,20 @@ namespace SIME_UTN.UI.Administracion
             }
         }
 
-       
+
+        /// <summary>
+        /// Metodo que obtiene el Usuario que esta logueado en la base de datos
+        /// </summary>
+        public void UsuarioLogueado()
+        {
+            gestor = GestorUsuarioTable.GetInstance();
+            usuarioLogueado = gestor.ObtenerUsuarioLogeado();
+        }
 
         /// <summary>
         /// Actualiza el datagridview con los usuarios agredados
         /// </summary>
-       private void RefrescarLista()
+        private void RefrescarLista()
         {
             DataTable dt = new DataTable();
             dt.TableName = "Usuarios";
@@ -205,6 +209,12 @@ namespace SIME_UTN.UI.Administracion
 
 
         #region Checkbox de Agregar Usuarios y Permisos
+
+        /// <summary>
+        /// Metodo que valida que checkbox esta o no seleecionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkAdministrador_MouseClick(object sender, MouseEventArgs e)
         {
             if (chkAdministrador.Checked)
@@ -225,6 +235,11 @@ namespace SIME_UTN.UI.Administracion
 
         }
 
+        /// <summary>
+        /// Metodo que valida que checkbox esta o no seleecionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkDespachador_MouseClick(object sender, MouseEventArgs e)
         {
             if (chkDespachador.Checked)
@@ -242,29 +257,26 @@ namespace SIME_UTN.UI.Administracion
             }
         }
 
-        public void validarCheckBox()
-        {
-
-        }
-        #endregion
-
-        #region Checkbox de Modificar y Eliminar Usuarios
-
 
         #endregion
 
+
+        /// <summary>
+        /// Metodo que cierra la ventana Usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
 
-
-        private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
-        {
-          
-        }
-
+        /// <summary>
+        /// Metodo que permite eliminar un usuario, seleccionandolo en el datagrid y presionando la tecla delete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -295,6 +307,12 @@ namespace SIME_UTN.UI.Administracion
 
 
         }
+
+
+
+        /// <summary>
+        /// Metodo que valida los campos antes de guardar el usuario
+        /// </summary>
         public void ValidarCampos()
         {
             if (txtNombre.Text.Trim() == "")
@@ -327,10 +345,16 @@ namespace SIME_UTN.UI.Administracion
         }
 
 
+        /// <summary>
+        /// Metodo que permite agregar un nuevo Usuarios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             gestor = GestorUsuarioTable.GetInstance();
             usuario = new UsuarioTable();
+          
             try
             {
                 if (txtPassword.Text.Trim() != "" && txtConfirmacion.Text.Trim() != "")
@@ -390,12 +414,24 @@ namespace SIME_UTN.UI.Administracion
             }
         }
 
+
+        /// <summary>
+        /// Metodo que permite limpear los campos del formulario de Usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             CambiarEstado(EstadoMantenimiento.Nuevo);
             
         }
 
+
+        /// <summary>
+        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la informacion en los campos del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gCUsuarios_Click(object sender, EventArgs e)
         {
             CambiarEstado(EstadoMantenimiento.Editar);
@@ -442,6 +478,13 @@ namespace SIME_UTN.UI.Administracion
             }
         }
 
+
+
+        /// <summary>
+        /// Metodo que permite modificar un Usuario ya creado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             gestor = GestorUsuarioTable.GetInstance();
@@ -477,6 +520,12 @@ namespace SIME_UTN.UI.Administracion
             }
         }
 
+
+        /// <summary>
+        /// Metodo que permite seleccionar un Usuario del grid y eliminarlo por medio del boton eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             this.UsuarioLogueado();

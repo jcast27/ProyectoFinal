@@ -33,16 +33,16 @@ namespace SIME_UTN.DAL
                 {
                     try
                     {
-                        UsuarioTable usuario = new UsuarioTable();
-                        usuario.codigoUsuario = Convert.ToInt32(dr["CodigoUsuario"].ToString());
-                        usuario.usuario = dr["Usuario"].ToString();
-                        usuario.nombre = dr["Nombre"].ToString();
-                        usuario.apellido1 = dr["Apellido1"].ToString();
-                        usuario.apellido2 = dr["Apellido2"].ToString();
-                        usuario.perfil = dr["Perfil"].ToString();
-                        usuario.contrasena = dr["Contrasena"].ToString();
-                        usuario.estado = Convert.ToInt32(dr["Estado"].ToString());
-                        lista.Add(usuario);
+                        UsuarioTable unUsuario = new UsuarioTable();
+                        unUsuario.codigoUsuario = Convert.ToInt32(dr["CodigoUsuario"].ToString());
+                        unUsuario.usuario = dr["Usuario"].ToString();
+                        unUsuario.nombre = dr["Nombre"].ToString();
+                        unUsuario.apellido1 = dr["Apellido1"].ToString();
+                        unUsuario.apellido2 = dr["Apellido2"].ToString();
+                        unUsuario.perfil = dr["Perfil"].ToString();
+                        unUsuario.contrasena = dr["Contrasena"].ToString();
+                        unUsuario.estado = Convert.ToInt32(dr["Estado"].ToString());
+                        lista.Add(unUsuario);
                     }
                     catch (Exception)
                     {
@@ -55,6 +55,11 @@ namespace SIME_UTN.DAL
 
         }
 
+
+        /// <summary>
+        /// Metodo que devuleve el Usuario que esta logueado en la base de datos
+        /// </summary>
+        /// <returns></returns>
         internal static string ObtenerUsuarioLogeado()
         {
             string usuarioLogueado = "";
@@ -76,15 +81,21 @@ namespace SIME_UTN.DAL
             return usuarioLogueado;
         }
 
-        internal static int ValidarUsuario(string usuario)
+
+        /// <summary>
+        /// Metodo que valida si el Usuario ya existe, si existe llama al metodo "obtenerNumeroDeUsuario()", para obtener el consecutivo
+        /// </summary>
+        /// <param name="usuariop"></param>
+        /// <returns></returns>
+        internal static int ValidarUsuario(string usuariop)
         {
             int numero = 0;
-            string sql = @" SELECT * FROM [SIMEUTN].[dbo].[Usuario] WHERE Usuario like'%"+ usuario+ "%'and  CodigoUsuario= (SELECT MAX(CodigoUsuario) from [SIMEUTN].[dbo].[Usuario] where Usuario like'%" + usuario + "%')";
+            string sql = @" SELECT * FROM [SIMEUTN].[dbo].[Usuario] WHERE Usuario like'%"+ usuariop+ "%'and  CodigoUsuario= (SELECT MAX(CodigoUsuario) from [SIMEUTN].[dbo].[Usuario] where Usuario like'%" + usuariop + "%')";
 
             List<UsuarioTable> lista = new List<UsuarioTable>();
 
             SqlCommand command = new SqlCommand(sql);
-            command.Parameters.AddWithValue("@usuario", usuario);
+            command.Parameters.AddWithValue("@usuario", usuariop);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -104,13 +115,19 @@ namespace SIME_UTN.DAL
             return numero;
         }
 
-        internal static int obtenerNumeroDeUsuario(string usuario)
+
+        /// <summary>
+        /// Metodo que devuelve un conseutivo de Usuario, si este ya existe
+        /// </summary>
+        /// <param name="usuariop"></param>
+        /// <returns></returns>
+        internal static int obtenerNumeroDeUsuario(string usuariop)
         {
             int numero = 0;
             string sql = @"SELECT dbo.udf_ObtenerNumero(Usuario) as Numero FROM [SIMEUTN].[dbo].[Usuario] where Usuario=@usuario";
 
             SqlCommand command = new SqlCommand(sql);
-            command.Parameters.AddWithValue("@usuario", usuario);
+            command.Parameters.AddWithValue("@usuario", usuariop);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -142,7 +159,7 @@ namespace SIME_UTN.DAL
         /// </summary>
         /// <param name="nombre"></param>
         /// <returns></returns>
-        public static List<UsuarioTable> ObtenerUsuariosporNombre(string nombre)
+        public static List<UsuarioTable> ObtenerUsuariosporNombre(string nombrep)
         {
             string sql = @"select Usuario.Usuario, Usuario.Perfil 
                            from Usuario
@@ -151,7 +168,7 @@ namespace SIME_UTN.DAL
             List<UsuarioTable> lista = new List<UsuarioTable>();
 
             SqlCommand command = new SqlCommand(sql);
-            command.Parameters.AddWithValue("@Usuario", nombre);
+            command.Parameters.AddWithValue("@Usuario", nombrep);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -161,11 +178,11 @@ namespace SIME_UTN.DAL
                 {
                     try
                     {
-                        UsuarioTable usuario = new UsuarioTable();
-                        usuario.usuario = dr["Usuario"].ToString();
-                        usuario.perfil = dr["Perfil"].ToString();
+                        UsuarioTable unUsuario = new UsuarioTable();
+                        unUsuario.usuario = dr["Usuario"].ToString();
+                        unUsuario.perfil = dr["Perfil"].ToString();
 
-                        lista.Add(usuario);
+                        lista.Add(unUsuario);
                     }
                     catch (Exception)
                     {
@@ -182,18 +199,21 @@ namespace SIME_UTN.DAL
         /// Metodo que Guarda un Usuario en la base de datos
         /// </summary>
         /// <param name="usuario"></param>
-        public static void GuardarUsuario(UsuarioTable usuario)
+        public static void GuardarUsuario(UsuarioTable usuariop)
         {
+         
             StringBuilder sql = new StringBuilder();
+            Encriptar encriptar = new Encriptar();
+            String contrasennaEncriptada = encriptar.Cifrar(usuariop.contrasena);
 
             sql.AppendFormat(" USE [master] ");
-            sql.AppendFormat(" CREATE LOGIN {0} WITH PASSWORD=N'{1}', DEFAULT_DATABASE=[SIMEUTN], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF ", usuario.usuario, usuario.contrasena);
-            sql.AppendFormat(" EXEC master..sp_addsrvrolemember @loginame = N'{0}', @rolename = N'sysadmin'", usuario.usuario);
-            sql.AppendFormat("USE [SIMEUTN] CREATE USER [{0}] FOR LOGIN [{0}]", usuario.usuario);
+            sql.AppendFormat(" CREATE LOGIN {0} WITH PASSWORD=N'{1}', DEFAULT_DATABASE=[SIMEUTN], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF ", usuariop.usuario, usuariop.contrasena);
+            sql.AppendFormat(" EXEC master..sp_addsrvrolemember @loginame = N'{0}', @rolename = N'sysadmin'", usuariop.usuario);
+            sql.AppendFormat("USE [SIMEUTN] CREATE USER [{0}] FOR LOGIN [{0}]", usuariop.usuario);
 
 
 
-            sql.AppendFormat(@"use SIMEUTN; insert into Usuario(Usuario,Nombre,Apellido1,Apellido2,Perfil,Contrasena,Estado)values ('{0}','{1}','{2}','{3}','{4}','{5}',{6})", usuario.usuario,usuario.nombre,usuario.apellido1,usuario.apellido2, usuario.perfil, usuario.contrasena,usuario.estado);
+            sql.AppendFormat(@"use SIMEUTN; insert into Usuario(Usuario,Nombre,Apellido1,Apellido2,Perfil,Contrasena,Estado)values ('{0}','{1}','{2}','{3}','{4}','{5}',{6})", usuariop.usuario,usuariop.nombre,usuariop.apellido1,usuariop.apellido2, usuariop.perfil,contrasennaEncriptada, usuariop.estado);
 
 
             SqlCommand command = new SqlCommand(sql.ToString());
@@ -211,47 +231,11 @@ namespace SIME_UTN.DAL
 
 
         /// <summary>
-        /// Metodo que devuelve una Lista de Usuarios, por medio del Codigo de Usuario
-        /// </summary>
-        /// <returns></returns>
-        internal static List<UsuarioTable> OptenerId()
-        {
-            string sql = @"select MAX(Usuario.CodigoUsuario)+1 as ID
-                          FROM Usuario";
-
-            List<UsuarioTable> lista = new List<UsuarioTable>();
-            SqlCommand command = new SqlCommand(sql);
-
-            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-            {
-                DataSet ds = db.ExecuteReader(command, "consulta");
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    try
-                    {
-                        UsuarioTable usuario = new UsuarioTable();
-                        usuario.codigoUsuario = Convert.ToInt32(dr["ID"]);
-                        lista.Add(usuario);
-                    }
-                    catch (Exception)
-                    {
-                        UsuarioTable usuario = new UsuarioTable();
-                        usuario.codigoUsuario = 1;
-                        lista.Add(usuario);
-                    }
-                }
-                return lista;
-
-            }
-        }
-
-
-        /// <summary>
         /// Metodo que devuelve a un Usario de la base de datos, por medio del Codigo de Usuario
         /// </summary>
         /// <param name="CodigoUsuariop"></param>
         /// <returns></returns>
-        public static UsuarioTable OptenerUsuarioID(int UserId)
+        public static UsuarioTable OptenerUsuarioID(int UserIdp)
         {
             string sql = @"select Usuario.CodigoUsuario,Usuario.Usuario,Usuario.Perfil,Usuario.Contrasena
                          from Usuario
@@ -259,7 +243,7 @@ namespace SIME_UTN.DAL
 
 
             SqlCommand commando = new SqlCommand(sql);
-            commando.Parameters.AddWithValue("@CodigoUsuario", UserId);
+            commando.Parameters.AddWithValue("@CodigoUsuario", UserIdp);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -268,13 +252,13 @@ namespace SIME_UTN.DAL
                 if (ds.Tables[0].Rows.Count > 0)
                 {
 
-                    UsuarioTable usuario = new UsuarioTable();
-                    usuario.codigoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0]["CodigoUsuario"].ToString());
-                    usuario.usuario = ds.Tables[0].Rows[0]["Usuario"].ToString();
-                    usuario.perfil = ds.Tables[0].Rows[0]["Perfil"].ToString();
-                    usuario.contrasena = ds.Tables[0].Rows[0]["Contrasena"].ToString();
+                    UsuarioTable unUsuario = new UsuarioTable();
+                    unUsuario.codigoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0]["CodigoUsuario"].ToString());
+                    unUsuario.usuario = ds.Tables[0].Rows[0]["Usuario"].ToString();
+                    unUsuario.perfil = ds.Tables[0].Rows[0]["Perfil"].ToString();
+                    unUsuario.contrasena = ds.Tables[0].Rows[0]["Contrasena"].ToString();
 
-                    return usuario;
+                    return unUsuario;
 
 
                 }
@@ -338,6 +322,49 @@ namespace SIME_UTN.DAL
             }
         }
         #endregion
+
+        /// <summary>
+        /// Metodo que valida si el usuarios existe por medio el usuario
+        /// </summary>
+        /// <param name="usuariop"></param>
+        public static UsuarioTable ValidarUsuarioPorUsuario(string usuariop)
+        {
+
+            UsuarioTable unUsuario = null;
+            string sql = @"use SIMEUTN; select * from Usuario where Usuario= @Usuario";
+
+
+            SqlCommand commando = new SqlCommand(sql);
+            commando.Parameters.AddWithValue("@Usuario", usuariop);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(commando, "consulta");
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    try
+                    {
+                        unUsuario = new UsuarioTable();
+                        unUsuario.codigoUsuario = Convert.ToInt32(dr["CodigoUsuario"].ToString());
+                        unUsuario.usuario = dr["Usuario"].ToString();
+                        unUsuario.nombre = dr["Nombre"].ToString();
+                        unUsuario.apellido1 = dr["Apellido1"].ToString();
+                        unUsuario.apellido2 = dr["Apellido2"].ToString();
+                        unUsuario.perfil = dr["Perfil"].ToString();
+                        unUsuario.contrasena = dr["Contrasena"].ToString();
+                        unUsuario.estado = Convert.ToInt32(dr["Estado"].ToString());
+
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+
+            }
+            return unUsuario;
+        }
 
     }
 }

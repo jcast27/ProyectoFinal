@@ -63,10 +63,17 @@
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
+    <Compile Include="Entities\Encriptar.cs" />
     <Compile Include="Entities\UsuarioDB.cs" />
     <Compile Include="Entities\UsuarioTable.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="UI\frmNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmNuevoUsuario.Designer.cs">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +115,9 @@
     <Compile Include="UI\Procesos\frmRegistroProducto.Designer.cs">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\frmNuevoUsuario.resx">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Administracion\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +167,9 @@
     <Content Include="Resources\boton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\fondoCambioUser.png" />
+    <None Include="Resources\fondoCambioUser1.png" />
+    <None Include="Resources\Forward_32x32.png" />
     <Content Include="Resources\gnome_panel_force_quit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -171,6 +184,7 @@
     </Content>
     <None Include="Resources\productos1.jpg" />
     <None Include="Resources\registroProducto.jpg" />
+    <None Include="Resources\user.png" />
     <Content Include="Resources\usuarios1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

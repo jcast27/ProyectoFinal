@@ -63,6 +63,36 @@ namespace SIME_UTN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondoCambioUser {
+            get {
+                object obj = ResourceManager.GetObject("fondoCambioUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fondoCambioUser1 {
+            get {
+                object obj = ResourceManager.GetObject("fondoCambioUser1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Forward_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Forward_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gnome_panel_force_quit {
             get {
                 object obj = ResourceManager.GetObject("gnome_panel_force_quit", resourceCulture);
@@ -86,6 +116,16 @@ namespace SIME_UTN.Properties {
         internal static System.Drawing.Bitmap registroProducto {
             get {
                 object obj = ResourceManager.GetObject("registroProducto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -45,20 +45,20 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView(this.components);
-            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
-            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
             this.FlyoutCloseAction = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout(this.components);
+            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
+            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
+            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
+            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
             this.btnUsuarioLogueado = new System.Windows.Forms.Button();
             this.lblNombreProyecto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).BeginInit();
             this.SuspendLayout();
             // 
             // navButton2
@@ -178,9 +178,24 @@
             this.windowsUIView1.Tiles.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BaseTile[] {
             this.frmUsuariosTile,
             this.frmProductosTile});
-
             this.windowsUIView1.BackButtonClick += new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BackButtonClickEventHandler(this.windowsUIView1_BackButtonClick);
             this.windowsUIView1.ControlReleasing += new DevExpress.XtraBars.Docking2010.Views.ControlReleasingEventHandler(this.windowsUIView1_ControlReleasing);
+            // 
+            // FlyoutCloseAction
+            // 
+            this.FlyoutCloseAction.Name = "FlyoutCloseAction";
+            // 
+            // frmUsuariosDocument
+            // 
+            this.frmUsuariosDocument.Caption = "Ventana Usuarios";
+            this.frmUsuariosDocument.ControlName = "frmUsuarios";
+            this.frmUsuariosDocument.ControlTypeName = "SIME_UTN.UI.frmUsuarios";
+            // 
+            // frmProductosDocument
+            // 
+            this.frmProductosDocument.Caption = "frmProductos";
+            this.frmProductosDocument.ControlName = "frmProductos";
+            this.frmProductosDocument.ControlTypeName = "SIME_UTN.UI.frmProductos";
             // 
             // frmUsuariosTile
             // 
@@ -203,12 +218,6 @@
             this.frmUsuariosTile.Name = "frmUsuariosTile";
             this.frmUsuariosTile.Visible = false;
             // 
-            // frmUsuariosDocument
-            // 
-            this.frmUsuariosDocument.Caption = "Ventana Usuarios";
-            this.frmUsuariosDocument.ControlName = "frmUsuarios";
-            this.frmUsuariosDocument.ControlTypeName = "SIME_UTN.UI.frmUsuarios";
-            // 
             // frmProductosTile
             // 
             this.frmProductosTile.Document = this.frmProductosDocument;
@@ -229,16 +238,6 @@
             this.frmProductosTile.Name = "frmProductosTile";
             this.frmProductosTile.Visible = false;
             // 
-            // frmProductosDocument
-            // 
-            this.frmProductosDocument.Caption = "frmProductos";
-            this.frmProductosDocument.ControlName = "frmProductos";
-            this.frmProductosDocument.ControlTypeName = "SIME_UTN.UI.frmProductos";
-            // 
-            // FlyoutCloseAction
-            // 
-            this.FlyoutCloseAction.Name = "FlyoutCloseAction";
-            // 
             // btnUsuarioLogueado
             // 
             this.btnUsuarioLogueado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -255,6 +254,7 @@
             this.btnUsuarioLogueado.Size = new System.Drawing.Size(177, 43);
             this.btnUsuarioLogueado.TabIndex = 8;
             this.btnUsuarioLogueado.UseVisualStyleBackColor = false;
+            this.btnUsuarioLogueado.Click += new System.EventHandler(this.btnUsuarioLogueado_Click);
             // 
             // lblNombreProyecto
             // 
@@ -287,11 +287,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosDocument)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

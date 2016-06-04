@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SIME_UTN.Entities;
 using SIME_UTN.Factories;
 using SIME_UTN.BLL;
+using System.Windows.Forms;
 
 namespace SIME_UTN.Gestores
 {
@@ -35,6 +36,12 @@ namespace SIME_UTN.Gestores
         public List<UsuarioTable> ObtenerUsuarios()
         {
             return UsuarioBLL.ObtenerUsuarios();
+        }
+
+        internal UsuarioTable ValidarUsuarioPorUsuario(string usuariop)
+        {
+
+            return UsuarioBLL.ValidarUsuarioPorUsuario(usuariop);
         }
 
         internal string ObtenerUsuarioLogeado()
@@ -76,21 +83,12 @@ namespace SIME_UTN.Gestores
 
 
         /// <summary>
-        /// Metodo que invoca a OptenerUsuarios por ID de la BLL y que devuleve una lista de Usuarios
-        /// </summary> 
-        /// <returns></returns>
-        public static List<UsuarioTable> OptenerId()
-        {
-            return UsuarioBLL.OptenerId();
-        }
-
-        /// <summary>
         /// Metodo que invoca a OptenerUsuarios por ID de la BLL y que devuleve un usuario
         /// </summary>
         /// <returns></returns>
-        public UsuarioTable OptenerUsuarioId(int usuarioId)
+        public UsuarioTable OptenerUsuarioId(int usuarioIdp)
         {
-            return UsuarioBLL.OptenerUsuarioID(usuarioId);
+            return UsuarioBLL.OptenerUsuarioID(usuarioIdp);
         }
 
         /// <summary>
@@ -104,21 +102,27 @@ namespace SIME_UTN.Gestores
         }
 
 
-
-
-        public void InsertarNombreUsuario(string nombre)
+        /// <summary>
+        /// Metodo que valida si el Usuario ya existe
+        /// </summary>
+        /// <param name="usuariop"></param>
+        internal int ValidarUsuario(string usuariop)
         {
-            NombreUsuario = nombre;
+            return UsuarioBLL.ValidarUsuario(usuariop);
+        }
+
+
+
+        public void InsertarNombreUsuario(string nombrep)
+        {
+            NombreUsuario = nombrep;
         }
         public string OptenerNombreUsuario()
         {
             return NombreUsuario;
         }
 
-        internal int ValidarUsuario(string usuario)
-        {
-           return UsuarioBLL.ValidarUsuario(usuario);
-        }
+      
     }
   
 }
