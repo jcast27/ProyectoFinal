@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame2 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame3 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
             this.tileNavPane2 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAdministracion = new DevExpress.XtraBars.Navigation.NavButton();
@@ -50,8 +50,11 @@
             this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
             this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
             this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.btnUsuarioLogueado = new System.Windows.Forms.Button();
             this.lblNombreProyecto = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.usuarioTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarContrasennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).BeginInit();
@@ -59,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // navButton2
@@ -92,7 +96,7 @@
             this.tileNavPane2.Name = "tileNavPane2";
             this.tileNavPane2.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane2.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane2.Size = new System.Drawing.Size(936, 93);
+            this.tileNavPane2.Size = new System.Drawing.Size(918, 93);
             this.tileNavPane2.TabIndex = 3;
             this.tileNavPane2.Text = "tileNavPane2";
             // 
@@ -156,7 +160,7 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(936, 154);
+            this.splitter1.Size = new System.Drawing.Size(918, 154);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
@@ -200,31 +204,10 @@
             // frmUsuariosTile
             // 
             this.frmUsuariosTile.Document = this.frmUsuariosDocument;
-            tileItemElement1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement1.Image")));
-            tileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement1.Text = "element1";
-            this.frmUsuariosTile.Elements.Add(tileItemElement1);
-            tileItemFrame1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            tileItemFrame1.Appearance.BorderColor = System.Drawing.Color.Black;
-            tileItemFrame1.Appearance.Options.UseBackColor = true;
-            tileItemFrame1.Appearance.Options.UseBorderColor = true;
-            tileItemElement2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement2.Image")));
-            tileItemElement2.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement2.Text = "element1";
-            tileItemFrame1.Elements.Add(tileItemElement2);
-            tileItemFrame1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame1.Image")));
-            this.frmUsuariosTile.Frames.Add(tileItemFrame1);
-            this.frmUsuariosTile.Group = "TileGroup2";
-            this.frmUsuariosTile.Name = "frmUsuariosTile";
-            this.frmUsuariosTile.Visible = false;
-            // 
-            // frmProductosTile
-            // 
-            this.frmProductosTile.Document = this.frmProductosDocument;
             tileItemElement3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement3.Image")));
             tileItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
             tileItemElement3.Text = "element1";
-            this.frmProductosTile.Elements.Add(tileItemElement3);
+            this.frmUsuariosTile.Elements.Add(tileItemElement3);
             tileItemFrame2.Appearance.BackColor = System.Drawing.Color.Transparent;
             tileItemFrame2.Appearance.BorderColor = System.Drawing.Color.Black;
             tileItemFrame2.Appearance.Options.UseBackColor = true;
@@ -234,27 +217,30 @@
             tileItemElement4.Text = "element1";
             tileItemFrame2.Elements.Add(tileItemElement4);
             tileItemFrame2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame2.Image")));
-            this.frmProductosTile.Frames.Add(tileItemFrame2);
+            this.frmUsuariosTile.Frames.Add(tileItemFrame2);
+            this.frmUsuariosTile.Group = "TileGroup2";
+            this.frmUsuariosTile.Name = "frmUsuariosTile";
+            this.frmUsuariosTile.Visible = false;
+            // 
+            // frmProductosTile
+            // 
+            this.frmProductosTile.Document = this.frmProductosDocument;
+            tileItemElement5.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement5.Image")));
+            tileItemElement5.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement5.Text = "element1";
+            this.frmProductosTile.Elements.Add(tileItemElement5);
+            tileItemFrame3.Appearance.BackColor = System.Drawing.Color.Transparent;
+            tileItemFrame3.Appearance.BorderColor = System.Drawing.Color.Black;
+            tileItemFrame3.Appearance.Options.UseBackColor = true;
+            tileItemFrame3.Appearance.Options.UseBorderColor = true;
+            tileItemElement6.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement6.Image")));
+            tileItemElement6.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement6.Text = "element1";
+            tileItemFrame3.Elements.Add(tileItemElement6);
+            tileItemFrame3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame3.Image")));
+            this.frmProductosTile.Frames.Add(tileItemFrame3);
             this.frmProductosTile.Name = "frmProductosTile";
             this.frmProductosTile.Visible = false;
-            // 
-            // btnUsuarioLogueado
-            // 
-            this.btnUsuarioLogueado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUsuarioLogueado.BackColor = System.Drawing.Color.DimGray;
-            this.btnUsuarioLogueado.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnUsuarioLogueado.FlatAppearance.BorderSize = 0;
-            this.btnUsuarioLogueado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarioLogueado.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuarioLogueado.ForeColor = System.Drawing.Color.Black;
-            this.btnUsuarioLogueado.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarioLogueado.Image")));
-            this.btnUsuarioLogueado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarioLogueado.Location = new System.Drawing.Point(747, 9);
-            this.btnUsuarioLogueado.Name = "btnUsuarioLogueado";
-            this.btnUsuarioLogueado.Size = new System.Drawing.Size(177, 43);
-            this.btnUsuarioLogueado.TabIndex = 8;
-            this.btnUsuarioLogueado.UseVisualStyleBackColor = false;
-            this.btnUsuarioLogueado.Click += new System.EventHandler(this.btnUsuarioLogueado_Click);
             // 
             // lblNombreProyecto
             // 
@@ -264,11 +250,53 @@
             this.lblNombreProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreProyecto.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNombreProyecto.Location = new System.Drawing.Point(16, 15);
+            this.lblNombreProyecto.Location = new System.Drawing.Point(7, 15);
             this.lblNombreProyecto.Name = "lblNombreProyecto";
             this.lblNombreProyecto.Size = new System.Drawing.Size(710, 24);
             this.lblNombreProyecto.TabIndex = 9;
             this.lblNombreProyecto.Text = "SISTEMA DE INVENTARIOS Y MANTENIMIENTO DE EQUIPOS SIME-UTN";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuStrip1.BackColor = System.Drawing.Color.DimGray;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuarioTSMI});
+            this.menuStrip1.Location = new System.Drawing.Point(734, 9);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(144, 40);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // usuarioTSMI
+            // 
+            this.usuarioTSMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cambiarSessionToolStripMenuItem,
+            this.cambiarContrasennaToolStripMenuItem});
+            this.usuarioTSMI.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuarioTSMI.Image = ((System.Drawing.Image)(resources.GetObject("usuarioTSMI.Image")));
+            this.usuarioTSMI.Name = "usuarioTSMI";
+            this.usuarioTSMI.Size = new System.Drawing.Size(44, 36);
+            // 
+            // cambiarSessionToolStripMenuItem
+            // 
+            this.cambiarSessionToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.cambiarSessionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cambiarSessionToolStripMenuItem.Name = "cambiarSessionToolStripMenuItem";
+            this.cambiarSessionToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.cambiarSessionToolStripMenuItem.Text = "Cambiar Usuario";
+            this.cambiarSessionToolStripMenuItem.Click += new System.EventHandler(this.cambiarSessionToolStripMenuItem_Click);
+            // 
+            // cambiarContrasennaToolStripMenuItem
+            // 
+            this.cambiarContrasennaToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.cambiarContrasennaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cambiarContrasennaToolStripMenuItem.Name = "cambiarContrasennaToolStripMenuItem";
+            this.cambiarContrasennaToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.cambiarContrasennaToolStripMenuItem.Text = "Cambiar Contrasenna";
+            this.cambiarContrasennaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContrasennaToolStripMenuItem_Click);
             // 
             // frmMDI
             // 
@@ -276,12 +304,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
-            this.ClientSize = new System.Drawing.Size(936, 548);
+            this.ClientSize = new System.Drawing.Size(918, 548);
             this.Controls.Add(this.lblNombreProyecto);
-            this.Controls.Add(this.btnUsuarioLogueado);
             this.Controls.Add(this.tileNavPane2);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitter1);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMDI";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
@@ -292,6 +321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.frmProductosDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmUsuariosTile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmProductosTile)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,10 +343,13 @@
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView windowsUIView1;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document frmUsuariosDocument;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document frmProductosDocument;
-        private System.Windows.Forms.Button btnUsuarioLogueado;
         private System.Windows.Forms.Label lblNombreProyecto;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile frmUsuariosTile;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile frmProductosTile;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout FlyoutCloseAction;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem usuarioTSMI;
+        private System.Windows.Forms.ToolStripMenuItem cambiarSessionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cambiarContrasennaToolStripMenuItem;
     }
 }

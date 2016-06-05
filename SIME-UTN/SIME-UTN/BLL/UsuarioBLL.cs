@@ -66,5 +66,10 @@ namespace SIME_UTN.BLL
         {
            return UsuarioDAL.ValidarUsuario(usuariop);
         }
+
+        internal static bool CambiarContrasenna(string usuariop, string contrasenaAntiguap, string contrasenaNuevap)
+        {
+            return UsuarioDAL.CambiarContrasenna(usuariop, contrasenaAntiguap, contrasenaNuevap);
+        }
     }
 }

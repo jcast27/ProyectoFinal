@@ -55,6 +55,32 @@ namespace SIME_UTN.DAL
 
         }
 
+        internal static bool CambiarContrasenna(string usuariop, string contrasenaAntiguap, string contrasenaNuevap)
+        {
+            Encriptar encriptar = new Encriptar();
+            String contrasennaEncriptada = encriptar.Cifrar(contrasenaNuevap);
+            bool cambioEfectuado = false;
+            string sql = @"Update Usuario set Contrasena =@contrasena where Usuario = @usuario;
+                           ALTER LOGIN "+ usuariop+ " WITH PASSWORD = '"+ contrasenaNuevap+ "' OLD_PASSWORD = '"+ contrasenaAntiguap+"'";
+
+            SqlCommand command = new SqlCommand(sql);
+            command.Parameters.AddWithValue("@contrasena",contrasennaEncriptada);
+            command.Parameters.AddWithValue("@usuario",usuariop);
+            try
+            {
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(command, IsolationLevel.ReadCommitted);
+                }
+                cambioEfectuado = true;
+            }
+            catch (Exception)
+            {
+                cambioEfectuado = false;
+            }
+            return cambioEfectuado;
+        }
+
 
         /// <summary>
         /// Metodo que devuleve el Usuario que esta logueado en la base de datos

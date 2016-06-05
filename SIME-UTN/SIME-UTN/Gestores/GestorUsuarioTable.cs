@@ -91,6 +91,18 @@ namespace SIME_UTN.Gestores
             return UsuarioBLL.OptenerUsuarioID(usuarioIdp);
         }
 
+
+        /// <summary>
+        /// Metodo que permite cambiar la contrasenna
+        /// </summary>
+        /// <param name="usuariop"></param>
+        /// <param name="contrasenap"></param>
+        /// <returns></returns>
+        internal bool CambiarContrasenna(string usuariop, string contrasenaAntiguap,string contrasenaNuevap)
+        {
+            return UsuarioBLL.CambiarContrasenna(usuariop, contrasenaAntiguap, contrasenaNuevap);
+        }
+
         /// <summary>
         /// Metodo que invoca a EliminarUsario de la BLL y que lo elimina de la base de datos
         /// </summary>

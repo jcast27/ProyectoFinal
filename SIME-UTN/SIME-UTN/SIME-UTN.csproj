@@ -68,11 +68,17 @@
     <Compile Include="Entities\UsuarioTable.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
-    <Compile Include="UI\frmNuevoUsuario.cs">
+    <Compile Include="UI\frmCambioContrasenna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmNuevoUsuario.Designer.cs">
-      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    <Compile Include="UI\frmCambioContrasenna.Designer.cs">
+      <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCambioUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCambioUsuario.Designer.cs">
+      <DependentUpon>frmCambioUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmSplashScreen.cs">
       <SubType>Form</SubType>
@@ -115,8 +121,11 @@
     <Compile Include="UI\Procesos\frmRegistroProducto.Designer.cs">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\frmNuevoUsuario.resx">
-      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmCambioContrasenna.resx">
+      <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCambioUsuario.resx">
+      <DependentUpon>frmCambioUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Administracion\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>

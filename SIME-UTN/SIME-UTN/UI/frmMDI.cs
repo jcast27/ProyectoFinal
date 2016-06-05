@@ -44,7 +44,7 @@ namespace SIME_UTN.UI
         {
             gestor = GestorUsuarioTable.GetInstance();
             usuarioLogueado = gestor.ObtenerUsuarioLogeado();
-            btnUsuarioLogueado.Text = "Usuario: " + usuarioLogueado;
+            usuarioTSMI.Text = "Usuario: " + usuarioLogueado;
         }
 
 
@@ -229,21 +229,32 @@ namespace SIME_UTN.UI
             e.DisposeControl = true;
         }
 
-        private void btnUsuarioLogueado_Click(object sender, EventArgs e)
-        {
 
-            frmNuevoUsuario ofrNuevoUsuario = new frmNuevoUsuario(usuarioLogueado);
+        private void cambiarSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCambioUsuario ofrNuevoUsuario = new frmCambioUsuario(usuarioLogueado);
             ofrNuevoUsuario.ShowDialog(this);
 
 
             if (ofrNuevoUsuario.DialogResult == DialogResult.OK)
             {
-
                 this.UsuarioLogueado();
+                if (tipoDeProceso == "Administracion")
+                {
+                    this.CrearDocuemtosAdministracion(true);
+                }
+                if (tipoDeProceso == "Procesos")
+                {
+                    this.CrearDocuemtosProceso(true);
+                }
             }
-
 
         }
 
+        private void cambiarContrasennaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCambioContrasenna ofrmCambioContrasenna = new frmCambioContrasenna(usuarioLogueado);
+            ofrmCambioContrasenna.ShowDialog(this);
+        }
     }
 }
