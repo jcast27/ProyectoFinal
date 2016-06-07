@@ -68,72 +68,72 @@
     <Compile Include="Entities\UsuarioTable.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
-    <Compile Include="UI\frmCambioContrasenna.cs">
+    <Compile Include="UI\Bodega\frmCambioContrasenna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmCambioContrasenna.Designer.cs">
+    <Compile Include="UI\Bodega\frmCambioContrasenna.Designer.cs">
       <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmCambioUsuario.cs">
+    <Compile Include="UI\Bodega\frmCambioUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmCambioUsuario.Designer.cs">
+    <Compile Include="UI\Bodega\frmCambioUsuario.Designer.cs">
       <DependentUpon>frmCambioUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmSplashScreen.cs">
+    <Compile Include="UI\Bodega\frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmSplashScreen.Designer.cs">
+    <Compile Include="UI\Bodega\frmSplashScreen.Designer.cs">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestores\GestorUsuarioTable.cs" />
     <Compile Include="Persistencia\DataBase.cs" />
     <Compile Include="Persistencia\DataBaseFactory.cs" />
-    <Compile Include="UI\frmMDI.cs">
+    <Compile Include="UI\Bodega\frmMDI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmMDI.Designer.cs">
+    <Compile Include="UI\Bodega\frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmInicio.cs">
+    <Compile Include="UI\Bodega\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmInicio.Designer.cs">
+    <Compile Include="UI\Bodega\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Administracion\frmUsuarios.cs">
+    <Compile Include="UI\Bodega\Administracion\frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Administracion\frmUsuarios.Designer.cs">
+    <Compile Include="UI\Bodega\Administracion\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Administracion\frmProductos.cs">
+    <Compile Include="UI\Bodega\Administracion\frmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Administracion\frmProductos.Designer.cs">
+    <Compile Include="UI\Bodega\Administracion\frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Procesos\frmRegistroProducto.cs">
+    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Procesos\frmRegistroProducto.Designer.cs">
+    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.Designer.cs">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\frmCambioContrasenna.resx">
+    <EmbeddedResource Include="UI\Bodega\frmCambioContrasenna.resx">
       <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmCambioUsuario.resx">
+    <EmbeddedResource Include="UI\Bodega\frmCambioUsuario.resx">
       <DependentUpon>frmCambioUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Administracion\frmProductos.resx">
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmSplashScreen.resx">
+    <EmbeddedResource Include="UI\Bodega\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmMDI.resx">
+    <EmbeddedResource Include="UI\Bodega\frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -147,13 +147,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\frmInicio.resx">
+    <EmbeddedResource Include="UI\Bodega\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Administracion\frmUsuarios.resx">
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Procesos\frmRegistroProducto.resx">
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmRegistroProducto.resx">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
@@ -204,7 +204,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UI\Formulario\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
