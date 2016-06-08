@@ -8,7 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace SIME_UTN.UI.Procesos
+namespace SIME_UTN.UI.Bodega.Procesos
 {
     public partial class frmRegistroProducto : DevExpress.XtraEditors.XtraForm
     {

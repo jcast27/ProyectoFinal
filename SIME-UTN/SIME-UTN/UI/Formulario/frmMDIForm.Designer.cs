@@ -1,6 +1,6 @@
-﻿namespace SIME_UTN.UI.Bodega
+﻿namespace SIME_UTN.UI.Formulario
 {
-    partial class frmMDI
+    partial class frmMDIForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDIForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
@@ -298,7 +298,7 @@
             this.cambiarContrasennaToolStripMenuItem.Text = "Cambiar Contrasenna";
             this.cambiarContrasennaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContrasennaToolStripMenuItem_Click);
             // 
-            // frmMDI
+            // frmMDIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,10 +311,10 @@
             this.Controls.Add(this.splitter1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmMDI";
+            this.Name = "frmMDIForm";
+            this.Text = "Formulario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
-            this.Load += new System.EventHandler(this.frmMDI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).EndInit();
@@ -329,7 +329,7 @@
 
         }
 
-      
+
 
         #endregion
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;

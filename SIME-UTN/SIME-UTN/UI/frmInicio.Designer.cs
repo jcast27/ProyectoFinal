@@ -35,7 +35,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasena = new System.Windows.Forms.TextBox();
-            this.cmbDepartamentos = new System.Windows.Forms.ComboBox();
+            this.cmbModulo = new System.Windows.Forms.ComboBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -99,16 +99,19 @@
             this.txtContrasena.TabIndex = 42;
             this.txtContrasena.Text = "sa1";
             // 
-            // cmbDepartamentos
+            // cmbModulo
             // 
-            this.cmbDepartamentos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbDepartamentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDepartamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDepartamentos.FormattingEnabled = true;
-            this.cmbDepartamentos.Location = new System.Drawing.Point(480, 211);
-            this.cmbDepartamentos.Name = "cmbDepartamentos";
-            this.cmbDepartamentos.Size = new System.Drawing.Size(191, 28);
-            this.cmbDepartamentos.TabIndex = 43;
+            this.cmbModulo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbModulo.FormattingEnabled = true;
+            this.cmbModulo.Items.AddRange(new object[] {
+            "Bodega",
+            "Mantenimiento"});
+            this.cmbModulo.Location = new System.Drawing.Point(480, 211);
+            this.cmbModulo.Name = "cmbModulo";
+            this.cmbModulo.Size = new System.Drawing.Size(191, 28);
+            this.cmbModulo.TabIndex = 43;
             // 
             // lblUsuario
             // 
@@ -208,7 +211,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.cmbDepartamentos);
+            this.Controls.Add(this.cmbModulo);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.statusStrip1);
@@ -234,7 +237,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContrasena;
-        private System.Windows.Forms.ComboBox cmbDepartamentos;
+        private System.Windows.Forms.ComboBox cmbModulo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

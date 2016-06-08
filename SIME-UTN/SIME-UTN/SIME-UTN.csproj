@@ -68,22 +68,22 @@
     <Compile Include="Entities\UsuarioTable.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
-    <Compile Include="UI\Bodega\frmCambioContrasenna.cs">
+    <Compile Include="UI\frmCambioContrasenna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Bodega\frmCambioContrasenna.Designer.cs">
+    <Compile Include="UI\frmCambioContrasenna.Designer.cs">
       <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Bodega\frmCambioUsuario.cs">
+    <Compile Include="UI\frmCambioUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Bodega\frmCambioUsuario.Designer.cs">
+    <Compile Include="UI\frmCambioUsuario.Designer.cs">
       <DependentUpon>frmCambioUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Bodega\frmSplashScreen.cs">
+    <Compile Include="UI\frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Bodega\frmSplashScreen.Designer.cs">
+    <Compile Include="UI\frmSplashScreen.Designer.cs">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestores\GestorUsuarioTable.cs" />
@@ -95,10 +95,10 @@
     <Compile Include="UI\Bodega\frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Bodega\frmInicio.cs">
+    <Compile Include="UI\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Bodega\frmInicio.Designer.cs">
+    <Compile Include="UI\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -121,16 +121,22 @@
     <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.Designer.cs">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\Bodega\frmCambioContrasenna.resx">
+    <Compile Include="UI\Formulario\frmMDIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\frmMDIForm.Designer.cs">
+      <DependentUpon>frmMDIForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\frmCambioContrasenna.resx">
       <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Bodega\frmCambioUsuario.resx">
+    <EmbeddedResource Include="UI\frmCambioUsuario.resx">
       <DependentUpon>frmCambioUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Bodega\frmSplashScreen.resx">
+    <EmbeddedResource Include="UI\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\frmMDI.resx">
@@ -147,7 +153,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\Bodega\frmInicio.resx">
+    <EmbeddedResource Include="UI\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmUsuarios.resx">
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Procesos\frmRegistroProducto.resx">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\frmMDIForm.resx">
+      <DependentUpon>frmMDIForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -205,7 +214,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\Formulario\" />
+    <Folder Include="UI\Formulario\Administracion\" />
+    <Folder Include="UI\Formulario\Procesos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,17 +16,25 @@ namespace SIME_UTN.UI
     public partial class frmInicio : Form
     {
         private int contador = 0;
+        private int modulo = 0;
         GestorUsuarioTable gestor = null;
-        public frmInicio()
+        public int Modulo
         {
+            get
+            {
+                return modulo;
+            }
 
-            InitializeComponent();
-
+            set
+            {
+                modulo = value;
+            }
         }
 
-
-
-
+        public frmInicio()
+        {
+            InitializeComponent();
+        }
 
         /// <summary>
         /// Metodo que valida el Usuario y crea una conexion a la base de datos
@@ -51,6 +59,13 @@ namespace SIME_UTN.UI
                 return;
             }
 
+            if (cmbModulo.SelectedIndex == -1)
+            {
+                this.errorProvider1.SetError(cmbModulo, "Modulo requerida");
+                cmbModulo.Focus();
+                return;
+            }
+
             try
             {
                 gestor = GestorUsuarioTable.GetInstance();
@@ -62,6 +77,8 @@ namespace SIME_UTN.UI
                 oUsuario.contrasenna = txtContrasena.Text.Trim();
                 //  validar la conexion 
                 BLL.LoginBLL.Conexion(txtUsuario.Text.Trim(), txtContrasena.Text.Trim());
+                // modulo seleccionado
+                Modulo = cmbModulo.SelectedIndex;
                 // devolver OK
                 this.DialogResult = DialogResult.OK;
                 // Cerrar ventana de Login

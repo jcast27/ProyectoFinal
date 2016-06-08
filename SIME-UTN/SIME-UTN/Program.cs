@@ -28,12 +28,17 @@ namespace SIME_UTN
             //Application.Run(ofrmMDI);
 
             //  si el resultado fue OK con el DialogResult
-              if (ofrmInicio.DialogResult == DialogResult.OK)
-              {
-                  Application.Run(new frmMDI());
-              }
-
-
+            if (ofrmInicio.DialogResult == DialogResult.OK)
+            {
+                if (ofrmInicio.Modulo == 0)
+                {
+                    Application.Run(new UI.Bodega.frmMDI());
+                }
+                else if (ofrmInicio.Modulo == 1)
+                {
+                    Application.Run(new UI.Formulario.frmMDIForm());
+                }
+            }
         }
     }
 }

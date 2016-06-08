@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using SIME_UTN.Entities;
 using SIME_UTN.Gestores;
 
-namespace SIME_UTN.UI.Administracion
+namespace SIME_UTN.UI.Bodega.Administracion
 {
     public partial class frmUsuarios : Form
     {

@@ -12,16 +12,16 @@ using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using SIME_UTN.Gestores;
 using DevExpress.XtraBars.Docking2010.Views;
 
-namespace SIME_UTN.UI.Bodega
+namespace SIME_UTN.UI.Formulario
 {
-    public partial class frmMDI : DevExpress.XtraEditors.XtraForm
+    public partial class frmMDIForm : DevExpress.XtraEditors.XtraForm
     {
         static string tipoDeProceso ="";
         static string usuarioLogueado = "";
         GestorUsuarioTable gestor = null;
-
-        public frmMDI()
+        public frmMDIForm()
         {
+           
             Thread tardar = new Thread(new ThreadStart(this.SplashScreen));
             tardar.Start();
             Thread.Sleep(6000); // Tardanza para iniciar aplicacion (6000)
@@ -30,14 +30,16 @@ namespace SIME_UTN.UI.Bodega
             // Handling the QueryControl event that will populate all automatically generated Documents
            // CrearDocuemtnos();
             this.UsuarioLogueado();
+           
+           
         }
-
-        public frmMDI(bool estado)
+        public frmMDIForm(bool estado)
         {
+
             InitializeComponent();
             this.UsuarioLogueado();
-        }
 
+        }
         public void UsuarioLogueado()
         {
             gestor = GestorUsuarioTable.GetInstance();
@@ -58,17 +60,28 @@ namespace SIME_UTN.UI.Bodega
 
             if (e.Document.Caption == "Ventana Usuarios")
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUsuarios();
-            if (e.Document.Caption == "Ventana Productos")
-                e.Control = new SIME_UTN.UI.Bodega.Administracion.frmProductos();
-            if (e.Document.Caption == "Ventana Ingreso Producto")
-                e.Control = new SIME_UTN.UI.Bodega.Procesos.frmRegistroProducto();
+
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
+
+            /*switch (e.Document.Caption)
+            {
+                case "Ventana Usuarios":
+                    e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUsuarios();
+                    break;
+                case "Ventana Productos":
+                    e.Control = new SIME_UTN.UI.Bodega.Administracion.frmProductos();
+                    break;
+                case "Ventana Ingreso Producto":
+                    e.Control = new SIME_UTN.UI.Bodega.Procesos.frmRegistroProducto();
+                    break;
+            }*/
+
         }
 
         private FlyoutAction createCloseAction(Flyout flyout)
         {
-            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmación", Description = "Desea Cerrar Esta Aplicacion?" };
+            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmacion", Description = "Desea Cerrar Esta Aplicacion?" };
             // closeaction.Description = "Desea Cerrar Esta Aplicacion?";
             FlyoutCommand comandoYes = new FlyoutCommand() { Text = "Si", Result = System.Windows.Forms.DialogResult.Yes };
             FlyoutCommand comandoNO = new FlyoutCommand() { Text = "No", Result = System.Windows.Forms.DialogResult.No };
@@ -89,15 +102,16 @@ namespace SIME_UTN.UI.Bodega
 
         private void mBtnAdministracion_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            CrearDocumentosProceso(false);
-            this.CrearDocumentosAdministracion(true);
+            CrearDocuemtosProceso(false);
+            this.CrearDocuemtosAdministracion(true);
             tipoDeProceso = "Administracion";
+
         }
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            this.CrearDocumentosAdministracion(false);
-            CrearDocumentosProceso(true);
+            this.CrearDocuemtosAdministracion(false);
+            CrearDocuemtosProceso(true);
             tipoDeProceso = "Procesos";
         }
 
@@ -137,7 +151,7 @@ namespace SIME_UTN.UI.Bodega
             return tile1;
         }
 
-        public void CrearDocumentosAdministracion(Boolean estado)
+        public void CrearDocuemtosAdministracion(Boolean estado)
         {
             string nombreElemento = "";
             string grupo = "";
@@ -173,7 +187,7 @@ namespace SIME_UTN.UI.Bodega
 
         }
 
-        public void CrearDocumentosProceso(Boolean estado)
+        public void CrearDocuemtosProceso(Boolean estado)
         {
             string nombreElemento = "";
             string grupo = "";
@@ -209,11 +223,11 @@ namespace SIME_UTN.UI.Bodega
         {
           if (tipoDeProceso == "Administracion")
             {
-                this.CrearDocumentosAdministracion(true);
+                this.CrearDocuemtosAdministracion(true);
             }
             if (tipoDeProceso == "Procesos")
             {
-                this.CrearDocumentosProceso(true);
+                this.CrearDocuemtosProceso(true);
             }
              
         }
@@ -235,11 +249,11 @@ namespace SIME_UTN.UI.Bodega
                 this.UsuarioLogueado();
                 if (tipoDeProceso == "Administracion")
                 {
-                    this.CrearDocumentosAdministracion(true);
+                    this.CrearDocuemtosAdministracion(true);
                 }
                 if (tipoDeProceso == "Procesos")
                 {
-                    this.CrearDocumentosProceso(true);
+                    this.CrearDocuemtosProceso(true);
                 }
             }
 
@@ -249,11 +263,6 @@ namespace SIME_UTN.UI.Bodega
         {
             frmCambioContrasenna ofrmCambioContrasenna = new frmCambioContrasenna(usuarioLogueado);
             ofrmCambioContrasenna.ShowDialog(this);
-        }
-
-        private void frmMDI_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

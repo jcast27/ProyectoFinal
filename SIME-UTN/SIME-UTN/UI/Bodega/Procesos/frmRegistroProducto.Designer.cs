@@ -1,4 +1,4 @@
-﻿namespace SIME_UTN.UI.Procesos
+﻿namespace SIME_UTN.UI.Bodega.Procesos
 {
     partial class frmRegistroProducto
     {

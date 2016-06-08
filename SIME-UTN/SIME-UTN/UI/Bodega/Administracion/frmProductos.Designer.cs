@@ -1,4 +1,4 @@
-﻿namespace SIME_UTN.UI.Administracion
+﻿namespace SIME_UTN.UI.Bodega.Administracion
 {
     partial class frmProductos
     {
