@@ -423,7 +423,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
         private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             CambiarEstado(EstadoMantenimiento.Nuevo);
-            
         }
 
 

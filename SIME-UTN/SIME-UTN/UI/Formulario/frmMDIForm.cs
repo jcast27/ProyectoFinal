@@ -58,8 +58,10 @@ namespace SIME_UTN.UI.Formulario
         void windowsUIView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
 
-            if (e.Document.Caption == "Ventana Usuarios")
-                e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUsuarios();
+            if (e.Document.Caption == "Ventana Items")
+                e.Control = new SIME_UTN.UI.Formulario.Administracion.frmItem();
+            if (e.Document.Caption == "Ventana Categorías")
+                e.Control = new SIME_UTN.UI.Formulario.Administracion.frmCategoria();
 
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
@@ -81,7 +83,7 @@ namespace SIME_UTN.UI.Formulario
 
         private FlyoutAction createCloseAction(Flyout flyout)
         {
-            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmacion", Description = "Desea Cerrar Esta Aplicacion?" };
+            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmación", Description = "Desea Cerrar Esta Aplicacion?" };
             // closeaction.Description = "Desea Cerrar Esta Aplicacion?";
             FlyoutCommand comandoYes = new FlyoutCommand() { Text = "Si", Result = System.Windows.Forms.DialogResult.Yes };
             FlyoutCommand comandoNO = new FlyoutCommand() { Text = "No", Result = System.Windows.Forms.DialogResult.No };
@@ -102,16 +104,16 @@ namespace SIME_UTN.UI.Formulario
 
         private void mBtnAdministracion_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            CrearDocuemtosProceso(false);
-            this.CrearDocuemtosAdministracion(true);
+            CrearDocumentosProceso(false);
+            this.CrearDocumentosAdministracion(true);
             tipoDeProceso = "Administracion";
 
         }
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            this.CrearDocuemtosAdministracion(false);
-            CrearDocuemtosProceso(true);
+            this.CrearDocumentosAdministracion(false);
+            CrearDocumentosProceso(true);
             tipoDeProceso = "Procesos";
         }
 
@@ -151,7 +153,7 @@ namespace SIME_UTN.UI.Formulario
             return tile1;
         }
 
-        public void CrearDocuemtosAdministracion(Boolean estado)
+        public void CrearDocumentosAdministracion(Boolean estado)
         {
             string nombreElemento = "";
             string grupo = "";
@@ -161,23 +163,23 @@ namespace SIME_UTN.UI.Formulario
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Usuarios" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Productos" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Items" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Categorías" };
             this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2 });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 200;
 
-            //Propiedades para el decumento Usuarios
+            //Propiedades para el documento Items
             grupo = "Group 1";
             imagen = Properties.Resources.usuarios1;
-            nombreElemento = "Usuarios";
+            nombreElemento = "Items";
             tileContainer2.Items.Add(this.crearTile(doc1,nombreElemento,grupo,imagen,estado));
 
-            //Propiedades para el decumento Productos
+            //Propiedades para el documento Categorías
             grupo = "Group 2";
             imagen = Properties.Resources.productos1;
-            nombreElemento = "Productos";
+            nombreElemento = "Categorías";
             tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
@@ -187,7 +189,7 @@ namespace SIME_UTN.UI.Formulario
 
         }
 
-        public void CrearDocuemtosProceso(Boolean estado)
+        public void CrearDocumentosProceso(Boolean estado)
         {
             string nombreElemento = "";
             string grupo = "";
@@ -223,11 +225,11 @@ namespace SIME_UTN.UI.Formulario
         {
           if (tipoDeProceso == "Administracion")
             {
-                this.CrearDocuemtosAdministracion(true);
+                this.CrearDocumentosAdministracion(true);
             }
             if (tipoDeProceso == "Procesos")
             {
-                this.CrearDocuemtosProceso(true);
+                this.CrearDocumentosProceso(true);
             }
              
         }
@@ -249,11 +251,11 @@ namespace SIME_UTN.UI.Formulario
                 this.UsuarioLogueado();
                 if (tipoDeProceso == "Administracion")
                 {
-                    this.CrearDocuemtosAdministracion(true);
+                    this.CrearDocumentosAdministracion(true);
                 }
                 if (tipoDeProceso == "Procesos")
                 {
-                    this.CrearDocuemtosProceso(true);
+                    this.CrearDocumentosProceso(true);
                 }
             }
 

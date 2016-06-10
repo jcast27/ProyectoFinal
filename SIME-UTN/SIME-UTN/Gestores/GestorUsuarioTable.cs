@@ -83,12 +83,12 @@ namespace SIME_UTN.Gestores
 
 
         /// <summary>
-        /// Metodo que invoca a OptenerUsuarios por ID de la BLL y que devuleve un usuario
+        /// Metodo que invoca a ObtenerUsuarios por ID de la BLL y que devuleve un usuario
         /// </summary>
         /// <returns></returns>
-        public UsuarioTable OptenerUsuarioId(int usuarioIdp)
+        public UsuarioTable ObtenerUsuarioId(int usuarioIdp)
         {
-            return UsuarioBLL.OptenerUsuarioID(usuarioIdp);
+            return UsuarioBLL.ObtenerUsuarioID(usuarioIdp);
         }
 
 
@@ -123,13 +123,12 @@ namespace SIME_UTN.Gestores
             return UsuarioBLL.ValidarUsuario(usuariop);
         }
 
-
-
         public void InsertarNombreUsuario(string nombrep)
         {
             NombreUsuario = nombrep;
         }
-        public string OptenerNombreUsuario()
+
+        public string ObtenerNombreUsuario()
         {
             return NombreUsuario;
         }

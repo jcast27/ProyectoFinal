@@ -30,7 +30,7 @@ namespace SIME_UTN.BLL
 
         internal static void GuardarUsuario(UsuarioTable usuariop)
         {
-            if (UsuarioDAL.OptenerUsuarioID(usuariop.codigoUsuario) == null)
+            if (UsuarioDAL.ObtenerUsuarioID(usuariop.codigoUsuario) == null)
             {
 
                 UsuarioDAL.GuardarUsuario(usuariop);
@@ -52,9 +52,9 @@ namespace SIME_UTN.BLL
             return UsuarioDAL.ObtenerUsuarioLogeado();
         }
 
-        internal static UsuarioTable OptenerUsuarioID(int usuarioIdp)
+        internal static UsuarioTable ObtenerUsuarioID(int usuarioIdp)
         {
-            return UsuarioDAL.OptenerUsuarioID(usuarioIdp);
+            return UsuarioDAL.ObtenerUsuarioID(usuarioIdp);
         }
 
         internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep)

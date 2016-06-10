@@ -261,7 +261,7 @@ namespace SIME_UTN.DAL
         /// </summary>
         /// <param name="CodigoUsuariop"></param>
         /// <returns></returns>
-        public static UsuarioTable OptenerUsuarioID(int UserIdp)
+        public static UsuarioTable ObtenerUsuarioID(int UserIdp)
         {
             string sql = @"select Usuario.CodigoUsuario,Usuario.Usuario,Usuario.Perfil,Usuario.Contrasena
                          from Usuario
