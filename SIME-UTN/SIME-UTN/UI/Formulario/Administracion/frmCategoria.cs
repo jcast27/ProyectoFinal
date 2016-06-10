@@ -30,14 +30,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             try
             {
                 RefrescarLista();
-                GestorItem gi = GestorItem.GetInstance();
-                List<Item> listaItems = gi.ObtenerItems();
-                foreach (Item item in listaItems)
-                {
-                    clbItems.Items.Add(item);
-                }
-                clbItems.Items.Insert(0, "Seleccionar Todos");
-                
+                refrescarItems();
             }
             catch (ApplicationException app)
             {
@@ -49,6 +42,17 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
         }
 
+        private void refrescarItems() {
+
+            clbItems.Items.Clear();
+            GestorItem gi = GestorItem.GetInstance();
+            List<Item> listaItems = gi.ObtenerItems();
+            foreach (Item item in listaItems)
+            {
+                clbItems.Items.Add(item);
+            }
+            clbItems.Items.Insert(0, "Seleccionar Todos");
+        }
 
         /// <summary>
         /// Metodo que obtiene el Usuario que esta logueado en la base de datos
@@ -115,6 +119,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
                     this.mBtnAgregar.Enabled = true;
                     this.mBtnModificar.Enabled = false;
                     this.mBtnEliminar.Enabled = false;
+                    refrescarItems();
                     break;
 
                 case EstadoMantenimiento.Editar:
