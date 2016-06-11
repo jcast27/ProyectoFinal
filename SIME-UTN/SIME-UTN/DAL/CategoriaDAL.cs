@@ -21,7 +21,7 @@ namespace SIME_UTN.DAL
 
             command.Parameters.AddWithValue("@Pertenece", pertenece);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(command, "consulta");
 
@@ -66,7 +66,7 @@ namespace SIME_UTN.DAL
 
             command.Parameters.AddWithValue("@Descripcion", descripcion);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(command, "consulta");
 
@@ -107,7 +107,7 @@ namespace SIME_UTN.DAL
 
             int idCategoria = 0;
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(comando, "consulta");
                 idCategoria = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"].ToString());
@@ -127,7 +127,7 @@ namespace SIME_UTN.DAL
 
             command.Parameters.AddWithValue("@IDCategoria", idCategoriap);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(command, "consulta");
 
@@ -169,7 +169,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@estado", accion);
 
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
@@ -185,7 +185,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@Pertenencia", Categoriap.pertenencia);
             comando.Parameters.AddWithValue("@Estado", Categoriap.estado);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }

@@ -83,7 +83,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@IDCategoria", CI.idCategoria);
             comando.Parameters.AddWithValue("@IDItem", CI.idItem);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
@@ -101,7 +101,7 @@ namespace SIME_UTN.DAL
 
             command.Parameters.AddWithValue("@IDCategoria", idCategoriap);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(command, "consulta");
 
@@ -124,7 +124,7 @@ namespace SIME_UTN.DAL
 
             comando.Parameters.AddWithValue("@IDCategoria", CategoriaIdp);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }

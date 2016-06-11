@@ -61,7 +61,7 @@ namespace SIME_UTN.UI.Formulario
 
             if (e.Document.Caption == "Ventana Items")
                 e.Control = new SIME_UTN.UI.Formulario.Administracion.frmItem();
-            if (e.Document.Caption == "Ventana Categorías")
+            else if (e.Document.Caption == "Ventana Categorías")
                 e.Control = new SIME_UTN.UI.Formulario.Administracion.frmCategoria();
             else
                 e.Control = new SIME_UTN.UI.Formulario.Procesos.frmFormulario(e.Document.Caption);

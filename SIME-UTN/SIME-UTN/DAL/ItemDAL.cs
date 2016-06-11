@@ -19,7 +19,7 @@ namespace SIME_UTN.DAL
             SqlCommand command = new SqlCommand(sql);
             command.CommandType = CommandType.StoredProcedure;
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(command, "consulta");
 
@@ -54,7 +54,7 @@ namespace SIME_UTN.DAL
 
             command.Parameters.AddWithValue("@Descripcion", descripcion);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(command, "consulta");
 
@@ -85,7 +85,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@Seccion", Itemp.seccion);
             comando.Parameters.AddWithValue("@Estado", Itemp.estado);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
@@ -103,7 +103,7 @@ namespace SIME_UTN.DAL
 
             command.Parameters.AddWithValue("@IDItem", idItemp);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(command, "consulta");
 
@@ -136,7 +136,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@estado", accion);
 
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
@@ -152,7 +152,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@Seccion", Itemp.seccion);
             comando.Parameters.AddWithValue("@Estado", Itemp.estado);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
