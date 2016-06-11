@@ -30,9 +30,9 @@ namespace SIME_UTN.Gestores
             return instancia;
         }
 
-        public List<Categoria> ObtenerCategorias()
+        public List<Categoria> ObtenerCategorias(string pertenece)
         {
-            return CategoriaBLL.ObtenerCategorias();
+            return CategoriaBLL.ObtenerCategorias(pertenece);
         }
 
         public Categoria ObtenerCategoriaDescripcion(string descripcion)
@@ -50,9 +50,9 @@ namespace SIME_UTN.Gestores
             return categoria;
         }
 
-        public void GuardarCategoria()
+        public int GuardarCategoria()
         {
-            CategoriaBLL.GuardarCategoria(categoria);
+            return CategoriaBLL.GuardarCategoria(categoria);
         }
 
         public Categoria ObtenerCategoriaId(int categoriaIdp)

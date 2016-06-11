@@ -112,7 +112,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
                 case EstadoMantenimiento.Editar:
                     txtDescripcion.Enabled = true;
-                    this.mBtnNuevo.Enabled = false;
+                    this.mBtnNuevo.Enabled = true;
                     this.mBtnAgregar.Enabled = false;
                     this.mBtnModificar.Enabled = true;
                     this.mBtnEliminar.Enabled = true;

@@ -36,7 +36,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colItems = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbItems = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -114,7 +113,6 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colDescripcion,
-            this.colItems,
             this.colEstado});
             this.gridView1.GridControl = this.gCCategorias;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
@@ -141,15 +139,7 @@
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 0;
-            // 
-            // colItems
-            // 
-            this.colItems.Caption = "Items";
-            this.colItems.ColumnEdit = this.cmbItems;
-            this.colItems.FieldName = "Items.descripcion";
-            this.colItems.Name = "colItems";
-            this.colItems.Visible = true;
-            this.colItems.VisibleIndex = 1;
+            this.colDescripcion.Width = 150;
             // 
             // cmbItems
             // 
@@ -164,7 +154,8 @@
             this.colEstado.FieldName = "Estado";
             this.colEstado.Name = "colEstado";
             this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 2;
+            this.colEstado.VisibleIndex = 1;
+            this.colEstado.Width = 60;
             // 
             // UsuarioItemLookUpEdit1
             // 
@@ -260,7 +251,6 @@
             this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
             this.mBtnModificar.Caption = "Modificar";
-            this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
             this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
@@ -417,7 +407,6 @@
         private System.Windows.Forms.CheckedListBox clbItems;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colItems;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit cmbItems;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
     }

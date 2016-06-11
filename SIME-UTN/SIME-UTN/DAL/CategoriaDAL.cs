@@ -10,7 +10,7 @@ namespace SIME_UTN.DAL
 {
     class CategoriaDAL
     {
-        public static List<Categoria> ObtenerCategorias()
+        public static List<Categoria> ObtenerCategorias(string pertenece)
         {
             string sql = @"sp_SELECT_Categoria_All";
 
@@ -18,6 +18,8 @@ namespace SIME_UTN.DAL
 
             SqlCommand command = new SqlCommand(sql);
             command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@Pertenece", pertenece);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default"))
             {
@@ -94,21 +96,24 @@ namespace SIME_UTN.DAL
             }
         }
 
-        public static void GuardarCategoria(Categoria Categoriap)
+        public static int GuardarCategoria(Categoria Categoriap)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_Categoria");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@IDCategoria", Categoriap.idCategoria);
             comando.Parameters.AddWithValue("@Descripcion", Categoriap.descripcion);
             comando.Parameters.AddWithValue("@Pertenencia", Categoriap.pertenencia);
             comando.Parameters.AddWithValue("@Estado", Categoriap.estado);
 
+            int idCategoria = 0;
+
             using (DataBase db = DataBaseFactory.CreateDataBase("default"))
             {
-                db.ExecuteNonQuery(comando);
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+                idCategoria = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"].ToString());
             }
 
+            return idCategoria;
         }
 
         public static Categoria ObtenerCategoriaID(int idCategoriap)

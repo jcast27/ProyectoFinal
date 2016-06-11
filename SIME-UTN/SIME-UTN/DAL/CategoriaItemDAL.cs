@@ -75,7 +75,7 @@ namespace SIME_UTN.DAL
             }
         }*/
 
-        public static void GuardarCategoria(CategoriaItem CI)
+        public static void GuardarCategoriaItem(CategoriaItem CI)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_CategoriaItems");
             comando.CommandType = CommandType.StoredProcedure;
@@ -117,7 +117,7 @@ namespace SIME_UTN.DAL
         }
 
 
-        internal static void EliminarCategoria(string CategoriaIdp)
+        internal static void EliminarCategoriaItem(string CategoriaIdp)
         {
             SqlCommand comando = new SqlCommand("sp_DELETE_Categoria_ByID");
             comando.CommandType = CommandType.StoredProcedure;

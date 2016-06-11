@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CategoriaItemBLL.cs" />
     <Compile Include="BLL\CategoriaBLL.cs" />
     <Compile Include="BLL\ItemBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Enum\Pertenece.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="Gestores\GestorCategoriaItem.cs" />
     <Compile Include="Gestores\GestorCategoria.cs" />
     <Compile Include="Gestores\GestorItem.cs" />
     <Compile Include="UI\Formulario\Administracion\frmCategoria.cs">
@@ -90,6 +92,12 @@
     </Compile>
     <Compile Include="UI\Formulario\Administracion\frmItem.Designer.cs">
       <DependentUpon>frmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormulario.Designer.cs">
+      <DependentUpon>frmFormulario.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmCambioContrasenna.cs">
       <SubType>Form</SubType>
@@ -156,6 +164,9 @@
     <EmbeddedResource Include="UI\Formulario\Administracion\frmItem.resx">
       <DependentUpon>frmItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmFormulario.resx">
+      <DependentUpon>frmFormulario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmCambioContrasenna.resx">
       <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +228,7 @@
     <None Include="Resources\fondoCambioUser.png" />
     <None Include="Resources\fondoCambioUser1.png" />
     <None Include="Resources\Forward_32x32.png" />
+    <None Include="Resources\form.png" />
     <Content Include="Resources\gnome_panel_force_quit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -243,9 +255,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Formulario\Procesos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

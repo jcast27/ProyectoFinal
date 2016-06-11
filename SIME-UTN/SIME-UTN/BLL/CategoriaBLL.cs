@@ -9,21 +9,23 @@ namespace SIME_UTN.BLL
 {
     class CategoriaBLL
     {
-        public static List<Categoria> ObtenerCategorias()
+        public static List<Categoria> ObtenerCategorias(string pertenece)
         {
-            return CategoriaDAL.ObtenerCategorias();
+            return CategoriaDAL.ObtenerCategorias(pertenece);
         }
 
-        internal static void GuardarCategoria(Categoria Categoriap)
+        internal static int GuardarCategoria(Categoria Categoriap)
         {
+            int id = 0;
             if (CategoriaDAL.ObtenerCategoriaID(Categoriap.idCategoria) == null)
             {
-                CategoriaDAL.GuardarCategoria(Categoriap);
+                id = CategoriaDAL.GuardarCategoria(Categoriap);
             }
             else
             {
                 CategoriaDAL.ActualizarCategoria(Categoriap);
             }
+            return id;
         }
 
 
