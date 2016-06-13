@@ -60,6 +60,8 @@ namespace SIME_UTN.UI.Bodega
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUsuarios();
             if (e.Document.Caption == "Ventana Productos")
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmProductos();
+            if (e.Document.Caption == "Ventana Funcionarios")
+                e.Control = new SIME_UTN.UI.Bodega.Administracion.frmFuncionarios();
             if (e.Document.Caption == "Ventana Ingreso Producto")
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmRegistroProducto();
             //if (e.Control == null)
@@ -104,14 +106,15 @@ namespace SIME_UTN.UI.Bodega
         //Se crea un elemento que sera agregado al frame
         public TileItemElement CrearElemento(String nombreElemento,Image imagen)
         {
-            Font font = new Font("Tahoma", 20.0f,FontStyle.Underline| FontStyle.Underline);
+            Font font = new Font("Tahoma", 15.0f, FontStyle.Underline | FontStyle.Underline);
             TileItemElement elemento = new TileItemElement();
             elemento.Text = nombreElemento;
             elemento.Image = imagen;
-            elemento.ImageScaleMode = TileItemImageScaleMode.Stretch;
-            elemento.TextAlignment = TileItemContentAlignment.BottomLeft;
-            elemento.Appearance.Normal.ForeColor = Color.Maroon;
-            elemento.Appearance.Normal.BackColor = Color.MediumAquamarine;
+            elemento.ImageAlignment = TileItemContentAlignment.TopCenter;
+            elemento.ImageScaleMode = TileItemImageScaleMode.Default;
+            elemento.TextAlignment = TileItemContentAlignment.BottomCenter;
+            elemento.Appearance.Normal.ForeColor = Color.White;
+            elemento.Appearance.Normal.BackColor = Color.Transparent;
             elemento.Appearance.Normal.Font = font;
             return elemento;
         }
@@ -149,22 +152,30 @@ namespace SIME_UTN.UI.Bodega
             //Creating documents
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Usuarios" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Productos" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2 });
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc3 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Funcionarios" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2,doc3 });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
-            tileContainer2.Properties.ItemSize = 200;
-
+            tileContainer2.Properties.ItemSize = 120;
+            tileContainer2.Properties.Orientation = Orientation.Horizontal;
             //Propiedades para el decumento Usuarios
             grupo = "Group 1";
-            imagen = Properties.Resources.usuarios1;
+            imagen = Properties.Resources.usuarios;
             nombreElemento = "Usuarios";
             tileContainer2.Items.Add(this.crearTile(doc1,nombreElemento,grupo,imagen,estado));
 
             //Propiedades para el decumento Productos
             grupo = "Group 2";
-            imagen = Properties.Resources.productos1;
+            imagen = Properties.Resources.productos;
             nombreElemento = "Productos";
             tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
+
+            //Propiedades para el decumento Funcionarios
+            grupo = "Group 3";
+            imagen = Properties.Resources.funcionarios;
+            nombreElemento = "Funcionarios";
+            tileContainer2.Items.Add(this.crearTile(doc3, nombreElemento, grupo, imagen, estado));
+
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);
@@ -187,11 +198,11 @@ namespace SIME_UTN.UI.Bodega
             this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1});
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
-            tileContainer2.Properties.ItemSize = 200;
-
+            tileContainer2.Properties.ItemSize = 120;
+            tileContainer2.Properties.Orientation = Orientation.Horizontal;
             //Propiedades para el decumento Ingreso Productos
             grupo = "Group 1";
-            imagen = Properties.Resources.registroProducto;
+            imagen = Properties.Resources.registro;
             nombreElemento = "Ingreso De Productos";
             tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
 

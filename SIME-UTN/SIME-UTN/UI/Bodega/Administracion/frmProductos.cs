@@ -33,15 +33,24 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
-           
+            // TODO: This line of code loads data into the 'dataSetProductos.Producto' table. You can move, or remove it, as needed.
+            this.productoTableAdapter.Fill(this.dataSetProductos.Producto);
+            // TODO: This line of code loads data into the 'dataSetUnidadMedida.UnidadMedidaProducto' table. You can move, or remove it, as needed.
+            this.unidadMedidaProductoTableAdapter.Fill(this.dataSetUnidadMedida.UnidadMedidaProducto);
+            // TODO: This line of code loads data into the 'dataSetCategorias.Categoria' table. You can move, or remove it, as needed.
+            this.categoriaTableAdapter.Fill(this.dataSetCategorias.Categoria);
+            // TODO: This line of code loads data into the 'sIMEUTNDataSet.Categoria' table. You can move, or remove it, as needed.
+            cmbCategoria.SelectedIndex = -1;
+            cmbUnidadMedida.SelectedIndex = -1;
+
         }
 
-       
+
 
         /// <summary>
         /// Actualiza el datagridview con los usuarios agredados
         /// </summary>
-       private void RefrescarLista()
+        private void RefrescarLista()
         {
          
         }   
@@ -166,8 +175,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
            
         }
-
-
 
     }
 }

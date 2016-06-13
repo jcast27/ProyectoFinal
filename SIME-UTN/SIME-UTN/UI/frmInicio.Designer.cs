@@ -51,9 +51,6 @@
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sslMensaje,
-            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 431);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(754, 26);
@@ -97,7 +94,7 @@
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(191, 26);
             this.txtContrasena.TabIndex = 42;
-            this.txtContrasena.Text = "sa123456!";
+            this.txtContrasena.Text = "sa1";
             // 
             // cmbModulo
             // 

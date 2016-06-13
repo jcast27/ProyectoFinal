@@ -63,21 +63,63 @@
     <Compile Include="BLL\CategoriaBLL.cs" />
     <Compile Include="BLL\ItemBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
+    <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\CategoriaItemDAL.cs" />
     <Compile Include="DAL\CategoriaDAL.cs" />
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
+    <Compile Include="DataSets\Bodega\DataSetCategorias.cs">
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetCategorias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetUnidadMedida.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
     <Compile Include="Entities\Encriptar.cs" />
     <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\UsuarioDB.cs" />
     <Compile Include="Entities\UsuarioTable.cs" />
     <Compile Include="Enum\Pertenece.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="Gestores\GestorProducto.cs" />
+    <Compile Include="UI\Bodega\Procesos\frmFiltroProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmFiltroProductos.Designer.cs">
+      <DependentUpon>frmFiltroProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.Designer.cs">
+      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmFuncionarios.Designer.cs">
+      <DependentUpon>frmFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestores\GestorCategoriaItem.cs" />
     <Compile Include="Gestores\GestorCategoria.cs" />
     <Compile Include="Gestores\GestorItem.cs" />
@@ -146,18 +188,21 @@
     <Compile Include="UI\Bodega\Administracion\frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.Designer.cs">
-      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Formulario\frmMDIForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Formulario\frmMDIForm.Designer.cs">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmFiltroProductos.resx">
+      <DependentUpon>frmFiltroProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmRegistroProducto.resx">
+      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmFuncionarios.resx">
+      <DependentUpon>frmFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Administracion\frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,14 +244,44 @@
     <EmbeddedResource Include="UI\Bodega\Administracion\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Bodega\Procesos\frmRegistroProducto.resx">
-      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\frmMDIForm.resx">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\DataSetCategorias.xsc">
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetCategorias.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCategorias.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\DataSetCategorias.xss">
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetProductos.xsc">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetProductos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProductos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\DataSetProductos.xss">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetUnidadMedida.xsc">
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetUnidadMedida.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUnidadMedida.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\DataSetUnidadMedida.xss">
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -229,6 +304,7 @@
     <None Include="Resources\fondoCambioUser1.png" />
     <None Include="Resources\Forward_32x32.png" />
     <None Include="Resources\form.png" />
+    <None Include="Resources\funcionarios.png" />
     <Content Include="Resources\gnome_panel_force_quit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -245,6 +321,10 @@
     <None Include="Resources\productos1.jpg" />
     <None Include="Resources\registroProducto.jpg" />
     <None Include="Resources\user.png" />
+    <None Include="Resources\usuarios.png" />
+    <None Include="Resources\usuarios.ico" />
+    <None Include="Resources\productos.png" />
+    <None Include="Resources\registro.png" />
     <Content Include="Resources\usuarios1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -7,6 +7,7 @@ using SIME_UTN.Entities;
 using SIME_UTN.Factories;
 using SIME_UTN.BLL;
 using System.Windows.Forms;
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.Gestores
 {
@@ -53,6 +54,7 @@ namespace SIME_UTN.Gestores
         {
             return UsuarioBLL.ObtenerUsuariosporNombre(nombrep);
         }
+
 
         /// <summary>
         /// Metodo que Agrega un Usuario ya creado
