@@ -89,7 +89,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Bodega\DataSetTBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
+    <Compile Include="DTOs\ProductoDTO.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
     <Compile Include="Entities\Encriptar.cs" />
@@ -101,7 +107,61 @@
     <Compile Include="Enum\Pertenece.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.Designer.cs">
+      <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmTrasladosDeProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmTrasladosDeProductos.Designer.cs">
+      <DependentUpon>frmTrasladosDeProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdDespachoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdDespachoProductos.Designer.cs">
+      <DependentUpon>frmAdDespachoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.Designer.cs">
+      <DependentUpon>frmAdUnidadDeMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUnidadesDeMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUnidadesDeMedida.Designer.cs">
+      <DependentUpon>frmUnidadesDeMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdBodega.Designer.cs">
+      <DependentUpon>frmAdBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmBodegas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmBodegas.Designer.cs">
+      <DependentUpon>frmBodegas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestores\GestorProducto.cs" />
+    <Compile Include="UI\Bodega\Administracion\frmAdFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdFuncionario.Designer.cs">
+      <DependentUpon>frmAdFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdRegistroProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdRegistroProducto.Designer.cs">
+      <DependentUpon>frmAdRegistroProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Bodega\Procesos\frmFiltroProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +213,12 @@
     <Compile Include="UI\frmCambioUsuario.Designer.cs">
       <DependentUpon>frmCambioUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmDespachoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmDespachoProducto.Designer.cs">
+      <DependentUpon>frmDespachoProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +260,33 @@
     <Compile Include="UI\Formulario\frmMDIForm.Designer.cs">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdTrasladoProductos.resx">
+      <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmTrasladosDeProductos.resx">
+      <DependentUpon>frmTrasladosDeProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdDespachoProductos.resx">
+      <DependentUpon>frmAdDespachoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.resx">
+      <DependentUpon>frmAdUnidadDeMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmUnidadesDeMedida.resx">
+      <DependentUpon>frmUnidadesDeMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdBodega.resx">
+      <DependentUpon>frmAdBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmBodegas.resx">
+      <DependentUpon>frmBodegas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdFuncionario.resx">
+      <DependentUpon>frmAdFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdRegistroProducto.resx">
+      <DependentUpon>frmAdRegistroProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Procesos\frmFiltroProductos.resx">
       <DependentUpon>frmFiltroProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmDespachoProducto.resx">
+      <DependentUpon>frmDespachoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
@@ -283,6 +379,17 @@
     <None Include="DataSets\Bodega\DataSetUnidadMedida.xss">
       <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\Bodega\DataSetTBodega.xsc">
+      <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTBodega.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTBodega.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTBodega.xss">
+      <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -300,6 +407,7 @@
     <Content Include="Resources\boton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\warehouse.png" />
     <None Include="Resources\fondoCambioUser.png" />
     <None Include="Resources\fondoCambioUser1.png" />
     <None Include="Resources\Forward_32x32.png" />
@@ -325,6 +433,7 @@
     <None Include="Resources\usuarios.ico" />
     <None Include="Resources\productos.png" />
     <None Include="Resources\registro.png" />
+    <None Include="Resources\unidadMedida.png" />
     <Content Include="Resources\usuarios1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

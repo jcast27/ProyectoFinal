@@ -142,7 +142,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-          
+            frmAdFuncionario ofrmAdFuncionario = new frmAdFuncionario();
+            ofrmAdFuncionario.ShowDialog(this);
           
         }
 

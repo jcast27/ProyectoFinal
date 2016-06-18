@@ -131,7 +131,8 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-          
+            frmAdRegistroProducto ofrmAdRegistroProducto = new frmAdRegistroProducto();
+            ofrmAdRegistroProducto.ShowDialog(this);
           
         }
 
@@ -152,12 +153,5 @@ namespace SIME_UTN.UI.Bodega.Procesos
            
         }
 
-        private void txtEProducto_Click(object sender, EventArgs e)
-        {
-            frmFiltroProductos ofrmFiltroProductos = new frmFiltroProductos();
-            ofrmFiltroProductos.ShowDialog(this);
-            this.txtECodigoProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.codigoAvatar;
-            this.txtNombreProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.nombreProducto;
-        }
     }
 }
