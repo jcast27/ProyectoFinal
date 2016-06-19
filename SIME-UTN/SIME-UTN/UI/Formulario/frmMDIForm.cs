@@ -176,13 +176,13 @@ namespace SIME_UTN.UI.Formulario
 
             //Propiedades para el documento Items
             grupo = "Group 1";
-            imagen = Properties.Resources.usuarios;
+            imagen = Properties.Resources.usuarios1;
             nombreElemento = "Items";
             tileContainer2.Items.Add(this.crearTile(doc1,nombreElemento,grupo,imagen,estado));
 
             //Propiedades para el documento Categorías
             grupo = "Group 2";
-            imagen = Properties.Resources.productos;
+            imagen = Properties.Resources.productos1;
             nombreElemento = "Categorías";
             tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
 

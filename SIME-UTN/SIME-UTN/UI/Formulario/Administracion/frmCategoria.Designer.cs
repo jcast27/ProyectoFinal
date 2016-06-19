@@ -36,10 +36,10 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbItems = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.cmbItems = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblItem = new System.Windows.Forms.Label();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
@@ -56,9 +56,9 @@
             this.gbGridViewCategoria = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.gCCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbInformacionPersonal.SuspendLayout();
             this.gbGridViewCategoria.SuspendLayout();
@@ -141,13 +141,6 @@
             this.colDescripcion.VisibleIndex = 0;
             this.colDescripcion.Width = 150;
             // 
-            // cmbItems
-            // 
-            this.cmbItems.AutoHeight = false;
-            this.cmbItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbItems.Name = "cmbItems";
-            // 
             // colEstado
             // 
             this.colEstado.Caption = "Estado";
@@ -171,6 +164,13 @@
             this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // cmbItems
+            // 
+            this.cmbItems.AutoHeight = false;
+            this.cmbItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbItems.Name = "cmbItems";
             // 
             // ePError
             // 
@@ -373,9 +373,9 @@
             this.Load += new System.EventHandler(this.frmCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbInformacionPersonal.ResumeLayout(false);
             this.gbInformacionPersonal.PerformLayout();
@@ -402,12 +402,12 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private System.Windows.Forms.GroupBox gbGridViewCategoria;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.CheckedListBox clbItems;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit cmbItems;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

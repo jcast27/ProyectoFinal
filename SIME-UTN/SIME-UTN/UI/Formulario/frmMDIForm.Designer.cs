@@ -107,7 +107,7 @@
             this.mBtnAdministracion.AppearanceHovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mBtnAdministracion.AppearanceHovered.Options.UseFont = true;
             this.mBtnAdministracion.AppearanceHovered.Options.UseForeColor = true;
-            this.mBtnAdministracion.Caption = "Administracion";
+            this.mBtnAdministracion.Caption = "Administración";
             this.mBtnAdministracion.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAdministracion.Glyph")));
             this.mBtnAdministracion.Name = "mBtnAdministracion";
             this.mBtnAdministracion.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAdministracion_ElementClick);

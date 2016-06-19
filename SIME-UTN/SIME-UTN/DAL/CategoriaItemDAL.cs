@@ -119,7 +119,7 @@ namespace SIME_UTN.DAL
 
         internal static void EliminarCategoriaItem(string CategoriaIdp)
         {
-            SqlCommand comando = new SqlCommand("sp_DELETE_Categoria_ByID");
+            SqlCommand comando = new SqlCommand("sp_DELETE_CategoriaItems_ByID");
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@IDCategoria", CategoriaIdp);
