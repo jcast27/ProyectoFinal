@@ -65,8 +65,12 @@
     <Compile Include="BLL\LoginBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="DAL\FormularioDAL.cs" />
     <Compile Include="DAL\CategoriaItemDAL.cs" />
     <Compile Include="DAL\CategoriaDAL.cs" />
+    <Compile Include="DAL\ActivoDAL.cs" />
+    <Compile Include="DAL\DetalleFormularioDAL.cs" />
+    <Compile Include="DAL\FuncionarioDAL.cs" />
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
@@ -101,9 +105,13 @@
     </Compile>
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoDTO.cs" />
+    <Compile Include="Entities\Activo.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
+    <Compile Include="Entities\DetalleFormulario.cs" />
     <Compile Include="Entities\Encriptar.cs" />
+    <Compile Include="Entities\Formulario.cs" />
+    <Compile Include="Entities\Funcionario.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
