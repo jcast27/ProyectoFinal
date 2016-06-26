@@ -140,6 +140,7 @@
             this.mBtnInventarios.Caption = "Inventarios";
             this.mBtnInventarios.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnInventarios.Glyph")));
             this.mBtnInventarios.Name = "mBtnInventarios";
+            this.mBtnInventarios.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnInventarios_ElementClick);
             // 
             // mBtnReportes
             // 

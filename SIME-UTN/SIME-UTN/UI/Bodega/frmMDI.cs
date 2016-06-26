@@ -72,15 +72,22 @@ namespace SIME_UTN.UI.Bodega
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmDespachoProducto();
             if (e.Document.Caption == "Ventana Traslado Producto")
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmTrasladosDeProductos();
+
+            if(e.Document.Caption == "Ventana Inventario Mínimo")
+                e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioMinimo();
+            if (e.Document.Caption == "Ventana Inventario Máximo")
+                e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioMaximo();
+            if (e.Document.Caption == "Ventana Inventario Actual")
+                e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioActual();
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
         }
 
         private FlyoutAction createCloseAction(Flyout flyout)
         {
-            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmación", Description = "Desea Cerrar Esta Aplicacion?" };
+            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmación", Description = "¿Desea cerrar esta aplicación?" };
             // closeaction.Description = "Desea Cerrar Esta Aplicacion?";
-            FlyoutCommand comandoYes = new FlyoutCommand() { Text = "Si", Result = System.Windows.Forms.DialogResult.Yes };
+            FlyoutCommand comandoYes = new FlyoutCommand() { Text = "Sí", Result = System.Windows.Forms.DialogResult.Yes };
             FlyoutCommand comandoNO = new FlyoutCommand() { Text = "No", Result = System.Windows.Forms.DialogResult.No };
             closeaction.Commands.Add(comandoYes);
             closeaction.Commands.Add(comandoNO);
@@ -111,6 +118,13 @@ namespace SIME_UTN.UI.Bodega
             tipoDeProceso = "Procesos";
         }
 
+        private void mBtnInventarios_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            this.CrearDocumentosAdministracion(false);
+            this.CrearDocumentosProceso(false);
+            this.CrearDocumentosInventario(true);
+            tipoDeProceso = "Inventarios";
+        }
         //Se crea un elemento que sera agregado al frame
         public TileItemElement CrearElemento(String nombreElemento,Image imagen)
         {
@@ -252,15 +266,64 @@ namespace SIME_UTN.UI.Bodega
         }
 
 
+        public void CrearDocumentosInventario(Boolean estado)
+        {
+            string nombreElemento = "";
+            string grupo = "";
+            Image imagen = null;
+
+            this.windowsUIView1.BeginUpdate();
+            this.windowsUIView1.Controller.CloseAll();
+            this.windowsUIView1.Documents.Clear();
+            //Creating documents
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docMinimo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Inventario Mínimo" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docMaximo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Inventario Máximo" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docActual = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Inventario Actual" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docMinimo, docMaximo, docActual });
+            //Creating and populating content container
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
+            tileContainer2.Properties.ItemSize = 120;
+            tileContainer2.Properties.Orientation = Orientation.Horizontal;
+            //Propiedades para el decumento Usuarios
+            grupo = "Group 1";
+            imagen = Properties.Resources.min;
+            nombreElemento = "Inventario Mínimo";
+            tileContainer2.Items.Add(this.crearTile(docMinimo, nombreElemento, grupo, imagen, estado));
+
+            //Propiedades para el decumento Productos
+            grupo = "Group 2";
+            imagen = Properties.Resources.max;
+            nombreElemento = "Inventario Máximo";
+            tileContainer2.Items.Add(this.crearTile(docMaximo, nombreElemento, grupo, imagen, estado));
+
+            //Propiedades para el decumento Funcionarios
+            grupo = "Group 3";
+            imagen = Properties.Resources.inven;
+            nombreElemento = "Inventario Actual";
+            tileContainer2.Items.Add(this.crearTile(docActual, nombreElemento, grupo, imagen, estado));
+
+
+            windowsUIView1.ContentContainers.Add(tileContainer2);
+            this.windowsUIView1.ActivateContainer(tileContainer2);
+            this.windowsUIView1.EndUpdate();
+            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+
+        }
+
+
         private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
         {
-          if (tipoDeProceso == "Administracion")
+            if (tipoDeProceso == "Administracion")
             {
                 this.CrearDocumentosAdministracion(true);
             }
             if (tipoDeProceso == "Procesos")
             {
                 this.CrearDocumentosProceso(true);
+            }
+            if (tipoDeProceso == "Inventarios")
+            {
+                this.CrearDocumentosInventario(true);
             }
              
         }
@@ -288,6 +351,10 @@ namespace SIME_UTN.UI.Bodega
                 {
                     this.CrearDocumentosProceso(true);
                 }
+                if (tipoDeProceso == "Inventarios")
+                {
+                    this.CrearDocumentosInventario(true);
+                }
             }
 
         }
@@ -302,5 +369,7 @@ namespace SIME_UTN.UI.Bodega
         {
 
         }
+
+       
     }
 }

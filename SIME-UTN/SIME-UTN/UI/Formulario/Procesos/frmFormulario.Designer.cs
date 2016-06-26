@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFormulario));
-            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavCategory1 = new DevExpress.XtraBars.Navigation.TileNavCategory();
             this.txtCliente = new System.Windows.Forms.TextBox();
@@ -39,6 +39,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbPatrimonio = new System.Windows.Forms.ComboBox();
             this.gbEncabezado = new System.Windows.Forms.GroupBox();
+            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtUbicacion = new System.Windows.Forms.TextBox();
@@ -61,25 +65,21 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gbPrincipal = new System.Windows.Forms.GroupBox();
-            this.dgvSiNo = new System.Windows.Forms.DataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colNo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgvTextoLibre = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTexto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBRM = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBueno = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colRegular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colMalo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgvTextoLibre = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTexto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.TextBox();
-            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.dgvSiNo = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colNo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.splitSeccion2 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbEncabezado.SuspendLayout();
@@ -89,9 +89,9 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.gbPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSiNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBRM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTextoLibre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBRM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitSeccion2)).BeginInit();
             this.splitSeccion2.SuspendLayout();
             this.SuspendLayout();
@@ -172,9 +172,44 @@
             this.gbEncabezado.Controls.Add(this.label2);
             this.gbEncabezado.Location = new System.Drawing.Point(101, 3);
             this.gbEncabezado.Name = "gbEncabezado";
-            this.gbEncabezado.Size = new System.Drawing.Size(1101, 95);
+            this.gbEncabezado.Size = new System.Drawing.Size(1100, 95);
             this.gbEncabezado.TabIndex = 42;
             this.gbEncabezado.TabStop = false;
+            // 
+            // cmbFuncionario
+            // 
+            this.cmbFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbFuncionario.FormattingEnabled = true;
+            this.cmbFuncionario.Location = new System.Drawing.Point(965, 54);
+            this.cmbFuncionario.Name = "cmbFuncionario";
+            this.cmbFuncionario.Size = new System.Drawing.Size(121, 21);
+            this.cmbFuncionario.TabIndex = 57;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(903, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Funcionario";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(903, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Fecha";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Enabled = false;
+            this.txtFecha.Location = new System.Drawing.Point(965, 27);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(121, 20);
+            this.txtFecha.TabIndex = 55;
             // 
             // label9
             // 
@@ -279,7 +314,7 @@
             this.gbComentario.Controls.Add(this.txtComentario);
             this.gbComentario.Location = new System.Drawing.Point(3, 3);
             this.gbComentario.Name = "gbComentario";
-            this.gbComentario.Size = new System.Drawing.Size(972, 88);
+            this.gbComentario.Size = new System.Drawing.Size(971, 88);
             this.gbComentario.TabIndex = 44;
             this.gbComentario.TabStop = false;
             this.gbComentario.Text = "Observaciones";
@@ -293,7 +328,7 @@
             this.txtComentario.MaxLength = 300;
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(959, 62);
+            this.txtComentario.Size = new System.Drawing.Size(958, 62);
             this.txtComentario.TabIndex = 0;
             // 
             // btnGuardar
@@ -354,8 +389,8 @@
             // 
             // 
             this.tileNavCategory4.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement8.Text = "tileNavCategory4";
-            this.tileNavCategory4.Tile.Elements.Add(tileItemElement8);
+            tileItemElement2.Text = "tileNavCategory4";
+            this.tileNavCategory4.Tile.Elements.Add(tileItemElement2);
             this.tileNavCategory4.Tile.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Default;
             this.tileNavCategory4.Tile.Name = "tileBarItem2";
             // 
@@ -369,8 +404,8 @@
             // 
             // 
             this.Formulario.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement7.Text = "Formulario";
-            this.Formulario.Tile.Elements.Add(tileItemElement7);
+            tileItemElement1.Text = "Formulario";
+            this.Formulario.Tile.Elements.Add(tileItemElement1);
             this.Formulario.Tile.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Default;
             this.Formulario.Tile.Name = "tileBarItem1";
             // 
@@ -382,7 +417,7 @@
             this.panelPrincipal.ColumnCount = 3;
             this.panelPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.19543F));
             this.panelPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.80457F));
-            this.panelPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.panelPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
             this.panelPrincipal.Controls.Add(this.gbEncabezado, 1, 0);
             this.panelPrincipal.Controls.Add(this.tableLayoutPanel2, 1, 2);
             this.panelPrincipal.Controls.Add(this.gbPrincipal, 1, 1);
@@ -408,7 +443,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1101, 96);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1100, 96);
             this.tableLayoutPanel2.TabIndex = 45;
             // 
             // tableLayoutPanel3
@@ -420,7 +455,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.btnGuardar, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(981, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(980, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.87719F));
@@ -439,59 +474,50 @@
             this.gbPrincipal.Controls.Add(this.dgvSiNo);
             this.gbPrincipal.Location = new System.Drawing.Point(101, 104);
             this.gbPrincipal.Name = "gbPrincipal";
-            this.gbPrincipal.Size = new System.Drawing.Size(1101, 299);
+            this.gbPrincipal.Size = new System.Drawing.Size(1100, 299);
             this.gbPrincipal.TabIndex = 47;
             this.gbPrincipal.TabStop = false;
             // 
-            // dgvSiNo
+            // dgvTextoLibre
             // 
-            this.dgvSiNo.AllowUserToAddRows = false;
-            this.dgvSiNo.AllowUserToDeleteRows = false;
-            this.dgvSiNo.AllowUserToResizeColumns = false;
-            this.dgvSiNo.AllowUserToResizeRows = false;
-            this.dgvSiNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSiNo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
-            this.colDescripcion,
-            this.colSi,
-            this.colNo});
-            this.dgvSiNo.Location = new System.Drawing.Point(6, 13);
-            this.dgvSiNo.Name = "dgvSiNo";
-            this.dgvSiNo.RowHeadersVisible = false;
-            this.dgvSiNo.Size = new System.Drawing.Size(315, 280);
-            this.dgvSiNo.TabIndex = 0;
-            this.dgvSiNo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSiNo_CellContentClick);
-            this.dgvSiNo.SizeChanged += new System.EventHandler(this.dgvSiNo_SizeChanged);
+            this.dgvTextoLibre.AllowUserToAddRows = false;
+            this.dgvTextoLibre.AllowUserToDeleteRows = false;
+            this.dgvTextoLibre.AllowUserToResizeColumns = false;
+            this.dgvTextoLibre.AllowUserToResizeRows = false;
+            this.dgvTextoLibre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTextoLibre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.colTexto});
+            this.dgvTextoLibre.Location = new System.Drawing.Point(706, 13);
+            this.dgvTextoLibre.Name = "dgvTextoLibre";
+            this.dgvTextoLibre.RowHeadersVisible = false;
+            this.dgvTextoLibre.Size = new System.Drawing.Size(380, 280);
+            this.dgvTextoLibre.TabIndex = 1;
+            this.dgvTextoLibre.SizeChanged += new System.EventHandler(this.dgvTextoLibre_SizeChanged);
             // 
-            // colId
+            // dataGridViewTextBoxColumn3
             // 
-            this.colId.DataPropertyName = "IDItem";
-            this.colId.HeaderText = "colId";
-            this.colId.Name = "colId";
-            this.colId.Visible = false;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IDItem";
+            this.dataGridViewTextBoxColumn3.HeaderText = "colId";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Visible = false;
             // 
-            // colDescripcion
+            // dataGridViewTextBoxColumn4
             // 
-            this.colDescripcion.DataPropertyName = "Descripcion";
-            this.colDescripcion.HeaderText = "Descripción";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.ReadOnly = true;
-            this.colDescripcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colDescripcion.Width = 300;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn4.Width = 300;
             // 
-            // colSi
+            // colTexto
             // 
-            this.colSi.HeaderText = "Si";
-            this.colSi.Name = "colSi";
-            this.colSi.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colSi.Width = 35;
-            // 
-            // colNo
-            // 
-            this.colNo.HeaderText = "No";
-            this.colNo.Name = "colNo";
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.Width = 35;
+            this.colTexto.HeaderText = "Texto";
+            this.colTexto.Name = "colTexto";
+            this.colTexto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colTexto.Width = 200;
             // 
             // dgvBRM
             // 
@@ -551,81 +577,55 @@
             this.colMalo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colMalo.Width = 45;
             // 
-            // dgvTextoLibre
+            // dgvSiNo
             // 
-            this.dgvTextoLibre.AllowUserToAddRows = false;
-            this.dgvTextoLibre.AllowUserToDeleteRows = false;
-            this.dgvTextoLibre.AllowUserToResizeColumns = false;
-            this.dgvTextoLibre.AllowUserToResizeRows = false;
-            this.dgvTextoLibre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTextoLibre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.colTexto});
-            this.dgvTextoLibre.Location = new System.Drawing.Point(706, 13);
-            this.dgvTextoLibre.Name = "dgvTextoLibre";
-            this.dgvTextoLibre.RowHeadersVisible = false;
-            this.dgvTextoLibre.Size = new System.Drawing.Size(380, 280);
-            this.dgvTextoLibre.TabIndex = 1;
-            this.dgvTextoLibre.SizeChanged += new System.EventHandler(this.dgvTextoLibre_SizeChanged);
+            this.dgvSiNo.AllowUserToAddRows = false;
+            this.dgvSiNo.AllowUserToDeleteRows = false;
+            this.dgvSiNo.AllowUserToResizeColumns = false;
+            this.dgvSiNo.AllowUserToResizeRows = false;
+            this.dgvSiNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSiNo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colDescripcion,
+            this.colSi,
+            this.colNo});
+            this.dgvSiNo.Location = new System.Drawing.Point(6, 13);
+            this.dgvSiNo.Name = "dgvSiNo";
+            this.dgvSiNo.RowHeadersVisible = false;
+            this.dgvSiNo.Size = new System.Drawing.Size(315, 280);
+            this.dgvSiNo.TabIndex = 0;
+            this.dgvSiNo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSiNo_CellContentClick);
+            this.dgvSiNo.SizeChanged += new System.EventHandler(this.dgvSiNo_SizeChanged);
             // 
-            // dataGridViewTextBoxColumn3
+            // colId
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "IDItem";
-            this.dataGridViewTextBoxColumn3.HeaderText = "colId";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Visible = false;
+            this.colId.DataPropertyName = "IDItem";
+            this.colId.HeaderText = "colId";
+            this.colId.Name = "colId";
+            this.colId.Visible = false;
             // 
-            // dataGridViewTextBoxColumn4
+            // colDescripcion
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn4.Width = 300;
+            this.colDescripcion.DataPropertyName = "Descripcion";
+            this.colDescripcion.HeaderText = "Descripción";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            this.colDescripcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colDescripcion.Width = 300;
             // 
-            // colTexto
+            // colSi
             // 
-            this.colTexto.HeaderText = "Texto";
-            this.colTexto.Name = "colTexto";
-            this.colTexto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colTexto.Width = 200;
+            this.colSi.HeaderText = "Si";
+            this.colSi.Name = "colSi";
+            this.colSi.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSi.Width = 35;
             // 
-            // label1
+            // colNo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(903, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "Fecha";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Enabled = false;
-            this.txtFecha.Location = new System.Drawing.Point(965, 27);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(121, 20);
-            this.txtFecha.TabIndex = 55;
-            // 
-            // cmbFuncionario
-            // 
-            this.cmbFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbFuncionario.FormattingEnabled = true;
-            this.cmbFuncionario.Location = new System.Drawing.Point(965, 54);
-            this.cmbFuncionario.Name = "cmbFuncionario";
-            this.cmbFuncionario.Size = new System.Drawing.Size(121, 21);
-            this.cmbFuncionario.TabIndex = 57;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(903, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Funcionario";
+            this.colNo.HeaderText = "No";
+            this.colNo.Name = "colNo";
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.Width = 35;
             // 
             // splitSeccion2
             // 
@@ -660,9 +660,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.gbPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSiNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBRM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTextoLibre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBRM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitSeccion2)).EndInit();
             this.splitSeccion2.ResumeLayout(false);
             this.ResumeLayout(false);

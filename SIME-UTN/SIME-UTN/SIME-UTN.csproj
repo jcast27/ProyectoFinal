@@ -75,6 +75,11 @@
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
+    <Compile Include="DataSetInventario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Bodega\DataSetCategorias.cs">
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
     </Compile>
@@ -112,6 +117,7 @@
     <Compile Include="Entities\Encriptar.cs" />
     <Compile Include="Entities\Formulario.cs" />
     <Compile Include="Entities\Funcionario.cs" />
+    <Compile Include="Entities\InventarioProducto.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
@@ -120,6 +126,11 @@
     <Compile Include="Enum\Pertenece.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +142,24 @@
     </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdProducto.Designer.cs">
       <DependentUpon>frmAdProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioActual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioActual.Designer.cs">
+      <DependentUpon>frmInventarioActual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMaximo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMaximo.Designer.cs">
+      <DependentUpon>frmInventarioMaximo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMinimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMinimo.Designer.cs">
+      <DependentUpon>frmInventarioMinimo.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.cs">
       <SubType>Form</SubType>
@@ -291,6 +320,15 @@
     <EmbeddedResource Include="UI\Bodega\Administracion\frmAdProducto.resx">
       <DependentUpon>frmAdProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioActual.resx">
+      <DependentUpon>frmInventarioActual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioMaximo.resx">
+      <DependentUpon>frmInventarioMaximo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioMinimo.resx">
+      <DependentUpon>frmInventarioMinimo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Procesos\frmAdTrasladoProductos.resx">
       <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,14 +395,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UI\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +409,17 @@
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetInventario.xsc">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetInventario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInventario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetInventario.xss">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\DataSetCategorias.xsc">
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
@@ -462,6 +506,7 @@
     <Content Include="Resources\gnome_panel_force_quit1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\inven.jpg" />
     <Content Include="Resources\items.png" />
     <Content Include="Resources\login.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -477,6 +522,8 @@
     <None Include="Resources\productos.png" />
     <None Include="Resources\registro.png" />
     <None Include="Resources\unidadMedida.png" />
+    <None Include="Resources\max.PNG" />
+    <None Include="Resources\min.PNG" />
     <Content Include="Resources\usuarios1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
