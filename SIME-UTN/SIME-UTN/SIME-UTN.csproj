@@ -65,21 +65,12 @@
     <Compile Include="BLL\LoginBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
-    <Compile Include="DAL\FormularioDAL.cs" />
     <Compile Include="DAL\CategoriaItemDAL.cs" />
     <Compile Include="DAL\CategoriaDAL.cs" />
-    <Compile Include="DAL\ActivoDAL.cs" />
-    <Compile Include="DAL\DetalleFormularioDAL.cs" />
-    <Compile Include="DAL\FuncionarioDAL.cs" />
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
-    <Compile Include="DataSetInventario.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetInventario.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSets\Bodega\DataSetCategorias.cs">
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
     </Compile>
@@ -87,6 +78,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetInventario.Designer.cs" />
+    <Compile Include="DataSets\Bodega\DataSetInventario1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetInventarioActual.Designer.cs" />
+    <Compile Include="DataSets\Bodega\DataSetInventarioActual1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Bodega\DataSetProductos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -108,16 +111,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetTBodega.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUsuario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoDTO.cs" />
-    <Compile Include="Entities\Activo.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
-    <Compile Include="Entities\DetalleFormulario.cs" />
     <Compile Include="Entities\Encriptar.cs" />
-    <Compile Include="Entities\Formulario.cs" />
-    <Compile Include="Entities\Funcionario.cs" />
-    <Compile Include="Entities\InventarioProducto.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
@@ -126,11 +129,6 @@
     <Compile Include="Enum\Pertenece.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,9 +393,14 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <EmbeddedResource Include="UI\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -410,17 +413,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSetInventario.xsc">
-      <DependentUpon>DataSetInventario.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetInventario.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetInventario.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetInventario.xss">
-      <DependentUpon>DataSetInventario.xsd</DependentUpon>
-    </None>
     <None Include="DataSets\Bodega\DataSetCategorias.xsc">
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
     </None>
@@ -431,6 +423,28 @@
     </None>
     <None Include="DataSets\Bodega\DataSetCategorias.xss">
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetInventario.xsc">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetInventario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInventario1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\DataSetInventario.xss">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetInventarioActual.xsc">
+      <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetInventarioActual.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInventarioActual1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\DataSetInventarioActual.xss">
+      <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\DataSetProductos.xsc">
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
@@ -475,6 +489,17 @@
     </None>
     <None Include="DataSets\Bodega\DataSetTBodega.xss">
       <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsuario.xsc">
+      <DependentUpon>DataSetUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsuario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUsuario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetUsuario.xss">
+      <DependentUpon>DataSetUsuario.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

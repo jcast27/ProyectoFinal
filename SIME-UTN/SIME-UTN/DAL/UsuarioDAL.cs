@@ -225,13 +225,13 @@ namespace SIME_UTN.DAL
         /// Metodo que Guarda un Usuario en la base de datos
         /// </summary>
         /// <param name="usuario"></param>
-        public static void GuardarUsuario(UsuarioTable usuariop)
+        public static void GuardarUsuario(UsuarioTable usuariop,string usuarioLogueado)
         {
-         
+
+            
             StringBuilder sql = new StringBuilder();
             Encriptar encriptar = new Encriptar();
             String contrasennaEncriptada = encriptar.Cifrar(usuariop.contrasena);
-
             sql.AppendFormat(" USE [master] ");
             sql.AppendFormat(" CREATE LOGIN {0} WITH PASSWORD=N'{1}', DEFAULT_DATABASE=[SIMEUTN], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF ", usuariop.usuario, usuariop.contrasena);
             sql.AppendFormat(" EXEC master..sp_addsrvrolemember @loginame = N'{0}', @rolename = N'sysadmin'", usuariop.usuario);
@@ -243,8 +243,8 @@ namespace SIME_UTN.DAL
 
 
             SqlCommand command = new SqlCommand(sql.ToString());
-
-
+            string accion = "Insertar";
+            GuardarLog(usuariop, usuarioLogueado,accion,"");
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
@@ -254,7 +254,48 @@ namespace SIME_UTN.DAL
 
         }
 
+        public static void GuardarLog(UsuarioTable usuariop, string usuarioLogueado,string accion, string usuarioEliminadop)
+        {
+            string contrasennaEncriptada = "";
+            string descripcion = "";
+            int estado = 0;
+            if (usuariop == null)
+            {
+                descripcion = usuarioEliminadop;
+                estado = 1;
+            }
+            else
+            {
+                estado = usuariop.estado;
+                descripcion = usuariop.usuario + "-" + usuariop.nombre + "-" + usuariop.apellido1 + "-" + usuariop.apellido2 + "-" + usuariop.perfil + "-" + contrasennaEncriptada + "-" + usuariop.estado;
+                if (usuariop.contrasena != null)
+                {
+                    Encriptar encriptar = new Encriptar();
+                    contrasennaEncriptada = encriptar.Cifrar(usuariop.contrasena);
+                }
+                else
+                {
+                    contrasennaEncriptada = "";
+                }
+            }
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            SqlCommand comando = new SqlCommand("sp_INSERT_log");
+            comando.CommandType = CommandType.StoredProcedure;
 
+            comando.Parameters.AddWithValue("@usuario",usuarioLogueado);
+            comando.Parameters.AddWithValue("@accion",accion);
+            comando.Parameters.AddWithValue("@descripcion",descripcion);
+            comando.Parameters.AddWithValue("@fechamodificacion",fecha);
+            comando.Parameters.AddWithValue("@estado", estado);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+
+        }
 
         /// <summary>
         /// Metodo que devuelve a un Usario de la base de datos, por medio del Codigo de Usuario
@@ -303,16 +344,18 @@ namespace SIME_UTN.DAL
         /// </summary>
         /// <param name="UsuarioIdp"></param>
         /// <param name="UsuarioNombrep"></param>
-        internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep)
+        internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep, string usuarioLogueadop)
         {
+            UsuarioTable unUsuario = new UsuarioTable();
             StringBuilder sql = new StringBuilder();
             sql.AppendFormat("USE [master] DROP LOGIN [{0}] ", UsuarioNombrep);
             sql.AppendFormat("USE [SIMEUTN] DROP USER [{0}] ", UsuarioNombrep);
             sql.AppendFormat("delete from Usuario where Usuario.CodigoUsuario = {0} and Usuario.Usuario = '{1}'", UsuarioIdp, UsuarioNombrep);
 
             SqlCommand command = new SqlCommand(sql.ToString());
-
-
+            string accion = "Eliminar";
+            string usuarioEliminado = "Usuario: " + "-" + UsuarioNombrep;
+            GuardarLog(null,usuarioLogueadop, accion,usuarioEliminado);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -325,7 +368,7 @@ namespace SIME_UTN.DAL
         /// Metodo que actualiza el perfil de un Usuario ya creado
         /// </summary>
         /// <param name="usuariop"></param>
-        internal static void ActualizarUsuario(UsuarioTable usuariop)
+        internal static void ActualizarUsuario(UsuarioTable usuariop,string usuarioLogueado)
         {
             string sql = @"Update Usuario
                            set
@@ -341,6 +384,9 @@ namespace SIME_UTN.DAL
             command.Parameters.AddWithValue("@Apellido2", usuariop.apellido2);
             command.Parameters.AddWithValue("@Perfil", usuariop.perfil);
             command.Parameters.AddWithValue("@CodigoUsuario", usuariop.codigoUsuario);
+
+            string accion = "Modificar";
+            GuardarLog(usuariop, usuarioLogueado, accion,"");
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {

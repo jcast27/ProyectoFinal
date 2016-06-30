@@ -28,16 +28,16 @@ namespace SIME_UTN.BLL
         #endregion
 
 
-        internal static void GuardarUsuario(UsuarioTable usuariop)
+        internal static void GuardarUsuario(UsuarioTable usuariop,string usuarioLogueado)
         {
             if (UsuarioDAL.ObtenerUsuarioID(usuariop.codigoUsuario) == null)
             {
 
-                UsuarioDAL.GuardarUsuario(usuariop);
+                UsuarioDAL.GuardarUsuario(usuariop, usuarioLogueado);
             }
             else
             {
-                UsuarioDAL.ActualizarUsuario(usuariop);
+                UsuarioDAL.ActualizarUsuario(usuariop, usuarioLogueado);
             }
         }
 
@@ -57,9 +57,9 @@ namespace SIME_UTN.BLL
             return UsuarioDAL.ObtenerUsuarioID(usuarioIdp);
         }
 
-        internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep)
+        internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep, string usuarioLogueadop)
         {
-            UsuarioDAL.EliminarUsuario(UsuarioIdp, UsuarioNombrep);
+            UsuarioDAL.EliminarUsuario(UsuarioIdp, UsuarioNombrep, usuarioLogueadop);
         }
 
         internal static int ValidarUsuario(string usuariop)

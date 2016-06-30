@@ -31,12 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             this.gCUsuarios = new DevExpress.XtraGrid.GridControl();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUsuario = new SIME_UTN.DataSetUsuario();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodigoUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrimerApellido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSegundoApellido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPerfil = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
@@ -47,7 +49,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
+            this.usuarioTableAdapter = new SIME_UTN.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
@@ -60,6 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gCUsuarios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCUsuarios.BackgroundImage")));
+            this.gCUsuarios.DataSource = this.usuarioBindingSource;
             this.gCUsuarios.Location = new System.Drawing.Point(6, 54);
             this.gCUsuarios.MainView = this.gridView1;
             this.gCUsuarios.Name = "gCUsuarios";
@@ -70,6 +76,16 @@
             this.gCUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCUsuarios.Click += new System.EventHandler(this.gCUsuarios_Click);
+            // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataMember = "Usuario";
+            this.usuarioBindingSource.DataSource = this.dataSetUsuario;
+            // 
+            // dataSetUsuario
+            // 
+            this.dataSetUsuario.DataSetName = "DataSetUsuario";
+            this.dataSetUsuario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -97,14 +113,6 @@
             this.colCodigoUsuario.Name = "colCodigoUsuario";
             this.colCodigoUsuario.OptionsColumn.AllowEdit = false;
             // 
-            // colUsuario
-            // 
-            this.colUsuario.FieldName = "Usuario";
-            this.colUsuario.Name = "colUsuario";
-            this.colUsuario.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
-            this.colUsuario.Visible = true;
-            this.colUsuario.VisibleIndex = 3;
-            // 
             // colNombre
             // 
             this.colNombre.Caption = "Nombre";
@@ -116,7 +124,7 @@
             // colPrimerApellido
             // 
             this.colPrimerApellido.Caption = "P. Apellido";
-            this.colPrimerApellido.FieldName = "PrimerApellido";
+            this.colPrimerApellido.FieldName = "Apellido1";
             this.colPrimerApellido.Name = "colPrimerApellido";
             this.colPrimerApellido.Visible = true;
             this.colPrimerApellido.VisibleIndex = 1;
@@ -124,10 +132,18 @@
             // colSegundoApellido
             // 
             this.colSegundoApellido.Caption = "S. Apellido";
-            this.colSegundoApellido.FieldName = "SegundoApellido";
+            this.colSegundoApellido.FieldName = "Apellido2";
             this.colSegundoApellido.Name = "colSegundoApellido";
             this.colSegundoApellido.Visible = true;
             this.colSegundoApellido.VisibleIndex = 2;
+            // 
+            // colUsuario
+            // 
+            this.colUsuario.FieldName = "Usuario";
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
+            this.colUsuario.Visible = true;
+            this.colUsuario.VisibleIndex = 3;
             // 
             // colPerfil
             // 
@@ -247,6 +263,10 @@
             this.gbGridViewUsuario.TabStop = false;
             this.gbGridViewUsuario.Text = "Seleccionar Usuario";
             // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +283,8 @@
             this.Text = "Ventana Usuarios";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
@@ -289,5 +311,8 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private System.Windows.Forms.GroupBox gbGridViewUsuario;
+        private DataSetUsuario dataSetUsuario;
+        private System.Windows.Forms.BindingSource usuarioBindingSource;
+        private DataSetUsuarioTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
     }
 }

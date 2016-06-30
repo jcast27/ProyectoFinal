@@ -40,5 +40,33 @@ namespace SIME_UTN.DAL
 
             return listaProductos;
         }
+
+        internal static List<Producto> ObtenerProductos()
+        {
+            List<Producto> listaProductos = new List<Producto>();
+            SqlCommand comando = new SqlCommand("sp_SELECT_Producto_All");
+            comando.CommandType = CommandType.StoredProcedure;
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Producto unProducto = new Producto();
+                    unProducto.idProducto = Convert.ToInt32(dr["idproducto"].ToString());
+                    unProducto.codigoAvatar = dr["codigoavatar"].ToString();
+                    unProducto.nombreProducto = dr["nombre"].ToString();
+                    unProducto.descripcion = dr["descripcion"].ToString();
+                    unProducto.idCategoria.idCategoria = int.Parse(dr["categoria"].ToString());
+                    unProducto.ubicacion = dr["ubicacion"].ToString();
+                    unProducto.idUnidadMedida.idUnidadMedida = int.Parse(dr["unidadmedida"].ToString());
+                    unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
+                    listaProductos.Add(unProducto);
+                }
+            }
+
+            return listaProductos;
+        }
     }
 }

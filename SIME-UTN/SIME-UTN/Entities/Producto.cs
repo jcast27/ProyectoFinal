@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SIME_UTN.Entities
 {
-    class Producto
+   public class Producto
     {
         public int idProducto { set; get; }
         public string codigoAvatar { set; get; }

@@ -19,24 +19,27 @@ namespace SIME_UTN.UI.Bodega.Administracion
         static UsuarioTable usuarioStatic = null;
         GestorUsuarioTable gestor = null;
         static string nombre = "";
+    
         public  frmUsuarios()
         {
             InitializeComponent();
           
         }
 
-      
-    
+
+
+
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetUsuario.Usuario' table. You can move, or remove it, as needed.
+            this.usuarioTableAdapter.Fill(this.dataSetUsuario.Usuario);
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             gestor = GestorUsuarioTable.GetInstance();
             usuarioStatic = new UsuarioTable();
             try
             {
 
-                RefrescarLista();
             }
 
             catch (ApplicationException app)
@@ -62,7 +65,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <summary>
         /// Actualiza el datagridview con los usuarios agredados
         /// </summary>
-        private void RefrescarLista()
+     /*   private void RefrescarLista()
         {
             DataTable dt = new DataTable();
             dt.TableName = "Usuarios";
@@ -97,7 +100,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.gCUsuarios.DataSource = dt;
-        }   
+        }     */
 
 
 
@@ -112,7 +115,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void btnCancelar1_Click(object sender, EventArgs e)
         {
-           RefrescarLista();
+            //RefrescarLista();
+       
         }
 
 
@@ -139,10 +143,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                 if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    gestor.EliminarUsuario(UsuarioID, usuario);
+                    gestor.EliminarUsuario(UsuarioID, usuario,usuarioLogueado);
                         MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   RefrescarLista();
-                }
+                        frmUsuarios_Load(null, null);
+
+                    }
 
                 e.Handled = true;
             }
@@ -168,8 +173,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
              
                 usuarioStatic.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
                 usuarioStatic.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-                usuarioStatic.apellido1 = gridView1.GetFocusedRowCellValue("PrimerApellido").ToString();
-                usuarioStatic.apellido2 = gridView1.GetFocusedRowCellValue("SegundoApellido").ToString();
+                usuarioStatic.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
+                usuarioStatic.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
                 usuarioStatic.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
                 usuarioStatic.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
 
@@ -209,10 +214,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                     if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        gestor.EliminarUsuario(UsuarioID, usuario);
+                        gestor.EliminarUsuario(UsuarioID, usuario, usuarioLogueado);
                         MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        RefrescarLista();
+                        frmUsuarios_Load(null, null);
+
                     }
                 }
 
@@ -229,7 +235,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
             {
                 frmAdUsuario ofrmAdUsuario = new frmAdUsuario(usuarioStatic);
                 ofrmAdUsuario.ShowDialog(this);
-                RefrescarLista();
+                // RefrescarLista();
+
+                frmUsuarios_Load(null,null);
             }
             else
             {
@@ -241,7 +249,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             frmAdUsuario ofrmAdUsuario = new frmAdUsuario();
             ofrmAdUsuario.ShowDialog(this);
-            RefrescarLista();
+            // RefrescarLista();
+            frmUsuarios_Load(null, null);
+
         }
     }
 }

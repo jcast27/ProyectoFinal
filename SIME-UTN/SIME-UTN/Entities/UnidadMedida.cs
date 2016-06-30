@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SIME_UTN.Entities
 {
-    class UnidadMedida
+  public  class UnidadMedida
     {
         public int idUnidadMedida { set; get; }
         public string descripcion { set; get; }

@@ -18,7 +18,6 @@ namespace SIME_UTN.UI.Formulario.Procesos
         GestorCategoria gestor = null;
         GestorUsuarioTable gestorU = null;
         Categoria categoria = null;
-        List<DataGridView> listaGrid = new List<DataGridView>();
         int cont;
 
         public frmFormulario(string categoriaP)
@@ -52,6 +51,8 @@ namespace SIME_UTN.UI.Formulario.Procesos
                             break;
                     }
                 }
+
+                List<DataGridView> listaGrid = new List<DataGridView>();
 
                 if (sino.Count > 0)
                 {
@@ -137,85 +138,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
-            {
 
-            }
-        }
-
-        public bool ValidarCampos()
-        {
-            bool r = false;
-            bool brm = false;
-            bool sino = false;
-            bool texto = false;
-
-           /* List<DataGridView> dgl = new List<DataGridView>();
-            try { dgl.Add(((DataGridView)Controls.Find("dgvSiNo", true)[0])); } catch (Exception) { }
-            try { dgl.Add(((DataGridView)Controls.Find("dgvBRM", true)[0])); } catch (Exception) { }
-            try { dgl.Add(((DataGridView)Controls.Find("dgvTextoLibre", true)[0])); } catch (Exception) { }
-            */
-            foreach (DataGridView dgv in listaGrid)
-            {
-                foreach (DataGridViewRow row in dgv.Rows)
-                {
-                    if (dgv.Name == "dgvBRM")
-                    {
-                        if ((row.Cells[2].Value == null && row.Cells[3].Value == null && row.Cells[4].Value == null) || ((bool)row.Cells[2].Value == false && (bool)row.Cells[3].Value == false && (bool)row.Cells[4].Value == false))
-                        {
-                            brm = true;
-                        }
-                    }
-                    else if (dgv.Name == "dgvSiNo")
-                    {
-                        if ((row.Cells[2].Value == null && row.Cells[3].Value == null) || ((bool)row.Cells[2].Value == false && (bool)row.Cells[3].Value == false))
-                        {
-                            sino = true;
-                        }
-                    }
-                    else if (dgv.Name == "dgvTextoLibre")
-                    {
-                        if (row.Cells[2].Value == null)
-                        {
-                            texto = true;
-                        }
-                    }
-                }
-            }
-
-            if (brm)
-            {
-                ePError.SetError(gbPrincipal, "BRM - Items sin valor");
-                r = false;
-            }
-            else if (sino)
-            {
-                ePError.SetError(gbPrincipal, "Si No - Items sin valor");
-                r = false;
-            }
-            else if (texto)
-            {
-                ePError.SetError(gbPrincipal, "Texto Libre - Items sin valor");
-                r = false;
-            }
-            //else if (cmbPatrimonio.SelectedIndex == -1)
-            //{
-            //    ePError.SetError(cmbPatrimonio, "Activo no seleccionado");
-            //    cmbPatrimonio.Focus();
-            //    r = false;
-            //}
-            //else if (cmbFuncionario.SelectedIndex == -1)
-            //{
-            //    ePError.SetError(cmbFuncionario, "Funcionario no seleccionado");
-            //    cmbFuncionario.Focus();
-            //    r = false;
-            //}
-            else
-            {
-                ePError.Clear();
-                r = true;
-            }
-            return r;
         }
 
         private void dgvSiNo_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -273,11 +196,6 @@ namespace SIME_UTN.UI.Formulario.Procesos
         private void dgvTextoLibre_SizeChanged(object sender, EventArgs e)
         {
             dgvTextoLibre.Columns[1].Width = dgvTextoLibre.Width - 210;
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
