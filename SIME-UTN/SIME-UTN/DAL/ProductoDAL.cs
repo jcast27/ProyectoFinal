@@ -30,15 +30,92 @@ namespace SIME_UTN.DAL
                         unProducto.codigoAvatar = dr["codigoavatar"].ToString();
                         unProducto.nombreProducto = dr["nombre"].ToString();
                         unProducto.descripcion = dr["descripcion"].ToString();
-                        unProducto.categoria = dr["categoria"].ToString();
-                        unProducto.ubicacion = dr["ubicacion"].ToString();
-                        unProducto.unidadMedida = dr["unidadmedida"].ToString();
+                        unProducto.categoria = dr["idcategoria"].ToString();
+                        unProducto.ubicacion = dr["idubicacion"].ToString();
+                        unProducto.unidadMedida = dr["idunidadmedida"].ToString();
                         unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
                         listaProductos.Add(unProducto);
                     }
             }
 
             return listaProductos;
+        }
+
+        internal static void EliminarUsuario(int productoIDp)
+        {
+            SqlCommand comando = new SqlCommand("sp_DISABLE_Producto_ByID");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idproducto", productoIDp);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+        }
+
+        internal static bool ObtenerProductoByID(int idProducto)
+        {
+            bool existe = false;
+            string sql = @"sp_SELECT_Producto_ByID";
+
+            List<Item> lista = new List<Item>();
+
+            SqlCommand command = new SqlCommand(sql);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@idproducto",idProducto);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(command, "consulta");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    existe = true;
+                }
+
+            }
+            return existe;
+        }
+
+        internal static void ActualizarProducto(Producto unProductop)
+        {
+            SqlCommand comando = new SqlCommand("sp_UPDATE_Producto");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idproducto", unProductop.idProducto);
+            comando.Parameters.AddWithValue("@codigoavatar", unProductop.codigoAvatar);
+            comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
+            comando.Parameters.AddWithValue("@descripcion", unProductop.descripcion);
+            comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
+            comando.Parameters.AddWithValue("@idubicacion", unProductop.Ubicacion.idUbicacion);
+            comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@estado", unProductop.estado);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+        }
+
+        internal static void GuardarProducto(Producto unProductop)
+        {
+            SqlCommand comando = new SqlCommand("sp_INSERT_Producto");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@codigoavatar", unProductop.codigoAvatar);
+            comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
+            comando.Parameters.AddWithValue("@descripcion", unProductop.descripcion);
+            comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
+            comando.Parameters.AddWithValue("@idubicacion", unProductop.Ubicacion.idUbicacion);
+            comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@estado", unProductop.estado);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
         }
 
         internal static List<Producto> ObtenerProductos()
@@ -54,14 +131,20 @@ namespace SIME_UTN.DAL
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     Producto unProducto = new Producto();
+                    Categoria unaCategoria = new Categoria();
+                    UnidadMedida unaUnidadMedida = new UnidadMedida();
+                    Ubicacion unaUbicacion = new Ubicacion();
                     unProducto.idProducto = Convert.ToInt32(dr["idproducto"].ToString());
                     unProducto.codigoAvatar = dr["codigoavatar"].ToString();
                     unProducto.nombreProducto = dr["nombre"].ToString();
                     unProducto.descripcion = dr["descripcion"].ToString();
-                    unProducto.idCategoria.idCategoria = int.Parse(dr["categoria"].ToString());
-                    unProducto.ubicacion = dr["ubicacion"].ToString();
-                    unProducto.idUnidadMedida.idUnidadMedida = int.Parse(dr["unidadmedida"].ToString());
+                    unaCategoria.idCategoria = int.Parse(dr["idcategoria"].ToString());
+                    unaUbicacion.idUbicacion = int.Parse(dr["idubicacion"].ToString());
+                    unaUnidadMedida.idUnidadMedida = int.Parse(dr["idunidadmedida"].ToString());
                     unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
+                    unProducto.Categoria = unaCategoria;
+                    unProducto.Ubicacion = unaUbicacion;
+                    unProducto.UnidadMedida = unaUnidadMedida;
                     listaProductos.Add(unProducto);
                 }
             }

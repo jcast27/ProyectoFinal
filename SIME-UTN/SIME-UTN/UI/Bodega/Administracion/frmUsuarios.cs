@@ -16,7 +16,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
     {
         string usuarioLogueado = "";
         UsuarioTable usuario = null;
-        static UsuarioTable usuarioStatic = null;
+        static UsuarioTable usuarioEstatico = null;
         GestorUsuarioTable gestor = null;
         static string nombre = "";
     
@@ -36,7 +36,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.usuarioTableAdapter.Fill(this.dataSetUsuario.Usuario);
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             gestor = GestorUsuarioTable.GetInstance();
-            usuarioStatic = new UsuarioTable();
+            usuarioEstatico = new UsuarioTable();
             try
             {
 
@@ -171,12 +171,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             try
             {
              
-                usuarioStatic.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-                usuarioStatic.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-                usuarioStatic.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
-                usuarioStatic.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
-                usuarioStatic.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
-                usuarioStatic.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
+                usuarioEstatico.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
+                usuarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
+                usuarioEstatico.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
+                usuarioEstatico.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
+                usuarioEstatico.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
+                usuarioEstatico.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
 
             }
             catch (ApplicationException app)
@@ -200,7 +200,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            if (usuarioStatic != null)
+            if (usuarioEstatico != null)
             {
                 this.UsuarioLogueado();
                 string usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
@@ -231,9 +231,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            if (usuarioStatic != null)
+            if (usuarioEstatico != null)
             {
-                frmAdUsuario ofrmAdUsuario = new frmAdUsuario(usuarioStatic);
+                frmAdUsuario ofrmAdUsuario = new frmAdUsuario(usuarioEstatico);
                 ofrmAdUsuario.ShowDialog(this);
                 // RefrescarLista();
 

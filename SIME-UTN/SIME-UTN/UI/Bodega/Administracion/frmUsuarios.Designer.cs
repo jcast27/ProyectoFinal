@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             this.gCUsuarios = new DevExpress.XtraGrid.GridControl();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUsuario = new SIME_UTN.DataSetUsuario();
+            this.dataSetUsuario = new SIME_UTN.DataSets.DataSetUsuario();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodigoUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,7 +49,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
-            this.usuarioTableAdapter = new SIME_UTN.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
+            this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).BeginInit();
@@ -311,8 +311,8 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private System.Windows.Forms.GroupBox gbGridViewUsuario;
-        private DataSetUsuario dataSetUsuario;
+        private SIME_UTN.DataSets.DataSetUsuario dataSetUsuario;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
-        private DataSetUsuarioTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
+        private SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
     }
 }

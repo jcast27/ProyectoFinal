@@ -19,5 +19,24 @@ namespace SIME_UTN.BLL
         {
            return ProductoDAL.ObtenerProductos();
         }
+
+        internal static void GuardarProducto(Producto unProductop)
+        {
+            if (ProductoDAL.ObtenerProductoByID(unProductop.idProducto) == false)
+            {
+
+                ProductoDAL.GuardarProducto(unProductop);
+            }
+            else
+            {
+                ProductoDAL.ActualizarProducto(unProductop);
+            }
+           
+        }
+
+        internal static void EliminarUsuario(int productoIDp)
+        {
+            ProductoDAL.EliminarUsuario(productoIDp);
+        }
     }
 }
