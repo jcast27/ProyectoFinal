@@ -29,12 +29,13 @@ namespace SIME_UTN.DAL
                     {
                         Activo unActivo = new Activo();
                         unActivo.idActivo = Convert.ToInt32(dr["IDActivo"].ToString());
+                        unActivo.nombre = dr["Nombre"].ToString();
                         unActivo.numeroSerie = dr["NumeroSerie"].ToString();
                         unActivo.descripcion = dr["Descripcion"].ToString();
                         unActivo.idCategoria = Convert.ToInt32(dr["IDCategoria"].ToString());
                         unActivo.annoIngreso = Convert.ToDateTime(dr["AnnoIngreso"].ToString());
                         unActivo.valor = Convert.ToDouble(dr["Valor"].ToString());
-                        unActivo.idUbicacion = Convert.ToInt32(dr["IDUbicacion"].ToString());
+                        unActivo.ubicacion = UbicacionDAL.ObtenerUbicacionID(Convert.ToInt32(dr["IDUbicacion"].ToString()));
                         unActivo.marca = dr["Marca"].ToString();
                         unActivo.modelo = dr["Modelo"].ToString();
                         unActivo.patrimonio = dr["Patrimonio"].ToString();
@@ -57,12 +58,13 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@IDActivo", Activop.idActivo);
+            comando.Parameters.AddWithValue("@Nombre", Activop.nombre);
             comando.Parameters.AddWithValue("@NumeroSerie", Activop.numeroSerie);
             comando.Parameters.AddWithValue("@Descripcion", Activop.descripcion);
             comando.Parameters.AddWithValue("@IDCategoria", Activop.idCategoria);
             comando.Parameters.AddWithValue("@AnnoIngreso", Activop.annoIngreso);
             comando.Parameters.AddWithValue("@Valor", Activop.valor);
-            comando.Parameters.AddWithValue("@IDUbicacion", Activop.idUbicacion);
+            comando.Parameters.AddWithValue("@IDUbicacion", Activop.ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@Marca", Activop.marca);
             comando.Parameters.AddWithValue("@Modelo", Activop.modelo);
             comando.Parameters.AddWithValue("@Patrimonio", Activop.patrimonio);
@@ -93,12 +95,13 @@ namespace SIME_UTN.DAL
                 {
                     Activo unActivo = new Activo();
                     unActivo.idActivo = Convert.ToInt32(ds.Tables[0].Rows[0]["IDActivo"].ToString());
+                    unActivo.nombre = ds.Tables[0].Rows[0]["Nombre"].ToString();
                     unActivo.numeroSerie = ds.Tables[0].Rows[0]["NumeroSerie"].ToString();
                     unActivo.descripcion = ds.Tables[0].Rows[0]["Descripcion"].ToString();
                     unActivo.idCategoria = Convert.ToInt32(ds.Tables[0].Rows[0]["IDCategoria"].ToString());
                     unActivo.annoIngreso = Convert.ToDateTime(ds.Tables[0].Rows[0]["AnnoIngreso"].ToString());
                     unActivo.valor = Convert.ToDouble(ds.Tables[0].Rows[0]["Valor"].ToString());
-                    unActivo.idUbicacion = Convert.ToInt32(ds.Tables[0].Rows[0]["IDUbicacion"].ToString());
+                    unActivo.ubicacion = UbicacionDAL.ObtenerUbicacionID(Convert.ToInt32(ds.Tables[0].Rows[0]["IDUbicacion"].ToString()));
                     unActivo.marca = ds.Tables[0].Rows[0]["Marca"].ToString();
                     unActivo.modelo = ds.Tables[0].Rows[0]["Modelo"].ToString();
                     unActivo.patrimonio = ds.Tables[0].Rows[0]["Patrimonio"].ToString();
@@ -112,7 +115,6 @@ namespace SIME_UTN.DAL
                 }
             }
         }
-
 
         internal static void DesactivarActivo(string ActivoIdp, string accion)
         {
@@ -137,12 +139,13 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@IDActivo", Activop.idActivo);
+            comando.Parameters.AddWithValue("@Nombre", Activop.nombre);
             comando.Parameters.AddWithValue("@NumeroSerie", Activop.numeroSerie);
             comando.Parameters.AddWithValue("@Descripcion", Activop.descripcion);
             comando.Parameters.AddWithValue("@IDCategoria", Activop.idCategoria);
             comando.Parameters.AddWithValue("@AnnoIngreso", Activop.annoIngreso);
             comando.Parameters.AddWithValue("@Valor", Activop.valor);
-            comando.Parameters.AddWithValue("@IDUbicacion", Activop.idUbicacion);
+            comando.Parameters.AddWithValue("@IDUbicacion", Activop.ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@Marca", Activop.marca);
             comando.Parameters.AddWithValue("@Modelo", Activop.modelo);
             comando.Parameters.AddWithValue("@Patrimonio", Activop.patrimonio);

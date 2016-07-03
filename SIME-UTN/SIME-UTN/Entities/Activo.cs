@@ -14,7 +14,7 @@ namespace SIME_UTN.Entities
         public int idCategoria { set; get; }
         public DateTime annoIngreso { set; get; }
         public double valor { set; get; }
-        public int idUbicacion { set; get; }
+        public Ubicacion ubicacion { set; get; }
         public string marca { set; get; }
         public string modelo { set; get; }
         public string patrimonio { set; get; }

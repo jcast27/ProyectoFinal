@@ -59,8 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ActivoBLL.cs" />
     <Compile Include="BLL\CategoriaItemBLL.cs" />
     <Compile Include="BLL\CategoriaBLL.cs" />
+    <Compile Include="BLL\FuncionarioBLL.cs" />
     <Compile Include="BLL\ItemBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
+    <Compile Include="DAL\UbicacionDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="DataSetInventario.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -108,6 +111,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetTBodega.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Formulario\DataSetActivo.cs">
+      <DependentUpon>DataSetActivo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetActivo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetActivo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoDTO.cs" />
     <Compile Include="Entities\Activo.cs" />
@@ -120,12 +136,15 @@
     <Compile Include="Entities\InventarioProducto.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\Ubicacion.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\UsuarioDB.cs" />
     <Compile Include="Entities\UsuarioTable.cs" />
     <Compile Include="Enum\Pertenece.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="Gestores\GestorFuncionario.cs" />
+    <Compile Include="Gestores\GestorActivo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -475,6 +494,28 @@
     </None>
     <None Include="DataSets\Bodega\DataSetTBodega.xss">
       <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetActivo.xsc">
+      <DependentUpon>DataSetActivo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetActivo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetActivo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetActivo.xss">
+      <DependentUpon>DataSetActivo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFuncionario.xsc">
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFuncionario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFuncionario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFuncionario.xss">
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
