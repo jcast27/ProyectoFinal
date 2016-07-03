@@ -33,7 +33,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
         }
 
 
-
+        /// <summary>
+        /// Metodo que llama al formulario AdProducto para guardar un nuevo producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             frmAdProducto ofrmAdProducto = new frmAdProducto();
@@ -58,6 +62,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         }
 
+
+        /// <summary>
+        /// Metodo que permite extrae el Producto seleccionado del grid y colocar la informacion en los campos del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gCProductos_Click(object sender, EventArgs e)
         {
             try
@@ -95,6 +105,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
+
+        /// <summary>
+        /// Metodo que llama al formulario AdProducto para modificar el producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             frmAdProducto ofrmAdProducto = new frmAdProducto(productoEstatico);
@@ -102,21 +118,48 @@ namespace SIME_UTN.UI.Bodega.Administracion
             frmProductos_Load(null, null);
         }
 
+        /// <summary>
+        /// Invoca al metodo desactivar producto, al seleccionar un row del grid y pulsar la tecla Delete del teclado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+
+                DesactivarProducto();
+                e.Handled = true;
+            }
+          
+            
+        }
+
+        /// <summary>
+        /// Metodo que desactiva un producto
+        /// </summary>
+        public void DesactivarProducto()
         {
             string producto = gridView1.GetFocusedRowCellValue("Nombre").ToString(); ;
             int productoID = Int32.Parse(gridView1.GetFocusedRowCellValue("IDProducto").ToString());
 
-                if (MessageBox.Show("¿Seguro que desea eliminar al producto " + producto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    gestorProducto.EliminarUsuario(productoID,producto,usuarioLogueado);
-                    MessageBox.Show("El Producto " + producto + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmProductos_Load(null, null);
+            if (MessageBox.Show("¿Seguro que desea eliminar al producto " + producto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                gestorProducto.EliminarUsuario(productoID, producto, usuarioLogueado);
+                MessageBox.Show("El Producto " + producto + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmProductos_Load(null, null);
 
             }
+        }
 
-                e.Handled = true;
-            
+        /// <summary>
+        /// Invoca al metodo desactivar producto, al seleccionar un row del grid y pulsar el boton eliminar del menu principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            DesactivarProducto();
         }
     }
 }

@@ -68,6 +68,7 @@
     <Compile Include="BLL\ItemBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
+    <Compile Include="BLL\RegistroBodegaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\DepartamentoDAL.cs" />
     <Compile Include="DAL\ActivoDAL.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
+    <Compile Include="DAL\RegistroBodegaDAL.cs" />
     <Compile Include="DAL\UbicacionDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="DataSets\Bodega\DataSetProducto.cs">
@@ -113,6 +115,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetRegistroBodega.cs">
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetRegistroBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetTipoBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTipoBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\DataSetTipoBodegaCMB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTipoBodegaCMB.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Bodega\DataSetTipoTraslado1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -162,6 +182,8 @@
     <Compile Include="Entities\InventarioProducto.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\RegistroBodega.cs" />
+    <Compile Include="Entities\TipoBodega.cs" />
     <Compile Include="Entities\Ubicacion.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\UsuarioDB.cs" />
@@ -173,6 +195,7 @@
     <Compile Include="Gestores\GestorDetalleFormulario.cs" />
     <Compile Include="Gestores\GestorFormulario.cs" />
     <Compile Include="Gestores\GestorFuncionario.cs" />
+    <Compile Include="Gestores\GestorRegistroBodega.cs" />
     <Compile Include="UI\Bodega\Administracion\frmAdUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -511,6 +534,39 @@
     </None>
     <None Include="DataSets\Bodega\DataSetInventarioActual.xss">
       <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetRegistroBodega.xsc">
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetRegistroBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRegistroBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\DataSetRegistroBodega.xss">
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTipoBodega.xsc">
+      <DependentUpon>DataSetTipoBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTipoBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTipoBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTipoBodega.xss">
+      <DependentUpon>DataSetTipoBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTipoBodegaCMB.xsc">
+      <DependentUpon>DataSetTipoBodegaCMB.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTipoBodegaCMB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTipoBodegaCMB.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\DataSetTipoBodegaCMB.xss">
+      <DependentUpon>DataSetTipoBodegaCMB.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\DataSetTipoTraslado.xsc">
       <DependentUpon>DataSetTipoTraslado.xsd</DependentUpon>

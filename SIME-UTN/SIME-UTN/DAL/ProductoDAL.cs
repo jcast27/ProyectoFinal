@@ -202,16 +202,16 @@ namespace SIME_UTN.DAL
         {
            
             string descripcion = "";
-            int estado = 0;
+            string estado = "";
             if (unProductop == null)
             {
                 descripcion = "Producto eliminado: "+productoEliminadop;
-                estado = 1;
+                estado = "Desactivado";
             }
             else
             {
-                estado = unProductop.estado;
-                descripcion = "CodigoAvatar: "+unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion+ "\r\nEstado: " + unProductop.estado;
+                estado = "Activo";
+                descripcion = "CodigoAvatar: "+unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion+ "\r\nEstado: " + estado;
                
             }
             DateTime date = DateTime.Now;
@@ -223,7 +223,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@accion", accion);
             comando.Parameters.AddWithValue("@descripcion", descripcion);
             comando.Parameters.AddWithValue("@fechamodificacion", fecha);
-            comando.Parameters.AddWithValue("@estado", estado);
+            comando.Parameters.AddWithValue("@estado", 1);
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))

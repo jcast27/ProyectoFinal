@@ -116,6 +116,7 @@
             // 
             // gridView1
             // 
+            this.gridView1.ColumnPanelRowHeight = 4;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIDProducto,
             this.colCodigoAvatar,
@@ -134,6 +135,7 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.RowHeight = 2;
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // colIDProducto
@@ -143,6 +145,10 @@
             // 
             // colCodigoAvatar
             // 
+            this.colCodigoAvatar.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCodigoAvatar.AppearanceCell.Options.UseFont = true;
+            this.colCodigoAvatar.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCodigoAvatar.AppearanceHeader.Options.UseFont = true;
             this.colCodigoAvatar.FieldName = "CodigoAvatar";
             this.colCodigoAvatar.Name = "colCodigoAvatar";
             this.colCodigoAvatar.Visible = true;
@@ -150,20 +156,34 @@
             // 
             // colNombre
             // 
+            this.colNombre.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colNombre.AppearanceCell.Options.UseFont = true;
+            this.colNombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colNombre.AppearanceHeader.Options.UseFont = true;
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
+            this.colNombre.Width = 185;
             // 
             // colDescripcion
             // 
+            this.colDescripcion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colDescripcion.AppearanceCell.Options.UseFont = true;
+            this.colDescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colDescripcion.AppearanceHeader.Options.UseFont = true;
             this.colDescripcion.FieldName = "Descripcion";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 2;
+            this.colDescripcion.Width = 185;
             // 
             // colIDCategoria
             // 
+            this.colIDCategoria.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colIDCategoria.AppearanceCell.Options.UseFont = true;
+            this.colIDCategoria.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colIDCategoria.AppearanceHeader.Options.UseFont = true;
             this.colIDCategoria.Caption = "Categoria";
             this.colIDCategoria.ColumnEdit = this.LookUpCategoria;
             this.colIDCategoria.FieldName = "IDCategoria";
@@ -171,6 +191,7 @@
             this.colIDCategoria.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colIDCategoria.Visible = true;
             this.colIDCategoria.VisibleIndex = 3;
+            this.colIDCategoria.Width = 185;
             // 
             // LookUpCategoria
             // 
@@ -195,6 +216,10 @@
             // 
             // colUbicacion
             // 
+            this.colUbicacion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colUbicacion.AppearanceCell.Options.UseFont = true;
+            this.colUbicacion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colUbicacion.AppearanceHeader.Options.UseFont = true;
             this.colUbicacion.Caption = "Ubicacion";
             this.colUbicacion.ColumnEdit = this.LookUpUbicacion;
             this.colUbicacion.FieldName = "IDUbicacion";
@@ -202,6 +227,7 @@
             this.colUbicacion.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colUbicacion.Visible = true;
             this.colUbicacion.VisibleIndex = 4;
+            this.colUbicacion.Width = 185;
             // 
             // LookUpUbicacion
             // 
@@ -230,6 +256,10 @@
             // 
             // colIDUnidadMedida
             // 
+            this.colIDUnidadMedida.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colIDUnidadMedida.AppearanceCell.Options.UseFont = true;
+            this.colIDUnidadMedida.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colIDUnidadMedida.AppearanceHeader.Options.UseFont = true;
             this.colIDUnidadMedida.Caption = "Unidad Medida";
             this.colIDUnidadMedida.ColumnEdit = this.LookUpUnidadMedida;
             this.colIDUnidadMedida.FieldName = "IDUnidadMedida";
@@ -237,6 +267,7 @@
             this.colIDUnidadMedida.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colIDUnidadMedida.Visible = true;
             this.colIDUnidadMedida.VisibleIndex = 5;
+            this.colIDUnidadMedida.Width = 194;
             // 
             // LookUpUnidadMedida
             // 
@@ -336,6 +367,7 @@
             this.mBtnEliminar.Enabled = false;
             this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
             this.mBtnEliminar.Name = "mBtnEliminar";
+            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
             // 
             // panel1
             // 
