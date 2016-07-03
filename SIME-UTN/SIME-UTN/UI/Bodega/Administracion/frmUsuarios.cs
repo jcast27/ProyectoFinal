@@ -16,27 +16,30 @@ namespace SIME_UTN.UI.Bodega.Administracion
     {
         string usuarioLogueado = "";
         UsuarioTable usuario = null;
-        static UsuarioTable usuarioStatic = null;
+        static UsuarioTable usuarioEstatico = null;
         GestorUsuarioTable gestor = null;
         static string nombre = "";
+    
         public  frmUsuarios()
         {
             InitializeComponent();
           
         }
 
-      
-    
+
+
+
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetUsuario.Usuario' table. You can move, or remove it, as needed.
+            this.usuarioTableAdapter.Fill(this.dataSetUsuario.Usuario);
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             gestor = GestorUsuarioTable.GetInstance();
-            usuarioStatic = new UsuarioTable();
+            usuarioEstatico = new UsuarioTable();
             try
             {
 
-                RefrescarLista();
             }
 
             catch (ApplicationException app)
@@ -62,7 +65,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <summary>
         /// Actualiza el datagridview con los usuarios agredados
         /// </summary>
-        private void RefrescarLista()
+     /*   private void RefrescarLista()
         {
             DataTable dt = new DataTable();
             dt.TableName = "Usuarios";
@@ -97,7 +100,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.gCUsuarios.DataSource = dt;
-        }   
+        }     */
 
 
 
@@ -112,7 +115,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void btnCancelar1_Click(object sender, EventArgs e)
         {
-           RefrescarLista();
+            //RefrescarLista();
+       
         }
 
 
@@ -139,10 +143,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                 if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    gestor.EliminarUsuario(UsuarioID, usuario);
+                    gestor.EliminarUsuario(UsuarioID, usuario,usuarioLogueado);
                         MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   RefrescarLista();
-                }
+                        frmUsuarios_Load(null, null);
+
+                    }
 
                 e.Handled = true;
             }
@@ -166,12 +171,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             try
             {
              
-                usuarioStatic.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-                usuarioStatic.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-                usuarioStatic.apellido1 = gridView1.GetFocusedRowCellValue("PrimerApellido").ToString();
-                usuarioStatic.apellido2 = gridView1.GetFocusedRowCellValue("SegundoApellido").ToString();
-                usuarioStatic.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
-                usuarioStatic.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
+                usuarioEstatico.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
+                usuarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
+                usuarioEstatico.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
+                usuarioEstatico.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
+                usuarioEstatico.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
+                usuarioEstatico.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
 
             }
             catch (ApplicationException app)
@@ -195,7 +200,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            if (usuarioStatic != null)
+            if (usuarioEstatico != null)
             {
                 this.UsuarioLogueado();
                 string usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
@@ -209,10 +214,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                     if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        gestor.EliminarUsuario(UsuarioID, usuario);
+                        gestor.EliminarUsuario(UsuarioID, usuario, usuarioLogueado);
                         MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        RefrescarLista();
+                        frmUsuarios_Load(null, null);
+
                     }
                 }
 
@@ -225,11 +231,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            if (usuarioStatic != null)
+            if (usuarioEstatico != null)
             {
-                frmAdUsuario ofrmAdUsuario = new frmAdUsuario(usuarioStatic);
+                frmAdUsuario ofrmAdUsuario = new frmAdUsuario(usuarioEstatico);
                 ofrmAdUsuario.ShowDialog(this);
-                RefrescarLista();
+                // RefrescarLista();
+
+                frmUsuarios_Load(null,null);
             }
             else
             {
@@ -241,7 +249,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             frmAdUsuario ofrmAdUsuario = new frmAdUsuario();
             ofrmAdUsuario.ShowDialog(this);
-            RefrescarLista();
+            // RefrescarLista();
+            frmUsuarios_Load(null, null);
+
         }
     }
 }

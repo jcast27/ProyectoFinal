@@ -17,11 +17,19 @@ namespace SIME_UTN.UI.Bodega.Administracion
         UsuarioTable usuario = null;
         GestorUsuarioTable gestor = null;
         static UsuarioTable usuarioStatic = new UsuarioTable();
+        static string usuarioLogueado = "";
         public frmAdUsuario()
         {
             InitializeComponent();
             mBtnModificar.Visible = false;
         }
+
+        public void UsuarioLogueado()
+        {
+            gestor = GestorUsuarioTable.GetInstance();
+            usuarioLogueado = gestor.ObtenerUsuarioLogeado();
+        }
+
 
         public frmAdUsuario(UsuarioTable usuarioStaticp)
         {
@@ -186,8 +194,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdUsuario_Load(object sender, EventArgs e)
         {
-          
-           
+
+            UsuarioLogueado();
         }
 
         private void gCUsuarios()
@@ -260,9 +268,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 {
                     usuario.perfil = "Despachador";
                 }
-
+                usuario.estado = 1;
                 gestor.AgregarUsuario(usuario);
-                gestor.GuardarUsuario();
+                gestor.GuardarUsuario(usuarioLogueado);
                 MessageBox.Show("El Usuario " + usuario.usuario + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CambiarEstado(EstadoMantenimiento.Nuevo);
                 Close();
@@ -314,7 +322,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
 
                         gestor.AgregarUsuario(usuario);
-                        gestor.GuardarUsuario();
+                        gestor.GuardarUsuario(usuarioLogueado);
                         txtUsuario.Text = user;
                         MessageBox.Show("El Usuario " + usuario.usuario + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         CambiarEstado(EstadoMantenimiento.Nuevo);

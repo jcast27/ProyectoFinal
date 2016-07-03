@@ -32,14 +32,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdProducto));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
+            this.cmbUbicacion = new System.Windows.Forms.ComboBox();
+            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.DataSetUbicacion();
             this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedida();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.txtLocalizacion = new System.Windows.Forms.TextBox();
-            this.lblCodigoUsuario = new System.Windows.Forms.Label();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.DataSetCategorias();
+            this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtCodigoAvatar = new System.Windows.Forms.TextBox();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
@@ -48,17 +55,16 @@
             this.lblLocalizacion = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedida();
-            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
-            this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.DataSetCategorias();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
+            this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             this.gbInformacionPersonal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -66,7 +72,8 @@
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
             this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
-            this.tileNavPane1.Buttons.Add(this.mBtnAceptar);
+            this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
+            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
             // tileNavCategory1
@@ -99,16 +106,29 @@
             this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
             this.mBtnNuevo.Name = "mBtnNuevo";
             // 
-            // mBtnAceptar
+            // mBtnGuardar
             // 
-            this.mBtnAceptar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnAceptar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnAceptar.Appearance.Options.UseFont = true;
-            this.mBtnAceptar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnAceptar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnAceptar.Caption = "Aceptar";
-            this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
-            this.mBtnAceptar.Name = "mBtnAceptar";
+            this.mBtnGuardar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnGuardar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnGuardar.Appearance.Options.UseFont = true;
+            this.mBtnGuardar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnGuardar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnGuardar.Caption = "Guardar";
+            this.mBtnGuardar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnGuardar.Glyph")));
+            this.mBtnGuardar.Name = "mBtnGuardar";
+            this.mBtnGuardar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnGuardar_ElementClick);
+            // 
+            // mBtnModificar
+            // 
+            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnModificar.Appearance.Options.UseFont = true;
+            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
+            this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnSalir
             // 
@@ -126,11 +146,11 @@
             // 
             this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInformacionPersonal.Controls.Add(this.cmbUbicacion);
             this.gbInformacionPersonal.Controls.Add(this.cmbUnidadMedida);
             this.gbInformacionPersonal.Controls.Add(this.lblUnidadMedida);
             this.gbInformacionPersonal.Controls.Add(this.cmbCategoria);
-            this.gbInformacionPersonal.Controls.Add(this.txtLocalizacion);
-            this.gbInformacionPersonal.Controls.Add(this.lblCodigoUsuario);
+            this.gbInformacionPersonal.Controls.Add(this.lblCodigoProducto);
             this.gbInformacionPersonal.Controls.Add(this.lblDescripcion);
             this.gbInformacionPersonal.Controls.Add(this.txtCodigoAvatar);
             this.gbInformacionPersonal.Controls.Add(this.txtNombreProducto);
@@ -148,6 +168,32 @@
             this.gbInformacionPersonal.TabStop = false;
             this.gbInformacionPersonal.Text = "Informacion del Producto";
             // 
+            // cmbUbicacion
+            // 
+            this.cmbUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbUbicacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTUbicacionAllBindingSource, "idubicacion", true));
+            this.cmbUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
+            this.cmbUbicacion.DisplayMember = "nombre";
+            this.cmbUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUbicacion.FormattingEnabled = true;
+            this.cmbUbicacion.Location = new System.Drawing.Point(189, 310);
+            this.cmbUbicacion.Name = "cmbUbicacion";
+            this.cmbUbicacion.Size = new System.Drawing.Size(351, 24);
+            this.cmbUbicacion.TabIndex = 34;
+            this.cmbUbicacion.ValueMember = "idubicacion";
+            // 
+            // spSELECTUbicacionAllBindingSource
+            // 
+            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
+            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetUbicacion;
+            // 
+            // dataSetUbicacion
+            // 
+            this.dataSetUbicacion.DataSetName = "DataSetUbicacion";
+            this.dataSetUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cmbUnidadMedida
             // 
             this.cmbUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -163,6 +209,16 @@
             this.cmbUnidadMedida.Size = new System.Drawing.Size(351, 24);
             this.cmbUnidadMedida.TabIndex = 33;
             this.cmbUnidadMedida.ValueMember = "IDUnidadMedida";
+            // 
+            // unidadMedidaProductoBindingSource
+            // 
+            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
+            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedida;
+            // 
+            // dataSetUnidadMedida
+            // 
+            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
+            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblUnidadMedida
             // 
@@ -194,31 +250,29 @@
             this.cmbCategoria.TabIndex = 31;
             this.cmbCategoria.ValueMember = "IDCategoria";
             // 
-            // txtLocalizacion
+            // categoriaBindingSource
             // 
-            this.txtLocalizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.dataSetCategorias;
+            // 
+            // dataSetCategorias
+            // 
+            this.dataSetCategorias.DataSetName = "DataSetCategorias";
+            this.dataSetCategorias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblCodigoProducto
+            // 
+            this.lblCodigoProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLocalizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocalizacion.Location = new System.Drawing.Point(189, 312);
-            this.txtLocalizacion.Name = "txtLocalizacion";
-            this.txtLocalizacion.Size = new System.Drawing.Size(351, 22);
-            this.txtLocalizacion.TabIndex = 30;
-            this.txtLocalizacion.Text = "Modulo1";
-            // 
-            // lblCodigoUsuario
-            // 
-            this.lblCodigoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCodigoUsuario.AutoSize = true;
-            this.lblCodigoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCodigoUsuario.Location = new System.Drawing.Point(14, 25);
-            this.lblCodigoUsuario.Name = "lblCodigoUsuario";
-            this.lblCodigoUsuario.Size = new System.Drawing.Size(0, 18);
-            this.lblCodigoUsuario.TabIndex = 29;
-            this.lblCodigoUsuario.Visible = false;
+            this.lblCodigoProducto.AutoSize = true;
+            this.lblCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoProducto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCodigoProducto.Location = new System.Drawing.Point(14, 25);
+            this.lblCodigoProducto.Name = "lblCodigoProducto";
+            this.lblCodigoProducto.Size = new System.Drawing.Size(0, 18);
+            this.lblCodigoProducto.TabIndex = 29;
+            this.lblCodigoProducto.Visible = false;
             // 
             // lblDescripcion
             // 
@@ -326,33 +380,17 @@
             this.txtDescripcion.TabIndex = 27;
             this.txtDescripcion.Text = "Limpieza";
             // 
-            // dataSetUnidadMedida
-            // 
-            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
-            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // unidadMedidaProductoBindingSource
-            // 
-            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
-            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedida;
-            // 
             // unidadMedidaProductoTableAdapter
             // 
             this.unidadMedidaProductoTableAdapter.ClearBeforeFill = true;
             // 
-            // dataSetCategorias
-            // 
-            this.dataSetCategorias.DataSetName = "DataSetCategorias";
-            this.dataSetCategorias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.dataSetCategorias;
-            // 
             // categoriaTableAdapter
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
+            // 
+            // sp_SELECT_Ubicacion_AllTableAdapter
+            // 
+            this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmAdProducto
             // 
@@ -370,10 +408,12 @@
             this.Load += new System.EventHandler(this.frmAdProducto_Load);
             this.gbInformacionPersonal.ResumeLayout(false);
             this.gbInformacionPersonal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,14 +421,13 @@
         #endregion
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnAceptar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private System.Windows.Forms.GroupBox gbInformacionPersonal;
         private System.Windows.Forms.ComboBox cmbUnidadMedida;
         private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.ComboBox cmbCategoria;
-        private System.Windows.Forms.TextBox txtLocalizacion;
-        private System.Windows.Forms.Label lblCodigoUsuario;
+        private System.Windows.Forms.Label lblCodigoProducto;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtCodigoAvatar;
         private System.Windows.Forms.TextBox txtNombreProducto;
@@ -403,5 +442,10 @@
         private DataSets.Bodega.DataSetCategorias dataSetCategorias;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Bodega.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
+        private System.Windows.Forms.ComboBox cmbUbicacion;
+        private DataSets.Bodega.DataSetUbicacion dataSetUbicacion;
+        private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
+        private DataSets.Bodega.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
     }
 }

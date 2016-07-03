@@ -31,7 +31,26 @@ namespace SIME_UTN.Gestores
 
         internal List<ProductoCategoriaUnidadMedidaDTO> ObtenertPorNombreDTO(string filtroNombreProductop)
         {
-            return BLL.ProductoBLL.ObtenertPorNombreDTO(filtroNombreProductop);
+            return ProductoBLL.ObtenertPorNombreDTO(filtroNombreProductop);
+        }
+
+        internal List<Producto> ObtenerProductos()
+        {
+            return ProductoBLL.ObtenerProductos();
+        }
+        public void AgregarProducto(Producto productop)
+        {
+            producto = productop;
+        }
+
+        internal void GuardarProducto(Producto unProductop)
+        {
+            ProductoBLL.GuardarProducto(unProductop);
+        }
+
+        internal void EliminarUsuario(int productoIDp)
+        {
+            ProductoBLL.EliminarUsuario(productoIDp);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SIME_UTN.Entities
 {
-    class Item
+  public  class Item
     {
         public int idItem { set; get; }
         public string descripcion { set; get; }

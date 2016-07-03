@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIME_UTN.DTOs;
 using SIME_UTN.DAL;
+using SIME_UTN.Entities;
 
 namespace SIME_UTN.BLL
 {
@@ -11,7 +12,31 @@ namespace SIME_UTN.BLL
     {
         internal static List<ProductoCategoriaUnidadMedidaDTO> ObtenertPorNombreDTO(string filtroNombreProductop)
         {
-            return DAL.ProductoDAL.ObtenertPorNombreDTO(filtroNombreProductop);
+            return ProductoDAL.ObtenertPorNombreDTO(filtroNombreProductop);
+        }
+
+        internal static List<Producto> ObtenerProductos()
+        {
+           return ProductoDAL.ObtenerProductos();
+        }
+
+        internal static void GuardarProducto(Producto unProductop)
+        {
+            if (ProductoDAL.ObtenerProductoByID(unProductop.idProducto) == false)
+            {
+
+                ProductoDAL.GuardarProducto(unProductop);
+            }
+            else
+            {
+                ProductoDAL.ActualizarProducto(unProductop);
+            }
+           
+        }
+
+        internal static void EliminarUsuario(int productoIDp)
+        {
+            ProductoDAL.EliminarUsuario(productoIDp);
         }
     }
 }

@@ -78,9 +78,9 @@ namespace SIME_UTN.Gestores
         /// <summary>
         /// Metodo que invoca a GuardarUsuario de la BLL
         /// </summary>
-        public void GuardarUsuario()
+        public void GuardarUsuario(string usuarioLogueado)
         {
-            UsuarioBLL.GuardarUsuario(usuario);
+            UsuarioBLL.GuardarUsuario(usuario, usuarioLogueado);
         }
 
 
@@ -110,9 +110,9 @@ namespace SIME_UTN.Gestores
         /// </summary>
         /// <param name="UsuarioIdp"></param>
         /// <param name="UsuarioNombrep"></param>
-        public void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep)
+        public void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep, string usuarioLogueadop)
         {
-            UsuarioBLL.EliminarUsuario(UsuarioIdp, UsuarioNombrep);
+            UsuarioBLL.EliminarUsuario(UsuarioIdp, UsuarioNombrep, usuarioLogueadop);
         }
 
 
