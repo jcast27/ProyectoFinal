@@ -51,6 +51,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.categoriaTableAdapter.Fill(this.dataSetCategorias.Categoria);
             // TODO: This line of code loads data into the 'dataSetProducto.Producto' table. You can move, or remove it, as needed.
             this.productoTableAdapter.Fill(this.dataSetProducto.Producto);
+            UsuarioLogueado();
             gestorProducto = GestorProducto.GetInstance();
             productoEstatico = new Producto();
 

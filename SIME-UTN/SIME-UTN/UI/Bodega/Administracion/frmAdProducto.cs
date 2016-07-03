@@ -62,6 +62,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.unidadMedidaProductoTableAdapter.Fill(this.dataSetUnidadMedida.UnidadMedidaProducto);
             // TODO: This line of code loads data into the 'dataSetCategorias.Categoria' table. You can move, or remove it, as needed.
             this.categoriaTableAdapter.Fill(this.dataSetCategorias.Categoria);
+            UsuarioLogueado();
             if (productoEstatico == null)
             {
                 cmbCategoria.SelectedIndex = -1;
@@ -155,18 +156,30 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
+            if (ValidarCampos() == false)
+            {
+                string accion = "Modificar";
+                GuardarCambiosProducto(accion);
+            }
+           
+        }
+
+        /// <summary>
+        /// Metodo que guarda los cambios ya sea un nuevo producto o si se modifica dicho producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        public void GuardarCambiosProducto(string accionp)
+        {
             gestorProducto = GestorProducto.GetInstance();
             unProducto = new Producto();
             unaCategoria = new Categoria();
             unaUbicacion = new Ubicacion();
             unaUnidadMedida = new UnidadMedida();
-            UsuarioLogueado();
             try
             {
-
-
-                string ID = lblCodigoProducto.Text;
-                unProducto.idProducto = int.Parse(ID);
+               
                 unProducto.nombreProducto = txtNombreProducto.Text;
                 unProducto.descripcion = txtDescripcion.Text;
                 unProducto.codigoAvatar = txtCodigoAvatar.Text;
@@ -180,10 +193,22 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unaUnidadMedida.descripcion = cmbUnidadMedida.GetItemText(cmbUnidadMedida.Items[cmbUnidadMedida.SelectedIndex]);
                 unProducto.UnidadMedida = unaUnidadMedida;
                 unProducto.estado = 1;
-                gestorProducto.AgregarProducto(unProducto);
-                gestorProducto.GuardarProducto(unProducto,usuarioLogueado);
+                if (accionp == "Modificar")
+                {
+                    string idProducto = lblCodigoProducto.Text;
+                    unProducto.idProducto = int.Parse(idProducto);
+                    gestorProducto.AgregarProducto(unProducto);
+                    gestorProducto.GuardarProducto(unProducto, usuarioLogueado);
+                    MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }else
+                {
+                    gestorProducto.AgregarProducto(unProducto);
+                    gestorProducto.GuardarProducto(unProducto, usuarioLogueado);
+                    MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+               
                 CambiarEstado(EstadoMantenimiento.Editar);
-                Close();
+
             }
             catch (Exception ex)
             {
@@ -198,35 +223,56 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnGuardar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            gestorProducto = GestorProducto.GetInstance();
-            unProducto = new Producto();
-            unaCategoria = new Categoria();
-            unaUbicacion = new Ubicacion();
-            unaUnidadMedida = new UnidadMedida();
-            try
+            if (ValidarCampos() == false)
             {
-                unProducto.nombreProducto = txtNombreProducto.Text;
-                unProducto.descripcion = txtDescripcion.Text;
-                unProducto.codigoAvatar = txtCodigoAvatar.Text;
-                unaCategoria.idCategoria = int.Parse(cmbCategoria.SelectedValue.ToString());
-                unaCategoria.descripcion = cmbCategoria.GetItemText(cmbCategoria.Items[cmbCategoria.SelectedIndex]);
-                unProducto.Categoria = unaCategoria;
-                unaUbicacion.idUbicacion = int.Parse(cmbUbicacion.SelectedValue.ToString());
-                unaUbicacion.nombre = cmbUbicacion.GetItemText(cmbUbicacion.Items[cmbUbicacion.SelectedIndex]);
-                unProducto.Ubicacion = unaUbicacion;
-                unaUnidadMedida.idUnidadMedida = int.Parse(cmbUnidadMedida.SelectedValue.ToString());
-                unaUnidadMedida.descripcion = cmbUnidadMedida.GetItemText(cmbUnidadMedida.Items[cmbUnidadMedida.SelectedIndex]);
-                unProducto.UnidadMedida = unaUnidadMedida;
-                unProducto.estado = 1;
-                gestorProducto.AgregarProducto(unProducto);
-                gestorProducto.GuardarProducto(unProducto, usuarioLogueado);
-                CambiarEstado(EstadoMantenimiento.Editar);
-                Close();
+                GuardarCambiosProducto("");
             }
-            catch (Exception ex)
+        }
+
+        public bool ValidarCampos()
+        {
+            bool error = false;
+            if (txtNombreProducto.Text.Trim() == "")
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                epError.SetError(txtNombreProducto,"Campo Requerido");
+                txtNombreProducto.Focus();
+                error = true;
             }
+            if (txtDescripcion.Text.Trim() == "")
+            {
+                epError.SetError(txtDescripcion, "Campo Requerido");
+                txtDescripcion.Focus();
+                error = true;
+            }
+            if (txtCodigoAvatar.Text.Trim() == "")
+            {
+                epError.SetError(txtCodigoAvatar, "Campo Requerido");
+                txtCodigoAvatar.Focus();
+                error = true;
+            }
+            if(cmbCategoria.SelectedIndex == -1)
+            {
+                epError.SetError(cmbCategoria, "Campo Requerido");
+                cmbCategoria.Focus();
+                error = true;
+            }
+            if (cmbUbicacion.SelectedIndex == -1)
+            {
+                epError.SetError(cmbUbicacion, "Campo Requerido");
+                cmbUbicacion.Focus();
+                error = true;
+            }
+            if (cmbUnidadMedida.SelectedIndex == -1)
+            {
+                epError.SetError(cmbUnidadMedida, "Campo Requerido");
+                cmbUnidadMedida.Focus();
+                error = true;
+            }
+            if(error == false)
+            {
+                epError.Clear();
+            }
+            return error;
         }
     }
 }

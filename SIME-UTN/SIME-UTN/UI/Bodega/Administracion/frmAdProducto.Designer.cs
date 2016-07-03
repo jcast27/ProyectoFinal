@@ -58,6 +58,7 @@
             this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbInformacionPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -392,6 +394,10 @@
             // 
             this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
             // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
+            // 
             // frmAdProducto
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -414,6 +420,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -447,5 +454,6 @@
         private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
         private DataSets.Bodega.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
+        private System.Windows.Forms.ErrorProvider epError;
     }
 }

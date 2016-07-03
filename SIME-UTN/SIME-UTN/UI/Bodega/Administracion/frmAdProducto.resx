@@ -24114,10 +24114,10 @@
 </value>
   </data>
   <metadata name="spSELECTUbicacionAllBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>924, 56</value>
+    <value>17, 59</value>
   </metadata>
   <metadata name="dataSetUbicacion.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>778, 56</value>
+    <value>1299, 20</value>
   </metadata>
   <metadata name="unidadMedidaProductoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>187, 20</value>
@@ -24126,18 +24126,21 @@
     <value>23, 18</value>
   </metadata>
   <metadata name="categoriaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>422, 56</value>
+    <value>943, 20</value>
   </metadata>
   <metadata name="dataSetCategorias.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>271, 56</value>
+    <value>792, 20</value>
   </metadata>
   <metadata name="unidadMedidaProductoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>538, 20</value>
   </metadata>
   <metadata name="categoriaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>603, 56</value>
+    <value>1124, 20</value>
   </metadata>
   <metadata name="sp_SELECT_Ubicacion_AllTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1174, 56</value>
+    <value>267, 59</value>
+  </metadata>
+  <metadata name="epError.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>446, 20</value>
   </metadata>
 </root>
