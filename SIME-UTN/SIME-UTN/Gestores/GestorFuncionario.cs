@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using SIME_UTN.Entities;
+using SIME_UTN.Factories;
+using SIME_UTN.BLL;
+using System.Windows.Forms;
 
 namespace SIME_UTN.Gestores
 {
-    class GestorFuncionario
+    sealed class GestorFuncionario
     {
-        public static Funcionario funcionario;
-        public static string nombreFuncionario;
-        public static GestorFuncionario instancia;
+    public static Funcionario Funcionario;
+    public static string NombreFuncionario;
+    public static GestorFuncionario instancia;
 
         public GestorFuncionario()
         {
-            funcionario = new Funcionario();
+            Funcionario = new Funcionario();
         }
-
         public static GestorFuncionario GetInstance()
         {
             if (instancia == null)
@@ -27,6 +30,35 @@ namespace SIME_UTN.Gestores
             return instancia;
         }
 
+        public List<Funcionario> ObtenerFuncionarios()
+        {
+            return FuncionarioBLL.ObtenerFuncionarios();
+        }
+
+        public void AgregarFuncionario(Funcionario Funcionariop)
+        {
+            Funcionario = Funcionariop;
+        }
+
+        public Funcionario ObtenerFuncionario()
+        {
+            return Funcionario;
+        }
+
+        public void GuardarFuncionario()
+        {
+            FuncionarioBLL.GuardarFuncionario(Funcionario);
+        }
+
+        public Funcionario ObtenerFuncionarioId(int FuncionarioIdp)
+        {
+            return FuncionarioBLL.ObtenerFuncionarioID(FuncionarioIdp);
+        }
+
+        public void DesactivarFuncionario(string FuncionarioIdp, string accion)
+        {
+            FuncionarioBLL.DesactivarFuncionario(FuncionarioIdp, accion);
+        }
 
     }
 }

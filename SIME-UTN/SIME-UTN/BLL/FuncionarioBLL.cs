@@ -1,37 +1,35 @@
-﻿
+﻿using SIME_UTN.DAL;
+using SIME_UTN.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SIME_UTN.DAL;
-using SIME_UTN.Entities;
 
 namespace SIME_UTN.BLL
 {
     class FuncionarioBLL
     {
+
         public static List<Funcionario> ObtenerFuncionarios()
         {
             return FuncionarioDAL.ObtenerFuncionarios();
         }
 
-        public static Funcionario ObtenerFuncionarioID(int idFuncionariop)
+        internal static void GuardarFuncionario(Funcionario Funcionariop)
         {
-            return FuncionarioDAL.ObtenerFuncionarioID(idFuncionariop);
-        }
-
-        internal static void GuardarFuncionario(Funcionario funcionarioP)
-        {
-
-            if (FuncionarioDAL.ObtenerFuncionarioID(funcionarioP.idFuncionario) == null)
+            if (FuncionarioDAL.ObtenerFuncionarioID(Funcionariop.idFuncionario) == null)
             {
-               FuncionarioDAL.GuardarFuncionario(funcionarioP);
+                FuncionarioDAL.GuardarFuncionario(Funcionariop);
             }
             else
             {
-                FuncionarioDAL.ActualizarFuncionario(funcionarioP);
+                FuncionarioDAL.ActualizarFuncionario(Funcionariop);
             }
-            
+        }
+
+        internal static Funcionario ObtenerFuncionarioID(int FuncionarioIdp)
+        {
+            return FuncionarioDAL.ObtenerFuncionarioID(FuncionarioIdp);
         }
 
         internal static void DesactivarFuncionario(string FuncionarioIdp, string accion)
@@ -39,9 +37,5 @@ namespace SIME_UTN.BLL
             FuncionarioDAL.DesactivarFuncionario(FuncionarioIdp, accion);
         }
 
-        internal static void ActualizarFuncionario(Funcionario funcionariop)
-        {
-            FuncionarioDAL.ActualizarFuncionario(funcionariop);
-        }
     }
 }

@@ -12,27 +12,25 @@ using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using SIME_UTN.Gestores;
 using DevExpress.XtraBars.Docking2010.Views;
 using SIME_UTN.Entities;
+using SIME_UTN.UI.Formulario.Procesos;
 
 namespace SIME_UTN.UI.Formulario
 {
     public partial class frmMDIForm : DevExpress.XtraEditors.XtraForm
     {
-        static string tipoDeProceso ="";
+        static string tipoDeProceso = "";
         static string usuarioLogueado = "";
         GestorUsuarioTable gestor = null;
         public frmMDIForm()
         {
-           
             Thread tardar = new Thread(new ThreadStart(this.SplashScreen));
             tardar.Start();
-            Thread.Sleep(6000); // Tardanza para iniciar aplicacion (6000)
+            Thread.Sleep(2000); // Tardanza para iniciar aplicacion (6000)
             InitializeComponent();
             tardar.Abort();
             // Handling the QueryControl event that will populate all automatically generated Documents
-           // CrearDocuemtnos();
+            // CrearDocuemtnos();
             this.UsuarioLogueado();
-           
-           
         }
         public frmMDIForm(bool estado)
         {
@@ -48,40 +46,32 @@ namespace SIME_UTN.UI.Formulario
             usuarioTSMI.Text = "Usuario: " + usuarioLogueado;
         }
 
-
-
         public void SplashScreen()
         {
             Application.Run(new frmSplashScreen());
         }
 
         // Assigning a required content for each auto generated Document
-        void windowsUIView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
+        void windowsUIView1_QueryControl(object sender, QueryControlEventArgs e)
         {
 
             if (e.Document.Caption == "Ventana Items")
-                e.Control = new SIME_UTN.UI.Formulario.Administracion.frmItem();
+                e.Control = new Administracion.frmItem();
             else if (e.Document.Caption == "Ventana Categorías")
-                e.Control = new SIME_UTN.UI.Formulario.Administracion.frmCategoria();
-            else
-                e.Control = new SIME_UTN.UI.Formulario.Procesos.frmFormulario(e.Document.Caption);
-
-            //if (e.Control == null)
-            //    e.Control = new System.Windows.Forms.Control();
-
-            /*switch (e.Document.Caption)
-            {
-                case "Ventana Usuarios":
-                    e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUsuarios();
-                    break;
-                case "Ventana Productos":
-                    e.Control = new SIME_UTN.UI.Bodega.Administracion.frmProductos();
-                    break;
-                case "Ventana Ingreso Producto":
-                    e.Control = new SIME_UTN.UI.Bodega.Procesos.frmRegistroProducto();
-                    break;
-            }*/
-
+                e.Control = new Administracion.frmCategoria();
+            else {
+                e.Control = new frmFormulario(e.Document.Caption);
+                frmFormulario fform = new frmFormulario(e.Document.Caption);
+                fform.ShowDialog();
+                /*                
+                                e.Control = new Control();
+                                BackButtonClickEventArgs b = new BackButtonClickEventArgs();
+                                object sender2 = new object();
+                                windowsUIView1_BackButtonClick(sender2, b);
+                this.CrearDocumentosFormulario(true);
+                windowsUIView1_BackButtonClick(null, null);*/
+                e.Control = new Control();
+            }
         }
 
         private FlyoutAction createCloseAction(Flyout flyout)
@@ -121,9 +111,9 @@ namespace SIME_UTN.UI.Formulario
         }
 
         //Se crea un elemento que sera agregado al frame
-        public TileItemElement CrearElemento(String nombreElemento,Image imagen)
+        public TileItemElement CrearElemento(String nombreElemento, Image imagen)
         {
-            Font font = new Font("Tahoma", 15.0f,FontStyle.Underline| FontStyle.Underline);
+            Font font = new Font("Tahoma", 15.0f, FontStyle.Underline | FontStyle.Underline);
             TileItemElement elemento = new TileItemElement();
             elemento.Text = nombreElemento;
             elemento.Image = imagen;
@@ -147,7 +137,7 @@ namespace SIME_UTN.UI.Formulario
         }
 
         //Se crea un tile que contendra el frame
-        public DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile crearTile(Document document, String nombreElemento, String grupo, Image imagen,Boolean estado)
+        public Tile crearTile(Document document, String nombreElemento, String grupo, Image imagen, Boolean estado)
         {
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile tile1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
             tile1.Group = grupo;
@@ -162,14 +152,14 @@ namespace SIME_UTN.UI.Formulario
             string nombreElemento = "";
             string grupo = "";
             Image imagen = null;
-           
+
             this.windowsUIView1.BeginUpdate();
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Items" };
+            Document doc1 = new Document { Caption = "Ventana Items" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Categorías" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2 });
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1, doc2 });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 200;
@@ -178,7 +168,7 @@ namespace SIME_UTN.UI.Formulario
             grupo = "Group 1";
             imagen = Properties.Resources.usuarios;
             nombreElemento = "Items";
-            tileContainer2.Items.Add(this.crearTile(doc1,nombreElemento,grupo,imagen,estado));
+            tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
 
             //Propiedades para el documento Categorías
             grupo = "Group 2";
@@ -222,18 +212,18 @@ namespace SIME_UTN.UI.Formulario
                     tileContainer2.Items.Add(this.crearTile(doc1, cat.descripcion, grupo, imagen, estado));
                 }
             }
-            
+
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);
             this.windowsUIView1.EndUpdate();
-            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+            //this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
 
         }
 
 
         private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
         {
-          if (tipoDeProceso == "Administracion")
+            if (tipoDeProceso == "Administracion")
             {
                 this.CrearDocumentosAdministracion(true);
             }
@@ -241,7 +231,7 @@ namespace SIME_UTN.UI.Formulario
             {
                 this.CrearDocumentosFormulario(true);
             }
-             
+
         }
 
         private void windowsUIView1_ControlReleasing(object sender, ControlReleasingEventArgs e)

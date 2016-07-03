@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIME_UTN.Entities;
 using SIME_UTN.Gestores;
+using SIME_UTN.BLL;
 
 namespace SIME_UTN.UI.Formulario.Procesos
 {
@@ -27,10 +28,19 @@ namespace SIME_UTN.UI.Formulario.Procesos
             cont = 0;
             gestor = GestorCategoria.GetInstance();
             categoria = gestor.ObtenerCategoriaDescripcion(categoriaP);
+            txtFecha.Text = DateTime.Now.ToShortDateString();
         }
 
         private void frmFormulario_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSetFuncionario.Funcionario' Puede moverla o quitarla según sea necesario.
+            this.funcionarioTableAdapter.Fill(this.dataSetFuncionario.Funcionario);
+            // TODO: esta línea de código carga datos en la tabla 'dataSetActivo.Activo' Puede moverla o quitarla según sea necesario.
+            this.activoTableAdapter.Fill(this.dataSetActivo.Activo);
+
+            cmbFuncionario.SelectedIndex = -1;
+            cmbPatrimonio.SelectedIndex = -1;
+
             try
             {
                 List<Item> sino = new List<Item>();
@@ -82,38 +92,55 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 gbPrincipal.Controls.Clear();
 
                 SplitContainer splitSeccion = new SplitContainer();
+                splitSeccion.Orientation = Orientation.Horizontal;
                 splitSeccion.Dock = DockStyle.Fill;
 
                 gbPrincipal.Controls.Add(splitSeccion);
+
+                //List<DataGridView> listaTemp = new List<DataGridView>();
+
+                //foreach (DataGridView grid in listaGrid)
+                //{
+                //    int totalRowHeight = grid.ColumnHeadersHeight;
+                //    foreach (DataGridViewRow row in grid.Rows)
+                //        totalRowHeight += row.Height;
+
+                //    grid.Height = totalRowHeight + 10;
+                //    listaTemp.Add(grid);
+                //}
+
+                //listaGrid = listaTemp;
 
                 switch (cont)
                 {
                     case 1:
                         splitSeccion.Panel1.Controls.Add(listaGrid[0]);
-                        splitSeccion.SplitterDistance = panelPrincipal.Width / 2;
+                        splitSeccion.SplitterDistance = panelPrincipal.Height / 2;
                         listaGrid[0].Dock = DockStyle.Fill;
                         break;
                     case 2:
                         splitSeccion.Panel1.Controls.Add(listaGrid[0]);
                         splitSeccion.Panel2.Controls.Add(listaGrid[1]);
-                        splitSeccion.SplitterDistance = splitSeccion.Width / 2;
+                        splitSeccion.SplitterDistance = splitSeccion.Height / 2;
                         listaGrid[0].Dock = DockStyle.Fill;
                         listaGrid[1].Dock = DockStyle.Fill;
                         break;
                     case 3:
                         splitSeccion.Panel1.Controls.Add(listaGrid[0]);
                         SplitContainer splitSeccion2 = new SplitContainer();
+                        splitSeccion2.Orientation = Orientation.Horizontal;
                         splitSeccion2.Dock = DockStyle.Fill;
                         splitSeccion.Panel2.Controls.Add(splitSeccion2);
                         splitSeccion2.Panel1.Controls.Add(listaGrid[1]);
                         splitSeccion2.Panel2.Controls.Add(listaGrid[2]);
-                        splitSeccion.SplitterDistance = splitSeccion.Width / 3;
-                        splitSeccion2.SplitterDistance = splitSeccion.Width / 3;
+                        splitSeccion.SplitterDistance = splitSeccion.Height / 3;
+                        splitSeccion2.SplitterDistance = splitSeccion.Height / 3;
                         listaGrid[0].Dock = DockStyle.Fill;
                         listaGrid[1].Dock = DockStyle.Fill;
                         listaGrid[2].Dock = DockStyle.Fill;
                         break;
                 }
+
             }
             catch (ApplicationException app)
             {
@@ -140,6 +167,37 @@ namespace SIME_UTN.UI.Formulario.Procesos
             if (ValidarCampos())
             {
 
+                GestorActivo ga = new GestorActivo();
+                GestorFuncionario gf = new GestorFuncionario();
+                GestorFormulario gForm = new GestorFormulario();
+
+                Entities.Formulario form = new Entities.Formulario();
+                form.activo = ga.ObtenerActivoId(int.Parse(cmbPatrimonio.SelectedValue.ToString()));
+                form.funcionario = gf.ObtenerFuncionarioId(int.Parse(cmbFuncionario.SelectedValue.ToString()));
+                form.fecha = DateTime.Parse(txtFecha.Text);
+                form.cliente = txtCliente.Text;
+                form.observaciones = txtComentario.Text;
+
+                form.idFormulario = gForm.GuardarFormulario();
+
+                foreach (DataGridView dgv in listaGrid)
+                {
+                    foreach (DataGridViewRow row in dgv.Rows)
+                    {
+                        if (dgv.Name == "dgvBRM")
+                        {
+                            
+                        }
+                        else if (dgv.Name == "dgvSiNo")
+                        {
+                            
+                        }
+                        else if (dgv.Name == "dgvTextoLibre")
+                        {
+                            
+                        }
+                    }
+                }
             }
         }
 
@@ -278,6 +336,37 @@ namespace SIME_UTN.UI.Formulario.Procesos
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmFormulario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea salir?", "Advertencia",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void cmbPatrimonio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPatrimonio.SelectedIndex > -1)
+            {
+                GestorActivo ga = new GestorActivo();
+
+                Activo a = ga.ObtenerActivoId(int.Parse(cmbPatrimonio.SelectedValue.ToString()));
+
+                txtNombre.Text = a.nombre;
+                txtMarca.Text = a.marca;
+                txtModelo.Text = a.modelo;
+                txtSerie.Text = a.numeroSerie;
+                txtUbicacion.Text = a.ubicacion.nombre;
+            }
         }
     }
 }

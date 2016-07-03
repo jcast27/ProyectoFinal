@@ -12,7 +12,7 @@ namespace SIME_UTN.Entities
         public string cedula { set; get; }
         public string telefono { set; get; }
         public string correo { set; get; }
-        public Departamento Departamento { set; get; }
+        public int idDepartamento { set; get; }
         public int estado { set; get; }
 
         public Funcionario() { }
