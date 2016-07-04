@@ -114,8 +114,8 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 switch (cont)
                 {
                     case 1:
-                        splitSeccion.Panel1.Controls.Add(listaGrid[0]);
-                        splitSeccion.SplitterDistance = panelPrincipal.Height / 2;
+                        gbPrincipal.Controls.Clear();
+                        gbPrincipal.Controls.Add(listaGrid[0]);
                         listaGrid[0].Dock = DockStyle.Fill;
                         break;
                     case 2:
@@ -166,10 +166,10 @@ namespace SIME_UTN.UI.Formulario.Procesos
         {
             if (ValidarCampos())
             {
-
                 GestorActivo ga = new GestorActivo();
                 GestorFuncionario gf = new GestorFuncionario();
                 GestorFormulario gForm = new GestorFormulario();
+                GestorDetalleFormulario gDet = new GestorDetalleFormulario();
 
                 Entities.Formulario form = new Entities.Formulario();
                 form.activo = ga.ObtenerActivoId(int.Parse(cmbPatrimonio.SelectedValue.ToString()));
@@ -177,26 +177,71 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 form.fecha = DateTime.Parse(txtFecha.Text);
                 form.cliente = txtCliente.Text;
                 form.observaciones = txtComentario.Text;
-
+                gForm.AgregarFormulario(form);
                 form.idFormulario = gForm.GuardarFormulario();
+
+                form.listaDF = new List<DetalleFormulario>();
 
                 foreach (DataGridView dgv in listaGrid)
                 {
                     foreach (DataGridViewRow row in dgv.Rows)
                     {
+                        DetalleFormulario df = new DetalleFormulario();
+                        df.idFormulario = form.idFormulario;
+
                         if (dgv.Name == "dgvBRM")
                         {
-                            
+                            if (Convert.ToBoolean(row.Cells["colBueno"].Value) == true)
+                            {
+                                df.valor = "Bueno";
+                            }
+                            else if (Convert.ToBoolean(row.Cells["colRegular"].Value) == true)
+                            {
+                                df.valor = "Regular";
+                            }
+                            else if (Convert.ToBoolean(row.Cells["colMalo"].Value) == true)
+                            {
+                                df.valor = "Malo";
+                            }
                         }
                         else if (dgv.Name == "dgvSiNo")
                         {
                             
+                            if (Convert.ToBoolean(row.Cells["colSi"].Value) == true)
+                            {
+                                df.valor = "Si";
+                            }
+                            else if (Convert.ToBoolean(row.Cells["colNo"].Value) == true)
+                            {
+                                df.valor = "No";
+                            }
                         }
                         else if (dgv.Name == "dgvTextoLibre")
                         {
-                            
+                            df.valor = row.Cells[2].Value.ToString();
                         }
+
+                        df.idItem = Convert.ToInt32(row.Cells[0].Value);
+
+                        form.listaDF.Add(df);
                     }
+                }
+
+                foreach (DetalleFormulario det in form.listaDF)
+                {
+                    gDet.AgregarDetalleFormulario(det);
+                    gDet.GuardarDetalleFormulario();
+                }
+
+                DialogResult result = MessageBox.Show("El formulario #" + form.idFormulario + " ha sido guardado con éxito\n¿Desea imprimirlo?","Mensaje",MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+
+                }
+                else
+                {
+                    Close();
                 }
             }
         }
@@ -241,33 +286,33 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 }
             }
 
-            if (brm)
+            if (cmbPatrimonio.SelectedIndex == -1)
             {
-                ePError.SetError(gbPrincipal, "BRM - Items sin valor");
+                ePError.SetError(cmbPatrimonio, "Activo no seleccionado");
+                cmbPatrimonio.Focus();
+                r = false;
+            }
+            else if (cmbFuncionario.SelectedIndex == -1)
+            {
+                ePError.SetError(cmbFuncionario, "Funcionario no seleccionado");
+                cmbFuncionario.Focus();
                 r = false;
             }
             else if (sino)
             {
-                ePError.SetError(gbPrincipal, "Si No - Items sin valor");
+                ePError.SetError(txtFecha, "Si No - Items sin valor");
+                r = false;
+            }
+            else if (brm)
+            {
+                ePError.SetError(txtFecha, "BRM - Items sin valor");
                 r = false;
             }
             else if (texto)
             {
-                ePError.SetError(gbPrincipal, "Texto Libre - Items sin valor");
+                ePError.SetError(txtFecha, "Texto Libre - Items sin valor");
                 r = false;
             }
-            //else if (cmbPatrimonio.SelectedIndex == -1)
-            //{
-            //    ePError.SetError(cmbPatrimonio, "Activo no seleccionado");
-            //    cmbPatrimonio.Focus();
-            //    r = false;
-            //}
-            //else if (cmbFuncionario.SelectedIndex == -1)
-            //{
-            //    ePError.SetError(cmbFuncionario, "Funcionario no seleccionado");
-            //    cmbFuncionario.Focus();
-            //    r = false;
-            //}
             else
             {
                 ePError.Clear();

@@ -66,22 +66,22 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTexto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBRM = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBueno = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colRegular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colMalo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvSiNo = new System.Windows.Forms.DataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colNo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.splitSeccion2 = new System.Windows.Forms.SplitContainer();
             this.dataSetActivoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.activoTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetActivoTableAdapters.ActivoTableAdapter();
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colNo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBueno = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colRegular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colMalo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetActivo)).BeginInit();
@@ -194,7 +194,7 @@
             this.gbEncabezado.Controls.Add(this.label2);
             this.gbEncabezado.Location = new System.Drawing.Point(3, 3);
             this.gbEncabezado.Name = "gbEncabezado";
-            this.gbEncabezado.Size = new System.Drawing.Size(1090, 93);
+            this.gbEncabezado.Size = new System.Drawing.Size(1110, 93);
             this.gbEncabezado.TabIndex = 42;
             this.gbEncabezado.TabStop = false;
             // 
@@ -351,7 +351,7 @@
             this.gbComentario.Controls.Add(this.txtComentario);
             this.gbComentario.Location = new System.Drawing.Point(3, 3);
             this.gbComentario.Name = "gbComentario";
-            this.gbComentario.Size = new System.Drawing.Size(961, 88);
+            this.gbComentario.Size = new System.Drawing.Size(981, 88);
             this.gbComentario.TabIndex = 44;
             this.gbComentario.TabStop = false;
             this.gbComentario.Text = "Observaciones";
@@ -365,7 +365,7 @@
             this.txtComentario.MaxLength = 300;
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(948, 62);
+            this.txtComentario.Size = new System.Drawing.Size(968, 62);
             this.txtComentario.TabIndex = 0;
             // 
             // btnGuardar
@@ -404,7 +404,7 @@
             this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.16482F));
             this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.83518F));
             this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.panelPrincipal.Size = new System.Drawing.Size(1096, 733);
+            this.panelPrincipal.Size = new System.Drawing.Size(1116, 733);
             this.panelPrincipal.TabIndex = 48;
             // 
             // gbPrincipal
@@ -417,7 +417,7 @@
             this.gbPrincipal.Controls.Add(this.dgvSiNo);
             this.gbPrincipal.Location = new System.Drawing.Point(3, 105);
             this.gbPrincipal.Name = "gbPrincipal";
-            this.gbPrincipal.Size = new System.Drawing.Size(1090, 523);
+            this.gbPrincipal.Size = new System.Drawing.Size(1110, 523);
             this.gbPrincipal.TabIndex = 47;
             this.gbPrincipal.TabStop = false;
             // 
@@ -483,43 +483,6 @@
             this.dgvBRM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBRM_CellContentClick);
             this.dgvBRM.SizeChanged += new System.EventHandler(this.dgvBRM_SizeChanged);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "IDItem";
-            this.dataGridViewTextBoxColumn1.HeaderText = "colId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 300;
-            // 
-            // colBueno
-            // 
-            this.colBueno.HeaderText = "Bueno";
-            this.colBueno.Name = "colBueno";
-            this.colBueno.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colBueno.Width = 45;
-            // 
-            // colRegular
-            // 
-            this.colRegular.HeaderText = "Regular";
-            this.colRegular.Name = "colRegular";
-            this.colRegular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colRegular.Width = 45;
-            // 
-            // colMalo
-            // 
-            this.colMalo.HeaderText = "Malo";
-            this.colMalo.Name = "colMalo";
-            this.colMalo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMalo.Width = 45;
-            // 
             // dgvSiNo
             // 
             this.dgvSiNo.AllowUserToAddRows = false;
@@ -539,6 +502,61 @@
             this.dgvSiNo.TabIndex = 0;
             this.dgvSiNo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSiNo_CellContentClick);
             this.dgvSiNo.SizeChanged += new System.EventHandler(this.dgvSiNo_SizeChanged);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
+            this.tableLayoutPanel2.Controls.Add(this.gbComentario, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 634);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1110, 96);
+            this.tableLayoutPanel2.TabIndex = 45;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.btnGuardar, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 0, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(990, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.88889F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.11111F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(117, 90);
+            this.tableLayoutPanel3.TabIndex = 45;
+            // 
+            // splitSeccion2
+            // 
+            this.splitSeccion2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitSeccion2.Location = new System.Drawing.Point(0, 0);
+            this.splitSeccion2.Name = "splitSeccion2";
+            this.splitSeccion2.Size = new System.Drawing.Size(776, 280);
+            this.splitSeccion2.SplitterDistance = 392;
+            this.splitSeccion2.TabIndex = 0;
+            // 
+            // dataSetActivoBindingSource
+            // 
+            this.dataSetActivoBindingSource.DataSource = this.dataSetActivo;
+            this.dataSetActivoBindingSource.Position = 0;
+            // 
+            // activoTableAdapter
+            // 
+            this.activoTableAdapter.ClearBeforeFill = true;
+            // 
+            // funcionarioTableAdapter
+            // 
+            this.funcionarioTableAdapter.ClearBeforeFill = true;
             // 
             // colId
             // 
@@ -570,67 +588,48 @@
             this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colNo.Width = 35;
             // 
-            // tableLayoutPanel2
+            // dataGridViewTextBoxColumn1
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
-            this.tableLayoutPanel2.Controls.Add(this.gbComentario, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 634);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1090, 96);
-            this.tableLayoutPanel2.TabIndex = 45;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "IDItem";
+            this.dataGridViewTextBoxColumn1.HeaderText = "colId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
-            // tableLayoutPanel3
+            // dataGridViewTextBoxColumn2
             // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btnGuardar, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(970, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.88889F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.11111F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(117, 90);
-            this.tableLayoutPanel3.TabIndex = 45;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // splitSeccion2
+            // colBueno
             // 
-            this.splitSeccion2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitSeccion2.Location = new System.Drawing.Point(0, 0);
-            this.splitSeccion2.Name = "splitSeccion2";
-            this.splitSeccion2.Size = new System.Drawing.Size(776, 280);
-            this.splitSeccion2.SplitterDistance = 392;
-            this.splitSeccion2.TabIndex = 0;
+            this.colBueno.HeaderText = "Bueno";
+            this.colBueno.Name = "colBueno";
+            this.colBueno.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colBueno.Width = 45;
             // 
-            // dataSetActivoBindingSource
+            // colRegular
             // 
-            this.dataSetActivoBindingSource.DataSource = this.dataSetActivo;
-            this.dataSetActivoBindingSource.Position = 0;
+            this.colRegular.HeaderText = "Regular";
+            this.colRegular.Name = "colRegular";
+            this.colRegular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colRegular.Width = 45;
             // 
-            // activoTableAdapter
+            // colMalo
             // 
-            this.activoTableAdapter.ClearBeforeFill = true;
-            // 
-            // funcionarioTableAdapter
-            // 
-            this.funcionarioTableAdapter.ClearBeforeFill = true;
+            this.colMalo.HeaderText = "Malo";
+            this.colMalo.Name = "colMalo";
+            this.colMalo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colMalo.Width = 45;
             // 
             // frmFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1100, 739);
+            this.ClientSize = new System.Drawing.Size(1120, 739);
             this.Controls.Add(this.panelPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -693,11 +692,6 @@
         private System.Windows.Forms.GroupBox gbPrincipal;
         private System.Windows.Forms.DataGridView dgvSiNo;
         private System.Windows.Forms.DataGridView dgvBRM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colBueno;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colRegular;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colMalo;
         private System.Windows.Forms.DataGridView dgvTextoLibre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -707,10 +701,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.SplitContainer splitSeccion2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colSi;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colNo;
         private System.Windows.Forms.BindingSource dataSetActivoBindingSource;
         private DataSets.Formulario.DataSetActivo dataSetActivo;
         private System.Windows.Forms.BindingSource activoBindingSource;
@@ -718,5 +708,14 @@
         private DataSets.Formulario.DataSetFuncionario dataSetFuncionario;
         private System.Windows.Forms.BindingSource funcionarioBindingSource;
         private DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSi;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colBueno;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colRegular;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colMalo;
     }
 }
