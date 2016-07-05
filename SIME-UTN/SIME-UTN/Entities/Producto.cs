@@ -11,9 +11,9 @@ namespace SIME_UTN.Entities
         public string codigoAvatar { set; get; }
         public string nombreProducto { set; get; }
         public string descripcion { set; get; }
-        public Categoria idCategoria { set; get; }
-        public string ubicacion { set; get; }
-        public UnidadMedida idUnidadMedida { set; get; }
+        public Categoria Categoria { set; get; }
+        public Ubicacion Ubicacion { set; get; }
+        public UnidadMedida UnidadMedida { set; get; }
         public int estado { set; get; }
 
         public Producto() { }

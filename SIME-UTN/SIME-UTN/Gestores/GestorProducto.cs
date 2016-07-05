@@ -38,5 +38,19 @@ namespace SIME_UTN.Gestores
         {
             return ProductoBLL.ObtenerProductos();
         }
+        public void AgregarProducto(Producto productop)
+        {
+            producto = productop;
+        }
+
+        internal void GuardarProducto(Producto unProductop,string usuarioLogueadop)
+        {
+            ProductoBLL.GuardarProducto(unProductop, usuarioLogueadop);
+        }
+
+        internal void EliminarUsuario(int productoIDp,string productop,string usuarioLoguadop)
+        {
+            ProductoBLL.EliminarUsuario(productoIDp, productop, usuarioLoguadop);
+        }
     }
 }

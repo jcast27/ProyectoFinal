@@ -46,9 +46,9 @@
             // 
             // pBSplashScreen
             // 
-            this.pBSplashScreen.Location = new System.Drawing.Point(0, 348);
+            this.pBSplashScreen.Location = new System.Drawing.Point(-1, 167);
             this.pBSplashScreen.Name = "pBSplashScreen";
-            this.pBSplashScreen.Size = new System.Drawing.Size(940, 34);
+            this.pBSplashScreen.Size = new System.Drawing.Size(738, 34);
             this.pBSplashScreen.TabIndex = 0;
             // 
             // lblNombreProyecto
@@ -57,11 +57,11 @@
             this.lblNombreProyecto.BackColor = System.Drawing.Color.Transparent;
             this.lblNombreProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreProyecto.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNombreProyecto.Location = new System.Drawing.Point(143, 25);
+            this.lblNombreProyecto.Location = new System.Drawing.Point(121, 31);
             this.lblNombreProyecto.Name = "lblNombreProyecto";
-            this.lblNombreProyecto.Size = new System.Drawing.Size(642, 31);
+            this.lblNombreProyecto.Size = new System.Drawing.Size(495, 31);
             this.lblNombreProyecto.TabIndex = 2;
-            this.lblNombreProyecto.Text = "BIENVENIDOS AL SISTEMA DE INVENTARIOS";
+            this.lblNombreProyecto.Text = "Bienvenido al Sistema de Inventarios";
             // 
             // label1
             // 
@@ -69,11 +69,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(233, 107);
+            this.label1.Location = new System.Drawing.Point(176, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(470, 31);
+            this.label1.Size = new System.Drawing.Size(384, 31);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Y MANTENIMIENTO DE EQUIPOS";
+            this.label1.Text = "Y Mantenimiento de Equipos";
             // 
             // label2
             // 
@@ -81,7 +81,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(379, 191);
+            this.label2.Location = new System.Drawing.Point(291, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 31);
             this.label2.TabIndex = 4;
@@ -93,17 +93,17 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SpringGreen;
-            this.label3.Location = new System.Drawing.Point(346, 394);
+            this.label3.Location = new System.Drawing.Point(289, 223);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(247, 31);
+            this.label3.Size = new System.Drawing.Size(159, 31);
             this.label3.TabIndex = 5;
-            this.label3.Text = "INICIANDO.........";
+            this.label3.Text = "Iniciando...";
             // 
             // frmSplashScreen
             // 
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(941, 524);
+            this.ClientSize = new System.Drawing.Size(736, 292);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

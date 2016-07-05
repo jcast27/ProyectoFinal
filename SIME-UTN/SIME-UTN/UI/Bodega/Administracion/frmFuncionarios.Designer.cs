@@ -31,7 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFuncionarios));
             this.gCFuncionario = new DevExpress.XtraGrid.GridControl();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetFuncionario = new SIME_UTN.DataSets.Formulario.DataSetFuncionario();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colIDFuncionario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCedula = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTelefono = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCorreo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIDDepartamento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpDepartamento = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.departamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetDepartamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetDepartamento = new SIME_UTN.DataSetDepartamento();
+            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
@@ -41,8 +54,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewSelecFuncionario = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
+            this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
+            this.departamentoTableAdapter = new SIME_UTN.DataSetDepartamentoTableAdapters.DepartamentoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamentoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecFuncionario.SuspendLayout();
             this.SuspendLayout();
@@ -52,17 +73,38 @@
             this.gCFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCFuncionario.DataSource = this.funcionarioBindingSource;
             this.gCFuncionario.Location = new System.Drawing.Point(6, 39);
             this.gCFuncionario.MainView = this.gridView1;
             this.gCFuncionario.Name = "gCFuncionario";
+            this.gCFuncionario.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.LookUpDepartamento});
             this.gCFuncionario.Size = new System.Drawing.Size(1033, 479);
             this.gCFuncionario.TabIndex = 0;
             this.gCFuncionario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-
+            this.gCFuncionario.Click += new System.EventHandler(this.gCFuncionario_Click);
+            // 
+            // funcionarioBindingSource
+            // 
+            this.funcionarioBindingSource.DataMember = "Funcionario";
+            this.funcionarioBindingSource.DataSource = this.dataSetFuncionario;
+            // 
+            // dataSetFuncionario
+            // 
+            this.dataSetFuncionario.DataSetName = "DataSetFuncionario";
+            this.dataSetFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colIDFuncionario,
+            this.colNombre,
+            this.colCedula,
+            this.colTelefono,
+            this.colCorreo,
+            this.colIDDepartamento,
+            this.colEstado});
             this.gridView1.GridControl = this.gCFuncionario;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -72,7 +114,102 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
-
+            // 
+            // colIDFuncionario
+            // 
+            this.colIDFuncionario.FieldName = "IDFuncionario";
+            this.colIDFuncionario.Name = "colIDFuncionario";
+            // 
+            // colNombre
+            // 
+            this.colNombre.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colNombre.AppearanceCell.Options.UseFont = true;
+            this.colNombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNombre.AppearanceHeader.Options.UseFont = true;
+            this.colNombre.Caption = "Nombre";
+            this.colNombre.FieldName = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Visible = true;
+            this.colNombre.VisibleIndex = 0;
+            // 
+            // colCedula
+            // 
+            this.colCedula.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCedula.AppearanceCell.Options.UseFont = true;
+            this.colCedula.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCedula.AppearanceHeader.Options.UseFont = true;
+            this.colCedula.Caption = "Cédula";
+            this.colCedula.FieldName = "Cedula";
+            this.colCedula.Name = "colCedula";
+            this.colCedula.Visible = true;
+            this.colCedula.VisibleIndex = 1;
+            // 
+            // colTelefono
+            // 
+            this.colTelefono.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colTelefono.AppearanceCell.Options.UseFont = true;
+            this.colTelefono.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTelefono.AppearanceHeader.Options.UseFont = true;
+            this.colTelefono.Caption = "Teléfono";
+            this.colTelefono.FieldName = "Telefono";
+            this.colTelefono.Name = "colTelefono";
+            this.colTelefono.Visible = true;
+            this.colTelefono.VisibleIndex = 2;
+            // 
+            // colCorreo
+            // 
+            this.colCorreo.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCorreo.AppearanceCell.Options.UseFont = true;
+            this.colCorreo.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCorreo.AppearanceHeader.Options.UseFont = true;
+            this.colCorreo.Caption = "Correo";
+            this.colCorreo.FieldName = "Correo";
+            this.colCorreo.Name = "colCorreo";
+            this.colCorreo.Visible = true;
+            this.colCorreo.VisibleIndex = 3;
+            // 
+            // colIDDepartamento
+            // 
+            this.colIDDepartamento.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colIDDepartamento.AppearanceCell.Options.UseFont = true;
+            this.colIDDepartamento.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colIDDepartamento.AppearanceHeader.Options.UseFont = true;
+            this.colIDDepartamento.Caption = "Departamento";
+            this.colIDDepartamento.ColumnEdit = this.LookUpDepartamento;
+            this.colIDDepartamento.FieldName = "IDDepartamento";
+            this.colIDDepartamento.Name = "colIDDepartamento";
+            this.colIDDepartamento.Visible = true;
+            this.colIDDepartamento.VisibleIndex = 4;
+            // 
+            // LookUpDepartamento
+            // 
+            this.LookUpDepartamento.AutoHeight = false;
+            this.LookUpDepartamento.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpDepartamento.DataSource = this.departamentoBindingSource;
+            this.LookUpDepartamento.DisplayMember = "Descripcion";
+            this.LookUpDepartamento.Name = "LookUpDepartamento";
+            this.LookUpDepartamento.ValueMember = "IDDepartamento";
+            // 
+            // departamentoBindingSource
+            // 
+            this.departamentoBindingSource.DataMember = "Departamento";
+            this.departamentoBindingSource.DataSource = this.dataSetDepartamentoBindingSource;
+            // 
+            // dataSetDepartamentoBindingSource
+            // 
+            this.dataSetDepartamentoBindingSource.DataSource = this.dataSetDepartamento;
+            this.dataSetDepartamentoBindingSource.Position = 0;
+            // 
+            // dataSetDepartamento
+            // 
+            this.dataSetDepartamento.DataSetName = "DataSetDepartamento";
+            this.dataSetDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // colEstado
+            // 
+            this.colEstado.FieldName = "Estado";
+            this.colEstado.Name = "colEstado";
             // 
             // ePError
             // 
@@ -129,7 +266,7 @@
             this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
- 
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnEliminar
             // 
@@ -141,6 +278,7 @@
             this.mBtnEliminar.Caption = "Eliminar";
             this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
             this.mBtnEliminar.Name = "mBtnEliminar";
+            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
             // 
             // panel1
             // 
@@ -183,6 +321,14 @@
             this.navButton1.Enabled = false;
             this.navButton1.Name = "navButton1";
             // 
+            // funcionarioTableAdapter
+            // 
+            this.funcionarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // departamentoTableAdapter
+            // 
+            this.departamentoTableAdapter.ClearBeforeFill = true;
+            // 
             // frmFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,9 +343,15 @@
             this.Name = "frmFuncionarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Usuarios";
-    
+            this.Load += new System.EventHandler(this.frmFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamentoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecFuncionario.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -219,5 +371,20 @@
 
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private DevExpress.XtraBars.Navigation.NavButton navButton1;
+        private DataSets.Formulario.DataSetFuncionario dataSetFuncionario;
+        private System.Windows.Forms.BindingSource funcionarioBindingSource;
+        private DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colIDFuncionario;
+        private DevExpress.XtraGrid.Columns.GridColumn colNombre;
+        private DevExpress.XtraGrid.Columns.GridColumn colCedula;
+        private DevExpress.XtraGrid.Columns.GridColumn colTelefono;
+        private DevExpress.XtraGrid.Columns.GridColumn colCorreo;
+        private DevExpress.XtraGrid.Columns.GridColumn colIDDepartamento;
+        private DevExpress.XtraGrid.Columns.GridColumn colEstado;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpDepartamento;
+        private System.Windows.Forms.BindingSource dataSetDepartamentoBindingSource;
+        private DataSetDepartamento dataSetDepartamento;
+        private System.Windows.Forms.BindingSource departamentoBindingSource;
+        private DataSetDepartamentoTableAdapters.DepartamentoTableAdapter departamentoTableAdapter;
     }
 }

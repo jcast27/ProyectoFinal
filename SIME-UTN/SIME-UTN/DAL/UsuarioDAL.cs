@@ -55,6 +55,8 @@ namespace SIME_UTN.DAL
 
         }
 
+      
+
         internal static bool CambiarContrasenna(string usuariop, string contrasenaAntiguap, string contrasenaNuevap)
         {
             Encriptar encriptar = new Encriptar();

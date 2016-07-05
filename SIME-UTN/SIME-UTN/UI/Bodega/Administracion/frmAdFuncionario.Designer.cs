@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdFuncionario));
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.lblCodigoUsuario = new System.Windows.Forms.Label();
+            this.lblCodigoFuncionario = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtNombreFuncionario = new System.Windows.Forms.TextBox();
@@ -43,9 +44,17 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.dataSetDepartamento = new SIME_UTN.DataSetDepartamento();
+            this.departamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.departamentoTableAdapter = new SIME_UTN.DataSetDepartamentoTableAdapters.DepartamentoTableAdapter();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbGridViewFuncionario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // gbGridViewFuncionario
@@ -55,7 +64,7 @@
             this.gbGridViewFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.gbGridViewFuncionario.Controls.Add(this.cmbDepartamento);
             this.gbGridViewFuncionario.Controls.Add(this.txtCorreo);
-            this.gbGridViewFuncionario.Controls.Add(this.lblCodigoUsuario);
+            this.gbGridViewFuncionario.Controls.Add(this.lblCodigoFuncionario);
             this.gbGridViewFuncionario.Controls.Add(this.lblCedula);
             this.gbGridViewFuncionario.Controls.Add(this.txtTelefono);
             this.gbGridViewFuncionario.Controls.Add(this.txtNombreFuncionario);
@@ -79,12 +88,16 @@
             this.cmbDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbDepartamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.departamentoBindingSource, "IDDepartamento", true));
+            this.cmbDepartamento.DataSource = this.departamentoBindingSource;
+            this.cmbDepartamento.DisplayMember = "Descripcion";
             this.cmbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDepartamento.FormattingEnabled = true;
             this.cmbDepartamento.Location = new System.Drawing.Point(205, 321);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(375, 24);
             this.cmbDepartamento.TabIndex = 33;
+            this.cmbDepartamento.ValueMember = "IDDepartamento";
             // 
             // txtCorreo
             // 
@@ -98,19 +111,19 @@
             this.txtCorreo.TabIndex = 30;
             this.txtCorreo.Text = "pedro23@gmail.com";
             // 
-            // lblCodigoUsuario
+            // lblCodigoFuncionario
             // 
-            this.lblCodigoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblCodigoFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCodigoUsuario.AutoSize = true;
-            this.lblCodigoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCodigoUsuario.Location = new System.Drawing.Point(14, 25);
-            this.lblCodigoUsuario.Name = "lblCodigoUsuario";
-            this.lblCodigoUsuario.Size = new System.Drawing.Size(0, 18);
-            this.lblCodigoUsuario.TabIndex = 29;
-            this.lblCodigoUsuario.Visible = false;
+            this.lblCodigoFuncionario.AutoSize = true;
+            this.lblCodigoFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoFuncionario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCodigoFuncionario.Location = new System.Drawing.Point(14, 25);
+            this.lblCodigoFuncionario.Name = "lblCodigoFuncionario";
+            this.lblCodigoFuncionario.Size = new System.Drawing.Size(0, 18);
+            this.lblCodigoFuncionario.TabIndex = 29;
+            this.lblCodigoFuncionario.Visible = false;
             // 
             // lblCedula
             // 
@@ -223,7 +236,8 @@
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
             this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
-            this.tileNavPane1.Buttons.Add(this.mBtnAceptar);
+            this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
+            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
             // tileNavCategory1
@@ -256,17 +270,6 @@
             this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
             this.mBtnNuevo.Name = "mBtnNuevo";
             // 
-            // mBtnAceptar
-            // 
-            this.mBtnAceptar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnAceptar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnAceptar.Appearance.Options.UseFont = true;
-            this.mBtnAceptar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnAceptar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnAceptar.Caption = "Aceptar";
-            this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
-            this.mBtnAceptar.Name = "mBtnAceptar";
-            // 
             // mBtnSalir
             // 
             this.mBtnSalir.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
@@ -278,6 +281,48 @@
             this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
+            // 
+            // mBtnGuardar
+            // 
+            this.mBtnGuardar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnGuardar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnGuardar.Appearance.Options.UseFont = true;
+            this.mBtnGuardar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnGuardar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnGuardar.Caption = "Guardar";
+            this.mBtnGuardar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnGuardar.Glyph")));
+            this.mBtnGuardar.Name = "mBtnGuardar";
+            this.mBtnGuardar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnGuardar_ElementClick);
+            // 
+            // mBtnModificar
+            // 
+            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnModificar.Appearance.Options.UseFont = true;
+            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
+            this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
+            // 
+            // dataSetDepartamento
+            // 
+            this.dataSetDepartamento.DataSetName = "DataSetDepartamento";
+            this.dataSetDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // departamentoBindingSource
+            // 
+            this.departamentoBindingSource.DataMember = "Departamento";
+            this.departamentoBindingSource.DataSource = this.dataSetDepartamento;
+            // 
+            // departamentoTableAdapter
+            // 
+            this.departamentoTableAdapter.ClearBeforeFill = true;
+            // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
             // 
             // frmAdFuncionario
             // 
@@ -291,8 +336,12 @@
             this.Name = "frmAdFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funcionario";
+            this.Load += new System.EventHandler(this.frmAdFuncionario_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,7 +351,7 @@
         private System.Windows.Forms.GroupBox gbGridViewFuncionario;
         private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.Label lblCodigoUsuario;
+        private System.Windows.Forms.Label lblCodigoFuncionario;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtNombreFuncionario;
@@ -313,7 +362,12 @@
         private System.Windows.Forms.TextBox txtCedula;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnAceptar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
+        private DataSetDepartamento dataSetDepartamento;
+        private System.Windows.Forms.BindingSource departamentoBindingSource;
+        private DataSetDepartamentoTableAdapters.DepartamentoTableAdapter departamentoTableAdapter;
+        private System.Windows.Forms.ErrorProvider epError;
     }
 }

@@ -12,7 +12,7 @@ namespace SIME_UTN.DAL
     {
         public static void GuardarDetalleFormulario(DetalleFormulario DF)
         {
-            SqlCommand comando = new SqlCommand("sp_INSERT_DetalleFormularios");
+            SqlCommand comando = new SqlCommand("sp_INSERT_DetalleFormulario");
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@IDFormulario", DF.idFormulario);
@@ -28,7 +28,7 @@ namespace SIME_UTN.DAL
 
         public static List<DetalleFormulario> ObtenerDetalleFormularioID(int idFormulario)
         {
-            string sql = @"sp_SELECT_DetalleFormularios_ByID";
+            string sql = @"sp_SELECT_DetalleFormulario_ByID";
 
             List<DetalleFormulario> lista = new List<DetalleFormulario>();
 

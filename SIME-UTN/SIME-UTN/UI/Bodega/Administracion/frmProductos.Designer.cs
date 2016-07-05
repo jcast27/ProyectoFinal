@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.gCProductos = new DevExpress.XtraGrid.GridControl();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetProducto = new SIME_UTN.DataSets.Bodega.DataSetProducto();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIDProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCodigoAvatar = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -38,9 +40,18 @@
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDCategoria = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpCategoria = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.DataSetCategorias();
             this.colUbicacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpUbicacion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUbicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.DataSetUbicacion();
             this.colIDUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUnidadMedida = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUnidadMedidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedida();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
@@ -51,27 +62,27 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
-            this.dataSetProductos = new SIME_UTN.DataSets.Bodega.DataSetProductos();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetProductosTableAdapters.ProductoTableAdapter();
-            this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.DataSetCategorias();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetProductoTableAdapters.ProductoTableAdapter();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedida();
-            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
+            this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedidaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCProductos
@@ -85,14 +96,27 @@
             this.gCProductos.Name = "gCProductos";
             this.gCProductos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LookUpCategoria,
-            this.LookUpUnidadMedida});
+            this.LookUpUnidadMedida,
+            this.LookUpUbicacion});
             this.gCProductos.Size = new System.Drawing.Size(1027, 468);
             this.gCProductos.TabIndex = 19;
             this.gCProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gCProductos.Click += new System.EventHandler(this.gCProductos_Click);
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataMember = "Producto";
+            this.productoBindingSource.DataSource = this.dataSetProducto;
+            // 
+            // dataSetProducto
+            // 
+            this.dataSetProducto.DataSetName = "DataSetProducto";
+            this.dataSetProducto.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
+            this.gridView1.ColumnPanelRowHeight = 4;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIDProducto,
             this.colCodigoAvatar,
@@ -111,6 +135,8 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.RowHeight = 2;
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // colIDProducto
             // 
@@ -119,6 +145,10 @@
             // 
             // colCodigoAvatar
             // 
+            this.colCodigoAvatar.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCodigoAvatar.AppearanceCell.Options.UseFont = true;
+            this.colCodigoAvatar.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCodigoAvatar.AppearanceHeader.Options.UseFont = true;
             this.colCodigoAvatar.FieldName = "CodigoAvatar";
             this.colCodigoAvatar.Name = "colCodigoAvatar";
             this.colCodigoAvatar.Visible = true;
@@ -126,20 +156,34 @@
             // 
             // colNombre
             // 
+            this.colNombre.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colNombre.AppearanceCell.Options.UseFont = true;
+            this.colNombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colNombre.AppearanceHeader.Options.UseFont = true;
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
+            this.colNombre.Width = 185;
             // 
             // colDescripcion
             // 
+            this.colDescripcion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colDescripcion.AppearanceCell.Options.UseFont = true;
+            this.colDescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colDescripcion.AppearanceHeader.Options.UseFont = true;
             this.colDescripcion.FieldName = "Descripcion";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 2;
+            this.colDescripcion.Width = 185;
             // 
             // colIDCategoria
             // 
+            this.colIDCategoria.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colIDCategoria.AppearanceCell.Options.UseFont = true;
+            this.colIDCategoria.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colIDCategoria.AppearanceHeader.Options.UseFont = true;
             this.colIDCategoria.Caption = "Categoria";
             this.colIDCategoria.ColumnEdit = this.LookUpCategoria;
             this.colIDCategoria.FieldName = "IDCategoria";
@@ -147,6 +191,7 @@
             this.colIDCategoria.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colIDCategoria.Visible = true;
             this.colIDCategoria.VisibleIndex = 3;
+            this.colIDCategoria.Width = 185;
             // 
             // LookUpCategoria
             // 
@@ -159,15 +204,62 @@
             this.LookUpCategoria.NullText = "";
             this.LookUpCategoria.ValueMember = "IDCategoria";
             // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.dataSetCategorias;
+            // 
+            // dataSetCategorias
+            // 
+            this.dataSetCategorias.DataSetName = "DataSetCategorias";
+            this.dataSetCategorias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // colUbicacion
             // 
-            this.colUbicacion.FieldName = "Ubicacion";
+            this.colUbicacion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colUbicacion.AppearanceCell.Options.UseFont = true;
+            this.colUbicacion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colUbicacion.AppearanceHeader.Options.UseFont = true;
+            this.colUbicacion.Caption = "Ubicacion";
+            this.colUbicacion.ColumnEdit = this.LookUpUbicacion;
+            this.colUbicacion.FieldName = "IDUbicacion";
             this.colUbicacion.Name = "colUbicacion";
+            this.colUbicacion.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colUbicacion.Visible = true;
             this.colUbicacion.VisibleIndex = 4;
+            this.colUbicacion.Width = 185;
+            // 
+            // LookUpUbicacion
+            // 
+            this.LookUpUbicacion.AutoHeight = false;
+            this.LookUpUbicacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
+            this.LookUpUbicacion.DisplayMember = "nombre";
+            this.LookUpUbicacion.Name = "LookUpUbicacion";
+            this.LookUpUbicacion.ValueMember = "idubicacion";
+            // 
+            // spSELECTUbicacionAllBindingSource
+            // 
+            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
+            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetUbicacionBindingSource;
+            // 
+            // dataSetUbicacionBindingSource
+            // 
+            this.dataSetUbicacionBindingSource.DataSource = this.dataSetUbicacion;
+            this.dataSetUbicacionBindingSource.Position = 0;
+            // 
+            // dataSetUbicacion
+            // 
+            this.dataSetUbicacion.DataSetName = "DataSetUbicacion";
+            this.dataSetUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // colIDUnidadMedida
             // 
+            this.colIDUnidadMedida.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colIDUnidadMedida.AppearanceCell.Options.UseFont = true;
+            this.colIDUnidadMedida.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colIDUnidadMedida.AppearanceHeader.Options.UseFont = true;
             this.colIDUnidadMedida.Caption = "Unidad Medida";
             this.colIDUnidadMedida.ColumnEdit = this.LookUpUnidadMedida;
             this.colIDUnidadMedida.FieldName = "IDUnidadMedida";
@@ -175,6 +267,7 @@
             this.colIDUnidadMedida.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colIDUnidadMedida.Visible = true;
             this.colIDUnidadMedida.VisibleIndex = 5;
+            this.colIDUnidadMedida.Width = 194;
             // 
             // LookUpUnidadMedida
             // 
@@ -185,6 +278,21 @@
             this.LookUpUnidadMedida.DisplayMember = "Descripcion";
             this.LookUpUnidadMedida.Name = "LookUpUnidadMedida";
             this.LookUpUnidadMedida.ValueMember = "IDUnidadMedida";
+            // 
+            // unidadMedidaProductoBindingSource
+            // 
+            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
+            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedidaBindingSource;
+            // 
+            // dataSetUnidadMedidaBindingSource
+            // 
+            this.dataSetUnidadMedidaBindingSource.DataSource = this.dataSetUnidadMedida;
+            this.dataSetUnidadMedidaBindingSource.Position = 0;
+            // 
+            // dataSetUnidadMedida
+            // 
+            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
+            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // colEstado
             // 
@@ -246,6 +354,7 @@
             this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnEliminar
             // 
@@ -255,8 +364,10 @@
             this.mBtnEliminar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mBtnEliminar.AppearanceHovered.Options.UseFont = true;
             this.mBtnEliminar.Caption = "Eliminar";
+            this.mBtnEliminar.Enabled = false;
             this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
             this.mBtnEliminar.Name = "mBtnEliminar";
+            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
             // 
             // panel1
             // 
@@ -299,47 +410,21 @@
             this.navButton1.Enabled = false;
             this.navButton1.Name = "navButton1";
             // 
-            // dataSetProductos
-            // 
-            this.dataSetProductos.DataSetName = "DataSetProductos";
-            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataMember = "Producto";
-            this.productoBindingSource.DataSource = this.dataSetProductos;
-            // 
             // productoTableAdapter
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataSetCategorias
-            // 
-            this.dataSetCategorias.DataSetName = "DataSetCategorias";
-            this.dataSetCategorias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.dataSetCategorias;
             // 
             // categoriaTableAdapter
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
-            // dataSetUnidadMedida
-            // 
-            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
-            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // unidadMedidaProductoBindingSource
-            // 
-            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
-            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedida;
-            // 
             // unidadMedidaProductoTableAdapter
             // 
             this.unidadMedidaProductoTableAdapter.ClearBeforeFill = true;
+            // 
+            // sp_SELECT_Ubicacion_AllTableAdapter
+            // 
+            this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmProductos
             // 
@@ -355,19 +440,24 @@
             this.Name = "frmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Usuarios";
-            this.Load += new System.EventHandler(this.frmUsuarios_Load);
+            this.Load += new System.EventHandler(this.frmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedidaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewUsuario.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,14 +485,20 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIDUnidadMedida;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUnidadMedida;
-        private DataSets.Bodega.DataSetProductos dataSetProductos;
+        private SIME_UTN.DataSets.Bodega.DataSetProducto dataSetProducto;
         private System.Windows.Forms.BindingSource productoBindingSource;
-        private DataSets.Bodega.DataSetProductosTableAdapters.ProductoTableAdapter productoTableAdapter;
+        private SIME_UTN.DataSets.Bodega.DataSetProductoTableAdapters.ProductoTableAdapter productoTableAdapter;
         private DataSets.Bodega.DataSetCategorias dataSetCategorias;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Bodega.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
+        private System.Windows.Forms.BindingSource dataSetUnidadMedidaBindingSource;
         private DataSets.Bodega.DataSetUnidadMedida dataSetUnidadMedida;
         private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
         private DataSets.Bodega.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUbicacion;
+        private System.Windows.Forms.BindingSource dataSetUbicacionBindingSource;
+        private DataSets.Bodega.DataSetUbicacion dataSetUbicacion;
+        private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
+        private DataSets.Bodega.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
     }
 }

@@ -11,10 +11,10 @@ namespace SIME_UTN.Entities
         public string nombre { set; get; }
         public string numeroSerie { set; get; }
         public string descripcion { set; get; }
-        public int idCategoria { set; get; }
+        public Categoria categoria { set; get; }
         public DateTime annoIngreso { set; get; }
         public double valor { set; get; }
-        public int idUbicacion { set; get; }
+        public Ubicacion ubicacion { set; get; }
         public string marca { set; get; }
         public string modelo { set; get; }
         public string patrimonio { set; get; }

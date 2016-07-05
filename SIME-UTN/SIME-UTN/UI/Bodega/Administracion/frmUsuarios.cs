@@ -16,7 +16,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
     {
         string usuarioLogueado = "";
         UsuarioTable usuario = null;
-        static UsuarioTable usuarioStatic = null;
+        static UsuarioTable usuarioEstatico = null;
         GestorUsuarioTable gestor = null;
         static string nombre = "";
     
@@ -36,7 +36,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.usuarioTableAdapter.Fill(this.dataSetUsuario.Usuario);
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             gestor = GestorUsuarioTable.GetInstance();
-            usuarioStatic = new UsuarioTable();
+            usuarioEstatico = new UsuarioTable();
             try
             {
 
@@ -132,31 +132,52 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (e.KeyCode == Keys.Delete)
             {
 
+                eliminarUsuario();
+                e.Handled = true;
+            
+            }
+
+        }
+
+        /// <summary>
+        /// Metodo que permite seleccionar un Usuario del grid y eliminarlo por medio del boton eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            eliminarUsuario();
+        }
+
+        private void eliminarUsuario()
+        {
+            
                 this.UsuarioLogueado();
                 string usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString(); ;
                 int UsuarioID = Int32.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
                 if (usuario == usuarioLogueado)
                 {
-                    MessageBox.Show("El usuario: "+ usuario +" tiene sesiones abierta, no se puede eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El usuario: " + usuario + " tiene sesiones abierta, no se puede eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else { 
-
-                if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                else
                 {
-                    gestor.EliminarUsuario(UsuarioID, usuario,usuarioLogueado);
+
+                    if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        gestor.EliminarUsuario(UsuarioID, usuario, usuarioLogueado);
                         MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         frmUsuarios_Load(null, null);
 
                     }
 
-                e.Handled = true;
+                    
+                }
             }
-            }
 
 
 
 
-        }
+        
 
 
 
@@ -171,12 +192,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             try
             {
              
-                usuarioStatic.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-                usuarioStatic.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-                usuarioStatic.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
-                usuarioStatic.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
-                usuarioStatic.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
-                usuarioStatic.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
+                usuarioEstatico.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
+                usuarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
+                usuarioEstatico.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
+                usuarioEstatico.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
+                usuarioEstatico.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
+                usuarioEstatico.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
 
             }
             catch (ApplicationException app)
@@ -193,47 +214,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
 
 
-        /// <summary>
-        /// Metodo que permite seleccionar un Usuario del grid y eliminarlo por medio del boton eliminar
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            if (usuarioStatic != null)
-            {
-                this.UsuarioLogueado();
-                string usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
-                int UsuarioID = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-                if (usuario == usuarioLogueado)
-                {
-                    MessageBox.Show("El usuario: " + usuario + " tiene sesiones abierta, no se puede eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-
-                    if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        gestor.EliminarUsuario(UsuarioID, usuario, usuarioLogueado);
-                        MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        frmUsuarios_Load(null, null);
-
-                    }
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("No hay ningun Usuario seleccionado", "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            if (usuarioStatic != null)
+            if (usuarioEstatico != null)
             {
-                frmAdUsuario ofrmAdUsuario = new frmAdUsuario(usuarioStatic);
+                frmAdUsuario ofrmAdUsuario = new frmAdUsuario(usuarioEstatico);
                 ofrmAdUsuario.ShowDialog(this);
                 // RefrescarLista();
 
