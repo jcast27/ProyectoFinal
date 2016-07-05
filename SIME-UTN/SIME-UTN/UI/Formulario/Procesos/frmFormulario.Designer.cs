@@ -66,22 +66,22 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTexto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBRM = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBueno = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colRegular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colMalo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvSiNo = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colNo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.splitSeccion2 = new System.Windows.Forms.SplitContainer();
             this.dataSetActivoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.activoTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetActivoTableAdapters.ActivoTableAdapter();
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSi = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colNo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBueno = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colRegular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colMalo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetActivo)).BeginInit();
@@ -390,34 +390,33 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrincipal.ColumnCount = 1;
-            this.panelPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.19543F));
+            this.panelPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.panelPrincipal.Controls.Add(this.gbEncabezado, 0, 0);
             this.panelPrincipal.Controls.Add(this.gbPrincipal, 0, 1);
             this.panelPrincipal.Controls.Add(this.tableLayoutPanel2, 0, 2);
             this.panelPrincipal.Location = new System.Drawing.Point(1, 1);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.RowCount = 3;
-            this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.16482F));
-            this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.83518F));
-            this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 480F));
+            this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.panelPrincipal.Size = new System.Drawing.Size(1116, 733);
             this.panelPrincipal.TabIndex = 48;
+            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // gbPrincipal
             // 
-            this.gbPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPrincipal.Controls.Add(this.dgvTextoLibre);
             this.gbPrincipal.Controls.Add(this.dgvBRM);
             this.gbPrincipal.Controls.Add(this.dgvSiNo);
-            this.gbPrincipal.Location = new System.Drawing.Point(3, 105);
+            this.gbPrincipal.Location = new System.Drawing.Point(3, 102);
             this.gbPrincipal.Name = "gbPrincipal";
-            this.gbPrincipal.Size = new System.Drawing.Size(1110, 523);
+            this.gbPrincipal.Size = new System.Drawing.Size(1110, 526);
             this.gbPrincipal.TabIndex = 47;
             this.gbPrincipal.TabStop = false;
             // 
@@ -427,15 +426,17 @@
             this.dgvTextoLibre.AllowUserToDeleteRows = false;
             this.dgvTextoLibre.AllowUserToResizeColumns = false;
             this.dgvTextoLibre.AllowUserToResizeRows = false;
+            this.dgvTextoLibre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTextoLibre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTextoLibre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.colTexto});
-            this.dgvTextoLibre.Location = new System.Drawing.Point(6, 279);
+            this.dgvTextoLibre.Location = new System.Drawing.Point(6, 357);
             this.dgvTextoLibre.Name = "dgvTextoLibre";
             this.dgvTextoLibre.RowHeadersVisible = false;
-            this.dgvTextoLibre.Size = new System.Drawing.Size(1078, 132);
+            this.dgvTextoLibre.Size = new System.Drawing.Size(1078, 170);
             this.dgvTextoLibre.TabIndex = 1;
             this.dgvTextoLibre.SizeChanged += new System.EventHandler(this.dgvTextoLibre_SizeChanged);
             // 
@@ -468,6 +469,8 @@
             this.dgvBRM.AllowUserToDeleteRows = false;
             this.dgvBRM.AllowUserToResizeColumns = false;
             this.dgvBRM.AllowUserToResizeRows = false;
+            this.dgvBRM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBRM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBRM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -475,13 +478,49 @@
             this.colBueno,
             this.colRegular,
             this.colMalo});
-            this.dgvBRM.Location = new System.Drawing.Point(6, 140);
+            this.dgvBRM.Location = new System.Drawing.Point(6, 185);
             this.dgvBRM.Name = "dgvBRM";
             this.dgvBRM.RowHeadersVisible = false;
-            this.dgvBRM.Size = new System.Drawing.Size(1078, 133);
+            this.dgvBRM.Size = new System.Drawing.Size(1078, 170);
             this.dgvBRM.TabIndex = 1;
             this.dgvBRM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBRM_CellContentClick);
             this.dgvBRM.SizeChanged += new System.EventHandler(this.dgvBRM_SizeChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "IDItem";
+            this.dataGridViewTextBoxColumn1.HeaderText = "colId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // colBueno
+            // 
+            this.colBueno.HeaderText = "Bueno";
+            this.colBueno.Name = "colBueno";
+            this.colBueno.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colBueno.Width = 45;
+            // 
+            // colRegular
+            // 
+            this.colRegular.HeaderText = "Regular";
+            this.colRegular.Name = "colRegular";
+            this.colRegular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colRegular.Width = 45;
+            // 
+            // colMalo
+            // 
+            this.colMalo.HeaderText = "Malo";
+            this.colMalo.Name = "colMalo";
+            this.colMalo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colMalo.Width = 45;
             // 
             // dgvSiNo
             // 
@@ -489,6 +528,8 @@
             this.dgvSiNo.AllowUserToDeleteRows = false;
             this.dgvSiNo.AllowUserToResizeColumns = false;
             this.dgvSiNo.AllowUserToResizeRows = false;
+            this.dgvSiNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSiNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSiNo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
@@ -498,10 +539,40 @@
             this.dgvSiNo.Location = new System.Drawing.Point(6, 13);
             this.dgvSiNo.Name = "dgvSiNo";
             this.dgvSiNo.RowHeadersVisible = false;
-            this.dgvSiNo.Size = new System.Drawing.Size(1078, 121);
+            this.dgvSiNo.Size = new System.Drawing.Size(1078, 170);
             this.dgvSiNo.TabIndex = 0;
             this.dgvSiNo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSiNo_CellContentClick);
             this.dgvSiNo.SizeChanged += new System.EventHandler(this.dgvSiNo_SizeChanged);
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "IDItem";
+            this.colId.HeaderText = "colId";
+            this.colId.Name = "colId";
+            this.colId.Visible = false;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.DataPropertyName = "Descripcion";
+            this.colDescripcion.HeaderText = "Descripción";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            this.colDescripcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colDescripcion.Width = 300;
+            // 
+            // colSi
+            // 
+            this.colSi.HeaderText = "Si";
+            this.colSi.Name = "colSi";
+            this.colSi.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSi.Width = 35;
+            // 
+            // colNo
+            // 
+            this.colNo.HeaderText = "No";
+            this.colNo.Name = "colNo";
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.Width = 35;
             // 
             // tableLayoutPanel2
             // 
@@ -557,72 +628,6 @@
             // funcionarioTableAdapter
             // 
             this.funcionarioTableAdapter.ClearBeforeFill = true;
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "IDItem";
-            this.colId.HeaderText = "colId";
-            this.colId.Name = "colId";
-            this.colId.Visible = false;
-            // 
-            // colDescripcion
-            // 
-            this.colDescripcion.DataPropertyName = "Descripcion";
-            this.colDescripcion.HeaderText = "Descripción";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.ReadOnly = true;
-            this.colDescripcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colDescripcion.Width = 300;
-            // 
-            // colSi
-            // 
-            this.colSi.HeaderText = "Si";
-            this.colSi.Name = "colSi";
-            this.colSi.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colSi.Width = 35;
-            // 
-            // colNo
-            // 
-            this.colNo.HeaderText = "No";
-            this.colNo.Name = "colNo";
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.Width = 35;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "IDItem";
-            this.dataGridViewTextBoxColumn1.HeaderText = "colId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colBueno
-            // 
-            this.colBueno.HeaderText = "Bueno";
-            this.colBueno.Name = "colBueno";
-            this.colBueno.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colBueno.Width = 45;
-            // 
-            // colRegular
-            // 
-            this.colRegular.HeaderText = "Regular";
-            this.colRegular.Name = "colRegular";
-            this.colRegular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colRegular.Width = 45;
-            // 
-            // colMalo
-            // 
-            this.colMalo.HeaderText = "Malo";
-            this.colMalo.Name = "colMalo";
-            this.colMalo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMalo.Width = 45;
             // 
             // frmFormulario
             // 

@@ -110,20 +110,42 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 //}
 
                 //listaGrid = listaTemp;
+                int dgvAltura = 0;
+
+                foreach (DataGridView dgv in listaGrid)
+                {
+                    dgv.Dock = DockStyle.Top;
+                    int totalRowHeight = dgv.ColumnHeadersHeight;
+                    foreach (DataGridViewRow row in dgv.Rows)
+                        totalRowHeight += row.Height;
+
+                    if (totalRowHeight < 170)
+                        dgv.Height = totalRowHeight + 10;
+
+                    dgvAltura += dgv.Height;
+                }
+
+                gbPrincipal.Height = dgvAltura + 50;
+
+                panelPrincipal.RowStyles[1].Height = gbPrincipal.Height;
+
+                panelPrincipal.Height = Convert.ToInt32(panelPrincipal.RowStyles[0].Height + panelPrincipal.RowStyles[1].Height + panelPrincipal.RowStyles[2].Height);
+
+                Height = panelPrincipal.Height + 50;
 
                 switch (cont)
                 {
                     case 1:
                         gbPrincipal.Controls.Clear();
                         gbPrincipal.Controls.Add(listaGrid[0]);
-                        listaGrid[0].Dock = DockStyle.Fill;
+                        //listaGrid[0].Dock = DockStyle.Top;
                         break;
                     case 2:
                         splitSeccion.Panel1.Controls.Add(listaGrid[0]);
                         splitSeccion.Panel2.Controls.Add(listaGrid[1]);
                         splitSeccion.SplitterDistance = splitSeccion.Height / 2;
-                        listaGrid[0].Dock = DockStyle.Fill;
-                        listaGrid[1].Dock = DockStyle.Fill;
+                        //listaGrid[0].Dock = DockStyle.Top;
+                        //listaGrid[1].Dock = DockStyle.Top;
                         break;
                     case 3:
                         splitSeccion.Panel1.Controls.Add(listaGrid[0]);
@@ -135,12 +157,11 @@ namespace SIME_UTN.UI.Formulario.Procesos
                         splitSeccion2.Panel2.Controls.Add(listaGrid[2]);
                         splitSeccion.SplitterDistance = splitSeccion.Height / 3;
                         splitSeccion2.SplitterDistance = splitSeccion.Height / 3;
-                        listaGrid[0].Dock = DockStyle.Fill;
-                        listaGrid[1].Dock = DockStyle.Fill;
-                        listaGrid[2].Dock = DockStyle.Fill;
+                        //listaGrid[0].Dock = DockStyle.Top;
+                        //listaGrid[1].Dock = DockStyle.Top;
+                        //listaGrid[2].Dock = DockStyle.Top;
                         break;
                 }
-
             }
             catch (ApplicationException app)
             {
@@ -412,6 +433,11 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 txtSerie.Text = a.numeroSerie;
                 txtUbicacion.Text = a.ubicacion.nombre;
             }
+        }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
