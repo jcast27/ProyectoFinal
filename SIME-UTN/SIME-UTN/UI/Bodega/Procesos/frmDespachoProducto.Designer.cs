@@ -40,11 +40,30 @@
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
             this.gCBodegas = new DevExpress.XtraGrid.GridControl();
+            this.spSELECTRegistroBodegaByTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetBodegaDespacho = new SIME_UTN.DataSets.Bodega.DataSetBodegaDespacho();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colidregistrobodega = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltipo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpTipoBodega = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.DataSetTBodega();
+            this.sp_SELECT_RegistroBodega_By_TypeTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetBodegaDespachoTableAdapters.sp_SELECT_RegistroBodega_By_TypeTableAdapter();
+            this.dataSetTipoBodegaDespacho = new SIME_UTN.DataSets.Bodega.DataSetTipoBodegaDespacho();
+            this.spSELECTTipoBodegaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetTipoBodegaDespachoTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaByTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaDespacho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaDespacho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ePError
@@ -102,7 +121,6 @@
             this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
-       
             // 
             // mBtnEliminar
             // 
@@ -161,16 +179,35 @@
             this.gCBodegas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCBodegas.DataSource = this.spSELECTRegistroBodegaByTypeBindingSource;
             this.gCBodegas.Location = new System.Drawing.Point(3, 55);
             this.gCBodegas.MainView = this.gridView1;
             this.gCBodegas.Name = "gCBodegas";
+            this.gCBodegas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.LookUpTipoBodega});
             this.gCBodegas.Size = new System.Drawing.Size(1030, 464);
             this.gCBodegas.TabIndex = 0;
             this.gCBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // spSELECTRegistroBodegaByTypeBindingSource
+            // 
+            this.spSELECTRegistroBodegaByTypeBindingSource.DataMember = "sp_SELECT_RegistroBodega_By_Type";
+            this.spSELECTRegistroBodegaByTypeBindingSource.DataSource = this.dataSetBodegaDespacho;
+            // 
+            // dataSetBodegaDespacho
+            // 
+            this.dataSetBodegaDespacho.DataSetName = "DataSetBodegaDespacho";
+            this.dataSetBodegaDespacho.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colidregistrobodega,
+            this.colnombre,
+            this.coldescripcion,
+            this.coltipo,
+            this.colestado});
             this.gridView1.GridControl = this.gCBodegas;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -180,6 +217,81 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            // 
+            // colidregistrobodega
+            // 
+            this.colidregistrobodega.FieldName = "idregistrobodega";
+            this.colidregistrobodega.Name = "colidregistrobodega";
+            // 
+            // colnombre
+            // 
+            this.colnombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colnombre.AppearanceHeader.Options.UseFont = true;
+            this.colnombre.Caption = "Nombre de la Bodega";
+            this.colnombre.FieldName = "nombre";
+            this.colnombre.Name = "colnombre";
+            this.colnombre.Visible = true;
+            this.colnombre.VisibleIndex = 0;
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.coldescripcion.AppearanceHeader.Options.UseFont = true;
+            this.coldescripcion.Caption = "Descripcion";
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 1;
+            // 
+            // coltipo
+            // 
+            this.coltipo.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coltipo.AppearanceHeader.Options.UseFont = true;
+            this.coltipo.Caption = "Tipo de Bodega";
+            this.coltipo.ColumnEdit = this.LookUpTipoBodega;
+            this.coltipo.FieldName = "tipo";
+            this.coltipo.Name = "coltipo";
+            this.coltipo.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            this.coltipo.Visible = true;
+            this.coltipo.VisibleIndex = 2;
+            // 
+            // LookUpTipoBodega
+            // 
+            this.LookUpTipoBodega.AutoHeight = false;
+            this.LookUpTipoBodega.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpTipoBodega.DataSource = this.spSELECTTipoBodegaAllBindingSource;
+            this.LookUpTipoBodega.DisplayMember = "descripcion";
+            this.LookUpTipoBodega.Name = "LookUpTipoBodega";
+            this.LookUpTipoBodega.ValueMember = "idtipobodega";
+            // 
+            // colestado
+            // 
+            this.colestado.FieldName = "estado";
+            this.colestado.Name = "colestado";
+            // 
+            // dataSetTBodega
+            // 
+            this.dataSetTBodega.DataSetName = "DataSetTBodega";
+            this.dataSetTBodega.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sp_SELECT_RegistroBodega_By_TypeTableAdapter
+            // 
+            this.sp_SELECT_RegistroBodega_By_TypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataSetTipoBodegaDespacho
+            // 
+            this.dataSetTipoBodegaDespacho.DataSetName = "DataSetTipoBodegaDespacho";
+            this.dataSetTipoBodegaDespacho.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spSELECTTipoBodegaAllBindingSource
+            // 
+            this.spSELECTTipoBodegaAllBindingSource.DataMember = "sp_SELECT_TipoBodega_All";
+            this.spSELECTTipoBodegaAllBindingSource.DataSource = this.dataSetTipoBodegaDespacho;
+            // 
+            // sp_SELECT_TipoBodega_AllTableAdapter
+            // 
+            this.sp_SELECT_TipoBodega_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmDespachoProducto
             // 
@@ -195,10 +307,17 @@
             this.Name = "frmDespachoProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Despacho de Productos";
+            this.Load += new System.EventHandler(this.frmDespachoProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaByTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaDespacho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaDespacho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -216,5 +335,18 @@
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
         private DevExpress.XtraGrid.GridControl gCBodegas;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DataSets.Bodega.DataSetBodegaDespacho dataSetBodegaDespacho;
+        private System.Windows.Forms.BindingSource spSELECTRegistroBodegaByTypeBindingSource;
+        private DataSets.Bodega.DataSetBodegaDespachoTableAdapters.sp_SELECT_RegistroBodega_By_TypeTableAdapter sp_SELECT_RegistroBodega_By_TypeTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colidregistrobodega;
+        private DevExpress.XtraGrid.Columns.GridColumn colnombre;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn coltipo;
+        private DevExpress.XtraGrid.Columns.GridColumn colestado;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpTipoBodega;
+        private DataSets.Bodega.DataSetTBodega dataSetTBodega;
+        private DataSets.Bodega.DataSetTipoBodegaDespacho dataSetTipoBodegaDespacho;
+        private System.Windows.Forms.BindingSource spSELECTTipoBodegaAllBindingSource;
+        private DataSets.Bodega.DataSetTipoBodegaDespachoTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter sp_SELECT_TipoBodega_AllTableAdapter;
     }
 }

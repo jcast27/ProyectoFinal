@@ -37,7 +37,13 @@ namespace SIME_UTN.UI.Bodega.Procesos
           
         }
 
-     
+        private void frmDespachoProducto_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataSetTipoBodegaDespacho.sp_SELECT_TipoBodega_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_TipoBodega_AllTableAdapter.Fill(this.dataSetTipoBodegaDespacho.sp_SELECT_TipoBodega_All);
+            // TODO: This line of code loads data into the 'dataSetBodegaDespacho.sp_SELECT_RegistroBodega_By_Type' table. You can move, or remove it, as needed.
+            this.sp_SELECT_RegistroBodega_By_TypeTableAdapter.Fill(this.dataSetBodegaDespacho.sp_SELECT_RegistroBodega_By_Type);
 
+        }
     }
 }

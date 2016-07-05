@@ -251,7 +251,7 @@ namespace SIME_UTN.UI.Bodega
             tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
 
             //Propiedades para el decumento Traslado Productos
-            grupo = "Group 2";
+            grupo = "Group 1";
             imagen = Properties.Resources.registro;
             nombreElemento = "Traslado De Productos";
             tileContainer2.Items.Add(this.crearTile(doc3, nombreElemento, grupo, imagen, estado));
