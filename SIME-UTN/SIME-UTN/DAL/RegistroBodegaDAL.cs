@@ -5,7 +5,7 @@ using System.Text;
 using SIME_UTN.Entities;
 using System.Data.SqlClient;
 using System.Data;
-
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.DAL
 {
@@ -48,6 +48,32 @@ namespace SIME_UTN.DAL
 
             }
             return existe;
+        }
+
+        internal static List<RegistroBodegaTipoBodegaDTO> ObtenertBodegas()
+        {
+            List<RegistroBodegaTipoBodegaDTO> listaBodegas = new List<RegistroBodegaTipoBodegaDTO>();
+            SqlCommand comando = new SqlCommand("sp_SELECT_RegistroBodega");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    RegistroBodegaTipoBodegaDTO unaBodega = new RegistroBodegaTipoBodegaDTO();
+                    unaBodega.idregistrobodega = Convert.ToInt32(dr["idregistrobodega"].ToString());
+                    unaBodega.nombre = dr["nombre"].ToString();
+                    unaBodega.descripcion = dr["descripcion"].ToString();
+                    unaBodega.tipobodega = dr["tipobodega"].ToString();
+                    unaBodega.estado = Convert.ToInt32(dr["estado"]);
+                    listaBodegas.Add(unaBodega);
+                }
+            }
+
+            return listaBodegas;
         }
 
         internal static void ActualizarBodega(RegistroBodega unaBodegap, string usuarioLogueadop)

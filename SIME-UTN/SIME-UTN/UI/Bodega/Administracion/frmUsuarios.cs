@@ -62,51 +62,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             usuarioLogueado = gestor.ObtenerUsuarioLogeado();
         }
 
-        /// <summary>
-        /// Actualiza el datagridview con los usuarios agredados
-        /// </summary>
-     /*   private void RefrescarLista()
-        {
-            DataTable dt = new DataTable();
-            dt.TableName = "Usuarios";
-            dt.Columns.Add(new DataColumn("CodigoUsuario"));
-            dt.Columns.Add(new DataColumn("Usuario"));
-            dt.Columns.Add(new DataColumn("Nombre"));
-            dt.Columns.Add(new DataColumn("PrimerApellido"));
-            dt.Columns.Add(new DataColumn("SegundoApellido"));
-            dt.Columns.Add(new DataColumn("Perfil"));
-
-            try
-            {
-                gestor = GestorUsuarioTable.GetInstance();
-               
-                List<UsuarioTable> lista = new List<UsuarioTable>(gestor.ObtenerUsuarios());
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["CodigoUsuario"] = lista[i].codigoUsuario;
-                    dr["Usuario"] = lista[i].usuario;
-                    dr["Nombre"] = lista[i].nombre;
-                    dr["PrimerApellido"] = lista[i].apellido1;
-                    dr["SegundoApellido"] = lista[i].apellido2;
-                    dr["Perfil"] = lista[i].perfil;
-                    dt.Rows.Add(dr);
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.gCUsuarios.DataSource = dt;
-        }     */
-
-
-
-
-
-
 
         /// <summary>
         /// Manda a llamar al metodo Refresca Lista
@@ -191,7 +146,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
             try
             {
-             
+                mBtnModificar.Enabled = true;
+                mBtnEliminar.Enabled = true;
                 usuarioEstatico.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
                 usuarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
                 usuarioEstatico.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();

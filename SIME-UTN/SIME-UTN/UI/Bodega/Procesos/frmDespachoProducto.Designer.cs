@@ -34,26 +34,25 @@
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
             this.gCBodegas = new DevExpress.XtraGrid.GridControl();
             this.spSELECTRegistroBodegaByTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetBodegaDespacho = new SIME_UTN.DataSets.Bodega.DataSetBodegaDespacho();
+            this.dataSetBodegaDespacho = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaDespacho();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colidregistrobodega = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpTipoBodega = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.DataSetTBodega();
-            this.sp_SELECT_RegistroBodega_By_TypeTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetBodegaDespachoTableAdapters.sp_SELECT_RegistroBodega_By_TypeTableAdapter();
-            this.dataSetTipoBodegaDespacho = new SIME_UTN.DataSets.Bodega.DataSetTipoBodegaDespacho();
             this.spSELECTTipoBodegaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetTipoBodegaDespachoTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
+            this.dataSetTipoBodegaDespacho = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaDespacho();
+            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega();
+            this.sp_SELECT_RegistroBodega_By_TypeTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaDespachoTableAdapters.sp_SELECT_RegistroBodega_By_TypeTableAdapter();
+            this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaDespachoTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).BeginInit();
@@ -61,9 +60,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaDespacho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaDespacho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaDespacho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
             this.SuspendLayout();
             // 
             // ePError
@@ -78,7 +77,6 @@
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
-            this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
             // 
             // tileNavCategory1
             // 
@@ -121,17 +119,6 @@
             this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
-            // 
-            // mBtnEliminar
-            // 
-            this.mBtnEliminar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnEliminar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnEliminar.Appearance.Options.UseFont = true;
-            this.mBtnEliminar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnEliminar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnEliminar.Caption = "Eliminar";
-            this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
-            this.mBtnEliminar.Name = "mBtnEliminar";
             // 
             // panel1
             // 
@@ -265,6 +252,16 @@
             this.LookUpTipoBodega.Name = "LookUpTipoBodega";
             this.LookUpTipoBodega.ValueMember = "idtipobodega";
             // 
+            // spSELECTTipoBodegaAllBindingSource
+            // 
+            this.spSELECTTipoBodegaAllBindingSource.DataMember = "sp_SELECT_TipoBodega_All";
+            this.spSELECTTipoBodegaAllBindingSource.DataSource = this.dataSetTipoBodegaDespacho;
+            // 
+            // dataSetTipoBodegaDespacho
+            // 
+            this.dataSetTipoBodegaDespacho.DataSetName = "DataSetTipoBodegaDespacho";
+            this.dataSetTipoBodegaDespacho.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // colestado
             // 
             this.colestado.FieldName = "estado";
@@ -278,16 +275,6 @@
             // sp_SELECT_RegistroBodega_By_TypeTableAdapter
             // 
             this.sp_SELECT_RegistroBodega_By_TypeTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataSetTipoBodegaDespacho
-            // 
-            this.dataSetTipoBodegaDespacho.DataSetName = "DataSetTipoBodegaDespacho";
-            this.dataSetTipoBodegaDespacho.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTTipoBodegaAllBindingSource
-            // 
-            this.spSELECTTipoBodegaAllBindingSource.DataMember = "sp_SELECT_TipoBodega_All";
-            this.spSELECTTipoBodegaAllBindingSource.DataSource = this.dataSetTipoBodegaDespacho;
             // 
             // sp_SELECT_TipoBodega_AllTableAdapter
             // 
@@ -315,9 +302,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaDespacho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaDespacho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaDespacho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,24 +316,22 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
-
-        private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private DevExpress.XtraBars.Navigation.NavButton navButton1;
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
         private DevExpress.XtraGrid.GridControl gCBodegas;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DataSets.Bodega.DataSetBodegaDespacho dataSetBodegaDespacho;
+        private DataSets.Bodega.Admistracion.DataSetBodegaDespacho dataSetBodegaDespacho;
         private System.Windows.Forms.BindingSource spSELECTRegistroBodegaByTypeBindingSource;
-        private DataSets.Bodega.DataSetBodegaDespachoTableAdapters.sp_SELECT_RegistroBodega_By_TypeTableAdapter sp_SELECT_RegistroBodega_By_TypeTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetBodegaDespachoTableAdapters.sp_SELECT_RegistroBodega_By_TypeTableAdapter sp_SELECT_RegistroBodega_By_TypeTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colidregistrobodega;
         private DevExpress.XtraGrid.Columns.GridColumn colnombre;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
         private DevExpress.XtraGrid.Columns.GridColumn coltipo;
         private DevExpress.XtraGrid.Columns.GridColumn colestado;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpTipoBodega;
-        private DataSets.Bodega.DataSetTBodega dataSetTBodega;
-        private DataSets.Bodega.DataSetTipoBodegaDespacho dataSetTipoBodegaDespacho;
+        private DataSets.Bodega.Admistracion.DataSetTBodega dataSetTBodega;
+        private DataSets.Bodega.Admistracion.DataSetTipoBodegaDespacho dataSetTipoBodegaDespacho;
         private System.Windows.Forms.BindingSource spSELECTTipoBodegaAllBindingSource;
-        private DataSets.Bodega.DataSetTipoBodegaDespachoTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter sp_SELECT_TipoBodega_AllTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetTipoBodegaDespachoTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter sp_SELECT_TipoBodega_AllTableAdapter;
     }
 }

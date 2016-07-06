@@ -45,19 +45,19 @@
             this.colIDProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpProducto = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetProductos = new SIME_UTN.DataSets.Bodega.DataSetProductos();
+            this.dataSetProductos = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductos();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUnidadMedida = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedida();
+            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.colStockActual = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStockMinimo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStockMaximo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inventarioProductoTableAdapter = new SIME_UTN.DataSetInventarioTableAdapters.InventarioProductoTableAdapter();
-            this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetProductosTableAdapters.ProductoTableAdapter();
-            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
+            this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductosTableAdapters.ProductoTableAdapter();
+            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbInvMax.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCInvMax)).BeginInit();
@@ -359,12 +359,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn colStockMaximo;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpProducto;
-        private DataSets.Bodega.DataSetProductos dataSetProductos;
+        private DataSets.Bodega.Admistracion.DataSetProductos dataSetProductos;
         private System.Windows.Forms.BindingSource productoBindingSource;
-        private DataSets.Bodega.DataSetProductosTableAdapters.ProductoTableAdapter productoTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetProductosTableAdapters.ProductoTableAdapter productoTableAdapter;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUnidadMedida;
-        private DataSets.Bodega.DataSetUnidadMedida dataSetUnidadMedida;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
         private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
-        private DataSets.Bodega.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
     }
 }

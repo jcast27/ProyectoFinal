@@ -32,13 +32,12 @@ namespace SIME_UTN.DAL
                     {
                         ProductoCategoriaUnidadMedidaDTO unProducto = new ProductoCategoriaUnidadMedidaDTO();
                         unProducto.idProducto = Convert.ToInt32(dr["idproducto"].ToString());
-                        unProducto.codigoAvatar = dr["codigoavatar"].ToString();
-                        unProducto.nombreProducto = dr["nombre"].ToString();
-                        unProducto.descripcion = dr["descripcion"].ToString();
-                        unProducto.categoria = dr["idcategoria"].ToString();
-                        unProducto.ubicacion = dr["idubicacion"].ToString();
-                        unProducto.unidadMedida = dr["idunidadmedida"].ToString();
-                        unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
+                        unProducto.CodigoAvatar = dr["codigoavatar"].ToString();
+                        unProducto.NombreProducto = dr["nombre"].ToString();
+                        unProducto.Descripcion = dr["descripcion"].ToString();
+                        unProducto.Categoria = dr["categoria"].ToString();
+                        unProducto.Ubicacion = dr["ubicacion"].ToString();
+                        unProducto.UnidadMedida = dr["unidadmedida"].ToString();
                         listaProductos.Add(unProducto);
                     }
             }

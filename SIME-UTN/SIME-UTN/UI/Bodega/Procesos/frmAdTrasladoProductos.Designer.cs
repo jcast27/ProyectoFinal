@@ -44,13 +44,11 @@
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtECodigoProducto = new DevExpress.XtraEditors.ButtonEdit();
             this.lblProducto = new System.Windows.Forms.Label();
-            this.cmbBodegaDestino = new System.Windows.Forms.ComboBox();
             this.lblBodegaDestino = new System.Windows.Forms.Label();
-            this.cmbBodegaOrigen = new System.Windows.Forms.ComboBox();
             this.cmbTipoTraslado = new System.Windows.Forms.ComboBox();
             this.tipoTrasladoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTipoTrasladoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetTipoTraslado = new SIME_UTN.DataSets.Bodega.DataSetTipoTraslado();
+            this.dataSetTipoTraslado = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoTraslado();
             this.txtNumeroDespacho = new System.Windows.Forms.TextBox();
             this.lblNumeroTraslado = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
@@ -68,7 +66,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gCProductos = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.tipoTrasladoTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter();
+            this.tipoTrasladoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter();
+            this.btnEBodegaOrigen = new DevExpress.XtraEditors.ButtonEdit();
+            this.BtnEBodegaDestino = new DevExpress.XtraEditors.ButtonEdit();
+            this.lblIDBodegaOrigen = new System.Windows.Forms.Label();
+            this.lblIDBodegaDestino = new System.Windows.Forms.Label();
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoTrasladoBindingSource)).BeginInit();
@@ -82,6 +84,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEBodegaOrigen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnEBodegaDestino.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -162,6 +166,10 @@
             // gbGridViewFuncionario
             // 
             this.gbGridViewFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbGridViewFuncionario.Controls.Add(this.lblIDBodegaDestino);
+            this.gbGridViewFuncionario.Controls.Add(this.lblIDBodegaOrigen);
+            this.gbGridViewFuncionario.Controls.Add(this.BtnEBodegaDestino);
+            this.gbGridViewFuncionario.Controls.Add(this.btnEBodegaOrigen);
             this.gbGridViewFuncionario.Controls.Add(this.txtUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.lblUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.txtCantidad);
@@ -170,9 +178,7 @@
             this.gbGridViewFuncionario.Controls.Add(this.txtNombreProducto);
             this.gbGridViewFuncionario.Controls.Add(this.txtECodigoProducto);
             this.gbGridViewFuncionario.Controls.Add(this.lblProducto);
-            this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaDestino);
             this.gbGridViewFuncionario.Controls.Add(this.lblBodegaDestino);
-            this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaOrigen);
             this.gbGridViewFuncionario.Controls.Add(this.cmbTipoTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.txtNumeroDespacho);
             this.gbGridViewFuncionario.Controls.Add(this.lblNumeroTraslado);
@@ -287,20 +293,6 @@
             this.lblProducto.TabIndex = 55;
             this.lblProducto.Text = "Nombre del Producto:";
             // 
-            // cmbBodegaDestino
-            // 
-            this.cmbBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbBodegaDestino.DisplayMember = "Descripcion";
-            this.cmbBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBodegaDestino.FormattingEnabled = true;
-            this.cmbBodegaDestino.Location = new System.Drawing.Point(911, 63);
-            this.cmbBodegaDestino.Name = "cmbBodegaDestino";
-            this.cmbBodegaDestino.Size = new System.Drawing.Size(167, 24);
-            this.cmbBodegaDestino.TabIndex = 54;
-            this.cmbBodegaDestino.ValueMember = "IDCategoria";
-            // 
             // lblBodegaDestino
             // 
             this.lblBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -314,20 +306,6 @@
             this.lblBodegaDestino.Size = new System.Drawing.Size(118, 18);
             this.lblBodegaDestino.TabIndex = 53;
             this.lblBodegaDestino.Text = "Bodega Destino:";
-            // 
-            // cmbBodegaOrigen
-            // 
-            this.cmbBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbBodegaOrigen.DisplayMember = "Descripcion";
-            this.cmbBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBodegaOrigen.FormattingEnabled = true;
-            this.cmbBodegaOrigen.Location = new System.Drawing.Point(570, 61);
-            this.cmbBodegaOrigen.Name = "cmbBodegaOrigen";
-            this.cmbBodegaOrigen.Size = new System.Drawing.Size(167, 24);
-            this.cmbBodegaOrigen.TabIndex = 52;
-            this.cmbBodegaOrigen.ValueMember = "IDCategoria";
             // 
             // cmbTipoTraslado
             // 
@@ -466,7 +444,7 @@
             this.lblBodega.AutoSize = true;
             this.lblBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodega.ForeColor = System.Drawing.Color.White;
-            this.lblBodega.Location = new System.Drawing.Point(414, 67);
+            this.lblBodega.Location = new System.Drawing.Point(430, 71);
             this.lblBodega.Name = "lblBodega";
             this.lblBodega.Size = new System.Drawing.Size(111, 18);
             this.lblBodega.TabIndex = 1;
@@ -592,6 +570,56 @@
             // 
             this.tipoTrasladoTableAdapter.ClearBeforeFill = true;
             // 
+            // btnEBodegaOrigen
+            // 
+            this.btnEBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnEBodegaOrigen.Location = new System.Drawing.Point(570, 68);
+            this.btnEBodegaOrigen.Name = "btnEBodegaOrigen";
+            this.btnEBodegaOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnEBodegaOrigen.Size = new System.Drawing.Size(167, 20);
+            this.btnEBodegaOrigen.TabIndex = 63;
+            this.btnEBodegaOrigen.Click += new System.EventHandler(this.btnEBodegaOrigen_Click);
+            // 
+            // BtnEBodegaDestino
+            // 
+            this.BtnEBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.BtnEBodegaDestino.Location = new System.Drawing.Point(911, 64);
+            this.BtnEBodegaDestino.Name = "BtnEBodegaDestino";
+            this.BtnEBodegaDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BtnEBodegaDestino.Size = new System.Drawing.Size(167, 20);
+            this.BtnEBodegaDestino.TabIndex = 64;
+            this.BtnEBodegaDestino.Click += new System.EventHandler(this.BtnEBodegaDestino_Click);
+            // 
+            // lblIDBodegaOrigen
+            // 
+            this.lblIDBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIDBodegaOrigen.AutoSize = true;
+            this.lblIDBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDBodegaOrigen.ForeColor = System.Drawing.Color.White;
+            this.lblIDBodegaOrigen.Location = new System.Drawing.Point(550, 71);
+            this.lblIDBodegaOrigen.Name = "lblIDBodegaOrigen";
+            this.lblIDBodegaOrigen.Size = new System.Drawing.Size(0, 18);
+            this.lblIDBodegaOrigen.TabIndex = 65;
+            this.lblIDBodegaOrigen.Visible = false;
+            // 
+            // lblIDBodegaDestino
+            // 
+            this.lblIDBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIDBodegaDestino.AutoSize = true;
+            this.lblIDBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDBodegaDestino.ForeColor = System.Drawing.Color.White;
+            this.lblIDBodegaDestino.Location = new System.Drawing.Point(898, 67);
+            this.lblIDBodegaDestino.Name = "lblIDBodegaDestino";
+            this.lblIDBodegaDestino.Size = new System.Drawing.Size(0, 18);
+            this.lblIDBodegaDestino.TabIndex = 66;
+            this.lblIDBodegaDestino.Visible = false;
+            // 
             // frmAdTrasladoProductos
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -622,6 +650,8 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEBodegaOrigen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnEBodegaDestino.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -652,9 +682,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraGrid.GridControl gCProductos;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private System.Windows.Forms.ComboBox cmbBodegaDestino;
         private System.Windows.Forms.Label lblBodegaDestino;
-        private System.Windows.Forms.ComboBox cmbBodegaOrigen;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblCodigo;
@@ -664,8 +692,12 @@
         private System.Windows.Forms.TextBox txtUnidadMedida;
         private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.BindingSource dataSetTipoTrasladoBindingSource;
-        private DataSets.Bodega.DataSetTipoTraslado dataSetTipoTraslado;
+        private DataSets.Bodega.Admistracion.DataSetTipoTraslado dataSetTipoTraslado;
         private System.Windows.Forms.BindingSource tipoTrasladoBindingSource;
-        private DataSets.Bodega.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter tipoTrasladoTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter tipoTrasladoTableAdapter;
+        private DevExpress.XtraEditors.ButtonEdit BtnEBodegaDestino;
+        private DevExpress.XtraEditors.ButtonEdit btnEBodegaOrigen;
+        private System.Windows.Forms.Label lblIDBodegaDestino;
+        private System.Windows.Forms.Label lblIDBodegaOrigen;
     }
 }

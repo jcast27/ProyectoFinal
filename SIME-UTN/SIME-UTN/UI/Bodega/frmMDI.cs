@@ -66,7 +66,7 @@ namespace SIME_UTN.UI.Bodega
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmBodegas();
             if (e.Document.Caption == "Ventana Unidad De Medida")
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUnidadesMedida();
-            if (e.Document.Caption == "Ventana Regristro Producto")
+            if (e.Document.Caption == "Ventana Registro Producto")
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmRegistroProducto();
             if (e.Document.Caption == "Ventana Despacho Producto")
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmDespachoProducto();
@@ -230,7 +230,7 @@ namespace SIME_UTN.UI.Bodega
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Regristro Producto" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Registro Producto" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Despacho Producto" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc3 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Traslado Producto" };
             this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2,doc3});
@@ -241,7 +241,7 @@ namespace SIME_UTN.UI.Bodega
             //Propiedades para el decumento Ingreso Productos
             grupo = "Group 1";
             imagen = Properties.Resources.registro;
-            nombreElemento = "Regristro De Productos";
+            nombreElemento = "Registro De Productos";
             tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
 
             //Propiedades para el decumento Despacho Productos

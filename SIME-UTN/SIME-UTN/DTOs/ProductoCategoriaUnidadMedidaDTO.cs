@@ -8,12 +8,11 @@ namespace SIME_UTN.DTOs
    public class ProductoCategoriaUnidadMedidaDTO
     {
         public int idProducto { set; get; }
-        public string codigoAvatar { set; get; }
-        public string nombreProducto { set; get; }
-        public string descripcion { set; get; }
-        public string categoria { set; get; }
-        public string ubicacion { set; get; }
-        public string unidadMedida { set; get; }
-        public int estado { set; get; }
+        public string CodigoAvatar { set; get; }
+        public string NombreProducto { set; get; }
+        public string Descripcion { set; get; }
+        public string Categoria { set; get; }
+        public string Ubicacion { set; get; }
+        public string UnidadMedida { set; get; }
     }
 }

@@ -34,7 +34,7 @@
             this.chkedEstado = new DevExpress.XtraEditors.CheckEdit();
             this.cmbTipoBodega = new System.Windows.Forms.ComboBox();
             this.tipoBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.DataSetTBodega();
+            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega();
             this.lblCodigoBodega = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtBodega = new System.Windows.Forms.TextBox();
@@ -45,12 +45,12 @@
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
-            this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
+            this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataSetTipoBodegaCMB = new SIME_UTN.DataSets.Bodega.DataSetTipoBodegaCMB();
+            this.dataSetTipoBodegaCMB = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaCMB();
             this.spSELECTTipoBodegaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetTipoBodegaCMBTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
+            this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaCMBTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
             this.spSELECTTipoBodegaAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gbGridViewBodega.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkedEstado.Properties)).BeginInit();
@@ -347,14 +347,14 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private System.Windows.Forms.ComboBox cmbTipoBodega;
         private DevExpress.XtraEditors.CheckEdit chkedEstado;
-        private SIME_UTN.DataSets.Bodega.DataSetTBodega dataSetTBodega;
+        private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega dataSetTBodega;
         private System.Windows.Forms.BindingSource tipoBodegaBindingSource;
-        private SIME_UTN.DataSets.Bodega.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter tipoBodegaTableAdapter;
+        private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter tipoBodegaTableAdapter;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
-        private DataSets.Bodega.DataSetTipoBodegaCMB dataSetTipoBodegaCMB;
+        private DataSets.Bodega.Admistracion.DataSetTipoBodegaCMB dataSetTipoBodegaCMB;
         private System.Windows.Forms.BindingSource spSELECTTipoBodegaAllBindingSource;
-        private DataSets.Bodega.DataSetTipoBodegaCMBTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter sp_SELECT_TipoBodega_AllTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetTipoBodegaCMBTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter sp_SELECT_TipoBodega_AllTableAdapter;
         private System.Windows.Forms.BindingSource spSELECTTipoBodegaAllBindingSource1;
     }
 }

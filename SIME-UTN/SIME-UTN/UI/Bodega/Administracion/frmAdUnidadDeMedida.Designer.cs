@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdUnidadMedida));
             this.gbGridViewUnidadMedida = new System.Windows.Forms.GroupBox();
             this.tipoBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.DataSetTBodega();
+            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtBodega = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
-            this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
+            this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
             this.gbGridViewUnidadMedida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
@@ -222,7 +222,6 @@
             this.Name = "frmAdUnidadMedida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unided De Medida";
-            this.Load += new System.EventHandler(this.frmAdBodega_Load);
             this.gbGridViewUnidadMedida.ResumeLayout(false);
             this.gbGridViewUnidadMedida.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).EndInit();
@@ -243,8 +242,8 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private DevExpress.XtraBars.Navigation.NavButton mBtnAceptar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
-        private SIME_UTN.DataSets.Bodega.DataSetTBodega dataSetTBodega;
+        private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega dataSetTBodega;
         private System.Windows.Forms.BindingSource tipoBodegaBindingSource;
-        private SIME_UTN.DataSets.Bodega.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter tipoBodegaTableAdapter;
+        private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter tipoBodegaTableAdapter;
     }
 }

@@ -93,7 +93,7 @@
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(191, 26);
             this.txtContrasena.TabIndex = 42;
-            this.txtContrasena.Text = "sa123456!";
+            this.txtContrasena.Text = "sa1";
             // 
             // cmbModulo
             // 

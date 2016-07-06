@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SIME_UTN.DAL;
+using SIME_UTN.DTOs;
 using SIME_UTN.Entities;
 
 namespace SIME_UTN.BLL
@@ -25,6 +26,11 @@ namespace SIME_UTN.BLL
             {
                 RegistroBodegaDAL.ActualizarBodega(unaBodegap, usuarioLogueadop);
             }
+        }
+
+        internal static List<RegistroBodegaTipoBodegaDTO> ObtenertBodegas()
+        {
+            return RegistroBodegaDAL.ObtenertBodegas();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIME_UTN.Entities;
 using SIME_UTN.BLL;
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.Gestores
 {
@@ -36,6 +37,11 @@ namespace SIME_UTN.Gestores
         internal void AgregarBodega(RegistroBodega unaBodegap)
         {
             registroBodega = unaBodegap;
+        }
+
+        internal List<RegistroBodegaTipoBodegaDTO> ObtenertBodegas()
+        {
+            return RegistroBodegaBLL.ObtenertBodegas();
         }
 
         internal void GuardarBodega(RegistroBodega unaBodegap, string usuarioLogueadop)

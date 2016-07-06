@@ -62,9 +62,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             frmFiltroProductos ofrmFiltroProductos = new frmFiltroProductos();
             ofrmFiltroProductos.ShowDialog(this);
-            this.txtECodigoProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.codigoAvatar;
-            this.txtNombreProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.nombreProducto;
-            txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.unidadMedida;
+            this.txtECodigoProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.CodigoAvatar;
+            this.txtNombreProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.NombreProducto;
+            txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
         }
 
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -91,11 +91,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     gridView2.Columns.Clear();
                     dateFechaTraslado.Enabled = true;
                     txtObservaciones.Enabled = true;
-                    cmbBodegaOrigen.Enabled = true;
-                    cmbBodegaDestino.Enabled = true;
                     cmbTipoTraslado.Enabled = true;
-                    cmbBodegaOrigen.SelectedIndex = -1;
-                    cmbBodegaDestino.SelectedIndex = -1;
                     cmbTipoTraslado.SelectedIndex = -1;
                     dateFechaTraslado.Text = "";
                     txtObservaciones.Text = "";
@@ -112,8 +108,6 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 case EstadoMantenimiento.Agregar:
                     dateFechaTraslado.Enabled = false;
                     txtObservaciones.Enabled = false;
-                    cmbBodegaOrigen.Enabled = false;
-                    cmbBodegaDestino.Enabled = false;
                     cmbTipoTraslado.Enabled = false;
                     txtNombreProducto.Text = "";
                     txtECodigoProducto.Text = "";
@@ -140,9 +134,26 @@ namespace SIME_UTN.UI.Bodega.Procesos
             // TODO: This line of code loads data into the 'dataSetTipoTraslado.TipoTraslado' table. You can move, or remove it, as needed.
             UsuarioLogueado();
             cmbTipoTraslado.SelectedIndex = -1;
-            cmbBodegaOrigen.SelectedIndex = -1;
-            cmbBodegaDestino.SelectedIndex = -1;
 
+        }
+
+        private void btnEBodegaOrigen_Click(object sender, EventArgs e)
+        {
+            frmFiltroBodegas ofrmFiltroBodega = new frmFiltroBodegas();
+            ofrmFiltroBodega.ShowDialog(this);
+
+            this.btnEBodegaOrigen.Text = ofrmFiltroBodega.BodegaSeleccionada == null ? "" : ofrmFiltroBodega.BodegaSeleccionada.nombre;
+            this.lblIDBodegaOrigen.Text = ofrmFiltroBodega.BodegaSeleccionada == null ? "" : ofrmFiltroBodega.BodegaSeleccionada.idregistrobodega.ToString();
+
+        }
+
+        private void BtnEBodegaDestino_Click(object sender, EventArgs e)
+        {
+            frmFiltroBodegas ofrmFiltroBodega = new frmFiltroBodegas();
+            ofrmFiltroBodega.ShowDialog(this);
+
+            this.BtnEBodegaDestino.Text = ofrmFiltroBodega.BodegaSeleccionada == null ? "" : ofrmFiltroBodega.BodegaSeleccionada.nombre;
+            this.lblIDBodegaDestino.Text = ofrmFiltroBodega.BodegaSeleccionada == null ? "" : ofrmFiltroBodega.BodegaSeleccionada.idregistrobodega.ToString();
         }
     }
 }
