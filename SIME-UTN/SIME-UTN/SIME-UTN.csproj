@@ -69,6 +69,7 @@
     <Compile Include="BLL\LoginBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\RegistroBodegaBLL.cs" />
+    <Compile Include="BLL\UnidadMedidaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\DepartamentoDAL.cs" />
     <Compile Include="DAL\ActivoDAL.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\RegistroBodegaDAL.cs" />
     <Compile Include="DAL\UbicacionDAL.cs" />
+    <Compile Include="DAL\UnidadMedidaDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="DataSetDepartamento.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -217,6 +219,7 @@
     <Compile Include="Gestores\GestorFormulario.cs" />
     <Compile Include="Gestores\GestorFuncionario.cs" />
     <Compile Include="Gestores\GestorRegistroBodega.cs" />
+    <Compile Include="Gestores\GestorUnidadMedida.cs" />
     <Compile Include="UI\Bodega\Administracion\frmAdUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

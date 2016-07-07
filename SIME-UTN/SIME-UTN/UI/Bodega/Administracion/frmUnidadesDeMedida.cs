@@ -18,6 +18,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
         UsuarioTable usuario = null;
         GestorUsuarioTable gestor = null;
         static string nombre = "";
+        GestorUnidadMedida gestorUnidad = null;
+        UnidadMedida unidadEstatica = null;
         public frmUnidadesMedida()
         {
             InitializeComponent();
@@ -31,141 +33,81 @@ namespace SIME_UTN.UI.Bodega.Administracion
             usuarioLogueado = gestor.ObtenerUsuarioLogeado();
         }
 
-        private void frmUsuarios_Load(object sender, EventArgs e)
+        private void frmUnidad_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSetUnidadMedida.UnidadMedidaProducto' Puede moverla o quitarla según sea necesario.
+            this.unidadMedidaProductoTableAdapter.Fill(this.dataSetUnidadMedida.UnidadMedidaProducto);
+            UsuarioLogueado();
+            gestorUnidad = GestorUnidadMedida.GetInstance();
+            unidadEstatica = new UnidadMedida();
 
 
         }
 
-
-
-        /// <summary>
-        /// Actualiza el datagridview con los usuarios agredados
-        /// </summary>
-        private void RefrescarLista()
+        public void DesactivarUnidad()
         {
-         
-        }   
+            string unidad = gridView1.GetFocusedRowCellValue("Descripcion").ToString(); ;
+            int unidadId = Int32.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString());
 
+            if (MessageBox.Show("¿Seguro que desea eliminar la unidad de medida " + unidad + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                gestorUnidad.EliminarUnidad(unidadId, unidad, usuarioLogueado);
+                MessageBox.Show("La Unidad de Medida " + unidad + " fue eliminada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmUnidad_Load(null, null);
 
-        /// <summary>
-        /// Cambiar el estad de los objetos al seleccionar Nuevo,Editar,Borrar o Ninguno
-        /// </summary>
-        /// <param name="estado"></param>
-        public  void CambiarEstado(EstadoMantenimiento estado)
-        {
-           
-
-        
+            }
         }
 
-
-
-
-
-        /// <summary>
-        /// Metodo que cierra la ventana Usuario
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripbtnCerrar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-
-
-
-        /// <summary>
-        /// Metodo que cierra la ventana Usuario
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripbtnSalir_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-
-
-
-        /// <summary>
-        /// Manda a llamar al metodo Refresca Lista
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCancelar1_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-
-
-
-
-        #region Checkbox de Agregar Usuarios y Permisos
-     
-
-        public void validarCheckBox()
-        {
-
-        }
-        #endregion
-
-        #region Checkbox de Modificar y Eliminar Usuarios
-
-
-        #endregion
-
-        private void toolStripSalir_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-
-
-        private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
-        {
-          
-        }
-
+    
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
         {
-         
+            if (e.KeyCode == Keys.Delete)
+            {
 
-        }
-        public void ValidarCampos()
-        {
-          
-        }
+                DesactivarUnidad();
+                e.Handled = true;
+            }
 
-
-        private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-           
-            
-        }
-
-        private void gCUsuarios_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-          
-          
-        }
-
-        private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-           
+            frmAdUnidadMedida ofrmAdUnidadMedida = new frmAdUnidadMedida(unidadEstatica);
+            ofrmAdUnidadMedida.ShowDialog(this);
+            frmUnidad_Load(null, null);
         }
 
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             frmAdUnidadMedida ofrmAdUnidadMedida = new frmAdUnidadMedida();
             ofrmAdUnidadMedida.ShowDialog(this);
+            frmUnidad_Load(null, null);
+        }
+
+        private void gCUnidadesMedida_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                mBtnModificar.Enabled = true;
+                mBtnEliminar.Enabled = true;
+                unidadEstatica.idUnidadMedida = int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString());
+                unidadEstatica.codigo = gridView1.GetFocusedRowCellValue("Codigo").ToString();
+                unidadEstatica.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
+                
+            }
+            catch (ApplicationException app)
+            {
+                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            DesactivarUnidad();
         }
     }
 }
