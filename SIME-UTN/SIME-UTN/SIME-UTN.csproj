@@ -100,6 +100,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetBodegaDespacho.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Bodega\Admistracion\DataSetProducto.cs">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>
     </Compile>
@@ -120,6 +125,29 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRegistrarUbicacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRMezclas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRMezclas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetUnidadMedida.cs">
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Bodega\Inventarios\DataSetInventario.Designer.cs" />
     <Compile Include="DataSets\Bodega\Inventarios\DataSetInventario1.Designer.cs">
@@ -220,6 +248,12 @@
     <Compile Include="Gestores\GestorFuncionario.cs" />
     <Compile Include="Gestores\GestorRegistroBodega.cs" />
     <Compile Include="Gestores\GestorUnidadMedida.cs" />
+    <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdMezclas.Designer.cs">
+      <DependentUpon>frmAdMezclas.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +265,36 @@
     </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdProducto.Designer.cs">
       <DependentUpon>frmAdProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUbicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUbicaciones.Designer.cs">
+      <DependentUpon>frmUbicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmDepartamentos.Designer.cs">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmMezclas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmMezclas.Designer.cs">
+      <DependentUpon>frmMezclas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUbicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUbicaciones.Designer.cs">
+      <DependentUpon>frmAdUbicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdDepartamento.Designer.cs">
+      <DependentUpon>frmAdDepartamento.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Bodega\Inventarios\frmInventarioActual.cs">
       <SubType>Form</SubType>
@@ -409,11 +473,29 @@
     <Compile Include="UI\Formulario\frmMDIForm.Designer.cs">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdMezclas.resx">
+      <DependentUpon>frmAdMezclas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmAdUsuario.resx">
       <DependentUpon>frmAdUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmAdProducto.resx">
       <DependentUpon>frmAdProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmUbicaciones.resx">
+      <DependentUpon>frmUbicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmDepartamentos.resx">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmMezclas.resx">
+      <DependentUpon>frmMezclas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdUbicaciones.resx">
+      <DependentUpon>frmAdUbicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdDepartamento.resx">
+      <DependentUpon>frmAdDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioActual.resx">
       <DependentUpon>frmInventarioActual.cs</DependentUpon>
@@ -546,6 +628,17 @@
     <None Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.xss">
       <DependentUpon>DataSetBodegaDespacho.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetDepartamento.xsc">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetDepartamento.xss">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\Bodega\Admistracion\DataSetProducto.xsc">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>
     </None>
@@ -578,6 +671,50 @@
     </None>
     <None Include="DataSets\Bodega\Admistracion\DataSetCategorias.xss">
       <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.xsc">
+      <DependentUpon>DataSetRDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.xss">
+      <DependentUpon>DataSetRDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.xsc">
+      <DependentUpon>DataSetRegistrarUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRegistrarUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.xss">
+      <DependentUpon>DataSetRegistrarUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRMezclas.xsc">
+      <DependentUpon>DataSetRMezclas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRMezclas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRMezclas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRMezclas.xss">
+      <DependentUpon>DataSetRMezclas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.xsc">
+      <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRUnidadM.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.xss">
+      <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\Inventarios\DataSetInventario.xsc">
       <DependentUpon>DataSetInventario.xsd</DependentUpon>
@@ -746,6 +883,7 @@
     <None Include="Resources\Forward_32x32.png" />
     <None Include="Resources\form.png" />
     <None Include="Resources\funcionarios.png" />
+    <None Include="Resources\Departamento.png" />
     <Content Include="Resources\gnome_panel_force_quit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -754,6 +892,7 @@
     </Content>
     <None Include="Resources\inven.jpg" />
     <Content Include="Resources\items.png" />
+    <None Include="Resources\Localizacion.png" />
     <Content Include="Resources\login.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -764,12 +903,12 @@
     <None Include="Resources\registroProducto.jpg" />
     <None Include="Resources\user.png" />
     <None Include="Resources\usuarios.png" />
-    <None Include="Resources\usuarios.ico" />
     <None Include="Resources\productos.png" />
     <None Include="Resources\registro.png" />
     <None Include="Resources\unidadMedida.png" />
     <None Include="Resources\max.PNG" />
     <None Include="Resources\min.PNG" />
+    <None Include="Resources\mezclas.png" />
     <Content Include="Resources\usuarios1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

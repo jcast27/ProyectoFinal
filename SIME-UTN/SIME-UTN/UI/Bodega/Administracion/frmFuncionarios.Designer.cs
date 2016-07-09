@@ -342,7 +342,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFuncionarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ventana Usuarios";
+            this.Text = "Ventana Funcionarios";
             this.Load += new System.EventHandler(this.frmFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();

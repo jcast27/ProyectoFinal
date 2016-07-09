@@ -19,8 +19,9 @@ namespace SIME_UTN.UI.Bodega.Inventarios
 
         private void frmInventarioMinimo_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSetUnidadMedida.UnidadMedidaProducto' Puede moverla o quitarla según sea necesario.
-            this.unidadMedidaProductoTableAdapter.Fill(this.dataSetUnidadMedida.UnidadMedidaProducto);
+            // TODO: This line of code loads data into the 'dataSetUnidadMedida.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetUnidadMedida.sp_SELECT_UnidadMedidaProducto_All);
+
             // TODO: esta línea de código carga datos en la tabla 'dataSetProductos.Producto' Puede moverla o quitarla según sea necesario.
             this.productoTableAdapter.Fill(this.dataSetProductos.Producto);
             // TODO: esta línea de código carga datos en la tabla 'dataSetInventario.InventarioProducto' Puede moverla o quitarla según sea necesario.

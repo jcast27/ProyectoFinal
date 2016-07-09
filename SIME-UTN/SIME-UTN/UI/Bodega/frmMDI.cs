@@ -64,16 +64,21 @@ namespace SIME_UTN.UI.Bodega
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmFuncionarios();
             if (e.Document.Caption == "Ventana Bodegas")
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmBodegas();
+            if (e.Document.Caption == "Ventana Ubicaciones")
+                e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUbicaciones();
             if (e.Document.Caption == "Ventana Unidad De Medida")
                 e.Control = new SIME_UTN.UI.Bodega.Administracion.frmUnidadesMedida();
+            if (e.Document.Caption == "Ventana Departamentos")
+                e.Control = new SIME_UTN.UI.Bodega.Administracion.frmDepartamentos();
+            if (e.Document.Caption == "Ventana Mezclas")
+                e.Control = new SIME_UTN.UI.Bodega.Administracion.frmMezclas();
             if (e.Document.Caption == "Ventana Registro Producto")
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmRegistroProducto();
             if (e.Document.Caption == "Ventana Despacho Producto")
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmDespachoProducto();
             if (e.Document.Caption == "Ventana Traslado Producto")
                 e.Control = new SIME_UTN.UI.Bodega.Procesos.frmTrasladosDeProductos();
-
-            if(e.Document.Caption == "Ventana Inventario Mínimo")
+            if (e.Document.Caption == "Ventana Inventario Mínimo")
                 e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioMinimo();
             if (e.Document.Caption == "Ventana Inventario Máximo")
                 e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioMaximo();
@@ -172,12 +177,15 @@ namespace SIME_UTN.UI.Bodega
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Usuarios" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Productos" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc3 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Funcionarios" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc4 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Bodegas" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc5 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Unidad De Medida" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2,doc3,doc4,doc5 });
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docUsuarios = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Usuarios" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docProductos = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Productos" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docFuncionarios = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Funcionarios" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docBodegas = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Bodegas" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docUnidadDeMedida = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Unidad De Medida" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docUbicaciones = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Ubicaciones" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docDepartamentos = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Departamentos" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docMezclas = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Mezclas" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] {docUsuarios,docProductos,docFuncionarios,docBodegas,docUnidadDeMedida,docUbicaciones,docDepartamentos, docMezclas});
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 120;
@@ -186,31 +194,49 @@ namespace SIME_UTN.UI.Bodega
             grupo = "Group 1";
             imagen = Properties.Resources.usuarios;
             nombreElemento = "Usuarios";
-            tileContainer2.Items.Add(this.crearTile(doc1,nombreElemento,grupo,imagen,estado));
+            tileContainer2.Items.Add(this.crearTile(docUsuarios, nombreElemento,grupo,imagen,estado));
 
             //Propiedades para el decumento Productos
             grupo = "Group 2";
             imagen = Properties.Resources.productos;
             nombreElemento = "Productos";
-            tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
+            tileContainer2.Items.Add(this.crearTile(docProductos, nombreElemento, grupo, imagen, estado));
 
             //Propiedades para el decumento Funcionarios
             grupo = "Group 3";
             imagen = Properties.Resources.funcionarios;
             nombreElemento = "Funcionarios";
-            tileContainer2.Items.Add(this.crearTile(doc3, nombreElemento, grupo, imagen, estado));
+            tileContainer2.Items.Add(this.crearTile(docFuncionarios, nombreElemento, grupo, imagen, estado));
 
             //Propiedades para el decumento Bodegas
             grupo = "Group 1";
             imagen = Properties.Resources.warehouse;
             nombreElemento = "Bodegas";
-            tileContainer2.Items.Add(this.crearTile(doc4, nombreElemento, grupo, imagen, estado));
+            tileContainer2.Items.Add(this.crearTile(docBodegas, nombreElemento, grupo, imagen, estado));
 
             //Propiedades para el decumento Unidad Medida
             grupo = "Group 2";
             imagen = Properties.Resources.unidadMedida;
             nombreElemento = "Unidad De Medida";
-            tileContainer2.Items.Add(this.crearTile(doc5, nombreElemento, grupo, imagen, estado));
+            tileContainer2.Items.Add(this.crearTile(docUnidadDeMedida, nombreElemento, grupo, imagen, estado));
+
+            //Propiedades para el decumento Ubicaciones
+            grupo = "Group 3";
+            imagen = Properties.Resources.Localizacion;
+            nombreElemento = "Ubicaciones";
+            tileContainer2.Items.Add(this.crearTile(docUbicaciones, nombreElemento, grupo, imagen, estado));
+
+            //Propiedades para el decumento Departamentos
+            grupo = "Group 1";
+            imagen = Properties.Resources.Departamento;
+            nombreElemento = "Departamentos";
+            tileContainer2.Items.Add(this.crearTile(docDepartamentos, nombreElemento, grupo, imagen, estado));
+
+            //Propiedades para el decumento Mezclas
+            grupo = "Group 2";
+            imagen = Properties.Resources.mezclas;
+            nombreElemento = "Mezclas";
+            tileContainer2.Items.Add(this.crearTile(docMezclas, nombreElemento, grupo, imagen, estado));
 
 
             windowsUIView1.ContentContainers.Add(tileContainer2);

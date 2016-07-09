@@ -45,6 +45,7 @@
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chkDecimales = new System.Windows.Forms.CheckBox();
             this.gbGridViewUnidadMedida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
@@ -56,6 +57,7 @@
             this.gbGridViewUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gbGridViewUnidadMedida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.gbGridViewUnidadMedida.Controls.Add(this.chkDecimales);
             this.gbGridViewUnidadMedida.Controls.Add(this.lblCodigoUnidad);
             this.gbGridViewUnidadMedida.Controls.Add(this.lblDescripcion);
             this.gbGridViewUnidadMedida.Controls.Add(this.txtCodigo);
@@ -230,6 +232,18 @@
             // 
             this.epError.ContainerControl = this;
             // 
+            // chkDecimales
+            // 
+            this.chkDecimales.AutoSize = true;
+            this.chkDecimales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDecimales.Location = new System.Drawing.Point(414, 182);
+            this.chkDecimales.Name = "chkDecimales";
+            this.chkDecimales.Size = new System.Drawing.Size(160, 24);
+            this.chkDecimales.TabIndex = 31;
+            this.chkDecimales.Text = "Permite Decimales";
+            this.chkDecimales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkDecimales.UseVisualStyleBackColor = true;
+            // 
             // frmAdUnidadMedida
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -270,5 +284,6 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
+        private System.Windows.Forms.CheckBox chkDecimales;
     }
 }

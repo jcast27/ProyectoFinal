@@ -63,6 +63,16 @@ namespace SIME_UTN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Departamento {
+            get {
+                object obj = ResourceManager.GetObject("Departamento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoCambioUser {
             get {
                 object obj = ResourceManager.GetObject("fondoCambioUser", resourceCulture);
@@ -133,9 +143,29 @@ namespace SIME_UTN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Localizacion {
+            get {
+                object obj = ResourceManager.GetObject("Localizacion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap max {
             get {
                 object obj = ResourceManager.GetObject("max", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mezclas {
+            get {
+                object obj = ResourceManager.GetObject("mezclas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

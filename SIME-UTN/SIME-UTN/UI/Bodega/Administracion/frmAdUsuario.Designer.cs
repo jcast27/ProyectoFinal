@@ -38,7 +38,7 @@
             this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
-            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
+            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
             this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
@@ -442,7 +442,7 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
         private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter unidadMedidaProductoTableAdapter;
         private DataSets.Bodega.Admistracion.DataSetCategorias dataSetCategorias;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;

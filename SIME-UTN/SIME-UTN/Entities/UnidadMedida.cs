@@ -10,6 +10,8 @@ namespace SIME_UTN.Entities
         public int idUnidadMedida { set; get; }
         public string codigo { set; get; }
         public string descripcion { set; get; }
+
+        public int decimales { set; get; }
         public int estado { set; get; }
 
         public UnidadMedida() { }

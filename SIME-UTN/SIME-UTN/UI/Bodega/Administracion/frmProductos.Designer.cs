@@ -49,8 +49,7 @@
             this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
             this.colIDUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUnidadMedida = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUnidadMedidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
@@ -64,8 +63,9 @@
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductoTableAdapters.ProductoTableAdapter();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
-            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
+            this.spSELECTUnidadMedidaProductoAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProducto)).BeginInit();
@@ -78,11 +78,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedidaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // gCProductos
@@ -274,20 +274,15 @@
             this.LookUpUnidadMedida.AutoHeight = false;
             this.LookUpUnidadMedida.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpUnidadMedida.DataSource = this.unidadMedidaProductoBindingSource;
-            this.LookUpUnidadMedida.DisplayMember = "Descripcion";
+            this.LookUpUnidadMedida.DataSource = this.spSELECTUnidadMedidaProductoAllBindingSource1;
+            this.LookUpUnidadMedida.DisplayMember = "descripcion";
             this.LookUpUnidadMedida.Name = "LookUpUnidadMedida";
-            this.LookUpUnidadMedida.ValueMember = "IDUnidadMedida";
+            this.LookUpUnidadMedida.ValueMember = "idunidadmedida";
             // 
-            // unidadMedidaProductoBindingSource
+            // spSELECTUnidadMedidaProductoAllBindingSource
             // 
-            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
-            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedidaBindingSource;
-            // 
-            // dataSetUnidadMedidaBindingSource
-            // 
-            this.dataSetUnidadMedidaBindingSource.DataSource = this.dataSetUnidadMedida;
-            this.dataSetUnidadMedidaBindingSource.Position = 0;
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
             // 
             // dataSetUnidadMedida
             // 
@@ -418,13 +413,18 @@
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
-            // unidadMedidaProductoTableAdapter
-            // 
-            this.unidadMedidaProductoTableAdapter.ClearBeforeFill = true;
-            // 
             // sp_SELECT_Ubicacion_AllTableAdapter
             // 
             this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
+            // 
+            // sp_SELECT_UnidadMedidaProducto_AllTableAdapter
+            // 
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
+            // 
+            // spSELECTUnidadMedidaProductoAllBindingSource1
+            // 
+            this.spSELECTUnidadMedidaProductoAllBindingSource1.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource1.DataSource = this.dataSetUnidadMedida;
             // 
             // frmProductos
             // 
@@ -439,7 +439,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ventana Usuarios";
+            this.Text = "Ventana Productos";
             this.Load += new System.EventHandler(this.frmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
@@ -453,11 +453,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedidaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewUsuario.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,13 +492,14 @@
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
         private System.Windows.Forms.BindingSource dataSetUnidadMedidaBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
-        private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUbicacion;
         private System.Windows.Forms.BindingSource dataSetUbicacionBindingSource;
         private DataSets.Bodega.Admistracion.DataSetUbicacion dataSetUbicacion;
         private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
         private DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
+        private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter sp_SELECT_UnidadMedidaProducto_AllTableAdapter;
+        private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource1;
     }
 }

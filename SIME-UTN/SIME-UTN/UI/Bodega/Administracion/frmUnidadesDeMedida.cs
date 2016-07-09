@@ -35,8 +35,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmUnidad_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dataSetUnidadMedida.UnidadMedidaProducto' Puede moverla o quitarla según sea necesario.
-            this.unidadMedidaProductoTableAdapter.Fill(this.dataSetUnidadMedida.UnidadMedidaProducto);
+            // TODO: This line of code loads data into the 'dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All);
+            // TODO: This line of code loads data into the 'dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All);
+
+
             UsuarioLogueado();
             gestorUnidad = GestorUnidadMedida.GetInstance();
             unidadEstatica = new UnidadMedida();
@@ -90,9 +94,21 @@ namespace SIME_UTN.UI.Bodega.Administracion
             {
                 mBtnModificar.Enabled = true;
                 mBtnEliminar.Enabled = true;
-                unidadEstatica.idUnidadMedida = int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString());
-                unidadEstatica.codigo = gridView1.GetFocusedRowCellValue("Codigo").ToString();
-                unidadEstatica.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
+                unidadEstatica.idUnidadMedida = int.Parse(gridView1.GetFocusedRowCellValue("idunidadmedida").ToString());
+                unidadEstatica.codigo = gridView1.GetFocusedRowCellValue("codigo").ToString();
+                unidadEstatica.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                bool valor = bool.Parse(gridView1.GetFocusedRowCellValue("decimales").ToString());
+                if(valor == true)
+                {
+                    unidadEstatica.decimales =1;
+
+                }
+                else
+                {
+                    unidadEstatica.decimales = 0;
+                }
+
+                //unidadEstatica.decimales = 
                 
             }
             catch (ApplicationException app)

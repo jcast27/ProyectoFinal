@@ -76,6 +76,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtCodigo.Text = unidadEstatica.codigo;
                 txtDescripcion.Text = unidadEstatica.descripcion;
                 lblCodigoUnidad.Text = unidadEstatica.idUnidadMedida.ToString();
+                if (unidadEstatica.decimales == 1)
+                {
+                    chkDecimales.Checked = true;
+                }else
+                {
+                    chkDecimales.Checked = false;
+                }
 
             }
             catch (ApplicationException app)
@@ -97,6 +104,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unaUnidadMedida.descripcion = txtDescripcion.Text;
                 unaUnidadMedida.codigo = txtCodigo.Text;
                 unaUnidadMedida.estado = 1;
+                if (chkDecimales.Checked == true)
+                {
+                    unaUnidadMedida.decimales = 1;
+                }else
+                {
+                    unaUnidadMedida.decimales = 0;
+                }
 
                 if (accionp == "Modificar")
                 {
@@ -152,6 +166,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
             {
                 epError.SetError(txtDescripcion, "Campo Requerido");
                 txtDescripcion.Focus();
+                error = true;
+            }
+
+            if (chkDecimales.Checked == false)
+            {
+                epError.SetError(chkDecimales, "Campo Requerido");
+                chkDecimales.Focus();
                 error = true;
             }
 

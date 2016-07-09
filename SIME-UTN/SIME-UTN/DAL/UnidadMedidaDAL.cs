@@ -60,6 +60,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idunidadmedida", unaUnidadp.idUnidadMedida);
             comando.Parameters.AddWithValue("@codigo", unaUnidadp.codigo);
             comando.Parameters.AddWithValue("@descripcion", unaUnidadp.descripcion);
+            comando.Parameters.AddWithValue("@Decimales", unaUnidadp.decimales);
             comando.Parameters.AddWithValue("@estado", unaUnidadp.estado);
             GuardarLog(unaUnidadp, usuarioLogueadop, accion, null);
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
@@ -78,6 +79,7 @@ namespace SIME_UTN.DAL
 
             comando.Parameters.AddWithValue("@codigo", unaUnidad.codigo);
             comando.Parameters.AddWithValue("@descripcion", unaUnidad.descripcion);
+            comando.Parameters.AddWithValue("@Decimales", unaUnidad.decimales);
             comando.Parameters.AddWithValue("@estado", unaUnidad.estado);
 
             GuardarLog(unaUnidad, usuarioLogueadop, accion, null);
@@ -110,6 +112,30 @@ namespace SIME_UTN.DAL
 
             return listaUnidad;
         }
+        internal static List<UnidadMedida> ObtenerUnidadesConDecimales()
+        {
+            List<UnidadMedida> listaUnidad = new List<UnidadMedida>();
+            SqlCommand comando = new SqlCommand("sp_SELECT_UnidadMedidaProducto_WithDecimal");
+            comando.CommandType = CommandType.StoredProcedure;
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    UnidadMedida unaUnidad = new UnidadMedida();
+                    unaUnidad.idUnidadMedida = Convert.ToInt32(dr["idunidadmedida"].ToString());
+                    unaUnidad.codigo = dr["codigo"].ToString();
+                    unaUnidad.descripcion = dr["descripcion"].ToString();
+                    unaUnidad.decimales = dr["decimales"].ToString().Equals("True") ? 1 : 0;
+                    unaUnidad.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
+                    listaUnidad.Add(unaUnidad);
+                }
+            }
+
+            return listaUnidad;
+        }
         public static void GuardarLog(UnidadMedida unaMedidap, string usuarioLogueado, string accion, string unidadEliminada)
         {
 
@@ -123,7 +149,7 @@ namespace SIME_UTN.DAL
             else
             {
                 estado = "Activo";
-                descripcion = "Codigo: " + unaMedidap.codigo + "\r\nUnidad de Medida: " + unaMedidap.descripcion + "\r\nEstado: " + estado;
+                descripcion = "Codigo: " + unaMedidap.codigo + "\r\nUnidad de Medida: " + unaMedidap.descripcion + "\r\nDecimales: " + unaMedidap.decimales == "0" ? "No":"Si" + "\r\nEstado: " + estado;
 
             }
             DateTime date = DateTime.Now;

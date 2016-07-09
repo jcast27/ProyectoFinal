@@ -40,8 +40,6 @@
             this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
             this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -55,18 +53,20 @@
             this.lblLocalizacion = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
+            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
             this.gbInformacionPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -201,8 +201,7 @@
             this.cmbUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbUnidadMedida.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.unidadMedidaProductoBindingSource, "IDUnidadMedida", true));
-            this.cmbUnidadMedida.DataSource = this.unidadMedidaProductoBindingSource;
+            this.cmbUnidadMedida.DataSource = this.spSELECTUnidadMedidaProductoAllBindingSource;
             this.cmbUnidadMedida.DisplayMember = "Descripcion";
             this.cmbUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnidadMedida.FormattingEnabled = true;
@@ -211,16 +210,6 @@
             this.cmbUnidadMedida.Size = new System.Drawing.Size(351, 24);
             this.cmbUnidadMedida.TabIndex = 33;
             this.cmbUnidadMedida.ValueMember = "IDUnidadMedida";
-            // 
-            // unidadMedidaProductoBindingSource
-            // 
-            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
-            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedida;
-            // 
-            // dataSetUnidadMedida
-            // 
-            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
-            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblUnidadMedida
             // 
@@ -382,10 +371,6 @@
             this.txtDescripcion.TabIndex = 27;
             this.txtDescripcion.Text = "Limpieza";
             // 
-            // unidadMedidaProductoTableAdapter
-            // 
-            this.unidadMedidaProductoTableAdapter.ClearBeforeFill = true;
-            // 
             // categoriaTableAdapter
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
@@ -397,6 +382,20 @@
             // epError
             // 
             this.epError.ContainerControl = this;
+            // 
+            // dataSetUnidadMedida
+            // 
+            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
+            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spSELECTUnidadMedidaProductoAllBindingSource
+            // 
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
+            // 
+            // sp_SELECT_UnidadMedidaProducto_AllTableAdapter
+            // 
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmAdProducto
             // 
@@ -416,11 +415,11 @@
             this.gbInformacionPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,9 +442,6 @@
         private System.Windows.Forms.Label lblLocalizacion;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
-        private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
         private DataSets.Bodega.Admistracion.DataSetCategorias dataSetCategorias;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
@@ -455,5 +451,8 @@
         private DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
+        private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter sp_SELECT_UnidadMedidaProducto_AllTableAdapter;
     }
 }

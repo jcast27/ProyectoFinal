@@ -34,15 +34,12 @@
             this.dataSetInventario = new SIME_UTN.DataSetInventario();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetProductos = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductos();
-            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.inventarioProductoTableAdapter = new SIME_UTN.DataSetInventarioTableAdapters.InventarioProductoTableAdapter();
             this.dataSetProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductosTableAdapters.ProductoTableAdapter();
-            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
             this.gbInvActual = new System.Windows.Forms.GroupBox();
             this.gInvActual = new DevExpress.XtraGrid.GridControl();
             this.gCInventarioActual = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -62,12 +59,13 @@
             this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
+            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioProductoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource)).BeginInit();
             this.gbInvActual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gInvActual)).BeginInit();
@@ -75,6 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inventarioProductoBindingSource
@@ -96,16 +96,6 @@
             // 
             this.dataSetProductos.DataSetName = "DataSetProductos";
             this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // unidadMedidaProductoBindingSource
-            // 
-            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
-            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedida;
-            // 
-            // dataSetUnidadMedida
-            // 
-            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
-            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tileNavPane1
             // 
@@ -166,10 +156,6 @@
             // productoTableAdapter
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
-            // 
-            // unidadMedidaProductoTableAdapter
-            // 
-            this.unidadMedidaProductoTableAdapter.ClearBeforeFill = true;
             // 
             // gbInvActual
             // 
@@ -273,10 +259,10 @@
             this.LookUpUnidadMedida.AutoHeight = false;
             this.LookUpUnidadMedida.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpUnidadMedida.DataSource = this.unidadMedidaProductoBindingSource;
-            this.LookUpUnidadMedida.DisplayMember = "Descripcion";
+            this.LookUpUnidadMedida.DataSource = this.spSELECTUnidadMedidaProductoAllBindingSource;
+            this.LookUpUnidadMedida.DisplayMember = "descripcion";
             this.LookUpUnidadMedida.Name = "LookUpUnidadMedida";
-            this.LookUpUnidadMedida.ValueMember = "IDUnidadMedida";
+            this.LookUpUnidadMedida.ValueMember = "idunidadmedida";
             // 
             // colStockActual
             // 
@@ -357,6 +343,20 @@
             this.panel2.Size = new System.Drawing.Size(147, 647);
             this.panel2.TabIndex = 31;
             // 
+            // dataSetUnidadMedida
+            // 
+            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
+            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spSELECTUnidadMedidaProductoAllBindingSource
+            // 
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
+            // 
+            // sp_SELECT_UnidadMedidaProducto_AllTableAdapter
+            // 
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
+            // 
             // frmInventarioActual
             // 
             this.Appearance.BackColor = System.Drawing.Color.FloralWhite;
@@ -381,8 +381,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInventario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource)).EndInit();
             this.gbInvActual.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gInvActual)).EndInit();
@@ -390,6 +388,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,9 +405,6 @@
         private DataSets.Bodega.Admistracion.DataSetProductos dataSetProductos;
         private System.Windows.Forms.BindingSource productoBindingSource;
         private DataSets.Bodega.Admistracion.DataSetProductosTableAdapters.ProductoTableAdapter productoTableAdapter;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
-        private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
         private System.Windows.Forms.GroupBox gbInvActual;
         private DevExpress.XtraGrid.GridControl gInvActual;
         private DevExpress.XtraGrid.Views.Grid.GridView gCInventarioActual;
@@ -427,5 +424,8 @@
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane2;
         private DevExpress.XtraBars.Navigation.NavButton navButton2;
         private System.Windows.Forms.Panel panel2;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
+        private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter sp_SELECT_UnidadMedidaProducto_AllTableAdapter;
     }
 }

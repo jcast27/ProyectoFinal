@@ -50,14 +50,15 @@
             this.colIDUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUnidadMedida = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.colStockActual = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStockMinimo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStockMaximo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inventarioProductoTableAdapter = new SIME_UTN.DataSetInventarioTableAdapters.InventarioProductoTableAdapter();
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductosTableAdapters.ProductoTableAdapter();
-            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter();
+            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
+            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbInvMax.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCInvMax)).BeginInit();
@@ -70,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -250,20 +252,10 @@
             this.LookUpUnidadMedida.AutoHeight = false;
             this.LookUpUnidadMedida.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpUnidadMedida.DataSource = this.unidadMedidaProductoBindingSource;
-            this.LookUpUnidadMedida.DisplayMember = "Descripcion";
+            this.LookUpUnidadMedida.DataSource = this.spSELECTUnidadMedidaProductoAllBindingSource;
+            this.LookUpUnidadMedida.DisplayMember = "descripcion";
             this.LookUpUnidadMedida.Name = "LookUpUnidadMedida";
-            this.LookUpUnidadMedida.ValueMember = "IDUnidadMedida";
-            // 
-            // unidadMedidaProductoBindingSource
-            // 
-            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
-            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedida;
-            // 
-            // dataSetUnidadMedida
-            // 
-            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
-            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.LookUpUnidadMedida.ValueMember = "idunidadmedida";
             // 
             // colStockActual
             // 
@@ -296,9 +288,19 @@
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
             // 
-            // unidadMedidaProductoTableAdapter
+            // dataSetUnidadMedida
             // 
-            this.unidadMedidaProductoTableAdapter.ClearBeforeFill = true;
+            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
+            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spSELECTUnidadMedidaProductoAllBindingSource
+            // 
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
+            // 
+            // sp_SELECT_UnidadMedidaProducto_AllTableAdapter
+            // 
+            this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmInventarioMaximo
             // 
@@ -332,6 +334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -363,8 +366,9 @@
         private System.Windows.Forms.BindingSource productoBindingSource;
         private DataSets.Bodega.Admistracion.DataSetProductosTableAdapters.ProductoTableAdapter productoTableAdapter;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUnidadMedida;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
         private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.UnidadMedidaProductoTableAdapter unidadMedidaProductoTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
+        private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter sp_SELECT_UnidadMedidaProducto_AllTableAdapter;
     }
 }
