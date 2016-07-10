@@ -52,5 +52,10 @@ namespace SIME_UTN.Gestores
         {
             ProductoBLL.EliminarUsuario(productoIDp, productop, usuarioLoguadop);
         }
+
+        internal Producto ObtenerProductoPorCodigoAvatar(string codigoAvatarp)
+        {
+            return ProductoBLL.ObtenerProductoPorCodigoAvatar(codigoAvatarp);
+        }
     }
 }

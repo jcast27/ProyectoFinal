@@ -16,8 +16,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
     {
         string usuarioLogueado = "";
         GestorUsuarioTable gestorUsuario = null;
-        GestorRegistroBodega gestorBodega = null;
-        static RegistroBodega bodegaEstatico = null;
+        static Mezcla mezclaEstatica = null;
         TipoBodega unTipoBodega = null;
        
         public frmMezclas()
@@ -43,6 +42,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             frmAdMezclas ofrmAdMezclas = new frmAdMezclas();
             ofrmAdMezclas.ShowDialog(this);
+            frmMezclas_Load(null, null);
         }
 
 
@@ -53,34 +53,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-         
+            frmAdMezclas ofrmAdMezclas = new frmAdMezclas(mezclaEstatica);
+            ofrmAdMezclas.ShowDialog(this);
+            frmMezclas_Load(null, null);
         }
-
-
-
-
-        /// <summary>
-        /// Metodo que permite extrae la Mezcla seleccionada del grid y colocar la informacion en los campos del formulario
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gCUbicaciones_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-
-            }
-            catch (ApplicationException app)
-            {
-                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
 
         /// <summary>
         /// Metodo que desactiva una Ubicacion
@@ -120,7 +96,33 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             // TODO: This line of code loads data into the 'dataSetRMezclas.sp_SELECT_RegistroMezcla_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_RegistroMezcla_AllTableAdapter.Fill(this.dataSetRMezclas.sp_SELECT_RegistroMezcla_All);
+            mezclaEstatica = new Mezcla();
 
+        }
+
+        /// <summary>
+        /// Metodo que permite extrae la Mezcla seleccionada del grid y colocar la informacion en los campos del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gCMezclas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                mBtnModificar.Enabled = true;
+                mBtnEliminar.Enabled = true;
+                mezclaEstatica.idRegistroMezcla = int.Parse(gridView1.GetFocusedRowCellValue("idregistromezcla").ToString());
+                mezclaEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+                mezclaEstatica.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+            }
+            catch (ApplicationException app)
+            {
+                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

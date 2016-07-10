@@ -67,8 +67,10 @@
     <Compile Include="BLL\FuncionarioBLL.cs" />
     <Compile Include="BLL\ItemBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
+    <Compile Include="BLL\MezclaProductoBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\RegistroBodegaBLL.cs" />
+    <Compile Include="BLL\RegistroMezclaBLL.cs" />
     <Compile Include="BLL\UnidadMedidaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\DepartamentoDAL.cs" />
@@ -80,8 +82,10 @@
     <Compile Include="DAL\FuncionarioDAL.cs" />
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\MezclaProductoDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\RegistroBodegaDAL.cs" />
+    <Compile Include="DAL\RegistroMezclaDAL.cs" />
     <Compile Include="DAL\UbicacionDAL.cs" />
     <Compile Include="DAL\UnidadMedidaDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
@@ -219,6 +223,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DTOs\MezclaProductoUnidaMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoDTO.cs" />
     <Compile Include="DTOs\RegistroBodegaTipoBodegaDTO.cs" />
@@ -232,6 +237,8 @@
     <Compile Include="Entities\Funcionario.cs" />
     <Compile Include="Entities\InventarioProducto.cs" />
     <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\Mezcla.cs" />
+    <Compile Include="Entities\MezclaProducto.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\RegistroBodega.cs" />
     <Compile Include="Entities\TipoBodega.cs" />
@@ -246,6 +253,8 @@
     <Compile Include="Gestores\GestorDetalleFormulario.cs" />
     <Compile Include="Gestores\GestorFormulario.cs" />
     <Compile Include="Gestores\GestorFuncionario.cs" />
+    <Compile Include="Gestores\GestorMezcla.cs" />
+    <Compile Include="Gestores\GestorMezclaProducto.cs" />
     <Compile Include="Gestores\GestorRegistroBodega.cs" />
     <Compile Include="Gestores\GestorUnidadMedida.cs" />
     <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">

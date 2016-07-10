@@ -73,7 +73,7 @@
             this.gCMezclas.TabIndex = 0;
             this.gCMezclas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gCMezclas.Click += new System.EventHandler(this.gCUbicaciones_Click);
+            this.gCMezclas.Click += new System.EventHandler(this.gCMezclas_Click);
             // 
             // spSELECTRegistroMezclaAllBindingSource
             // 

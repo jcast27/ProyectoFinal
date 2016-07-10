@@ -32,5 +32,10 @@ namespace SIME_UTN.BLL
         {
             UnidadMedidaDAL.EliminarUnidad(unidadId, unidadP, usuarioLoguadop);
         }
+
+        internal static bool ObtenerUnidadesConDecimales(string descripcionp)
+        {
+            return UnidadMedidaDAL.ObtenerUnidadesConDecimales(descripcionp);
+        }
     }
 }

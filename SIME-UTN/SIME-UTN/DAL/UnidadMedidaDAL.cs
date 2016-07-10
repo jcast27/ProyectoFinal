@@ -112,29 +112,25 @@ namespace SIME_UTN.DAL
 
             return listaUnidad;
         }
-        internal static List<UnidadMedida> ObtenerUnidadesConDecimales()
+        internal static bool ObtenerUnidadesConDecimales(string descripcionp)
         {
-            List<UnidadMedida> listaUnidad = new List<UnidadMedida>();
+            bool decimales = false;
             SqlCommand comando = new SqlCommand("sp_SELECT_UnidadMedidaProducto_WithDecimal");
             comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@descripcion", descripcionp);
+
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 DataSet ds = db.ExecuteReader(comando, "consulta");
 
-
-                foreach (DataRow dr in ds.Tables[0].Rows)
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    UnidadMedida unaUnidad = new UnidadMedida();
-                    unaUnidad.idUnidadMedida = Convert.ToInt32(dr["idunidadmedida"].ToString());
-                    unaUnidad.codigo = dr["codigo"].ToString();
-                    unaUnidad.descripcion = dr["descripcion"].ToString();
-                    unaUnidad.decimales = dr["decimales"].ToString().Equals("True") ? 1 : 0;
-                    unaUnidad.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
-                    listaUnidad.Add(unaUnidad);
+                    decimales = true;
                 }
             }
 
-            return listaUnidad;
+            return decimales;
         }
         public static void GuardarLog(UnidadMedida unaMedidap, string usuarioLogueado, string accion, string unidadEliminada)
         {

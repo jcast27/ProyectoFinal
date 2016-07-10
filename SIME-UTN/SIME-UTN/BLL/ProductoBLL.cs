@@ -38,5 +38,10 @@ namespace SIME_UTN.BLL
         {
             ProductoDAL.EliminarUsuario(productoIDp,productop,usuarioLoguadop);
         }
+
+        internal static Producto ObtenerProductoPorCodigoAvatar(string codigoAvatarp)
+        {
+            return ProductoDAL.ObtenerProductoPorCodigoAvatar(codigoAvatarp);
+        }
     }
 }

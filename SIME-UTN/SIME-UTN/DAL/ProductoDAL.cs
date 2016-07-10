@@ -45,6 +45,42 @@ namespace SIME_UTN.DAL
             return listaProductos;
         }
 
+        internal static Producto ObtenerProductoPorCodigoAvatar(string codigoAvatarp)
+        {
+            Producto unProducto = new Producto();
+            SqlCommand comando = new SqlCommand("sp_SELECT_Producto_ByCodigoAvatar");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@codigoavatar", codigoAvatarp);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                   
+                    Categoria unaCategoria = new Categoria();
+                    UnidadMedida unaUnidadMedida = new UnidadMedida();
+                    Ubicacion unaUbicacion = new Ubicacion();
+                    unProducto.idProducto = Convert.ToInt32(dr["idproducto"].ToString());
+                    unProducto.codigoAvatar = dr["codigoavatar"].ToString();
+                    unProducto.nombreProducto = dr["nombre"].ToString();
+                    unProducto.descripcion = dr["descripcion"].ToString();
+                    unaCategoria.idCategoria = int.Parse(dr["idcategoria"].ToString());
+                    unaUbicacion.idUbicacion = int.Parse(dr["idubicacion"].ToString());
+                    unaUnidadMedida.idUnidadMedida = int.Parse(dr["idunidadmedida"].ToString());
+                    unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
+                    unProducto.Categoria = unaCategoria;
+                    unProducto.Ubicacion = unaUbicacion;
+                    unProducto.UnidadMedida = unaUnidadMedida;
+                }
+            }
+
+            return unProducto;
+        }
+
         /// <summary>
         /// Metodo que elimina un producto por el ID
         /// </summary>

@@ -7,6 +7,7 @@ namespace SIME_UTN.DTOs
 {
     class ProductoDTO
     {
+        public int idProducto { set; get; }
         public string codigoAvatar { set; get; }
         public string nombreProducto { set; get; }
         public double cantidad { set; get; }

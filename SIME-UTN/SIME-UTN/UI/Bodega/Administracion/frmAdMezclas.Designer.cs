@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdMezclas));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnRegistrar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
+            this.lblIdMezcla = new System.Windows.Forms.Label();
             this.txtUnidadMedida = new System.Windows.Forms.TextBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
@@ -51,11 +55,13 @@
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
             this.gCRegistroProducto = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -64,7 +70,9 @@
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
             this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
-            this.tileNavPane1.Buttons.Add(this.mBtnAceptar);
+            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
+            this.tileNavPane1.Buttons.Add(this.mBtnRegistrar);
+            this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
             // tileNavCategory1
@@ -105,21 +113,48 @@
             this.mBtnAgregar.Appearance.Options.UseFont = true;
             this.mBtnAgregar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.mBtnAgregar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnAgregar.Caption = "Agregar";
+            this.mBtnAgregar.Caption = "Agregar Producto";
             this.mBtnAgregar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAgregar.Glyph")));
             this.mBtnAgregar.Name = "mBtnAgregar";
             this.mBtnAgregar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAgregar_ElementClick);
             // 
-            // mBtnAceptar
+            // mBtnModificar
             // 
-            this.mBtnAceptar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnAceptar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnAceptar.Appearance.Options.UseFont = true;
-            this.mBtnAceptar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnAceptar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnAceptar.Caption = "Registrar";
-            this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
-            this.mBtnAceptar.Name = "mBtnAceptar";
+            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnModificar.Appearance.Options.UseFont = true;
+            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
+            this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.Visible = false;
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
+            // 
+            // mBtnRegistrar
+            // 
+            this.mBtnRegistrar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnRegistrar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnRegistrar.Appearance.Options.UseFont = true;
+            this.mBtnRegistrar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnRegistrar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnRegistrar.Caption = "Registrar Mezcla";
+            this.mBtnRegistrar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnRegistrar.Glyph")));
+            this.mBtnRegistrar.Name = "mBtnRegistrar";
+            this.mBtnRegistrar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnRegistrar_ElementClick);
+            // 
+            // mBtnEliminar
+            // 
+            this.mBtnEliminar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnEliminar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnEliminar.Appearance.Options.UseFont = true;
+            this.mBtnEliminar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnEliminar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnEliminar.Caption = "Eliminar Producto";
+            this.mBtnEliminar.Enabled = false;
+            this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
+            this.mBtnEliminar.Name = "mBtnEliminar";
+            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
             // 
             // mBtnSalir
             // 
@@ -136,6 +171,7 @@
             // gbGridViewFuncionario
             // 
             this.gbGridViewFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbGridViewFuncionario.Controls.Add(this.lblIdMezcla);
             this.gbGridViewFuncionario.Controls.Add(this.txtUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.lblUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.lblCodigo);
@@ -157,6 +193,20 @@
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Regristro de Mezclas";
+            // 
+            // lblIdMezcla
+            // 
+            this.lblIdMezcla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIdMezcla.AutoSize = true;
+            this.lblIdMezcla.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdMezcla.ForeColor = System.Drawing.Color.White;
+            this.lblIdMezcla.Location = new System.Drawing.Point(195, 50);
+            this.lblIdMezcla.Name = "lblIdMezcla";
+            this.lblIdMezcla.Size = new System.Drawing.Size(0, 18);
+            this.lblIdMezcla.TabIndex = 51;
+            this.lblIdMezcla.Visible = false;
             // 
             // txtUnidadMedida
             // 
@@ -212,6 +262,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(167, 22);
             this.txtNombre.TabIndex = 43;
+            this.txtNombre.Text = "MezclaD";
             // 
             // txtECodigoProducto
             // 
@@ -232,6 +283,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(546, 22);
             this.txtDescripcion.TabIndex = 42;
+            this.txtDescripcion.Text = "Cuartos";
             // 
             // txtCantidad
             // 
@@ -340,6 +392,7 @@
             this.gCRegistroProducto.TabIndex = 0;
             this.gCRegistroProducto.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gCRegistroProducto.Click += new System.EventHandler(this.gCRegistroProducto_Click);
             // 
             // gridView1
             // 
@@ -352,6 +405,11 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
             // 
             // frmAdMezclas
             // 
@@ -374,6 +432,7 @@
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,7 +441,7 @@
 
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnAceptar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnRegistrar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private System.Windows.Forms.GroupBox gbGridViewFuncionario;
         private System.Windows.Forms.Label lblCodigo;
@@ -402,5 +461,9 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnAgregar;
         private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.TextBox txtUnidadMedida;
+        private System.Windows.Forms.Label lblIdMezcla;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
+        private System.Windows.Forms.ErrorProvider epError;
     }
 }

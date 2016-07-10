@@ -46,5 +46,10 @@ namespace SIME_UTN.Gestores
         {
             UnidadMedidaBLL.EliminarUnidad(unidadId, unidadp, usuarioLoguadop);
         }
+
+        internal bool ObtenerUnidadesConDecimales(string descripcionp)
+        {
+           return UnidadMedidaBLL.ObtenerUnidadesConDecimales(descripcionp);
+        }
     }
 }
