@@ -34,12 +34,7 @@
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
-            this.unidadMedidaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
-            this.unidadMedidaProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
-            this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
+ 
             this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.chkAdministrador = new System.Windows.Forms.CheckBox();
@@ -59,10 +54,7 @@
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
+
             this.gbInformacionPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -130,34 +122,7 @@
             this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
-            // 
-            // unidadMedidaProductoBindingSource
-            // 
-            this.unidadMedidaProductoBindingSource.DataMember = "UnidadMedidaProducto";
-            this.unidadMedidaProductoBindingSource.DataSource = this.dataSetUnidadMedida;
-            // 
-            // dataSetUnidadMedida
-            // 
-            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
-            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.dataSetCategorias;
-            // 
-            // dataSetCategorias
-            // 
-            this.dataSetCategorias.DataSetName = "DataSetCategorias";
-            this.dataSetCategorias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // unidadMedidaProductoTableAdapter
-            // 
-            this.unidadMedidaProductoTableAdapter.ClearBeforeFill = true;
-            // 
-            // categoriaTableAdapter
-            // 
-            this.categoriaTableAdapter.ClearBeforeFill = true;
+  
             // 
             // gbInformacionPersonal
             // 
@@ -423,10 +388,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.frmAdUsuario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaProductoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
             this.gbInformacionPersonal.ResumeLayout(false);
             this.gbInformacionPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
@@ -440,12 +401,6 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
-        private System.Windows.Forms.BindingSource unidadMedidaProductoBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter unidadMedidaProductoTableAdapter;
-        private DataSets.Bodega.Admistracion.DataSetCategorias dataSetCategorias;
-        private System.Windows.Forms.BindingSource categoriaBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
         private System.Windows.Forms.GroupBox gbInformacionPersonal;
         private System.Windows.Forms.Label lblCodigoUsuario;
         private System.Windows.Forms.CheckBox chkAdministrador;
