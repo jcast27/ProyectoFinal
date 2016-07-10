@@ -31,23 +31,25 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdUbicaciones));
             this.gbGridViewUnidadMedida = new System.Windows.Forms.GroupBox();
-            this.lblCodigoUnidad = new System.Windows.Forms.Label();
+            this.lblDepartamento = new System.Windows.Forms.Label();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
+            this.spSELECTDepartamentoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUDepartamento = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUDepartamento();
+            this.lblIdUbicacion = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.tipoBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
-            this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.sp_SELECT_Departamento_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter();
             this.gbGridViewUnidadMedida.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,9 @@
             this.gbGridViewUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gbGridViewUnidadMedida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.gbGridViewUnidadMedida.Controls.Add(this.lblCodigoUnidad);
+            this.gbGridViewUnidadMedida.Controls.Add(this.lblDepartamento);
+            this.gbGridViewUnidadMedida.Controls.Add(this.cmbDepartamento);
+            this.gbGridViewUnidadMedida.Controls.Add(this.lblIdUbicacion);
             this.gbGridViewUnidadMedida.Controls.Add(this.lblDescripcion);
             this.gbGridViewUnidadMedida.Controls.Add(this.txtNombre);
             this.gbGridViewUnidadMedida.Controls.Add(this.lblNombre);
@@ -66,24 +70,64 @@
             this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 63);
             this.gbGridViewUnidadMedida.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbGridViewUnidadMedida.Name = "gbGridViewUnidadMedida";
-            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(611, 227);
+            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(611, 256);
             this.gbGridViewUnidadMedida.TabIndex = 33;
             this.gbGridViewUnidadMedida.TabStop = false;
             this.gbGridViewUnidadMedida.Text = "Registro Ubicaciones";
             // 
-            // lblCodigoUnidad
+            // lblDepartamento
             // 
-            this.lblCodigoUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCodigoUnidad.AutoSize = true;
-            this.lblCodigoUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoUnidad.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCodigoUnidad.Location = new System.Drawing.Point(14, 25);
-            this.lblCodigoUnidad.Name = "lblCodigoUnidad";
-            this.lblCodigoUnidad.Size = new System.Drawing.Size(0, 18);
-            this.lblCodigoUnidad.TabIndex = 29;
-            this.lblCodigoUnidad.Visible = false;
+            this.lblDepartamento.AutoSize = true;
+            this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartamento.ForeColor = System.Drawing.Color.White;
+            this.lblDepartamento.Location = new System.Drawing.Point(25, 196);
+            this.lblDepartamento.Name = "lblDepartamento";
+            this.lblDepartamento.Size = new System.Drawing.Size(106, 18);
+            this.lblDepartamento.TabIndex = 35;
+            this.lblDepartamento.Text = "Departamento:";
+            // 
+            // cmbDepartamento
+            // 
+            this.cmbDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbDepartamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTDepartamentoAllBindingSource, "iddepartamento", true));
+            this.cmbDepartamento.DataSource = this.spSELECTDepartamentoAllBindingSource;
+            this.cmbDepartamento.DisplayMember = "Descripcion";
+            this.cmbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Location = new System.Drawing.Point(222, 190);
+            this.cmbDepartamento.Name = "cmbDepartamento";
+            this.cmbDepartamento.Size = new System.Drawing.Size(277, 24);
+            this.cmbDepartamento.TabIndex = 34;
+            this.cmbDepartamento.ValueMember = "IDDepartamento";
+            // 
+            // spSELECTDepartamentoAllBindingSource
+            // 
+            this.spSELECTDepartamentoAllBindingSource.DataMember = "sp_SELECT_Departamento_All";
+            this.spSELECTDepartamentoAllBindingSource.DataSource = this.dataSetUDepartamento;
+            // 
+            // dataSetUDepartamento
+            // 
+            this.dataSetUDepartamento.DataSetName = "DataSetUDepartamento";
+            this.dataSetUDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblIdUbicacion
+            // 
+            this.lblIdUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIdUbicacion.AutoSize = true;
+            this.lblIdUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdUbicacion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblIdUbicacion.Location = new System.Drawing.Point(14, 25);
+            this.lblIdUbicacion.Name = "lblIdUbicacion";
+            this.lblIdUbicacion.Size = new System.Drawing.Size(0, 18);
+            this.lblIdUbicacion.TabIndex = 29;
+            this.lblIdUbicacion.Visible = false;
             // 
             // lblDescripcion
             // 
@@ -137,16 +181,6 @@
             this.txtDescripcion.TabIndex = 27;
             this.txtDescripcion.Text = "Mililitros";
             // 
-            // tipoBodegaBindingSource
-            // 
-            this.tipoBodegaBindingSource.DataMember = "TipoBodega";
-            this.tipoBodegaBindingSource.DataSource = this.dataSetTBodega;
-            // 
-            // dataSetTBodega
-            // 
-            this.dataSetTBodega.DataSetName = "DataSetTBodega";
-            this.dataSetTBodega.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tileNavPane1
             // 
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
@@ -185,6 +219,7 @@
             this.mBtnNuevo.Caption = "Nuevo";
             this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
             this.mBtnNuevo.Name = "mBtnNuevo";
+            this.mBtnNuevo.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnNuevo_ElementClick);
             // 
             // mBtnGuardar
             // 
@@ -222,13 +257,13 @@
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
             // 
-            // tipoBodegaTableAdapter
-            // 
-            this.tipoBodegaTableAdapter.ClearBeforeFill = true;
-            // 
             // epError
             // 
             this.epError.ContainerControl = this;
+            // 
+            // sp_SELECT_Departamento_AllTableAdapter
+            // 
+            this.sp_SELECT_Departamento_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmAdUbicaciones
             // 
@@ -236,18 +271,18 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 292);
+            this.ClientSize = new System.Drawing.Size(629, 321);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewUnidadMedida);
-            this.MaximumSize = new System.Drawing.Size(645, 331);
+            this.MaximumSize = new System.Drawing.Size(645, 360);
             this.Name = "frmAdUbicaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubicaciones";
             this.Load += new System.EventHandler(this.frmAdUbicaciones_Load);
             this.gbGridViewUnidadMedida.ResumeLayout(false);
             this.gbGridViewUnidadMedida.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
 
@@ -256,7 +291,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbGridViewUnidadMedida;
-        private System.Windows.Forms.Label lblCodigoUnidad;
+        private System.Windows.Forms.Label lblIdUbicacion;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
@@ -264,11 +299,13 @@
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
-        private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega dataSetTBodega;
-        private System.Windows.Forms.BindingSource tipoBodegaBindingSource;
-        private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter tipoBodegaTableAdapter;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
+        private System.Windows.Forms.ComboBox cmbDepartamento;
+        private System.Windows.Forms.Label lblDepartamento;
+        private DataSets.Bodega.Admistracion.DataSetUDepartamento dataSetUDepartamento;
+        private System.Windows.Forms.BindingSource spSELECTDepartamentoAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetUDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter sp_SELECT_Departamento_AllTableAdapter;
     }
 }

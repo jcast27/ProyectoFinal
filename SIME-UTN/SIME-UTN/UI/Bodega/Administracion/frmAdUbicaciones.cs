@@ -14,18 +14,31 @@ namespace SIME_UTN.UI.Bodega.Administracion
 {
     public partial class frmAdUbicaciones : DevExpress.XtraEditors.XtraForm
     {
-        UnidadMedida unaUnidadMedida = null;
-        GestorUnidadMedida gestorUnidad = null;
         GestorUsuarioTable gestorUsuario = null;
-        UnidadMedida unidadEstatica = null;
+        GestorUbicacion gestorUbicacion = null;
+        static Ubicacion ubicacionEstatica = null;
+        Ubicacion unaUbicacion = null;
+        Departamento unDepartamento = null;
         static string usuarioLogueado = "";
         public frmAdUbicaciones()
         {
             InitializeComponent();
             mBtnModificar.Visible = false;
+            ubicacionEstatica = null;
         }
 
-       
+        public frmAdUbicaciones(Ubicacion ubicacionEstaticap)
+        {
+            InitializeComponent();
+            mBtnNuevo.Visible = false;
+            ubicacionEstatica = new Ubicacion();
+            ubicacionEstatica = ubicacionEstaticap;
+            mBtnGuardar.Visible = false;
+            mBtnModificar.Visible = true;
+            gCUbicaciones();
+        }
+
+
 
         public void UsuarioLogueado()
         {
@@ -40,7 +53,25 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdUbicaciones_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetUDepartamento.sp_SELECT_Departamento_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetUDepartamento.sp_SELECT_Departamento_All);
             UsuarioLogueado();
+
+            if (ubicacionEstatica == null)
+            {
+                cmbDepartamento.SelectedIndex = -1;
+            }
+            else
+            {
+                for (int i = 0; i < cmbDepartamento.Items.Count; i++)
+                {
+                    string value = cmbDepartamento.GetItemText(cmbDepartamento.Items[i]);
+                    if (value == ubicacionEstatica.Departamento.descripcion)
+                    {
+                        cmbDepartamento.SelectedIndex = i;
+                    }
+                }
+            }
         }
 
         public void CambiarEstado(EstadoMantenimiento estado)
@@ -52,6 +83,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 case EstadoMantenimiento.Nuevo:
                     txtNombre.Text = "";
                     txtDescripcion.Text = "";
+                    cmbDepartamento.SelectedIndex = -1;
                     break;
                 case EstadoMantenimiento.Editar:
                     this.Close();
@@ -60,12 +92,14 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        public void gCUnidadesMedida()
+        public void gCUbicaciones()
         {
 
             try
             {
-              
+                lblIdUbicacion.Text = ubicacionEstatica.idUbicacion.ToString();
+                txtNombre.Text = ubicacionEstatica.nombre;
+                txtDescripcion.Text = ubicacionEstatica.otraSennas;
 
             }
             catch (ApplicationException app)
@@ -78,12 +112,36 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        public void GuardarCambiosUnidad(string accionp)
+        public void GuardarCambios(string accionp)
         {
-  
+            gestorUbicacion = new GestorUbicacion();
+            unaUbicacion = new Ubicacion();
+            unDepartamento = new Departamento();
             try
             {
-               
+                unaUbicacion.nombre = txtNombre.Text;
+                unaUbicacion.otraSennas = txtDescripcion.Text;
+                unDepartamento.idDepartamento = int.Parse(cmbDepartamento.SelectedValue.ToString());
+                unDepartamento.descripcion = cmbDepartamento.GetItemText(cmbDepartamento.Items[cmbDepartamento.SelectedIndex]);
+                unaUbicacion.Departamento = unDepartamento;
+
+                if (accionp == "Modificar")
+                {
+                    string idUbicacion = lblIdUbicacion.Text;
+                    unaUbicacion.idUbicacion = int.Parse(idUbicacion);
+                    gestorUbicacion.AgregarUbicacion(unaUbicacion);
+                    gestorUbicacion.GuardarUbicacion(unaUbicacion,usuarioLogueado);
+                    MessageBox.Show("La ubicacion " + unaUbicacion.nombre + " fue modificada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    unaUbicacion.estado = 1;
+                    gestorUbicacion.AgregarUbicacion(unaUbicacion);
+                    gestorUbicacion.GuardarUbicacion(unaUbicacion, usuarioLogueado);
+                    MessageBox.Show("La ubicacion  " + unaUbicacion.nombre + " fue agregada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                CambiarEstado(EstadoMantenimiento.Editar);
 
             }
             catch (Exception ex)
@@ -97,7 +155,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (ValidarCampos() == false)
             {
                 string accion = "Modificar";
-                GuardarCambiosUnidad(accion);
+                GuardarCambios(accion);
             }
         }
 
@@ -105,7 +163,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             if (ValidarCampos() == false)
             {
-                GuardarCambiosUnidad("");
+                GuardarCambios("");
             }
         }
 
@@ -124,10 +182,19 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtDescripcion.Focus();
                 error = true;
             }
+            if(cmbDepartamento.SelectedIndex == -1)
+            {
+                epError.SetError(cmbDepartamento, "Campo Requerido");
+                cmbDepartamento.Focus();
+                error = true;
+            }
 
             return error;
         }
 
-
+        private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            CambiarEstado(EstadoMantenimiento.Nuevo);
+        }
     }
 }

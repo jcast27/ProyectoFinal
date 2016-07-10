@@ -68,13 +68,11 @@ namespace SIME_UTN.DAL
                     unProducto.codigoAvatar = dr["codigoavatar"].ToString();
                     unProducto.nombreProducto = dr["nombre"].ToString();
                     unProducto.descripcion = dr["descripcion"].ToString();
-                    unaCategoria.idCategoria = int.Parse(dr["idcategoria"].ToString());
-                    unaUbicacion.idUbicacion = int.Parse(dr["idubicacion"].ToString());
-                    unaUnidadMedida.idUnidadMedida = int.Parse(dr["idunidadmedida"].ToString());
                     unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
-                    unProducto.Categoria = unaCategoria;
-                    unProducto.Ubicacion = unaUbicacion;
-                    unProducto.UnidadMedida = unaUnidadMedida;
+                    unProducto.Categoria = CategoriaDAL.ObtenerCategoriaID(Convert.ToInt32(ds.Tables[0].Rows[0]["idcategoria"].ToString()));
+                    unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(ds.Tables[0].Rows[0]["idunidadmedida"].ToString()));
+                    unProducto.Ubicacion = UbicacionDAL.ObtenerUbicacionID(Convert.ToInt32(ds.Tables[0].Rows[0]["idubicacion"].ToString()));
+
                 }
             }
 
@@ -235,20 +233,30 @@ namespace SIME_UTN.DAL
         /// <param name="productoEliminadop"></param>
         public static void GuardarLog(Producto unProductop, string usuarioLogueado, string accion, string productoEliminadop)
         {
-           
+            Producto viejoProducto = new Producto();
             string descripcion = "";
             string estado = "";
-            if (unProductop == null)
+
+            if (accion == "Eliminar")
             {
-                descripcion = "Producto eliminado: "+productoEliminadop;
+                descripcion = "Producto eliminada: " + productoEliminadop;
                 estado = "Desactivado";
             }
-            else
+            if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "CodigoAvatar: "+unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion+ "\r\nEstado: " + estado;
-               
+                descripcion = "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nEstado: " + estado;
+
             }
+            if (accion == "Modificar")
+            {
+                viejoProducto = ObtenerProductoPorCodigoAvatar(unProductop.codigoAvatar);
+                estado = "Activo";
+                descripcion = "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nUbicacion: " + viejoProducto.Ubicacion.nombre + "\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nEstado: " + estado;
+            }
+
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");
             SqlCommand comando = new SqlCommand("sp_INSERT_log");

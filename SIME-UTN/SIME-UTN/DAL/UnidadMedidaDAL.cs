@@ -51,6 +51,38 @@ namespace SIME_UTN.DAL
             return existe;
         }
 
+        internal static UnidadMedida ObtenerUnidadMediadById(int idUnidad)
+        {
+            bool existe = false;
+            UnidadMedida unaUnidad = new UnidadMedida();
+            string sql = @"sp_SELECT_UnidadMedidaProducto_ByID";
+
+            List<UnidadMedida> lista = new List<UnidadMedida>();
+
+            SqlCommand comando = new SqlCommand(sql);
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idunidadmedida", idUnidad);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                   
+                    unaUnidad.idUnidadMedida = Convert.ToInt32(dr["idunidadmedida"].ToString());
+                    unaUnidad.codigo = dr["codigo"].ToString();
+                    unaUnidad.descripcion = dr["descripcion"].ToString();
+                    unaUnidad.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
+                  
+                }
+
+            }
+            return unaUnidad;
+        }
+
         internal static void ActualizarUnidad(UnidadMedida unaUnidadp, string usuarioLogueadop)
         {
             string accion = "";

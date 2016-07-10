@@ -16,9 +16,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
     {
         string usuarioLogueado = "";
         GestorUsuarioTable gestorUsuario = null;
-        GestorRegistroBodega gestorBodega = null;
-        static RegistroBodega bodegaEstatico = null;
-        TipoBodega unTipoBodega = null;
+        static Ubicacion ubicacionEstatica = null;
+        Ubicacion unaUbicacion = null;
+        GestorUbicacion gestorUbicacion = null;
+        Departamento unDepartamento = null;
        
         public frmUbicaciones()
         {
@@ -43,6 +44,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             frmAdUbicaciones ofrAdUbicaciones = new frmAdUbicaciones();
             ofrAdUbicaciones.ShowDialog(this);
+            frmUbicaciones_Load(null, null);
         }
 
 
@@ -53,7 +55,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-         
+            frmAdUbicaciones ofrAdUbicaciones = new frmAdUbicaciones(ubicacionEstatica);
+            ofrAdUbicaciones.ShowDialog(this);
+            frmUbicaciones_Load(null, null);
         }
 
 
@@ -66,9 +70,19 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void gCUbicaciones_Click(object sender, EventArgs e)
         {
+            unDepartamento = new Departamento();
+            System.Data.DataRowView row = null;
             try
             {
-
+                mBtnModificar.Enabled = true;
+                mBtnEliminar.Enabled = true;
+                ubicacionEstatica.idUbicacion= int.Parse(gridView1.GetFocusedRowCellValue("idubicacion").ToString());
+                ubicacionEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+                ubicacionEstatica.otraSennas = gridView1.GetFocusedRowCellValue("otrassennas").ToString();
+                unDepartamento.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString());
+                row = LookUpDepartamento.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString())) as DataRowView;
+                unDepartamento.descripcion = row.Row["descripcion"].ToString();
+                ubicacionEstatica.Departamento = unDepartamento;
 
             }
             catch (ApplicationException app)
@@ -85,9 +99,29 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <summary>
         /// Metodo que desactiva una Ubicacion
         /// </summary>
-        public void DesactivarBodega()
+        public void DesactivarUbicaciones()
         {
-           
+            gestorUbicacion = new GestorUbicacion();
+            unaUbicacion = new Ubicacion();
+            try
+            {
+                ubicacionEstatica.idUbicacion = int.Parse(gridView1.GetFocusedRowCellValue("idubicacion").ToString());
+                ubicacionEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+
+
+                if (MessageBox.Show("¿Seguro que desea eliminar la ubicacion " + ubicacionEstatica.nombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gestorUbicacion.EliminarUbicacion(ubicacionEstatica.idUbicacion,ubicacionEstatica.nombre, usuarioLogueado);
+                    MessageBox.Show("La ubicacion " + ubicacionEstatica.nombre + " fue eliminada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmUbicaciones_Load(null, null);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -101,7 +135,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (e.KeyCode == Keys.Delete)
             {
 
-                DesactivarBodega();
+                DesactivarUbicaciones();
                 e.Handled = true;
             }
         }
@@ -113,7 +147,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            DesactivarBodega();
+            DesactivarUbicaciones();
         }
 
         private void frmUbicaciones_Load(object sender, EventArgs e)
@@ -122,6 +156,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetDepartamento.sp_SELECT_Departamento_All);
             // TODO: This line of code loads data into the 'dataSetRegistrarUbicacion.sp_SELECT_Ubicacion_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_Ubicacion_AllTableAdapter.Fill(this.dataSetRegistrarUbicacion.sp_SELECT_Ubicacion_All);
+            UsuarioLogueado();
+            ubicacionEstatica = new Ubicacion();
 
         }
     }

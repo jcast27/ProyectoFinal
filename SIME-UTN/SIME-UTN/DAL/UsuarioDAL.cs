@@ -258,28 +258,34 @@ namespace SIME_UTN.DAL
 
         public static void GuardarLog(UsuarioTable usuariop, string usuarioLogueado,string accion, string usuarioEliminadop)
         {
-            string contrasennaEncriptada = "";
+            UsuarioTable oldUsuario = new UsuarioTable();
+            string contrasennaEncriptada = "**********";
             string descripcion = "";
-            int estado = 0;
-            if (usuariop == null)
+            string estado = "";
+
+            if (accion == "Eliminar")
             {
                 descripcion = usuarioEliminadop;
-                estado = 1;
+                estado = "Desactivado";
             }
-            else
+            if (accion == "Insertar")
             {
-                estado = usuariop.estado;
-                descripcion = usuariop.usuario + "-" + usuariop.nombre + "-" + usuariop.apellido1 + "-" + usuariop.apellido2 + "-" + usuariop.perfil + "-" + contrasennaEncriptada + "-" + usuariop.estado;
-                if (usuariop.contrasena != null)
-                {
-                    Encriptar encriptar = new Encriptar();
-                    contrasennaEncriptada = encriptar.Cifrar(usuariop.contrasena);
-                }
-                else
-                {
-                    contrasennaEncriptada = "";
-                }
+                estado = "Activo";
+                descripcion = "Usuario: " + usuariop.usuario + "\r\nNombres: " + usuariop.nombre + "\r\nPrimer Apellido: " + usuariop.apellido1 + 
+                    "\r\nSegundoApellido: " + usuariop.apellido2 + "\r\nPerfil: " + usuariop.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
+
             }
+            if (accion == "Modificar")
+            {
+                oldUsuario = ValidarUsuarioPorUsuario(usuariop.usuario);
+                estado = "Activo";
+                descripcion = "Antes del Cambio" + "\r\nUsuario: " + oldUsuario.usuario + "\r\nNombres: " + oldUsuario.nombre + "\r\nPrimer Apellido: " + oldUsuario.apellido1 +
+                    "\r\nSegundoApellido: " + oldUsuario.apellido2 + "\r\nPerfil: " + oldUsuario.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nUsuario: " + usuariop.usuario + "\r\nNombres: " + usuariop.nombre + "\r\nPrimer Apellido: " + usuariop.apellido1 + 
+                    "\r\nSegundoApellido: " + usuariop.apellido2 + "\r\nPerfil: " + usuariop.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
+            }
+
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");
             SqlCommand comando = new SqlCommand("sp_INSERT_log");
@@ -289,7 +295,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@accion",accion);
             comando.Parameters.AddWithValue("@descripcion",descripcion);
             comando.Parameters.AddWithValue("@fechamodificacion",fecha);
-            comando.Parameters.AddWithValue("@estado", estado);
+            comando.Parameters.AddWithValue("@estado", 1);
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))

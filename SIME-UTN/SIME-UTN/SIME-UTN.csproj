@@ -71,6 +71,7 @@
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\RegistroBodegaBLL.cs" />
     <Compile Include="BLL\RegistroMezclaBLL.cs" />
+    <Compile Include="BLL\UbicacionBLL.cs" />
     <Compile Include="BLL\UnidadMedidaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\DepartamentoDAL.cs" />
@@ -149,6 +150,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUDepartamento.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Bodega\Admistracion\DataSetUnidadMedida.cs">
       <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
@@ -250,12 +256,14 @@
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
     <Compile Include="Gestores\GestorActivo.cs" />
+    <Compile Include="Gestores\GestorDepartamento.cs" />
     <Compile Include="Gestores\GestorDetalleFormulario.cs" />
     <Compile Include="Gestores\GestorFormulario.cs" />
     <Compile Include="Gestores\GestorFuncionario.cs" />
     <Compile Include="Gestores\GestorMezcla.cs" />
     <Compile Include="Gestores\GestorMezclaProducto.cs" />
     <Compile Include="Gestores\GestorRegistroBodega.cs" />
+    <Compile Include="Gestores\GestorUbicacion.cs" />
     <Compile Include="Gestores\GestorUnidadMedida.cs" />
     <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">
       <SubType>Form</SubType>
@@ -724,6 +732,17 @@
     </None>
     <None Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.xss">
       <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.xsc">
+      <DependentUpon>DataSetUDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.xss">
+      <DependentUpon>DataSetUDepartamento.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\Inventarios\DataSetInventario.xsc">
       <DependentUpon>DataSetInventario.xsd</DependentUpon>
