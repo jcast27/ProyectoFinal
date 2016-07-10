@@ -17,15 +17,17 @@ namespace SIME_UTN.UI.Bodega.Administracion
         string usuarioLogueado = "";
         GestorUsuarioTable gestorUsuario = null;
         static Mezcla mezclaEstatica = null;
-        TipoBodega unTipoBodega = null;
-       
+        GestorMezcla gestorMezcla = null;
+        Mezcla unaMezcla = null;
         public frmMezclas()
         {
             InitializeComponent();
           
         }
 
-      
+        /// <summary>
+        /// Metodo que que optiene el usuario que esta logueado en el momento
+        /// </summary>
         public void UsuarioLogueado()
         {
             gestorUsuario = GestorUsuarioTable.GetInstance();
@@ -61,9 +63,29 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <summary>
         /// Metodo que desactiva una Ubicacion
         /// </summary>
-        public void DesactivarBodega()
+        public void DesactivarMezclas()
         {
-           
+            gestorMezcla = new GestorMezcla();
+            unaMezcla = new Mezcla();
+            try
+            {
+                unaMezcla.idRegistroMezcla = int.Parse(gridView1.GetFocusedRowCellValue("idregistromezcla").ToString());
+                unaMezcla.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+
+
+                if (MessageBox.Show("¿Seguro que desea eliminar la mezcla " + unaMezcla.nombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gestorMezcla.EliminarMezcla(unaMezcla.idRegistroMezcla, unaMezcla.nombre, usuarioLogueado);
+                    MessageBox.Show("La mezcla " + unaMezcla.nombre + " fue eliminada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmMezclas_Load(null, null);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -77,7 +99,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (e.KeyCode == Keys.Delete)
             {
 
-                DesactivarBodega();
+                DesactivarMezclas();
                 e.Handled = true;
             }
         }
@@ -89,13 +111,14 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            DesactivarBodega();
+            DesactivarMezclas();
         }
 
         private void frmMezclas_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dataSetRMezclas.sp_SELECT_RegistroMezcla_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_RegistroMezcla_AllTableAdapter.Fill(this.dataSetRMezclas.sp_SELECT_RegistroMezcla_All);
+            UsuarioLogueado();
             mezclaEstatica = new Mezcla();
 
         }

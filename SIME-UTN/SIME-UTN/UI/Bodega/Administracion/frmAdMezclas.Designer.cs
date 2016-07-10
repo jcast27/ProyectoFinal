@@ -34,7 +34,7 @@
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnRegistrar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
@@ -71,7 +71,7 @@
             this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
-            this.tileNavPane1.Buttons.Add(this.mBtnRegistrar);
+            this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
             this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
@@ -131,17 +131,17 @@
             this.mBtnModificar.Visible = false;
             this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
-            // mBtnRegistrar
+            // mBtnGuardar
             // 
-            this.mBtnRegistrar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnRegistrar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnRegistrar.Appearance.Options.UseFont = true;
-            this.mBtnRegistrar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnRegistrar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnRegistrar.Caption = "Registrar Mezcla";
-            this.mBtnRegistrar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnRegistrar.Glyph")));
-            this.mBtnRegistrar.Name = "mBtnRegistrar";
-            this.mBtnRegistrar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnRegistrar_ElementClick);
+            this.mBtnGuardar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnGuardar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnGuardar.Appearance.Options.UseFont = true;
+            this.mBtnGuardar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnGuardar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnGuardar.Caption = "Guardar";
+            this.mBtnGuardar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnGuardar.Glyph")));
+            this.mBtnGuardar.Name = "mBtnGuardar";
+            this.mBtnGuardar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnGuardar_ElementClick);
             // 
             // mBtnEliminar
             // 
@@ -441,7 +441,7 @@
 
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnRegistrar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private System.Windows.Forms.GroupBox gbGridViewFuncionario;
         private System.Windows.Forms.Label lblCodigo;

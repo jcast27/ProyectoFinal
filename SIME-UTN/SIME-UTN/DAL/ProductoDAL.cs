@@ -82,7 +82,7 @@ namespace SIME_UTN.DAL
         }
 
         /// <summary>
-        /// Metodo que elimina un producto por el ID
+        /// Metodo que desabilita un producto por el ID
         /// </summary>
         /// <param name="productoIDp"></param>
         /// <param name="productop"></param>

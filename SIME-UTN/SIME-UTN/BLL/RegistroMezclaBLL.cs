@@ -18,5 +18,10 @@ namespace SIME_UTN.BLL
         {
             DAL.RegistroMezclaDAL.ActualizarMezcla(unaMezclap,usuarioLogueadop);
         }
+
+        internal static void EliminarMezcla(int idRegistroMezclap, string nombrep, string usuarioLogueadop)
+        {
+            DAL.RegistroMezclaDAL.EliminarMezcla(idRegistroMezclap,nombrep,usuarioLogueadop);
+        }
     }
 }

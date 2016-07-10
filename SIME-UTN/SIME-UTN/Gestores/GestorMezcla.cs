@@ -37,5 +37,10 @@ namespace SIME_UTN.Gestores
         {
             BLL.RegistroMezclaBLL.ActualizarMezcla(unaMezclap,usuarioLogueadop);
         }
+
+        internal void EliminarMezcla(int idRegistroMezclap, string nombrep, string usuarioLogueadop)
+        {
+            BLL.RegistroMezclaBLL.EliminarMezcla(idRegistroMezclap,nombrep,usuarioLogueadop);
+        }
     }
 }

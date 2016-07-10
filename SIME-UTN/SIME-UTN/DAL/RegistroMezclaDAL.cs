@@ -11,6 +11,12 @@ namespace SIME_UTN.DAL
 {
     class RegistroMezclaDAL
     {
+
+        /// <summary>
+        /// Metodo que guarda una nueva mezcla
+        /// </summary>
+        /// <param name="unaMezclap"></param>
+        /// <param name="usuarioLogueadop"></param>
         internal static int GuardarRegistroMezcla(Mezcla unaMezclap,string usuarioLogueadop)
         {
             string accion = "";
@@ -41,6 +47,35 @@ namespace SIME_UTN.DAL
             return ultimiIdInsertado;
         }
 
+
+        /// <summary>
+        /// Metodo que desabilita una mezcla
+        /// </summary>
+        /// <param name="idRegistroMezclap"></param>
+        /// <param name="nombrep"></param>
+        /// <param name="usuarioLogueadop"></param>
+        internal static void EliminarMezcla(int idRegistroMezclap, string nombrep, string usuarioLogueadop)
+        {
+            string accion = "";
+            accion = "Eliminar";
+            SqlCommand comando = new SqlCommand("sp_DISABLE_RegistroMezcla_ByID");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idregistromezcla", idRegistroMezclap);
+            GuardarLog(null, usuarioLogueadop, accion, nombrep);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+        }
+
+
+        /// <summary>
+        /// Metodo que actualiza una mezcla
+        /// </summary>
+        /// <param name="unaMezclap"></param>
+        /// <param name="usuarioLogueadop"></param>
         internal static void ActualizarMezcla(Mezcla unaMezclap, string usuarioLogueadop)
         {
             string accion = "";
@@ -58,6 +93,15 @@ namespace SIME_UTN.DAL
             }
         }
 
+
+
+        /// <summary>
+        /// Metodo que genera un log para toda transaccion
+        /// </summary>
+        /// <param name="unaMezclap"></param>
+        /// <param name="usuarioLogueadop"></param>
+        /// <param name="accion"></param>
+        /// <param name="mezclaEliminadap"></param>
         public static void GuardarLog(Mezcla unaMezclap, string usuarioLogueado, string accion, string mezclaEliminadap)
         {
 

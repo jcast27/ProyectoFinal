@@ -41,22 +41,27 @@ namespace SIME_UTN.UI.Bodega.Administracion
             InitializeComponent();
             mBtnEliminar.Visible = true;
             mBtnNuevo.Visible = false;
-            mBtnRegistrar.Visible = false;
+            mBtnGuardar.Visible = false;
             mBtnModificar.Visible = true;
             mezclaEstatica = new Mezcla();
             mezclaEstatica = mezclaEstaticap;
             gCMezclas();
         }
 
+        /// <summary>
+        /// Metodo que obtiene el usuario loguado
+        /// </summary>
         public void UsuarioLogueado()
         {
             gestorUsuario = GestorUsuarioTable.GetInstance();
             usuarioLogueado = gestorUsuario.ObtenerUsuarioLogeado();
         }
 
-  
 
 
+        /// <summary>
+        /// Metodo que permite llamar a un ventana filtro para seleccionar el producto que se quiere agregar a la mezcla
+        /// </summary>
         private void txtECodigoProducto_Click(object sender, EventArgs e)
         {
             frmFiltroProductos ofrmFiltroProductos = new frmFiltroProductos();
@@ -66,6 +71,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
             txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
             txtCantidad.Enabled = true;
         }
+
+
+        /// <summary>
+        /// Metodo que permite ir agregando al grid los productos que van a conformar la mezcla
+        /// </summary>
         public void CargarGrid()
         {
             DataTable dt = new DataTable();
@@ -96,6 +106,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             this.gCRegistroProducto.DataSource = dt;
         }
+
+        /// <summary>
+        /// Metodo que permite agregar un Producto de la mezcla
+        /// </summary>
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             if (ValidarCamposAgregarProducto() != true)
@@ -141,6 +155,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
            
         }
 
+
+        /// <summary>
+        /// Cambiar el estad de los objetos al seleccionar Nuevo,Editar,Borrar o Ninguno
+        /// </summary>
+        /// <param name="estado"></param>
         public void CambiarEstado(EstadoMantenimiento estado)
         {
 
@@ -149,6 +168,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             {
                 case EstadoMantenimiento.Nuevo:
                     epError.Clear();
+                    lblIdMezcla.Text = "";
                     listaProductoDTO.Clear();
                     gCRegistroProducto.DataSource = null;
                     gridView1.Columns.Clear();
@@ -179,16 +199,35 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
+
+        /// <summary>
+        /// Metodo que permite limpiar el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             CambiarEstado(EstadoMantenimiento.Nuevo);
         }
 
+
+
+        /// <summary>
+        /// Metodo que permite salir de la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnSalir_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             this.Close();
         }
 
+
+        /// <summary>
+        /// Invoca al metodo que permite hacerle las validacions pertinentes al campo cantidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             gestorUnidadMedida = new GestorUnidadMedida();
@@ -236,14 +275,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        private void mBtnRegistrar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            if (ValidarCampos() != true)
-            {
-                GuardarCambiosMezcla("Registrar");
-            }
-              
-        }
 
         /// <summary>
         /// Metodo que asigan los valores del grid control a cada una de la cajas de texto
@@ -271,6 +302,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
+
+        /// <summary>
+        /// Metodo que guarda los cambios ya sea una nueva mezcla o o si se modifica dicha mezcla
+        /// </summary>
+        /// <param name="accionp"></param>
         public void GuardarCambiosMezcla(string accionp)
         {
             unaMezcla = new Mezcla();
@@ -348,6 +384,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
+
+        /// <summary>
+        /// Invoca al metodo desactivar mezcla, al seleccionar un row del grid y pulsar la tecla Delete del teclado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -358,53 +400,71 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         }
 
+
+        /// <summary>
+        /// Metodo que permite quitar un Producto de la mezcla
+        /// </summary>
         public void DesabilitarProductosDeMezclas()
         {
             gestorMezclaProducto = new GestorMezclaProducto();
             unProducto = new Producto();
             unProducto.codigoAvatar = gridView1.GetFocusedRowCellValue("CodigoProducto").ToString();
 
-            if (lblIdMezcla.Text != "")
+            try
             {
 
-                foreach (ProductoDTO unProductoDTO in listaProductoDTO)
-                {
-                    if (unProductoDTO.codigoAvatar == unProducto.codigoAvatar)
-                    {
-                        unProducto.idProducto = unProductoDTO.idProducto;
-                        unProducto.nombreProducto = unProductoDTO.nombreProducto;
-                    }
-                }
-
-                if (MessageBox.Show("¿Seguro que desea eliminar al producto " + unProducto.nombreProducto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (lblIdMezcla.Text != "")
                 {
 
-                    gestorMezclaProducto.EliminarProductoDeMezcla(unProducto, int.Parse(lblIdMezcla.Text), usuarioLogueado);
-                    MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    listaProductoDTO.Clear();
-                    gCMezclas();
-                }
-
-            }else
-            {
-                if (MessageBox.Show("¿Seguro que desea eliminar al producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
                     foreach (ProductoDTO unProductoDTO in listaProductoDTO)
                     {
                         if (unProductoDTO.codigoAvatar == unProducto.codigoAvatar)
                         {
-                            listaProductoDTO.Remove(unProductoDTO);
-                            break;
+                            unProducto.idProducto = unProductoDTO.idProducto;
+                            unProducto.nombreProducto = unProductoDTO.nombreProducto;
                         }
                     }
-                    MessageBox.Show("El Producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarGrid();
+
+                    if (MessageBox.Show("¿Seguro que desea eliminar al producto " + unProducto.nombreProducto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                        gestorMezclaProducto.EliminarProductoDeMezcla(unProducto, int.Parse(lblIdMezcla.Text), usuarioLogueado);
+                        MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        listaProductoDTO.Clear();
+                        gCMezclas();
+                    }
+
+                }
+                else
+                {
+                    if (MessageBox.Show("¿Seguro que desea eliminar al producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        foreach (ProductoDTO unProductoDTO in listaProductoDTO)
+                        {
+                            if (unProductoDTO.codigoAvatar == unProducto.codigoAvatar)
+                            {
+                                listaProductoDTO.Remove(unProductoDTO);
+                                break;
+                            }
+                        }
+                        MessageBox.Show("El Producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarGrid();
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
+
+        /// <summary>
+        /// Metodo que permite extrae el Producto seleccionado del grid y colocar la informacion en los campos del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gCRegistroProducto_Click(object sender, EventArgs e)
         {
             mBtnEliminar.Enabled = true;
@@ -415,6 +475,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             txtCantidad.Text = gridView1.GetFocusedRowCellValue("Cantidad").ToString();
         }
 
+
+        /// <summary>
+        /// Metodo que modifica una mezcla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             if (ValidarCamposModificar() != true)
@@ -425,11 +491,22 @@ namespace SIME_UTN.UI.Bodega.Administracion
           
         }
 
+
+        /// <summary>
+        /// Metodo que desabilita un producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             DesabilitarProductosDeMezclas();
         }
 
+
+        /// <summary>
+        /// Metodo que valida los campos requeridos para poder modficar
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarCamposModificar()
         {
             bool error = false;
@@ -452,6 +529,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
             return error;
         }
 
+
+        /// <summary>
+        /// Metodo que valida los campos requeridos para poder agregar nuevas mezclas
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarCampos()
         {
             bool error = false;
@@ -486,6 +568,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
             return error;
         }
 
+
+        /// <summary>
+        /// Metodo que valida los campos requeridos para poder agregar productos a la mezcla
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarCamposAgregarProducto()
         {
             bool error = false;
@@ -506,6 +593,20 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 epError.Clear();
             }
             return error;
+        }
+
+
+        /// <summary>
+        /// Metodo que guarda una nueva mezcla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mBtnGuardar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            if (ValidarCampos() != true)
+            {
+                GuardarCambiosMezcla("Guardar");
+            }
         }
     }
 }

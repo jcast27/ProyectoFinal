@@ -11,6 +11,12 @@ namespace SIME_UTN.DAL
 {
     class MezclaProductoDAL
     {
+
+        /// <summary>
+        /// Metodo que guarda los productos de una mezcla
+        /// </summary>
+        /// <param name="unaMezclaProductoUnidadDTOp"></param>
+        /// <param name="usuarioLogueadop"></param>
         internal static void GuardarMezclaProducto(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTOp, string usuarioLogueadop)
         {
             string accion = "";
@@ -33,6 +39,12 @@ namespace SIME_UTN.DAL
 
         }
 
+
+        /// <summary>
+        /// Metodo que actualiza los productos de una mezcla
+        /// </summary>
+        /// <param name="unaMezclaProductoUnidadDTOp"></param>
+        /// <param name="usuarioLogueadop"></param>
         internal static void ActualizarMezclaProducto(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTOp, string usuarioLogueadop)
         {
             string accion = "";
@@ -52,6 +64,13 @@ namespace SIME_UTN.DAL
                 db.ExecuteNonQuery(comando);
             }
         }
+
+        /// <summary>
+        /// Metodo que verificar si existe una mezcla y su producto por los IDs
+        /// </summary>
+        /// <param name="idMezclap"></param>
+        /// <param name="idProductop"></param>
+        /// <returns></returns>
         internal static bool ObtenerMezclaProductoByID(int idMezclap,int idProductop)
         {
             bool existe = false;
@@ -77,6 +96,13 @@ namespace SIME_UTN.DAL
             }
             return existe;
         }
+
+        /// <summary>
+        /// Metodo que desabilita un producto de la mezcla por el ID de la mezcla y del producto
+        /// </summary>
+        /// <param name="unProductop"></param>
+        /// <param name="idMezclap"></param>
+        /// <param name="usuarioLogueadop"></param>
         internal static void EliminarProductoDeMezcla(Producto unProductop,int idMezclap,string usuarioLogueadop)
         {
             string accion = "";
@@ -94,6 +120,12 @@ namespace SIME_UTN.DAL
             }
         }
 
+
+        /// <summary>
+        /// Metodo que optiene una lista de productos por medio de ID de la mazcla
+        /// </summary>
+        /// <param name="idRegistroMezclap"></param>
+        /// <returns></returns>
         internal static List<ProductoDTO> ObtenerProductosPorIdMezcla(int idRegistroMezclap)
         {
             List<ProductoDTO> listaProductosDTO = new List<ProductoDTO>();
@@ -122,6 +154,14 @@ namespace SIME_UTN.DAL
             return listaProductosDTO;
         }
 
+
+        /// <summary>
+        /// Metodo que genera un log para toda transaccion
+        /// </summary>
+        /// <param name="unaMezclaProductoUnidadDTOp"></param>
+        /// <param name="usuarioLogueadop"></param>
+        /// <param name="accion"></param>
+        /// <param name="mezclaProductoEliminadap"></param>
         public static void GuardarLog(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTOp, string usuarioLogueadop, string accion, string mezclaProductoEliminadap)
         {
 
