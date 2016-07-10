@@ -98,7 +98,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         }
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            if (ValidarCampos() != true)
+            if (ValidarCamposAgregarProducto() != true)
             {
                 int index = 0;
                 bool existe = false;
@@ -417,7 +417,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            if (ValidarCampos() != true)
+            if (ValidarCamposModificar() != true)
             {
                 GuardarCambiosMezcla("Modificar");
             }
@@ -428,6 +428,28 @@ namespace SIME_UTN.UI.Bodega.Administracion
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             DesabilitarProductosDeMezclas();
+        }
+
+        public bool ValidarCamposModificar()
+        {
+            bool error = false;
+            if (txtNombre.Text.Trim() == "")
+            {
+                epError.SetError(txtNombre, "Campo Requerido");
+                txtNombre.Focus();
+                error = true;
+            }
+            if (txtDescripcion.Text.Trim() == "")
+            {
+                epError.SetError(txtDescripcion, "Campo Requerido");
+                txtDescripcion.Focus();
+                error = true;
+            }
+            if (error == false)
+            {
+                epError.Clear();
+            }
+            return error;
         }
 
         public bool ValidarCampos()
@@ -445,6 +467,28 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtDescripcion.Focus();
                 error = true;
             }
+            if (txtECodigoProducto.Text.Trim() == "")
+            {
+                epError.SetError(txtECodigoProducto, "Campo Requerido");
+                txtECodigoProducto.Focus();
+                error = true;
+            }
+            if (txtCantidad.Text.Trim() == "")
+            {
+                epError.SetError(txtCantidad, "Campo Requerido");
+                txtCantidad.Focus();
+                error = true;
+            }
+            if (error == false)
+            {
+                epError.Clear();
+            }
+            return error;
+        }
+
+        public bool ValidarCamposAgregarProducto()
+        {
+            bool error = false;
             if (txtECodigoProducto.Text.Trim() == "")
             {
                 epError.SetError(txtECodigoProducto, "Campo Requerido");
