@@ -62,6 +62,7 @@
     <Compile Include="BLL\ActivoBLL.cs" />
     <Compile Include="BLL\CategoriaItemBLL.cs" />
     <Compile Include="BLL\CategoriaBLL.cs" />
+    <Compile Include="BLL\DepartamentoBLL.cs" />
     <Compile Include="BLL\DetalleFormularioBLL.cs" />
     <Compile Include="BLL\FormularioBLL.cs" />
     <Compile Include="BLL\FuncionarioBLL.cs" />

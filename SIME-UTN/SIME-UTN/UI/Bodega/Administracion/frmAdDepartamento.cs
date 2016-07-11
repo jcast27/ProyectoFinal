@@ -14,10 +14,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
 {
     public partial class frmAdDepartamento : DevExpress.XtraEditors.XtraForm
     {
-        UnidadMedida unaUnidadMedida = null;
-        GestorUnidadMedida gestorUnidad = null;
+        Departamento unDepto = null;
+        GestorDepartamento gestorDepto = null;
         GestorUsuarioTable gestorUsuario = null;
-        UnidadMedida unidadEstatica = null;
+        Departamento deptoEstatico = null;
         static string usuarioLogueado = "";
         public frmAdDepartamento()
         {
@@ -25,12 +25,22 @@ namespace SIME_UTN.UI.Bodega.Administracion
             mBtnModificar.Visible = false;
         }
 
-       
+
 
         public void UsuarioLogueado()
         {
             gestorUsuario = GestorUsuarioTable.GetInstance();
             usuarioLogueado = gestorUsuario.ObtenerUsuarioLogeado();
+        }
+
+        public frmAdDepartamento(Departamento deptoEstaticop)
+        {
+            InitializeComponent();
+            mBtnGuardar.Visible = false;
+            deptoEstatico = new Departamento();
+            deptoEstatico = deptoEstaticop;
+            gCDepartamento();
+
         }
 
         private void mBtnSalir_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -59,12 +69,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        public void gCUnidadesMedida()
+        public void gCDepartamento()
         {
 
             try
             {
-              
+                txtNombre.Text = deptoEstatico.descripcion;
+                lblCodigoDepartamento.Text = deptoEstatico.idDepartamento.ToString();
 
             }
             catch (ApplicationException app)
@@ -77,12 +88,32 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        public void GuardarCambiosUnidad(string accionp)
+        public void GuardarCambiosDepartamento(string accionp)
         {
-  
+            gestorDepto = GestorDepartamento.GetInstance();
+            unDepto = new Departamento();
+
             try
             {
-               
+                unDepto.descripcion = txtNombre.Text;
+                unDepto.estado = 1;
+
+                if (accionp == "Modificar")
+                {
+                    string idDepto = lblCodigoDepartamento.Text;
+                    unDepto.idDepartamento = int.Parse(idDepto);
+                    gestorDepto.AgregarDepartamento(unDepto);
+                    gestorDepto.GuardarDepartamento(unDepto, usuarioLogueado);
+                    MessageBox.Show("El departamento " + unDepto.descripcion + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    gestorDepto.AgregarDepartamento(unDepto);
+                    gestorDepto.GuardarDepartamento(unDepto, usuarioLogueado);
+                    MessageBox.Show("El Departamento " + unDepto.descripcion + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                CambiarEstado(EstadoMantenimiento.Editar);
 
             }
             catch (Exception ex)
@@ -96,7 +127,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (ValidarCampos() == false)
             {
                 string accion = "Modificar";
-                GuardarCambiosUnidad(accion);
+                GuardarCambiosDepartamento(accion);
             }
         }
 
@@ -104,7 +135,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             if (ValidarCampos() == false)
             {
-                GuardarCambiosUnidad("");
+                GuardarCambiosDepartamento("");
             }
         }
 
@@ -120,6 +151,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             return error;
         }
 
-   
+
     }
 }

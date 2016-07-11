@@ -95,7 +95,7 @@
             this.lblSesion.Name = "lblSesion";
             this.lblSesion.Size = new System.Drawing.Size(64, 16);
             this.lblSesion.TabIndex = 4;
-            this.lblSesion.Text = "En Sesion";
+            this.lblSesion.Text = "En Sesión";
             // 
             // label2
             // 
@@ -156,7 +156,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmCambioUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cambio De Usuario";
+            this.Text = "Cambio de Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

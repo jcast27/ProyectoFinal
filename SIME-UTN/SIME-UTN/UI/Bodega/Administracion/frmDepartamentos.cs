@@ -15,11 +15,15 @@ namespace SIME_UTN.UI.Bodega.Administracion
     public partial class frmDepartamentos : Form
     {
         string usuarioLogueado = "";
+        UsuarioTable usuario = null;
         GestorUsuarioTable gestorUsuario = null;
-        GestorRegistroBodega gestorBodega = null;
-        static RegistroBodega bodegaEstatico = null;
-        TipoBodega unTipoBodega = null;
-       
+        //GestorRegistroBodega gestorBodega = null;
+        // static RegistroBodega bodegaEstatico = null;
+        // TipoBodega unTipoBodega = null;
+        GestorDepartamento gestorDepto = null;
+        Departamento deptoEstatico = null;
+        static string nombre = "";
+
         public frmDepartamentos()
         {
             InitializeComponent();
@@ -43,6 +47,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             frmAdDepartamento ofrAdDepartamento = new frmAdDepartamento();
             ofrAdDepartamento.ShowDialog(this);
+            frmDepartamentos_Load(null, null);
         }
 
 
@@ -53,7 +58,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-         
+            frmAdDepartamento ofrAdDepartamento = new frmAdDepartamento(deptoEstatico);
+            ofrAdDepartamento.ShowDialog(this);
+            frmDepartamentos_Load(null, null);
+
         }
 
 
@@ -68,7 +76,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             try
             {
-
+                mBtnModificar.Enabled = true;
+                mBtnEliminar.Enabled = true;
+                deptoEstatico.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString());
+                deptoEstatico.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
 
             }
             catch (ApplicationException app)
@@ -84,9 +95,18 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <summary>
         /// Metodo que desactiva un Departamento
         /// </summary>
-        public void DesactivarBodega()
+        public void DesactivarDepartamento()
         {
-           
+            string depto = gridView1.GetFocusedRowCellValue("descripcion").ToString(); ;
+            int deptoId = Int32.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString());
+
+            if (MessageBox.Show("¿Seguro que desea eliminar al departamento " + depto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                gestorDepto.EliminarDepartamento(deptoId, depto, usuarioLogueado);
+                MessageBox.Show("El Departamento " + depto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmDepartamentos_Load(null, null);
+
+            }
         }
 
 
@@ -100,7 +120,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (e.KeyCode == Keys.Delete)
             {
 
-                DesactivarBodega();
+                DesactivarDepartamento();
                 e.Handled = true;
             }
         }
@@ -112,7 +132,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// <param name="e"></param>
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            DesactivarBodega();
+            DesactivarDepartamento();
         }
 
 
@@ -120,7 +140,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             // TODO: This line of code loads data into the 'dataSetRDepartamento.sp_SELECT_Departamento_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetRDepartamento.sp_SELECT_Departamento_All);
-
+            UsuarioLogueado();
+            gestorDepto = GestorDepartamento.GetInstance();
+            deptoEstatico = new Departamento();
         }
     }
 }

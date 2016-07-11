@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdDepartamento));
             this.gbGridViewUnidadMedida = new System.Windows.Forms.GroupBox();
-            this.lblCodigoUnidad = new System.Windows.Forms.Label();
+            this.lblCodigoDepartamento = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.tipoBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -54,7 +54,7 @@
             this.gbGridViewUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gbGridViewUnidadMedida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.gbGridViewUnidadMedida.Controls.Add(this.lblCodigoUnidad);
+            this.gbGridViewUnidadMedida.Controls.Add(this.lblCodigoDepartamento);
             this.gbGridViewUnidadMedida.Controls.Add(this.txtNombre);
             this.gbGridViewUnidadMedida.Controls.Add(this.lblNombre);
             this.gbGridViewUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,19 +67,19 @@
             this.gbGridViewUnidadMedida.TabStop = false;
             this.gbGridViewUnidadMedida.Text = "Registro Departamentos";
             // 
-            // lblCodigoUnidad
+            // lblCodigoDepartamento
             // 
-            this.lblCodigoUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblCodigoDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCodigoUnidad.AutoSize = true;
-            this.lblCodigoUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoUnidad.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCodigoUnidad.Location = new System.Drawing.Point(14, 25);
-            this.lblCodigoUnidad.Name = "lblCodigoUnidad";
-            this.lblCodigoUnidad.Size = new System.Drawing.Size(0, 18);
-            this.lblCodigoUnidad.TabIndex = 29;
-            this.lblCodigoUnidad.Visible = false;
+            this.lblCodigoDepartamento.AutoSize = true;
+            this.lblCodigoDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoDepartamento.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCodigoDepartamento.Location = new System.Drawing.Point(14, 25);
+            this.lblCodigoDepartamento.Name = "lblCodigoDepartamento";
+            this.lblCodigoDepartamento.Size = new System.Drawing.Size(0, 18);
+            this.lblCodigoDepartamento.TabIndex = 29;
+            this.lblCodigoDepartamento.Visible = false;
             // 
             // txtNombre
             // 
@@ -226,7 +226,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbGridViewUnidadMedida;
-        private System.Windows.Forms.Label lblCodigoUnidad;
+        private System.Windows.Forms.Label lblCodigoDepartamento;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
