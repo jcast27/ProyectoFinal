@@ -1,6 +1,6 @@
-﻿namespace SIME_UTN.UI.Formulario
+﻿namespace SIME_UTN.UI.Bodega
 {
-    partial class frmMDIForm
+    partial class frmMDI
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDIForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
@@ -40,6 +40,7 @@
             this.tileNavPane2 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAdministracion = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnProcesos = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnInventarios = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnReportes = new DevExpress.XtraBars.Navigation.NavButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
@@ -79,6 +80,7 @@
             this.tileNavPane2.ButtonPadding = new System.Windows.Forms.Padding(12);
             this.tileNavPane2.Buttons.Add(this.mBtnAdministracion);
             this.tileNavPane2.Buttons.Add(this.mBtnProcesos);
+            this.tileNavPane2.Buttons.Add(this.mBtnInventarios);
             this.tileNavPane2.Buttons.Add(this.mBtnReportes);
             // 
             // tileNavCategory2
@@ -122,10 +124,24 @@
             this.mBtnProcesos.AppearanceHovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mBtnProcesos.AppearanceHovered.Options.UseFont = true;
             this.mBtnProcesos.AppearanceHovered.Options.UseForeColor = true;
-            this.mBtnProcesos.Caption = "Formularios";
+            this.mBtnProcesos.Caption = "Procesos";
             this.mBtnProcesos.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnProcesos.Glyph")));
             this.mBtnProcesos.Name = "mBtnProcesos";
             this.mBtnProcesos.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnProcesos_ElementClick);
+            // 
+            // mBtnInventarios
+            // 
+            this.mBtnInventarios.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnInventarios.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mBtnInventarios.Appearance.Options.UseFont = true;
+            this.mBtnInventarios.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mBtnInventarios.AppearanceHovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.mBtnInventarios.AppearanceHovered.Options.UseFont = true;
+            this.mBtnInventarios.AppearanceHovered.Options.UseForeColor = true;
+            this.mBtnInventarios.Caption = "Inventarios";
+            this.mBtnInventarios.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnInventarios.Glyph")));
+            this.mBtnInventarios.Name = "mBtnInventarios";
+            this.mBtnInventarios.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnInventarios_ElementClick);
             // 
             // mBtnReportes
             // 
@@ -272,7 +288,7 @@
             this.cambiarSessionToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.cambiarSessionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambiarSessionToolStripMenuItem.Name = "cambiarSessionToolStripMenuItem";
-            this.cambiarSessionToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.cambiarSessionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.cambiarSessionToolStripMenuItem.Text = "Cambiar Usuario";
             this.cambiarSessionToolStripMenuItem.Click += new System.EventHandler(this.cambiarSessionToolStripMenuItem_Click);
             // 
@@ -281,19 +297,19 @@
             this.cambiarContrasennaToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.cambiarContrasennaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambiarContrasennaToolStripMenuItem.Name = "cambiarContrasennaToolStripMenuItem";
-            this.cambiarContrasennaToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.cambiarContrasennaToolStripMenuItem.Text = "Cambiar Contrasenna";
+            this.cambiarContrasennaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.cambiarContrasennaToolStripMenuItem.Text = "Cambiar Contraseña";
             this.cambiarContrasennaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContrasennaToolStripMenuItem_Click);
             // 
             // cambiarModuloToolStripMenuItem
             // 
             this.cambiarModuloToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.cambiarModuloToolStripMenuItem.Name = "cambiarModuloToolStripMenuItem";
-            this.cambiarModuloToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.cambiarModuloToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.cambiarModuloToolStripMenuItem.Text = "Cambiar Módulo";
             this.cambiarModuloToolStripMenuItem.Click += new System.EventHandler(this.cambiarModuloToolStripMenuItem_Click);
             // 
-            // frmMDIForm
+            // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -306,10 +322,10 @@
             this.Controls.Add(this.splitter1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmMDIForm";
-            this.Text = "Formulario";
+            this.Name = "frmMDI";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
+            this.Load += new System.EventHandler(this.frmMDI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).EndInit();
@@ -324,7 +340,7 @@
 
         }
 
-
+      
 
         #endregion
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
@@ -332,6 +348,7 @@
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane2;
         private DevExpress.XtraBars.Navigation.NavButton mBtnAdministracion;
         private DevExpress.XtraBars.Navigation.NavButton mBtnProcesos;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnInventarios;
         private DevExpress.XtraBars.Navigation.NavButton mBtnReportes;
         private System.Windows.Forms.Splitter splitter1;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;

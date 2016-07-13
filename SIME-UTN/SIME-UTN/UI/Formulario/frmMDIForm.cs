@@ -21,13 +21,12 @@ namespace SIME_UTN.UI.Formulario
         static string tipoDeProceso = "";
         static string usuarioLogueado = "";
         GestorUsuarioTable gestor = null;
+        public bool modulo = false;
+        public string name = "Formulario";
+
         public frmMDIForm()
         {
-            Thread tardar = new Thread(new ThreadStart(this.SplashScreen));
-            tardar.Start();
-            Thread.Sleep(2000); // Tardanza para iniciar aplicacion (6000)
             InitializeComponent();
-            tardar.Abort();
             // Handling the QueryControl event that will populate all automatically generated Documents
             // CrearDocuemtnos();
             this.UsuarioLogueado();
@@ -46,10 +45,7 @@ namespace SIME_UTN.UI.Formulario
             usuarioTSMI.Text = "Usuario: " + usuarioLogueado;
         }
 
-        public void SplashScreen()
-        {
-            Application.Run(new frmSplashScreen());
-        }
+        
 
         // Assigning a required content for each auto generated Document
         void windowsUIView1_QueryControl(object sender, QueryControlEventArgs e)
@@ -59,17 +55,14 @@ namespace SIME_UTN.UI.Formulario
                 e.Control = new Administracion.frmItem();
             else if (e.Document.Caption == "Ventana Categorías")
                 e.Control = new Administracion.frmCategoria();
+            else if (e.Document.Caption == "Ventana Ubicaciones")
+                e.Control = new Bodega.Administracion.frmUbicaciones();
+            else if (e.Document.Caption == "Ventana Departamentos")
+                e.Control = new Bodega.Administracion.frmDepartamentos();
             else {
-                e.Control = new frmFormulario(e.Document.Caption);
+                //e.Control = new frmFormulario(e.Document.Caption);
                 frmFormulario fform = new frmFormulario(e.Document.Caption);
                 fform.ShowDialog();
-                /*                
-                                e.Control = new Control();
-                                BackButtonClickEventArgs b = new BackButtonClickEventArgs();
-                                object sender2 = new object();
-                                windowsUIView1_BackButtonClick(sender2, b);
-                this.CrearDocumentosFormulario(true);
-                windowsUIView1_BackButtonClick(null, null);*/
                 e.Control = new Control();
             }
         }
@@ -139,7 +132,7 @@ namespace SIME_UTN.UI.Formulario
         //Se crea un tile que contendra el frame
         public Tile crearTile(Document document, String nombreElemento, String grupo, Image imagen, Boolean estado)
         {
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile tile1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
+            Tile tile1 = new Tile();
             tile1.Group = grupo;
             tile1.Document = document;
             tile1.Frames.Add(this.crearFrame(nombreElemento, imagen));
@@ -158,10 +151,12 @@ namespace SIME_UTN.UI.Formulario
             this.windowsUIView1.Documents.Clear();
             //Creating documents
             Document doc1 = new Document { Caption = "Ventana Items" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Categorías" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1, doc2 });
+            Document doc2 = new Document { Caption = "Ventana Categorías" };
+            Document doc3 = new Document { Caption = "Ventana Ubicaciones" };
+            Document doc4 = new Document { Caption = "Ventana Departamentos" };
+            this.windowsUIView1.Documents.AddRange(new Document[] { doc1, doc2, doc3, doc4 });
             //Creating and populating content container
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
+            TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 200;
 
             //Propiedades para el documento Items
@@ -175,6 +170,16 @@ namespace SIME_UTN.UI.Formulario
             imagen = Properties.Resources.productos;
             nombreElemento = "Categorías";
             tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
+
+            grupo = "Group 3";
+            imagen = Properties.Resources.inven;
+            nombreElemento = "Ubicaciones";
+            tileContainer2.Items.Add(this.crearTile(doc3, nombreElemento, grupo, imagen, estado));
+
+            grupo = "Group 4";
+            imagen = Properties.Resources.inven;
+            nombreElemento = "Departamentos";
+            tileContainer2.Items.Add(this.crearTile(doc4, nombreElemento, grupo, imagen, estado));
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);
@@ -265,6 +270,13 @@ namespace SIME_UTN.UI.Formulario
         {
             frmCambioContrasenna ofrmCambioContrasenna = new frmCambioContrasenna(usuarioLogueado);
             ofrmCambioContrasenna.ShowDialog(this);
+        }
+
+        private void cambiarModuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            modulo = true;
+            FormClosing -= frmMDI_FormClosing;
+            Close();
         }
     }
 }

@@ -118,5 +118,33 @@ namespace SIME_UTN.UI
         {
             this.Close();
         }
+
+        private void frmInicio_KeyDown(object sender, KeyEventArgs e)
+        {
+            validateKey(e);
+        }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            validateKey(e);
+        }
+
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            validateKey(e);
+        }
+
+        private void cmbModulo_KeyDown(object sender, KeyEventArgs e)
+        {
+            validateKey(e);
+        }
+
+        private void validateKey(KeyEventArgs e) {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAceptar.PerformClick();
+            }
+        }
     }
 }

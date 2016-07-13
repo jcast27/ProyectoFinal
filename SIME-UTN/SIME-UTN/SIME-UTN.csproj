@@ -408,6 +408,12 @@
     <Compile Include="Gestores\GestorCategoriaItem.cs" />
     <Compile Include="Gestores\GestorCategoria.cs" />
     <Compile Include="Gestores\GestorItem.cs" />
+    <Compile Include="UI\Formulario\Administracion\frmADCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmADCategoria.Designer.cs">
+      <DependentUpon>frmADCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formulario\Administracion\frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,10 +465,10 @@
     <Compile Include="Gestores\GestorUsuarioTable.cs" />
     <Compile Include="Persistencia\DataBase.cs" />
     <Compile Include="Persistencia\DataBaseFactory.cs" />
-    <Compile Include="UI\Bodega\frmMDI.cs">
+    <Compile Include="UI\Bodega\Procesos\frmMDI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Bodega\frmMDI.Designer.cs">
+    <Compile Include="UI\Bodega\Procesos\frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmInicio.cs">
@@ -587,7 +593,7 @@
     <EmbeddedResource Include="UI\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Bodega\frmMDI.resx">
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />

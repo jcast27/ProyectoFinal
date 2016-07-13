@@ -82,6 +82,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(191, 26);
             this.txtUsuario.TabIndex = 41;
             this.txtUsuario.Text = "sa";
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // txtContrasena
             // 
@@ -94,6 +95,7 @@
             this.txtContrasena.Size = new System.Drawing.Size(191, 26);
             this.txtContrasena.TabIndex = 42;
             this.txtContrasena.Text = "sa1";
+            this.txtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContrasena_KeyDown);
             // 
             // cmbModulo
             // 
@@ -108,6 +110,7 @@
             this.cmbModulo.Name = "cmbModulo";
             this.cmbModulo.Size = new System.Drawing.Size(191, 28);
             this.cmbModulo.TabIndex = 43;
+            this.cmbModulo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbModulo_KeyDown);
             // 
             // lblUsuario
             // 
@@ -217,6 +220,7 @@
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmInicio_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
