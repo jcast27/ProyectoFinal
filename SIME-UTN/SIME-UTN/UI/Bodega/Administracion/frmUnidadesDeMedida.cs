@@ -35,6 +35,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmUnidad_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All);
             // TODO: This line of code loads data into the 'dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.

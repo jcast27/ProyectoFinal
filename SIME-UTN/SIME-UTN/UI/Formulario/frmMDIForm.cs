@@ -278,5 +278,10 @@ namespace SIME_UTN.UI.Formulario
             FormClosing -= frmMDI_FormClosing;
             Close();
         }
+
+        private void frmMDIForm_Load(object sender, EventArgs e)
+        {
+            Icon = Properties.Resources.Icono;
+        }
     }
 }

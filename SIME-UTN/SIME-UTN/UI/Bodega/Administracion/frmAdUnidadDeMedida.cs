@@ -48,6 +48,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdUnidadMedida_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             UsuarioLogueado();
         }
 

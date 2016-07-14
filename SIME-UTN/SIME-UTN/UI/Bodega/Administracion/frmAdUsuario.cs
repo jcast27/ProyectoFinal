@@ -194,7 +194,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdUsuario_Load(object sender, EventArgs e)
         {
-
+            Icon = Properties.Resources.Icono;
             UsuarioLogueado();
         }
 

@@ -384,7 +384,7 @@ namespace SIME_UTN.UI.Bodega
 
         private void frmMDI_Load(object sender, EventArgs e)
         {
-
+            Icon = Properties.Resources.Icono;
         }
 
         private void cambiarModuloToolStripMenuItem_Click(object sender, EventArgs e)

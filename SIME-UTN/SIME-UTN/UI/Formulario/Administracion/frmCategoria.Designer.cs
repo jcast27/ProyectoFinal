@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoria));
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.gCCategorias = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,68 +39,43 @@
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.cmbItems = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblItem = new System.Windows.Forms.Label();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
-            this.clbItems = new System.Windows.Forms.CheckedListBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
             this.gbGridViewCategoria = new System.Windows.Forms.GroupBox();
+            this.dataSetCategorias1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
+            this.categoriaTableAdapter1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
+            this.dataSetCategoria = new SIME_UTN.DataSets.Formulario.DataSetCategoria();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
-            this.gbInformacionPersonal.SuspendLayout();
             this.gbGridViewCategoria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcion.Enabled = false;
-            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(112, 85);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(140, 22);
-            this.txtDescripcion.TabIndex = 3;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNombre.Location = new System.Drawing.Point(15, 85);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(66, 18);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre:";
             // 
             // gCCategorias
             // 
             this.gCCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gCCategorias.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCCategorias.BackgroundImage")));
-            this.gCCategorias.Location = new System.Drawing.Point(60, 106);
+            this.gCCategorias.DataSource = this.categoriaBindingSource;
+            this.gCCategorias.Location = new System.Drawing.Point(12, 30);
             this.gCCategorias.MainView = this.gridView1;
-            this.gCCategorias.MaximumSize = new System.Drawing.Size(787, 232);
             this.gCCategorias.Name = "gCCategorias";
             this.gCCategorias.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1,
             this.repositoryItemComboBox1,
             this.cmbItems});
-            this.gCCategorias.Size = new System.Drawing.Size(570, 232);
+            this.gCCategorias.Size = new System.Drawing.Size(966, 461);
             this.gCCategorias.TabIndex = 19;
             this.gCCategorias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -176,27 +149,12 @@
             // 
             this.ePError.ContainerControl = this;
             // 
-            // lblItem
-            // 
-            this.lblItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblItem.AutoSize = true;
-            this.lblItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblItem.Location = new System.Drawing.Point(15, 121);
-            this.lblItem.Name = "lblItem";
-            this.lblItem.Size = new System.Drawing.Size(48, 18);
-            this.lblItem.TabIndex = 22;
-            this.lblItem.Text = "Items:";
-            // 
             // tileNavPane1
             // 
             this.tileNavPane1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
@@ -218,18 +176,6 @@
             this.tileNavPane1.Size = new System.Drawing.Size(1162, 45);
             this.tileNavPane1.TabIndex = 29;
             this.tileNavPane1.Text = "Nuevo";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
-            this.mBtnNuevo.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnNuevo_ElementClick);
             // 
             // mBtnAgregar
             // 
@@ -288,72 +234,40 @@
             this.panel2.Size = new System.Drawing.Size(147, 527);
             this.panel2.TabIndex = 31;
             // 
-            // gbInformacionPersonal
-            // 
-            this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbInformacionPersonal.Controls.Add(this.clbItems);
-            this.gbInformacionPersonal.Controls.Add(this.txtId);
-            this.gbInformacionPersonal.Controls.Add(this.lblId);
-            this.gbInformacionPersonal.Controls.Add(this.lblItem);
-            this.gbInformacionPersonal.Controls.Add(this.txtDescripcion);
-            this.gbInformacionPersonal.Controls.Add(this.lblNombre);
-            this.gbInformacionPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInformacionPersonal.Location = new System.Drawing.Point(167, 64);
-            this.gbInformacionPersonal.Name = "gbInformacionPersonal";
-            this.gbInformacionPersonal.Size = new System.Drawing.Size(281, 456);
-            this.gbInformacionPersonal.TabIndex = 32;
-            this.gbInformacionPersonal.TabStop = false;
-            this.gbInformacionPersonal.Text = "Información de Categorías";
-            // 
-            // clbItems
-            // 
-            this.clbItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.clbItems.CheckOnClick = true;
-            this.clbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.clbItems.FormattingEnabled = true;
-            this.clbItems.Location = new System.Drawing.Point(18, 154);
-            this.clbItems.Name = "clbItems";
-            this.clbItems.Size = new System.Drawing.Size(234, 259);
-            this.clbItems.TabIndex = 28;
-            this.clbItems.SelectedIndexChanged += new System.EventHandler(this.clbItems_SelectedIndexChanged);
-            // 
-            // txtId
-            // 
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtId.Location = new System.Drawing.Point(110, 44);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 22);
-            this.txtId.TabIndex = 27;
-            // 
-            // lblId
-            // 
-            this.lblId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblId.Location = new System.Drawing.Point(15, 47);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(23, 18);
-            this.lblId.TabIndex = 26;
-            this.lblId.Text = "Id:";
-            // 
             // gbGridViewCategoria
             // 
             this.gbGridViewCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbGridViewCategoria.Controls.Add(this.gCCategorias);
             this.gbGridViewCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGridViewCategoria.Location = new System.Drawing.Point(454, 64);
+            this.gbGridViewCategoria.Location = new System.Drawing.Point(169, 51);
             this.gbGridViewCategoria.Name = "gbGridViewCategoria";
-            this.gbGridViewCategoria.Size = new System.Drawing.Size(699, 456);
+            this.gbGridViewCategoria.Size = new System.Drawing.Size(984, 497);
             this.gbGridViewCategoria.TabIndex = 33;
             this.gbGridViewCategoria.TabStop = false;
             this.gbGridViewCategoria.Text = "Seleccionar Categoría";
+            // 
+            // dataSetCategorias1
+            // 
+            this.dataSetCategorias1.DataSetName = "DataSetCategorias";
+            this.dataSetCategorias1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriaTableAdapter1
+            // 
+            this.categoriaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dataSetCategoria
+            // 
+            this.dataSetCategoria.DataSetName = "DataSetCategoria";
+            this.dataSetCategoria.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.dataSetCategoria;
+            // 
+            // categoriaTableAdapter
+            // 
+            this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
             // frmCategoria
             // 
@@ -364,7 +278,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tileNavPane1);
-            this.Controls.Add(this.gbInformacionPersonal);
             this.Controls.Add(this.gbGridViewCategoria);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCategoria";
@@ -377,37 +290,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
-            this.gbInformacionPersonal.ResumeLayout(false);
-            this.gbInformacionPersonal.PerformLayout();
             this.gbGridViewCategoria.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label lblNombre;
         private DevExpress.XtraGrid.GridControl gCCategorias;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit UsuarioItemLookUpEdit1;
         private System.Windows.Forms.ErrorProvider ePError;
-        private System.Windows.Forms.Label lblItem;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnAgregar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox gbInformacionPersonal;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private System.Windows.Forms.GroupBox gbGridViewCategoria;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.CheckedListBox clbItems;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit cmbItems;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
-        private System.Windows.Forms.TextBox txtId;
+        private DataSets.Bodega.Admistracion.DataSetCategorias dataSetCategorias1;
+        private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter1;
+        private DataSets.Formulario.DataSetCategoria dataSetCategoria;
+        private System.Windows.Forms.BindingSource categoriaBindingSource;
+        private DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
     }
 }

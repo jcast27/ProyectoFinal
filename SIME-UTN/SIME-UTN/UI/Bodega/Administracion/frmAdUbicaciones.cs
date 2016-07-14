@@ -53,6 +53,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdUbicaciones_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetUDepartamento.sp_SELECT_Departamento_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetUDepartamento.sp_SELECT_Departamento_All);
             UsuarioLogueado();

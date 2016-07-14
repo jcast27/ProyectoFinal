@@ -52,6 +52,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdFuncionario_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: esta línea de código carga datos en la tabla 'dataSetDepartamento.Departamento' Puede moverla o quitarla según sea necesario.
             this.departamentoTableAdapter.Fill(this.dataSetDepartamento.Departamento);
 

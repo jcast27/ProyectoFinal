@@ -61,6 +61,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmBodegas_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetTipoBodega.sp_SELECT_TipoBodega_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_TipoBodega_AllTableAdapter.Fill(this.dataSetTipoBodega.sp_SELECT_TipoBodega_All);
             // TODO: This line of code loads data into the 'dataSetRegistroBodega.sp_SELECT_RegistroBodega_All' table. You can move, or remove it, as needed.

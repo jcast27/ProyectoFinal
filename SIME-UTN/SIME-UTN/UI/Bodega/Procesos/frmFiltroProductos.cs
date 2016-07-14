@@ -83,5 +83,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void frmFiltroProductos_Load(object sender, EventArgs e)
+        {
+            Icon = Properties.Resources.Icono;
+        }
     }
 }

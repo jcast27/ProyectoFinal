@@ -26,6 +26,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
         private void frmItem_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             try
             {

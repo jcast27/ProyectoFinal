@@ -94,6 +94,9 @@ namespace SIME_UTN.UI
                
         }
 
-
+        private void frmCambioUsuario_Load(object sender, EventArgs e)
+        {
+            Icon = Properties.Resources.Icono;
+        }
     }
 }

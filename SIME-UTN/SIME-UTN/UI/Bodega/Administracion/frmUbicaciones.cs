@@ -152,6 +152,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmUbicaciones_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetDepartamento.sp_SELECT_Departamento_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetDepartamento.sp_SELECT_Departamento_All);
             // TODO: This line of code loads data into the 'dataSetRegistrarUbicacion.sp_SELECT_Ubicacion_All' table. You can move, or remove it, as needed.

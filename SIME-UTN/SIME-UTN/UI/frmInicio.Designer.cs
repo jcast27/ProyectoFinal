@@ -220,6 +220,7 @@
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
+            this.Load += new System.EventHandler(this.frmInicio_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmInicio_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

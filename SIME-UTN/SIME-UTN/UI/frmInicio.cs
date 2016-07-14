@@ -146,5 +146,10 @@ namespace SIME_UTN.UI
                 btnAceptar.PerformClick();
             }
         }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            Icon = Properties.Resources.Icono;
+        }
     }
 }

@@ -32,14 +32,9 @@ namespace SIME_UTN.UI
                 this.timer.Stop();
         }
 
-        private void frmSplashScreen_Load(object sender, EventArgs e)
+        private void frmSplashScreen_Load_2(object sender, EventArgs e)
         {
-
-        }
-
-        private void frmSplashScreen_Load_1(object sender, EventArgs e)
-        {
-
+            Icon = Properties.Resources.Icono;
         }
     }
 }

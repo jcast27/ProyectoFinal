@@ -40,7 +40,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
           
         }
 
-     
-
+        private void frmTrasladosDeProductos_Load(object sender, EventArgs e)
+        {
+            Icon = Properties.Resources.Icono;
+        }
     }
 }

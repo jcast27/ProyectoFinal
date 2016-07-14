@@ -50,7 +50,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             frmDepartamentos_Load(null, null);
         }
 
-
         /// <summary>
         /// Metodo que llama al formulario AdDepartamento para modificar una Departamento
         /// </summary>
@@ -61,11 +60,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             frmAdDepartamento ofrAdDepartamento = new frmAdDepartamento(deptoEstatico);
             ofrAdDepartamento.ShowDialog(this);
             frmDepartamentos_Load(null, null);
-
         }
-
-
-
 
         /// <summary>
         /// Metodo que permite extrae un Departamento seleccionado del grid y colocar la informacion en los campos del formulario
@@ -80,7 +75,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 mBtnEliminar.Enabled = true;
                 deptoEstatico.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString());
                 deptoEstatico.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
-
             }
             catch (ApplicationException app)
             {
@@ -105,7 +99,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 gestorDepto.EliminarDepartamento(deptoId, depto, usuarioLogueado);
                 MessageBox.Show("El Departamento " + depto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmDepartamentos_Load(null, null);
-
             }
         }
 
@@ -119,7 +112,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             if (e.KeyCode == Keys.Delete)
             {
-
                 DesactivarDepartamento();
                 e.Handled = true;
             }
@@ -138,6 +130,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmDepartamentos_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetRDepartamento.sp_SELECT_Departamento_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetRDepartamento.sp_SELECT_Departamento_All);
             UsuarioLogueado();

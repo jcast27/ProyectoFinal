@@ -119,6 +119,9 @@ namespace SIME_UTN.UI
             }
         }
 
-  
+        private void frmCambioContrasenna_Load(object sender, EventArgs e)
+        {
+            Icon = Properties.Resources.Icono;
+        }
     }
 }

@@ -102,7 +102,6 @@
             this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
-      
             // 
             // mBtnEliminar
             // 
@@ -195,7 +194,7 @@
             this.Name = "frmRegistroProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Registro de Productos";
-    
+            this.Load += new System.EventHandler(this.frmRegistroProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).EndInit();

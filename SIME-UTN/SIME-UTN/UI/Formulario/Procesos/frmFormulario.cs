@@ -33,6 +33,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void frmFormulario_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: esta línea de código carga datos en la tabla 'dataSetFuncionario.Funcionario' Puede moverla o quitarla según sea necesario.
             this.funcionarioTableAdapter.Fill(this.dataSetFuncionario.Funcionario);
             // TODO: esta línea de código carga datos en la tabla 'dataSetActivo.Activo' Puede moverla o quitarla según sea necesario.

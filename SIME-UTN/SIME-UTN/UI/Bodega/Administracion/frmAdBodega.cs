@@ -20,6 +20,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         static RegistroBodega bodegaEstatico = null;
         RegistroBodega unaBodega = null;
         TipoBodega unTipoBodega = null;
+
         public frmAdBodega()
         {
             InitializeComponent();
@@ -50,6 +51,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdBodega_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetTipoBodegaCMB.sp_SELECT_TipoBodega_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_TipoBodega_AllTableAdapter.Fill(this.dataSetTipoBodegaCMB.sp_SELECT_TipoBodega_All);
             UsuarioLogueado();

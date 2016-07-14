@@ -102,7 +102,6 @@
             this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
-   
             // 
             // mBtnEliminar
             // 
@@ -195,7 +194,7 @@
             this.Name = "frmTrasladosDeProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Traslado de Productos";
-  
+            this.Load += new System.EventHandler(this.frmTrasladosDeProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewTrasladoProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCTraslados)).EndInit();

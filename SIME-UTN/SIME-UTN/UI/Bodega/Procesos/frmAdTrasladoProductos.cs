@@ -129,6 +129,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void frmAdTrasladoProductos_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetTipoTraslado.TipoTraslado' table. You can move, or remove it, as needed.
             this.tipoTrasladoTableAdapter.Fill(this.dataSetTipoTraslado.TipoTraslado);
             // TODO: This line of code loads data into the 'dataSetTipoTraslado.TipoTraslado' table. You can move, or remove it, as needed.

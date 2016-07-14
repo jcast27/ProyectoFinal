@@ -150,9 +150,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdRegistroProducto_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetUnidadMedida.UnidadMedidaProducto' table. You can move, or remove it, as needed.
             UsuarioLogueado();
-           
         }
 
 
