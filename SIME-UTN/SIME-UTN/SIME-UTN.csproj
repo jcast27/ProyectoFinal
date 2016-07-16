@@ -75,7 +75,9 @@
     <Compile Include="BLL\MezclaProductoBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\RegistroBodegaBLL.cs" />
+    <Compile Include="BLL\RegistroIngresoProductoBLL.cs" />
     <Compile Include="BLL\RegistroMezclaBLL.cs" />
+    <Compile Include="BLL\RegistroProductoBLL.cs" />
     <Compile Include="BLL\UbicacionBLL.cs" />
     <Compile Include="BLL\UnidadMedidaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
@@ -91,7 +93,9 @@
     <Compile Include="DAL\MezclaProductoDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\RegistroBodegaDAL.cs" />
+    <Compile Include="DAL\RegistroIngresoProductoDAL.cs" />
     <Compile Include="DAL\RegistroMezclaDAL.cs" />
+    <Compile Include="DAL\RegistroProductoDAL.cs" />
     <Compile Include="DAL\UbicacionDAL.cs" />
     <Compile Include="DAL\UnidadMedidaDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
@@ -104,6 +108,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetRegistroProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -248,6 +257,7 @@
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoDTO.cs" />
     <Compile Include="DTOs\RegistroBodegaTipoBodegaDTO.cs" />
+    <Compile Include="DTOs\RegistroIngresoProductoDTO.cs" />
     <Compile Include="Entities\Activo.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
@@ -262,6 +272,8 @@
     <Compile Include="Entities\MezclaProducto.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\RegistroBodega.cs" />
+    <Compile Include="Entities\RegistroIngresoProducto.cs" />
+    <Compile Include="Entities\RegistroProducto.cs" />
     <Compile Include="Entities\TipoBodega.cs" />
     <Compile Include="Entities\Ubicacion.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
@@ -278,6 +290,8 @@
     <Compile Include="Gestores\GestorMezcla.cs" />
     <Compile Include="Gestores\GestorMezclaProducto.cs" />
     <Compile Include="Gestores\GestorRegistroBodega.cs" />
+    <Compile Include="Gestores\GestorRegistroIngresoProducto.cs" />
+    <Compile Include="Gestores\GestorRegistroProducto.cs" />
     <Compile Include="Gestores\GestorUbicacion.cs" />
     <Compile Include="Gestores\GestorUnidadMedida.cs" />
     <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">
@@ -657,6 +671,17 @@
     </None>
     <None Include="DataSetFuncionario.xss">
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetRegistroProducto.xsc">
+      <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetRegistroProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRegistroProducto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetRegistroProducto.xss">
+      <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.xsc">
       <DependentUpon>DataSetBodegaDespacho.xsd</DependentUpon>

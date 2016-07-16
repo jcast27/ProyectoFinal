@@ -115,7 +115,7 @@ namespace SIME_UTN.DAL
             else
             {
                 estado = "Activo";
-                descripcion = "Mombre Mezcla: " + unaMezclap.nombre + "\r\nDescripcion: " + unaMezclap.descripcion + "\r\nEstado: " + estado;
+                descripcion = "Nombre Mezcla: " + unaMezclap.nombre + "\r\nDescripción: " + unaMezclap.descripcion + "\r\nEstado: " + estado;
 
             }
             DateTime date = DateTime.Now;

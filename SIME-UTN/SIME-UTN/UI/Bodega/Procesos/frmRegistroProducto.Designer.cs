@@ -40,11 +40,30 @@
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
             this.gCBodegas = new DevExpress.XtraGrid.GridControl();
+            this.registroProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetRegistroProducto = new SIME_UTN.DataSetRegistroProducto();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colIDIngresoProducto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIDUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpUsuario = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUsuario = new SIME_UTN.DataSets.DataSetUsuario();
+            this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSolicitudAvatar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFechaIngreso = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFechaCaducidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.registroProductoTableAdapter = new SIME_UTN.DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter();
+            this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroProductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRegistroProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // ePError
@@ -102,6 +121,7 @@
             this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnEliminar
             // 
@@ -113,6 +133,7 @@
             this.mBtnEliminar.Caption = "Eliminar";
             this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
             this.mBtnEliminar.Name = "mBtnEliminar";
+            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
             // 
             // panel1
             // 
@@ -160,16 +181,38 @@
             this.gCBodegas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCBodegas.DataSource = this.registroProductoBindingSource;
             this.gCBodegas.Location = new System.Drawing.Point(3, 55);
             this.gCBodegas.MainView = this.gridView1;
             this.gCBodegas.Name = "gCBodegas";
+            this.gCBodegas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.LookUpUsuario});
             this.gCBodegas.Size = new System.Drawing.Size(1030, 464);
             this.gCBodegas.TabIndex = 0;
             this.gCBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gCBodegas.Click += new System.EventHandler(this.gCBodegas_Click);
+            // 
+            // registroProductoBindingSource
+            // 
+            this.registroProductoBindingSource.DataMember = "RegistroProducto";
+            this.registroProductoBindingSource.DataSource = this.dataSetRegistroProducto;
+            // 
+            // dataSetRegistroProducto
+            // 
+            this.dataSetRegistroProducto.DataSetName = "DataSetRegistroProducto";
+            this.dataSetRegistroProducto.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colIDIngresoProducto,
+            this.colIDUsuario,
+            this.colDescripcion,
+            this.colSolicitudAvatar,
+            this.colFechaIngreso,
+            this.colFechaCaducidad,
+            this.colEstado});
             this.gridView1.GridControl = this.gCBodegas;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -179,6 +222,79 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            // 
+            // colIDIngresoProducto
+            // 
+            this.colIDIngresoProducto.FieldName = "IDIngresoProducto";
+            this.colIDIngresoProducto.Name = "colIDIngresoProducto";
+            // 
+            // colIDUsuario
+            // 
+            this.colIDUsuario.ColumnEdit = this.LookUpUsuario;
+            this.colIDUsuario.FieldName = "IDUsuario";
+            this.colIDUsuario.Name = "colIDUsuario";
+            // 
+            // LookUpUsuario
+            // 
+            this.LookUpUsuario.AutoHeight = false;
+            this.LookUpUsuario.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpUsuario.DataSource = this.usuarioBindingSource;
+            this.LookUpUsuario.DisplayMember = "Nombre";
+            this.LookUpUsuario.Name = "LookUpUsuario";
+            this.LookUpUsuario.ValueMember = "CodigoUsuario";
+            // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataMember = "Usuario";
+            this.usuarioBindingSource.DataSource = this.dataSetUsuario;
+            // 
+            // dataSetUsuario
+            // 
+            this.dataSetUsuario.DataSetName = "DataSetUsuario";
+            this.dataSetUsuario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.FieldName = "Descripcion";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.Visible = true;
+            this.colDescripcion.VisibleIndex = 0;
+            // 
+            // colSolicitudAvatar
+            // 
+            this.colSolicitudAvatar.FieldName = "SolicitudAvatar";
+            this.colSolicitudAvatar.Name = "colSolicitudAvatar";
+            this.colSolicitudAvatar.Visible = true;
+            this.colSolicitudAvatar.VisibleIndex = 1;
+            // 
+            // colFechaIngreso
+            // 
+            this.colFechaIngreso.FieldName = "FechaIngreso";
+            this.colFechaIngreso.Name = "colFechaIngreso";
+            this.colFechaIngreso.Visible = true;
+            this.colFechaIngreso.VisibleIndex = 2;
+            // 
+            // colFechaCaducidad
+            // 
+            this.colFechaCaducidad.FieldName = "FechaCaducidad";
+            this.colFechaCaducidad.Name = "colFechaCaducidad";
+            this.colFechaCaducidad.Visible = true;
+            this.colFechaCaducidad.VisibleIndex = 3;
+            // 
+            // colEstado
+            // 
+            this.colEstado.FieldName = "Estado";
+            this.colEstado.Name = "colEstado";
+            // 
+            // registroProductoTableAdapter
+            // 
+            this.registroProductoTableAdapter.ClearBeforeFill = true;
+            // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
             // frmRegistroProducto
             // 
@@ -198,7 +314,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroProductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRegistroProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -216,5 +337,19 @@
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
         private DevExpress.XtraGrid.GridControl gCBodegas;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DataSetRegistroProducto dataSetRegistroProducto;
+        private System.Windows.Forms.BindingSource registroProductoBindingSource;
+        private DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter registroProductoTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colIDIngresoProducto;
+        private DevExpress.XtraGrid.Columns.GridColumn colIDUsuario;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn colSolicitudAvatar;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaIngreso;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaCaducidad;
+        private DevExpress.XtraGrid.Columns.GridColumn colEstado;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUsuario;
+        private DataSets.DataSetUsuario dataSetUsuario;
+        private System.Windows.Forms.BindingSource usuarioBindingSource;
+        private DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
     }
 }

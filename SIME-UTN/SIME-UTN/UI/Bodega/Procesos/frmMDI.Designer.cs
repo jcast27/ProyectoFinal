@@ -266,9 +266,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioTSMI});
-            this.menuStrip1.Location = new System.Drawing.Point(734, 9);
+            this.menuStrip1.Location = new System.Drawing.Point(826, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(144, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(52, 40);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -323,6 +323,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMDI";
+            this.Text = "Bodega";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMDI_FormClosing);
             this.Load += new System.EventHandler(this.frmMDI_Load);

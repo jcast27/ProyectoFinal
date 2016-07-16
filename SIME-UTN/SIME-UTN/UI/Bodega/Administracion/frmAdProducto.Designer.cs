@@ -40,6 +40,8 @@
             this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
             this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -56,17 +58,19 @@
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
-            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
+            this.lblCantMin = new System.Windows.Forms.Label();
+            this.lblCantMax = new System.Windows.Forms.Label();
+            this.txtCantMinima = new System.Windows.Forms.TextBox();
+            this.txtCantMaxima = new System.Windows.Forms.TextBox();
             this.gbInformacionPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -148,6 +152,10 @@
             // 
             this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInformacionPersonal.Controls.Add(this.txtCantMaxima);
+            this.gbInformacionPersonal.Controls.Add(this.txtCantMinima);
+            this.gbInformacionPersonal.Controls.Add(this.lblCantMax);
+            this.gbInformacionPersonal.Controls.Add(this.lblCantMin);
             this.gbInformacionPersonal.Controls.Add(this.cmbUbicacion);
             this.gbInformacionPersonal.Controls.Add(this.cmbUnidadMedida);
             this.gbInformacionPersonal.Controls.Add(this.lblUnidadMedida);
@@ -165,10 +173,10 @@
             this.gbInformacionPersonal.ForeColor = System.Drawing.Color.White;
             this.gbInformacionPersonal.Location = new System.Drawing.Point(12, 67);
             this.gbInformacionPersonal.Name = "gbInformacionPersonal";
-            this.gbInformacionPersonal.Size = new System.Drawing.Size(587, 409);
+            this.gbInformacionPersonal.Size = new System.Drawing.Size(605, 477);
             this.gbInformacionPersonal.TabIndex = 35;
             this.gbInformacionPersonal.TabStop = false;
-            this.gbInformacionPersonal.Text = "Informacion del Producto";
+            this.gbInformacionPersonal.Text = "Información del Producto";
             // 
             // cmbUbicacion
             // 
@@ -180,9 +188,9 @@
             this.cmbUbicacion.DisplayMember = "nombre";
             this.cmbUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUbicacion.FormattingEnabled = true;
-            this.cmbUbicacion.Location = new System.Drawing.Point(189, 310);
+            this.cmbUbicacion.Location = new System.Drawing.Point(189, 273);
             this.cmbUbicacion.Name = "cmbUbicacion";
-            this.cmbUbicacion.Size = new System.Drawing.Size(351, 24);
+            this.cmbUbicacion.Size = new System.Drawing.Size(369, 24);
             this.cmbUbicacion.TabIndex = 34;
             this.cmbUbicacion.ValueMember = "idubicacion";
             // 
@@ -205,11 +213,21 @@
             this.cmbUnidadMedida.DisplayMember = "Descripcion";
             this.cmbUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnidadMedida.FormattingEnabled = true;
-            this.cmbUnidadMedida.Location = new System.Drawing.Point(189, 366);
+            this.cmbUnidadMedida.Location = new System.Drawing.Point(189, 329);
             this.cmbUnidadMedida.Name = "cmbUnidadMedida";
-            this.cmbUnidadMedida.Size = new System.Drawing.Size(351, 24);
+            this.cmbUnidadMedida.Size = new System.Drawing.Size(369, 24);
             this.cmbUnidadMedida.TabIndex = 33;
             this.cmbUnidadMedida.ValueMember = "IDUnidadMedida";
+            // 
+            // spSELECTUnidadMedidaProductoAllBindingSource
+            // 
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
+            // 
+            // dataSetUnidadMedida
+            // 
+            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
+            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblUnidadMedida
             // 
@@ -219,7 +237,7 @@
             this.lblUnidadMedida.AutoSize = true;
             this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(15, 372);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(14, 329);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(130, 18);
             this.lblUnidadMedida.TabIndex = 32;
@@ -235,9 +253,9 @@
             this.cmbCategoria.DisplayMember = "Descripcion";
             this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(189, 254);
+            this.cmbCategoria.Location = new System.Drawing.Point(189, 221);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(351, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(369, 24);
             this.cmbCategoria.TabIndex = 31;
             this.cmbCategoria.ValueMember = "IDCategoria";
             // 
@@ -273,11 +291,11 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(15, 123);
+            this.lblDescripcion.Location = new System.Drawing.Point(14, 122);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(91, 18);
             this.lblDescripcion.TabIndex = 22;
-            this.lblDescripcion.Text = "Descripcion:";
+            this.lblDescripcion.Text = "Descripción:";
             // 
             // txtCodigoAvatar
             // 
@@ -285,9 +303,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoAvatar.Location = new System.Drawing.Point(189, 183);
+            this.txtCodigoAvatar.Location = new System.Drawing.Point(189, 176);
             this.txtCodigoAvatar.Name = "txtCodigoAvatar";
-            this.txtCodigoAvatar.Size = new System.Drawing.Size(351, 22);
+            this.txtCodigoAvatar.Size = new System.Drawing.Size(369, 22);
             this.txtCodigoAvatar.TabIndex = 28;
             this.txtCodigoAvatar.Text = "A234";
             // 
@@ -297,9 +315,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(189, 62);
+            this.txtNombreProducto.Location = new System.Drawing.Point(189, 67);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(351, 22);
+            this.txtNombreProducto.Size = new System.Drawing.Size(369, 22);
             this.txtNombreProducto.TabIndex = 3;
             this.txtNombreProducto.Text = "Cloro";
             // 
@@ -311,11 +329,11 @@
             this.lblCodigoAvatar.AutoSize = true;
             this.lblCodigoAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigoAvatar.ForeColor = System.Drawing.Color.White;
-            this.lblCodigoAvatar.Location = new System.Drawing.Point(15, 181);
+            this.lblCodigoAvatar.Location = new System.Drawing.Point(14, 176);
             this.lblCodigoAvatar.Name = "lblCodigoAvatar";
             this.lblCodigoAvatar.Size = new System.Drawing.Size(105, 18);
             this.lblCodigoAvatar.TabIndex = 23;
-            this.lblCodigoAvatar.Text = "Codigo Avatar:";
+            this.lblCodigoAvatar.Text = "Código Avatar:";
             // 
             // lblNombreProducto
             // 
@@ -325,7 +343,7 @@
             this.lblNombreProducto.AutoSize = true;
             this.lblNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreProducto.ForeColor = System.Drawing.Color.White;
-            this.lblNombreProducto.Location = new System.Drawing.Point(14, 62);
+            this.lblNombreProducto.Location = new System.Drawing.Point(14, 67);
             this.lblNombreProducto.Name = "lblNombreProducto";
             this.lblNombreProducto.Size = new System.Drawing.Size(154, 18);
             this.lblNombreProducto.TabIndex = 1;
@@ -339,11 +357,11 @@
             this.lblLocalizacion.AutoSize = true;
             this.lblLocalizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalizacion.ForeColor = System.Drawing.Color.White;
-            this.lblLocalizacion.Location = new System.Drawing.Point(15, 316);
+            this.lblLocalizacion.Location = new System.Drawing.Point(14, 273);
             this.lblLocalizacion.Name = "lblLocalizacion";
             this.lblLocalizacion.Size = new System.Drawing.Size(95, 18);
             this.lblLocalizacion.TabIndex = 13;
-            this.lblLocalizacion.Text = "Localizacion:";
+            this.lblLocalizacion.Text = "Localización:";
             // 
             // lblCategoria
             // 
@@ -353,11 +371,11 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.ForeColor = System.Drawing.Color.White;
-            this.lblCategoria.Location = new System.Drawing.Point(15, 254);
+            this.lblCategoria.Location = new System.Drawing.Point(14, 221);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(76, 18);
             this.lblCategoria.TabIndex = 2;
-            this.lblCategoria.Text = "Categoria:";
+            this.lblCategoria.Text = "Categoría:";
             // 
             // txtDescripcion
             // 
@@ -365,9 +383,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(189, 125);
+            this.txtDescripcion.Location = new System.Drawing.Point(189, 122);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(351, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(369, 22);
             this.txtDescripcion.TabIndex = 27;
             this.txtDescripcion.Text = "Limpieza";
             // 
@@ -383,19 +401,45 @@
             // 
             this.epError.ContainerControl = this;
             // 
-            // dataSetUnidadMedida
-            // 
-            this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
-            this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTUnidadMedidaProductoAllBindingSource
-            // 
-            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
-            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
-            // 
             // sp_SELECT_UnidadMedidaProducto_AllTableAdapter
             // 
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
+            // 
+            // lblCantMin
+            // 
+            this.lblCantMin.AutoSize = true;
+            this.lblCantMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantMin.Location = new System.Drawing.Point(14, 379);
+            this.lblCantMin.Name = "lblCantMin";
+            this.lblCantMin.Size = new System.Drawing.Size(122, 18);
+            this.lblCantMin.TabIndex = 35;
+            this.lblCantMin.Text = "Cantidad Mínima:";
+            // 
+            // lblCantMax
+            // 
+            this.lblCantMax.AutoSize = true;
+            this.lblCantMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantMax.Location = new System.Drawing.Point(14, 428);
+            this.lblCantMax.Name = "lblCantMax";
+            this.lblCantMax.Size = new System.Drawing.Size(126, 18);
+            this.lblCantMax.TabIndex = 36;
+            this.lblCantMax.Text = "Cantidad Máxima:";
+            // 
+            // txtCantMinima
+            // 
+            this.txtCantMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantMinima.Location = new System.Drawing.Point(189, 379);
+            this.txtCantMinima.Name = "txtCantMinima";
+            this.txtCantMinima.Size = new System.Drawing.Size(369, 22);
+            this.txtCantMinima.TabIndex = 37;
+            // 
+            // txtCantMaxima
+            // 
+            this.txtCantMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantMaxima.Location = new System.Drawing.Point(189, 428);
+            this.txtCantMaxima.Name = "txtCantMaxima";
+            this.txtCantMaxima.Size = new System.Drawing.Size(369, 22);
+            this.txtCantMaxima.TabIndex = 38;
             // 
             // frmAdProducto
             // 
@@ -403,10 +447,10 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 507);
+            this.ClientSize = new System.Drawing.Size(629, 556);
             this.Controls.Add(this.gbInformacionPersonal);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(645, 546);
+            this.MaximumSize = new System.Drawing.Size(645, 595);
             this.Name = "frmAdProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Producto";
@@ -415,11 +459,11 @@
             this.gbInformacionPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -454,5 +498,9 @@
         private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
         private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource;
         private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter sp_SELECT_UnidadMedidaProducto_AllTableAdapter;
+        private System.Windows.Forms.TextBox txtCantMaxima;
+        private System.Windows.Forms.TextBox txtCantMinima;
+        private System.Windows.Forms.Label lblCantMax;
+        private System.Windows.Forms.Label lblCantMin;
     }
 }

@@ -16,6 +16,10 @@ namespace SIME_UTN.Entities
         public UnidadMedida UnidadMedida { set; get; }
         public int estado { set; get; }
 
+        public double cantActual { set; get; }
+        public double cantMinima { set; get; }
+        public double cantMaxima { set; get; }
+
         public Producto() { }
 
         public override string ToString()

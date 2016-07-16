@@ -56,6 +56,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idmezcla", unaMezclaProductoUnidadDTOp.idMezcla);
             comando.Parameters.AddWithValue("@idproducto", unaMezclaProductoUnidadDTOp.idProducto);
             comando.Parameters.AddWithValue("@cantidad", unaMezclaProductoUnidadDTOp.cantidad);
+            comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estado);
 
             GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
 
