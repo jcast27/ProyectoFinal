@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFuncionarios));
             this.gCFuncionario = new DevExpress.XtraGrid.GridControl();
-            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetFuncionario = new SIME_UTN.DataSets.Formulario.DataSetFuncionario();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIDFuncionario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,9 +39,6 @@
             this.colCorreo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDDepartamento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpDepartamento = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.departamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetDepartamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetDepartamento = new SIME_UTN.DataSetDepartamento();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
@@ -54,18 +49,21 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewSelecFuncionario = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
-            this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
-            this.departamentoTableAdapter = new SIME_UTN.DataSetDepartamentoTableAdapters.DepartamentoTableAdapter();
+            this.dataSetFuncionario = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionario();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionarioTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
+            this.dataSDepartamento = new SIME_UTN.DataSets.Bodega.Admistracion.DataSDepartamento();
+            this.spSELECTDepartamentoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_Departamento_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamentoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecFuncionario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCFuncionario
@@ -84,16 +82,6 @@
             this.gCFuncionario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCFuncionario.Click += new System.EventHandler(this.gCFuncionario_Click);
-            // 
-            // funcionarioBindingSource
-            // 
-            this.funcionarioBindingSource.DataMember = "Funcionario";
-            this.funcionarioBindingSource.DataSource = this.dataSetFuncionario;
-            // 
-            // dataSetFuncionario
-            // 
-            this.dataSetFuncionario.DataSetName = "DataSetFuncionario";
-            this.dataSetFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -186,25 +174,10 @@
             this.LookUpDepartamento.AutoHeight = false;
             this.LookUpDepartamento.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpDepartamento.DataSource = this.departamentoBindingSource;
-            this.LookUpDepartamento.DisplayMember = "Descripcion";
+            this.LookUpDepartamento.DataSource = this.spSELECTDepartamentoAllBindingSource;
+            this.LookUpDepartamento.DisplayMember = "descripcion";
             this.LookUpDepartamento.Name = "LookUpDepartamento";
-            this.LookUpDepartamento.ValueMember = "IDDepartamento";
-            // 
-            // departamentoBindingSource
-            // 
-            this.departamentoBindingSource.DataMember = "Departamento";
-            this.departamentoBindingSource.DataSource = this.dataSetDepartamentoBindingSource;
-            // 
-            // dataSetDepartamentoBindingSource
-            // 
-            this.dataSetDepartamentoBindingSource.DataSource = this.dataSetDepartamento;
-            this.dataSetDepartamentoBindingSource.Position = 0;
-            // 
-            // dataSetDepartamento
-            // 
-            this.dataSetDepartamento.DataSetName = "DataSetDepartamento";
-            this.dataSetDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.LookUpDepartamento.ValueMember = "iddepartamento";
             // 
             // colEstado
             // 
@@ -321,13 +294,33 @@
             this.navButton1.Enabled = false;
             this.navButton1.Name = "navButton1";
             // 
+            // dataSetFuncionario
+            // 
+            this.dataSetFuncionario.DataSetName = "DataSetFuncionario";
+            this.dataSetFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // funcionarioBindingSource
+            // 
+            this.funcionarioBindingSource.DataMember = "Funcionario";
+            this.funcionarioBindingSource.DataSource = this.dataSetFuncionario;
+            // 
             // funcionarioTableAdapter
             // 
             this.funcionarioTableAdapter.ClearBeforeFill = true;
             // 
-            // departamentoTableAdapter
+            // dataSDepartamento
             // 
-            this.departamentoTableAdapter.ClearBeforeFill = true;
+            this.dataSDepartamento.DataSetName = "DataSDepartamento";
+            this.dataSDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spSELECTDepartamentoAllBindingSource
+            // 
+            this.spSELECTDepartamentoAllBindingSource.DataMember = "sp_SELECT_Departamento_All";
+            this.spSELECTDepartamentoAllBindingSource.DataSource = this.dataSDepartamento;
+            // 
+            // sp_SELECT_Departamento_AllTableAdapter
+            // 
+            this.sp_SELECT_Departamento_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmFuncionarios
             // 
@@ -345,15 +338,14 @@
             this.Text = "Ventana Funcionarios";
             this.Load += new System.EventHandler(this.frmFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamentoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecFuncionario.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,9 +363,6 @@
 
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private DevExpress.XtraBars.Navigation.NavButton navButton1;
-        private DataSets.Formulario.DataSetFuncionario dataSetFuncionario;
-        private System.Windows.Forms.BindingSource funcionarioBindingSource;
-        private DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colIDFuncionario;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
         private DevExpress.XtraGrid.Columns.GridColumn colCedula;
@@ -382,9 +371,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIDDepartamento;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpDepartamento;
-        private System.Windows.Forms.BindingSource dataSetDepartamentoBindingSource;
-        private DataSetDepartamento dataSetDepartamento;
-        private System.Windows.Forms.BindingSource departamentoBindingSource;
-        private DataSetDepartamentoTableAdapters.DepartamentoTableAdapter departamentoTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSetFuncionario dataSetFuncionario;
+        private System.Windows.Forms.BindingSource funcionarioBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
+        private DataSets.Bodega.Admistracion.DataSDepartamento dataSDepartamento;
+        private System.Windows.Forms.BindingSource spSELECTDepartamentoAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter sp_SELECT_Departamento_AllTableAdapter;
     }
 }

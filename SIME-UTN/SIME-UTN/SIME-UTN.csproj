@@ -99,20 +99,20 @@
     <Compile Include="DAL\UbicacionDAL.cs" />
     <Compile Include="DAL\UnidadMedidaDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
-    <Compile Include="DataSetDepartamento.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSetFuncionario.Designer.cs">
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetFuncionario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSetRegistroProducto.Designer.cs">
+    <Compile Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSDepartamento.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -650,38 +650,38 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSetDepartamento.xsc">
-      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetDepartamento.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetDepartamento.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetDepartamento.xss">
-      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetFuncionario.xsc">
+    <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xsc">
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
     </None>
-    <None Include="DataSetFuncionario.xsd">
+    <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetFuncionario.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSetFuncionario.xss">
+    <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xss">
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
     </None>
-    <None Include="DataSetRegistroProducto.xsc">
+    <None Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.xsc">
       <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
     </None>
-    <None Include="DataSetRegistroProducto.xsd">
+    <None Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetRegistroProducto.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSetRegistroProducto.xss">
+    <None Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.xss">
       <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSDepartamento.xsc">
+      <DependentUpon>DataSDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSDepartamento.xss">
+      <DependentUpon>DataSDepartamento.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.xsc">
       <DependentUpon>DataSetBodegaDespacho.xsd</DependentUpon>
@@ -1019,9 +1019,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataSets\Bodega\Procesos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

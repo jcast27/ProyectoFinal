@@ -44,17 +44,17 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.dataSetDepartamento = new SIME_UTN.DataSetDepartamento();
-            this.departamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.departamentoTableAdapter = new SIME_UTN.DataSetDepartamentoTableAdapters.DepartamentoTableAdapter();
+            this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataSetDepartamento = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetDepartamento();
+            this.spSELECTDepartamentoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_Departamento_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter();
             this.gbGridViewFuncionario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbGridViewFuncionario
@@ -88,9 +88,9 @@
             this.cmbDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbDepartamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.departamentoBindingSource, "IDDepartamento", true));
-            this.cmbDepartamento.DataSource = this.departamentoBindingSource;
-            this.cmbDepartamento.DisplayMember = "Descripcion";
+            this.cmbDepartamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTDepartamentoAllBindingSource, "iddepartamento", true));
+            this.cmbDepartamento.DataSource = this.spSELECTDepartamentoAllBindingSource;
+            this.cmbDepartamento.DisplayMember = "descripcion";
             this.cmbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDepartamento.FormattingEnabled = true;
             this.cmbDepartamento.Location = new System.Drawing.Point(205, 321);
@@ -270,18 +270,6 @@
             this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
             this.mBtnNuevo.Name = "mBtnNuevo";
             // 
-            // mBtnSalir
-            // 
-            this.mBtnSalir.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnSalir.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnSalir.Appearance.Options.UseFont = true;
-            this.mBtnSalir.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnSalir.AppearanceHovered.Options.UseFont = true;
-            this.mBtnSalir.Caption = "Cancelar";
-            this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
-            this.mBtnSalir.Name = "mBtnSalir";
-            this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
-            // 
             // mBtnGuardar
             // 
             this.mBtnGuardar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
@@ -306,23 +294,35 @@
             this.mBtnModificar.Name = "mBtnModificar";
             this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
+            // mBtnSalir
+            // 
+            this.mBtnSalir.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnSalir.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnSalir.Appearance.Options.UseFont = true;
+            this.mBtnSalir.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mBtnSalir.AppearanceHovered.Options.UseFont = true;
+            this.mBtnSalir.Caption = "Cancelar";
+            this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
+            this.mBtnSalir.Name = "mBtnSalir";
+            this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
+            // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
+            // 
             // dataSetDepartamento
             // 
             this.dataSetDepartamento.DataSetName = "DataSetDepartamento";
             this.dataSetDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // departamentoBindingSource
+            // spSELECTDepartamentoAllBindingSource
             // 
-            this.departamentoBindingSource.DataMember = "Departamento";
-            this.departamentoBindingSource.DataSource = this.dataSetDepartamento;
+            this.spSELECTDepartamentoAllBindingSource.DataMember = "sp_SELECT_Departamento_All";
+            this.spSELECTDepartamentoAllBindingSource.DataSource = this.dataSetDepartamento;
             // 
-            // departamentoTableAdapter
+            // sp_SELECT_Departamento_AllTableAdapter
             // 
-            this.departamentoTableAdapter.ClearBeforeFill = true;
-            // 
-            // epError
-            // 
-            this.epError.ContainerControl = this;
+            this.sp_SELECT_Departamento_AllTableAdapter.ClearBeforeFill = true;
             // 
             // frmAdFuncionario
             // 
@@ -339,9 +339,9 @@
             this.Load += new System.EventHandler(this.frmAdFuncionario_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -365,9 +365,9 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
-        private DataSetDepartamento dataSetDepartamento;
-        private System.Windows.Forms.BindingSource departamentoBindingSource;
-        private DataSetDepartamentoTableAdapters.DepartamentoTableAdapter departamentoTableAdapter;
         private System.Windows.Forms.ErrorProvider epError;
+        private DataSets.Bodega.Admistracion.DataSetDepartamento dataSetDepartamento;
+        private System.Windows.Forms.BindingSource spSELECTDepartamentoAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter sp_SELECT_Departamento_AllTableAdapter;
     }
 }

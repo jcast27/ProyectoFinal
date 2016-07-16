@@ -41,7 +41,7 @@
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
             this.gCBodegas = new DevExpress.XtraGrid.GridControl();
             this.registroProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetRegistroProducto = new SIME_UTN.DataSetRegistroProducto();
+            this.dataSetRegistroProducto = new SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProducto();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIDIngresoProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,7 +53,7 @@
             this.colFechaIngreso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaCaducidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.registroProductoTableAdapter = new SIME_UTN.DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter();
+            this.registroProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter();
             this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
@@ -337,9 +337,9 @@
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
         private DevExpress.XtraGrid.GridControl gCBodegas;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DataSetRegistroProducto dataSetRegistroProducto;
+        private SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProducto dataSetRegistroProducto;
         private System.Windows.Forms.BindingSource registroProductoBindingSource;
-        private DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter registroProductoTableAdapter;
+        private SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter registroProductoTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colIDIngresoProducto;
         private DevExpress.XtraGrid.Columns.GridColumn colIDUsuario;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;

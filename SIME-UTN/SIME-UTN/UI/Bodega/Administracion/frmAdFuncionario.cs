@@ -52,9 +52,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdFuncionario_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetDepartamento.sp_SELECT_Departamento_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetDepartamento.sp_SELECT_Departamento_All);
             Icon = Properties.Resources.Icono;
-            // TODO: esta línea de código carga datos en la tabla 'dataSetDepartamento.Departamento' Puede moverla o quitarla según sea necesario.
-            this.departamentoTableAdapter.Fill(this.dataSetDepartamento.Departamento);
+          
 
             UsuarioLogueado();
             if (funcionarioEstatico == null)
