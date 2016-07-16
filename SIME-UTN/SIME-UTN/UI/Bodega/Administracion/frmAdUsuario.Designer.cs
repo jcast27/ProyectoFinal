@@ -33,8 +33,8 @@
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
- 
             this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.chkAdministrador = new System.Windows.Forms.CheckBox();
@@ -53,8 +53,6 @@
             this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
-
             this.gbInformacionPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -111,6 +109,18 @@
             this.mBtnGuardar.Name = "mBtnGuardar";
             this.mBtnGuardar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnGuardar_ElementClick_1);
             // 
+            // mBtnModificar
+            // 
+            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnModificar.Appearance.Options.UseFont = true;
+            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
+            this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
+            // 
             // mBtnSalir
             // 
             this.mBtnSalir.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
@@ -122,7 +132,6 @@
             this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
-  
             // 
             // gbInformacionPersonal
             // 
@@ -147,10 +156,10 @@
             this.gbInformacionPersonal.ForeColor = System.Drawing.Color.White;
             this.gbInformacionPersonal.Location = new System.Drawing.Point(12, 61);
             this.gbInformacionPersonal.Name = "gbInformacionPersonal";
-            this.gbInformacionPersonal.Size = new System.Drawing.Size(506, 461);
+            this.gbInformacionPersonal.Size = new System.Drawing.Size(506, 290);
             this.gbInformacionPersonal.TabIndex = 35;
             this.gbInformacionPersonal.TabStop = false;
-            this.gbInformacionPersonal.Text = "Informacion del Usuario";
+            this.gbInformacionPersonal.Text = "Información del Usuario";
             // 
             // lblCodigoUsuario
             // 
@@ -182,6 +191,7 @@
             this.chkAdministrador.TabIndex = 6;
             this.chkAdministrador.Text = "Administrador";
             this.chkAdministrador.UseVisualStyleBackColor = false;
+            this.chkAdministrador.CheckedChanged += new System.EventHandler(this.chkAdministrador_CheckedChanged);
             // 
             // txtPassword
             // 
@@ -189,18 +199,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(166, 300);
+            this.txtPassword.Location = new System.Drawing.Point(166, 190);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(270, 22);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.Text = "123";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(166, 420);
+            this.txtUsuario.Location = new System.Drawing.Point(166, 246);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(147, 22);
             this.txtUsuario.TabIndex = 26;
@@ -213,7 +222,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 418);
+            this.label1.Location = new System.Drawing.Point(16, 247);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 21;
@@ -227,7 +236,7 @@
             this.lblApellido1.AutoSize = true;
             this.lblApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido1.ForeColor = System.Drawing.Color.White;
-            this.lblApellido1.Location = new System.Drawing.Point(16, 167);
+            this.lblApellido1.Location = new System.Drawing.Point(16, 135);
             this.lblApellido1.Name = "lblApellido1";
             this.lblApellido1.Size = new System.Drawing.Size(111, 18);
             this.lblApellido1.TabIndex = 22;
@@ -249,6 +258,7 @@
             this.chkDespachador.TabIndex = 20;
             this.chkDespachador.Text = "Despachador";
             this.chkDespachador.UseVisualStyleBackColor = false;
+            this.chkDespachador.CheckedChanged += new System.EventHandler(this.chkDespachador_CheckedChanged);
             // 
             // txtApellido2
             // 
@@ -256,11 +266,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido2.Location = new System.Drawing.Point(166, 227);
+            this.txtApellido2.Location = new System.Drawing.Point(166, 162);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(270, 22);
             this.txtApellido2.TabIndex = 28;
-            this.txtApellido2.Text = "morera";
             // 
             // txtNombre
             // 
@@ -272,7 +281,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(270, 22);
             this.txtNombre.TabIndex = 3;
-            this.txtNombre.Text = "jose";
             // 
             // lblApellido2
             // 
@@ -282,7 +290,7 @@
             this.lblApellido2.AutoSize = true;
             this.lblApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido2.ForeColor = System.Drawing.Color.White;
-            this.lblApellido2.Location = new System.Drawing.Point(16, 225);
+            this.lblApellido2.Location = new System.Drawing.Point(16, 163);
             this.lblApellido2.Name = "lblApellido2";
             this.lblApellido2.Size = new System.Drawing.Size(126, 18);
             this.lblApellido2.TabIndex = 23;
@@ -296,7 +304,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(15, 106);
+            this.lblNombre.Location = new System.Drawing.Point(16, 107);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(66, 18);
             this.lblNombre.TabIndex = 1;
@@ -308,12 +316,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmacion.Location = new System.Drawing.Point(166, 362);
+            this.txtConfirmacion.Location = new System.Drawing.Point(166, 218);
             this.txtConfirmacion.Name = "txtConfirmacion";
             this.txtConfirmacion.PasswordChar = '*';
             this.txtConfirmacion.Size = new System.Drawing.Size(270, 22);
             this.txtConfirmacion.TabIndex = 14;
-            this.txtConfirmacion.Text = "123";
             // 
             // lblConfirmacion
             // 
@@ -323,7 +330,7 @@
             this.lblConfirmacion.AutoSize = true;
             this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmacion.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmacion.Location = new System.Drawing.Point(16, 360);
+            this.lblConfirmacion.Location = new System.Drawing.Point(16, 219);
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(101, 18);
             this.lblConfirmacion.TabIndex = 13;
@@ -337,7 +344,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(16, 298);
+            this.lblPassword.Location = new System.Drawing.Point(16, 191);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(79, 18);
             this.lblPassword.TabIndex = 2;
@@ -349,11 +356,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido1.Location = new System.Drawing.Point(166, 169);
+            this.txtApellido1.Location = new System.Drawing.Point(166, 134);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(270, 22);
             this.txtApellido1.TabIndex = 27;
-            this.txtApellido1.Text = "castro";
             // 
             // ePError
             // 
@@ -363,25 +369,13 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // mBtnModificar
-            // 
-            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnModificar.Appearance.Options.UseFont = true;
-            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnModificar.Caption = "Modificar";
-            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
-            this.mBtnModificar.Name = "mBtnModificar";
-            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
-            // 
             // frmAdUsuario
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 546);
+            this.ClientSize = new System.Drawing.Size(530, 365);
             this.Controls.Add(this.gbInformacionPersonal);
             this.Controls.Add(this.tileNavPane1);
             this.Name = "frmAdUsuario";

@@ -28,6 +28,7 @@ namespace SIME_UTN.UI.Bodega
             // Handling the QueryControl event that will populate all automatically generated Documents
            // CrearDocuemtnos();
             this.UsuarioLogueado();
+            security();
         }
 
         public frmMDI(bool estado)
@@ -43,6 +44,16 @@ namespace SIME_UTN.UI.Bodega
             usuarioTSMI.Text = "Usuario: " + usuarioLogueado;
         }
 
+        public void security()
+        {
+
+            string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
+
+            if (perfil.Equals("Despachador"))
+            {
+                mBtnAdministracion.Visible = false;
+            }
+        }
         // Assigning a required content for each auto generated Document
         void windowsUIView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {

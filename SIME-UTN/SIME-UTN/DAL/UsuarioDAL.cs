@@ -101,9 +101,7 @@ namespace SIME_UTN.DAL
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-
                     usuarioLogueado = ds.Tables[0].Rows[0]["UsuarioLogueado"].ToString();
-
                 }
             }
             return usuarioLogueado;
