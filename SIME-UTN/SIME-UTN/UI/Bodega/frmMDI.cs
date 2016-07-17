@@ -47,16 +47,25 @@ namespace SIME_UTN.UI.Bodega
 
         public void security()
         {
-
-            string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
-
-            if (perfil.Equals("Despachador"))
+            try
             {
-                mBtnAdministracion.Visible = false;
-            }else
-            {
-                mBtnAdministracion.Visible = true;
+                string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
+
+                if (perfil.Equals("Despachador"))
+                {
+                    mBtnAdministracion.Visible = false;
+                }
+                else
+                {
+                    mBtnAdministracion.Visible = true;
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
         // Assigning a required content for each auto generated Document
         void windowsUIView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
@@ -395,8 +404,6 @@ namespace SIME_UTN.UI.Bodega
                 }
             }
             security();
-            
-
         }
 
         private void cambiarContrasennaToolStripMenuItem_Click(object sender, EventArgs e)
