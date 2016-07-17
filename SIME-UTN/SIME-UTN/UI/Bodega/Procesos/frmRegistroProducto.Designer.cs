@@ -260,14 +260,14 @@
             this.colDescripcion.FieldName = "Descripcion";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
-            this.colDescripcion.VisibleIndex = 0;
+            this.colDescripcion.VisibleIndex = 1;
             // 
             // colSolicitudAvatar
             // 
             this.colSolicitudAvatar.FieldName = "SolicitudAvatar";
             this.colSolicitudAvatar.Name = "colSolicitudAvatar";
             this.colSolicitudAvatar.Visible = true;
-            this.colSolicitudAvatar.VisibleIndex = 1;
+            this.colSolicitudAvatar.VisibleIndex = 0;
             // 
             // colFechaIngreso
             // 

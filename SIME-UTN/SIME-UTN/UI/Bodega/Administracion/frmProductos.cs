@@ -96,6 +96,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 row = LookUpUnidadMedida.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString())) as DataRowView;
                 unaUnidadMedida.descripcion = row.Row["Descripcion"].ToString();
                 productoEstatico.UnidadMedida = unaUnidadMedida;
+                productoEstatico.cantMinima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMinima").ToString());
+                productoEstatico.cantMaxima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMaxima").ToString());
+
             }
             catch (ApplicationException app)
             {

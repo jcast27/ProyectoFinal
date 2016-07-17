@@ -36,6 +36,8 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIDProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCodigoAvatar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCantidadMinima = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCantidadMaxima = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDCategoria = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,9 +51,10 @@
             this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
             this.colIDUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUnidadMedida = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spSELECTUnidadMedidaProductoAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
@@ -65,7 +68,6 @@
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
-            this.spSELECTUnidadMedidaProductoAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProducto)).BeginInit();
@@ -78,11 +80,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // gCProductos
@@ -125,6 +127,8 @@
             this.colIDCategoria,
             this.colUbicacion,
             this.colIDUnidadMedida,
+            this.colCantidadMinima,
+            this.colCantidadMaxima,
             this.colEstado});
             this.gridView1.GridControl = this.gCProductos;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
@@ -153,6 +157,24 @@
             this.colCodigoAvatar.Name = "colCodigoAvatar";
             this.colCodigoAvatar.Visible = true;
             this.colCodigoAvatar.VisibleIndex = 0;
+            // 
+            // colCantidadMinima
+            // 
+            this.colCantidadMinima.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCantidadMinima.AppearanceCell.Options.UseFont = true;
+            this.colCantidadMinima.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colCantidadMinima.AppearanceHeader.Options.UseFont = true;
+            this.colCantidadMinima.FieldName = "CantidadMinima";
+            this.colCantidadMinima.Name = "colCantidadMinima";
+            // 
+            // colCantidadMaxima
+            // 
+            this.colCantidadMaxima.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCantidadMaxima.AppearanceCell.Options.UseFont = true;
+            this.colCantidadMaxima.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colCantidadMaxima.AppearanceHeader.Options.UseFont = true;
+            this.colCantidadMaxima.FieldName = "CantidadMaxima";
+            this.colCantidadMaxima.Name = "colCantidadMaxima";
             // 
             // colNombre
             // 
@@ -279,10 +301,10 @@
             this.LookUpUnidadMedida.Name = "LookUpUnidadMedida";
             this.LookUpUnidadMedida.ValueMember = "idunidadmedida";
             // 
-            // spSELECTUnidadMedidaProductoAllBindingSource
+            // spSELECTUnidadMedidaProductoAllBindingSource1
             // 
-            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
-            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
+            this.spSELECTUnidadMedidaProductoAllBindingSource1.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource1.DataSource = this.dataSetUnidadMedida;
             // 
             // dataSetUnidadMedida
             // 
@@ -293,6 +315,11 @@
             // 
             this.colEstado.FieldName = "Estado";
             this.colEstado.Name = "colEstado";
+            // 
+            // spSELECTUnidadMedidaProductoAllBindingSource
+            // 
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetUnidadMedida;
             // 
             // ePError
             // 
@@ -421,11 +448,6 @@
             // 
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // spSELECTUnidadMedidaProductoAllBindingSource1
-            // 
-            this.spSELECTUnidadMedidaProductoAllBindingSource1.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
-            this.spSELECTUnidadMedidaProductoAllBindingSource1.DataSource = this.dataSetUnidadMedida;
-            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,11 +475,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewUsuario.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -501,5 +523,7 @@
         private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource;
         private DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter sp_SELECT_UnidadMedidaProducto_AllTableAdapter;
         private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCantidadMaxima;
+        private DevExpress.XtraGrid.Columns.GridColumn colCantidadMinima;
     }
 }

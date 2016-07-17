@@ -344,16 +344,5 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void chkAdministrador_CheckedChanged(object sender, EventArgs e)
-        {
-            chkDespachador.Checked = false;
-        }
-
-        private void chkDespachador_CheckedChanged(object sender, EventArgs e)
-        {
-            chkAdministrador.Checked = false;
-        }
-
     }
 }

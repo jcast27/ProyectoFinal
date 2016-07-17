@@ -30,7 +30,6 @@ namespace SIME_UTN.UI.Formulario
             // Handling the QueryControl event that will populate all automatically generated Documents
             // CrearDocuemtnos();
             this.UsuarioLogueado();
-            security();
         }
         public frmMDIForm(bool estado)
         {
@@ -46,15 +45,6 @@ namespace SIME_UTN.UI.Formulario
             usuarioTSMI.Text = "Usuario: " + usuarioLogueado;
         }
 
-        public void security() {
-
-            string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
-
-            if (perfil.Equals("Despachador"))
-            {
-                mBtnAdministracion.Visible = false;
-            }
-        }
         
 
         // Assigning a required content for each auto generated Document

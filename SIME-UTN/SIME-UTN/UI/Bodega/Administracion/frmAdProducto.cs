@@ -138,6 +138,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtDescripcion.Text = productoEstatico.descripcion;
                 txtCodigoAvatar.Text = productoEstatico.codigoAvatar;
                 lblCodigoProducto.Text = productoEstatico.idProducto.ToString();
+                txtCantMinima.Text = productoEstatico.cantMinima.ToString();
+                txtCantMaxima.Text = productoEstatico.cantMaxima.ToString();
 
             }
             catch (ApplicationException app)
@@ -192,6 +194,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unaUnidadMedida.idUnidadMedida = int.Parse(cmbUnidadMedida.SelectedValue.ToString());
                 unaUnidadMedida.descripcion = cmbUnidadMedida.GetItemText(cmbUnidadMedida.Items[cmbUnidadMedida.SelectedIndex]);
                 unProducto.UnidadMedida = unaUnidadMedida;
+                unProducto.cantMinima = Double.Parse(txtCantMinima.Text);
+                unProducto.cantMaxima = Double.Parse(txtCantMaxima.Text);
                 unProducto.estado = 1;
                 if (accionp == "Modificar")
                 {
@@ -250,7 +254,19 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtCodigoAvatar.Focus();
                 error = true;
             }
-            if(cmbCategoria.SelectedIndex == -1)
+            if (txtCantMinima.Text.Trim() == "")
+            {
+                epError.SetError(txtCantMinima, "Campo Requerido");
+                txtCantMinima.Focus();
+                error = true;
+            }
+            if (txtCantMaxima.Text.Trim() == "")
+            {
+                epError.SetError(txtCantMaxima, "Campo Requerido");
+                txtCantMaxima.Focus();
+                error = true;
+            }
+            if (cmbCategoria.SelectedIndex == -1)
             {
                 epError.SetError(cmbCategoria, "Campo Requerido");
                 cmbCategoria.Focus();
@@ -268,6 +284,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 cmbUnidadMedida.Focus();
                 error = true;
             }
+
             if(error == false)
             {
                 epError.Clear();

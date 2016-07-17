@@ -149,6 +149,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
             comando.Parameters.AddWithValue("@idubicacion", unProductop.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
+            comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
             GuardarLog(unProductop, usuarioLogueadop, accion, null);
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
@@ -175,6 +177,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
             comando.Parameters.AddWithValue("@idubicacion", unProductop.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
+            comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
 
             GuardarLog(unProductop, usuarioLogueadop, accion,null);
@@ -245,16 +249,16 @@ namespace SIME_UTN.DAL
             if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nEstado: " + estado;
+                descripcion = "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
 
             }
             if (accion == "Modificar")
             {
                 viejoProducto = ObtenerProductoPorCodigoAvatar(unProductop.codigoAvatar);
                 estado = "Activo";
-                descripcion = "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nUbicacion: " + viejoProducto.Ubicacion.nombre + "\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nEstado: " + estado;
+                descripcion = "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nUbicacion: " + viejoProducto.Ubicacion.nombre + "\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + viejoProducto.cantMinima + "\r\nCantidad Maxima: " + viejoProducto.cantMaxima + "\r\nEstado: " + estado;
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nEstado: " + estado;
+                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion+ "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
             }
 
             DateTime date = DateTime.Now;

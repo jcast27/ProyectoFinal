@@ -36,6 +36,14 @@
             this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
+            this.cmbBodegaDestino = new System.Windows.Forms.ComboBox();
+            this.spSELECTRegistroBodegaAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetTPRegistroBodegaD = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaD();
+            this.cmbBodegaOrigen = new System.Windows.Forms.ComboBox();
+            this.spSELECTRegistroBodegaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetTPRegistroBodega = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodega();
+            this.lblIDBodegaDestino = new System.Windows.Forms.Label();
+            this.lblIDBodegaOrigen = new System.Windows.Forms.Label();
             this.txtUnidadMedida = new System.Windows.Forms.TextBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
@@ -49,7 +57,7 @@
             this.tipoTrasladoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTipoTrasladoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTipoTraslado = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoTraslado();
-            this.txtNumeroDespacho = new System.Windows.Forms.TextBox();
+            this.txtNumeroTraslado = new System.Windows.Forms.TextBox();
             this.lblNumeroTraslado = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.lblTipoTraslado = new System.Windows.Forms.Label();
@@ -67,11 +75,13 @@
             this.gCProductos = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tipoTrasladoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter();
-            this.btnEBodegaOrigen = new DevExpress.XtraEditors.ButtonEdit();
-            this.BtnEBodegaDestino = new DevExpress.XtraEditors.ButtonEdit();
-            this.lblIDBodegaOrigen = new System.Windows.Forms.Label();
-            this.lblIDBodegaDestino = new System.Windows.Forms.Label();
+            this.sp_SELECT_RegistroBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
+            this.sp_SELECT_RegistroBodega_AllTableAdapter1 = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaDTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             this.gbGridViewFuncionario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodegaD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoTrasladoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTrasladoBindingSource)).BeginInit();
@@ -84,8 +94,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEBodegaOrigen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnEBodegaDestino.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -166,10 +174,10 @@
             // gbGridViewFuncionario
             // 
             this.gbGridViewFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaDestino);
+            this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaOrigen);
             this.gbGridViewFuncionario.Controls.Add(this.lblIDBodegaDestino);
             this.gbGridViewFuncionario.Controls.Add(this.lblIDBodegaOrigen);
-            this.gbGridViewFuncionario.Controls.Add(this.BtnEBodegaDestino);
-            this.gbGridViewFuncionario.Controls.Add(this.btnEBodegaOrigen);
             this.gbGridViewFuncionario.Controls.Add(this.txtUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.lblUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.txtCantidad);
@@ -180,7 +188,7 @@
             this.gbGridViewFuncionario.Controls.Add(this.lblProducto);
             this.gbGridViewFuncionario.Controls.Add(this.lblBodegaDestino);
             this.gbGridViewFuncionario.Controls.Add(this.cmbTipoTraslado);
-            this.gbGridViewFuncionario.Controls.Add(this.txtNumeroDespacho);
+            this.gbGridViewFuncionario.Controls.Add(this.txtNumeroTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.lblNumeroTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.txtObservaciones);
             this.gbGridViewFuncionario.Controls.Add(this.lblTipoTraslado);
@@ -199,6 +207,86 @@
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Traslado de Producto";
+            // 
+            // cmbBodegaDestino
+            // 
+            this.cmbBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBodegaDestino.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaAllBindingSource1, "idregistrobodega", true));
+            this.cmbBodegaDestino.DataSource = this.spSELECTRegistroBodegaAllBindingSource1;
+            this.cmbBodegaDestino.DisplayMember = "nombre";
+            this.cmbBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBodegaDestino.FormattingEnabled = true;
+            this.cmbBodegaDestino.Location = new System.Drawing.Point(911, 61);
+            this.cmbBodegaDestino.Name = "cmbBodegaDestino";
+            this.cmbBodegaDestino.Size = new System.Drawing.Size(167, 24);
+            this.cmbBodegaDestino.TabIndex = 68;
+            this.cmbBodegaDestino.ValueMember = "idregistrobodega";
+            // 
+            // spSELECTRegistroBodegaAllBindingSource1
+            // 
+            this.spSELECTRegistroBodegaAllBindingSource1.DataMember = "sp_SELECT_RegistroBodega_All";
+            this.spSELECTRegistroBodegaAllBindingSource1.DataSource = this.dataSetTPRegistroBodegaD;
+            // 
+            // dataSetTPRegistroBodegaD
+            // 
+            this.dataSetTPRegistroBodegaD.DataSetName = "DataSetTPRegistroBodegaD";
+            this.dataSetTPRegistroBodegaD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cmbBodegaOrigen
+            // 
+            this.cmbBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBodegaOrigen.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaAllBindingSource, "idregistrobodega", true));
+            this.cmbBodegaOrigen.DataSource = this.spSELECTRegistroBodegaAllBindingSource;
+            this.cmbBodegaOrigen.DisplayMember = "nombre";
+            this.cmbBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBodegaOrigen.FormattingEnabled = true;
+            this.cmbBodegaOrigen.Location = new System.Drawing.Point(570, 63);
+            this.cmbBodegaOrigen.Name = "cmbBodegaOrigen";
+            this.cmbBodegaOrigen.Size = new System.Drawing.Size(167, 24);
+            this.cmbBodegaOrigen.TabIndex = 67;
+            this.cmbBodegaOrigen.ValueMember = "idregistrobodega";
+            // 
+            // spSELECTRegistroBodegaAllBindingSource
+            // 
+            this.spSELECTRegistroBodegaAllBindingSource.DataMember = "sp_SELECT_RegistroBodega_All";
+            this.spSELECTRegistroBodegaAllBindingSource.DataSource = this.dataSetTPRegistroBodega;
+            // 
+            // dataSetTPRegistroBodega
+            // 
+            this.dataSetTPRegistroBodega.DataSetName = "DataSetTPRegistroBodega";
+            this.dataSetTPRegistroBodega.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblIDBodegaDestino
+            // 
+            this.lblIDBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIDBodegaDestino.AutoSize = true;
+            this.lblIDBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDBodegaDestino.ForeColor = System.Drawing.Color.White;
+            this.lblIDBodegaDestino.Location = new System.Drawing.Point(898, 67);
+            this.lblIDBodegaDestino.Name = "lblIDBodegaDestino";
+            this.lblIDBodegaDestino.Size = new System.Drawing.Size(0, 18);
+            this.lblIDBodegaDestino.TabIndex = 66;
+            this.lblIDBodegaDestino.Visible = false;
+            // 
+            // lblIDBodegaOrigen
+            // 
+            this.lblIDBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIDBodegaOrigen.AutoSize = true;
+            this.lblIDBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDBodegaOrigen.ForeColor = System.Drawing.Color.White;
+            this.lblIDBodegaOrigen.Location = new System.Drawing.Point(550, 71);
+            this.lblIDBodegaOrigen.Name = "lblIDBodegaOrigen";
+            this.lblIDBodegaOrigen.Size = new System.Drawing.Size(0, 18);
+            this.lblIDBodegaOrigen.TabIndex = 65;
+            this.lblIDBodegaOrigen.Visible = false;
             // 
             // txtUnidadMedida
             // 
@@ -338,16 +426,16 @@
             this.dataSetTipoTraslado.DataSetName = "DataSetTipoTraslado";
             this.dataSetTipoTraslado.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // txtNumeroDespacho
+            // txtNumeroTraslado
             // 
-            this.txtNumeroDespacho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtNumeroDespacho.Enabled = false;
-            this.txtNumeroDespacho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroDespacho.Location = new System.Drawing.Point(209, 63);
-            this.txtNumeroDespacho.Name = "txtNumeroDespacho";
-            this.txtNumeroDespacho.Size = new System.Drawing.Size(176, 22);
-            this.txtNumeroDespacho.TabIndex = 48;
-            this.txtNumeroDespacho.Text = "12212313";
+            this.txtNumeroTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtNumeroTraslado.Enabled = false;
+            this.txtNumeroTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroTraslado.Location = new System.Drawing.Point(209, 63);
+            this.txtNumeroTraslado.Name = "txtNumeroTraslado";
+            this.txtNumeroTraslado.Size = new System.Drawing.Size(176, 22);
+            this.txtNumeroTraslado.TabIndex = 48;
+            this.txtNumeroTraslado.Text = "12212313";
             // 
             // lblNumeroTraslado
             // 
@@ -570,55 +658,13 @@
             // 
             this.tipoTrasladoTableAdapter.ClearBeforeFill = true;
             // 
-            // btnEBodegaOrigen
+            // sp_SELECT_RegistroBodega_AllTableAdapter
             // 
-            this.btnEBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnEBodegaOrigen.Location = new System.Drawing.Point(570, 68);
-            this.btnEBodegaOrigen.Name = "btnEBodegaOrigen";
-            this.btnEBodegaOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnEBodegaOrigen.Size = new System.Drawing.Size(167, 20);
-            this.btnEBodegaOrigen.TabIndex = 63;
-            this.btnEBodegaOrigen.Click += new System.EventHandler(this.btnEBodegaOrigen_Click);
+            this.sp_SELECT_RegistroBodega_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // BtnEBodegaDestino
+            // sp_SELECT_RegistroBodega_AllTableAdapter1
             // 
-            this.BtnEBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.BtnEBodegaDestino.Location = new System.Drawing.Point(911, 64);
-            this.BtnEBodegaDestino.Name = "BtnEBodegaDestino";
-            this.BtnEBodegaDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BtnEBodegaDestino.Size = new System.Drawing.Size(167, 20);
-            this.BtnEBodegaDestino.TabIndex = 64;
-            this.BtnEBodegaDestino.Click += new System.EventHandler(this.BtnEBodegaDestino_Click);
-            // 
-            // lblIDBodegaOrigen
-            // 
-            this.lblIDBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblIDBodegaOrigen.AutoSize = true;
-            this.lblIDBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDBodegaOrigen.ForeColor = System.Drawing.Color.White;
-            this.lblIDBodegaOrigen.Location = new System.Drawing.Point(550, 71);
-            this.lblIDBodegaOrigen.Name = "lblIDBodegaOrigen";
-            this.lblIDBodegaOrigen.Size = new System.Drawing.Size(0, 18);
-            this.lblIDBodegaOrigen.TabIndex = 65;
-            this.lblIDBodegaOrigen.Visible = false;
-            // 
-            // lblIDBodegaDestino
-            // 
-            this.lblIDBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblIDBodegaDestino.AutoSize = true;
-            this.lblIDBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDBodegaDestino.ForeColor = System.Drawing.Color.White;
-            this.lblIDBodegaDestino.Location = new System.Drawing.Point(898, 67);
-            this.lblIDBodegaDestino.Name = "lblIDBodegaDestino";
-            this.lblIDBodegaDestino.Size = new System.Drawing.Size(0, 18);
-            this.lblIDBodegaDestino.TabIndex = 66;
-            this.lblIDBodegaDestino.Visible = false;
+            this.sp_SELECT_RegistroBodega_AllTableAdapter1.ClearBeforeFill = true;
             // 
             // frmAdTrasladoProductos
             // 
@@ -638,6 +684,10 @@
             this.Load += new System.EventHandler(this.frmAdTrasladoProductos_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodegaD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoTrasladoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTrasladoBindingSource)).EndInit();
@@ -650,8 +700,6 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEBodegaOrigen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnEBodegaDestino.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -672,7 +720,7 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lblCodigoUsuario;
         private System.Windows.Forms.Label lblObservaciones;
-        private System.Windows.Forms.TextBox txtNumeroDespacho;
+        private System.Windows.Forms.TextBox txtNumeroTraslado;
         private System.Windows.Forms.Label lblNumeroTraslado;
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
         private DevExpress.XtraGrid.GridControl gCBodega;
@@ -695,9 +743,15 @@
         private DataSets.Bodega.Admistracion.DataSetTipoTraslado dataSetTipoTraslado;
         private System.Windows.Forms.BindingSource tipoTrasladoBindingSource;
         private DataSets.Bodega.Admistracion.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter tipoTrasladoTableAdapter;
-        private DevExpress.XtraEditors.ButtonEdit BtnEBodegaDestino;
-        private DevExpress.XtraEditors.ButtonEdit btnEBodegaOrigen;
         private System.Windows.Forms.Label lblIDBodegaDestino;
         private System.Windows.Forms.Label lblIDBodegaOrigen;
+        private System.Windows.Forms.ComboBox cmbBodegaDestino;
+        private System.Windows.Forms.ComboBox cmbBodegaOrigen;
+        private DataSets.Bodega.Procesos.DataSetTPRegistroBodega dataSetTPRegistroBodega;
+        private System.Windows.Forms.BindingSource spSELECTRegistroBodegaAllBindingSource;
+        private DataSets.Bodega.Procesos.DataSetTPRegistroBodegaTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter sp_SELECT_RegistroBodega_AllTableAdapter;
+        private DataSets.Bodega.Procesos.DataSetTPRegistroBodegaD dataSetTPRegistroBodegaD;
+        private System.Windows.Forms.BindingSource spSELECTRegistroBodegaAllBindingSource1;
+        private DataSets.Bodega.Procesos.DataSetTPRegistroBodegaDTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter sp_SELECT_RegistroBodega_AllTableAdapter1;
     }
 }
