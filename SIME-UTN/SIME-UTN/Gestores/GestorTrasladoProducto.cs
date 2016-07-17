@@ -31,5 +31,15 @@ namespace SIME_UTN.Gestores
         {
             TrasladoProductoBLL.EliminarTraslado(idTrasladop, usuarioLogueadop);
         }
+
+        internal string ObtenerSiguienteNumeroTraslado()
+        {
+            return TrasladoProductoBLL.ObtenerSiguienteNumeroTraslado();
+        }
+
+        internal void GuardarTraslado(TrasladoProducto trasladop, string usuarioLogueadop)
+        {
+            TrasladoProductoBLL.GuardarTraslado(trasladop, usuarioLogueadop);
+        }
     }
 }

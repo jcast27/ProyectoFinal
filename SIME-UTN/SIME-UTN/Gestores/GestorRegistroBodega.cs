@@ -48,5 +48,10 @@ namespace SIME_UTN.Gestores
         {
             RegistroBodegaBLL.GuardarBodega(unaBodegap,usuarioLogueadop);
         }
+
+        internal RegistroBodega ObtenerBodegaPorIDRegistro(int idRegistroBodegap)
+        {
+            return RegistroBodegaBLL.ObtenerBodegaPorIDRegistro(idRegistroBodegap);
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace SIME_UTN.DAL
 
 
         /// <summary>
-        /// Metodo que obtiene una bodega por meido del ID
+        /// Metodo que verifica si existe una bodega por medio del ID
         /// </summary>
         /// <param name="idRegistroBodega"></param>
         /// <returns></returns>
@@ -64,6 +64,40 @@ namespace SIME_UTN.DAL
 
             }
             return existe;
+        }
+
+        /// <summary>
+        /// Metodo que obtiene una bodega por medio del ID
+        /// </summary>
+        /// <param name="idRegistroBodega"></param>
+        /// <returns></returns>
+        internal static RegistroBodega ObtenerBodega(int idRegistroBodega)
+        {
+            RegistroBodega unaBodega = new RegistroBodega();
+            bool existe = false;
+            string sql = @"sp_SELECT_RegistroBodega_ByID";
+
+            SqlCommand command = new SqlCommand(sql);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@idregistrobodega", idRegistroBodega);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(command, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    unaBodega.idRegistroBodega = Convert.ToInt32(dr["idregistrobodega"].ToString());
+                    unaBodega.nombre = dr["nombre"].ToString();
+                    unaBodega.descripcion = dr["descripcion"].ToString();
+                    unaBodega.TipoBodega = TipoBodegaDAL.ObtenerTipoBodega(Convert.ToInt32(dr["tipo"].ToString()));
+                    unaBodega.estado = Convert.ToInt32(dr["estado"]);
+                }
+
+            }
+            return unaBodega;
         }
 
         /// <summary>

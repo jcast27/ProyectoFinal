@@ -32,5 +32,10 @@ namespace SIME_UTN.Gestores
         {
            return BLL.TrasladoProductoInterBLL.ObtenerProductosPorIdTraslado(idTrasladop);
         }
+
+        internal void GuardarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp, TrasladoProducto trasladop)
+        {
+            BLL.TrasladoProductoInterBLL.GuardarTrasladoProductos(trasladoInterDTOp,trasladop);
+        }
     }
 }

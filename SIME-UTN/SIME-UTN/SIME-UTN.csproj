@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ActivoBLL.cs" />
+    <Compile Include="BLL\BodegaBLL.cs" />
     <Compile Include="BLL\CategoriaItemBLL.cs" />
     <Compile Include="BLL\CategoriaBLL.cs" />
     <Compile Include="BLL\DepartamentoBLL.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="BLL\UbicacionBLL.cs" />
     <Compile Include="BLL\UnidadMedidaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="DAL\BodegaDAL.cs" />
     <Compile Include="DAL\DepartamentoDAL.cs" />
     <Compile Include="DAL\ActivoDAL.cs" />
     <Compile Include="DAL\CategoriaItemDAL.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="DAL\RegistroIngresoProductoDAL.cs" />
     <Compile Include="DAL\RegistroMezclaDAL.cs" />
     <Compile Include="DAL\RegistroProductoDAL.cs" />
+    <Compile Include="DAL\TipoBodegaDAL.cs" />
     <Compile Include="DAL\TrasladoProductoDAL.cs" />
     <Compile Include="DAL\TrasladoProductoInterDAL.cs" />
     <Compile Include="DAL\UbicacionDAL.cs" />
@@ -287,6 +290,7 @@
     <Compile Include="DTOs\RegistroIngresoProductoDTO.cs" />
     <Compile Include="DTOs\TrasladoProductoInterDTO.cs" />
     <Compile Include="Entities\Activo.cs" />
+    <Compile Include="Entities\PBodega.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
     <Compile Include="Entities\Departamento.cs" />
@@ -315,6 +319,7 @@
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
     <Compile Include="Gestores\GestorActivo.cs" />
+    <Compile Include="Gestores\GestorBodega.cs" />
     <Compile Include="Gestores\GestorDepartamento.cs" />
     <Compile Include="Gestores\GestorDetalleFormulario.cs" />
     <Compile Include="Gestores\GestorFormulario.cs" />

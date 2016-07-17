@@ -16,15 +16,24 @@ namespace SIME_UTN.UI.Bodega.Procesos
     public partial class frmAdTrasladoProductos : DevExpress.XtraEditors.XtraForm
     {
         static List<TrasladoProductoInterDTO> lista = new List<TrasladoProductoInterDTO>();
+        static List<PBodega> listaPBodega = new List<PBodega>();
         GestorUsuarioTable gestor = null;
         string usuarioLogueado = "";
         TrasladoProducto traslado = new TrasladoProducto();
         GestorTrasladoProductoInter gestorTrasladoPInter = null;
-        
+        GestorTrasladoProducto gestorTraslado = null;
+        GestorBodega gestorBodega = null;
+        GestorUnidadMedida gestorUnidadMedida = null;
+        GestorProducto gestorProducto = null;
+
+
         static TrasladoProducto trasladoEstatico = null;
         public frmAdTrasladoProductos()
         {
             InitializeComponent();
+            gestorTraslado = new GestorTrasladoProducto();
+            txtNumeroTraslado.Text = gestorTraslado.ObtenerSiguienteNumeroTraslado();
+            txtFechaTraslado.Text = ObtenerFecha();
         }
 
         public frmAdTrasladoProductos(TrasladoProducto trasladoEstaticop)
@@ -33,6 +42,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             trasladoEstatico = new TrasladoProducto();
             trasladoEstatico = trasladoEstaticop;
             gCTraslados();
+            CambiarEstado(EstadoMantenimiento.Editar);
         }
 
 
@@ -40,11 +50,17 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             gestor = GestorUsuarioTable.GetInstance();
             txtUsuario.Text = gestor.ObtenerUsuarioLogeado();
+            usuarioLogueado = txtUsuario.Text;
         }
 
-    
+        public string ObtenerFecha()
+        {
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            return fecha;
+        }
 
-        public void CargarGrid()
+        public void CargarGridProductos()
         {
             DataTable dt = new DataTable();
             dt.TableName = "Prodcutos";
@@ -75,23 +91,116 @@ namespace SIME_UTN.UI.Bodega.Procesos
             this.gCProductos.DataSource = dt;
         }
 
+        public void CargarGridBodegaOrigen()
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "Prodcutos";
+            dt.Columns.Add(new DataColumn("CodigoProducto"));
+            dt.Columns.Add(new DataColumn("Nombre"));
+            dt.Columns.Add(new DataColumn("Cantidad"));
+            dt.Columns.Add(new DataColumn("UnidadMedida"));
+
+            try
+            {
+
+                for (int i = 0; i < listaPBodega.Count; i++)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["CodigoProducto"] = listaPBodega[i].Producto.codigoAvatar;
+                    dr["Nombre"] = listaPBodega[i].Producto.nombreProducto;
+                    dr["Cantidad"] = listaPBodega[i].contenido;
+                    dr["UnidadMedida"] = listaPBodega[i].UnidadMedida.descripcion;
+                    dt.Rows.Add(dr);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.gCBodega.DataSource = dt;
+        }
+
         public void gCTraslados()
         {
             gestorTrasladoPInter = new GestorTrasladoProductoInter();
-
+            gestorBodega = new GestorBodega();
             try
             {
                 txtNumeroTraslado.Text = trasladoEstatico.idTraslado.ToString();
                 txtUsuario.Text = trasladoEstatico.Usuario.usuario;
-                dateFechaTraslado.Text = trasladoEstatico.fechaTraslado;
+                txtFechaTraslado.Text = trasladoEstatico.fechaTraslado;
                 txtObservaciones.Text = trasladoEstatico.observaciones;
                 lista = gestorTrasladoPInter.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
-                CargarGrid();
+                listaPBodega = gestorBodega.ObtenerProductosPorIdBodega(trasladoEstatico.BodegaOrigen.idRegistroBodega);
+                CargarGridProductos();
+                CargarGridBodegaOrigen();
+
 
             }
             catch (ApplicationException app)
             {
                 MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GuardarCambiosTraslado(string accionp)
+        {
+            traslado = new TrasladoProducto();
+            gestorTrasladoPInter = new GestorTrasladoProductoInter();
+            TipoTraslado tipoTraslado = new TipoTraslado();
+            gestorTraslado = new GestorTrasladoProducto();
+            gestor = new GestorUsuarioTable();
+            EstadoTraslado estadoTraslado = new EstadoTraslado();
+            Producto producto = new Producto();
+            gestorProducto = new GestorProducto();
+            GestorRegistroBodega gestorRBodega = new GestorRegistroBodega();
+            try
+            {
+                traslado.idTraslado = int.Parse(txtNumeroTraslado.Text);
+                traslado.BodegaOrigen = gestorRBodega.ObtenerBodegaPorIDRegistro(int.Parse(cmbBodegaOrigen.SelectedValue.ToString()));
+                traslado.BodegaDestino = gestorRBodega.ObtenerBodegaPorIDRegistro(int.Parse(cmbBodegaDestino.SelectedValue.ToString()));
+                traslado.Usuario = gestor.ValidarUsuarioPorUsuario(usuarioLogueado);
+                traslado.fechaTraslado = txtFechaTraslado.Text;
+                tipoTraslado.idTipoTraslado = int.Parse(cmbTipoTraslado.SelectedValue.ToString());
+                tipoTraslado.descripcion = cmbTipoTraslado.GetItemText(cmbTipoTraslado.Items[cmbTipoTraslado.SelectedIndex]);
+                traslado.TipoTraslado = tipoTraslado;
+                traslado.observaciones = txtObservaciones.Text;
+                estadoTraslado.idEstadoTraslado = 1;
+                traslado.EstadoTraslado = estadoTraslado;
+                traslado.estado = 1;
+                gestorTraslado.GuardarTraslado(traslado,usuarioLogueado);
+
+                if (lista.Count != 0)
+                {
+                    foreach (TrasladoProductoInterDTO trasladoInterDTO in lista)
+                    {
+                        producto = gestorProducto.ObtenerProductoPorCodigoAvatar(trasladoInterDTO.codigoAvatar);
+                        trasladoInterDTO.idProducto = producto.idProducto;
+                        trasladoInterDTO.idTraslado = traslado.idTraslado;
+                        trasladoInterDTO.idUnidadMedida = producto.UnidadMedida.idUnidadMedida;
+                        trasladoInterDTO.estado = 1;
+                        gestorTrasladoPInter.GuardarTrasladoProductos(trasladoInterDTO,traslado);
+                    }
+
+                }
+
+                if (accionp == "Modificar")
+                {
+                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+
             }
             catch (Exception ex)
             {
@@ -111,13 +220,79 @@ namespace SIME_UTN.UI.Bodega.Procesos
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             TrasladoProductoInterDTO unProducto = new TrasladoProductoInterDTO();
-            unProducto.codigoAvatar = txtECodigoProducto.Text;
-            unProducto.nombreProducto = txtNombreProducto.Text;
-            unProducto.cantidad = double.Parse(txtCantidad.Text);
-            unProducto.nombreUnidadMedida = txtUnidadMedida.Text;
-            lista.Add(unProducto);
-            this.CargarGrid();
-            CambiarEstado(EstadoMantenimiento.Agregar);
+            bool cantidadSuficiente = false;
+            bool existeProducto = false;
+
+            //se valida que los campos requeridos no esten vacios
+            if (ValidarCamposAgregarProducto() != true)
+            {
+
+                unProducto.codigoAvatar = txtECodigoProducto.Text;
+                unProducto.cantidad = double.Parse(txtCantidad.Text);
+
+                //se compara la cantida por agregar, contra la cantidad el producto en bodega
+                foreach (PBodega productoBodega in listaPBodega)
+                {
+                    if (productoBodega.Producto.codigoAvatar == unProducto.codigoAvatar)
+                    {
+                        existeProducto = true;
+                        if (productoBodega.contenido >= unProducto.cantidad)
+                        {
+                            cantidadSuficiente = true;
+                        }  
+                    }
+                }
+
+                // se valida si el producto por agregar ya existe en la bodega, de lo contrario no se puede agregar
+                if (existeProducto == true)
+                {
+
+                    if (cantidadSuficiente == false)
+                    {
+                        MessageBox.Show("La cantidad digitda es mayor que la cantida en bodega para este producto, digitar otra cantidad", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+
+                        int index = 0;
+                        bool existe = false;
+                        if (lista.Count != 0)
+                        {
+                            existe = true;
+
+                            // se valida si se agregar un producto repetido, de ser asi, se elimina y se vuelve agregar a la lista
+                            foreach (TrasladoProductoInterDTO unProductoDTO in lista)
+                            {
+                                if (unProductoDTO.codigoAvatar == txtECodigoProducto.Text)
+                                {
+                                    lista.RemoveAt(index);
+                                    break;
+                                }
+                                index++;
+                            }
+                        }
+
+                        unProducto.nombreProducto = txtNombreProducto.Text;
+                        unProducto.nombreUnidadMedida = txtUnidadMedida.Text;
+
+                        if (existe == true)
+                        {
+                            lista.Insert(index, unProducto);
+                        }
+                        else
+                        {
+                            lista.Add(unProducto);
+                        }
+                        this.CargarGridProductos();
+                        CambiarEstado(EstadoMantenimiento.Agregar);
+                    }
+                }else
+                {
+                    MessageBox.Show("El producto seleccionado no existe en la bodega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CambiarEstado(EstadoMantenimiento.Agregar);
+                }
+            }
+           
         }
 
         public void CambiarEstado(EstadoMantenimiento estado)
@@ -130,11 +305,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     lista.Clear();
                     gCProductos.DataSource = null;
                     gridView2.Columns.Clear();
-                    dateFechaTraslado.Enabled = true;
                     txtObservaciones.Enabled = true;
                     cmbTipoTraslado.Enabled = true;
                     cmbTipoTraslado.SelectedIndex = -1;
-                    dateFechaTraslado.Text = "";
                     txtObservaciones.Text = "";
                     txtNombreProducto.Text = "";
                     txtECodigoProducto.Text = "";
@@ -144,12 +317,18 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     break;
 
                 case EstadoMantenimiento.Editar:
+                    mBtnAceptar.Visible = false;
+                    mBtnModificar.Visible = true;
+                    txtNumeroTraslado.Enabled = false;
+                    cmbBodegaOrigen.Enabled = false;
+                    cmbBodegaDestino.Enabled = false;
+                    txtUsuario.Enabled = false;
+                    txtFechaTraslado.Enabled = false;
+
+
                     break;
 
                 case EstadoMantenimiento.Agregar:
-                    dateFechaTraslado.Enabled = false;
-                    txtObservaciones.Enabled = false;
-                    cmbTipoTraslado.Enabled = false;
                     txtNombreProducto.Text = "";
                     txtECodigoProducto.Text = "";
                     txtCantidad.Text = "";
@@ -217,6 +396,106 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         }
 
-      
+
+        /// <summary>
+        /// Invoca al metodo que permite hacerle las validacions pertinentes al campo cantidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            gestorUnidadMedida = new GestorUnidadMedida();
+            if (gestorUnidadMedida.ObtenerUnidadesConDecimales(txtUnidadMedida.Text) != true)
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+            else
+            {
+
+                if (e.KeyChar == 8)
+                {
+                    e.Handled = false;
+                    return;
+                }
+
+                bool IsDec = false;
+                int nroDec = 0;
+
+                for (int i = 0; i < txtCantidad.Text.Length; i++)
+                {
+                    if (txtCantidad.Text[i] == '.')
+                        IsDec = true;
+
+                    if (IsDec && nroDec++ >= 2)
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+
+
+                }
+
+                if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                    e.Handled = false;
+                else if (e.KeyChar == 46)
+                    e.Handled = (IsDec) ? true : false;
+                else
+                    e.Handled = true;
+
+            }
+        }
+
+        /// <summary>
+        /// Metodo que valida los campos requeridos para poder agregar productos al traslado
+        /// </summary>
+        /// <returns></returns>
+        public bool ValidarCamposAgregarProducto()
+        {
+            bool error = false;
+            if (txtECodigoProducto.Text.Trim() == "")
+            {
+                epError.SetError(txtECodigoProducto, "Campo Requerido");
+                txtECodigoProducto.Focus();
+                error = true;
+            }
+            if (txtCantidad.Text.Trim() == "")
+            {
+                epError.SetError(txtCantidad, "Campo Requerido");
+                txtCantidad.Focus();
+                error = true;
+            }
+            if (error == false)
+            {
+                epError.Clear();
+            }
+            return error;
+        }
+
+        private void mBtnAceptar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            GuardarCambiosTraslado("Guardar");
+        }
+
+        private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            GuardarCambiosTraslado("Modificar");
+        }
+
+        private void cmbBodegaOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbBodegaOrigen.SelectedIndex >= 0)
+            {
+                gestorBodega = new GestorBodega();
+                int idBodega = int.Parse(cmbBodegaOrigen.SelectedValue.ToString());
+                listaPBodega = gestorBodega.ObtenerProductosPorIdBodega(idBodega);
+                lista.Clear();
+                CargarGridBodegaOrigen();
+            }
+          
+        }
     }
 }

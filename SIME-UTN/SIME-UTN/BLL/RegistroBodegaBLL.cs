@@ -32,5 +32,10 @@ namespace SIME_UTN.BLL
         {
             return RegistroBodegaDAL.ObtenertBodegas();
         }
+
+        internal static RegistroBodega ObtenerBodegaPorIDRegistro(int idRegistroBodegap)
+        {
+            return RegistroBodegaDAL.ObtenerBodega(idRegistroBodegap);
+        }
     }
 }

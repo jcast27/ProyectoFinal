@@ -38,12 +38,14 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             frmAdTrasladoProductos ofrmAdTrasladoProducto = new frmAdTrasladoProductos(trasladoEstatico);
             ofrmAdTrasladoProducto.ShowDialog(this);
+            frmTrasladosDeProductos_Load(null, null);
         }
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             frmAdTrasladoProductos ofrmAdTrasladoProducto = new frmAdTrasladoProductos();
             ofrmAdTrasladoProducto.ShowDialog(this);
-          
+            frmTrasladosDeProductos_Load(null, null);
+
         }
 
         private void frmTrasladosDeProductos_Load(object sender, EventArgs e)

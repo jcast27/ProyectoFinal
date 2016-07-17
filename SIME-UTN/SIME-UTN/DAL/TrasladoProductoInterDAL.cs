@@ -45,5 +45,95 @@ namespace SIME_UTN.DAL
 
             return listaProductosDTO;
         }
+
+
+        /// <summary>
+        /// Metodo que actualiza los productos de un traslado
+        /// </summary>
+        /// <param name="trasladoInterDTOp"></param>
+        internal static void ActualizarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp)
+        {
+            string accion = "";
+            accion = "Insertar";
+            SqlCommand comando = new SqlCommand("sp_UPDATE_TrasladoProductoInter");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idtraslado", trasladoInterDTOp.idTraslado);
+            comando.Parameters.AddWithValue("@idproducto", trasladoInterDTOp.idProducto);
+            comando.Parameters.AddWithValue("@idunidadmedida", trasladoInterDTOp.idUnidadMedida);
+            comando.Parameters.AddWithValue("@cantidad", trasladoInterDTOp.cantidad);
+            comando.Parameters.AddWithValue("@estado", trasladoInterDTOp.estado);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+        }
+
+        /// <summary>
+        /// Metodo que valida si el producto existe en le traslado
+        /// </summary>
+        /// <param name="idTrasladop"></param>
+        /// <param name="idProductop"></param>
+        /// <returns></returns>
+        internal static bool ValidarTrasladoProducto(int idTrasladop, int idProductop)
+        {
+            bool existe = false;
+            string sql = @"sp_SELECT_TrasladoProductoInter_ByID";
+
+            List<Item> lista = new List<Item>();
+
+            SqlCommand command = new SqlCommand(sql);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@idtraslado", idTrasladop);
+            command.Parameters.AddWithValue("@idproducto", idProductop);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(command, "consulta");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    existe = true;
+                }
+
+            }
+            return existe;
+        }
+
+        /// <summary>
+        /// Metodo que guarda los productos de un traslado
+        /// </summary>
+        /// <param name="unaMezclaProductoUnidadDTOp"></param>
+        internal static void GuardarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp,TrasladoProducto trasladop)
+        {
+            string accion = "";
+            accion = "Insertar";
+            SqlCommand comando = new SqlCommand("sp_INSERT_TrasladoProductoInter");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idtraslado", trasladoInterDTOp.idTraslado);
+            comando.Parameters.AddWithValue("@idproducto", trasladoInterDTOp.idProducto);
+            comando.Parameters.AddWithValue("@idunidadmedida", trasladoInterDTOp.idUnidadMedida);
+            comando.Parameters.AddWithValue("@cantidad", trasladoInterDTOp.cantidad);
+            comando.Parameters.AddWithValue("@estado", trasladoInterDTOp.estado);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+
+            if ((trasladop.BodegaOrigen.TipoBodega.idTipoBodega==1) &&(trasladop.BodegaDestino.TipoBodega.idTipoBodega != 1))
+            {
+                BodegaDAL.ActualizarCantidad(trasladop.BodegaDestino.idRegistroBodega,trasladoInterDTOp.idProducto,trasladoInterDTOp.cantidad);
+            }else
+            {
+                BodegaDAL.ActualizarCantidadAmbasBodegas(trasladop,trasladoInterDTOp.idProducto, trasladoInterDTOp.cantidad);
+            }
+
+        }
     }
 }

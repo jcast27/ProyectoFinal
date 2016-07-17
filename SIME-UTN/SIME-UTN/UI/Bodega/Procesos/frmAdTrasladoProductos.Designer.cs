@@ -34,8 +34,10 @@
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
+            this.txtFechaTraslado = new System.Windows.Forms.TextBox();
             this.cmbBodegaDestino = new System.Windows.Forms.ComboBox();
             this.spSELECTRegistroBodegaAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTPRegistroBodegaD = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaD();
@@ -62,7 +64,6 @@
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.lblTipoTraslado = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.dateFechaTraslado = new DevExpress.XtraEditors.DateEdit();
             this.lblFechaTraslado = new System.Windows.Forms.Label();
             this.lblBodega = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -77,6 +78,7 @@
             this.tipoTrasladoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter();
             this.sp_SELECT_RegistroBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             this.sp_SELECT_RegistroBodega_AllTableAdapter1 = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaDTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodegaD)).BeginInit();
@@ -86,14 +88,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoTrasladoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTrasladoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTraslado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaTraslado.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaTraslado.Properties)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -103,6 +104,7 @@
             this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
             this.tileNavPane1.Buttons.Add(this.mBtnAceptar);
+            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
             // tileNavCategory1
@@ -158,6 +160,20 @@
             this.mBtnAceptar.Caption = "Registrar";
             this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
             this.mBtnAceptar.Name = "mBtnAceptar";
+            this.mBtnAceptar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAceptar_ElementClick);
+            // 
+            // mBtnModificar
+            // 
+            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnModificar.Appearance.Options.UseFont = true;
+            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
+            this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.Visible = false;
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnSalir
             // 
@@ -174,6 +190,7 @@
             // gbGridViewFuncionario
             // 
             this.gbGridViewFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbGridViewFuncionario.Controls.Add(this.txtFechaTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaDestino);
             this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaOrigen);
             this.gbGridViewFuncionario.Controls.Add(this.lblIDBodegaDestino);
@@ -193,7 +210,6 @@
             this.gbGridViewFuncionario.Controls.Add(this.txtObservaciones);
             this.gbGridViewFuncionario.Controls.Add(this.lblTipoTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.lblUsuario);
-            this.gbGridViewFuncionario.Controls.Add(this.dateFechaTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.lblFechaTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.lblBodega);
             this.gbGridViewFuncionario.Controls.Add(this.txtUsuario);
@@ -207,6 +223,16 @@
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Traslado de Producto";
+            // 
+            // txtFechaTraslado
+            // 
+            this.txtFechaTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtFechaTraslado.Enabled = false;
+            this.txtFechaTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaTraslado.Location = new System.Drawing.Point(570, 132);
+            this.txtFechaTraslado.Name = "txtFechaTraslado";
+            this.txtFechaTraslado.Size = new System.Drawing.Size(167, 22);
+            this.txtFechaTraslado.TabIndex = 69;
             // 
             // cmbBodegaDestino
             // 
@@ -249,6 +275,7 @@
             this.cmbBodegaOrigen.Size = new System.Drawing.Size(167, 24);
             this.cmbBodegaOrigen.TabIndex = 67;
             this.cmbBodegaOrigen.ValueMember = "idregistrobodega";
+            this.cmbBodegaOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbBodegaOrigen_SelectedIndexChanged);
             // 
             // spSELECTRegistroBodegaAllBindingSource
             // 
@@ -321,6 +348,7 @@
             this.txtCantidad.Size = new System.Drawing.Size(167, 22);
             this.txtCantidad.TabIndex = 60;
             this.txtCantidad.Text = "42";
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblCantidad
             // 
@@ -435,7 +463,6 @@
             this.txtNumeroTraslado.Name = "txtNumeroTraslado";
             this.txtNumeroTraslado.Size = new System.Drawing.Size(176, 22);
             this.txtNumeroTraslado.TabIndex = 48;
-            this.txtNumeroTraslado.Text = "12212313";
             // 
             // lblNumeroTraslado
             // 
@@ -487,28 +514,6 @@
             this.lblUsuario.Size = new System.Drawing.Size(64, 18);
             this.lblUsuario.TabIndex = 22;
             this.lblUsuario.Text = "Usuario:";
-            // 
-            // dateFechaTraslado
-            // 
-            this.dateFechaTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dateFechaTraslado.EditValue = null;
-            this.dateFechaTraslado.Location = new System.Drawing.Point(570, 130);
-            this.dateFechaTraslado.MaximumSize = new System.Drawing.Size(200, 22);
-            this.dateFechaTraslado.Name = "dateFechaTraslado";
-            this.dateFechaTraslado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFechaTraslado.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFechaTraslado.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
-            this.dateFechaTraslado.Properties.DisplayFormat.FormatString = "";
-            this.dateFechaTraslado.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateFechaTraslado.Properties.EditFormat.FormatString = "";
-            this.dateFechaTraslado.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateFechaTraslado.Properties.Mask.EditMask = "";
-            this.dateFechaTraslado.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.dateFechaTraslado.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateFechaTraslado.Size = new System.Drawing.Size(167, 20);
-            this.dateFechaTraslado.TabIndex = 34;
             // 
             // lblFechaTraslado
             // 
@@ -666,6 +671,10 @@
             // 
             this.sp_SELECT_RegistroBodega_AllTableAdapter1.ClearBeforeFill = true;
             // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
+            // 
             // frmAdTrasladoProductos
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -692,14 +701,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoTrasladoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTrasladoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTraslado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaTraslado.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaTraslado.Properties)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -714,7 +722,6 @@
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Label lblTipoTraslado;
         private System.Windows.Forms.Label lblUsuario;
-        private DevExpress.XtraEditors.DateEdit dateFechaTraslado;
         private System.Windows.Forms.Label lblFechaTraslado;
         private System.Windows.Forms.Label lblBodega;
         private System.Windows.Forms.TextBox txtUsuario;
@@ -753,5 +760,8 @@
         private DataSets.Bodega.Procesos.DataSetTPRegistroBodegaD dataSetTPRegistroBodegaD;
         private System.Windows.Forms.BindingSource spSELECTRegistroBodegaAllBindingSource1;
         private DataSets.Bodega.Procesos.DataSetTPRegistroBodegaDTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter sp_SELECT_RegistroBodega_AllTableAdapter1;
+        private System.Windows.Forms.TextBox txtFechaTraslado;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
+        private System.Windows.Forms.ErrorProvider epError;
     }
 }
