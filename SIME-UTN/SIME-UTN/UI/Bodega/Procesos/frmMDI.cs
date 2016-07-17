@@ -16,7 +16,7 @@ namespace SIME_UTN.UI.Bodega
 {
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
-        static string tipoDeProceso ="";
+        static string tipoDeProceso = "";
         static string usuarioLogueado = "";
         GestorUsuarioTable gestor = null;
         public bool modulo = false;
@@ -26,7 +26,7 @@ namespace SIME_UTN.UI.Bodega
         {
             InitializeComponent();
             // Handling the QueryControl event that will populate all automatically generated Documents
-           // CrearDocuemtnos();
+            // CrearDocuemtnos();
             this.UsuarioLogueado();
             security();
         }
@@ -46,13 +46,17 @@ namespace SIME_UTN.UI.Bodega
 
         public void security()
         {
-
-            string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
-
-            if (perfil.Equals("Despachador"))
+            try
             {
-                mBtnAdministracion.Visible = false;
+                string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
+
+                if (perfil.Equals("Despachador"))
+                {
+                    mBtnAdministracion.Visible = false;
+                }
             }
+            catch (Exception)
+            { }
         }
         // Assigning a required content for each auto generated Document
         void windowsUIView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
@@ -133,7 +137,7 @@ namespace SIME_UTN.UI.Bodega
             tipoDeProceso = "Inventarios";
         }
         //Se crea un elemento que sera agregado al frame
-        public TileItemElement CrearElemento(String nombreElemento,Image imagen)
+        public TileItemElement CrearElemento(String nombreElemento, Image imagen)
         {
             Font font = new Font("Tahoma", 15.0f, FontStyle.Underline | FontStyle.Underline);
             TileItemElement elemento = new TileItemElement();
@@ -159,7 +163,7 @@ namespace SIME_UTN.UI.Bodega
         }
 
         //Se crea un tile que contendra el frame
-        public DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile crearTile(Document document, String nombreElemento, String grupo, Image imagen,Boolean estado)
+        public DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile crearTile(Document document, String nombreElemento, String grupo, Image imagen, Boolean estado)
         {
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile tile1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
             tile1.Group = grupo;
@@ -174,7 +178,7 @@ namespace SIME_UTN.UI.Bodega
             string nombreElemento = "";
             string grupo = "";
             Image imagen = null;
-           
+
             this.windowsUIView1.BeginUpdate();
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
@@ -187,7 +191,7 @@ namespace SIME_UTN.UI.Bodega
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docUbicaciones = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Ubicaciones" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docDepartamentos = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Departamentos" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docMezclas = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Mezclas" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] {docUsuarios,docProductos,docFuncionarios,docBodegas,docUnidadDeMedida,docUbicaciones,docDepartamentos, docMezclas});
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docUsuarios, docProductos, docFuncionarios, docBodegas, docUnidadDeMedida, docUbicaciones, docDepartamentos, docMezclas });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 120;
@@ -196,7 +200,7 @@ namespace SIME_UTN.UI.Bodega
             grupo = "Group 1";
             imagen = Properties.Resources.usuarios;
             nombreElemento = "Usuarios";
-            tileContainer2.Items.Add(this.crearTile(docUsuarios, nombreElemento,grupo,imagen,estado));
+            tileContainer2.Items.Add(this.crearTile(docUsuarios, nombreElemento, grupo, imagen, estado));
 
             //Propiedades para el decumento Productos
             grupo = "Group 2";
@@ -261,7 +265,7 @@ namespace SIME_UTN.UI.Bodega
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Registro Producto" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Despacho Producto" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc3 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Traslado Producto" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1,doc2,doc3});
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc1, doc2, doc3 });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 120;
@@ -353,7 +357,7 @@ namespace SIME_UTN.UI.Bodega
             {
                 this.CrearDocumentosInventario(true);
             }
-             
+
         }
 
         private void windowsUIView1_ControlReleasing(object sender, ControlReleasingEventArgs e)

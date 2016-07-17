@@ -28,11 +28,11 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             Icon = Properties.Resources.Icono;
             // TODO: esta línea de código carga datos en la tabla 'dataSetCategoria.Categoria' Puede moverla o quitarla según sea necesario.
-            this.categoriaTableAdapter.Fill(this.dataSetCategoria.Categoria);
+            //this.categoriaTableAdapter.Fill(this.dataSetCategoria.Categoria);
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             try
             {
-                
+                RefrescarLista();
                 /*.Fill(this.dataSetRDepartamento.sp_SELECT_Departamento_All);
                 UsuarioLogueado();
                 gestorDepto = GestorDepartamento.GetInstance();
@@ -60,7 +60,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <summary>
         /// Actualiza el datagridview con los usuarios agredados
         /// </summary>
-        /*private void RefrescarLista()
+        private void RefrescarLista()
         {
             DataTable dt = new DataTable();
             dt.TableName = "Items";
@@ -95,7 +95,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gCCategorias.DataSource = dt;
 
         }
-
+        /*
 
         /// <summary>
         /// Cambiar el estad de los objetos al seleccionar Nuevo,Editar,Borrar o Ninguno
@@ -139,16 +139,6 @@ namespace SIME_UTN.UI.Formulario.Administracion
         private void toolStripSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        /// <summary>
-        /// Metodo que permite eliminar un usuario, seleccionandolo en el datagrid y presionando la tecla delete
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridView1_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -209,23 +199,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <param name="e"></param>
         private void gCUsuarios_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
-                categoria = gestor.ObtenerCategoriaId(int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString()));
-
-                txtId.Text = categoria.idCategoria.ToString();
-                txtDescripcion.Text = categoria.descripcion;
-
-                foreach (Item item in categoria.listaItems)
-                {
-                    for (int i = 0; i < clbItems.Items.Count; i++)
-                    {
-                        string chkL = clbItems.Items[i].ToString();
-                        if (item.descripcion.Equals(chkL))
-                            clbItems.SetItemChecked(i, true);
-                    }
-                }
-
+                mBtnEliminar.Enabled = true;
+                mBtnModificar.Enabled = true;
                 mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
             }
             catch (ApplicationException app)
@@ -235,7 +212,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
 
         /// <summary>
@@ -245,7 +222,11 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            
+            categoria = gestor.ObtenerCategoriaId(int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString()));
+
+            frmAdCategoria frm = new frmAdCategoria(categoria);
+            frm.ShowDialog(this);
+            frmCategoria_Load(null, null);
         }
 
 
@@ -254,30 +235,16 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gestor = GestorCategoria.GetInstance();
             try
             {
-                //gestor.DesactivarCategoria(txtId.Text, mBtnEliminar.Caption);
+                gestor.DesactivarCategoria(gridView1.GetFocusedRowCellValue("IDCategoria").ToString(), mBtnEliminar.Caption);
                 MessageBox.Show("El Item ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
-                //RefrescarLista();
+                RefrescarLista();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }
-
-        private void clbItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            /*if (clbItems.SelectedIndex == 0)
-            {
-                bool state = clbItems.GetItemChecked(0) ? true : false;
-
-                for (int i = 1; i < clbItems.Items.Count; i++)
-                {
-                    clbItems.SetItemChecked(i, state);
-                }
-            }*/
         }
     }
 }

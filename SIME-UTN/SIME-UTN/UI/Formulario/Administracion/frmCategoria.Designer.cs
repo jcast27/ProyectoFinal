@@ -38,6 +38,8 @@
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.cmbItems = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetCategoria = new SIME_UTN.DataSets.Formulario.DataSetCategoria();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
@@ -48,34 +50,31 @@
             this.gbGridViewCategoria = new System.Windows.Forms.GroupBox();
             this.dataSetCategorias1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
             this.categoriaTableAdapter1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
-            this.dataSetCategoria = new SIME_UTN.DataSets.Formulario.DataSetCategoria();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewCategoria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCCategorias
             // 
-            this.gCCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gCCategorias.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCCategorias.BackgroundImage")));
-            this.gCCategorias.DataSource = this.categoriaBindingSource;
-            this.gCCategorias.Location = new System.Drawing.Point(12, 30);
+            this.gCCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gCCategorias.Location = new System.Drawing.Point(3, 27);
             this.gCCategorias.MainView = this.gridView1;
             this.gCCategorias.Name = "gCCategorias";
             this.gCCategorias.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1,
             this.repositoryItemComboBox1,
             this.cmbItems});
-            this.gCCategorias.Size = new System.Drawing.Size(966, 461);
+            this.gCCategorias.Size = new System.Drawing.Size(978, 467);
             this.gCCategorias.TabIndex = 19;
             this.gCCategorias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -96,7 +95,6 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
-            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // colId
             // 
@@ -144,6 +142,16 @@
             this.cmbItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbItems.Name = "cmbItems";
+            // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.dataSetCategoria;
+            // 
+            // dataSetCategoria
+            // 
+            this.dataSetCategoria.DataSetName = "DataSetCategoria";
+            this.dataSetCategoria.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ePError
             // 
@@ -197,6 +205,7 @@
             this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
             this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Enabled = false;
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
             this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
@@ -236,7 +245,9 @@
             // 
             // gbGridViewCategoria
             // 
-            this.gbGridViewCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbGridViewCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbGridViewCategoria.Controls.Add(this.gCCategorias);
             this.gbGridViewCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewCategoria.Location = new System.Drawing.Point(169, 51);
@@ -254,16 +265,6 @@
             // categoriaTableAdapter1
             // 
             this.categoriaTableAdapter1.ClearBeforeFill = true;
-            // 
-            // dataSetCategoria
-            // 
-            this.dataSetCategoria.DataSetName = "DataSetCategoria";
-            this.dataSetCategoria.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.dataSetCategoria;
             // 
             // categoriaTableAdapter
             // 
@@ -289,11 +290,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewCategoria.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

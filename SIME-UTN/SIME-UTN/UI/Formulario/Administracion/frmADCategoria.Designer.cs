@@ -40,9 +40,7 @@
             this.tipoBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
@@ -68,7 +66,7 @@
             this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 46);
             this.gbGridViewUnidadMedida.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbGridViewUnidadMedida.Name = "gbGridViewUnidadMedida";
-            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(533, 326);
+            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(433, 326);
             this.gbGridViewUnidadMedida.TabIndex = 33;
             this.gbGridViewUnidadMedida.TabStop = false;
             this.gbGridViewUnidadMedida.Text = "Registro Categorías";
@@ -83,7 +81,7 @@
             this.clbItems.FormattingEnabled = true;
             this.clbItems.Location = new System.Drawing.Point(17, 124);
             this.clbItems.Name = "clbItems";
-            this.clbItems.Size = new System.Drawing.Size(499, 191);
+            this.clbItems.Size = new System.Drawing.Size(399, 191);
             this.clbItems.TabIndex = 35;
             // 
             // txtId
@@ -128,7 +126,6 @@
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.Enabled = false;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(97, 67);
             this.txtNombre.Name = "txtNombre";
@@ -163,9 +160,7 @@
             // 
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
-            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
             // tileNavCategory1
@@ -183,21 +178,9 @@
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(553, 40);
+            this.tileNavPane1.Size = new System.Drawing.Size(448, 40);
             this.tileNavPane1.TabIndex = 34;
             this.tileNavPane1.Text = "tileNavPane1";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
-            this.mBtnNuevo.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnNuevo_ElementClick);
             // 
             // mBtnGuardar
             // 
@@ -210,18 +193,6 @@
             this.mBtnGuardar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnGuardar.Glyph")));
             this.mBtnGuardar.Name = "mBtnGuardar";
             this.mBtnGuardar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnGuardar_ElementClick);
-            // 
-            // mBtnModificar
-            // 
-            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnModificar.Appearance.Options.UseFont = true;
-            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnModificar.Caption = "Modificar";
-            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
-            this.mBtnModificar.Name = "mBtnModificar";
-            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnSalir
             // 
@@ -249,10 +220,11 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 384);
+            this.ClientSize = new System.Drawing.Size(448, 384);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewUnidadMedida);
-            this.MaximumSize = new System.Drawing.Size(645, 1000);
+            this.MaximumSize = new System.Drawing.Size(464, 422);
+            this.MinimumSize = new System.Drawing.Size(464, 422);
             this.Name = "frmAdCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categorías";
@@ -271,12 +243,10 @@
         private System.Windows.Forms.GroupBox gbGridViewUnidadMedida;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega dataSetTBodega;
         private System.Windows.Forms.BindingSource tipoBodegaBindingSource;
         private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter tipoBodegaTableAdapter;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider ePError;
         private System.Windows.Forms.CheckedListBox clbItems;
         private System.Windows.Forms.TextBox txtId;

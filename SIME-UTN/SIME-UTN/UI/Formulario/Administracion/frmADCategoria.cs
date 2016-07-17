@@ -23,7 +23,8 @@ namespace SIME_UTN.UI.Formulario.Administracion
         public frmAdCategoria()
         {
             InitializeComponent();
-            mBtnModificar.Visible = false;
+            refrescarItems();
+            categoria = new Categoria();
         }
 
         public void UsuarioLogueado()
@@ -35,9 +36,9 @@ namespace SIME_UTN.UI.Formulario.Administracion
         public frmAdCategoria(Categoria categoriap)
         {
             InitializeComponent();
-            mBtnGuardar.Visible = false;
             categoria = new Categoria();
             categoria = categoriap;
+            refrescarItems();
             gCCategoria();
         }
 
@@ -50,7 +51,6 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             Icon = Properties.Resources.Icono;
             UsuarioLogueado();
-            refrescarItems();
         }
 
         private void refrescarItems()
@@ -63,19 +63,6 @@ namespace SIME_UTN.UI.Formulario.Administracion
                 clbItems.Items.Add(item);
             }
             clbItems.Items.Insert(0, "Seleccionar Todos");
-        }
-
-        public void CambiarEstado(EstadoMantenimiento estado)
-        {
-            switch (estado)
-            {
-                case EstadoMantenimiento.Nuevo:
-                    txtNombre.Text = "";
-                    break;
-                case EstadoMantenimiento.Editar:
-                    Close();
-                    break;
-            }
         }
 
         public bool ValidarCampos()
@@ -107,6 +94,16 @@ namespace SIME_UTN.UI.Formulario.Administracion
             {
                 txtNombre.Text = categoria.descripcion;
                 txtId.Text = categoria.idCategoria.ToString();
+
+                foreach (Item item in categoria.listaItems)
+                {
+                    for (int i = 0; i < clbItems.Items.Count; i++)
+                    {
+                        string chkL = clbItems.Items[i].ToString();
+                        if (item.descripcion.Equals(chkL))
+                            clbItems.SetItemChecked(i, true);
+                    }
+                }
             }
             catch (ApplicationException app)
             {
@@ -118,15 +115,26 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
         }
 
-        public void GuardarCambiosCategoria(string accionp)
+        private void mBtnGuardar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            gestor = GestorCategoria.GetInstance();
-            GestorItem gestorItem = GestorItem.GetInstance();
-            GestorCategoriaItem gestorCI = GestorCategoriaItem.GetInstance();
-
             if (ValidarCampos())
             {
-                categoria.idCategoria = int.Parse(txtId.Text);
+                gestor = GestorCategoria.GetInstance();
+                GestorItem gestorItem = GestorItem.GetInstance();
+                GestorCategoriaItem gestorCI = GestorCategoriaItem.GetInstance();
+
+                string descripcion = "La Categoría fue agregada correctamente";
+
+                if (!string.IsNullOrEmpty(txtId.Text))
+                {
+                    categoria.idCategoria = int.Parse(txtId.Text);
+                    descripcion.Replace("agregada", "actualizada");
+                }
+                else
+                {
+                    categoria.estado = 1;
+                }
+
                 categoria.descripcion = txtNombre.Text.Trim();
                 categoria.pertenencia = Pertenece.Formulario.ToString();
 
@@ -143,8 +151,13 @@ namespace SIME_UTN.UI.Formulario.Administracion
                 categoria.listaItems = listaItems;
 
                 gestor.AgregarCategoria(categoria);
-                gestor.GuardarCategoria();
+                int id = gestor.GuardarCategoria();
 
+                if (id != 0)
+                {
+                    categoria.idCategoria = id;
+                }
+                
                 gestorCI.EliminarCategoriaItem(categoria.idCategoria.ToString());
                 foreach (Item item in categoria.listaItems)
                 {
@@ -155,32 +168,23 @@ namespace SIME_UTN.UI.Formulario.Administracion
                     gestorCI.GuardarCategoriaItem();
                 }
 
-                MessageBox.Show("La Categoría fue actualizada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Close();
             }
         }
 
-        private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        private void clbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ValidarCampos() == false)
+            if (clbItems.SelectedIndex == 0)
             {
-                string accion = "Modificar";
-                GuardarCambiosCategoria(accion);
-            }
-        }
+                bool state = clbItems.GetItemChecked(0) ? true : false;
 
-        private void mBtnGuardar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            if (ValidarCampos() == false)
-            {
-                GuardarCambiosCategoria("");
+                for (int i = 1; i < clbItems.Items.Count; i++)
+                {
+                    clbItems.SetItemChecked(i, state);
+                }
             }
-        }
-
-        private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            txtId.Clear();
-            txtNombre.Clear();
-            refrescarItems();
         }
     }
 }

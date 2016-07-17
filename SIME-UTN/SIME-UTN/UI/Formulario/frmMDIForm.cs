@@ -48,19 +48,23 @@ namespace SIME_UTN.UI.Formulario
 
         public void security() {
 
-            string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
-
-            if (perfil.Equals("Despachador"))
+            try
             {
-                mBtnAdministracion.Visible = false;
+                string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
+
+                if (perfil.Equals("Despachador"))
+                {
+                    mBtnAdministracion.Visible = false;
+                }
             }
+            catch (Exception)
+            {}
         }
         
 
         // Assigning a required content for each auto generated Document
         void windowsUIView1_QueryControl(object sender, QueryControlEventArgs e)
         {
-
             if (e.Document.Caption == "Ventana Items")
                 e.Control = new Administracion.frmItem();
             else if (e.Document.Caption == "Ventana Categorías")
@@ -69,12 +73,9 @@ namespace SIME_UTN.UI.Formulario
                 e.Control = new Bodega.Administracion.frmUbicaciones();
             else if (e.Document.Caption == "Ventana Departamentos")
                 e.Control = new Bodega.Administracion.frmDepartamentos();
-            else {
-                //e.Control = new frmFormulario(e.Document.Caption);
-                frmFormulario fform = new frmFormulario(e.Document.Caption);
-                fform.ShowDialog();
-                e.Control = new Control();
-            }
+            //else {
+            //    e.Control = new frmForms();
+            //}
         }
 
         private FlyoutAction createCloseAction(Flyout flyout)
@@ -103,7 +104,6 @@ namespace SIME_UTN.UI.Formulario
             CrearDocumentosFormulario(false);
             this.CrearDocumentosAdministracion(true);
             tipoDeProceso = "Administracion";
-
         }
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -111,6 +111,11 @@ namespace SIME_UTN.UI.Formulario
             this.CrearDocumentosAdministracion(false);
             CrearDocumentosFormulario(true);
             tipoDeProceso = "Formularios";
+            //Document doc1 = new Document { Caption = "Ventana Formularios" };
+            //QueryControlEventArgs e1 = new QueryControlEventArgs(doc1);
+            //windowsUIView1_QueryControl(null, e1);
+            frmForms frm = new frmForms();
+            frm.ShowDialog(this);
         }
 
         //Se crea un elemento que sera agregado al frame
@@ -207,14 +212,19 @@ namespace SIME_UTN.UI.Formulario
             this.windowsUIView1.BeginUpdate();
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
+
+            Document doc1 = new Document { Caption = "Ventana Formularios" };
+            this.windowsUIView1.Documents.AddRange(new Document[] { doc1});
+
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 120;
             tileContainer2.Properties.Orientation = Orientation.Vertical;
 
-            //Propiedades para el decumento Ingreso Productos
-            grupo = "Group 1";
+            /*grupo = "Group 1";
             imagen = Properties.Resources.form;
+            nombreElemento = "Formularios";
+            tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
 
             GestorCategoria gestorC = GestorCategoria.GetInstance();
 
@@ -226,12 +236,12 @@ namespace SIME_UTN.UI.Formulario
                     this.windowsUIView1.Documents.AddRange(new Document[] { doc1 });
                     tileContainer2.Items.Add(this.crearTile(doc1, cat.descripcion, grupo, imagen, estado));
                 }
-            }
+            }*/
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);
             this.windowsUIView1.EndUpdate();
-            //this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
 
         }
 

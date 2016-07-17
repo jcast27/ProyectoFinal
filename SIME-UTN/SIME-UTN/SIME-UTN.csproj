@@ -460,6 +460,12 @@
     <Compile Include="UI\Formulario\Procesos\frmFormulario.Designer.cs">
       <DependentUpon>frmFormulario.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmForms.Designer.cs">
+      <DependentUpon>frmForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmCambioContrasenna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -605,6 +611,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Procesos\frmFormulario.resx">
       <DependentUpon>frmFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmForms.resx">
+      <DependentUpon>frmForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmCambioContrasenna.resx">
       <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
