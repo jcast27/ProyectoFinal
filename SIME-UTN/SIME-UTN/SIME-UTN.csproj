@@ -78,6 +78,8 @@
     <Compile Include="BLL\RegistroIngresoProductoBLL.cs" />
     <Compile Include="BLL\RegistroMezclaBLL.cs" />
     <Compile Include="BLL\RegistroProductoBLL.cs" />
+    <Compile Include="BLL\TrasladoProductoBLL.cs" />
+    <Compile Include="BLL\TrasladoProductoInterBLL.cs" />
     <Compile Include="BLL\UbicacionBLL.cs" />
     <Compile Include="BLL\UnidadMedidaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
@@ -96,6 +98,8 @@
     <Compile Include="DAL\RegistroIngresoProductoDAL.cs" />
     <Compile Include="DAL\RegistroMezclaDAL.cs" />
     <Compile Include="DAL\RegistroProductoDAL.cs" />
+    <Compile Include="DAL\TrasladoProductoDAL.cs" />
+    <Compile Include="DAL\TrasladoProductoInterDAL.cs" />
     <Compile Include="DAL\UbicacionDAL.cs" />
     <Compile Include="DAL\UnidadMedidaDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
@@ -228,6 +232,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetTBodega.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.cs">
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPTipoTraslado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\DataSetUsuario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,12 +285,14 @@
     <Compile Include="DTOs\ProductoDTO.cs" />
     <Compile Include="DTOs\RegistroBodegaTipoBodegaDTO.cs" />
     <Compile Include="DTOs\RegistroIngresoProductoDTO.cs" />
+    <Compile Include="DTOs\TrasladoProductoInterDTO.cs" />
     <Compile Include="Entities\Activo.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
     <Compile Include="Entities\Departamento.cs" />
     <Compile Include="Entities\DetalleFormulario.cs" />
     <Compile Include="Entities\Encriptar.cs" />
+    <Compile Include="Entities\EstadoTraslado.cs" />
     <Compile Include="Entities\Formulario.cs" />
     <Compile Include="Entities\Funcionario.cs" />
     <Compile Include="Entities\InventarioProducto.cs" />
@@ -275,6 +304,9 @@
     <Compile Include="Entities\RegistroIngresoProducto.cs" />
     <Compile Include="Entities\RegistroProducto.cs" />
     <Compile Include="Entities\TipoBodega.cs" />
+    <Compile Include="Entities\TipoTraslado.cs" />
+    <Compile Include="Entities\TrasladoProducto.cs" />
+    <Compile Include="Entities\TrasladoProductoInter.cs" />
     <Compile Include="Entities\Ubicacion.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\UsuarioDB.cs" />
@@ -292,6 +324,8 @@
     <Compile Include="Gestores\GestorRegistroBodega.cs" />
     <Compile Include="Gestores\GestorRegistroIngresoProducto.cs" />
     <Compile Include="Gestores\GestorRegistroProducto.cs" />
+    <Compile Include="Gestores\GestorTrasladoProducto.cs" />
+    <Compile Include="Gestores\GestorTrasladoProductoInter.cs" />
     <Compile Include="Gestores\GestorUbicacion.cs" />
     <Compile Include="Gestores\GestorUnidadMedida.cs" />
     <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">
@@ -359,6 +393,11 @@
     </Compile>
     <Compile Include="UI\Bodega\Inventarios\frmInventarioMinimo.Designer.cs">
       <DependentUpon>frmInventarioMinimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPRegistroBodegaD.xsd</DependentUpon>
     </Compile>
     <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.cs">
       <SubType>Form</SubType>
@@ -499,10 +538,10 @@
     <Compile Include="Gestores\GestorUsuarioTable.cs" />
     <Compile Include="Persistencia\DataBase.cs" />
     <Compile Include="Persistencia\DataBaseFactory.cs" />
-    <Compile Include="UI\Bodega\Procesos\frmMDI.cs">
+    <Compile Include="UI\Bodega\frmMDI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Bodega\Procesos\frmMDI.Designer.cs">
+    <Compile Include="UI\Bodega\frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmInicio.cs">
@@ -633,7 +672,7 @@
     <EmbeddedResource Include="UI\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Bodega\Procesos\frmMDI.resx">
+    <EmbeddedResource Include="UI\Bodega\frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -912,6 +951,50 @@
     <None Include="DataSets\Bodega\Admistracion\DataSetTBodega.xss">
       <DependentUpon>DataSetTBodega.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.xsc">
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPRegistroBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.xss">
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.xsc">
+      <DependentUpon>DataSetTPTipoTraslado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPTipoTraslado.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.xss">
+      <DependentUpon>DataSetTPTipoTraslado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPUsuario.xsc">
+      <DependentUpon>DataSetTPUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPUsuario.xss">
+      <DependentUpon>DataSetTPUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.xsc">
+      <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTrasladoProducto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.xss">
+      <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\DataSetUsuario.xsc">
       <DependentUpon>DataSetUsuario.xsd</DependentUpon>
     </None>
@@ -976,6 +1059,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.xsc">
+      <DependentUpon>DataSetTPRegistroBodegaD.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPRegistroBodegaD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.xss">
+      <DependentUpon>DataSetTPRegistroBodegaD.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\alpha-dista-grey-icon-19.png">
