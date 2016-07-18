@@ -311,5 +311,11 @@ namespace SIME_UTN.UI.Formulario
         {
             Icon = Properties.Resources.Icono;
         }
+
+        private void restaurarBDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            restoreDB rDB = new restoreDB();
+            rDB.Restore();
+        }
     }
 }

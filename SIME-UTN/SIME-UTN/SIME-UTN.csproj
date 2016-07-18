@@ -507,6 +507,7 @@
     <Compile Include="UI\Formulario\Administracion\frmItem.Designer.cs">
       <DependentUpon>frmItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Formulario\restoreDB.cs" />
     <Compile Include="UI\Formulario\Procesos\frmFormulario.cs">
       <SubType>Form</SubType>
     </Compile>
