@@ -14,7 +14,6 @@ namespace SIME_UTN.UI.Formulario.Administracion
 {
     public partial class frmAdCategoria : DevExpress.XtraEditors.XtraForm
     {
-        Categoria unDepto = null;
         GestorCategoria gestor = null;
         GestorUsuarioTable gestorUsuario = null;
         Categoria categoria = null;
@@ -25,6 +24,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             InitializeComponent();
             refrescarItems();
             categoria = new Categoria();
+            mBtnModificar.Visible = false;
         }
 
         public void UsuarioLogueado()
@@ -40,11 +40,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             categoria = categoriap;
             refrescarItems();
             gCCategoria();
-        }
-
-        private void mBtnSalir_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            Close();
+            mBtnGuardar.Visible = false;
         }
 
         private void frmAdCategoria_Load(object sender, EventArgs e)
@@ -115,7 +111,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
         }
 
-        private void mBtnGuardar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        private void guardarCategoria(string accion)
         {
             if (ValidarCampos())
             {
@@ -125,10 +121,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
                 string descripcion = "La Categoría fue agregada correctamente";
 
-                if (!string.IsNullOrEmpty(txtId.Text))
+                if (accion == "U")
                 {
                     categoria.idCategoria = int.Parse(txtId.Text);
-                    descripcion.Replace("agregada", "actualizada");
+                    descripcion = descripcion.Replace("agregada", "actualizada");
                 }
                 else
                 {
@@ -185,6 +181,30 @@ namespace SIME_UTN.UI.Formulario.Administracion
                     clbItems.SetItemChecked(i, state);
                 }
             }
+        }
+
+        private void mBtnGuardar_ElementClick_1(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            guardarCategoria("");
+        }
+
+        private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            guardarCategoria("U");
+        }
+
+        private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            txtId.Clear();
+            txtNombre.Clear();
+            mBtnModificar.Visible = false;
+            mBtnGuardar.Visible = true;
+            refrescarItems();
+        }
+
+        private void mBtnSalir_ElementClick_1(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            Close();
         }
     }
 }

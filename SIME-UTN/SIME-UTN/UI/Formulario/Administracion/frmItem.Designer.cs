@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItem));
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
             this.gCItems = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,67 +38,30 @@
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblSeccion = new System.Windows.Forms.Label();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.rdTexto = new System.Windows.Forms.RadioButton();
-            this.rdBMR = new System.Windows.Forms.RadioButton();
-            this.rdbSiNo = new System.Windows.Forms.RadioButton();
-            this.gbGridViewItem = new System.Windows.Forms.GroupBox();
+            this.gbItem = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.gCItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
-            this.gbInformacionPersonal.SuspendLayout();
-            this.gbGridViewItem.SuspendLayout();
+            this.gbItem.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcion.Enabled = false;
-            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(112, 85);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(140, 42);
-            this.txtDescripcion.TabIndex = 3;
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDescripcion.Location = new System.Drawing.Point(15, 85);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(91, 18);
-            this.lblDescripcion.TabIndex = 1;
-            this.lblDescripcion.Text = "Descripción:";
             // 
             // gCItems
             // 
-            this.gCItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gCItems.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCItems.BackgroundImage")));
-            this.gCItems.Location = new System.Drawing.Point(60, 106);
+            this.gCItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gCItems.Location = new System.Drawing.Point(3, 27);
             this.gCItems.MainView = this.gridView1;
-            this.gCItems.MaximumSize = new System.Drawing.Size(787, 232);
             this.gCItems.Name = "gCItems";
             this.gCItems.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1});
-            this.gCItems.Size = new System.Drawing.Size(570, 232);
+            this.gCItems.Size = new System.Drawing.Size(995, 467);
             this.gCItems.TabIndex = 19;
             this.gCItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -122,7 +83,6 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
-            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // colId
             // 
@@ -170,27 +130,12 @@
             // 
             this.ePError.ContainerControl = this;
             // 
-            // lblSeccion
-            // 
-            this.lblSeccion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSeccion.AutoSize = true;
-            this.lblSeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeccion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSeccion.Location = new System.Drawing.Point(15, 150);
-            this.lblSeccion.Name = "lblSeccion";
-            this.lblSeccion.Size = new System.Drawing.Size(66, 18);
-            this.lblSeccion.TabIndex = 22;
-            this.lblSeccion.Text = "Sección:";
-            // 
             // tileNavPane1
             // 
             this.tileNavPane1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
@@ -212,18 +157,6 @@
             this.tileNavPane1.Size = new System.Drawing.Size(1162, 45);
             this.tileNavPane1.TabIndex = 29;
             this.tileNavPane1.Text = "Nuevo";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
-            this.mBtnNuevo.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnNuevo_ElementClick);
             // 
             // mBtnAgregar
             // 
@@ -283,97 +216,19 @@
             this.panel2.Size = new System.Drawing.Size(147, 527);
             this.panel2.TabIndex = 31;
             // 
-            // gbInformacionPersonal
+            // gbItem
             // 
-            this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbInformacionPersonal.Controls.Add(this.txtId);
-            this.gbInformacionPersonal.Controls.Add(this.lblId);
-            this.gbInformacionPersonal.Controls.Add(this.rdTexto);
-            this.gbInformacionPersonal.Controls.Add(this.rdBMR);
-            this.gbInformacionPersonal.Controls.Add(this.rdbSiNo);
-            this.gbInformacionPersonal.Controls.Add(this.lblSeccion);
-            this.gbInformacionPersonal.Controls.Add(this.txtDescripcion);
-            this.gbInformacionPersonal.Controls.Add(this.lblDescripcion);
-            this.gbInformacionPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInformacionPersonal.Location = new System.Drawing.Point(167, 64);
-            this.gbInformacionPersonal.Name = "gbInformacionPersonal";
-            this.gbInformacionPersonal.Size = new System.Drawing.Size(281, 456);
-            this.gbInformacionPersonal.TabIndex = 32;
-            this.gbInformacionPersonal.TabStop = false;
-            this.gbInformacionPersonal.Text = "Informacion del Item";
-            // 
-            // txtId
-            // 
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtId.Location = new System.Drawing.Point(110, 44);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 22);
-            this.txtId.TabIndex = 27;
-            // 
-            // lblId
-            // 
-            this.lblId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gbItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblId.Location = new System.Drawing.Point(15, 47);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(23, 18);
-            this.lblId.TabIndex = 26;
-            this.lblId.Text = "Id:";
-            // 
-            // rdTexto
-            // 
-            this.rdTexto.AutoSize = true;
-            this.rdTexto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdTexto.Location = new System.Drawing.Point(110, 202);
-            this.rdTexto.Name = "rdTexto";
-            this.rdTexto.Size = new System.Drawing.Size(99, 22);
-            this.rdTexto.TabIndex = 25;
-            this.rdTexto.TabStop = true;
-            this.rdTexto.Text = "Texto Libre";
-            this.rdTexto.UseVisualStyleBackColor = true;
-            // 
-            // rdBMR
-            // 
-            this.rdBMR.AutoSize = true;
-            this.rdBMR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdBMR.Location = new System.Drawing.Point(110, 174);
-            this.rdBMR.Name = "rdBMR";
-            this.rdBMR.Size = new System.Drawing.Size(161, 22);
-            this.rdBMR.TabIndex = 24;
-            this.rdBMR.TabStop = true;
-            this.rdBMR.Text = "Bueno/Regular/Malo";
-            this.rdBMR.UseVisualStyleBackColor = true;
-            // 
-            // rdbSiNo
-            // 
-            this.rdbSiNo.AutoSize = true;
-            this.rdbSiNo.Checked = true;
-            this.rdbSiNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdbSiNo.Location = new System.Drawing.Point(110, 146);
-            this.rdbSiNo.Name = "rdbSiNo";
-            this.rdbSiNo.Size = new System.Drawing.Size(63, 22);
-            this.rdbSiNo.TabIndex = 23;
-            this.rdbSiNo.TabStop = true;
-            this.rdbSiNo.Text = "Si/No";
-            this.rdbSiNo.UseVisualStyleBackColor = true;
-            // 
-            // gbGridViewItem
-            // 
-            this.gbGridViewItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbGridViewItem.Controls.Add(this.gCItems);
-            this.gbGridViewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGridViewItem.Location = new System.Drawing.Point(454, 64);
-            this.gbGridViewItem.Name = "gbGridViewItem";
-            this.gbGridViewItem.Size = new System.Drawing.Size(699, 456);
-            this.gbGridViewItem.TabIndex = 33;
-            this.gbGridViewItem.TabStop = false;
-            this.gbGridViewItem.Text = "Seleccionar Item";
+            this.gbItem.Controls.Add(this.gCItems);
+            this.gbItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbItem.Location = new System.Drawing.Point(152, 51);
+            this.gbItem.Name = "gbItem";
+            this.gbItem.Size = new System.Drawing.Size(1001, 497);
+            this.gbItem.TabIndex = 33;
+            this.gbItem.TabStop = false;
+            this.gbItem.Text = "Seleccionar Item";
             // 
             // frmItem
             // 
@@ -384,8 +239,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tileNavPane1);
-            this.Controls.Add(this.gbInformacionPersonal);
-            this.Controls.Add(this.gbGridViewItem);
+            this.Controls.Add(this.gbItem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -395,38 +249,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
-            this.gbInformacionPersonal.ResumeLayout(false);
-            this.gbInformacionPersonal.PerformLayout();
-            this.gbGridViewItem.ResumeLayout(false);
+            this.gbItem.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label lblDescripcion;
         private DevExpress.XtraGrid.GridControl gCItems;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit UsuarioItemLookUpEdit1;
         private System.Windows.Forms.ErrorProvider ePError;
-        private System.Windows.Forms.Label lblSeccion;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnAgregar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox gbInformacionPersonal;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
-        private System.Windows.Forms.GroupBox gbGridViewItem;
+        private System.Windows.Forms.GroupBox gbItem;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colItem;
         private DevExpress.XtraGrid.Columns.GridColumn colSeccion;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
-        private System.Windows.Forms.RadioButton rdTexto;
-        private System.Windows.Forms.RadioButton rdBMR;
-        private System.Windows.Forms.RadioButton rdbSiNo;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Label lblId;
     }
 }

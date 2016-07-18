@@ -69,6 +69,8 @@ namespace SIME_UTN.UI.Formulario
                 e.Control = new Administracion.frmItem();
             else if (e.Document.Caption == "Ventana Categorías")
                 e.Control = new Administracion.frmCategoria();
+            else if (e.Document.Caption == "Ventana Usuarios")
+                e.Control = new Bodega.Administracion.frmUsuarios();
             else if (e.Document.Caption == "Ventana Ubicaciones")
                 e.Control = new Bodega.Administracion.frmUbicaciones();
             else if (e.Document.Caption == "Ventana Departamentos")
@@ -165,22 +167,27 @@ namespace SIME_UTN.UI.Formulario
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
+            Document doc0 = new Document { Caption = "Ventana Usuarios" };
             Document doc1 = new Document { Caption = "Ventana Items" };
             Document doc2 = new Document { Caption = "Ventana Categorías" };
             Document doc3 = new Document { Caption = "Ventana Ubicaciones" };
             Document doc4 = new Document { Caption = "Ventana Departamentos" };
-            this.windowsUIView1.Documents.AddRange(new Document[] { doc1, doc2, doc3, doc4 });
+            this.windowsUIView1.Documents.AddRange(new Document[] { doc0, doc1, doc2, doc3, doc4 });
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
-            tileContainer2.Properties.ItemSize = 200;
+            tileContainer2.Properties.ItemSize = 120;
+            tileContainer2.Properties.Orientation = Orientation.Horizontal;
 
-            //Propiedades para el documento Items
+            grupo = "Group 0";
+            imagen = Properties.Resources.usuarios;
+            nombreElemento = "Usuarios";
+            tileContainer2.Items.Add(this.crearTile(doc0, nombreElemento, grupo, imagen, estado));
+
             grupo = "Group 1";
             imagen = Properties.Resources.usuarios;
             nombreElemento = "Items";
             tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
 
-            //Propiedades para el documento Categorías
             grupo = "Group 2";
             imagen = Properties.Resources.productos;
             nombreElemento = "Categorías";
@@ -219,7 +226,7 @@ namespace SIME_UTN.UI.Formulario
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 120;
-            tileContainer2.Properties.Orientation = Orientation.Vertical;
+            tileContainer2.Properties.Orientation = Orientation.Horizontal;
 
             /*grupo = "Group 1";
             imagen = Properties.Resources.form;

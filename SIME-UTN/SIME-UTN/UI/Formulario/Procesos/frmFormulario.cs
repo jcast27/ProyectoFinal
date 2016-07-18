@@ -33,11 +33,12 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void frmFormulario_Load(object sender, EventArgs e)
         {
+            
             Icon = Properties.Resources.Icono;
             // TODO: esta línea de código carga datos en la tabla 'dataSetFuncionario.Funcionario' Puede moverla o quitarla según sea necesario.
             this.funcionarioTableAdapter.Fill(this.dataSetFuncionario.Funcionario);
             // TODO: esta línea de código carga datos en la tabla 'dataSetActivo.Activo' Puede moverla o quitarla según sea necesario.
-            this.activoTableAdapter.Fill(this.dataSetActivo.Activo);
+            this.activoTableAdapter.Fill(this.dataSetActivo.Activo, categoria.idCategoria);
 
             cmbFuncionario.SelectedIndex = -1;
             cmbPatrimonio.SelectedIndex = -1;
@@ -50,17 +51,20 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
                 foreach (Item item in categoria.listaItems)
                 {
-                    switch (item.seccion)
+                    if (item.estado == 1)
                     {
-                        case "Si/No":
-                            sino.Add(item);
-                            break;
-                        case "Texto Libre":
-                            textolibre.Add(item);
-                            break;
-                        case "Bueno/Regular/Malo":
-                            brm.Add(item);
-                            break;
+                        switch (item.seccion)
+                        {
+                            case "Si/No":
+                                sino.Add(item);
+                                break;
+                            case "Texto Libre":
+                                textolibre.Add(item);
+                                break;
+                            case "Bueno/Regular/Malo":
+                                brm.Add(item);
+                                break;
+                        }
                     }
                 }
 
@@ -434,11 +438,6 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 txtSerie.Text = a.numeroSerie;
                 txtUbicacion.Text = a.ubicacion.nombre;
             }
-        }
-
-        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

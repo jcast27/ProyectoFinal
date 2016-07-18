@@ -28,21 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdUsuario));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
- 
             this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
-            this.chkAdministrador = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblApellido1 = new System.Windows.Forms.Label();
-            this.chkDespachador = new System.Windows.Forms.CheckBox();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblApellido2 = new System.Windows.Forms.Label();
@@ -51,10 +48,10 @@
             this.lblConfirmacion = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
-            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
-
+            this.ePError = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.rdbAdmin = new System.Windows.Forms.RadioButton();
+            this.rdbDesp = new System.Windows.Forms.RadioButton();
             this.gbInformacionPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -111,6 +108,18 @@
             this.mBtnGuardar.Name = "mBtnGuardar";
             this.mBtnGuardar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnGuardar_ElementClick_1);
             // 
+            // mBtnModificar
+            // 
+            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnModificar.Appearance.Options.UseFont = true;
+            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnModificar.Caption = "Modificar";
+            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
+            this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
+            // 
             // mBtnSalir
             // 
             this.mBtnSalir.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
@@ -122,19 +131,18 @@
             this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
-  
             // 
             // gbInformacionPersonal
             // 
             this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInformacionPersonal.Controls.Add(this.rdbDesp);
+            this.gbInformacionPersonal.Controls.Add(this.rdbAdmin);
             this.gbInformacionPersonal.Controls.Add(this.lblCodigoUsuario);
-            this.gbInformacionPersonal.Controls.Add(this.chkAdministrador);
             this.gbInformacionPersonal.Controls.Add(this.txtPassword);
             this.gbInformacionPersonal.Controls.Add(this.txtUsuario);
             this.gbInformacionPersonal.Controls.Add(this.label1);
             this.gbInformacionPersonal.Controls.Add(this.lblApellido1);
-            this.gbInformacionPersonal.Controls.Add(this.chkDespachador);
             this.gbInformacionPersonal.Controls.Add(this.txtApellido2);
             this.gbInformacionPersonal.Controls.Add(this.txtNombre);
             this.gbInformacionPersonal.Controls.Add(this.lblApellido2);
@@ -147,7 +155,7 @@
             this.gbInformacionPersonal.ForeColor = System.Drawing.Color.White;
             this.gbInformacionPersonal.Location = new System.Drawing.Point(12, 61);
             this.gbInformacionPersonal.Name = "gbInformacionPersonal";
-            this.gbInformacionPersonal.Size = new System.Drawing.Size(506, 461);
+            this.gbInformacionPersonal.Size = new System.Drawing.Size(506, 262);
             this.gbInformacionPersonal.TabIndex = 35;
             this.gbInformacionPersonal.TabStop = false;
             this.gbInformacionPersonal.Text = "Informacion del Usuario";
@@ -166,30 +174,13 @@
             this.lblCodigoUsuario.TabIndex = 29;
             this.lblCodigoUsuario.Visible = false;
             // 
-            // chkAdministrador
-            // 
-            this.chkAdministrador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkAdministrador.AutoSize = true;
-            this.chkAdministrador.BackColor = System.Drawing.Color.Transparent;
-            this.chkAdministrador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.chkAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAdministrador.ForeColor = System.Drawing.Color.White;
-            this.chkAdministrador.Location = new System.Drawing.Point(18, 59);
-            this.chkAdministrador.Name = "chkAdministrador";
-            this.chkAdministrador.Size = new System.Drawing.Size(118, 22);
-            this.chkAdministrador.TabIndex = 6;
-            this.chkAdministrador.Text = "Administrador";
-            this.chkAdministrador.UseVisualStyleBackColor = false;
-            // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(166, 300);
+            this.txtPassword.Location = new System.Drawing.Point(166, 161);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(270, 22);
@@ -200,7 +191,7 @@
             // 
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(166, 420);
+            this.txtUsuario.Location = new System.Drawing.Point(166, 217);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(147, 22);
             this.txtUsuario.TabIndex = 26;
@@ -213,7 +204,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 418);
+            this.label1.Location = new System.Drawing.Point(16, 215);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 21;
@@ -227,28 +218,11 @@
             this.lblApellido1.AutoSize = true;
             this.lblApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido1.ForeColor = System.Drawing.Color.White;
-            this.lblApellido1.Location = new System.Drawing.Point(16, 167);
+            this.lblApellido1.Location = new System.Drawing.Point(16, 103);
             this.lblApellido1.Name = "lblApellido1";
             this.lblApellido1.Size = new System.Drawing.Size(111, 18);
             this.lblApellido1.TabIndex = 22;
             this.lblApellido1.Text = "Primer Apellido:";
-            // 
-            // chkDespachador
-            // 
-            this.chkDespachador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkDespachador.AutoSize = true;
-            this.chkDespachador.BackColor = System.Drawing.Color.Transparent;
-            this.chkDespachador.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.chkDespachador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDespachador.ForeColor = System.Drawing.Color.White;
-            this.chkDespachador.Location = new System.Drawing.Point(156, 59);
-            this.chkDespachador.Name = "chkDespachador";
-            this.chkDespachador.Size = new System.Drawing.Size(116, 22);
-            this.chkDespachador.TabIndex = 20;
-            this.chkDespachador.Text = "Despachador";
-            this.chkDespachador.UseVisualStyleBackColor = false;
             // 
             // txtApellido2
             // 
@@ -256,7 +230,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido2.Location = new System.Drawing.Point(166, 227);
+            this.txtApellido2.Location = new System.Drawing.Point(166, 133);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(270, 22);
             this.txtApellido2.TabIndex = 28;
@@ -268,7 +242,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(166, 106);
+            this.txtNombre.Location = new System.Drawing.Point(166, 77);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(270, 22);
             this.txtNombre.TabIndex = 3;
@@ -282,7 +256,7 @@
             this.lblApellido2.AutoSize = true;
             this.lblApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido2.ForeColor = System.Drawing.Color.White;
-            this.lblApellido2.Location = new System.Drawing.Point(16, 225);
+            this.lblApellido2.Location = new System.Drawing.Point(16, 131);
             this.lblApellido2.Name = "lblApellido2";
             this.lblApellido2.Size = new System.Drawing.Size(126, 18);
             this.lblApellido2.TabIndex = 23;
@@ -296,7 +270,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(15, 106);
+            this.lblNombre.Location = new System.Drawing.Point(15, 77);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(66, 18);
             this.lblNombre.TabIndex = 1;
@@ -308,7 +282,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmacion.Location = new System.Drawing.Point(166, 362);
+            this.txtConfirmacion.Location = new System.Drawing.Point(166, 189);
             this.txtConfirmacion.Name = "txtConfirmacion";
             this.txtConfirmacion.PasswordChar = '*';
             this.txtConfirmacion.Size = new System.Drawing.Size(270, 22);
@@ -323,7 +297,7 @@
             this.lblConfirmacion.AutoSize = true;
             this.lblConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmacion.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmacion.Location = new System.Drawing.Point(16, 360);
+            this.lblConfirmacion.Location = new System.Drawing.Point(16, 187);
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(101, 18);
             this.lblConfirmacion.TabIndex = 13;
@@ -337,7 +311,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(16, 298);
+            this.lblPassword.Location = new System.Drawing.Point(16, 159);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(79, 18);
             this.lblPassword.TabIndex = 2;
@@ -349,7 +323,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido1.Location = new System.Drawing.Point(166, 169);
+            this.txtApellido1.Location = new System.Drawing.Point(166, 105);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(270, 22);
             this.txtApellido1.TabIndex = 27;
@@ -363,17 +337,29 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // mBtnModificar
+            // rdbAdmin
             // 
-            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnModificar.Appearance.Options.UseFont = true;
-            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnModificar.Caption = "Modificar";
-            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
-            this.mBtnModificar.Name = "mBtnModificar";
-            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
+            this.rdbAdmin.AutoSize = true;
+            this.rdbAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.rdbAdmin.Location = new System.Drawing.Point(17, 36);
+            this.rdbAdmin.Name = "rdbAdmin";
+            this.rdbAdmin.Size = new System.Drawing.Size(117, 22);
+            this.rdbAdmin.TabIndex = 30;
+            this.rdbAdmin.TabStop = true;
+            this.rdbAdmin.Text = "Administrador";
+            this.rdbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // rdbDesp
+            // 
+            this.rdbDesp.AutoSize = true;
+            this.rdbDesp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.rdbDesp.Location = new System.Drawing.Point(156, 36);
+            this.rdbDesp.Name = "rdbDesp";
+            this.rdbDesp.Size = new System.Drawing.Size(115, 22);
+            this.rdbDesp.TabIndex = 31;
+            this.rdbDesp.TabStop = true;
+            this.rdbDesp.Text = "Despachador";
+            this.rdbDesp.UseVisualStyleBackColor = true;
             // 
             // frmAdUsuario
             // 
@@ -381,7 +367,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 546);
+            this.ClientSize = new System.Drawing.Size(530, 333);
             this.Controls.Add(this.gbInformacionPersonal);
             this.Controls.Add(this.tileNavPane1);
             this.Name = "frmAdUsuario";
@@ -403,12 +389,10 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private System.Windows.Forms.GroupBox gbInformacionPersonal;
         private System.Windows.Forms.Label lblCodigoUsuario;
-        private System.Windows.Forms.CheckBox chkAdministrador;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblApellido1;
-        private System.Windows.Forms.CheckBox chkDespachador;
         private System.Windows.Forms.TextBox txtApellido2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblApellido2;
@@ -420,5 +404,7 @@
         private System.Windows.Forms.ErrorProvider ePError;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
+        private System.Windows.Forms.RadioButton rdbDesp;
+        private System.Windows.Forms.RadioButton rdbAdmin;
     }
 }

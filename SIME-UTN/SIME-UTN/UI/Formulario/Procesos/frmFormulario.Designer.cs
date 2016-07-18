@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ePError = new System.Windows.Forms.ErrorProvider();
             this.tileNavCategory1 = new DevExpress.XtraBars.Navigation.TileNavCategory();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbPatrimonio = new System.Windows.Forms.ComboBox();
-            this.activoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.activoBindingSource = new System.Windows.Forms.BindingSource();
             this.dataSetActivo = new SIME_UTN.DataSets.Formulario.DataSetActivo();
             this.gbEncabezado = new System.Windows.Forms.GroupBox();
             this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource();
             this.dataSetFuncionario = new SIME_UTN.DataSets.Formulario.DataSetFuncionario();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,7 +78,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.splitSeccion2 = new System.Windows.Forms.SplitContainer();
-            this.dataSetActivoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetActivoBindingSource = new System.Windows.Forms.BindingSource();
             this.activoTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetActivoTableAdapters.ActivoTableAdapter();
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
@@ -194,7 +193,7 @@
             this.gbEncabezado.Controls.Add(this.label2);
             this.gbEncabezado.Location = new System.Drawing.Point(3, 3);
             this.gbEncabezado.Name = "gbEncabezado";
-            this.gbEncabezado.Size = new System.Drawing.Size(1110, 93);
+            this.gbEncabezado.Size = new System.Drawing.Size(1110, 94);
             this.gbEncabezado.TabIndex = 42;
             this.gbEncabezado.TabStop = false;
             // 
@@ -405,7 +404,6 @@
             this.panelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.panelPrincipal.Size = new System.Drawing.Size(1116, 733);
             this.panelPrincipal.TabIndex = 48;
-            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // gbPrincipal
             // 
@@ -414,9 +412,9 @@
             this.gbPrincipal.Controls.Add(this.dgvTextoLibre);
             this.gbPrincipal.Controls.Add(this.dgvBRM);
             this.gbPrincipal.Controls.Add(this.dgvSiNo);
-            this.gbPrincipal.Location = new System.Drawing.Point(3, 102);
+            this.gbPrincipal.Location = new System.Drawing.Point(3, 103);
             this.gbPrincipal.Name = "gbPrincipal";
-            this.gbPrincipal.Size = new System.Drawing.Size(1110, 526);
+            this.gbPrincipal.Size = new System.Drawing.Size(1110, 474);
             this.gbPrincipal.TabIndex = 47;
             this.gbPrincipal.TabStop = false;
             // 
@@ -583,7 +581,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel2.Controls.Add(this.gbComentario, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 634);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 583);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));

@@ -73,15 +73,15 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     txtConfirmacion.Enabled = false;
                     this.txtPassword.Enabled = true;
                     this.txtConfirmacion.Enabled = true;
-                    this.chkAdministrador.Enabled = true;
-                    this.chkDespachador.Enabled = true;
-                    this.chkAdministrador.Checked = false;
-                    this.chkDespachador.Checked = false;
+                    this.rdbAdmin.Enabled = true;
+                    this.rdbDesp.Enabled = true;
+                    this.rdbAdmin.Checked = false;
+                    this.rdbDesp.Checked = false;
                     break;
 
                 case EstadoMantenimiento.Editar:
-                    this.chkAdministrador.Enabled = true;
-                    this.chkDespachador.Enabled = true;
+                    this.rdbAdmin.Enabled = true;
+                    this.rdbDesp.Enabled = true;
                     txtNombre.Enabled = true;
                     txtApellido1.Enabled = true;
                     txtApellido2.Enabled = true;
@@ -98,8 +98,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     txtUsuario.Enabled = false;
                     txtPassword.Enabled = false;
                     txtConfirmacion.Enabled = false;
-                    this.chkAdministrador.Enabled = false;
-                    this.chkDespachador.Enabled = false;
+                    this.rdbAdmin.Enabled = false;
+                    this.rdbDesp.Enabled = false;
                     break;
             }
         }
@@ -138,60 +138,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        #region Checkbox de Agregar Usuarios y Permisos
-
-        /// <summary>
-        /// Metodo que valida que checkbox esta o no seleecionado
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void chkAdministrador_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (chkAdministrador.Checked)
-            {
-
-
-                chkDespachador.Checked = false;
-
-            }
-            else
-            {
-
-                chkAdministrador.Checked = false;
-                chkDespachador.Checked = true;
-
-
-            }
-
-        }
-
-        /// <summary>
-        /// Metodo que valida que checkbox esta o no seleecionado
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void chkDespachador_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (chkDespachador.Checked)
-            {
-
-                chkAdministrador.Checked = false;
-            }
-            else
-            {
-
-
-                chkDespachador.Checked = false;
-                chkAdministrador.Checked = true;
-
-            }
-        }
-
-
-        #endregion
-
-
-
         private void frmAdUsuario_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.Icono;
@@ -213,20 +159,20 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 perfil = usuarioStatic.perfil;
                 if (perfil.Equals("Administrador"))
                 {
-                    this.chkAdministrador.Checked = true;
-                    this.chkDespachador.Checked = false;
+                    this.rdbAdmin.Checked = true;
+                    this.rdbDesp.Checked = false;
                 }
                 else
                 {
                     if (perfil.Equals("Despachador"))
                     {
-                        this.chkAdministrador.Checked = false;
-                        this.chkDespachador.Checked = true;
+                        this.rdbAdmin.Checked = false;
+                        this.rdbDesp.Checked = true;
                     }
                     else
                     {
-                        this.chkAdministrador.Checked = false;
-                        this.chkDespachador.Checked = false;
+                        this.rdbAdmin.Checked = false;
+                        this.rdbDesp.Checked = false;
                     }
                 }
 
@@ -252,19 +198,17 @@ namespace SIME_UTN.UI.Bodega.Administracion
             usuario = new UsuarioTable();
             try
             {
-
-
                 string ID = lblCodigoUsuario.Text;
                 usuario.codigoUsuario = int.Parse(ID);
                 usuario.nombre = txtNombre.Text;
                 usuario.apellido1 = txtApellido1.Text;
                 usuario.apellido2 = txtApellido2.Text;
                 usuario.usuario = txtUsuario.Text;
-                if (chkAdministrador.Checked)
+                if (rdbAdmin.Checked)
                 {
                     usuario.perfil = "Administrador";
                 }
-                if (chkDespachador.Checked)
+                if (rdbDesp.Checked)
                 {
                     usuario.perfil = "Despachador";
                 }
@@ -310,16 +254,15 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                         usuario.usuario = user;
 
-                        if (chkAdministrador.Checked)
+                        if (rdbAdmin.Checked)
                         {
                             usuario.perfil = "Administrador";
                         }
-                        if (chkDespachador.Checked)
+                        if (rdbDesp.Checked)
                         {
                             usuario.perfil = "Despachador";
                         }
                         usuario.estado = 1;
-
 
                         gestor.AgregarUsuario(usuario);
                         gestor.GuardarUsuario(usuarioLogueado);
