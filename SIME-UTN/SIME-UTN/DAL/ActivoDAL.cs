@@ -40,7 +40,7 @@ namespace SIME_UTN.DAL
                         unActivo.modelo = dr["Modelo"].ToString();
                         unActivo.patrimonio = dr["Patrimonio"].ToString();
                         unActivo.estado = dr["Estado"].ToString().Equals("True") ? 1 : 0;
-                       
+
                         lista.Add(unActivo);
                     }
                     catch (Exception)
@@ -52,7 +52,7 @@ namespace SIME_UTN.DAL
             return lista;
         }
 
-        public static void GuardarActivo(Activo Activop)
+        public static void GuardarActivo(Activo Activop, string user)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_Activo");
             comando.CommandType = CommandType.StoredProcedure;
@@ -74,6 +74,8 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(Activop, user, "Insertar", "");
         }
 
         public static Activo ObtenerActivoID(int idActivop)
@@ -116,7 +118,7 @@ namespace SIME_UTN.DAL
             }
         }
 
-        internal static void DesactivarActivo(string ActivoIdp, string accion)
+        internal static void DesactivarActivo(string ActivoIdp, string accion, string user)
         {
             accion = accion.Equals("Habilitar") ? "1" : "0";
 
@@ -131,9 +133,11 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(null, user, "Eliminar", ActivoIdp);
         }
 
-        internal static void ActualizarActivo(Activo Activop)
+        internal static void ActualizarActivo(Activo Activop, string user)
         {
             SqlCommand comando = new SqlCommand("sp_UPDATE_Activo");
             comando.CommandType = CommandType.StoredProcedure;
@@ -155,6 +159,45 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(Activop, user, "Modificar", "");
+        }
+
+        public static void GuardarLog(Activo Activop, string usuarioLogueado, string accion, string activoEliminado)
+        {
+            string descripcion = "";
+
+            if (Activop == null)
+            {
+                descripcion = "Categoria deshabilitado: " + activoEliminado;
+            }
+            else
+            {
+                descripcion = "Activo #: " + Activop.idActivo + "\r\nNombre: " + Activop.nombre +
+                    "\r\nNumero Serie a: " + Activop.numeroSerie + "\r\nDescripcion: " + Activop.descripcion +
+                    "\r\nCategoria: " + Activop.categoria.descripcion + "\r\nIngreso: " + Activop.annoIngreso +
+                    "\r\nValor: " + Activop.valor + "\r\nNombre: " + Activop.ubicacion.nombre +
+                    "\r\nValor: " + Activop.marca + "\r\nModelo: " + Activop.modelo +
+                    "\r\nPatrimonio: " + Activop.patrimonio + "\r\nEstado: " + Activop.estado;
+            }
+
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            SqlCommand comando = new SqlCommand("sp_INSERT_log");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@usuario", usuarioLogueado);
+            comando.Parameters.AddWithValue("@accion", accion);
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
+            comando.Parameters.AddWithValue("@fechamodificacion", fecha);
+            comando.Parameters.AddWithValue("@estado", 1);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+
         }
     }
 }

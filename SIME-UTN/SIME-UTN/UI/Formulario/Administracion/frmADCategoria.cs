@@ -147,7 +147,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
                 categoria.listaItems = listaItems;
 
                 gestor.AgregarCategoria(categoria);
-                int id = gestor.GuardarCategoria();
+                int id = gestor.GuardarCategoria(usuarioLogueado);
 
                 if (id != 0)
                 {

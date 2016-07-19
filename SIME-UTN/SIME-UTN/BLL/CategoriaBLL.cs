@@ -14,16 +14,16 @@ namespace SIME_UTN.BLL
             return CategoriaDAL.ObtenerCategorias(pertenece);
         }
 
-        internal static int GuardarCategoria(Categoria Categoriap)
+        internal static int GuardarCategoria(Categoria Categoriap, string user)
         {
             int id = 0;
             if (CategoriaDAL.ObtenerCategoriaID(Categoriap.idCategoria) == null)
             {
-                id = CategoriaDAL.GuardarCategoria(Categoriap);
+                id = CategoriaDAL.GuardarCategoria(Categoriap, user);
             }
             else
             {
-                CategoriaDAL.ActualizarCategoria(Categoriap);
+                CategoriaDAL.ActualizarCategoria(Categoriap, user);
             }
             return id;
         }
@@ -39,9 +39,9 @@ namespace SIME_UTN.BLL
             return CategoriaDAL.ObtenerCategoriaporNombre(descripcion);
         }
 
-        internal static void DesactivarCategoria(string CategoriaIdp, string accion)
+        internal static void DesactivarCategoria(string CategoriaIdp, string accion, string user)
         {
-            CategoriaDAL.DesactivarCategoria(CategoriaIdp, accion);
+            CategoriaDAL.DesactivarCategoria(CategoriaIdp, accion, user);
         }
 
     }

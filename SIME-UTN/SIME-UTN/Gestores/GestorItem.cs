@@ -50,9 +50,9 @@ namespace SIME_UTN.Gestores
             return item;
         }
 
-        public void GuardarItem()
+        public void GuardarItem(string user)
         {
-            ItemBLL.GuardarItem(item);
+            ItemBLL.GuardarItem(item, user);
         }
 
         public Item ObtenerItemId(int ItemIdp)
@@ -60,9 +60,9 @@ namespace SIME_UTN.Gestores
             return ItemBLL.ObtenerItemID(ItemIdp);
         }
 
-        public void EliminarItem(string ItemIdp, string accion)
+        public void EliminarItem(string ItemIdp, string accion, string user)
         {
-            ItemBLL.EliminarItem(ItemIdp, accion);
+            ItemBLL.EliminarItem(ItemIdp, accion, user);
         }
 
     }

@@ -50,9 +50,9 @@ namespace SIME_UTN.Gestores
             return categoria;
         }
 
-        public int GuardarCategoria()
+        public int GuardarCategoria(string user)
         {
-            return CategoriaBLL.GuardarCategoria(categoria);
+            return CategoriaBLL.GuardarCategoria(categoria, user);
         }
 
         public Categoria ObtenerCategoriaId(int categoriaIdp)
@@ -60,9 +60,9 @@ namespace SIME_UTN.Gestores
             return CategoriaBLL.ObtenerCategoriaID(categoriaIdp);
         }
 
-        public void DesactivarCategoria(string categoriaIdp, string accion)
+        public void DesactivarCategoria(string categoriaIdp, string accion, string user)
         {
-            CategoriaBLL.DesactivarCategoria(categoriaIdp, accion);
+            CategoriaBLL.DesactivarCategoria(categoriaIdp, accion, user);
         }
 
     }

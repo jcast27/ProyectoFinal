@@ -15,15 +15,15 @@ namespace SIME_UTN.BLL
             return ItemDAL.ObtenerItems();
         }
 
-        internal static void GuardarItem(Item Itemp)
+        internal static void GuardarItem(Item Itemp, string user)
         {
             if (ItemDAL.ObtenerItemID(Itemp.idItem) == null)
             {
-                ItemDAL.GuardarItem(Itemp);
+                ItemDAL.GuardarItem(Itemp, user);
             }
             else
             {
-                ItemDAL.ActualizarItem(Itemp);
+                ItemDAL.ActualizarItem(Itemp, user);
             }
         }
 
@@ -38,9 +38,9 @@ namespace SIME_UTN.BLL
             return ItemDAL.ObtenerItemporNombre(descripcion);
         }
 
-        internal static void EliminarItem(string ItemIdp, string accion)
+        internal static void EliminarItem(string ItemIdp, string accion, string user)
         {
-            ItemDAL.EliminarItem(ItemIdp, accion);
+            ItemDAL.EliminarItem(ItemIdp, accion, user);
         }
     }
 }

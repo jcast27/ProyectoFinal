@@ -153,7 +153,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gestor = GestorItem.GetInstance();
             try
             {
-                gestor.EliminarItem(gridView1.GetFocusedRowCellValue("IDItem").ToString(), mBtnEliminar.Caption);
+                gestor.EliminarItem(gridView1.GetFocusedRowCellValue("IDItem").ToString(), mBtnEliminar.Caption,usuarioLogueado);
                 MessageBox.Show("El Item ha sido " + mBtnEliminar.Caption.Replace("ar","ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
                 RefrescarLista();

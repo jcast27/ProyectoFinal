@@ -483,6 +483,12 @@
     <Compile Include="Gestores\GestorCategoriaItem.cs" />
     <Compile Include="Gestores\GestorCategoria.cs" />
     <Compile Include="Gestores\GestorItem.cs" />
+    <Compile Include="UI\Formulario\Administracion\frmAdActivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdActivo.Designer.cs">
+      <DependentUpon>frmAdActivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formulario\Administracion\frmAdItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,6 +500,12 @@
     </Compile>
     <Compile Include="UI\Formulario\Administracion\frmAdCategoria.Designer.cs">
       <DependentUpon>frmAdCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmActivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmActivo.Designer.cs">
+      <DependentUpon>frmActivo.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Formulario\Administracion\frmCategoria.cs">
       <SubType>Form</SubType>
@@ -654,11 +666,17 @@
     <EmbeddedResource Include="UI\Bodega\Administracion\frmFuncionarios.resx">
       <DependentUpon>frmFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmAdActivo.resx">
+      <DependentUpon>frmAdActivo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Administracion\frmAdItem.resx">
       <DependentUpon>frmAdItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Administracion\frmAdCategoria.resx">
       <DependentUpon>frmAdCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmActivo.resx">
+      <DependentUpon>frmActivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Administracion\frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>

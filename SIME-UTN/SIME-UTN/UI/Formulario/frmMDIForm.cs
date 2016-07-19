@@ -73,6 +73,8 @@ namespace SIME_UTN.UI.Formulario
                 e.Control = new Bodega.Administracion.frmUsuarios();
             else if (e.Document.Caption == "Ventana Ubicaciones")
                 e.Control = new Bodega.Administracion.frmUbicaciones();
+            else if (e.Document.Caption == "Ventana Activos")
+                e.Control = new Administracion.frmActivo();
             else if (e.Document.Caption == "Ventana Departamentos")
                 e.Control = new Bodega.Administracion.frmDepartamentos();
             //else {
@@ -141,7 +143,7 @@ namespace SIME_UTN.UI.Formulario
         {
             TileItemFrame frame = new TileItemFrame();
             frame.Appearance.BackColor = Color.Transparent;
-            frame.Appearance.BorderColor = Color.Transparent;
+            frame.Appearance.BorderColor = Color.Black;
             frame.Elements.Add(this.CrearElemento(nombreElemento, imagen));
             return frame;
         }
@@ -172,6 +174,7 @@ namespace SIME_UTN.UI.Formulario
             Document doc2 = new Document { Caption = "Ventana Categorías" };
             Document doc3 = new Document { Caption = "Ventana Ubicaciones" };
             Document doc4 = new Document { Caption = "Ventana Departamentos" };
+            Document doc5 = new Document { Caption = "Ventana Activos" };
             this.windowsUIView1.Documents.AddRange(new Document[] { doc0, doc1, doc2, doc3, doc4 });
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
@@ -202,6 +205,11 @@ namespace SIME_UTN.UI.Formulario
             imagen = Properties.Resources.inven;
             nombreElemento = "Departamentos";
             tileContainer2.Items.Add(this.crearTile(doc4, nombreElemento, grupo, imagen, estado));
+
+            grupo = "Group 5";
+            imagen = Properties.Resources.inven;
+            nombreElemento = "Activos";
+            tileContainer2.Items.Add(this.crearTile(doc5, nombreElemento, grupo, imagen, estado));
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);

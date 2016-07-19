@@ -134,12 +134,12 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
                 if (accion == "U")
                 {
-                    gestor.GuardarItem();
+                    gestor.GuardarItem(usuarioLogueado);
                     MessageBox.Show(descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (gestor.ObtenerItemDescripcion(item.descripcion) == null)
                 {
-                    gestor.GuardarItem();
+                    gestor.GuardarItem(usuarioLogueado);
                     MessageBox.Show(descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

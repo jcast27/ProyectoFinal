@@ -15,15 +15,15 @@ namespace SIME_UTN.BLL
             return ActivoDAL.ObtenerActivos();
         }
 
-        internal static void GuardarActivo(Activo Activop)
+        internal static void GuardarActivo(Activo Activop, string user)
         {
             if (ActivoDAL.ObtenerActivoID(Activop.idActivo) == null)
             {
-                ActivoDAL.GuardarActivo(Activop);
+                ActivoDAL.GuardarActivo(Activop, user);
             }
             else
             {
-                ActivoDAL.ActualizarActivo(Activop);
+                ActivoDAL.ActualizarActivo(Activop, user);
             }
         }
 
@@ -33,9 +33,9 @@ namespace SIME_UTN.BLL
             return ActivoDAL.ObtenerActivoID(ActivoIdp);
         }
 
-        internal static void DesactivarActivo(string ActivoIdp, string accion)
+        internal static void DesactivarActivo(string ActivoIdp, string accion, string user)
         {
-            ActivoDAL.DesactivarActivo(ActivoIdp, accion);
+            ActivoDAL.DesactivarActivo(ActivoIdp, accion, user);
         }
 
     }

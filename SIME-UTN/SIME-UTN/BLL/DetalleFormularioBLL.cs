@@ -9,9 +9,9 @@ namespace SIME_UTN.BLL
 {
     class DetalleFormularioBLL
     {
-        internal static void GuardarDF(DetalleFormulario DFp)
+        internal static void GuardarDF(DetalleFormulario DFp, string user)
         {
-            DetalleFormularioDAL.GuardarDetalleFormulario(DFp);
+            DetalleFormularioDAL.GuardarDetalleFormulario(DFp, user);
         }
 
 

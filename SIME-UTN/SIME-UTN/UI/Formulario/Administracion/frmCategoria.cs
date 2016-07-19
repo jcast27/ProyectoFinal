@@ -235,7 +235,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gestor = GestorCategoria.GetInstance();
             try
             {
-                gestor.DesactivarCategoria(gridView1.GetFocusedRowCellValue("IDCategoria").ToString(), mBtnEliminar.Caption);
+                gestor.DesactivarCategoria(gridView1.GetFocusedRowCellValue("IDCategoria").ToString(), mBtnEliminar.Caption, usuarioLogueado);
                 MessageBox.Show("El Item ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
                 RefrescarLista();

@@ -69,12 +69,12 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@iddepartamento", unFuncionariop.Departamento.idDepartamento);
             comando.Parameters.AddWithValue("@estado", unFuncionariop.estado);
 
-            GuardarLog(unFuncionariop, usuarioLogueadop, accion, null);
-
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(unFuncionariop, usuarioLogueadop, accion, null);
         }
 
      /*   internal static bool ObtenerFuncionarioID(int idFuncionario)
@@ -148,12 +148,12 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@idfuncionario", funcionarioIDp);
-            GuardarLog(null, usuarioLoguadop, accion, funcionariop);
-
+            
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(null, usuarioLoguadop, accion, funcionariop);
         }
 
 
@@ -192,11 +192,13 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@correo", Funcionariop.correo);
             comando.Parameters.AddWithValue("@iddepartamento", Funcionariop.Departamento.idDepartamento);
             comando.Parameters.AddWithValue("@estado", Funcionariop.estado);
-            GuardarLog(Funcionariop, usuarioLogueadop, accion, null);
+            
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(Funcionariop, usuarioLogueadop, accion, null);
         }
 
         public static void GuardarLog(Funcionario unFuncionario, string usuarioLogueado, string accion, string funcionarioEliminado)

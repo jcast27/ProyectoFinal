@@ -33,7 +33,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void frmFormulario_Load(object sender, EventArgs e)
         {
-            
+
             Icon = Properties.Resources.Icono;
             // TODO: esta línea de código carga datos en la tabla 'dataSetFuncionario.Funcionario' Puede moverla o quitarla según sea necesario.
             this.funcionarioTableAdapter.Fill(this.dataSetFuncionario.Funcionario);
@@ -190,85 +190,92 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            try
             {
-                GestorActivo ga = new GestorActivo();
-                GestorFuncionario gf = new GestorFuncionario();
-                GestorFormulario gForm = new GestorFormulario();
-                GestorDetalleFormulario gDet = new GestorDetalleFormulario();
-
-                Entities.Formulario form = new Entities.Formulario();
-                form.activo = ga.ObtenerActivoId(int.Parse(cmbPatrimonio.SelectedValue.ToString()));
-                form.funcionario = gf.ObtenerFuncionarioId(int.Parse(cmbFuncionario.SelectedValue.ToString()));
-                form.fecha = DateTime.Parse(txtFecha.Text);
-                form.cliente = txtCliente.Text;
-                form.observaciones = txtComentario.Text;
-                gForm.AgregarFormulario(form);
-                form.idFormulario = gForm.GuardarFormulario();
-
-                form.listaDF = new List<DetalleFormulario>();
-
-                foreach (DataGridView dgv in listaGrid)
+                if (ValidarCampos())
                 {
-                    foreach (DataGridViewRow row in dgv.Rows)
+                    GestorActivo ga = new GestorActivo();
+                    GestorFuncionario gf = new GestorFuncionario();
+                    GestorFormulario gForm = new GestorFormulario();
+                    GestorDetalleFormulario gDet = new GestorDetalleFormulario();
+
+                    Entities.Formulario form = new Entities.Formulario();
+                    form.activo = ga.ObtenerActivoId(int.Parse(cmbPatrimonio.SelectedValue.ToString()));
+                    form.funcionario = gf.ObtenerFuncionarioId(int.Parse(cmbFuncionario.SelectedValue.ToString()));
+                    form.fecha = DateTime.Parse(txtFecha.Text);
+                    form.cliente = txtCliente.Text;
+                    form.observaciones = txtComentario.Text;
+                    gForm.AgregarFormulario(form);
+                    form.idFormulario = gForm.GuardarFormulario(usuarioLogueado);
+
+                    form.listaDF = new List<DetalleFormulario>();
+
+                    foreach (DataGridView dgv in listaGrid)
                     {
-                        DetalleFormulario df = new DetalleFormulario();
-                        df.idFormulario = form.idFormulario;
-
-                        if (dgv.Name == "dgvBRM")
+                        foreach (DataGridViewRow row in dgv.Rows)
                         {
-                            if (Convert.ToBoolean(row.Cells["colBueno"].Value) == true)
-                            {
-                                df.valor = "Bueno";
-                            }
-                            else if (Convert.ToBoolean(row.Cells["colRegular"].Value) == true)
-                            {
-                                df.valor = "Regular";
-                            }
-                            else if (Convert.ToBoolean(row.Cells["colMalo"].Value) == true)
-                            {
-                                df.valor = "Malo";
-                            }
-                        }
-                        else if (dgv.Name == "dgvSiNo")
-                        {
-                            
-                            if (Convert.ToBoolean(row.Cells["colSi"].Value) == true)
-                            {
-                                df.valor = "Si";
-                            }
-                            else if (Convert.ToBoolean(row.Cells["colNo"].Value) == true)
-                            {
-                                df.valor = "No";
-                            }
-                        }
-                        else if (dgv.Name == "dgvTextoLibre")
-                        {
-                            df.valor = row.Cells[2].Value.ToString();
-                        }
+                            DetalleFormulario df = new DetalleFormulario();
+                            df.idFormulario = form.idFormulario;
 
-                        df.idItem = Convert.ToInt32(row.Cells[0].Value);
+                            if (dgv.Name == "dgvBRM")
+                            {
+                                if (Convert.ToBoolean(row.Cells["colBueno"].Value) == true)
+                                {
+                                    df.valor = "Bueno";
+                                }
+                                else if (Convert.ToBoolean(row.Cells["colRegular"].Value) == true)
+                                {
+                                    df.valor = "Regular";
+                                }
+                                else if (Convert.ToBoolean(row.Cells["colMalo"].Value) == true)
+                                {
+                                    df.valor = "Malo";
+                                }
+                            }
+                            else if (dgv.Name == "dgvSiNo")
+                            {
 
-                        form.listaDF.Add(df);
+                                if (Convert.ToBoolean(row.Cells["colSi"].Value) == true)
+                                {
+                                    df.valor = "Si";
+                                }
+                                else if (Convert.ToBoolean(row.Cells["colNo"].Value) == true)
+                                {
+                                    df.valor = "No";
+                                }
+                            }
+                            else if (dgv.Name == "dgvTextoLibre")
+                            {
+                                df.valor = row.Cells[2].Value.ToString();
+                            }
+
+                            df.idItem = Convert.ToInt32(row.Cells[0].Value);
+
+                            form.listaDF.Add(df);
+                        }
+                    }
+
+                    foreach (DetalleFormulario det in form.listaDF)
+                    {
+                        gDet.AgregarDetalleFormulario(det);
+                        gDet.GuardarDetalleFormulario(usuarioLogueado);
+                    }
+
+                    DialogResult result = MessageBox.Show("El formulario #" + form.idFormulario + " ha sido guardado con éxito\n¿Desea imprimirlo?", "Mensaje", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+
+                    }
+                    else
+                    {
+                        Close();
                     }
                 }
-
-                foreach (DetalleFormulario det in form.listaDF)
-                {
-                    gDet.AgregarDetalleFormulario(det);
-                    gDet.GuardarDetalleFormulario();
-                }
-
-                DialogResult result = MessageBox.Show("El formulario #" + form.idFormulario + " ha sido guardado con éxito\n¿Desea imprimirlo?","Mensaje",MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
-                {
-
-                }
-                else
-                {
-                    Close();
-                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("No fue posible guardar el Formulario. \nFavor intentarlo de nuevo.\nDetalle del Error: \n" + error.Message, "Mensaje", MessageBoxButtons.YesNo);
             }
         }
 
@@ -279,11 +286,11 @@ namespace SIME_UTN.UI.Formulario.Procesos
             bool sino = false;
             bool texto = false;
 
-           /* List<DataGridView> dgl = new List<DataGridView>();
-            try { dgl.Add(((DataGridView)Controls.Find("dgvSiNo", true)[0])); } catch (Exception) { }
-            try { dgl.Add(((DataGridView)Controls.Find("dgvBRM", true)[0])); } catch (Exception) { }
-            try { dgl.Add(((DataGridView)Controls.Find("dgvTextoLibre", true)[0])); } catch (Exception) { }
-            */
+            /* List<DataGridView> dgl = new List<DataGridView>();
+             try { dgl.Add(((DataGridView)Controls.Find("dgvSiNo", true)[0])); } catch (Exception) { }
+             try { dgl.Add(((DataGridView)Controls.Find("dgvBRM", true)[0])); } catch (Exception) { }
+             try { dgl.Add(((DataGridView)Controls.Find("dgvTextoLibre", true)[0])); } catch (Exception) { }
+             */
             foreach (DataGridView dgv in listaGrid)
             {
                 foreach (DataGridViewRow row in dgv.Rows)
@@ -411,12 +418,12 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void frmFormulario_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Desea salir?", "Advertencia",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Desea salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {

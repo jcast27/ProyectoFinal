@@ -75,7 +75,7 @@ namespace SIME_UTN.DAL
             }
         }
 
-        public static void GuardarItem(Item Itemp)
+        public static void GuardarItem(Item Itemp, string user)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_Item");
             comando.CommandType = CommandType.StoredProcedure;
@@ -89,6 +89,8 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(Itemp, user, "Insertar", "");
 
         }
 
@@ -125,7 +127,7 @@ namespace SIME_UTN.DAL
         }
 
 
-        internal static void EliminarItem(string ItemIdp, string accion)
+        internal static void EliminarItem(string ItemIdp, string accion, string user)
         {
             accion = accion.Equals("Habilitar") ? "1" : "0";
 
@@ -140,9 +142,11 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(null, user, "Eliminar", ItemIdp);
         }
 
-        internal static void ActualizarItem(Item Itemp)
+        internal static void ActualizarItem(Item Itemp, string user)
         {
             SqlCommand comando = new SqlCommand("sp_UPDATE_Item");
             comando.CommandType = CommandType.StoredProcedure;
@@ -156,6 +160,45 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(Itemp, user, "Modificar", "");
+
         }
+
+        public static void GuardarLog(Item item, string usuarioLogueado, string accion, string itemEliminado)
+        {
+
+            string descripcion = "";
+            int estado = 0;
+            if (item == null)
+            {
+                descripcion = "Item deshabilitado: " + itemEliminado;
+            }
+            else
+            {
+                estado = 1;
+                descripcion = "Item #: " + item.idItem + "\r\nDescripción: " + item.descripcion +
+                    "\r\nSección: " + item.seccion + "\r\nSección: " + item.estado;
+            }
+
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            SqlCommand comando = new SqlCommand("sp_INSERT_log");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@usuario", usuarioLogueado);
+            comando.Parameters.AddWithValue("@accion", accion);
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
+            comando.Parameters.AddWithValue("@fechamodificacion", fecha);
+            comando.Parameters.AddWithValue("@estado", estado);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+
+        }
+
     }
 }

@@ -10,9 +10,9 @@ namespace SIME_UTN.BLL
     class FormularioBLL
     {
 
-        internal static int GuardarFormulario(Formulario Formulariop)
+        internal static int GuardarFormulario(Formulario Formulariop, string user)
         {
-            return FormularioDAL.GuardarFormulario(Formulariop);
+            return FormularioDAL.GuardarFormulario(Formulariop,user);
         }
 
 

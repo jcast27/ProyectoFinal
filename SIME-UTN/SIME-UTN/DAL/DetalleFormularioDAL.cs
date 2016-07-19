@@ -10,7 +10,7 @@ namespace SIME_UTN.DAL
 {
     class DetalleFormularioDAL
     {
-        public static void GuardarDetalleFormulario(DetalleFormulario DF)
+        public static void GuardarDetalleFormulario(DetalleFormulario DF, string user)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_DetalleFormulario");
             comando.CommandType = CommandType.StoredProcedure;
@@ -23,6 +23,8 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(DF, user);
 
         }
 
@@ -51,6 +53,28 @@ namespace SIME_UTN.DAL
                 }
             }
             return lista;
+        }
+
+        public static void GuardarLog(DetalleFormulario DF, string usuarioLogueado)
+        {
+            string descripcion = "Form #: " + DF.idFormulario + "\r\nID Item: " + DF.idItem + "\r\nValor: " + DF.valor;
+
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            SqlCommand comando = new SqlCommand("sp_INSERT_log");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@usuario", usuarioLogueado);
+            comando.Parameters.AddWithValue("@accion", "Insertar");
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
+            comando.Parameters.AddWithValue("@fechamodificacion", fecha);
+            comando.Parameters.AddWithValue("@estado", 1);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
         }
 
     }

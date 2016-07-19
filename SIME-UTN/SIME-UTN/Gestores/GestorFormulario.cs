@@ -38,9 +38,9 @@ namespace SIME_UTN.Gestores
             return Formulario;
         }
 
-        public int GuardarFormulario()
+        public int GuardarFormulario(string user)
         {
-            return FormularioBLL.GuardarFormulario(Formulario);
+            return FormularioBLL.GuardarFormulario(Formulario,user);
         }
 
         public Formulario ObtenerFormularioId(int FormularioIdp)

@@ -45,9 +45,9 @@ namespace SIME_UTN.Gestores
             return Activo;
         }
 
-        public void GuardarActivo()
+        public void GuardarActivo(string user)
         {
-            ActivoBLL.GuardarActivo(Activo);
+            ActivoBLL.GuardarActivo(Activo, user);
         }
 
         public Activo ObtenerActivoId(int ActivoIdp)
@@ -55,9 +55,9 @@ namespace SIME_UTN.Gestores
             return ActivoBLL.ObtenerActivoID(ActivoIdp);
         }
 
-        public void DesactivarActivo(string ActivoIdp, string accion)
+        public void DesactivarActivo(string ActivoIdp, string accion, string user)
         {
-            ActivoBLL.DesactivarActivo(ActivoIdp, accion);
+            ActivoBLL.DesactivarActivo(ActivoIdp, accion, user);
         }
 
     }

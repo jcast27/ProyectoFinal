@@ -39,7 +39,7 @@ namespace SIME_UTN.DAL
                         List<Item> listaItems = new List<Item>();
                         foreach (CategoriaItem ci in listaCI)
                         {
-                             listaItems.Add(ItemDAL.ObtenerItemID(ci.idItem));
+                            listaItems.Add(ItemDAL.ObtenerItemID(ci.idItem));
                         }
 
                         unCategoria.listaItems = listaItems;
@@ -96,7 +96,7 @@ namespace SIME_UTN.DAL
             }
         }
 
-        public static int GuardarCategoria(Categoria Categoriap)
+        public static int GuardarCategoria(Categoria Categoriap,string user)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_Categoria");
             comando.CommandType = CommandType.StoredProcedure;
@@ -112,6 +112,8 @@ namespace SIME_UTN.DAL
                 DataSet ds = db.ExecuteReader(comando, "consulta");
                 idCategoria = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"].ToString());
             }
+
+            GuardarLog(Categoriap, user, "Insertar", "");
 
             return idCategoria;
         }
@@ -158,7 +160,7 @@ namespace SIME_UTN.DAL
         }
 
 
-        internal static void DesactivarCategoria(string CategoriaIdp, string accion)
+        internal static void DesactivarCategoria(string CategoriaIdp, string accion, string user)
         {
             accion = accion.Equals("Habilitar") ? "1" : "0";
 
@@ -173,9 +175,11 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(null, user, "Eliminar", CategoriaIdp);
         }
 
-        internal static void ActualizarCategoria(Categoria Categoriap)
+        internal static void ActualizarCategoria(Categoria Categoriap, string user)
         {
             SqlCommand comando = new SqlCommand("sp_UPDATE_Categoria");
             comando.CommandType = CommandType.StoredProcedure;
@@ -189,6 +193,41 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            GuardarLog(Categoriap, user, "Modificar", "");
+        }
+
+        public static void GuardarLog(Categoria cat, string usuarioLogueado, string accion, string catEliminada)
+        {
+            string descripcion = "";
+            
+            if (cat == null)
+            {
+                descripcion = "Categoria deshabilitado: " + catEliminada;
+            }
+            else
+            {
+                descripcion = "Categoria #: " + cat.idCategoria + "\r\nDescripción: " + cat.descripcion +
+                    "\r\nPertenece a: " + cat.pertenencia + "\r\nEstado: " + cat.estado;
+            }
+
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            SqlCommand comando = new SqlCommand("sp_INSERT_log");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@usuario", usuarioLogueado);
+            comando.Parameters.AddWithValue("@accion", accion);
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
+            comando.Parameters.AddWithValue("@fechamodificacion", fecha);
+            comando.Parameters.AddWithValue("@estado", 1);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+
         }
 
     }

@@ -10,71 +10,6 @@ namespace SIME_UTN.DAL
 {
     class CategoriaItemDAL
     {
-        /*public static List<Categoria> ObtenerCategorias()
-        {
-            string sql = @"sp_SELECT_Categoria_All";
-
-            List<Categoria> lista = new List<Categoria>();
-
-            SqlCommand command = new SqlCommand(sql);
-            command.CommandType = CommandType.StoredProcedure;
-
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
-            {
-                DataSet ds = db.ExecuteReader(command, "consulta");
-
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    try
-                    {
-                        Categoria unCategoria = new Categoria();
-                        unCategoria.idCategoria = Convert.ToInt32(dr["IDCategoria"].ToString());
-                        unCategoria.descripcion = dr["Descripcion"].ToString();
-                        unCategoria.pertenencia = dr["Pertenencia"].ToString();
-                        unCategoria.estado = dr["Estado"].ToString().Equals("True") ? 1 : 0;
-                        lista.Add(unCategoria);
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-                }
-            }
-            return lista;
-        }
-
-        public static Categoria ObtenerCategoriaporNombre(string descripcion)
-        {
-            string sql = @"sp_SELECT_Categoria_ByDescripcion";
-
-            List<Categoria> lista = new List<Categoria>();
-
-            SqlCommand command = new SqlCommand(sql);
-            command.CommandType = CommandType.StoredProcedure;
-
-            command.Parameters.AddWithValue("@Descripcion", descripcion);
-
-            using (DataBase db = DataBaseFactory.CreateDataBase("default"))
-            {
-                DataSet ds = db.ExecuteReader(command, "consulta");
-
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    Categoria unCategoria = new Categoria();
-                    unCategoria.idCategoria = Convert.ToInt32(ds.Tables[0].Rows[0]["IDCategoria"].ToString());
-                    unCategoria.descripcion = ds.Tables[0].Rows[0]["Descripcion"].ToString();
-                    unCategoria.pertenencia = ds.Tables[0].Rows[0]["Pertenencia"].ToString();
-                    unCategoria.estado = ds.Tables[0].Rows[0]["Estado"].ToString().Equals("True") ? 1 : 0;
-
-                    return unCategoria;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }*/
-
         public static void GuardarCategoriaItem(CategoriaItem CI)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_CategoriaItems");
@@ -123,6 +58,29 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@IDCategoria", CategoriaIdp);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+        }
+
+        public static void GuardarLog(CategoriaItem CI, string usuarioLogueado, string accion)
+        {
+
+            string descripcion = "Categoria: " + CI.idCategoria + "\r\nItem: " + CI.idItem;
+
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            SqlCommand comando = new SqlCommand("sp_INSERT_log");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@usuario", usuarioLogueado);
+            comando.Parameters.AddWithValue("@accion", accion);
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
+            comando.Parameters.AddWithValue("@fechamodificacion", fecha);
+            comando.Parameters.AddWithValue("@estado", 1);
+
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {

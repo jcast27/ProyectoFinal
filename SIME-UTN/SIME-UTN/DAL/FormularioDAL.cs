@@ -47,7 +47,7 @@ namespace SIME_UTN.DAL
             return lista;
         }
 
-        public static int GuardarFormulario(Formulario Formulariop)
+        public static int GuardarFormulario(Formulario Formulariop, string user)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_Formulario");
             comando.CommandType = CommandType.StoredProcedure;
@@ -65,6 +65,8 @@ namespace SIME_UTN.DAL
                 DataSet ds = db.ExecuteReader(comando, "consulta");
                 idFormulario = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"].ToString());
             }
+
+            GuardarLog(Formulariop, user,"Insertar");
 
             return idFormulario;
         }
@@ -88,7 +90,7 @@ namespace SIME_UTN.DAL
                 {
                     Formulario unForm = new Formulario();
                     unForm.idFormulario = Convert.ToInt32(ds.Tables[0].Rows[0]["IDFormulario"].ToString());
-                    unForm.fecha = Convert.ToDateTime(ds.Tables[0].Rows[0]["IDFormulario"].ToString());
+                    unForm.fecha = Convert.ToDateTime(ds.Tables[0].Rows[0]["Fecha"].ToString());
                     unForm.observaciones = ds.Tables[0].Rows[0]["Observaciones"].ToString();
                     unForm.cliente = ds.Tables[0].Rows[0]["Cliente"].ToString();
                     unForm.funcionario = FuncionarioDAL.ObtenerFuncionarioID(Convert.ToInt32(ds.Tables[0].Rows[0]["IDFuncionario"].ToString()));
@@ -103,5 +105,31 @@ namespace SIME_UTN.DAL
                 }
             }
         }
+
+        public static void GuardarLog(Formulario form, string usuarioLogueado, string accion)
+        {
+
+            string descripcion = "Form #: " + form.idFormulario + "\r\nFecha: " + form.fecha +
+                "\r\nObservaciones: " + form.observaciones + "\r\nCliente: " + form.cliente +
+                "\r\nFuncionario: " + form.funcionario.nombre + " - " + form.funcionario.cedula + "\r\nPatrimonio Activo: " + form.activo.patrimonio;
+
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            SqlCommand comando = new SqlCommand("sp_INSERT_log");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@usuario", usuarioLogueado);
+            comando.Parameters.AddWithValue("@accion", accion);
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
+            comando.Parameters.AddWithValue("@fechamodificacion", fecha);
+            comando.Parameters.AddWithValue("@estado", 1);
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+        }
+
     }
 }
