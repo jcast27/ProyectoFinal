@@ -390,12 +390,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         public bool ValidarCamposModificar()
         {
             bool error = false;
-           /* if (txtNumeroIngreso.Text.Trim() == "")
-            {
-                epError.SetError(txtNumeroIngreso, "Campo Requerido");
-                txtNumeroIngreso.Focus();
-                error = true;
-            }*/
+           
             if (txtSolicitudAvatar.Text.Trim() == "")
             {
                 epError.SetError(txtSolicitudAvatar, "Campo Requerido");
@@ -418,6 +413,12 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
                 epError.SetError(dateFechaIngreso, "Campo Requerido");
                 dateFechaIngreso.Focus();
+                error = true;
+            }
+            if (txtUsuario.Text.Trim() == "")
+            {
+                epError.SetError(txtUsuario, "Campo Requerido");
+                txtUsuario.Focus();
                 error = true;
             }
             if (error == false)
@@ -430,12 +431,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         public bool ValidarCampos()
         {
             bool error = false;
-          /*  if (txtNumeroIngreso.Text.Trim() == "")
-            {
-                epError.SetError(txtNumeroIngreso, "Campo Requerido");
-                txtNumeroIngreso.Focus();
-                error = true;
-            }*/
+          
             if (txtSolicitudAvatar.Text.Trim() == "")
             {
                 epError.SetError(txtSolicitudAvatar, "Campo Requerido");
@@ -460,28 +456,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 dateFechaIngreso.Focus();
                 error = true;
             }
-            if (txtECodigoProducto.Text.Trim() == "")
+            if (txtUsuario.Text.Trim() == "")
             {
-                epError.SetError(txtECodigoProducto, "Campo Requerido");
-                txtECodigoProducto.Focus();
-                error = true;
-            }
-            if (txtCantidad.Text.Trim() == "")
-            {
-                epError.SetError(txtCantidad, "Campo Requerido");
-                txtCantidad.Focus();
-                error = true;
-            }
-            if (txtCantidadXEmpaque.Text.Trim() == "")
-            {
-                epError.SetError(txtCantidadXEmpaque, "Campo Requerido");
-                txtCantidadXEmpaque.Focus();
-                error = true;
-            }
-            if (txtCosto.Text.Trim() == "")
-            {
-                epError.SetError(txtCosto, "Campo Requerido");
-                txtCosto.Focus();
+                epError.SetError(txtUsuario, "Campo Requerido");
+                txtUsuario.Focus();
                 error = true;
             }
             if (error == false)
@@ -493,10 +471,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void mBtnAceptar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-          //  if (ValidarCampos() != true)
-           // {
+            if (ValidarCampos() != true)
+            {
                 GuardarCambiosRegistroProductos("Guardar");
-           // }
+            }
         }
 
         public void GuardarCambiosRegistroProductos(string accionp)

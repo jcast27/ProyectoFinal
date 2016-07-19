@@ -226,11 +226,19 @@
             // 
             // colIDIngresoProducto
             // 
+            this.colIDIngresoProducto.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colIDIngresoProducto.AppearanceCell.Options.UseFont = true;
+            this.colIDIngresoProducto.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colIDIngresoProducto.AppearanceHeader.Options.UseFont = true;
             this.colIDIngresoProducto.FieldName = "IDIngresoProducto";
             this.colIDIngresoProducto.Name = "colIDIngresoProducto";
             // 
             // colIDUsuario
             // 
+            this.colIDUsuario.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colIDUsuario.AppearanceCell.Options.UseFont = true;
+            this.colIDUsuario.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colIDUsuario.AppearanceHeader.Options.UseFont = true;
             this.colIDUsuario.ColumnEdit = this.LookUpUsuario;
             this.colIDUsuario.FieldName = "IDUsuario";
             this.colIDUsuario.Name = "colIDUsuario";
@@ -257,6 +265,10 @@
             // 
             // colDescripcion
             // 
+            this.colDescripcion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colDescripcion.AppearanceCell.Options.UseFont = true;
+            this.colDescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colDescripcion.AppearanceHeader.Options.UseFont = true;
             this.colDescripcion.FieldName = "Descripcion";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
@@ -264,6 +276,10 @@
             // 
             // colSolicitudAvatar
             // 
+            this.colSolicitudAvatar.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colSolicitudAvatar.AppearanceCell.Options.UseFont = true;
+            this.colSolicitudAvatar.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colSolicitudAvatar.AppearanceHeader.Options.UseFont = true;
             this.colSolicitudAvatar.FieldName = "SolicitudAvatar";
             this.colSolicitudAvatar.Name = "colSolicitudAvatar";
             this.colSolicitudAvatar.Visible = true;
@@ -271,6 +287,10 @@
             // 
             // colFechaIngreso
             // 
+            this.colFechaIngreso.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colFechaIngreso.AppearanceCell.Options.UseFont = true;
+            this.colFechaIngreso.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colFechaIngreso.AppearanceHeader.Options.UseFont = true;
             this.colFechaIngreso.FieldName = "FechaIngreso";
             this.colFechaIngreso.Name = "colFechaIngreso";
             this.colFechaIngreso.Visible = true;
@@ -278,6 +298,10 @@
             // 
             // colFechaCaducidad
             // 
+            this.colFechaCaducidad.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colFechaCaducidad.AppearanceCell.Options.UseFont = true;
+            this.colFechaCaducidad.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colFechaCaducidad.AppearanceHeader.Options.UseFont = true;
             this.colFechaCaducidad.FieldName = "FechaCaducidad";
             this.colFechaCaducidad.Name = "colFechaCaducidad";
             this.colFechaCaducidad.Visible = true;
@@ -285,6 +309,10 @@
             // 
             // colEstado
             // 
+            this.colEstado.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colEstado.AppearanceCell.Options.UseFont = true;
+            this.colEstado.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colEstado.AppearanceHeader.Options.UseFont = true;
             this.colEstado.FieldName = "Estado";
             this.colEstado.Name = "colEstado";
             // 

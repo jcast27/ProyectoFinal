@@ -35,6 +35,7 @@
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
             this.txtCosto = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.gCRegistroProducto = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties.CalendarTimeProperties)).BeginInit();
@@ -141,6 +141,7 @@
             this.mBtnModificar.Caption = "Modificar Registro";
             this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
             this.mBtnModificar.Name = "mBtnModificar";
+            this.mBtnModificar.Visible = false;
             this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnAceptar
@@ -154,6 +155,18 @@
             this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
             this.mBtnAceptar.Name = "mBtnAceptar";
             this.mBtnAceptar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAceptar_ElementClick);
+            // 
+            // mBtnEliminar
+            // 
+            this.mBtnEliminar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnEliminar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnEliminar.Appearance.Options.UseFont = true;
+            this.mBtnEliminar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnEliminar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnEliminar.Caption = "Eliminar Registro";
+            this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
+            this.mBtnEliminar.Name = "mBtnEliminar";
+            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
             // 
             // mBtnSalir
             // 
@@ -541,18 +554,6 @@
             // epError
             // 
             this.epError.ContainerControl = this;
-            // 
-            // mBtnEliminar
-            // 
-            this.mBtnEliminar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnEliminar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnEliminar.Appearance.Options.UseFont = true;
-            this.mBtnEliminar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnEliminar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnEliminar.Caption = "Eliminar Registro";
-            this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
-            this.mBtnEliminar.Name = "mBtnEliminar";
-            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
             // 
             // frmAdRegistroProducto
             // 

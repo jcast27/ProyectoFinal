@@ -109,12 +109,20 @@
             // 
             // colCodigoUsuario
             // 
+            this.colCodigoUsuario.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCodigoUsuario.AppearanceCell.Options.UseFont = true;
+            this.colCodigoUsuario.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colCodigoUsuario.AppearanceHeader.Options.UseFont = true;
             this.colCodigoUsuario.FieldName = "CodigoUsuario";
             this.colCodigoUsuario.Name = "colCodigoUsuario";
             this.colCodigoUsuario.OptionsColumn.AllowEdit = false;
             // 
             // colNombre
             // 
+            this.colNombre.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colNombre.AppearanceCell.Options.UseFont = true;
+            this.colNombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colNombre.AppearanceHeader.Options.UseFont = true;
             this.colNombre.Caption = "Nombre";
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
@@ -123,6 +131,10 @@
             // 
             // colPrimerApellido
             // 
+            this.colPrimerApellido.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colPrimerApellido.AppearanceCell.Options.UseFont = true;
+            this.colPrimerApellido.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colPrimerApellido.AppearanceHeader.Options.UseFont = true;
             this.colPrimerApellido.Caption = "P. Apellido";
             this.colPrimerApellido.FieldName = "Apellido1";
             this.colPrimerApellido.Name = "colPrimerApellido";
@@ -131,6 +143,10 @@
             // 
             // colSegundoApellido
             // 
+            this.colSegundoApellido.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colSegundoApellido.AppearanceCell.Options.UseFont = true;
+            this.colSegundoApellido.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colSegundoApellido.AppearanceHeader.Options.UseFont = true;
             this.colSegundoApellido.Caption = "S. Apellido";
             this.colSegundoApellido.FieldName = "Apellido2";
             this.colSegundoApellido.Name = "colSegundoApellido";
@@ -139,6 +155,10 @@
             // 
             // colUsuario
             // 
+            this.colUsuario.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colUsuario.AppearanceCell.Options.UseFont = true;
+            this.colUsuario.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colUsuario.AppearanceHeader.Options.UseFont = true;
             this.colUsuario.FieldName = "Usuario";
             this.colUsuario.Name = "colUsuario";
             this.colUsuario.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
@@ -147,6 +167,10 @@
             // 
             // colPerfil
             // 
+            this.colPerfil.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colPerfil.AppearanceCell.Options.UseFont = true;
+            this.colPerfil.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colPerfil.AppearanceHeader.Options.UseFont = true;
             this.colPerfil.FieldName = "Perfil";
             this.colPerfil.Name = "colPerfil";
             this.colPerfil.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;

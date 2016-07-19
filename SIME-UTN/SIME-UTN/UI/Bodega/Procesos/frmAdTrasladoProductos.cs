@@ -477,12 +477,123 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void mBtnAceptar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            GuardarCambiosTraslado("Guardar");
+
+            if( ValidarCampos() != true)
+            {
+                GuardarCambiosTraslado("Guardar");
+            }
+            
+        }
+
+        public bool ValidarCampos()
+        {
+            bool error = false;
+
+            if (txtNumeroTraslado.Text.Trim() == "")
+            {
+                epError.SetError(txtNumeroTraslado, "Campo Requerido");
+                txtNumeroTraslado.Focus();
+                error = true;
+            }
+            if (cmbBodegaOrigen.SelectedIndex == -1)
+            {
+                epError.SetError(cmbBodegaOrigen, "Campo Requerido");
+                cmbBodegaOrigen.Focus();
+                error = true;
+            }
+            if (cmbBodegaDestino.SelectedIndex == -1)
+            {
+                epError.SetError(cmbBodegaDestino, "Campo Requerido");
+                cmbBodegaDestino.Focus();
+                error = true;
+            }
+
+            if (txtUsuario.Text.Trim() == "")
+            {
+                epError.SetError(txtUsuario, "Campo Requerido");
+                txtUsuario.Focus();
+                error = true;
+            }
+            if (txtFechaTraslado.Text.Trim() == "")
+            {
+                epError.SetError(txtFechaTraslado, "Campo Requerido");
+                txtFechaTraslado.Focus();
+                error = true;
+            }
+            if (cmbTipoTraslado.SelectedIndex == -1)
+            {
+                epError.SetError(cmbTipoTraslado, "Campo Requerido");
+                cmbTipoTraslado.Focus();
+                error = true;
+            }
+            if (txtObservaciones.Text.Trim() == "")
+            {
+                epError.SetError(txtObservaciones, "Campo Requerido");
+                txtObservaciones.Focus();
+                error = true;
+            }
+
+            if (error == false)
+            {
+                epError.Clear();
+            }
+            return error;
+        }
+
+        public bool ValidarCamposModificar()
+        {
+            bool error = false;
+
+            if (txtNumeroTraslado.Text.Trim() == "")
+            {
+                epError.SetError(txtNumeroTraslado, "Campo Requerido");
+                txtNumeroTraslado.Focus();
+                error = true;
+            }
+            if (cmbBodegaOrigen.SelectedIndex == -1)
+            {
+                epError.SetError(cmbBodegaOrigen, "Campo Requerido");
+                cmbBodegaOrigen.Focus();
+                error = true;
+            }
+            if (cmbBodegaDestino.SelectedIndex == -1)
+            {
+                epError.SetError(cmbBodegaDestino, "Campo Requerido");
+                cmbBodegaDestino.Focus();
+                error = true;
+            }
+
+            if (txtUsuario.Text.Trim() == "")
+            {
+                epError.SetError(txtUsuario, "Campo Requerido");
+                txtUsuario.Focus();
+                error = true;
+            }
+            if (txtFechaTraslado.Text.Trim() == "")
+            {
+                epError.SetError(txtFechaTraslado, "Campo Requerido");
+                txtFechaTraslado.Focus();
+                error = true;
+            }
+            if (cmbTipoTraslado.SelectedIndex == -1)
+            {
+                epError.SetError(cmbTipoTraslado, "Campo Requerido");
+                cmbTipoTraslado.Focus();
+                error = true;
+            }
+            if (error == false)
+            {
+                epError.Clear();
+            }
+            return error;
         }
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            GuardarCambiosTraslado("Modificar");
+            if (ValidarCamposModificar() != true)
+            {
+                GuardarCambiosTraslado("Modificar");
+            }
         }
 
         private void cmbBodegaOrigen_SelectedIndexChanged(object sender, EventArgs e)
