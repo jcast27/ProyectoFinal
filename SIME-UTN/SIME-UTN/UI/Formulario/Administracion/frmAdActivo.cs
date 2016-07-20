@@ -16,14 +16,13 @@ namespace SIME_UTN.UI.Formulario.Administracion
     {
         GestorCategoria gestor = null;
         GestorUsuarioTable gestorUsuario = null;
-        Categoria categoria = null;
+        Activo activo = null;
         static string usuarioLogueado = "";
 
         public frmAdActivo()
         {
             InitializeComponent();
-            refrescarItems();
-            categoria = new Categoria();
+            activo = new Activo();
             mBtnModificar.Visible = false;
         }
 
@@ -33,47 +32,89 @@ namespace SIME_UTN.UI.Formulario.Administracion
             usuarioLogueado = gestorUsuario.ObtenerUsuarioLogeado();
         }
 
-        public frmAdActivo(Categoria categoriap)
+        public frmAdActivo(Activo activop)
         {
             InitializeComponent();
-            categoria = new Categoria();
-            categoria = categoriap;
-            refrescarItems();
-            gCCategoria();
+            activo = new Activo();
+            activo = activop;
+            gCActivo();
             mBtnGuardar.Visible = false;
         }
 
-        private void frmAdCategoria_Load(object sender, EventArgs e)
+        private void frmAdActivo_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSetFUbicacion.Ubicacion' Puede moverla o quitarla según sea necesario.
+            this.ubicacionTableAdapter.Fill(this.dataSetFUbicacion.Ubicacion);
+            // TODO: esta línea de código carga datos en la tabla 'dataSetCategoria.Categoria' Puede moverla o quitarla según sea necesario.
+            this.categoriaTableAdapter.Fill(this.dataSetCategoria.Categoria);
             Icon = Properties.Resources.Icono;
             UsuarioLogueado();
-        }
-
-        private void refrescarItems()
-        {
-            clbItems.Items.Clear();
-            GestorItem gi = GestorItem.GetInstance();
-            List<Item> listaItems = gi.ObtenerItems();
-            foreach (Item item in listaItems)
-            {
-                clbItems.Items.Add(item);
-            }
-            clbItems.Items.Insert(0, "Seleccionar Todos");
         }
 
         public bool ValidarCampos()
         {
             bool r = false;
+            int result = 0;
+            DateTime date;
+
             if (txtNombre.Text.Trim() == "")
             {
-                ePError.SetError(txtNombre, "Campo Descripción en Blanco");
+                ePError.SetError(txtNombre, "Nombre en blanco");
                 txtNombre.Focus();
                 r = false;
             }
-            else if (clbItems.CheckedItems == null)
+            else if (DateTime.TryParse(dtpIngreso.Text.Trim(), out date))
             {
-                ePError.SetError(clbItems, "Debe Seleccionar al menos un Item");
-                clbItems.Focus();
+                ePError.SetError(dtpIngreso, "Fecha no válida");
+                dtpIngreso.Focus();
+                r = false;
+            }
+            else if (cmbCategoria.SelectedIndex == -1)
+            {
+                ePError.SetError(cmbCategoria, "Categoría no seleccionada");
+                cmbCategoria.Focus();
+                r = false;
+            }
+            else if (txtMarca.Text.Trim() == "")
+            {
+                ePError.SetError(txtMarca, "Marca en blanco");
+                txtMarca.Focus();
+                r = false;
+            }
+            else if (txtModelo.Text.Trim() == "")
+            {
+                ePError.SetError(txtModelo, "Modelo en blanco");
+                txtModelo.Focus();
+                r = false;
+            }
+            else if (txtPatrimonio.Text.Trim() == "")
+            {
+                ePError.SetError(txtPatrimonio, "Patrimonio en blanco");
+                txtPatrimonio.Focus();
+                r = false;
+            }
+            else if (txtSerie.Text.Trim() == "")
+            {
+                ePError.SetError(txtSerie, "N° Serie en blanco");
+                txtSerie.Focus();
+                r = false;
+            }
+            else if (!int.TryParse(txtValor.Text.Trim(), out result))
+            {
+                ePError.SetError(txtValor, "Valor númerico no válido");
+                txtValor.Focus();
+                r = false;
+            }
+            else if (cmbUbicacion.SelectedIndex == -1)
+            {
+                ePError.SetError(cmbUbicacion, "Ubicación no seleccionada");
+                cmbUbicacion.Focus();
+                r = false;
+            }
+            else if (txtDescripcion.Text.Trim() == "")
+            {
+                ePError.SetError(txtDescripcion, "Campo Descripción en blanco");
+                txtDescripcion.Focus();
                 r = false;
             }
             else
@@ -84,22 +125,12 @@ namespace SIME_UTN.UI.Formulario.Administracion
             return r;
         }
 
-        public void gCCategoria()
+        public void gCActivo()
         {
             try
             {
-                txtNombre.Text = categoria.descripcion;
-                txtId.Text = categoria.idCategoria.ToString();
+                txtNombre.Text = activo.descripcion;
 
-                foreach (Item item in categoria.listaItems)
-                {
-                    for (int i = 0; i < clbItems.Items.Count; i++)
-                    {
-                        string chkL = clbItems.Items[i].ToString();
-                        if (item.descripcion.Equals(chkL))
-                            clbItems.SetItemChecked(i, true);
-                    }
-                }
             }
             catch (ApplicationException app)
             {
@@ -111,11 +142,11 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
         }
 
-        private void guardarCategoria(string accion)
+        private void guardarActivo(string accion)
         {
             if (ValidarCampos())
             {
-                gestor = GestorCategoria.GetInstance();
+                /*gestor = GestorCategoria.GetInstance();
                 GestorItem gestorItem = GestorItem.GetInstance();
                 GestorCategoriaItem gestorCI = GestorCategoriaItem.GetInstance();
 
@@ -147,13 +178,13 @@ namespace SIME_UTN.UI.Formulario.Administracion
                 categoria.listaItems = listaItems;
 
                 gestor.AgregarCategoria(categoria);
-                int id = gestor.GuardarCategoria(usuarioLogueado);
+                int id = gestor.guardarActivo(usuarioLogueado);
 
                 if (id != 0)
                 {
                     categoria.idCategoria = id;
                 }
-                
+
                 gestorCI.EliminarCategoriaItem(categoria.idCategoria.ToString());
                 foreach (Item item in categoria.listaItems)
                 {
@@ -161,50 +192,55 @@ namespace SIME_UTN.UI.Formulario.Administracion
                     CI.idCategoria = categoria.idCategoria;
                     CI.idItem = item.idItem;
                     gestorCI.AgregarCategoriaItem(CI);
-                    gestorCI.GuardarCategoriaItem();
+                    gestorCI.guardarActivoItem();
                 }
 
                 MessageBox.Show(descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Close();
-            }
-        }
-
-        private void clbItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (clbItems.SelectedIndex == 0)
-            {
-                bool state = clbItems.GetItemChecked(0) ? true : false;
-
-                for (int i = 1; i < clbItems.Items.Count; i++)
-                {
-                    clbItems.SetItemChecked(i, state);
-                }
+                Close();*/
             }
         }
 
         private void mBtnGuardar_ElementClick_1(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            guardarCategoria("");
+            guardarActivo("");
         }
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            guardarCategoria("U");
+            guardarActivo("U");
         }
 
         private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            txtId.Clear();
-            txtNombre.Clear();
+            foreach (Control control in gbActivo.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    textBox.Clear();
+                }
+
+                if (control is System.Windows.Forms.ComboBox)
+                {
+                    System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)control;
+                    if (comboBox.Items.Count > 0)
+                        comboBox.SelectedIndex = -1;
+                }
+            }
+
             mBtnModificar.Visible = false;
             mBtnGuardar.Visible = true;
-            refrescarItems();
         }
 
         private void mBtnSalir_ElementClick_1(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

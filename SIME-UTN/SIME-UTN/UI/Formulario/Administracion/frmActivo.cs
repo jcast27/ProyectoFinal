@@ -15,9 +15,9 @@ namespace SIME_UTN.UI.Formulario.Administracion
     public partial class frmActivo : Form
     {
         string usuarioLogueado = "";
-        GestorCategoria gestor = null;
+        GestorActivo gestor = null;
         GestorUsuarioTable gestorU = null;
-        Categoria categoria = null;
+        Activo activo = null;
 
         public frmActivo()
         {
@@ -39,23 +39,39 @@ namespace SIME_UTN.UI.Formulario.Administracion
         private void RefrescarLista()
         {
             DataTable dt = new DataTable();
-            dt.TableName = "Items";
-            dt.Columns.Add(new DataColumn("IDCategoria"));
+            dt.TableName = "Activos";
+            dt.Columns.Add(new DataColumn("IDActivo"));
+            dt.Columns.Add(new DataColumn("Nombre"));
+            dt.Columns.Add(new DataColumn("NumeroSerie"));
             dt.Columns.Add(new DataColumn("Descripcion"));
-            dt.Columns.Add(new DataColumn("Items"));
+            dt.Columns.Add(new DataColumn("Categoria"));
+            dt.Columns.Add(new DataColumn("Ingreso"));
+            dt.Columns.Add(new DataColumn("Valor"));
+            dt.Columns.Add(new DataColumn("Ubicacion"));
+            dt.Columns.Add(new DataColumn("Marca"));
+            dt.Columns.Add(new DataColumn("Modelo"));
+            dt.Columns.Add(new DataColumn("Patrimonio"));
             dt.Columns.Add(new DataColumn("Estado"));
 
             try
             {
-                gestor = GestorCategoria.GetInstance();
+                gestor = GestorActivo.GetInstance();
 
-                List<Categoria> lista = new List<Categoria>(gestor.ObtenerCategorias(Pertenece.Formulario.ToString()));
+                List<Activo> lista = new List<Activo>(gestor.ObtenerActivos());
                 for (int i = 0; i < lista.Count; i++)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["IDCategoria"] = lista[i].idCategoria;
+                    dr["IDActivo"] = lista[i].idActivo;
+                    dr["Nombre"] = lista[i].nombre;
+                    dr["NumeroSerie"] = lista[i].numeroSerie;
                     dr["Descripcion"] = lista[i].descripcion;
-                    dr["Items"] = lista[i].listaItems;
+                    dr["Categoria"] = lista[i].categoria.descripcion;
+                    dr["Ingreso"] = lista[i].annoIngreso.ToShortDateString();
+                    dr["Valor"] = lista[i].valor.ToString();
+                    dr["Ubicacion"] = lista[i].ubicacion.nombre;
+                    dr["Marca"] = lista[i].marca;
+                    dr["Modelo"] = lista[i].modelo;
+                    dr["Patrimonio"] = lista[i].patrimonio;
                     dr["Estado"] = lista[i].estado.ToString().Equals("1") ? "Habilitado" : "Deshabilitado";
                     dt.Rows.Add(dr);
 
@@ -79,7 +95,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <param name="e"></param>
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            frmAdCategoria frm = new frmAdCategoria();
+            frmAdActivo frm = new frmAdActivo();
             frm.ShowDialog(this);
             frmActivo_Load(null, null);
         }
@@ -114,9 +130,9 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            categoria = gestor.ObtenerCategoriaId(int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString()));
+            activo = gestor.ObtenerActivoId(int.Parse(gridView1.GetFocusedRowCellValue("IDActivo").ToString()));
 
-            frmAdCategoria frm = new frmAdCategoria(categoria);
+            frmAdActivo frm = new frmAdActivo(activo);
             frm.ShowDialog(this);
             frmActivo_Load(null, null);
         }
@@ -124,11 +140,11 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
         private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            gestor = GestorCategoria.GetInstance();
+            gestor = GestorActivo.GetInstance();
             try
             {
-                gestor.DesactivarCategoria(gridView1.GetFocusedRowCellValue("IDCategoria").ToString(), mBtnEliminar.Caption, usuarioLogueado);
-                MessageBox.Show("El Item ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                gestor.DesactivarActivo(gridView1.GetFocusedRowCellValue("IDActivo").ToString(), mBtnEliminar.Caption, usuarioLogueado);
+                MessageBox.Show("El Activo ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
                 RefrescarLista();
             }
@@ -142,16 +158,9 @@ namespace SIME_UTN.UI.Formulario.Administracion
         private void frmActivo_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.Icono;
-            // TODO: esta línea de código carga datos en la tabla 'dataSetCategoria.Categoria' Puede moverla o quitarla según sea necesario.
-            //this.categoriaTableAdapter.Fill(this.dataSetCategoria.Categoria);
-            // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             try
             {
                 RefrescarLista();
-                /*.Fill(this.dataSetRDepartamento.sp_SELECT_Departamento_All);
-                UsuarioLogueado();
-                gestorDepto = GestorDepartamento.GetInstance();
-                deptoEstatico = new Departamento();*/
             }
             catch (ApplicationException app)
             {

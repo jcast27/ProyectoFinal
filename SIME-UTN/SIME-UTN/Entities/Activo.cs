@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SIME_UTN.Entities
 {
-    class Activo
+    public class Activo
     {
         public int idActivo { set; get; }
         public string nombre { set; get; }

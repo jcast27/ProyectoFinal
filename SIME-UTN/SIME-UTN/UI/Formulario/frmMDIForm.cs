@@ -175,7 +175,7 @@ namespace SIME_UTN.UI.Formulario
             Document doc3 = new Document { Caption = "Ventana Ubicaciones" };
             Document doc4 = new Document { Caption = "Ventana Departamentos" };
             Document doc5 = new Document { Caption = "Ventana Activos" };
-            this.windowsUIView1.Documents.AddRange(new Document[] { doc0, doc1, doc2, doc3, doc4 });
+            this.windowsUIView1.Documents.AddRange(new Document[] { doc0, doc1, doc2, doc3, doc4, doc5 });
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 120;
@@ -196,17 +196,17 @@ namespace SIME_UTN.UI.Formulario
             nombreElemento = "Categorías";
             tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
 
-            grupo = "Group 3";
+            grupo = "Group 0";
             imagen = Properties.Resources.inven;
             nombreElemento = "Ubicaciones";
             tileContainer2.Items.Add(this.crearTile(doc3, nombreElemento, grupo, imagen, estado));
 
-            grupo = "Group 4";
+            grupo = "Group 1";
             imagen = Properties.Resources.inven;
             nombreElemento = "Departamentos";
             tileContainer2.Items.Add(this.crearTile(doc4, nombreElemento, grupo, imagen, estado));
 
-            grupo = "Group 5";
+            grupo = "Group 2";
             imagen = Properties.Resources.inven;
             nombreElemento = "Activos";
             tileContainer2.Items.Add(this.crearTile(doc5, nombreElemento, grupo, imagen, estado));

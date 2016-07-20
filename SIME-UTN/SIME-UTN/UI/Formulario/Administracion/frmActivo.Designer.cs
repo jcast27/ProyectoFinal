@@ -51,6 +51,15 @@
             this.dataSetCategorias1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
             this.categoriaTableAdapter1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter();
+            this.colSerie = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCategoria = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIngreso = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUbicacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPatrimonio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colModelo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMarca = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gCActivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
@@ -74,7 +83,7 @@
             this.UsuarioItemLookUpEdit1,
             this.repositoryItemComboBox1,
             this.cmbItems});
-            this.gCActivos.Size = new System.Drawing.Size(978, 467);
+            this.gCActivos.Size = new System.Drawing.Size(995, 467);
             this.gCActivos.TabIndex = 19;
             this.gCActivos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -84,7 +93,16 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
+            this.colNombre,
             this.colDescripcion,
+            this.colSerie,
+            this.colCategoria,
+            this.colIngreso,
+            this.colValor,
+            this.colUbicacion,
+            this.colMarca,
+            this.colModelo,
+            this.colPatrimonio,
             this.colEstado});
             this.gridView1.GridControl = this.gCActivos;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
@@ -99,7 +117,7 @@
             // colId
             // 
             this.colId.Caption = "colId";
-            this.colId.FieldName = "IDCategoria";
+            this.colId.FieldName = "IDActivo";
             this.colId.Name = "colId";
             this.colId.Width = 20;
             // 
@@ -109,7 +127,7 @@
             this.colDescripcion.FieldName = "Descripcion";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
-            this.colDescripcion.VisibleIndex = 0;
+            this.colDescripcion.VisibleIndex = 1;
             this.colDescripcion.Width = 150;
             // 
             // colEstado
@@ -118,7 +136,7 @@
             this.colEstado.FieldName = "Estado";
             this.colEstado.Name = "colEstado";
             this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 1;
+            this.colEstado.VisibleIndex = 10;
             this.colEstado.Width = 60;
             // 
             // UsuarioItemLookUpEdit1
@@ -250,9 +268,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbGridViewActivo.Controls.Add(this.gCActivos);
             this.gbGridViewActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGridViewActivo.Location = new System.Drawing.Point(169, 51);
+            this.gbGridViewActivo.Location = new System.Drawing.Point(152, 51);
             this.gbGridViewActivo.Name = "gbGridViewActivo";
-            this.gbGridViewActivo.Size = new System.Drawing.Size(984, 497);
+            this.gbGridViewActivo.Size = new System.Drawing.Size(1001, 497);
             this.gbGridViewActivo.TabIndex = 33;
             this.gbGridViewActivo.TabStop = false;
             this.gbGridViewActivo.Text = "Seleccionar Activo";
@@ -269,6 +287,78 @@
             // categoriaTableAdapter
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
+            // 
+            // colSerie
+            // 
+            this.colSerie.Caption = "Serie";
+            this.colSerie.FieldName = "NumeroSerie";
+            this.colSerie.Name = "colSerie";
+            this.colSerie.Visible = true;
+            this.colSerie.VisibleIndex = 2;
+            // 
+            // colNombre
+            // 
+            this.colNombre.Caption = "Nombre";
+            this.colNombre.FieldName = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Visible = true;
+            this.colNombre.VisibleIndex = 0;
+            // 
+            // colCategoria
+            // 
+            this.colCategoria.Caption = "Categoría";
+            this.colCategoria.FieldName = "Categoria";
+            this.colCategoria.Name = "colCategoria";
+            this.colCategoria.Visible = true;
+            this.colCategoria.VisibleIndex = 9;
+            // 
+            // colIngreso
+            // 
+            this.colIngreso.Caption = "Ingreso";
+            this.colIngreso.FieldName = "Ingreso";
+            this.colIngreso.Name = "colIngreso";
+            this.colIngreso.Visible = true;
+            this.colIngreso.VisibleIndex = 6;
+            // 
+            // colValor
+            // 
+            this.colValor.Caption = "Valor";
+            this.colValor.FieldName = "Valor";
+            this.colValor.Name = "colValor";
+            this.colValor.Visible = true;
+            this.colValor.VisibleIndex = 7;
+            // 
+            // colUbicacion
+            // 
+            this.colUbicacion.Caption = "Ubicación";
+            this.colUbicacion.FieldName = "Ubicacion";
+            this.colUbicacion.Name = "colUbicacion";
+            this.colUbicacion.Visible = true;
+            this.colUbicacion.VisibleIndex = 8;
+            // 
+            // colPatrimonio
+            // 
+            this.colPatrimonio.Caption = "Patrimonio";
+            this.colPatrimonio.FieldName = "Patrimonio";
+            this.colPatrimonio.Name = "colPatrimonio";
+            this.colPatrimonio.Visible = true;
+            this.colPatrimonio.VisibleIndex = 3;
+            // 
+            // colModelo
+            // 
+            this.colModelo.Caption = "Modelo";
+            this.colModelo.FieldName = "Modelo";
+            this.colModelo.Name = "colModelo";
+            this.colModelo.Visible = true;
+            this.colModelo.VisibleIndex = 5;
+            // 
+            // colMarca
+            // 
+            this.colMarca.Caption = "Marca";
+            this.colMarca.FieldName = "Marca";
+            this.colMarca.Name = "colMarca";
+            this.colMarca.Visible = true;
+            this.colMarca.VisibleIndex = 4;
             // 
             // frmActivo
             // 
@@ -321,5 +411,14 @@
         private DataSets.Formulario.DataSetCategoria dataSetCategoria;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colNombre;
+        private DevExpress.XtraGrid.Columns.GridColumn colSerie;
+        private DevExpress.XtraGrid.Columns.GridColumn colCategoria;
+        private DevExpress.XtraGrid.Columns.GridColumn colIngreso;
+        private DevExpress.XtraGrid.Columns.GridColumn colValor;
+        private DevExpress.XtraGrid.Columns.GridColumn colUbicacion;
+        private DevExpress.XtraGrid.Columns.GridColumn colMarca;
+        private DevExpress.XtraGrid.Columns.GridColumn colModelo;
+        private DevExpress.XtraGrid.Columns.GridColumn colPatrimonio;
     }
 }
