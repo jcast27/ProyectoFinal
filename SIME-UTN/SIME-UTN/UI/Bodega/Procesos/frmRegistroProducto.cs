@@ -71,8 +71,8 @@ namespace SIME_UTN.UI.Bodega.Procesos
             unRegProd = new RegistroProducto();
             try
             {
-                unRegProd.idIngresoProducto = int.Parse(gridView1.GetFocusedRowCellValue("idingresoproducto").ToString());
-                unRegProd.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                unRegProd.idIngresoProducto = int.Parse(gridView1.GetFocusedRowCellValue("IDIngresoProducto").ToString());
+                unRegProd.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
 
 
                 if (MessageBox.Show("¿Seguro que desea eliminar el registro " + unRegProd.descripcion + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
