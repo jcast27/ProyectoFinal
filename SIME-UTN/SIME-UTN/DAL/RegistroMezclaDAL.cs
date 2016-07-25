@@ -22,12 +22,27 @@ namespace SIME_UTN.DAL
             string accion = "";
             accion = "Insertar";
             int ultimiIdInsertado = 0;
-            SqlCommand comando = new SqlCommand("sp_INSERT_RegistroMezcla");
+            //SqlCommand comando = new SqlCommand("sp_INSERT_RegistroMezcla");
+            //comando.CommandType = CommandType.StoredProcedure;
+
+            //comando.Parameters.AddWithValue("@nombre", unaMezclap.nombre);
+            //comando.Parameters.AddWithValue("@descripcion", unaMezclap.descripcion);
+            //comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
+
+
+            SqlCommand comando = new SqlCommand("sp_INSERT_Producto");
             comando.CommandType = CommandType.StoredProcedure;
 
+            comando.Parameters.AddWithValue("@codigoavatar", "Mezcla");
             comando.Parameters.AddWithValue("@nombre", unaMezclap.nombre);
             comando.Parameters.AddWithValue("@descripcion", unaMezclap.descripcion);
+            comando.Parameters.AddWithValue("@idcategoria", unaMezclap.Categoria.idCategoria);
+            comando.Parameters.AddWithValue("@idunidadmedida", 10);
+            comando.Parameters.AddWithValue("@contenido", 0);
+            comando.Parameters.AddWithValue("@stockminimo", 1);
+            comando.Parameters.AddWithValue("@stockmaximo", 1000);
             comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
+
 
             GuardarLog(unaMezclap, usuarioLogueadop, accion, null);
 
@@ -58,10 +73,10 @@ namespace SIME_UTN.DAL
         {
             string accion = "";
             accion = "Eliminar";
-            SqlCommand comando = new SqlCommand("sp_DISABLE_RegistroMezcla_ByID");
+            SqlCommand comando = new SqlCommand("sp_DISABLE_Producto_ByID");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@idregistromezcla", idRegistroMezclap);
+            comando.Parameters.AddWithValue("@idproducto", idRegistroMezclap);
             GuardarLog(null, usuarioLogueadop, accion, nombrep);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
@@ -80,13 +95,27 @@ namespace SIME_UTN.DAL
         {
             string accion = "";
             accion = "Modificar";
-            SqlCommand comando = new SqlCommand("sp_UPDATE_RegistroMezcla");
+            //SqlCommand comando = new SqlCommand("sp_UPDATE_RegistroMezcla");
+            //comando.CommandType = CommandType.StoredProcedure;
+            //comando.Parameters.AddWithValue("@idregistromezcla", unaMezclap.idRegistroMezcla);
+            //comando.Parameters.AddWithValue("@nombre", unaMezclap.nombre);
+            //comando.Parameters.AddWithValue("@descripcion", unaMezclap.descripcion);
+            //comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
+            //GuardarLog(unaMezclap, usuarioLogueadop, accion, null);
+
+            SqlCommand comando = new SqlCommand("sp_UPDATE_Producto");
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idregistromezcla", unaMezclap.idRegistroMezcla);
+            comando.Parameters.AddWithValue("@idproducto", unaMezclap.idRegistroMezcla);
+            comando.Parameters.AddWithValue("@codigoavatar", "Mezcla");
             comando.Parameters.AddWithValue("@nombre", unaMezclap.nombre);
             comando.Parameters.AddWithValue("@descripcion", unaMezclap.descripcion);
+            comando.Parameters.AddWithValue("@idcategoria", unaMezclap.Categoria.idCategoria);
+            comando.Parameters.AddWithValue("@idunidadmedida", 10);
+            comando.Parameters.AddWithValue("@contenido", 0);
+            comando.Parameters.AddWithValue("@stockminimo", 1);
+            comando.Parameters.AddWithValue("@stockmaximo", 1000);
             comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
-            GuardarLog(unaMezclap, usuarioLogueadop, accion, null);
+
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);

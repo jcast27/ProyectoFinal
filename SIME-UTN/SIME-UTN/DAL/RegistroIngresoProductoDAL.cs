@@ -11,20 +11,27 @@ namespace SIME_UTN.DAL
 {
     class RegistroIngresoProductoDAL
     {
-
+ 
         internal static void GuardarIngresoProducto(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop)
         {
             string accion = "";
             accion = "Insertar";
+            double cantidad = 0;
+           
+            Producto unProducto = new Producto();
             SqlCommand comando = new SqlCommand("sp_INSERT_RegistroIngresoProducto");
             comando.CommandType = CommandType.StoredProcedure;
-
+            unProducto = ProductoDAL.ObtenerProductoPorCodigoAvatar(unIngresoProdDTO.codigoAvatar);
+            cantidad = unIngresoProdDTO.cantidadPorEmpaque * unProducto.contendio;
+            comando.Parameters.AddWithValue("@idBodega", unIngresoProdDTO.idBodega);
             comando.Parameters.AddWithValue("@idingresoproducto", unIngresoProdDTO.idIngreso);
             comando.Parameters.AddWithValue("@idproducto", unIngresoProdDTO.idProducto);
             comando.Parameters.AddWithValue("@idunidadmedida",unIngresoProdDTO.Idunidad);
             comando.Parameters.AddWithValue("@cantidadxempaque", unIngresoProdDTO.cantidadPorEmpaque);
-            comando.Parameters.AddWithValue("@cantidad", unIngresoProdDTO.cantidad);
+            comando.Parameters.AddWithValue("@UCantidadIngresada", cantidad);
+            comando.Parameters.AddWithValue("@cantidad", unProducto.contendio);
             comando.Parameters.AddWithValue("@costoxempaque", unIngresoProdDTO.costoPorEmpaque);
+            comando.Parameters.AddWithValue("@FechaCaducidad", unIngresoProdDTO.fechaCaducidad);
             comando.Parameters.AddWithValue("@estado", unIngresoProdDTO.estado);
 
             GuardarLog(unIngresoProdDTO, usuarioLogueadop, accion, null);
@@ -33,22 +40,65 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+            //if(VerificarBodegaByID(unIngresoProdDTO.idBodega, unIngresoProdDTO.idProducto) == false){
 
+            //    GuardarBodega(unIngresoProdDTO, usuarioLogueadop);
+            //}
+            
+            ActualizarInventarioCantidad(unIngresoProdDTO.idBodega,unIngresoProdDTO.idProducto,cantidad,0, accion);
+
+        }
+        /// <summary>
+        /// Metodo que actualiza el invetario producto, respecto a la cantidad registrada
+        /// </summary>
+        /// <param name="unIngresoProdDTO"></param>
+        internal static void ActualizarInventarioCantidad(int idBodega,int idProductop, double contendiop, double uCantidadp,string estadop)
+        {
+            SqlCommand comando1 = null;
+            if (estadop == "Insertar")
+            {
+                comando1 = new SqlCommand("sp_UPDATE_InventarioProducto_CantidadActual");
+                comando1.CommandType = CommandType.StoredProcedure;
+                comando1.Parameters.AddWithValue("@IDRegistroBodega", idBodega);
+                comando1.Parameters.AddWithValue("@idproducto", idProductop);
+                comando1.Parameters.AddWithValue("@stockactual", contendiop);
+            }
+            if (estadop == "Modificar")
+            {
+                comando1 = new SqlCommand("sp_UPDATE_InventarioProducto_UpdateCantidadActual");
+                comando1.CommandType = CommandType.StoredProcedure;
+                comando1.Parameters.AddWithValue("@IDRegistroBodega", idBodega);
+                comando1.Parameters.AddWithValue("@idproducto", idProductop);
+                comando1.Parameters.AddWithValue("@stockactual", contendiop);
+                comando1.Parameters.AddWithValue("@Ucantidad", uCantidadp);
+            }
+
+          
+
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando1);
+            }
         }
 
         internal static void ActualizarIngresoProducto(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop)
         {
             string accion = "";
             accion = "Modificar";
-
+            double cantidad = 0;
+            Producto unProducto = new Producto();
             SqlCommand comando = new SqlCommand("sp_UPDATE_RegistroIngresoProducto");
             comando.CommandType = CommandType.StoredProcedure;
-
+            unProducto = ProductoDAL.ObtenerProductoPorCodigoAvatar(unIngresoProdDTO.codigoAvatar);
+            cantidad = unIngresoProdDTO.cantidadPorEmpaque * unProducto.contendio;
             comando.Parameters.AddWithValue("@idingresoproducto", unIngresoProdDTO.idIngreso);
             comando.Parameters.AddWithValue("@idproducto", unIngresoProdDTO.idProducto);
+            comando.Parameters.AddWithValue("@FechaCaducidad", unIngresoProdDTO.fechaCaducidad);
+            comando.Parameters.AddWithValue("@UCantidadIngresada", cantidad);
             comando.Parameters.AddWithValue("@idunidadmedida", unIngresoProdDTO.Idunidad);
             comando.Parameters.AddWithValue("@cantidadxempaque", unIngresoProdDTO.cantidadPorEmpaque);
-            comando.Parameters.AddWithValue("@cantidad", unIngresoProdDTO.cantidad);
+            comando.Parameters.AddWithValue("@cantidad", unProducto.contendio);
             comando.Parameters.AddWithValue("@costoxempaque", unIngresoProdDTO.costoPorEmpaque);
             comando.Parameters.AddWithValue("@estado", unIngresoProdDTO.estado);
 
@@ -58,6 +108,9 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+           
+            ActualizarInventarioCantidad(unIngresoProdDTO.idBodega,unIngresoProdDTO.idProducto, cantidad, unIngresoProdDTO.uCantidad, accion);
         }
 
         internal static bool ObtenerIngresoProductoByID(int idIngresop, int idProductop)
@@ -86,10 +139,40 @@ namespace SIME_UTN.DAL
             return existe;
         }
 
-        internal static void EliminarIngresoDeProducto(Producto unProductop, int idIngRegProd, string usuarioLogueadop)
+        internal static bool VerificarBodegaByID(int idBodega, int idProductop)
+        {
+            bool existe = false;
+            string sql = @"sp_SELECT_Bodega_ByID";
+
+            List<Item> lista = new List<Item>();
+
+            SqlCommand command = new SqlCommand(sql);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@idbodega", idBodega);
+            command.Parameters.AddWithValue("@idproducto", idProductop);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(command, "consulta");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    existe = true;
+                }
+
+            }
+            return existe;
+        }
+
+        internal static void EliminarIngresoDeProducto(int idRegistroBodegap,Producto unProductop, int idIngRegProd, string usuarioLogueadop)
         {
             string accion = "";
             accion = "Eliminar";
+            List<RegistroIngresoProductoDTO> listregistriIngresoProducto = new List<RegistroIngresoProductoDTO>();
+            listregistriIngresoProducto = RegistroIngresoProductoDAL.ObtenerProductosPorIdRegistro(idIngRegProd);
+
+
             SqlCommand comando = new SqlCommand("sp_DISABLE_RegistroIngresoProducto_ByID");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -101,7 +184,31 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            DescargarInvetarioRegistroProductoEliminado(idRegistroBodegap,listregistriIngresoProducto);
         }
+
+        internal static void DescargarInvetarioRegistroProductoEliminado(int idRegistroBodegap,List<RegistroIngresoProductoDTO> listregistriIngresoProductop)
+        {
+
+
+            foreach (RegistroIngresoProductoDTO registriIngresoProducto in listregistriIngresoProductop)
+            {
+                SqlCommand comando = new SqlCommand("sp_DescargarInventario");
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodegap);
+                comando.Parameters.AddWithValue("@idproducto", registriIngresoProducto.idProducto);
+                comando.Parameters.AddWithValue("@UCantidadIngresada", registriIngresoProducto.uCantidad);
+
+
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(comando);
+                }
+            }
+
+        }
+
 
         internal static List<RegistroIngresoProductoDTO> ObtenerProductosPorIdRegistro(int idRegistroProductop)
         {
@@ -122,10 +229,12 @@ namespace SIME_UTN.DAL
                     unRegIngreso.idProducto = int.Parse(dr["IDProducto"].ToString());
                     unRegIngreso.codigoAvatar = dr["CodigoAvatar"].ToString();
                     unRegIngreso.nombreProducto = dr["Nombre"].ToString();
+                    unRegIngreso.uCantidad = Double.Parse(dr["UCantidadIngresada"].ToString());
                     unRegIngreso.cantidadPorEmpaque = Convert.ToInt16( dr["CantidadEmpaque"].ToString());
                     unRegIngreso.unidadMedida = dr["UnidadMedida"].ToString();
                     unRegIngreso.cantidad = Double.Parse(dr["Cantidad"].ToString());
                     unRegIngreso.costoPorEmpaque = Double.Parse(dr["CostoEmpaque"].ToString());
+                    unRegIngreso.fechaCaducidad = dr["FechaCaducidad"].ToString();
                     listaProductosDTO.Add(unRegIngreso);
                 }
             }
@@ -171,60 +280,6 @@ namespace SIME_UTN.DAL
 
         }
 
-        /*  public static void GuardarLog(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop, string accion, string ingresoProdEliminado)
-          {
-              RegistroIngresoProductoDTO viejoRegIngDTO = new RegistroIngresoProductoDTO();
-              string descripcion = "";
-              string estado = "";
-
-              if (accion == "Eliminar")
-              {
-                  descripcion = "Producto eliminado del Registro: " + ingresoProdEliminado;
-                  estado = "Desactivado";
-              }
-              if (accion == "Insertar")
-              {
-                  estado = "Activo";
-                  descripcion = "Código Producto: " + unIngresoProdDTO.idProducto + "\r\nCódigoAvatar: "
-                  + unIngresoProdDTO.codigoAvatar + "\r\nProducto: " + unIngresoProdDTO.nombreProducto +
-                  "\r\nCantidad por Empaque: " + unIngresoProdDTO.cantidadPorEmpaque + "\r\nCantidad Unidad de Medida: "
-                  + unIngresoProdDTO.cantidad + "\r\nUnidad Medida: " + unIngresoProdDTO.unidadMedida +
-                  "\r\nCosto por Empaque: " + unIngresoProdDTO.costoPorEmpaque + "\r\nEstado: " + estado;
-
-              }
-              if (accion == "Modificar")
-              {
-                  //viejoRegIngDTO = ObtenerIngresoProductoByID(unIngresoProdDTO.idIngreso, unIngresoProdDTO.idProducto)
-                  estado = "Activo";
-                  descripcion = "Antes del Cambio" + "\r\nCódigo Producto: " + unIngresoProdDTO.idProducto + "\r\nCódigoAvatar: "
-                  + unIngresoProdDTO.codigoAvatar + "\r\nProducto: " + unIngresoProdDTO.nombreProducto +
-                  "\r\nCantidad por Empaque: " + unIngresoProdDTO.cantidadPorEmpaque + "\r\nCantidad Unidad de Medida: "
-                  + unIngresoProdDTO.cantidad + "\r\nUnidad Medida: " + unIngresoProdDTO.unidadMedida +
-                  "\r\nCosto por Empaque: " + unIngresoProdDTO.costoPorEmpaque + "\r\nEstado: " + estado;
-                  descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                  descripcion += "Después del Cambio" + "\r\nCódigo Producto: " + unIngresoProdDTO.idProducto + "\r\nCódigoAvatar: "
-                  + unIngresoProdDTO.codigoAvatar + "\r\nProducto: " + unIngresoProdDTO.nombreProducto +
-                  "\r\nCantidad por Empaque: " + unIngresoProdDTO.cantidadPorEmpaque + "\r\nCantidad Unidad de Medida: "
-                  + unIngresoProdDTO.cantidad + "\r\nUnidad Medida: " + unIngresoProdDTO.unidadMedida +
-                  "\r\nCosto por Empaque: " + unIngresoProdDTO.costoPorEmpaque + "\r\nEstado: " + estado;
-
-              }
-
-              DateTime date = DateTime.Now;
-              string fecha = date.ToString("dd/MM/yyyy");
-              SqlCommand comando = new SqlCommand("sp_INSERT_log");
-              comando.CommandType = CommandType.StoredProcedure;
-
-              comando.Parameters.AddWithValue("@usuario", usuarioLogueadop);
-              comando.Parameters.AddWithValue("@accion", accion);
-              comando.Parameters.AddWithValue("@descripcion", descripcion);
-              comando.Parameters.AddWithValue("@fechamodificacion", fecha);
-              comando.Parameters.AddWithValue("@estado", 1);
-
-
-              using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-              {
-                  db.ExecuteNonQuery(comando);
-              } */
+       
     }
 }

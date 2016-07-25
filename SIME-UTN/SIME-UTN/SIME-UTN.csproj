@@ -109,10 +109,30 @@
     <Compile Include="DAL\UbicacionDAL.cs" />
     <Compile Include="DAL\UnidadMedidaDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBodegaUbicacion.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Bodega\Admistracion\DataSetFuncionario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMezclaCategoria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetBodegas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBodegas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRBodegaNombre.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -739,6 +759,17 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.xsc">
+      <DependentUpon>DataSetBodegaUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBodegaUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.xss">
+      <DependentUpon>DataSetBodegaUbicacion.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xsc">
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
     </None>
@@ -749,6 +780,39 @@
     </None>
     <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xss">
       <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.xsc">
+      <DependentUpon>DataSetMezclaCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMezclaCategoria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.xss">
+      <DependentUpon>DataSetMezclaCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetBodegas.xsc">
+      <DependentUpon>DataSetBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetBodegas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBodegas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetBodegas.xss">
+      <DependentUpon>DataSetBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.xsc">
+      <DependentUpon>DataSetRBodegaNombre.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRBodegaNombre.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.xss">
+      <DependentUpon>DataSetRBodegaNombre.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.xsc">
       <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>

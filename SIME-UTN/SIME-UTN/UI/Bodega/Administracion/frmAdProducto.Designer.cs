@@ -35,10 +35,12 @@
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
-            this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
-            this.cmbUbicacion = new System.Windows.Forms.ComboBox();
-            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
+            this.txtContenido = new System.Windows.Forms.TextBox();
+            this.lblContenido = new System.Windows.Forms.Label();
+            this.txtCantMaxima = new System.Windows.Forms.TextBox();
+            this.txtCantMinima = new System.Windows.Forms.TextBox();
+            this.lblCantMax = new System.Windows.Forms.Label();
+            this.lblCantMin = new System.Windows.Forms.Label();
             this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
             this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
@@ -46,31 +48,24 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
-            this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtCodigoAvatar = new System.Windows.Forms.TextBox();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.lblCodigoAvatar = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
-            this.lblLocalizacion = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
-            this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
-            this.lblCantMin = new System.Windows.Forms.Label();
-            this.lblCantMax = new System.Windows.Forms.Label();
-            this.txtCantMinima = new System.Windows.Forms.TextBox();
-            this.txtCantMaxima = new System.Windows.Forms.TextBox();
-            this.gbInformacionPersonal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
+            this.lblCodigoProducto = new System.Windows.Forms.Label();
+            this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            this.gbInformacionPersonal.SuspendLayout();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -97,7 +92,7 @@
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(629, 40);
+            this.tileNavPane1.Size = new System.Drawing.Size(1087, 40);
             this.tileNavPane1.TabIndex = 34;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
@@ -148,61 +143,62 @@
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
             // 
-            // gbInformacionPersonal
+            // txtContenido
             // 
-            this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbInformacionPersonal.Controls.Add(this.txtCantMaxima);
-            this.gbInformacionPersonal.Controls.Add(this.txtCantMinima);
-            this.gbInformacionPersonal.Controls.Add(this.lblCantMax);
-            this.gbInformacionPersonal.Controls.Add(this.lblCantMin);
-            this.gbInformacionPersonal.Controls.Add(this.cmbUbicacion);
-            this.gbInformacionPersonal.Controls.Add(this.cmbUnidadMedida);
-            this.gbInformacionPersonal.Controls.Add(this.lblUnidadMedida);
-            this.gbInformacionPersonal.Controls.Add(this.cmbCategoria);
-            this.gbInformacionPersonal.Controls.Add(this.lblCodigoProducto);
-            this.gbInformacionPersonal.Controls.Add(this.lblDescripcion);
-            this.gbInformacionPersonal.Controls.Add(this.txtCodigoAvatar);
-            this.gbInformacionPersonal.Controls.Add(this.txtNombreProducto);
-            this.gbInformacionPersonal.Controls.Add(this.lblCodigoAvatar);
-            this.gbInformacionPersonal.Controls.Add(this.lblNombreProducto);
-            this.gbInformacionPersonal.Controls.Add(this.lblLocalizacion);
-            this.gbInformacionPersonal.Controls.Add(this.lblCategoria);
-            this.gbInformacionPersonal.Controls.Add(this.txtDescripcion);
-            this.gbInformacionPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInformacionPersonal.ForeColor = System.Drawing.Color.White;
-            this.gbInformacionPersonal.Location = new System.Drawing.Point(12, 67);
-            this.gbInformacionPersonal.Name = "gbInformacionPersonal";
-            this.gbInformacionPersonal.Size = new System.Drawing.Size(605, 477);
-            this.gbInformacionPersonal.TabIndex = 35;
-            this.gbInformacionPersonal.TabStop = false;
-            this.gbInformacionPersonal.Text = "Información del Producto";
+            this.txtContenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContenido.Location = new System.Drawing.Point(853, 123);
+            this.txtContenido.Name = "txtContenido";
+            this.txtContenido.Size = new System.Drawing.Size(172, 22);
+            this.txtContenido.TabIndex = 40;
+            this.txtContenido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContenido_KeyPress);
             // 
-            // cmbUbicacion
+            // lblContenido
             // 
-            this.cmbUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbUbicacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTUbicacionAllBindingSource, "idubicacion", true));
-            this.cmbUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
-            this.cmbUbicacion.DisplayMember = "nombre";
-            this.cmbUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUbicacion.FormattingEnabled = true;
-            this.cmbUbicacion.Location = new System.Drawing.Point(189, 273);
-            this.cmbUbicacion.Name = "cmbUbicacion";
-            this.cmbUbicacion.Size = new System.Drawing.Size(369, 24);
-            this.cmbUbicacion.TabIndex = 34;
-            this.cmbUbicacion.ValueMember = "idubicacion";
+            this.lblContenido.AutoSize = true;
+            this.lblContenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContenido.Location = new System.Drawing.Point(717, 127);
+            this.lblContenido.Name = "lblContenido";
+            this.lblContenido.Size = new System.Drawing.Size(80, 18);
+            this.lblContenido.TabIndex = 39;
+            this.lblContenido.Text = "Contenido:";
             // 
-            // spSELECTUbicacionAllBindingSource
+            // txtCantMaxima
             // 
-            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
-            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetUbicacion;
+            this.txtCantMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantMaxima.Location = new System.Drawing.Point(517, 172);
+            this.txtCantMaxima.Name = "txtCantMaxima";
+            this.txtCantMaxima.Size = new System.Drawing.Size(178, 22);
+            this.txtCantMaxima.TabIndex = 38;
+            this.txtCantMaxima.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantMaxima_KeyPress);
             // 
-            // dataSetUbicacion
+            // txtCantMinima
             // 
-            this.dataSetUbicacion.DataSetName = "DataSetUbicacion";
-            this.dataSetUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.txtCantMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantMinima.Location = new System.Drawing.Point(174, 172);
+            this.txtCantMinima.Name = "txtCantMinima";
+            this.txtCantMinima.Size = new System.Drawing.Size(187, 22);
+            this.txtCantMinima.TabIndex = 37;
+            this.txtCantMinima.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantMinima_KeyPress);
+            // 
+            // lblCantMax
+            // 
+            this.lblCantMax.AutoSize = true;
+            this.lblCantMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantMax.Location = new System.Drawing.Point(379, 173);
+            this.lblCantMax.Name = "lblCantMax";
+            this.lblCantMax.Size = new System.Drawing.Size(126, 18);
+            this.lblCantMax.TabIndex = 36;
+            this.lblCantMax.Text = "Cantidad Máxima:";
+            // 
+            // lblCantMin
+            // 
+            this.lblCantMin.AutoSize = true;
+            this.lblCantMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantMin.Location = new System.Drawing.Point(14, 172);
+            this.lblCantMin.Name = "lblCantMin";
+            this.lblCantMin.Size = new System.Drawing.Size(122, 18);
+            this.lblCantMin.TabIndex = 35;
+            this.lblCantMin.Text = "Cantidad Mínima:";
             // 
             // cmbUnidadMedida
             // 
@@ -213,9 +209,9 @@
             this.cmbUnidadMedida.DisplayMember = "Descripcion";
             this.cmbUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnidadMedida.FormattingEnabled = true;
-            this.cmbUnidadMedida.Location = new System.Drawing.Point(189, 329);
+            this.cmbUnidadMedida.Location = new System.Drawing.Point(515, 121);
             this.cmbUnidadMedida.Name = "cmbUnidadMedida";
-            this.cmbUnidadMedida.Size = new System.Drawing.Size(369, 24);
+            this.cmbUnidadMedida.Size = new System.Drawing.Size(180, 24);
             this.cmbUnidadMedida.TabIndex = 33;
             this.cmbUnidadMedida.ValueMember = "IDUnidadMedida";
             // 
@@ -237,7 +233,7 @@
             this.lblUnidadMedida.AutoSize = true;
             this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(14, 329);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(379, 122);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(130, 18);
             this.lblUnidadMedida.TabIndex = 32;
@@ -253,9 +249,9 @@
             this.cmbCategoria.DisplayMember = "Descripcion";
             this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(189, 221);
+            this.cmbCategoria.Location = new System.Drawing.Point(174, 116);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(369, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(187, 24);
             this.cmbCategoria.TabIndex = 31;
             this.cmbCategoria.ValueMember = "IDCategoria";
             // 
@@ -269,20 +265,6 @@
             this.dataSetCategorias.DataSetName = "DataSetCategorias";
             this.dataSetCategorias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lblCodigoProducto
-            // 
-            this.lblCodigoProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCodigoProducto.AutoSize = true;
-            this.lblCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoProducto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCodigoProducto.Location = new System.Drawing.Point(14, 25);
-            this.lblCodigoProducto.Name = "lblCodigoProducto";
-            this.lblCodigoProducto.Size = new System.Drawing.Size(0, 18);
-            this.lblCodigoProducto.TabIndex = 29;
-            this.lblCodigoProducto.Visible = false;
-            // 
             // lblDescripcion
             // 
             this.lblDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -291,7 +273,7 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(14, 122);
+            this.lblDescripcion.Location = new System.Drawing.Point(379, 68);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(91, 18);
             this.lblDescripcion.TabIndex = 22;
@@ -303,9 +285,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoAvatar.Location = new System.Drawing.Point(189, 176);
+            this.txtCodigoAvatar.Location = new System.Drawing.Point(853, 66);
             this.txtCodigoAvatar.Name = "txtCodigoAvatar";
-            this.txtCodigoAvatar.Size = new System.Drawing.Size(369, 22);
+            this.txtCodigoAvatar.Size = new System.Drawing.Size(172, 22);
             this.txtCodigoAvatar.TabIndex = 28;
             this.txtCodigoAvatar.Text = "A234";
             // 
@@ -315,9 +297,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(189, 67);
+            this.txtNombreProducto.Location = new System.Drawing.Point(174, 67);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(369, 22);
+            this.txtNombreProducto.Size = new System.Drawing.Size(187, 22);
             this.txtNombreProducto.TabIndex = 3;
             this.txtNombreProducto.Text = "Cloro";
             // 
@@ -329,7 +311,7 @@
             this.lblCodigoAvatar.AutoSize = true;
             this.lblCodigoAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigoAvatar.ForeColor = System.Drawing.Color.White;
-            this.lblCodigoAvatar.Location = new System.Drawing.Point(14, 176);
+            this.lblCodigoAvatar.Location = new System.Drawing.Point(717, 71);
             this.lblCodigoAvatar.Name = "lblCodigoAvatar";
             this.lblCodigoAvatar.Size = new System.Drawing.Size(105, 18);
             this.lblCodigoAvatar.TabIndex = 23;
@@ -349,20 +331,6 @@
             this.lblNombreProducto.TabIndex = 1;
             this.lblNombreProducto.Text = "Nombre del Producto:";
             // 
-            // lblLocalizacion
-            // 
-            this.lblLocalizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLocalizacion.AutoSize = true;
-            this.lblLocalizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocalizacion.ForeColor = System.Drawing.Color.White;
-            this.lblLocalizacion.Location = new System.Drawing.Point(14, 273);
-            this.lblLocalizacion.Name = "lblLocalizacion";
-            this.lblLocalizacion.Size = new System.Drawing.Size(95, 18);
-            this.lblLocalizacion.TabIndex = 13;
-            this.lblLocalizacion.Text = "Localización:";
-            // 
             // lblCategoria
             // 
             this.lblCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -371,7 +339,7 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.ForeColor = System.Drawing.Color.White;
-            this.lblCategoria.Location = new System.Drawing.Point(14, 221);
+            this.lblCategoria.Location = new System.Drawing.Point(14, 122);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(76, 18);
             this.lblCategoria.TabIndex = 2;
@@ -383,19 +351,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(189, 122);
+            this.txtDescripcion.Location = new System.Drawing.Point(517, 67);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(369, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(178, 22);
             this.txtDescripcion.TabIndex = 27;
             this.txtDescripcion.Text = "Limpieza";
             // 
             // categoriaTableAdapter
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
-            // 
-            // sp_SELECT_Ubicacion_AllTableAdapter
-            // 
-            this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
             // 
             // epError
             // 
@@ -405,41 +369,49 @@
             // 
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // lblCantMin
+            // lblCodigoProducto
             // 
-            this.lblCantMin.AutoSize = true;
-            this.lblCantMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantMin.Location = new System.Drawing.Point(14, 379);
-            this.lblCantMin.Name = "lblCantMin";
-            this.lblCantMin.Size = new System.Drawing.Size(122, 18);
-            this.lblCantMin.TabIndex = 35;
-            this.lblCantMin.Text = "Cantidad Mínima:";
+            this.lblCodigoProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCodigoProducto.AutoSize = true;
+            this.lblCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoProducto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCodigoProducto.Location = new System.Drawing.Point(14, 25);
+            this.lblCodigoProducto.Name = "lblCodigoProducto";
+            this.lblCodigoProducto.Size = new System.Drawing.Size(0, 18);
+            this.lblCodigoProducto.TabIndex = 29;
+            this.lblCodigoProducto.Visible = false;
             // 
-            // lblCantMax
+            // gbInformacionPersonal
             // 
-            this.lblCantMax.AutoSize = true;
-            this.lblCantMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantMax.Location = new System.Drawing.Point(14, 428);
-            this.lblCantMax.Name = "lblCantMax";
-            this.lblCantMax.Size = new System.Drawing.Size(126, 18);
-            this.lblCantMax.TabIndex = 36;
-            this.lblCantMax.Text = "Cantidad Máxima:";
-            // 
-            // txtCantMinima
-            // 
-            this.txtCantMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantMinima.Location = new System.Drawing.Point(189, 379);
-            this.txtCantMinima.Name = "txtCantMinima";
-            this.txtCantMinima.Size = new System.Drawing.Size(369, 22);
-            this.txtCantMinima.TabIndex = 37;
-            // 
-            // txtCantMaxima
-            // 
-            this.txtCantMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantMaxima.Location = new System.Drawing.Point(189, 428);
-            this.txtCantMaxima.Name = "txtCantMaxima";
-            this.txtCantMaxima.Size = new System.Drawing.Size(369, 22);
-            this.txtCantMaxima.TabIndex = 38;
+            this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInformacionPersonal.Controls.Add(this.txtContenido);
+            this.gbInformacionPersonal.Controls.Add(this.lblContenido);
+            this.gbInformacionPersonal.Controls.Add(this.txtCantMaxima);
+            this.gbInformacionPersonal.Controls.Add(this.txtCantMinima);
+            this.gbInformacionPersonal.Controls.Add(this.lblCantMax);
+            this.gbInformacionPersonal.Controls.Add(this.lblCantMin);
+            this.gbInformacionPersonal.Controls.Add(this.cmbUnidadMedida);
+            this.gbInformacionPersonal.Controls.Add(this.lblUnidadMedida);
+            this.gbInformacionPersonal.Controls.Add(this.cmbCategoria);
+            this.gbInformacionPersonal.Controls.Add(this.lblCodigoProducto);
+            this.gbInformacionPersonal.Controls.Add(this.lblDescripcion);
+            this.gbInformacionPersonal.Controls.Add(this.txtCodigoAvatar);
+            this.gbInformacionPersonal.Controls.Add(this.txtNombreProducto);
+            this.gbInformacionPersonal.Controls.Add(this.lblCodigoAvatar);
+            this.gbInformacionPersonal.Controls.Add(this.lblNombreProducto);
+            this.gbInformacionPersonal.Controls.Add(this.lblCategoria);
+            this.gbInformacionPersonal.Controls.Add(this.txtDescripcion);
+            this.gbInformacionPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbInformacionPersonal.ForeColor = System.Drawing.Color.White;
+            this.gbInformacionPersonal.Location = new System.Drawing.Point(12, 67);
+            this.gbInformacionPersonal.Name = "gbInformacionPersonal";
+            this.gbInformacionPersonal.Size = new System.Drawing.Size(1063, 268);
+            this.gbInformacionPersonal.TabIndex = 35;
+            this.gbInformacionPersonal.TabStop = false;
+            this.gbInformacionPersonal.Text = "Información del Producto";
             // 
             // frmAdProducto
             // 
@@ -447,23 +419,20 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 556);
+            this.ClientSize = new System.Drawing.Size(1087, 347);
             this.Controls.Add(this.gbInformacionPersonal);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(645, 595);
             this.Name = "frmAdProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Producto";
             this.Load += new System.EventHandler(this.frmAdProducto_Load);
-            this.gbInformacionPersonal.ResumeLayout(false);
-            this.gbInformacionPersonal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            this.gbInformacionPersonal.ResumeLayout(false);
+            this.gbInformacionPersonal.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -473,26 +442,19 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
-        private System.Windows.Forms.GroupBox gbInformacionPersonal;
         private System.Windows.Forms.ComboBox cmbUnidadMedida;
         private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.ComboBox cmbCategoria;
-        private System.Windows.Forms.Label lblCodigoProducto;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtCodigoAvatar;
         private System.Windows.Forms.TextBox txtNombreProducto;
         private System.Windows.Forms.Label lblCodigoAvatar;
         private System.Windows.Forms.Label lblNombreProducto;
-        private System.Windows.Forms.Label lblLocalizacion;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.TextBox txtDescripcion;
         private DataSets.Bodega.Admistracion.DataSetCategorias dataSetCategorias;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
-        private System.Windows.Forms.ComboBox cmbUbicacion;
-        private DataSets.Bodega.Admistracion.DataSetUbicacion dataSetUbicacion;
-        private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
         private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
@@ -502,5 +464,9 @@
         private System.Windows.Forms.TextBox txtCantMinima;
         private System.Windows.Forms.Label lblCantMax;
         private System.Windows.Forms.Label lblCantMin;
+        private System.Windows.Forms.TextBox txtContenido;
+        private System.Windows.Forms.Label lblContenido;
+        private System.Windows.Forms.GroupBox gbInformacionPersonal;
+        private System.Windows.Forms.Label lblCodigoProducto;
     }
 }

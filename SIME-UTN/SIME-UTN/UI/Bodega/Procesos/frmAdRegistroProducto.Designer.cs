@@ -38,6 +38,10 @@
             this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
+            this.txtFechaRecibido = new System.Windows.Forms.TextBox();
+            this.cmbBodega = new System.Windows.Forms.ComboBox();
+            this.spSELECTRegistroBodegaLessVirtualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetBodegas = new SIME_UTN.DataSets.Bodega.Procesos.DataSetBodegas();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUnidadMedida = new System.Windows.Forms.TextBox();
@@ -47,13 +51,11 @@
             this.txtCantidadXEmpaque = new System.Windows.Forms.TextBox();
             this.txtECodigoProducto = new DevExpress.XtraEditors.ButtonEdit();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.dateFechaCaducidad = new DevExpress.XtraEditors.DateEdit();
             this.lblFechaCaducidad = new System.Windows.Forms.Label();
             this.lblCantidadXEmpaque = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
+            this.lblBodega = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.dateFechaIngreso = new DevExpress.XtraEditors.DateEdit();
             this.lblFechaIngreso = new System.Windows.Forms.Label();
             this.lblSolicitudAvatar = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -65,12 +67,13 @@
             this.gCRegistroProducto = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.sp_SELECT_RegistroBodega_LessVirtualTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetBodegasTableAdapters.sp_SELECT_RegistroBodega_LessVirtualTableAdapter();
             this.gbGridViewFuncionario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaLessVirtualBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaIngreso.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaIngreso.Properties)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -183,7 +186,11 @@
             // gbGridViewFuncionario
             // 
             this.gbGridViewFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbGridViewFuncionario.Controls.Add(this.txtFechaRecibido);
+            this.gbGridViewFuncionario.Controls.Add(this.cmbBodega);
             this.gbGridViewFuncionario.Controls.Add(this.txtCosto);
+            this.gbGridViewFuncionario.Controls.Add(this.dateFechaCaducidad);
+            this.gbGridViewFuncionario.Controls.Add(this.lblFechaCaducidad);
             this.gbGridViewFuncionario.Controls.Add(this.label1);
             this.gbGridViewFuncionario.Controls.Add(this.txtUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.lblUnidadMedida);
@@ -192,13 +199,9 @@
             this.gbGridViewFuncionario.Controls.Add(this.txtCantidadXEmpaque);
             this.gbGridViewFuncionario.Controls.Add(this.txtECodigoProducto);
             this.gbGridViewFuncionario.Controls.Add(this.txtDescripcion);
-            this.gbGridViewFuncionario.Controls.Add(this.txtCantidad);
-            this.gbGridViewFuncionario.Controls.Add(this.dateFechaCaducidad);
-            this.gbGridViewFuncionario.Controls.Add(this.lblFechaCaducidad);
             this.gbGridViewFuncionario.Controls.Add(this.lblCantidadXEmpaque);
-            this.gbGridViewFuncionario.Controls.Add(this.lblCantidad);
+            this.gbGridViewFuncionario.Controls.Add(this.lblBodega);
             this.gbGridViewFuncionario.Controls.Add(this.lblUsuario);
-            this.gbGridViewFuncionario.Controls.Add(this.dateFechaIngreso);
             this.gbGridViewFuncionario.Controls.Add(this.lblFechaIngreso);
             this.gbGridViewFuncionario.Controls.Add(this.lblSolicitudAvatar);
             this.gbGridViewFuncionario.Controls.Add(this.txtUsuario);
@@ -214,6 +217,42 @@
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Registro de Producto";
+            // 
+            // txtFechaRecibido
+            // 
+            this.txtFechaRecibido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtFechaRecibido.Enabled = false;
+            this.txtFechaRecibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaRecibido.Location = new System.Drawing.Point(596, 96);
+            this.txtFechaRecibido.Name = "txtFechaRecibido";
+            this.txtFechaRecibido.Size = new System.Drawing.Size(153, 22);
+            this.txtFechaRecibido.TabIndex = 54;
+            // 
+            // cmbBodega
+            // 
+            this.cmbBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBodega.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaLessVirtualBindingSource, "idregistrobodega", true));
+            this.cmbBodega.DataSource = this.spSELECTRegistroBodegaLessVirtualBindingSource;
+            this.cmbBodega.DisplayMember = "nombre";
+            this.cmbBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBodega.FormattingEnabled = true;
+            this.cmbBodega.Location = new System.Drawing.Point(962, 96);
+            this.cmbBodega.Name = "cmbBodega";
+            this.cmbBodega.Size = new System.Drawing.Size(138, 24);
+            this.cmbBodega.TabIndex = 53;
+            this.cmbBodega.ValueMember = "idregistrobodega";
+            // 
+            // spSELECTRegistroBodegaLessVirtualBindingSource
+            // 
+            this.spSELECTRegistroBodegaLessVirtualBindingSource.DataMember = "sp_SELECT_RegistroBodega_LessVirtual";
+            this.spSELECTRegistroBodegaLessVirtualBindingSource.DataSource = this.dataSetBodegas;
+            // 
+            // dataSetBodegas
+            // 
+            this.dataSetBodegas.DataSetName = "DataSetBodegas";
+            this.dataSetBodegas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtCosto
             // 
@@ -278,7 +317,7 @@
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.Location = new System.Drawing.Point(596, 154);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(138, 22);
+            this.txtNombreProducto.Size = new System.Drawing.Size(153, 22);
             this.txtNombreProducto.TabIndex = 45;
             // 
             // txtCantidadXEmpaque
@@ -311,20 +350,11 @@
             this.txtDescripcion.Size = new System.Drawing.Size(504, 22);
             this.txtDescripcion.TabIndex = 42;
             // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(962, 209);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(138, 22);
-            this.txtCantidad.TabIndex = 41;
-            // 
             // dateFechaCaducidad
             // 
             this.dateFechaCaducidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dateFechaCaducidad.EditValue = null;
-            this.dateFechaCaducidad.Location = new System.Drawing.Point(962, 93);
+            this.dateFechaCaducidad.Location = new System.Drawing.Point(962, 209);
             this.dateFechaCaducidad.MaximumSize = new System.Drawing.Size(200, 22);
             this.dateFechaCaducidad.Name = "dateFechaCaducidad";
             this.dateFechaCaducidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -350,7 +380,7 @@
             this.lblFechaCaducidad.AutoSize = true;
             this.lblFechaCaducidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaCaducidad.ForeColor = System.Drawing.Color.White;
-            this.lblFechaCaducidad.Location = new System.Drawing.Point(785, 96);
+            this.lblFechaCaducidad.Location = new System.Drawing.Point(785, 213);
             this.lblFechaCaducidad.Name = "lblFechaCaducidad";
             this.lblFechaCaducidad.Size = new System.Drawing.Size(150, 18);
             this.lblFechaCaducidad.TabIndex = 39;
@@ -370,19 +400,19 @@
             this.lblCantidadXEmpaque.TabIndex = 37;
             this.lblCantidadXEmpaque.Text = "Cantidad Por Empaque:";
             // 
-            // lblCantidad
+            // lblBodega
             // 
-            this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(785, 216);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(70, 18);
-            this.lblCantidad.TabIndex = 35;
-            this.lblCantidad.Text = "Cantidad:";
+            this.lblBodega.AutoSize = true;
+            this.lblBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBodega.ForeColor = System.Drawing.Color.White;
+            this.lblBodega.Location = new System.Drawing.Point(785, 101);
+            this.lblBodega.Name = "lblBodega";
+            this.lblBodega.Size = new System.Drawing.Size(63, 18);
+            this.lblBodega.TabIndex = 35;
+            this.lblBodega.Text = "Bodega:";
             // 
             // lblUsuario
             // 
@@ -397,28 +427,6 @@
             this.lblUsuario.Size = new System.Drawing.Size(64, 18);
             this.lblUsuario.TabIndex = 22;
             this.lblUsuario.Text = "Usuario:";
-            // 
-            // dateFechaIngreso
-            // 
-            this.dateFechaIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dateFechaIngreso.EditValue = null;
-            this.dateFechaIngreso.Location = new System.Drawing.Point(596, 99);
-            this.dateFechaIngreso.MaximumSize = new System.Drawing.Size(200, 22);
-            this.dateFechaIngreso.Name = "dateFechaIngreso";
-            this.dateFechaIngreso.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFechaIngreso.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFechaIngreso.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
-            this.dateFechaIngreso.Properties.DisplayFormat.FormatString = "";
-            this.dateFechaIngreso.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateFechaIngreso.Properties.EditFormat.FormatString = "";
-            this.dateFechaIngreso.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateFechaIngreso.Properties.Mask.EditMask = "";
-            this.dateFechaIngreso.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.dateFechaIngreso.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateFechaIngreso.Size = new System.Drawing.Size(138, 20);
-            this.dateFechaIngreso.TabIndex = 34;
             // 
             // lblFechaIngreso
             // 
@@ -555,6 +563,10 @@
             // 
             this.epError.ContainerControl = this;
             // 
+            // sp_SELECT_RegistroBodega_LessVirtualTableAdapter
+            // 
+            this.sp_SELECT_RegistroBodega_LessVirtualTableAdapter.ClearBeforeFill = true;
+            // 
             // frmAdRegistroProducto
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -572,11 +584,11 @@
             this.Load += new System.EventHandler(this.frmAdRegistroProducto_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaLessVirtualBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaIngreso.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFechaIngreso.Properties)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -597,13 +609,11 @@
         private System.Windows.Forms.TextBox txtCantidadXEmpaque;
         private DevExpress.XtraEditors.ButtonEdit txtECodigoProducto;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtCantidad;
         private DevExpress.XtraEditors.DateEdit dateFechaCaducidad;
         private System.Windows.Forms.Label lblFechaCaducidad;
         private System.Windows.Forms.Label lblCantidadXEmpaque;
-        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Label lblBodega;
         private System.Windows.Forms.Label lblUsuario;
-        private DevExpress.XtraEditors.DateEdit dateFechaIngreso;
         private System.Windows.Forms.Label lblFechaIngreso;
         private System.Windows.Forms.Label lblSolicitudAvatar;
         private System.Windows.Forms.TextBox txtUsuario;
@@ -623,5 +633,10 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
+        private System.Windows.Forms.ComboBox cmbBodega;
+        private DataSets.Bodega.Procesos.DataSetBodegas dataSetBodegas;
+        private System.Windows.Forms.BindingSource spSELECTRegistroBodegaLessVirtualBindingSource;
+        private DataSets.Bodega.Procesos.DataSetBodegasTableAdapters.sp_SELECT_RegistroBodega_LessVirtualTableAdapter sp_SELECT_RegistroBodega_LessVirtualTableAdapter;
+        private System.Windows.Forms.TextBox txtFechaRecibido;
     }
 }

@@ -116,9 +116,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmMezclas_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetRMezclas.Producto' table. You can move, or remove it, as needed.
+            this.productoTableAdapter.Fill(this.dataSetRMezclas.Producto);
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetRMezclas.sp_SELECT_RegistroMezcla_All' table. You can move, or remove it, as needed.
-            this.sp_SELECT_RegistroMezcla_AllTableAdapter.Fill(this.dataSetRMezclas.sp_SELECT_RegistroMezcla_All);
             UsuarioLogueado();
             mezclaEstatica = new Mezcla();
 

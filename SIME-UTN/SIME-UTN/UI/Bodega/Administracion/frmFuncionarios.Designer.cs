@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFuncionarios));
             this.gCFuncionario = new DevExpress.XtraGrid.GridControl();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetFuncionario = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionario();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIDFuncionario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,6 +41,8 @@
             this.colCorreo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDDepartamento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpDepartamento = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.spSELECTDepartamentoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSDepartamento = new SIME_UTN.DataSets.Bodega.Admistracion.DataSDepartamento();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
@@ -49,21 +53,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewSelecFuncionario = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
-            this.dataSetFuncionario = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionario();
-            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
-            this.dataSDepartamento = new SIME_UTN.DataSets.Bodega.Admistracion.DataSDepartamento();
-            this.spSELECTDepartamentoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_SELECT_Departamento_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecFuncionario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCFuncionario
@@ -82,6 +82,16 @@
             this.gCFuncionario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCFuncionario.Click += new System.EventHandler(this.gCFuncionario_Click);
+            // 
+            // funcionarioBindingSource
+            // 
+            this.funcionarioBindingSource.DataMember = "Funcionario";
+            this.funcionarioBindingSource.DataSource = this.dataSetFuncionario;
+            // 
+            // dataSetFuncionario
+            // 
+            this.dataSetFuncionario.DataSetName = "DataSetFuncionario";
+            this.dataSetFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -178,6 +188,16 @@
             this.LookUpDepartamento.DisplayMember = "descripcion";
             this.LookUpDepartamento.Name = "LookUpDepartamento";
             this.LookUpDepartamento.ValueMember = "iddepartamento";
+            // 
+            // spSELECTDepartamentoAllBindingSource
+            // 
+            this.spSELECTDepartamentoAllBindingSource.DataMember = "sp_SELECT_Departamento_All";
+            this.spSELECTDepartamentoAllBindingSource.DataSource = this.dataSDepartamento;
+            // 
+            // dataSDepartamento
+            // 
+            this.dataSDepartamento.DataSetName = "DataSDepartamento";
+            this.dataSDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // colEstado
             // 
@@ -294,29 +314,9 @@
             this.navButton1.Enabled = false;
             this.navButton1.Name = "navButton1";
             // 
-            // dataSetFuncionario
-            // 
-            this.dataSetFuncionario.DataSetName = "DataSetFuncionario";
-            this.dataSetFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // funcionarioBindingSource
-            // 
-            this.funcionarioBindingSource.DataMember = "Funcionario";
-            this.funcionarioBindingSource.DataSource = this.dataSetFuncionario;
-            // 
             // funcionarioTableAdapter
             // 
             this.funcionarioTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataSDepartamento
-            // 
-            this.dataSDepartamento.DataSetName = "DataSDepartamento";
-            this.dataSDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTDepartamentoAllBindingSource
-            // 
-            this.spSELECTDepartamentoAllBindingSource.DataMember = "sp_SELECT_Departamento_All";
-            this.spSELECTDepartamentoAllBindingSource.DataSource = this.dataSDepartamento;
             // 
             // sp_SELECT_Departamento_AllTableAdapter
             // 
@@ -338,14 +338,14 @@
             this.Text = "Ventana Funcionarios";
             this.Load += new System.EventHandler(this.frmFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecFuncionario.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

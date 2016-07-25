@@ -29,7 +29,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         public frmAdRegistroProducto()
         {
             InitializeComponent();
-           
+            txtFechaRecibido.Text = ObtenerFecha();
         }
 
         public frmAdRegistroProducto(RegistroProducto registroEstaticop)
@@ -45,6 +45,13 @@ namespace SIME_UTN.UI.Bodega.Procesos
             gCRegistroProductos();
         }
 
+        public string ObtenerFecha()
+        {
+            DateTime date = DateTime.Now;
+            string fecha = date.ToString("dd/MM/yyyy");
+            return fecha;
+        }
+
         public void gCRegistroProductos()
         {
             gestRegIngProd = new GestorRegistroIngresoProducto();
@@ -52,12 +59,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
             try
             {
                 lblIdRegProd.Text = registroEstatico.idIngresoProducto.ToString();
-                //txtNumeroIngreso.Text = registroEstatico.idIngresoProducto.ToString();
                 txtSolicitudAvatar.Text = registroEstatico.solicitudAvatar.ToString();
-                 // registroEstatico.Usuario.ToString();
                 txtDescripcion.Text = registroEstatico.descripcion;
-                dateFechaIngreso.Text = registroEstatico.fechaIngreso.ToString();
-                dateFechaCaducidad.Text = registroEstatico.fechaCaducidad.ToString();
+                txtFechaRecibido.Text = registroEstatico.fechaIngreso.ToString();
                 lista = gestRegIngProd.ObtenerProductosPorIdRegistro(registroEstatico.idIngresoProducto);
                 CargarGrid();
 
@@ -84,10 +88,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
             dt.TableName = "Productos";
             dt.Columns.Add(new DataColumn("CodigoAvatar"));
             dt.Columns.Add(new DataColumn("Nombre"));
-            dt.Columns.Add(new DataColumn("Cantidad"));
             dt.Columns.Add(new DataColumn("UnidadMedida"));
             dt.Columns.Add(new DataColumn("CantidadPorEmpaque"));
             dt.Columns.Add(new DataColumn("CostoEmpaque"));
+            dt.Columns.Add(new DataColumn("FechaCaducidad"));
 
             try
             {
@@ -97,10 +101,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     DataRow dr = dt.NewRow();
                     dr["CodigoAvatar"] = lista[i].codigoAvatar;
                     dr["Nombre"] = lista[i].nombreProducto;
-                    dr["Cantidad"] = lista[i].cantidad;
                     dr["UnidadMedida"] = lista[i].unidadMedida;
                     dr["CantidadPorEmpaque"] = lista[i].cantidadPorEmpaque;
                     dr["CostoEmpaque"] = lista[i].costoPorEmpaque;
+                    dr["FechaCaducidad"] = lista[i].fechaCaducidad;
                     dt.Rows.Add(dr);
                 }
 
@@ -132,12 +136,6 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 txtECodigoProducto.Focus();
                 error = true;
             }
-            if (txtCantidad.Text.Trim() == "")
-            {
-                epError.SetError(txtCantidad, "Campo Requerido");
-                txtCantidad.Focus();
-                error = true;
-            }
             if (txtCantidadXEmpaque.Text.Trim() == "")
             {
                 epError.SetError(txtCantidadXEmpaque, "Campo Requerido");
@@ -163,6 +161,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
                 int index = 0;
                 bool existe = false;
+                double ultimaCantidad = 0;
                 if (lista.Count != 0)
                 {
                     existe = true;
@@ -170,6 +169,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     {
                         if (unIngProdDTO.codigoAvatar == txtECodigoProducto.Text)
                         {
+                            ultimaCantidad = unIngProdDTO.uCantidad;
                             lista.RemoveAt(index);
                             break;
                         }
@@ -180,10 +180,11 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 RegistroIngresoProductoDTO unIngProd = new RegistroIngresoProductoDTO();
                 unIngProd.codigoAvatar = txtECodigoProducto.Text;
                 unIngProd.nombreProducto = txtNombreProducto.Text;
-                unIngProd.cantidad = double.Parse(txtCantidad.Text);
                 unIngProd.unidadMedida = txtUnidadMedida.Text;
                 unIngProd.cantidadPorEmpaque = Int16.Parse(txtCantidadXEmpaque.Text);
                 unIngProd.costoPorEmpaque = double.Parse(txtCosto.Text);
+                unIngProd.fechaCaducidad = dateFechaCaducidad.Text;
+                unIngProd.uCantidad = ultimaCantidad;
                 if (existe == true)
                 {
                     lista.Insert(index, unIngProd);
@@ -200,10 +201,28 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void frmAdRegistroProducto_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetBodegas.sp_SELECT_RegistroBodega_LessVirtual' table. You can move, or remove it, as needed.
+            this.sp_SELECT_RegistroBodega_LessVirtualTableAdapter.Fill(this.dataSetBodegas.sp_SELECT_RegistroBodega_LessVirtual);
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetUnidadMedida.UnidadMedidaProducto' table. You can move, or remove it, as needed.
             UsuarioLogueado();
             txtUsuario.Text = usuarioLogueado;
+            if (registroEstatico == null)
+            {
+                cmbBodega.SelectedIndex = -1;
+            }
+            else
+            {
+                for (int i = 0; i < cmbBodega.Items.Count; i++)
+                {
+                    string value = cmbBodega.GetItemText(cmbBodega.Items[i]);
+                    if (value == registroEstatico.Bodega.nombre)
+                    {
+                        cmbBodega.SelectedIndex = i;
+                    }
+                }
+            }
+       
         }
 
         public void CambiarEstado(EstadoMantenimiento estado)
@@ -218,32 +237,30 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     gridView1.Columns.Clear();
                     txtSolicitudAvatar.Enabled = true;
                     txtDescripcion.Enabled = true;
-                    dateFechaIngreso.Enabled = true;
                     dateFechaCaducidad.Enabled = true;
                     txtSolicitudAvatar.Text = "";
                     txtDescripcion.Text = "";
-                    dateFechaIngreso.Text = "";
                     dateFechaCaducidad.Text = "";
                     txtECodigoProducto.Text = "";
                     txtNombreProducto.Text = "";
                     txtCantidadXEmpaque.Text = "";
-                    txtCantidad.Text = "";
                     txtUnidadMedida.Text = "";
                     txtCosto.Text = "";
                     break;
 
                 case EstadoMantenimiento.Editar:
+                    txtSolicitudAvatar.Enabled = false;
+                    txtDescripcion.Enabled = false;
+                    txtUsuario.Enabled = false;
+                    
                     break;
 
                 case EstadoMantenimiento.Agregar:
                     txtSolicitudAvatar.Enabled = false;
                     txtDescripcion.Enabled = false;
-                    dateFechaIngreso.Enabled = false;
-                    dateFechaCaducidad.Enabled = false;
                     txtECodigoProducto.Text = "";
                     txtNombreProducto.Text = "";
                     txtCantidadXEmpaque.Text = "";
-                    txtCantidad.Text = "";
                     txtUnidadMedida.Text = "";
                     txtCosto.Text = "";
                     break;
@@ -334,7 +351,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
                     if (MessageBox.Show("¿Seguro que desea eliminar al producto " + unProducto.nombreProducto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        gestRegIngProd.EliminarIngresoDeProducto(unProducto, int.Parse(lblIdRegProd.Text), usuarioLogueado);
+                        gestRegIngProd.EliminarIngresoDeProducto(registroEstatico.Bodega.idRegistroBodega,unProducto, int.Parse(lblIdRegProd.Text), usuarioLogueado);
                         MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         lista.Clear();
                         gCRegistroProductos();
@@ -368,15 +385,14 @@ namespace SIME_UTN.UI.Bodega.Procesos
         private void gCRegistroProducto_Click(object sender, EventArgs e)
         {
             mBtnEliminar.Enabled = true;
-            txtCantidad.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidadXEmpaque.Enabled = true;
             txtECodigoProducto.Text = gridView1.GetFocusedRowCellValue("CodigoAvatar").ToString();
             txtNombreProducto.Text = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-            txtCantidad.Text = gridView1.GetFocusedRowCellValue("Cantidad").ToString();
             txtUnidadMedida.Text = gridView1.GetFocusedRowCellValue("UnidadMedida").ToString();
             txtCantidadXEmpaque.Text = gridView1.GetFocusedRowCellValue("CantidadPorEmpaque").ToString();
             txtCosto.Text = gridView1.GetFocusedRowCellValue("CostoEmpaque").ToString();
+            dateFechaCaducidad.Text = gridView1.GetFocusedRowCellValue("FechaCaducidad").ToString();
         }
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -407,12 +423,6 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
                 epError.SetError(dateFechaCaducidad, "Campo Requerido");
                 dateFechaCaducidad.Focus();
-                error = true;
-            }
-            if (dateFechaIngreso.Text.Trim() == "")
-            {
-                epError.SetError(dateFechaIngreso, "Campo Requerido");
-                dateFechaIngreso.Focus();
                 error = true;
             }
             if (txtUsuario.Text.Trim() == "")
@@ -450,12 +460,6 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 dateFechaCaducidad.Focus();
                 error = true;
             }
-            if (dateFechaIngreso.Text.Trim() == "")
-            {
-                epError.SetError(dateFechaIngreso, "Campo Requerido");
-                dateFechaIngreso.Focus();
-                error = true;
-            }
             if (txtUsuario.Text.Trim() == "")
             {
                 epError.SetError(txtUsuario, "Campo Requerido");
@@ -485,83 +489,62 @@ namespace SIME_UTN.UI.Bodega.Procesos
             gestorProducto = new GestorProducto();
             gestorReg = new GestorRegistroProducto();
             gestRegIngProd = new GestorRegistroIngresoProducto();
+            RegistroBodega bodega = new RegistroBodega();
             UsuarioTable user = new UsuarioTable();
             gestor = new GestorUsuarioTable();
-            // unaMezcla = new Mezcla();
-            // unaMezclaProductoUnidadDTO = new MezclaProductoUnidaMedidaDTO();
-            // unProducto = new Producto();
-            //gestorProducto = new GestorProducto();
-            //gestorMezcla = new GestorMezcla();
-            //gestorMezclaProducto = new GestorMezclaProducto();
             try
             {
+                user = gestor.ValidarUsuarioPorUsuario(usuarioLogueado);
+                unRegProd.Usuario = user;
+                unRegProd.descripcion = txtDescripcion.Text;
+                unRegProd.solicitudAvatar = txtSolicitudAvatar.Text;
+                unRegProd.fechaIngreso = txtFechaRecibido.Text;
+                bodega.idRegistroBodega = int.Parse(cmbBodega.SelectedValue.ToString());
+                bodega.nombre = cmbBodega.GetItemText(cmbBodega.Items[cmbBodega.SelectedIndex]);
+                unRegProd.Bodega = bodega;
+                unRegProd.estado = 1;
+
                 if (accionp == "Modificar")
                 {
-                    //UsuarioTable user = new UsuarioTable();
-                    user = gestor.ValidarUsuarioPorUsuario(usuarioLogueado);
-                    unRegProd.Usuario = user;
-                    unRegProd.descripcion = txtDescripcion.Text;
-                    unRegProd.solicitudAvatar = txtSolicitudAvatar.Text;
-                    unRegProd.fechaIngreso = dateFechaIngreso.Text;
-                    unRegProd.fechaCaducidad = dateFechaCaducidad.Text;
-                    unRegProd.estado = 1;
-                    unRegProd.idIngresoProducto = int.Parse(lblIdRegProd.Text); //o el txtNumeroIngreso????
+                    unRegProd.idIngresoProducto = int.Parse(lblIdRegProd.Text);
                     gestorReg.ActualizarRegistroProducto(unRegProd, usuarioLogueado);
-                    // unaMezcla.idRegistroMezcla = int.Parse(lblIdMezcla.Text
 
-                    foreach (RegistroIngresoProductoDTO unRegIngDTO in lista)
-                    {
-                        unProducto = gestorProducto.ObtenerProductoPorCodigoAvatar(unRegIngDTO.codigoAvatar);
-                        unRegDTO.idIngreso = unRegProd.idIngresoProducto;
-                        unRegDTO.idProducto = unProducto.idProducto;
-                        unRegDTO.nombreProducto = unProducto.nombreProducto;
-                        unRegDTO.Idunidad = unProducto.UnidadMedida.idUnidadMedida;
-                        unRegDTO.unidadMedida = unProducto.UnidadMedida.descripcion;
-                        unRegDTO.codigoAvatar = unProducto.codigoAvatar;
-                        unRegDTO.cantidad = unRegIngDTO.cantidad;
-                        unRegDTO.cantidadPorEmpaque = unRegIngDTO.cantidadPorEmpaque;
-                        unRegDTO.costoPorEmpaque = unRegIngDTO.costoPorEmpaque;
-                        unRegDTO.estado = 1;
-                        gestRegIngProd.ModificarIngresoProducto(unRegDTO, usuarioLogueado);
-                    }
 
                 }
                 else
                 {
-                    
-                    user = gestor.ValidarUsuarioPorUsuario(usuarioLogueado);
-                    unRegProd.Usuario = user;
-                    unRegProd.descripcion = txtDescripcion.Text;
-                    unRegProd.solicitudAvatar = txtSolicitudAvatar.Text;
-                    unRegProd.fechaIngreso = dateFechaIngreso.Text;
-                    unRegProd.fechaCaducidad = dateFechaCaducidad.Text;
-                    unRegProd.estado = 1;
                     unRegProd.idIngresoProducto = gestorReg.GuardarRegistroProducto(unRegProd, usuarioLogueado);
-                    
-                    foreach (RegistroIngresoProductoDTO unRegIngDTO in lista)
-                    {
-                        unProducto = gestorProducto.ObtenerProductoPorCodigoAvatar(unRegIngDTO.codigoAvatar);
-                        unRegDTO.idIngreso = unRegProd.idIngresoProducto;
-                        unRegDTO.idProducto = unProducto.idProducto;
-                        unRegDTO.nombreProducto = unProducto.nombreProducto;
-                        unRegDTO.Idunidad = unProducto.UnidadMedida.idUnidadMedida;
-                        unRegDTO.unidadMedida = unProducto.UnidadMedida.descripcion;
-                        unRegDTO.codigoAvatar = unProducto.codigoAvatar;
-                        unRegDTO.cantidad = unRegIngDTO.cantidad;
-                        unRegDTO.cantidadPorEmpaque = unRegIngDTO.cantidadPorEmpaque;
-                        unRegDTO.costoPorEmpaque = unRegIngDTO.costoPorEmpaque;
-                        unRegDTO.estado = 1;
-                        gestRegIngProd.GuardarIngresoProducto(unRegDTO, usuarioLogueado);
-                    }
                 }
+
+                foreach (RegistroIngresoProductoDTO unRegIngDTO in lista)
+                {
+                    unProducto = gestorProducto.ObtenerProductoPorCodigoAvatar(unRegIngDTO.codigoAvatar);
+                    unRegDTO.idIngreso = unRegProd.idIngresoProducto;
+                    unRegDTO.idBodega = unRegProd.Bodega.idRegistroBodega;
+                    unRegDTO.idProducto = unProducto.idProducto;
+                    unRegDTO.uCantidad = unRegIngDTO.uCantidad;
+                    unRegDTO.nombreProducto = unProducto.nombreProducto;
+                    unRegDTO.Idunidad = unProducto.UnidadMedida.idUnidadMedida;
+                    unRegDTO.fechaCaducidad = unRegIngDTO.fechaCaducidad;
+                    unRegDTO.unidadMedida = unProducto.UnidadMedida.descripcion;
+                    unRegDTO.codigoAvatar = unProducto.codigoAvatar;
+                    unRegDTO.cantidadPorEmpaque = unRegIngDTO.cantidadPorEmpaque;
+                    unRegDTO.costoPorEmpaque = unRegIngDTO.costoPorEmpaque;
+                    unRegDTO.estado = 1;
+                    gestRegIngProd.ModificarIngresoProducto(unRegDTO, usuarioLogueado);
+                }
+
+               
                 
                 if (accionp == "Modificar")
                 {
                     MessageBox.Show("El Registro " + unRegProd.descripcion + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("El Registro " + unRegProd.descripcion + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
 
 

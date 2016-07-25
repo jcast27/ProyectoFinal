@@ -283,13 +283,13 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             
             private global::System.Data.DataColumn columnIDUsuario;
             
+            private global::System.Data.DataColumn columnIDRegistroBodega;
+            
             private global::System.Data.DataColumn columnDescripcion;
             
             private global::System.Data.DataColumn columnSolicitudAvatar;
             
             private global::System.Data.DataColumn columnFechaIngreso;
-            
-            private global::System.Data.DataColumn columnFechaCaducidad;
             
             private global::System.Data.DataColumn columnEstado;
             
@@ -344,6 +344,14 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDRegistroBodegaColumn {
+                get {
+                    return this.columnIDRegistroBodega;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn DescripcionColumn {
                 get {
                     return this.columnDescripcion;
@@ -363,14 +371,6 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             public global::System.Data.DataColumn FechaIngresoColumn {
                 get {
                     return this.columnFechaIngreso;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FechaCaducidadColumn {
-                get {
-                    return this.columnFechaCaducidad;
                 }
             }
             
@@ -419,15 +419,15 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RegistroProductoRow AddRegistroProductoRow(int IDUsuario, string Descripcion, string SolicitudAvatar, string FechaIngreso, string FechaCaducidad, bool Estado) {
+            public RegistroProductoRow AddRegistroProductoRow(int IDUsuario, int IDRegistroBodega, string Descripcion, string SolicitudAvatar, string FechaIngreso, bool Estado) {
                 RegistroProductoRow rowRegistroProductoRow = ((RegistroProductoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         IDUsuario,
+                        IDRegistroBodega,
                         Descripcion,
                         SolicitudAvatar,
                         FechaIngreso,
-                        FechaCaducidad,
                         Estado};
                 rowRegistroProductoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRegistroProductoRow);
@@ -460,10 +460,10 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             internal void InitVars() {
                 this.columnIDIngresoProducto = base.Columns["IDIngresoProducto"];
                 this.columnIDUsuario = base.Columns["IDUsuario"];
+                this.columnIDRegistroBodega = base.Columns["IDRegistroBodega"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnSolicitudAvatar = base.Columns["SolicitudAvatar"];
                 this.columnFechaIngreso = base.Columns["FechaIngreso"];
-                this.columnFechaCaducidad = base.Columns["FechaCaducidad"];
                 this.columnEstado = base.Columns["Estado"];
             }
             
@@ -474,14 +474,14 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
                 base.Columns.Add(this.columnIDIngresoProducto);
                 this.columnIDUsuario = new global::System.Data.DataColumn("IDUsuario", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDUsuario);
+                this.columnIDRegistroBodega = new global::System.Data.DataColumn("IDRegistroBodega", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDRegistroBodega);
                 this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripcion);
                 this.columnSolicitudAvatar = new global::System.Data.DataColumn("SolicitudAvatar", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSolicitudAvatar);
                 this.columnFechaIngreso = new global::System.Data.DataColumn("FechaIngreso", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaIngreso);
-                this.columnFechaCaducidad = new global::System.Data.DataColumn("FechaCaducidad", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFechaCaducidad);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -496,7 +496,6 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
                 this.columnDescripcion.MaxLength = 30;
                 this.columnSolicitudAvatar.MaxLength = 30;
                 this.columnFechaIngreso.MaxLength = 30;
-                this.columnFechaCaducidad.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -661,6 +660,22 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IDRegistroBodega {
+                get {
+                    try {
+                        return ((int)(this[this.tableRegistroProducto.IDRegistroBodegaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDRegistroBodega\' in table \'RegistroProducto\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegistroProducto.IDRegistroBodegaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Descripcion {
                 get {
                     try {
@@ -709,22 +724,6 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FechaCaducidad {
-                get {
-                    try {
-                        return ((string)(this[this.tableRegistroProducto.FechaCaducidadColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FechaCaducidad\' in table \'RegistroProducto\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRegistroProducto.FechaCaducidadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Estado {
                 get {
                     try {
@@ -737,6 +736,18 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
                 set {
                     this[this.tableRegistroProducto.EstadoColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDRegistroBodegaNull() {
+                return this.IsNull(this.tableRegistroProducto.IDRegistroBodegaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDRegistroBodegaNull() {
+                this[this.tableRegistroProducto.IDRegistroBodegaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -773,18 +784,6 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFechaIngresoNull() {
                 this[this.tableRegistroProducto.FechaIngresoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFechaCaducidadNull() {
-                return this.IsNull(this.tableRegistroProducto.FechaCaducidadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFechaCaducidadNull() {
-                this[this.tableRegistroProducto.FechaCaducidadColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -961,60 +960,60 @@ namespace SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProductoTableAdapters
             tableMapping.DataSetTable = "RegistroProducto";
             tableMapping.ColumnMappings.Add("IDIngresoProducto", "IDIngresoProducto");
             tableMapping.ColumnMappings.Add("IDUsuario", "IDUsuario");
+            tableMapping.ColumnMappings.Add("IDRegistroBodega", "IDRegistroBodega");
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
             tableMapping.ColumnMappings.Add("SolicitudAvatar", "SolicitudAvatar");
             tableMapping.ColumnMappings.Add("FechaIngreso", "FechaIngreso");
-            tableMapping.ColumnMappings.Add("FechaCaducidad", "FechaCaducidad");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[RegistroProducto] WHERE (([IDIngresoProducto] = @Original_IDIngresoProducto) AND ([IDUsuario] = @Original_IDUsuario) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ((@IsNull_SolicitudAvatar = 1 AND [SolicitudAvatar] IS NULL) OR ([SolicitudAvatar] = @Original_SolicitudAvatar)) AND ((@IsNull_FechaIngreso = 1 AND [FechaIngreso] IS NULL) OR ([FechaIngreso] = @Original_FechaIngreso)) AND ((@IsNull_FechaCaducidad = 1 AND [FechaCaducidad] IS NULL) OR ([FechaCaducidad] = @Original_FechaCaducidad)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [RegistroProducto] WHERE (([IDIngresoProducto] = @Original_IDIngresoProducto) AND ([IDUsuario] = @Original_IDUsuario) AND ((@IsNull_IDRegistroBodega = 1 AND [IDRegistroBodega] IS NULL) OR ([IDRegistroBodega] = @Original_IDRegistroBodega)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ((@IsNull_SolicitudAvatar = 1 AND [SolicitudAvatar] IS NULL) OR ([SolicitudAvatar] = @Original_SolicitudAvatar)) AND ((@IsNull_FechaIngreso = 1 AND [FechaIngreso] IS NULL) OR ([FechaIngreso] = @Original_FechaIngreso)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDIngresoProducto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDIngresoProducto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDUsuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SolicitudAvatar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SolicitudAvatar", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SolicitudAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SolicitudAvatar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FechaIngreso", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaIngreso", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FechaIngreso", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaIngreso", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FechaCaducidad", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaCaducidad", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FechaCaducidad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaCaducidad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RegistroProducto] ([IDUsuario], [Descripcion], [SolicitudAvatar], [FechaIngreso], [FechaCaducidad], [Estado]) VALUES (@IDUsuario, @Descripcion, @SolicitudAvatar, @FechaIngreso, @FechaCaducidad, @Estado);
-SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso, FechaCaducidad, Estado FROM RegistroProducto WHERE (IDIngresoProducto = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [RegistroProducto] ([IDUsuario], [IDRegistroBodega], [Descripcion], [SolicitudAvatar], [FechaIngreso], [Estado]) VALUES (@IDUsuario, @IDRegistroBodega, @Descripcion, @SolicitudAvatar, @FechaIngreso, @Estado);
+SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAvatar, FechaIngreso, Estado FROM RegistroProducto WHERE (IDIngresoProducto = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SolicitudAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SolicitudAvatar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaIngreso", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaIngreso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaCaducidad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaCaducidad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[RegistroProducto] SET [IDUsuario] = @IDUsuario, [Descripcion] = @Descripcion, [SolicitudAvatar] = @SolicitudAvatar, [FechaIngreso] = @FechaIngreso, [FechaCaducidad] = @FechaCaducidad, [Estado] = @Estado WHERE (([IDIngresoProducto] = @Original_IDIngresoProducto) AND ([IDUsuario] = @Original_IDUsuario) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ((@IsNull_SolicitudAvatar = 1 AND [SolicitudAvatar] IS NULL) OR ([SolicitudAvatar] = @Original_SolicitudAvatar)) AND ((@IsNull_FechaIngreso = 1 AND [FechaIngreso] IS NULL) OR ([FechaIngreso] = @Original_FechaIngreso)) AND ((@IsNull_FechaCaducidad = 1 AND [FechaCaducidad] IS NULL) OR ([FechaCaducidad] = @Original_FechaCaducidad)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
-SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso, FechaCaducidad, Estado FROM RegistroProducto WHERE (IDIngresoProducto = @IDIngresoProducto)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [RegistroProducto] SET [IDUsuario] = @IDUsuario, [IDRegistroBodega] = @IDRegistroBodega, [Descripcion] = @Descripcion, [SolicitudAvatar] = @SolicitudAvatar, [FechaIngreso] = @FechaIngreso, [Estado] = @Estado WHERE (([IDIngresoProducto] = @Original_IDIngresoProducto) AND ([IDUsuario] = @Original_IDUsuario) AND ((@IsNull_IDRegistroBodega = 1 AND [IDRegistroBodega] IS NULL) OR ([IDRegistroBodega] = @Original_IDRegistroBodega)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ((@IsNull_SolicitudAvatar = 1 AND [SolicitudAvatar] IS NULL) OR ([SolicitudAvatar] = @Original_SolicitudAvatar)) AND ((@IsNull_FechaIngreso = 1 AND [FechaIngreso] IS NULL) OR ([FechaIngreso] = @Original_FechaIngreso)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
+SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAvatar, FechaIngreso, Estado FROM RegistroProducto WHERE (IDIngresoProducto = @IDIngresoProducto)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SolicitudAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SolicitudAvatar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaIngreso", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaIngreso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaCaducidad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaCaducidad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDIngresoProducto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDIngresoProducto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDUsuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SolicitudAvatar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SolicitudAvatar", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SolicitudAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SolicitudAvatar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FechaIngreso", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaIngreso", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FechaIngreso", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaIngreso", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FechaCaducidad", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaCaducidad", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FechaCaducidad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaCaducidad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDIngresoProducto", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDIngresoProducto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1033,8 +1032,9 @@ SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso,
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso, " +
-                "FechaCaducidad, Estado FROM dbo.RegistroProducto";
+            this._commandCollection[0].CommandText = "SELECT        IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, Solici" +
+                "tudAvatar, FechaIngreso, Estado\r\nFROM            RegistroProducto\r\nWHERE        " +
+                "(Estado = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1095,40 +1095,40 @@ SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IDIngresoProducto, int Original_IDUsuario, string Original_Descripcion, string Original_SolicitudAvatar, string Original_FechaIngreso, string Original_FechaCaducidad, global::System.Nullable<bool> Original_Estado) {
+        public virtual int Delete(int Original_IDIngresoProducto, int Original_IDUsuario, global::System.Nullable<int> Original_IDRegistroBodega, string Original_Descripcion, string Original_SolicitudAvatar, string Original_FechaIngreso, global::System.Nullable<bool> Original_Estado) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IDIngresoProducto));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_IDUsuario));
-            if ((Original_Descripcion == null)) {
+            if ((Original_IDRegistroBodega.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_IDRegistroBodega.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Descripcion));
-            }
-            if ((Original_SolicitudAvatar == null)) {
+            if ((Original_Descripcion == null)) {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_SolicitudAvatar));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Descripcion));
             }
-            if ((Original_FechaIngreso == null)) {
+            if ((Original_SolicitudAvatar == null)) {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_FechaIngreso));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_SolicitudAvatar));
             }
-            if ((Original_FechaCaducidad == null)) {
+            if ((Original_FechaIngreso == null)) {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_FechaCaducidad));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_FechaIngreso));
             }
             if ((Original_Estado.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
@@ -1158,31 +1158,31 @@ SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int IDUsuario, string Descripcion, string SolicitudAvatar, string FechaIngreso, string FechaCaducidad, global::System.Nullable<bool> Estado) {
+        public virtual int Insert(int IDUsuario, global::System.Nullable<int> IDRegistroBodega, string Descripcion, string SolicitudAvatar, string FechaIngreso, global::System.Nullable<bool> Estado) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IDUsuario));
-            if ((Descripcion == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            if ((IDRegistroBodega.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(IDRegistroBodega.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Descripcion));
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((SolicitudAvatar == null)) {
+            if ((Descripcion == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(SolicitudAvatar));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Descripcion));
             }
-            if ((FechaIngreso == null)) {
+            if ((SolicitudAvatar == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(FechaIngreso));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(SolicitudAvatar));
             }
-            if ((FechaCaducidad == null)) {
+            if ((FechaIngreso == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(FechaCaducidad));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(FechaIngreso));
             }
             if ((Estado.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Estado.Value));
@@ -1210,31 +1210,31 @@ SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IDUsuario, string Descripcion, string SolicitudAvatar, string FechaIngreso, string FechaCaducidad, global::System.Nullable<bool> Estado, int Original_IDIngresoProducto, int Original_IDUsuario, string Original_Descripcion, string Original_SolicitudAvatar, string Original_FechaIngreso, string Original_FechaCaducidad, global::System.Nullable<bool> Original_Estado, int IDIngresoProducto) {
+        public virtual int Update(int IDUsuario, global::System.Nullable<int> IDRegistroBodega, string Descripcion, string SolicitudAvatar, string FechaIngreso, global::System.Nullable<bool> Estado, int Original_IDIngresoProducto, int Original_IDUsuario, global::System.Nullable<int> Original_IDRegistroBodega, string Original_Descripcion, string Original_SolicitudAvatar, string Original_FechaIngreso, global::System.Nullable<bool> Original_Estado, int IDIngresoProducto) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IDUsuario));
-            if ((Descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            if ((IDRegistroBodega.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IDRegistroBodega.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Descripcion));
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((SolicitudAvatar == null)) {
+            if ((Descripcion == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(SolicitudAvatar));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Descripcion));
             }
-            if ((FechaIngreso == null)) {
+            if ((SolicitudAvatar == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(FechaIngreso));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(SolicitudAvatar));
             }
-            if ((FechaCaducidad == null)) {
+            if ((FechaIngreso == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(FechaCaducidad));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(FechaIngreso));
             }
             if ((Estado.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Estado.Value));
@@ -1244,37 +1244,37 @@ SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso,
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IDIngresoProducto));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_IDUsuario));
-            if ((Original_Descripcion == null)) {
+            if ((Original_IDRegistroBodega.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_IDRegistroBodega.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Descripcion));
-            }
-            if ((Original_SolicitudAvatar == null)) {
+            if ((Original_Descripcion == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_SolicitudAvatar));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Descripcion));
             }
-            if ((Original_FechaIngreso == null)) {
+            if ((Original_SolicitudAvatar == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_FechaIngreso));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_SolicitudAvatar));
             }
-            if ((Original_FechaCaducidad == null)) {
+            if ((Original_FechaIngreso == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_FechaCaducidad));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_FechaIngreso));
             }
             if ((Original_Estado.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
@@ -1305,8 +1305,8 @@ SELECT IDIngresoProducto, IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IDUsuario, string Descripcion, string SolicitudAvatar, string FechaIngreso, string FechaCaducidad, global::System.Nullable<bool> Estado, int Original_IDIngresoProducto, int Original_IDUsuario, string Original_Descripcion, string Original_SolicitudAvatar, string Original_FechaIngreso, string Original_FechaCaducidad, global::System.Nullable<bool> Original_Estado) {
-            return this.Update(IDUsuario, Descripcion, SolicitudAvatar, FechaIngreso, FechaCaducidad, Estado, Original_IDIngresoProducto, Original_IDUsuario, Original_Descripcion, Original_SolicitudAvatar, Original_FechaIngreso, Original_FechaCaducidad, Original_Estado, Original_IDIngresoProducto);
+        public virtual int Update(int IDUsuario, global::System.Nullable<int> IDRegistroBodega, string Descripcion, string SolicitudAvatar, string FechaIngreso, global::System.Nullable<bool> Estado, int Original_IDIngresoProducto, int Original_IDUsuario, global::System.Nullable<int> Original_IDRegistroBodega, string Original_Descripcion, string Original_SolicitudAvatar, string Original_FechaIngreso, global::System.Nullable<bool> Original_Estado) {
+            return this.Update(IDUsuario, IDRegistroBodega, Descripcion, SolicitudAvatar, FechaIngreso, Estado, Original_IDIngresoProducto, Original_IDUsuario, Original_IDRegistroBodega, Original_Descripcion, Original_SolicitudAvatar, Original_FechaIngreso, Original_Estado, Original_IDIngresoProducto);
         }
     }
     

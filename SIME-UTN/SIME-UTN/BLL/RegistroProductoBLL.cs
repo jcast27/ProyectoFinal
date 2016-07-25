@@ -19,9 +19,9 @@ namespace SIME_UTN.BLL
             RegistroProductoDAL.ActualizarRegistroProducto(unRegProd, usuarioLogueadop);
         }
 
-        internal static void EliminarRegistroProducto(int idRegProd, string nombrep, string usuarioLogueadop)
+        internal static void EliminarRegistroProducto(int idRegistroBodega,int idRegProd, string nombrep, string usuarioLogueadop)
         {
-            RegistroProductoDAL.EliminarRegistroProducto(idRegProd, nombrep, usuarioLogueadop);
+            RegistroProductoDAL.EliminarRegistroProducto(idRegistroBodega,idRegProd, nombrep, usuarioLogueadop);
         }
 
     }

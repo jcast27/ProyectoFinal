@@ -36,24 +36,21 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIDProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCodigoAvatar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCantidadMinima = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCantidadMaxima = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDCategoria = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpCategoria = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetCategorias = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
-            this.colUbicacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUbicacion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUbicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
             this.colIDUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUnidadMedida = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.spSELECTUnidadMedidaProductoAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
+            this.colCantidadMinima = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCantidadMaxima = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colContenido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
@@ -76,9 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
@@ -125,11 +119,11 @@
             this.colNombre,
             this.colDescripcion,
             this.colIDCategoria,
-            this.colUbicacion,
             this.colIDUnidadMedida,
             this.colCantidadMinima,
             this.colCantidadMaxima,
-            this.colEstado});
+            this.colEstado,
+            this.colContenido});
             this.gridView1.GridControl = this.gCProductos;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -157,24 +151,6 @@
             this.colCodigoAvatar.Name = "colCodigoAvatar";
             this.colCodigoAvatar.Visible = true;
             this.colCodigoAvatar.VisibleIndex = 0;
-            // 
-            // colCantidadMinima
-            // 
-            this.colCantidadMinima.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colCantidadMinima.AppearanceCell.Options.UseFont = true;
-            this.colCantidadMinima.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colCantidadMinima.AppearanceHeader.Options.UseFont = true;
-            this.colCantidadMinima.FieldName = "CantidadMinima";
-            this.colCantidadMinima.Name = "colCantidadMinima";
-            // 
-            // colCantidadMaxima
-            // 
-            this.colCantidadMaxima.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colCantidadMaxima.AppearanceCell.Options.UseFont = true;
-            this.colCantidadMaxima.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colCantidadMaxima.AppearanceHeader.Options.UseFont = true;
-            this.colCantidadMaxima.FieldName = "CantidadMaxima";
-            this.colCantidadMaxima.Name = "colCantidadMaxima";
             // 
             // colNombre
             // 
@@ -236,45 +212,14 @@
             this.dataSetCategorias.DataSetName = "DataSetCategorias";
             this.dataSetCategorias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // colUbicacion
-            // 
-            this.colUbicacion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colUbicacion.AppearanceCell.Options.UseFont = true;
-            this.colUbicacion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colUbicacion.AppearanceHeader.Options.UseFont = true;
-            this.colUbicacion.Caption = "Ubicacion";
-            this.colUbicacion.ColumnEdit = this.LookUpUbicacion;
-            this.colUbicacion.FieldName = "IDUbicacion";
-            this.colUbicacion.Name = "colUbicacion";
-            this.colUbicacion.UnboundType = DevExpress.Data.UnboundColumnType.String;
-            this.colUbicacion.Visible = true;
-            this.colUbicacion.VisibleIndex = 4;
-            this.colUbicacion.Width = 185;
-            // 
             // LookUpUbicacion
             // 
             this.LookUpUbicacion.AutoHeight = false;
             this.LookUpUbicacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
             this.LookUpUbicacion.DisplayMember = "nombre";
             this.LookUpUbicacion.Name = "LookUpUbicacion";
             this.LookUpUbicacion.ValueMember = "idubicacion";
-            // 
-            // spSELECTUbicacionAllBindingSource
-            // 
-            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
-            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetUbicacionBindingSource;
-            // 
-            // dataSetUbicacionBindingSource
-            // 
-            this.dataSetUbicacionBindingSource.DataSource = this.dataSetUbicacion;
-            this.dataSetUbicacionBindingSource.Position = 0;
-            // 
-            // dataSetUbicacion
-            // 
-            this.dataSetUbicacion.DataSetName = "DataSetUbicacion";
-            this.dataSetUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // colIDUnidadMedida
             // 
@@ -288,7 +233,7 @@
             this.colIDUnidadMedida.Name = "colIDUnidadMedida";
             this.colIDUnidadMedida.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colIDUnidadMedida.Visible = true;
-            this.colIDUnidadMedida.VisibleIndex = 5;
+            this.colIDUnidadMedida.VisibleIndex = 4;
             this.colIDUnidadMedida.Width = 194;
             // 
             // LookUpUnidadMedida
@@ -311,10 +256,33 @@
             this.dataSetUnidadMedida.DataSetName = "DataSetUnidadMedida";
             this.dataSetUnidadMedida.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // colCantidadMinima
+            // 
+            this.colCantidadMinima.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCantidadMinima.AppearanceCell.Options.UseFont = true;
+            this.colCantidadMinima.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colCantidadMinima.AppearanceHeader.Options.UseFont = true;
+            this.colCantidadMinima.FieldName = "CantidadMinima";
+            this.colCantidadMinima.Name = "colCantidadMinima";
+            // 
+            // colCantidadMaxima
+            // 
+            this.colCantidadMaxima.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCantidadMaxima.AppearanceCell.Options.UseFont = true;
+            this.colCantidadMaxima.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colCantidadMaxima.AppearanceHeader.Options.UseFont = true;
+            this.colCantidadMaxima.FieldName = "CantidadMaxima";
+            this.colCantidadMaxima.Name = "colCantidadMaxima";
+            // 
             // colEstado
             // 
             this.colEstado.FieldName = "Estado";
             this.colEstado.Name = "colEstado";
+            // 
+            // colContenido
+            // 
+            this.colContenido.FieldName = "Contenido";
+            this.colContenido.Name = "colContenido";
             // 
             // spSELECTUnidadMedidaProductoAllBindingSource
             // 
@@ -471,9 +439,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpUnidadMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).EndInit();
@@ -503,7 +468,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
         private DevExpress.XtraGrid.Columns.GridColumn colIDCategoria;
-        private DevExpress.XtraGrid.Columns.GridColumn colUbicacion;
         private DevExpress.XtraGrid.Columns.GridColumn colIDUnidadMedida;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUnidadMedida;
@@ -515,9 +479,6 @@
         private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
         private System.Windows.Forms.BindingSource dataSetUnidadMedidaBindingSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUbicacion;
-        private System.Windows.Forms.BindingSource dataSetUbicacionBindingSource;
-        private DataSets.Bodega.Admistracion.DataSetUbicacion dataSetUbicacion;
-        private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
         private DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
         private DataSets.Bodega.Admistracion.DataSetUnidadMedida dataSetUnidadMedida;
         private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource;
@@ -525,5 +486,6 @@
         private System.Windows.Forms.BindingSource spSELECTUnidadMedidaProductoAllBindingSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colCantidadMaxima;
         private DevExpress.XtraGrid.Columns.GridColumn colCantidadMinima;
+        private DevExpress.XtraGrid.Columns.GridColumn colContenido;
     }
 }

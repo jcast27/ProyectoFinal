@@ -24,6 +24,7 @@
               <Mapping SourceColumn="idregistrobodega" DataSetColumn="idregistrobodega" />
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="IDLocalizacion" DataSetColumn="IDLocalizacion" />
               <Mapping SourceColumn="tipo" DataSetColumn="tipo" />
               <Mapping SourceColumn="estado" DataSetColumn="estado" />
             </Mappings>
@@ -55,6 +56,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="IDLocalizacion" msprop:Generator_ColumnVarNameInTable="columnIDLocalizacion" msprop:Generator_ColumnPropNameInRow="IDLocalizacion" msprop:Generator_ColumnPropNameInTable="IDLocalizacionColumn" msprop:Generator_UserColumnName="IDLocalizacion" type="xs:int" minOccurs="0" />
               <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo" type="xs:int" minOccurs="0" />
               <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:boolean" minOccurs="0" />
             </xs:sequence>

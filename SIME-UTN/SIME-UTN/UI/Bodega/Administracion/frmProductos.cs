@@ -50,8 +50,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetUnidadMedida.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetUnidadMedida.sp_SELECT_UnidadMedidaProducto_All);
-            // TODO: This line of code loads data into the 'dataSetUbicacion.sp_SELECT_Ubicacion_All' table. You can move, or remove it, as needed.
-            this.sp_SELECT_Ubicacion_AllTableAdapter.Fill(this.dataSetUbicacion.sp_SELECT_Ubicacion_All);
      
             // TODO: This line of code loads data into the 'dataSetCategorias.Categoria' table. You can move, or remove it, as needed.
             this.categoriaTableAdapter.Fill(this.dataSetCategorias.Categoria);
@@ -77,7 +75,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 mBtnModificar.Enabled = true;
                 mBtnEliminar.Enabled = true;
                 Categoria unaCategoria = new Categoria();
-                Ubicacion unaUbicacion = new Ubicacion();
                 UnidadMedida unaUnidadMedida = new UnidadMedida();
                 System.Data.DataRowView row = null;
                 productoEstatico.idProducto = int.Parse(gridView1.GetFocusedRowCellValue("IDProducto").ToString());
@@ -88,14 +85,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 row = LookUpCategoria.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString()))as DataRowView;
                 unaCategoria.descripcion = row.Row["Descripcion"].ToString();
                 productoEstatico.Categoria = unaCategoria;
-                unaUbicacion.idUbicacion = int.Parse(gridView1.GetFocusedRowCellValue("IDUbicacion").ToString());
-                row = LookUpUbicacion.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDUbicacion").ToString())) as DataRowView;
-                unaUbicacion.nombre = row.Row["Nombre"].ToString();
-                productoEstatico.Ubicacion = unaUbicacion;
                 unaUnidadMedida.idUnidadMedida = int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString());
                 row = LookUpUnidadMedida.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString())) as DataRowView;
                 unaUnidadMedida.descripcion = row.Row["Descripcion"].ToString();
                 productoEstatico.UnidadMedida = unaUnidadMedida;
+                productoEstatico.contendio = Double.Parse(gridView1.GetFocusedRowCellValue("Contenido").ToString());
                 productoEstatico.cantMinima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMinima").ToString());
                 productoEstatico.cantMaxima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMaxima").ToString());
 

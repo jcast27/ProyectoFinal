@@ -36,15 +36,22 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            frmAdTrasladoProductos ofrmAdTrasladoProducto = new frmAdTrasladoProductos(trasladoEstatico);
-            ofrmAdTrasladoProducto.ShowDialog(this);
-            frmTrasladosDeProductos_Load(null, null);
+           
         }
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            frmAdTrasladoProductos ofrmAdTrasladoProducto = new frmAdTrasladoProductos();
-            ofrmAdTrasladoProducto.ShowDialog(this);
-            frmTrasladosDeProductos_Load(null, null);
+            if (mBtnAgregar.Caption == "Agregar")
+            {
+                frmAdTrasladoProductos ofrmAdTrasladoProducto = new frmAdTrasladoProductos();
+                ofrmAdTrasladoProducto.ShowDialog(this);
+                frmTrasladosDeProductos_Load(null, null);
+            }
+            if(mBtnAgregar.Caption== "Modificar")
+            {
+                frmAdTrasladoProductos ofrmAdTrasladoProducto = new frmAdTrasladoProductos(trasladoEstatico);
+                ofrmAdTrasladoProducto.ShowDialog(this);
+                frmTrasladosDeProductos_Load(null, null);
+            }
 
         }
 
@@ -65,8 +72,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
+                mBtnAceptar.Enabled = true;
+                mBtnDeclinar.Enabled = true;
+                mBtnAgregar.Caption = "Modificar";
                 RegistroBodega bodegaOrigen = new RegistroBodega();
                 RegistroBodega bodegaDestino = new RegistroBodega();
                 UsuarioTable unUsuario = new UsuarioTable();

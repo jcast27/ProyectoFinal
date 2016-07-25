@@ -56,12 +56,19 @@
             this.gCRegistroProducto = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.dataSetMezclaCategoria = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetMezclaCategoria();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetMezclaCategoriaTableAdapters.CategoriaTableAdapter();
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetMezclaCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -171,6 +178,8 @@
             // gbGridViewFuncionario
             // 
             this.gbGridViewFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbGridViewFuncionario.Controls.Add(this.cmbCategoria);
+            this.gbGridViewFuncionario.Controls.Add(this.lblCategoria);
             this.gbGridViewFuncionario.Controls.Add(this.lblIdMezcla);
             this.gbGridViewFuncionario.Controls.Add(this.txtUnidadMedida);
             this.gbGridViewFuncionario.Controls.Add(this.lblUnidadMedida);
@@ -213,9 +222,9 @@
             this.txtUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtUnidadMedida.Enabled = false;
             this.txtUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnidadMedida.Location = new System.Drawing.Point(948, 107);
+            this.txtUnidadMedida.Location = new System.Drawing.Point(209, 158);
             this.txtUnidadMedida.Name = "txtUnidadMedida";
-            this.txtUnidadMedida.Size = new System.Drawing.Size(138, 22);
+            this.txtUnidadMedida.Size = new System.Drawing.Size(167, 22);
             this.txtUnidadMedida.TabIndex = 50;
             // 
             // lblUnidadMedida
@@ -226,7 +235,7 @@
             this.lblUnidadMedida.AutoSize = true;
             this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(781, 114);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(24, 162);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(133, 18);
             this.lblUnidadMedida.TabIndex = 49;
@@ -238,7 +247,7 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(24, 111);
+            this.lblCodigo.Location = new System.Drawing.Point(422, 115);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(125, 18);
             this.lblCodigo.TabIndex = 46;
@@ -249,9 +258,9 @@
             this.txtNombreProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtNombreProducto.Enabled = false;
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(602, 111);
+            this.txtNombreProducto.Location = new System.Drawing.Point(929, 111);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(138, 22);
+            this.txtNombreProducto.Size = new System.Drawing.Size(157, 22);
             this.txtNombreProducto.TabIndex = 45;
             // 
             // txtNombre
@@ -267,7 +276,7 @@
             // txtECodigoProducto
             // 
             this.txtECodigoProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtECodigoProducto.Location = new System.Drawing.Point(209, 108);
+            this.txtECodigoProducto.Location = new System.Drawing.Point(553, 113);
             this.txtECodigoProducto.Name = "txtECodigoProducto";
             this.txtECodigoProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -290,7 +299,7 @@
             this.txtCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCantidad.Enabled = false;
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(209, 165);
+            this.txtCantidad.Location = new System.Drawing.Point(553, 158);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 22);
             this.txtCantidad.TabIndex = 41;
@@ -318,7 +327,7 @@
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(24, 165);
+            this.lblCantidad.Location = new System.Drawing.Point(422, 165);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(70, 18);
             this.lblCantidad.TabIndex = 35;
@@ -360,7 +369,7 @@
             this.lblProducto.AutoSize = true;
             this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProducto.ForeColor = System.Drawing.Color.White;
-            this.lblProducto.Location = new System.Drawing.Point(422, 111);
+            this.lblProducto.Location = new System.Drawing.Point(756, 115);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(154, 18);
             this.lblProducto.TabIndex = 2;
@@ -411,6 +420,50 @@
             // 
             this.epError.ContainerControl = this;
             // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbCategoria.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.categoriaBindingSource, "IDCategoria", true));
+            this.cmbCategoria.DataSource = this.categoriaBindingSource;
+            this.cmbCategoria.DisplayMember = "Descripcion";
+            this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(209, 109);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(167, 24);
+            this.cmbCategoria.TabIndex = 53;
+            this.cmbCategoria.ValueMember = "IDCategoria";
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.Color.White;
+            this.lblCategoria.Location = new System.Drawing.Point(24, 115);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(76, 18);
+            this.lblCategoria.TabIndex = 52;
+            this.lblCategoria.Text = "Categoría:";
+            // 
+            // dataSetMezclaCategoria
+            // 
+            this.dataSetMezclaCategoria.DataSetName = "DataSetMezclaCategoria";
+            this.dataSetMezclaCategoria.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.dataSetMezclaCategoria;
+            // 
+            // categoriaTableAdapter
+            // 
+            this.categoriaTableAdapter.ClearBeforeFill = true;
+            // 
             // frmAdMezclas
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -433,6 +486,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetMezclaCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,5 +520,10 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
+        private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.Label lblCategoria;
+        private DataSets.Bodega.Admistracion.DataSetMezclaCategoria dataSetMezclaCategoria;
+        private System.Windows.Forms.BindingSource categoriaBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetMezclaCategoriaTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
     }
 }
