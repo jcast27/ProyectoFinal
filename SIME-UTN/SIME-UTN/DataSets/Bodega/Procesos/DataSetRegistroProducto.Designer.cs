@@ -666,11 +666,11 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
                         return ((int)(this[this.tableRegistroProducto.IDRegistroBodegaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-<<<<<<< HEAD
+
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Descripcion\' de la tabla \'RegistroProducto\' es DBNull.", e);
-=======
+
                         throw new global::System.Data.StrongTypingException("The value for column \'IDRegistroBodega\' in table \'RegistroProducto\' is DBNull.", e);
->>>>>>> origin/development
+
                     }
                 }
                 set {
@@ -686,12 +686,12 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
                         return ((string)(this[this.tableRegistroProducto.DescripcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-<<<<<<< HEAD
+
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'SolicitudAvatar\' de la tabla \'RegistroProducto\' es DBNull" +
                                 ".", e);
-=======
+
                         throw new global::System.Data.StrongTypingException("The value for column \'Descripcion\' in table \'RegistroProducto\' is DBNull.", e);
->>>>>>> origin/development
+
                     }
                 }
                 set {
@@ -707,11 +707,11 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
                         return ((string)(this[this.tableRegistroProducto.SolicitudAvatarColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-<<<<<<< HEAD
+
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'FechaIngreso\' de la tabla \'RegistroProducto\' es DBNull.", e);
-=======
+
                         throw new global::System.Data.StrongTypingException("The value for column \'SolicitudAvatar\' in table \'RegistroProducto\' is DBNull.", e);
->>>>>>> origin/development
+
                     }
                 }
                 set {
@@ -727,12 +727,12 @@ namespace SIME_UTN.DataSets.Bodega.Procesos {
                         return ((string)(this[this.tableRegistroProducto.FechaIngresoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-<<<<<<< HEAD
+
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'FechaCaducidad\' de la tabla \'RegistroProducto\' es DBNull." +
                                 "", e);
-=======
+
                         throw new global::System.Data.StrongTypingException("The value for column \'FechaIngreso\' in table \'RegistroProducto\' is DBNull.", e);
->>>>>>> origin/development
+
                     }
                 }
                 set {

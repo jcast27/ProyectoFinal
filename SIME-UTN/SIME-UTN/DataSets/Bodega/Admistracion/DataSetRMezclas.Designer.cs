@@ -611,12 +611,12 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                         return ((string)(this[this.tableProducto.nombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-<<<<<<< HEAD
+
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'nombre\' de la tabla \'sp_SELECT_RegistroMezcla_All\' es DBN" +
                                 "ull.", e);
-=======
+
                         throw new global::System.Data.StrongTypingException("The value for column \'nombre\' in table \'Producto\' is DBNull.", e);
->>>>>>> origin/development
+
                     }
                 }
                 set {
@@ -632,12 +632,12 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                         return ((string)(this[this.tableProducto.descripcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-<<<<<<< HEAD
+
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'sp_SELECT_RegistroMezcla_All\' e" +
                                 "s DBNull.", e);
-=======
+
                         throw new global::System.Data.StrongTypingException("The value for column \'descripcion\' in table \'Producto\' is DBNull.", e);
->>>>>>> origin/development
+
                     }
                 }
                 set {
@@ -653,12 +653,12 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                         return ((bool)(this[this.tableProducto.estadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-<<<<<<< HEAD
+
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'estado\' de la tabla \'sp_SELECT_RegistroMezcla_All\' es DBN" +
                                 "ull.", e);
-=======
+
                         throw new global::System.Data.StrongTypingException("The value for column \'estado\' in table \'Producto\' is DBNull.", e);
->>>>>>> origin/development
+
                     }
                 }
                 set {
