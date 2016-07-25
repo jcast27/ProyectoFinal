@@ -33,6 +33,8 @@
             this.gbActivo = new System.Windows.Forms.GroupBox();
             this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
             this.cmbUbicacion = new System.Windows.Forms.ComboBox();
+            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetFUbicacion = new SIME_UTN.DataSets.Formulario.DataSetFUbicacion();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetCategoria = new SIME_UTN.DataSets.Formulario.DataSetCategoria();
@@ -65,17 +67,15 @@
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter();
-            this.dataSetFUbicacion = new SIME_UTN.DataSets.Formulario.DataSetFUbicacion();
-            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ubicacionTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFUbicacionTableAdapters.UbicacionTableAdapter();
             this.gbActivo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetFUbicacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbActivo
@@ -123,7 +123,7 @@
             this.dtpIngreso.Location = new System.Drawing.Point(97, 94);
             this.dtpIngreso.Name = "dtpIngreso";
             this.dtpIngreso.Size = new System.Drawing.Size(163, 22);
-            this.dtpIngreso.TabIndex = 55;
+            this.dtpIngreso.TabIndex = 2;
             // 
             // cmbUbicacion
             // 
@@ -137,8 +137,18 @@
             this.cmbUbicacion.Location = new System.Drawing.Point(364, 122);
             this.cmbUbicacion.Name = "cmbUbicacion";
             this.cmbUbicacion.Size = new System.Drawing.Size(163, 24);
-            this.cmbUbicacion.TabIndex = 54;
+            this.cmbUbicacion.TabIndex = 9;
             this.cmbUbicacion.ValueMember = "IDUbicacion";
+            // 
+            // ubicacionBindingSource
+            // 
+            this.ubicacionBindingSource.DataMember = "Ubicacion";
+            this.ubicacionBindingSource.DataSource = this.dataSetFUbicacion;
+            // 
+            // dataSetFUbicacion
+            // 
+            this.dataSetFUbicacion.DataSetName = "DataSetFUbicacion";
+            this.dataSetFUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cmbCategoria
             // 
@@ -152,7 +162,7 @@
             this.cmbCategoria.Location = new System.Drawing.Point(97, 122);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(163, 24);
-            this.cmbCategoria.TabIndex = 53;
+            this.cmbCategoria.TabIndex = 3;
             this.cmbCategoria.ValueMember = "IDCategoria";
             // 
             // categoriaBindingSource
@@ -174,7 +184,7 @@
             this.txtPatrimonio.Location = new System.Drawing.Point(364, 39);
             this.txtPatrimonio.Name = "txtPatrimonio";
             this.txtPatrimonio.Size = new System.Drawing.Size(163, 22);
-            this.txtPatrimonio.TabIndex = 52;
+            this.txtPatrimonio.TabIndex = 6;
             // 
             // label10
             // 
@@ -200,7 +210,7 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(163, 50);
-            this.txtDescripcion.TabIndex = 50;
+            this.txtDescripcion.TabIndex = 10;
             // 
             // label9
             // 
@@ -225,7 +235,7 @@
             this.txtValor.Location = new System.Drawing.Point(364, 94);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(163, 22);
-            this.txtValor.TabIndex = 48;
+            this.txtValor.TabIndex = 8;
             // 
             // label8
             // 
@@ -264,7 +274,7 @@
             this.txtModelo.Location = new System.Drawing.Point(97, 180);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(163, 22);
-            this.txtModelo.TabIndex = 44;
+            this.txtModelo.TabIndex = 5;
             // 
             // label6
             // 
@@ -289,7 +299,7 @@
             this.txtMarca.Location = new System.Drawing.Point(97, 152);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(163, 22);
-            this.txtMarca.TabIndex = 42;
+            this.txtMarca.TabIndex = 4;
             // 
             // label5
             // 
@@ -343,7 +353,7 @@
             this.txtSerie.Location = new System.Drawing.Point(364, 67);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(163, 22);
-            this.txtSerie.TabIndex = 37;
+            this.txtSerie.TabIndex = 7;
             // 
             // label2
             // 
@@ -366,7 +376,7 @@
             this.txtId.Location = new System.Drawing.Point(97, 39);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(163, 22);
-            this.txtId.TabIndex = 34;
+            this.txtId.TabIndex = 0;
             // 
             // lblId
             // 
@@ -391,7 +401,7 @@
             this.txtNombre.Location = new System.Drawing.Point(97, 67);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(163, 22);
-            this.txtNombre.TabIndex = 31;
+            this.txtNombre.TabIndex = 1;
             // 
             // label1
             // 
@@ -505,16 +515,6 @@
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
-            // dataSetFUbicacion
-            // 
-            this.dataSetFUbicacion.DataSetName = "DataSetFUbicacion";
-            this.dataSetFUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ubicacionBindingSource
-            // 
-            this.ubicacionBindingSource.DataMember = "Ubicacion";
-            this.ubicacionBindingSource.DataSource = this.dataSetFUbicacion;
-            // 
             // ubicacionTableAdapter
             // 
             this.ubicacionTableAdapter.ClearBeforeFill = true;
@@ -536,13 +536,13 @@
             this.Load += new System.EventHandler(this.frmAdActivo_Load);
             this.gbActivo.ResumeLayout(false);
             this.gbActivo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetFUbicacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
