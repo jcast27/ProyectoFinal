@@ -43,15 +43,28 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v15.2.UI, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -341,6 +354,16 @@
     <Compile Include="Gestores\GestorTrasladoProductoInter.cs" />
     <Compile Include="Gestores\GestorUbicacion.cs" />
     <Compile Include="Gestores\GestorUnidadMedida.cs" />
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +434,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetTPRegistroBodegaD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdDespacho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdDespacho.Designer.cs">
+      <DependentUpon>frmAdDespacho.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.cs">
       <SubType>Form</SubType>
@@ -524,7 +553,7 @@
     <Compile Include="UI\Formulario\Administracion\frmItem.Designer.cs">
       <DependentUpon>frmItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Formulario\restoreDB.cs" />
+    <Compile Include="DAL\restoreDB.cs" />
     <Compile Include="UI\Formulario\Procesos\frmFormulario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -602,6 +631,43 @@
     <Compile Include="UI\Formulario\frmMDIForm.Designer.cs">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\frmFormReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\frmFormReporte.Designer.cs">
+      <DependentUpon>frmFormReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\frmReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\frmReporte.Designer.cs">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptActivo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptActivo.Designer.cs">
+      <DependentUpon>rptActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptFormulario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptFormulario.Designer.cs">
+      <DependentUpon>rptFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmAdMezclas.resx">
       <DependentUpon>frmAdMezclas.cs</DependentUpon>
     </EmbeddedResource>
@@ -634,6 +700,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioMinimo.resx">
       <DependentUpon>frmInventarioMinimo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdDespacho.resx">
+      <DependentUpon>frmAdDespacho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Procesos\frmAdTrasladoProductos.resx">
       <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
@@ -717,16 +786,6 @@
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UI\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -735,6 +794,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\frmMDIForm.resx">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\frmFormReporte.resx">
+      <DependentUpon>frmFormReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\frmReporte.resx">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptActivo.resx">
+      <DependentUpon>rptActivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptFormulario.resx">
+      <DependentUpon>rptFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XRDesignRibbonControllerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -1164,6 +1239,7 @@
     <None Include="Resources\max.PNG" />
     <None Include="Resources\min.PNG" />
     <None Include="Resources\mezclas.png" />
+    <None Include="Resources\Reporte.png" />
     <Content Include="Resources\usuarios1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1174,7 +1250,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />

@@ -47,7 +47,7 @@
             this.pnForms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnForms.Location = new System.Drawing.Point(0, 36);
             this.pnForms.Name = "pnForms";
-            this.pnForms.Size = new System.Drawing.Size(1307, 524);
+            this.pnForms.Size = new System.Drawing.Size(789, 524);
             this.pnForms.TabIndex = 0;
             // 
             // menuStrip1
@@ -56,7 +56,7 @@
             this.atrasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1307, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(789, 36);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -73,7 +73,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1307, 560);
+            this.ClientSize = new System.Drawing.Size(789, 560);
             this.Controls.Add(this.pnForms);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

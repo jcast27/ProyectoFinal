@@ -22,6 +22,8 @@ namespace SIME_UTN.UI.Formulario.Procesos
         private void frmItem_Load(object sender, EventArgs e)
         {
             Location = new Point(150, 176);
+            Height = Owner.Height - 176;
+            Width = Owner.Width - 300;
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             try

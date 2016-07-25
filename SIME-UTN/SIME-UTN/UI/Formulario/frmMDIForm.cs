@@ -13,6 +13,8 @@ using SIME_UTN.Gestores;
 using DevExpress.XtraBars.Docking2010.Views;
 using SIME_UTN.Entities;
 using SIME_UTN.UI.Formulario.Procesos;
+using SIME_UTN.DAL;
+using SIME_UTN.UI.Reportes;
 
 namespace SIME_UTN.UI.Formulario
 {
@@ -112,12 +114,9 @@ namespace SIME_UTN.UI.Formulario
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            this.CrearDocumentosAdministracion(false);
-            CrearDocumentosFormulario(true);
+            //this.CrearDocumentosAdministracion(false);
+            //CrearDocumentosFormulario(true);
             tipoDeProceso = "Formularios";
-            //Document doc1 = new Document { Caption = "Ventana Formularios" };
-            //QueryControlEventArgs e1 = new QueryControlEventArgs(doc1);
-            //windowsUIView1_QueryControl(null, e1);
             frmForms frm = new frmForms();
             frm.ShowDialog(this);
         }
@@ -220,10 +219,6 @@ namespace SIME_UTN.UI.Formulario
 
         public void CrearDocumentosFormulario(Boolean estado)
         {
-            string nombreElemento = "";
-            string grupo = "";
-            Image imagen = null;
-
             this.windowsUIView1.BeginUpdate();
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
@@ -235,23 +230,6 @@ namespace SIME_UTN.UI.Formulario
             TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 120;
             tileContainer2.Properties.Orientation = Orientation.Horizontal;
-
-            /*grupo = "Group 1";
-            imagen = Properties.Resources.form;
-            nombreElemento = "Formularios";
-            tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
-
-            GestorCategoria gestorC = GestorCategoria.GetInstance();
-
-            foreach (Categoria cat in gestorC.ObtenerCategorias(Pertenece.Formulario.ToString()))
-            {
-                if (cat.estado == 1)
-                {
-                    Document doc1 = new Document { Caption = cat.descripcion };
-                    this.windowsUIView1.Documents.AddRange(new Document[] { doc1 });
-                    tileContainer2.Items.Add(this.crearTile(doc1, cat.descripcion, grupo, imagen, estado));
-                }
-            }*/
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);
@@ -325,5 +303,43 @@ namespace SIME_UTN.UI.Formulario
             restoreDB rDB = new restoreDB();
             rDB.Restore();
         }
+
+        private void mBtnReportes_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            //CrearDocumentosFormulario(false);
+            //CrearDocumentosAdministracion(false);
+            //CrearDocumentosReportes(true);
+            tipoDeProceso = "Reportes";
+            frmFormReporte frm = new frmFormReporte(usuarioLogueado);
+            frm.Show(this);
+        }
+
+        //public void CrearDocumentosReportes(Boolean estado)
+        //{
+        //    string nombreElemento = "";
+        //    string grupo = "";
+        //    Image imagen = null;
+
+        //    this.windowsUIView1.BeginUpdate();
+        //    this.windowsUIView1.Controller.CloseAll();
+        //    this.windowsUIView1.Documents.Clear();
+        //    //Creating documents
+        //    Document doc0 = new Document { Caption = "Reporte Activos" };
+        //    this.windowsUIView1.Documents.AddRange(new Document[] { doc0 });
+        //    //Creating and populating content container
+        //    TileContainer tileContainer2 = new TileContainer();
+        //    tileContainer2.Properties.ItemSize = 120;
+        //    tileContainer2.Properties.Orientation = Orientation.Horizontal;
+
+        //    grupo = "Group 0";
+        //    imagen = Properties.Resources.usuarios;
+        //    nombreElemento = "Activos";
+        //    tileContainer2.Items.Add(this.crearTile(doc0, nombreElemento, grupo, imagen, estado));
+
+        //    windowsUIView1.ContentContainers.Add(tileContainer2);
+        //    this.windowsUIView1.ActivateContainer(tileContainer2);
+        //    this.windowsUIView1.EndUpdate();
+        //    this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+        //}
     }
 }
