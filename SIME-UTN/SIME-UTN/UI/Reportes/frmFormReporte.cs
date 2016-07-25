@@ -34,11 +34,6 @@ namespace SIME_UTN.UI.Reportes
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            if (btn.Name.Contains("Fecha"))
-            {
-                Interaction.InputBox("Ingresar fecha de Inicio", "Fecha", "");
-            }
-
             frmReporte frm = new frmReporte(btn.Name, user);
             frm.ShowDialog(this);
         }
@@ -49,7 +44,3 @@ namespace SIME_UTN.UI.Reportes
         }
     }
 }
-
-//string x = MousePosition.X.ToString();
-//string y = MousePosition.Y.ToString();
-//MessageBox.Show("X: " + x + "\nY: " + y);

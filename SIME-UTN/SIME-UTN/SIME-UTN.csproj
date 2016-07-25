@@ -669,11 +669,23 @@
     <Compile Include="UI\Reportes\rptActivo.Designer.cs">
       <DependentUpon>rptActivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\rptFormularioFecha.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptFormularioFecha.Designer.cs">
+      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\rptFormulario.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reportes\rptFormulario.Designer.cs">
       <DependentUpon>rptFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptItem.Designer.cs">
+      <DependentUpon>rptItem.cs</DependentUpon>
     </Compile>
     <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -824,8 +836,14 @@
     <EmbeddedResource Include="UI\Reportes\rptActivo.resx">
       <DependentUpon>rptActivo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptFormularioFecha.resx">
+      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptFormulario.resx">
       <DependentUpon>rptFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptItem.resx">
+      <DependentUpon>rptItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

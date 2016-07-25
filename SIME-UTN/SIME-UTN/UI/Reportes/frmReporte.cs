@@ -12,7 +12,6 @@ namespace SIME_UTN.UI.Reportes
 {
     public partial class frmReporte : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public DateTime fecha;
         public frmReporte(string nombre, string user)
         {
             InitializeComponent();
@@ -33,7 +32,10 @@ namespace SIME_UTN.UI.Reportes
                     reporte = new rptFormulario(user);
                     break;
                 case ("btnFormularioFecha"):
-                    //reporte = new rptFormularioFecha(user, fecha);
+                    reporte = new rptFormularioFecha(user);
+                    break;
+                case ("btnItem"):
+                    reporte = new rptFormularioFecha(user);
                     break;
                 default:
                     break;

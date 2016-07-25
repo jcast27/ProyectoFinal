@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ePError = new System.Windows.Forms.ErrorProvider();
             this.pnForms = new System.Windows.Forms.Panel();
+            this.btnFormularioFecha = new System.Windows.Forms.Button();
             this.btnFormulario = new System.Windows.Forms.Button();
             this.btnActivo = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.atrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnFormularioFecha = new System.Windows.Forms.Button();
+            this.btnItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.pnForms.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -48,6 +48,7 @@
             // pnForms
             // 
             this.pnForms.AutoScroll = true;
+            this.pnForms.Controls.Add(this.btnItem);
             this.pnForms.Controls.Add(this.btnFormularioFecha);
             this.pnForms.Controls.Add(this.btnFormulario);
             this.pnForms.Controls.Add(this.btnActivo);
@@ -56,6 +57,22 @@
             this.pnForms.Name = "pnForms";
             this.pnForms.Size = new System.Drawing.Size(789, 524);
             this.pnForms.TabIndex = 0;
+            // 
+            // btnFormularioFecha
+            // 
+            this.btnFormularioFecha.BackColor = System.Drawing.Color.Transparent;
+            this.btnFormularioFecha.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFormularioFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormularioFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
+            this.btnFormularioFecha.Image = global::SIME_UTN.Properties.Resources.Reporte;
+            this.btnFormularioFecha.Location = new System.Drawing.Point(334, 15);
+            this.btnFormularioFecha.Name = "btnFormularioFecha";
+            this.btnFormularioFecha.Size = new System.Drawing.Size(155, 139);
+            this.btnFormularioFecha.TabIndex = 2;
+            this.btnFormularioFecha.Text = "Formularios por Fecha";
+            this.btnFormularioFecha.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnFormularioFecha.UseVisualStyleBackColor = false;
+            this.btnFormularioFecha.Click += new System.EventHandler(this.Btn_Click);
             // 
             // btnFormulario
             // 
@@ -107,21 +124,21 @@
             this.atrasToolStripMenuItem.Text = "Atrás";
             this.atrasToolStripMenuItem.Click += new System.EventHandler(this.atrasToolStripMenuItem_Click);
             // 
-            // btnFormularioFecha
+            // btnItem
             // 
-            this.btnFormularioFecha.BackColor = System.Drawing.Color.Transparent;
-            this.btnFormularioFecha.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnFormularioFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormularioFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
-            this.btnFormularioFecha.Image = global::SIME_UTN.Properties.Resources.Reporte;
-            this.btnFormularioFecha.Location = new System.Drawing.Point(334, 15);
-            this.btnFormularioFecha.Name = "btnFormularioFecha";
-            this.btnFormularioFecha.Size = new System.Drawing.Size(155, 139);
-            this.btnFormularioFecha.TabIndex = 2;
-            this.btnFormularioFecha.Text = "Formularios por Fecha";
-            this.btnFormularioFecha.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnFormularioFecha.UseVisualStyleBackColor = false;
-            this.btnFormularioFecha.Click += new System.EventHandler(this.Btn_Click);
+            this.btnItem.BackColor = System.Drawing.Color.Transparent;
+            this.btnItem.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
+            this.btnItem.Image = global::SIME_UTN.Properties.Resources.Reporte;
+            this.btnItem.Location = new System.Drawing.Point(495, 15);
+            this.btnItem.Name = "btnItem";
+            this.btnItem.Size = new System.Drawing.Size(155, 139);
+            this.btnItem.TabIndex = 3;
+            this.btnItem.Text = "Utilización de Items";
+            this.btnItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnItem.UseVisualStyleBackColor = false;
+            this.btnItem.Click += new System.EventHandler(this.Btn_Click);
             // 
             // frmFormReporte
             // 
@@ -154,5 +171,6 @@
         private System.Windows.Forms.Button btnActivo;
         private System.Windows.Forms.Button btnFormulario;
         private System.Windows.Forms.Button btnFormularioFecha;
+        private System.Windows.Forms.Button btnItem;
     }
 }
