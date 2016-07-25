@@ -28,6 +28,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         GestorMezclaProducto gestorMezclaProducto = null;
         static string usuarioLogueado="";
         static Mezcla mezclaEstatica = null;
+        Categoria unaCategoria = null;
 
         public frmAdMezclas()
         {
@@ -150,6 +151,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdRegistroProducto_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetMezclaCategoria.Categoria' table. You can move, or remove it, as needed.
+            this.categoriaTableAdapter.Fill(this.dataSetMezclaCategoria.Categoria);
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetUnidadMedida.UnidadMedidaProducto' table. You can move, or remove it, as needed.
             UsuarioLogueado();
@@ -315,53 +318,41 @@ namespace SIME_UTN.UI.Bodega.Administracion
             gestorProducto = new GestorProducto();
             gestorMezcla = new GestorMezcla();
             gestorMezclaProducto = new GestorMezclaProducto();
+            unaCategoria = new Categoria();
             try
             {
+                unaMezcla.nombre = txtNombre.Text;
+                unaMezcla.descripcion = txtDescripcion.Text;
+                unaMezcla.estado = 1;
+                unaCategoria.idCategoria = int.Parse(cmbCategoria.SelectedValue.ToString());
+                unaCategoria.descripcion = cmbCategoria.GetItemText(cmbCategoria.Items[cmbCategoria.SelectedIndex]);
+                unaMezcla.Categoria = unaCategoria;
                 if (accionp == "Modificar")
                 {
-                    unaMezcla.nombre = txtNombre.Text;
-                    unaMezcla.descripcion = txtDescripcion.Text;
-                    unaMezcla.estado = 1;
+                   
                     unaMezcla.idRegistroMezcla = int.Parse(lblIdMezcla.Text);
                     gestorMezcla.ActualizarMezcla(unaMezcla, usuarioLogueado);
-                    foreach (ProductoDTO unProductoDTO in listaProductoDTO)
-                    {
-                        unProducto = gestorProducto.ObtenerProductoPorCodigoAvatar(unProductoDTO.codigoAvatar);
-                        unaMezclaProductoUnidadDTO.idMezcla = unaMezcla.idRegistroMezcla;
-                        unaMezclaProductoUnidadDTO.nombreMezcla = unaMezcla.nombre;
-                        unaMezclaProductoUnidadDTO.idProducto = unProducto.idProducto;
-                        unaMezclaProductoUnidadDTO.nombreProducto = unProductoDTO.nombreProducto;
-                        unaMezclaProductoUnidadDTO.idUnidadMedida = unProducto.UnidadMedida.idUnidadMedida;
-                        unaMezclaProductoUnidadDTO.nombreUnidadMedida = unProductoDTO.unidadMedida;
-                        unaMezclaProductoUnidadDTO.cantidad = unProductoDTO.cantidad;
-                        unaMezclaProductoUnidadDTO.estado = 1;
-                        gestorMezclaProducto.ModificarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
-                    }
 
                 }else
                 {
-                    unaMezcla.nombre = txtNombre.Text;
-                    unaMezcla.descripcion = txtDescripcion.Text;
-                    unaMezcla.estado = 1;
                     unaMezcla.idRegistroMezcla = gestorMezcla.GuardarRegistroMezcla(unaMezcla, usuarioLogueado);
 
-                    foreach (ProductoDTO unProductoDTO in listaProductoDTO)
-                    {
-                        unProducto = gestorProducto.ObtenerProductoPorCodigoAvatar(unProductoDTO.codigoAvatar);
-                        unaMezclaProductoUnidadDTO.idMezcla = unaMezcla.idRegistroMezcla;
-                        unaMezclaProductoUnidadDTO.nombreMezcla = unaMezcla.nombre;
-                        unaMezclaProductoUnidadDTO.idProducto = unProducto.idProducto;
-                        unaMezclaProductoUnidadDTO.nombreProducto = unProductoDTO.nombreProducto;
-                        unaMezclaProductoUnidadDTO.idUnidadMedida = unProducto.UnidadMedida.idUnidadMedida;
-                        unaMezclaProductoUnidadDTO.nombreUnidadMedida = unProductoDTO.unidadMedida;
-                        unaMezclaProductoUnidadDTO.cantidad = unProductoDTO.cantidad;
-                        unaMezclaProductoUnidadDTO.estado = 1;
-                        gestorMezclaProducto.GuardarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
-
-                    }
                 }
 
+                foreach (ProductoDTO unProductoDTO in listaProductoDTO)
+                {
+                    unProducto = gestorProducto.ObtenerProductoPorCodigoAvatar(unProductoDTO.codigoAvatar);
+                    unaMezclaProductoUnidadDTO.idMezcla = unaMezcla.idRegistroMezcla;
+                    unaMezclaProductoUnidadDTO.nombreMezcla = unaMezcla.nombre;
+                    unaMezclaProductoUnidadDTO.idProducto = unProducto.idProducto;
+                    unaMezclaProductoUnidadDTO.nombreProducto = unProductoDTO.nombreProducto;
+                    unaMezclaProductoUnidadDTO.idUnidadMedida = unProducto.UnidadMedida.idUnidadMedida;
+                    unaMezclaProductoUnidadDTO.nombreUnidadMedida = unProductoDTO.unidadMedida;
+                    unaMezclaProductoUnidadDTO.cantidad = unProductoDTO.cantidad;
+                    unaMezclaProductoUnidadDTO.estado = 1;
+                    gestorMezclaProducto.GuardarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
 
+                }
 
 
                 if (accionp == "Modificar")
@@ -547,18 +538,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             {
                 epError.SetError(txtDescripcion, "Campo Requerido");
                 txtDescripcion.Focus();
-                error = true;
-            }
-            if (txtECodigoProducto.Text.Trim() == "")
-            {
-                epError.SetError(txtECodigoProducto, "Campo Requerido");
-                txtECodigoProducto.Focus();
-                error = true;
-            }
-            if (txtCantidad.Text.Trim() == "")
-            {
-                epError.SetError(txtCantidad, "Campo Requerido");
-                txtCantidad.Focus();
                 error = true;
             }
             if (error == false)

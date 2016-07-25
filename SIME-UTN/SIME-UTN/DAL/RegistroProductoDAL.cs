@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.DAL
 {
@@ -20,10 +21,10 @@ namespace SIME_UTN.DAL
 
            
             comando.Parameters.AddWithValue("@idusuario", unRegProd.Usuario.codigoUsuario);
+            comando.Parameters.AddWithValue("@idregistroBodega", unRegProd.Bodega.idRegistroBodega);
             comando.Parameters.AddWithValue("@descripcion", unRegProd.descripcion);
             comando.Parameters.AddWithValue("@solicitudavatar", unRegProd.solicitudAvatar);
             comando.Parameters.AddWithValue("@fechaingreso", unRegProd.fechaIngreso);
-            comando.Parameters.AddWithValue("@fechacaducidad", unRegProd.fechaCaducidad);
             comando.Parameters.AddWithValue("@estado", unRegProd.estado);
 
 
@@ -45,10 +46,14 @@ namespace SIME_UTN.DAL
             return ultimiIdInsertado;
         }
 
-        internal static void EliminarRegistroProducto(int idRegProd, string regProd, string usuarioLogueadop)
+        internal static void EliminarRegistroProducto(int idRegistroBodega,int idRegProd, string regProd, string usuarioLogueadop)
         {
             string accion = "";
             accion = "Eliminar";
+            List<RegistroIngresoProductoDTO> listregistriIngresoProducto = new List<RegistroIngresoProductoDTO>();
+            listregistriIngresoProducto = RegistroIngresoProductoDAL.ObtenerProductosPorIdRegistro(idRegProd);
+
+
             SqlCommand comando = new SqlCommand("sp_DISABLE_RegistroProducto_ByID");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -59,6 +64,29 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+
+            DescargarInvetarioRegistroProductoEliminado(idRegistroBodega,listregistriIngresoProducto);
+        }
+
+        internal static void DescargarInvetarioRegistroProductoEliminado(int idRegistroBodega,List<RegistroIngresoProductoDTO> listregistriIngresoProductop)
+        {
+           
+
+            foreach(RegistroIngresoProductoDTO registriIngresoProducto in listregistriIngresoProductop)
+            {
+                SqlCommand comando = new SqlCommand("sp_DescargarInventario");
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodega);
+                comando.Parameters.AddWithValue("@idproducto", registriIngresoProducto.idProducto);
+                comando.Parameters.AddWithValue("@UCantidadIngresada", registriIngresoProducto.uCantidad);
+
+
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(comando);
+                }
+            }
+          
         }
 
         internal static void ActualizarRegistroProducto(RegistroProducto unRegProd, string usuarioLogueadop)
@@ -72,7 +100,6 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@descripcion", unRegProd.descripcion);
             comando.Parameters.AddWithValue("@solicitudavatar", unRegProd.solicitudAvatar);
             comando.Parameters.AddWithValue("@fechaingreso", unRegProd.fechaIngreso);
-            comando.Parameters.AddWithValue("@fechacaducidad", unRegProd.fechaCaducidad);
             comando.Parameters.AddWithValue("@estado", unRegProd.estado);
 
             GuardarLog(unRegProd, usuarioLogueadop, accion, null);
@@ -97,8 +124,7 @@ namespace SIME_UTN.DAL
                 estado = "Activo";
                 descripcion = "Registro Producto: " + unRegProd.descripcion + "\r\nSolicitud Avatar: " +
                 unRegProd.solicitudAvatar + "\r\nUsuario: " + unRegProd.Usuario.nombre 
-                + "\r\nFecha de Ingreso: " + unRegProd.fechaIngreso +"\r\nFecha de Caducidad: " +
-                unRegProd.fechaCaducidad + "\r\nEstado: " + estado;
+                + "\r\nFecha de Ingreso: " + unRegProd.fechaIngreso + "\r\nEstado: " + estado;
 
             }
             DateTime date = DateTime.Now;

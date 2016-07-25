@@ -12,11 +12,10 @@ namespace SIME_UTN.Entities
         public string nombreProducto { set; get; }
         public string descripcion { set; get; }
         public Categoria Categoria { set; get; }
-        public Ubicacion Ubicacion { set; get; }
         public UnidadMedida UnidadMedida { set; get; }
         public int estado { set; get; }
 
-        public double cantActual { set; get; }
+        public double contendio { set; get; }
         public double cantMinima { set; get; }
         public double cantMaxima { set; get; }
 

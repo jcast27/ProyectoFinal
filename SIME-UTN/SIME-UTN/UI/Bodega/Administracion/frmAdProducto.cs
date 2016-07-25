@@ -17,7 +17,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
     {
         Producto unProducto = null;
         Categoria unaCategoria = null;
-        Ubicacion unaUbicacion = null;
         UnidadMedida unaUnidadMedida = null;
         GestorProducto gestorProducto = null;
         GestorUsuarioTable gestorUsuario = null;
@@ -27,7 +26,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             InitializeComponent();
             mBtnModificar.Visible = false;
-           
+
         }
         public frmAdProducto(Producto productoEstaticop)
         {
@@ -57,8 +56,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetUnidadMedida.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetUnidadMedida.sp_SELECT_UnidadMedidaProducto_All);
-            // TODO: This line of code loads data into the 'dataSetUbicacion.sp_SELECT_Ubicacion_All' table. You can move, or remove it, as needed.
-            this.sp_SELECT_Ubicacion_AllTableAdapter.Fill(this.dataSetUbicacion.sp_SELECT_Ubicacion_All);
             // TODO: This line of code loads data into the 'dataSetCategorias.Categoria' table. You can move, or remove it, as needed.
             this.categoriaTableAdapter.Fill(this.dataSetCategorias.Categoria);
             // TODO: This line of code loads data into the 'dataSetCategorias.Categoria' table. You can move, or remove it, as needed.
@@ -68,8 +65,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             {
                 cmbCategoria.SelectedIndex = -1;
                 cmbUnidadMedida.SelectedIndex = -1;
-                cmbUbicacion.SelectedIndex = -1;
-            }else
+            }
+            else
             {
                 for (int i = 0; i < cmbCategoria.Items.Count; i++)
                 {
@@ -77,15 +74,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     if (value == productoEstatico.Categoria.descripcion)
                     {
                         cmbCategoria.SelectedIndex = i;
-                    }
-                }
-
-                for (int i = 0; i < cmbUbicacion.Items.Count; i++)
-                {
-                    string value = cmbUbicacion.GetItemText(cmbUbicacion.Items[i]);
-                    if (value == productoEstatico.Ubicacion.nombre)
-                    {
-                        cmbUbicacion.SelectedIndex = i;
                     }
                 }
 
@@ -115,8 +103,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     txtNombreProducto.Text = "";
                     txtDescripcion.Text = "";
                     txtCodigoAvatar.Text = "";
+                    txtContenido.Text = "";
                     cmbCategoria.SelectedIndex = -1;
-                    cmbUbicacion.SelectedIndex = -1;
                     cmbUnidadMedida.SelectedIndex = -1;
                     break;
                 case EstadoMantenimiento.Editar:
@@ -137,6 +125,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtNombreProducto.Text = productoEstatico.nombreProducto;
                 txtDescripcion.Text = productoEstatico.descripcion;
                 txtCodigoAvatar.Text = productoEstatico.codigoAvatar;
+                txtContenido.Text = productoEstatico.contendio.ToString();
                 lblCodigoProducto.Text = productoEstatico.idProducto.ToString();
                 txtCantMinima.Text = productoEstatico.cantMinima.ToString();
                 txtCantMaxima.Text = productoEstatico.cantMaxima.ToString();
@@ -164,7 +153,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 string accion = "Modificar";
                 GuardarCambiosProducto(accion);
             }
-           
+
         }
 
         /// <summary>
@@ -177,23 +166,20 @@ namespace SIME_UTN.UI.Bodega.Administracion
             gestorProducto = GestorProducto.GetInstance();
             unProducto = new Producto();
             unaCategoria = new Categoria();
-            unaUbicacion = new Ubicacion();
             unaUnidadMedida = new UnidadMedida();
             try
             {
-               
+
                 unProducto.nombreProducto = txtNombreProducto.Text;
                 unProducto.descripcion = txtDescripcion.Text;
                 unProducto.codigoAvatar = txtCodigoAvatar.Text;
                 unaCategoria.idCategoria = int.Parse(cmbCategoria.SelectedValue.ToString());
                 unaCategoria.descripcion = cmbCategoria.GetItemText(cmbCategoria.Items[cmbCategoria.SelectedIndex]);
                 unProducto.Categoria = unaCategoria;
-                unaUbicacion.idUbicacion = int.Parse(cmbUbicacion.SelectedValue.ToString());
-                unaUbicacion.nombre = cmbUbicacion.GetItemText(cmbUbicacion.Items[cmbUbicacion.SelectedIndex]);
-                unProducto.Ubicacion = unaUbicacion;
                 unaUnidadMedida.idUnidadMedida = int.Parse(cmbUnidadMedida.SelectedValue.ToString());
                 unaUnidadMedida.descripcion = cmbUnidadMedida.GetItemText(cmbUnidadMedida.Items[cmbUnidadMedida.SelectedIndex]);
                 unProducto.UnidadMedida = unaUnidadMedida;
+                unProducto.contendio = Double.Parse(txtContenido.Text);
                 unProducto.cantMinima = Double.Parse(txtCantMinima.Text);
                 unProducto.cantMaxima = Double.Parse(txtCantMaxima.Text);
                 unProducto.estado = 1;
@@ -204,13 +190,14 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     gestorProducto.AgregarProducto(unProducto);
                     gestorProducto.GuardarProducto(unProducto, usuarioLogueado);
                     MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }else
+                }
+                else
                 {
                     gestorProducto.AgregarProducto(unProducto);
                     gestorProducto.GuardarProducto(unProducto, usuarioLogueado);
                     MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-               
+
                 CambiarEstado(EstadoMantenimiento.Editar);
 
             }
@@ -219,6 +206,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+  
 
         /// <summary>
         /// Metodo que guarda un nuevo producto
@@ -238,7 +227,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             bool error = false;
             if (txtNombreProducto.Text.Trim() == "")
             {
-                epError.SetError(txtNombreProducto,"Campo Requerido");
+                epError.SetError(txtNombreProducto, "Campo Requerido");
                 txtNombreProducto.Focus();
                 error = true;
             }
@@ -272,12 +261,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 cmbCategoria.Focus();
                 error = true;
             }
-            if (cmbUbicacion.SelectedIndex == -1)
-            {
-                epError.SetError(cmbUbicacion, "Campo Requerido");
-                cmbUbicacion.Focus();
-                error = true;
-            }
             if (cmbUnidadMedida.SelectedIndex == -1)
             {
                 epError.SetError(cmbUnidadMedida, "Campo Requerido");
@@ -285,11 +268,66 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 error = true;
             }
 
-            if(error == false)
+            if (error == false)
             {
                 epError.Clear();
             }
             return error;
+        }
+
+        private void txtContenido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            GestorUnidadMedida gestorUnidadMedida = new GestorUnidadMedida();
+            if (gestorUnidadMedida.ObtenerUnidadesConDecimales(txtContenido.Text) != true)
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+            else
+            {
+
+                if (e.KeyChar == 8)
+                {
+                    e.Handled = false;
+                    return;
+                }
+
+                bool IsDec = false;
+                int nroDec = 0;
+
+                for (int i = 0; i < txtContenido.Text.Length; i++)
+                {
+                    if (txtContenido.Text[i] == '.')
+                        IsDec = true;
+
+                    if (IsDec && nroDec++ >= 2)
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void txtCantMinima_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantMaxima_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

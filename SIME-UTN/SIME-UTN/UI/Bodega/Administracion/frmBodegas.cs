@@ -19,6 +19,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         GestorRegistroBodega gestorBodega = null;
         static RegistroBodega bodegaEstatico = null;
         TipoBodega unTipoBodega = null;
+        Ubicacion unaUbicacion = null;
        
         public frmBodegas()
         {
@@ -61,6 +62,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmBodegas_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetBodegaUbicacion.sp_SELECT_Ubicacion_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_Ubicacion_AllTableAdapter.Fill(this.dataSetBodegaUbicacion.sp_SELECT_Ubicacion_All);
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetTipoBodega.sp_SELECT_TipoBodega_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_TipoBodega_AllTableAdapter.Fill(this.dataSetTipoBodega.sp_SELECT_TipoBodega_All);
@@ -84,6 +87,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 mBtnModificar.Enabled = true;
                 mBtnEliminar.Enabled = true;
                 unTipoBodega = new TipoBodega();
+                unaUbicacion = new Ubicacion();
                 System.Data.DataRowView row = null;
                 bodegaEstatico.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("idregistrobodega").ToString());
                 bodegaEstatico.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
@@ -92,6 +96,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 row = LookUpTipoBodega.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("tipo").ToString())) as DataRowView;
                 unTipoBodega.descripcion = row.Row["descripcion"].ToString();
                 bodegaEstatico.TipoBodega = unTipoBodega;
+                unaUbicacion.idUbicacion = int.Parse(gridView1.GetFocusedRowCellValue("IDLocalizacion").ToString());
+                row = LookUpUbicacion.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDLocalizacion").ToString())) as DataRowView;
+                unaUbicacion.nombre = row.Row["nombre"].ToString();
+                bodegaEstatico.Ubicacion = unaUbicacion;
 
             }
             catch (ApplicationException app)

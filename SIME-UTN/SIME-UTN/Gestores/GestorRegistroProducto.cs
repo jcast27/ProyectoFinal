@@ -37,9 +37,9 @@ namespace SIME_UTN.Gestores
             RegistroProductoBLL.ActualizarRegistroProducto(unRegProd, usuarioLogueadop);
         }
 
-        internal void EliminarRegistroProducto(int idRegProdp, string nombrep, string usuarioLogueadop)
+        internal void EliminarRegistroProducto(int idRegistroBodegap,int idRegProdp, string nombrep, string usuarioLogueadop)
         {
-            RegistroProductoBLL.EliminarRegistroProducto(idRegProdp, nombrep, usuarioLogueadop);
+            RegistroProductoBLL.EliminarRegistroProducto(idRegistroBodegap,idRegProdp, nombrep, usuarioLogueadop);
         }
     }
 }

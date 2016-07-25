@@ -24,7 +24,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DataSetRMezclas : global::System.Data.DataSet {
         
-        private sp_SELECT_RegistroMezcla_AllDataTable tablesp_SELECT_RegistroMezcla_All;
+        private ProductoDataTable tableProducto;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["sp_SELECT_RegistroMezcla_All"] != null)) {
-                    base.Tables.Add(new sp_SELECT_RegistroMezcla_AllDataTable(ds.Tables["sp_SELECT_RegistroMezcla_All"]));
+                if ((ds.Tables["Producto"] != null)) {
+                    base.Tables.Add(new ProductoDataTable(ds.Tables["Producto"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_SELECT_RegistroMezcla_AllDataTable sp_SELECT_RegistroMezcla_All {
+        public ProductoDataTable Producto {
             get {
-                return this.tablesp_SELECT_RegistroMezcla_All;
+                return this.tableProducto;
             }
         }
         
@@ -152,8 +152,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["sp_SELECT_RegistroMezcla_All"] != null)) {
-                    base.Tables.Add(new sp_SELECT_RegistroMezcla_AllDataTable(ds.Tables["sp_SELECT_RegistroMezcla_All"]));
+                if ((ds.Tables["Producto"] != null)) {
+                    base.Tables.Add(new ProductoDataTable(ds.Tables["Producto"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesp_SELECT_RegistroMezcla_All = ((sp_SELECT_RegistroMezcla_AllDataTable)(base.Tables["sp_SELECT_RegistroMezcla_All"]));
+            this.tableProducto = ((ProductoDataTable)(base.Tables["Producto"]));
             if ((initTable == true)) {
-                if ((this.tablesp_SELECT_RegistroMezcla_All != null)) {
-                    this.tablesp_SELECT_RegistroMezcla_All.InitVars();
+                if ((this.tableProducto != null)) {
+                    this.tableProducto.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             this.Namespace = "http://tempuri.org/DataSetRMezclas.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesp_SELECT_RegistroMezcla_All = new sp_SELECT_RegistroMezcla_AllDataTable();
-            base.Tables.Add(this.tablesp_SELECT_RegistroMezcla_All);
+            this.tableProducto = new ProductoDataTable();
+            base.Tables.Add(this.tableProducto);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializesp_SELECT_RegistroMezcla_All() {
+        private bool ShouldSerializeProducto() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void sp_SELECT_RegistroMezcla_AllRowChangeEventHandler(object sender, sp_SELECT_RegistroMezcla_AllRowChangeEvent e);
+        public delegate void ProductoRowChangeEventHandler(object sender, ProductoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_SELECT_RegistroMezcla_AllDataTable : global::System.Data.TypedTableBase<sp_SELECT_RegistroMezcla_AllRow> {
+        public partial class ProductoDataTable : global::System.Data.TypedTableBase<ProductoRow> {
             
             private global::System.Data.DataColumn columnidregistromezcla;
             
@@ -289,8 +289,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroMezcla_AllDataTable() {
-                this.TableName = "sp_SELECT_RegistroMezcla_All";
+            public ProductoDataTable() {
+                this.TableName = "Producto";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +298,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sp_SELECT_RegistroMezcla_AllDataTable(global::System.Data.DataTable table) {
+            internal ProductoDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +315,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected sp_SELECT_RegistroMezcla_AllDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ProductoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -363,55 +363,55 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroMezcla_AllRow this[int index] {
+            public ProductoRow this[int index] {
                 get {
-                    return ((sp_SELECT_RegistroMezcla_AllRow)(this.Rows[index]));
+                    return ((ProductoRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_SELECT_RegistroMezcla_AllRowChangeEventHandler sp_SELECT_RegistroMezcla_AllRowChanging;
+            public event ProductoRowChangeEventHandler ProductoRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_SELECT_RegistroMezcla_AllRowChangeEventHandler sp_SELECT_RegistroMezcla_AllRowChanged;
+            public event ProductoRowChangeEventHandler ProductoRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_SELECT_RegistroMezcla_AllRowChangeEventHandler sp_SELECT_RegistroMezcla_AllRowDeleting;
+            public event ProductoRowChangeEventHandler ProductoRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_SELECT_RegistroMezcla_AllRowChangeEventHandler sp_SELECT_RegistroMezcla_AllRowDeleted;
+            public event ProductoRowChangeEventHandler ProductoRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addsp_SELECT_RegistroMezcla_AllRow(sp_SELECT_RegistroMezcla_AllRow row) {
+            public void AddProductoRow(ProductoRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroMezcla_AllRow Addsp_SELECT_RegistroMezcla_AllRow(string nombre, string descripcion, bool estado) {
-                sp_SELECT_RegistroMezcla_AllRow rowsp_SELECT_RegistroMezcla_AllRow = ((sp_SELECT_RegistroMezcla_AllRow)(this.NewRow()));
+            public ProductoRow AddProductoRow(string nombre, string descripcion, bool estado) {
+                ProductoRow rowProductoRow = ((ProductoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         nombre,
                         descripcion,
                         estado};
-                rowsp_SELECT_RegistroMezcla_AllRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_SELECT_RegistroMezcla_AllRow);
-                return rowsp_SELECT_RegistroMezcla_AllRow;
+                rowProductoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowProductoRow);
+                return rowProductoRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroMezcla_AllRow FindByidregistromezcla(int idregistromezcla) {
-                return ((sp_SELECT_RegistroMezcla_AllRow)(this.Rows.Find(new object[] {
+            public ProductoRow FindByidregistromezcla(int idregistromezcla) {
+                return ((ProductoRow)(this.Rows.Find(new object[] {
                             idregistromezcla})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_SELECT_RegistroMezcla_AllDataTable cln = ((sp_SELECT_RegistroMezcla_AllDataTable)(base.Clone()));
+                ProductoDataTable cln = ((ProductoDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,7 +419,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_SELECT_RegistroMezcla_AllDataTable();
+                return new ProductoDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -456,28 +456,28 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroMezcla_AllRow Newsp_SELECT_RegistroMezcla_AllRow() {
-                return ((sp_SELECT_RegistroMezcla_AllRow)(this.NewRow()));
+            public ProductoRow NewProductoRow() {
+                return ((ProductoRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_SELECT_RegistroMezcla_AllRow(builder);
+                return new ProductoRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_SELECT_RegistroMezcla_AllRow);
+                return typeof(ProductoRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_SELECT_RegistroMezcla_AllRowChanged != null)) {
-                    this.sp_SELECT_RegistroMezcla_AllRowChanged(this, new sp_SELECT_RegistroMezcla_AllRowChangeEvent(((sp_SELECT_RegistroMezcla_AllRow)(e.Row)), e.Action));
+                if ((this.ProductoRowChanged != null)) {
+                    this.ProductoRowChanged(this, new ProductoRowChangeEvent(((ProductoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -485,8 +485,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_SELECT_RegistroMezcla_AllRowChanging != null)) {
-                    this.sp_SELECT_RegistroMezcla_AllRowChanging(this, new sp_SELECT_RegistroMezcla_AllRowChangeEvent(((sp_SELECT_RegistroMezcla_AllRow)(e.Row)), e.Action));
+                if ((this.ProductoRowChanging != null)) {
+                    this.ProductoRowChanging(this, new ProductoRowChangeEvent(((ProductoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -494,8 +494,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_SELECT_RegistroMezcla_AllRowDeleted != null)) {
-                    this.sp_SELECT_RegistroMezcla_AllRowDeleted(this, new sp_SELECT_RegistroMezcla_AllRowChangeEvent(((sp_SELECT_RegistroMezcla_AllRow)(e.Row)), e.Action));
+                if ((this.ProductoRowDeleted != null)) {
+                    this.ProductoRowDeleted(this, new ProductoRowChangeEvent(((ProductoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -503,14 +503,14 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_SELECT_RegistroMezcla_AllRowDeleting != null)) {
-                    this.sp_SELECT_RegistroMezcla_AllRowDeleting(this, new sp_SELECT_RegistroMezcla_AllRowChangeEvent(((sp_SELECT_RegistroMezcla_AllRow)(e.Row)), e.Action));
+                if ((this.ProductoRowDeleting != null)) {
+                    this.ProductoRowDeleting(this, new ProductoRowChangeEvent(((ProductoRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removesp_SELECT_RegistroMezcla_AllRow(sp_SELECT_RegistroMezcla_AllRow row) {
+            public void RemoveProductoRow(ProductoRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -537,7 +537,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_SELECT_RegistroMezcla_AllDataTable";
+                attribute2.FixedValue = "ProductoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -581,25 +581,25 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_SELECT_RegistroMezcla_AllRow : global::System.Data.DataRow {
+        public partial class ProductoRow : global::System.Data.DataRow {
             
-            private sp_SELECT_RegistroMezcla_AllDataTable tablesp_SELECT_RegistroMezcla_All;
+            private ProductoDataTable tableProducto;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sp_SELECT_RegistroMezcla_AllRow(global::System.Data.DataRowBuilder rb) : 
+            internal ProductoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_SELECT_RegistroMezcla_All = ((sp_SELECT_RegistroMezcla_AllDataTable)(this.Table));
+                this.tableProducto = ((ProductoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int idregistromezcla {
                 get {
-                    return ((int)(this[this.tablesp_SELECT_RegistroMezcla_All.idregistromezclaColumn]));
+                    return ((int)(this[this.tableProducto.idregistromezclaColumn]));
                 }
                 set {
-                    this[this.tablesp_SELECT_RegistroMezcla_All.idregistromezclaColumn] = value;
+                    this[this.tableProducto.idregistromezclaColumn] = value;
                 }
             }
             
@@ -608,15 +608,19 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             public string nombre {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_SELECT_RegistroMezcla_All.nombreColumn]));
+                        return ((string)(this[this.tableProducto.nombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
+<<<<<<< HEAD
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'nombre\' de la tabla \'sp_SELECT_RegistroMezcla_All\' es DBN" +
                                 "ull.", e);
+=======
+                        throw new global::System.Data.StrongTypingException("The value for column \'nombre\' in table \'Producto\' is DBNull.", e);
+>>>>>>> origin/development
                     }
                 }
                 set {
-                    this[this.tablesp_SELECT_RegistroMezcla_All.nombreColumn] = value;
+                    this[this.tableProducto.nombreColumn] = value;
                 }
             }
             
@@ -625,15 +629,19 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             public string descripcion {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_SELECT_RegistroMezcla_All.descripcionColumn]));
+                        return ((string)(this[this.tableProducto.descripcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
+<<<<<<< HEAD
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'sp_SELECT_RegistroMezcla_All\' e" +
                                 "s DBNull.", e);
+=======
+                        throw new global::System.Data.StrongTypingException("The value for column \'descripcion\' in table \'Producto\' is DBNull.", e);
+>>>>>>> origin/development
                     }
                 }
                 set {
-                    this[this.tablesp_SELECT_RegistroMezcla_All.descripcionColumn] = value;
+                    this[this.tableProducto.descripcionColumn] = value;
                 }
             }
             
@@ -642,52 +650,56 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             public bool estado {
                 get {
                     try {
-                        return ((bool)(this[this.tablesp_SELECT_RegistroMezcla_All.estadoColumn]));
+                        return ((bool)(this[this.tableProducto.estadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
+<<<<<<< HEAD
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'estado\' de la tabla \'sp_SELECT_RegistroMezcla_All\' es DBN" +
                                 "ull.", e);
+=======
+                        throw new global::System.Data.StrongTypingException("The value for column \'estado\' in table \'Producto\' is DBNull.", e);
+>>>>>>> origin/development
                     }
                 }
                 set {
-                    this[this.tablesp_SELECT_RegistroMezcla_All.estadoColumn] = value;
+                    this[this.tableProducto.estadoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsnombreNull() {
-                return this.IsNull(this.tablesp_SELECT_RegistroMezcla_All.nombreColumn);
+                return this.IsNull(this.tableProducto.nombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnombreNull() {
-                this[this.tablesp_SELECT_RegistroMezcla_All.nombreColumn] = global::System.Convert.DBNull;
+                this[this.tableProducto.nombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdescripcionNull() {
-                return this.IsNull(this.tablesp_SELECT_RegistroMezcla_All.descripcionColumn);
+                return this.IsNull(this.tableProducto.descripcionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdescripcionNull() {
-                this[this.tablesp_SELECT_RegistroMezcla_All.descripcionColumn] = global::System.Convert.DBNull;
+                this[this.tableProducto.descripcionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsestadoNull() {
-                return this.IsNull(this.tablesp_SELECT_RegistroMezcla_All.estadoColumn);
+                return this.IsNull(this.tableProducto.estadoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetestadoNull() {
-                this[this.tablesp_SELECT_RegistroMezcla_All.estadoColumn] = global::System.Convert.DBNull;
+                this[this.tableProducto.estadoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -695,22 +707,22 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class sp_SELECT_RegistroMezcla_AllRowChangeEvent : global::System.EventArgs {
+        public class ProductoRowChangeEvent : global::System.EventArgs {
             
-            private sp_SELECT_RegistroMezcla_AllRow eventRow;
+            private ProductoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroMezcla_AllRowChangeEvent(sp_SELECT_RegistroMezcla_AllRow row, global::System.Data.DataRowAction action) {
+            public ProductoRowChangeEvent(ProductoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroMezcla_AllRow Row {
+            public ProductoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -738,7 +750,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_SELECT_RegistroMezcla_AllTableAdapter : global::System.ComponentModel.Component {
+    public partial class ProductoTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -752,7 +764,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public sp_SELECT_RegistroMezcla_AllTableAdapter() {
+        public ProductoTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -849,12 +861,39 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_SELECT_RegistroMezcla_All";
+            tableMapping.DataSetTable = "Producto";
             tableMapping.ColumnMappings.Add("idregistromezcla", "idregistromezcla");
             tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("descripcion", "descripcion");
             tableMapping.ColumnMappings.Add("estado", "estado");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Producto] WHERE (([IDProducto] = @Original_idregistromezcla) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idregistromezcla", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idregistromezcla", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nombre", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Producto] SET [nombre] = @nombre, [descripcion] = @descripcion, [estado] = @estado WHERE (([IDProducto] = @Original_idregistromezcla) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)));
+SELECT IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS descripcion, Estado AS estado FROM Producto WHERE (IDProducto = @IDProducto)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idregistromezcla", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idregistromezcla", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nombre", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDProducto", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idregistromezcla", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -870,16 +909,17 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.sp_SELECT_RegistroMezcla_All";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].CommandText = "SELECT        IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS de" +
+                "scripcion, Estado AS estado\r\nFROM            Producto\r\nWHERE        (CodigoAvata" +
+                "r = \'Mezcla\') AND (Estado = 1)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetRMezclas.sp_SELECT_RegistroMezcla_AllDataTable dataTable) {
+        public virtual int Fill(DataSetRMezclas.ProductoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -892,11 +932,138 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetRMezclas.sp_SELECT_RegistroMezcla_AllDataTable GetData() {
+        public virtual DataSetRMezclas.ProductoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSetRMezclas.sp_SELECT_RegistroMezcla_AllDataTable dataTable = new DataSetRMezclas.sp_SELECT_RegistroMezcla_AllDataTable();
+            DataSetRMezclas.ProductoDataTable dataTable = new DataSetRMezclas.ProductoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSetRMezclas.ProductoDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSetRMezclas dataSet) {
+            return this.Adapter.Update(dataSet, "Producto");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_idregistromezcla, string Original_nombre, string Original_descripcion, bool Original_estado) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idregistromezcla));
+            if ((Original_nombre == null)) {
+                throw new global::System.ArgumentNullException("Original_nombre");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_nombre));
+            }
+            if ((Original_descripcion == null)) {
+                throw new global::System.ArgumentNullException("Original_descripcion");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_descripcion));
+            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_estado));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string nombre, string descripcion, bool estado, int Original_idregistromezcla, string Original_nombre, string Original_descripcion, bool Original_estado, int IDProducto) {
+            if ((nombre == null)) {
+                throw new global::System.ArgumentNullException("nombre");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(nombre));
+            }
+            if ((descripcion == null)) {
+                throw new global::System.ArgumentNullException("descripcion");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(descripcion));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(estado));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_idregistromezcla));
+            if ((Original_nombre == null)) {
+                throw new global::System.ArgumentNullException("Original_nombre");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_nombre));
+            }
+            if ((Original_descripcion == null)) {
+                throw new global::System.ArgumentNullException("Original_descripcion");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_descripcion));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Original_estado));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(IDProducto));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string nombre, string descripcion, bool estado, int Original_idregistromezcla, string Original_nombre, string Original_descripcion, bool Original_estado) {
+            return this.Update(nombre, descripcion, estado, Original_idregistromezcla, Original_nombre, Original_descripcion, Original_estado, Original_idregistromezcla);
         }
     }
     
@@ -912,6 +1079,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
+        private ProductoTableAdapter _productoTableAdapter;
+        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -924,6 +1093,20 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
             }
             set {
                 this._updateOrder = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public ProductoTableAdapter ProductoTableAdapter {
+            get {
+                return this._productoTableAdapter;
+            }
+            set {
+                this._productoTableAdapter = value;
             }
         }
         
@@ -946,6 +1129,10 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._productoTableAdapter != null) 
+                            && (this._productoTableAdapter.Connection != null))) {
+                    return this._productoTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -959,6 +1146,9 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._productoTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -970,6 +1160,15 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(DataSetRMezclas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._productoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Producto.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._productoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -980,6 +1179,14 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(DataSetRMezclas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._productoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Producto.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._productoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -990,6 +1197,14 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DataSetRMezclas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._productoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Producto.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._productoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             return result;
         }
         
@@ -1029,6 +1244,11 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
+            if (((this._productoTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._productoTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager no contiene información de conexión. Establezca cada propieda" +
@@ -1061,6 +1281,15 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._productoTableAdapter != null)) {
+                    revertConnections.Add(this._productoTableAdapter, this._productoTableAdapter.Connection);
+                    this._productoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._productoTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._productoTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._productoTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._productoTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1118,6 +1347,10 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
+                }
+                if ((this._productoTableAdapter != null)) {
+                    this._productoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._productoTableAdapter]));
+                    this._productoTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

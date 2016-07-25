@@ -33,8 +33,8 @@
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnEliminar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnDeclinar = new DevExpress.XtraBars.Navigation.NavButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
@@ -77,8 +77,8 @@
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
             this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
-            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
-            this.tileNavPane1.Buttons.Add(this.mBtnEliminar);
+            this.tileNavPane1.Buttons.Add(this.mBtnAceptar);
+            this.tileNavPane1.Buttons.Add(this.mBtnDeclinar);
             // 
             // tileNavCategory1
             // 
@@ -110,30 +110,28 @@
             this.mBtnAgregar.Name = "mBtnAgregar";
             this.mBtnAgregar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAgregar_ElementClick);
             // 
-            // mBtnModificar
+            // mBtnAceptar
             // 
-            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnModificar.Appearance.Options.UseFont = true;
-            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnModificar.Caption = "Modificar";
-            this.mBtnModificar.Enabled = false;
-            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
-            this.mBtnModificar.Name = "mBtnModificar";
-            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
+            this.mBtnAceptar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnAceptar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mBtnAceptar.Appearance.Options.UseFont = true;
+            this.mBtnAceptar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mBtnAceptar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnAceptar.Caption = "Aceptar";
+            this.mBtnAceptar.Enabled = false;
+            this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
+            this.mBtnAceptar.Name = "mBtnAceptar";
             // 
-            // mBtnEliminar
+            // mBtnDeclinar
             // 
-            this.mBtnEliminar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnEliminar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnEliminar.Appearance.Options.UseFont = true;
-            this.mBtnEliminar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnEliminar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnEliminar.Caption = "Eliminar";
-            this.mBtnEliminar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnEliminar.Glyph")));
-            this.mBtnEliminar.Name = "mBtnEliminar";
-            this.mBtnEliminar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnEliminar_ElementClick);
+            this.mBtnDeclinar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnDeclinar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mBtnDeclinar.Appearance.Options.UseFont = true;
+            this.mBtnDeclinar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mBtnDeclinar.AppearanceHovered.Options.UseFont = true;
+            this.mBtnDeclinar.Caption = "Declinar";
+            this.mBtnDeclinar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnDeclinar.Glyph")));
+            this.mBtnDeclinar.Name = "mBtnDeclinar";
             // 
             // panel1
             // 
@@ -376,9 +374,9 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnAgregar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnAceptar;
 
-        private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
+        private DevExpress.XtraBars.Navigation.NavButton mBtnDeclinar;
         private DevExpress.XtraBars.Navigation.NavButton navButton1;
         private System.Windows.Forms.GroupBox gbGridViewTrasladoProductos;
         private DevExpress.XtraGrid.GridControl gCTraslados;

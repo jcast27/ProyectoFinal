@@ -50,6 +50,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
             this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
+            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).BeginInit();
@@ -95,7 +96,8 @@
             this.colPrimerApellido,
             this.colSegundoApellido,
             this.colUsuario,
-            this.colPerfil});
+            this.colPerfil,
+            this.colEstado});
             this.gridView1.GridControl = this.gCUsuarios;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -293,6 +295,13 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
+            // colEstado
+            // 
+            this.colEstado.FieldName = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.Visible = true;
+            this.colEstado.VisibleIndex = 5;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,5 +349,6 @@
         private SIME_UTN.DataSets.DataSetUsuario dataSetUsuario;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
         private SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colEstado;
     }
 }

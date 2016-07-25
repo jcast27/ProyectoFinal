@@ -145,26 +145,13 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idregistrobodega", unaBodegap.idRegistroBodega);
             comando.Parameters.AddWithValue("@nombre", unaBodegap.nombre);
             comando.Parameters.AddWithValue("@descripcion", unaBodegap.descripcion);
+            comando.Parameters.AddWithValue("@idubicacion", unaBodegap.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@tipo", unaBodegap.TipoBodega.idTipoBodega);
             comando.Parameters.AddWithValue("@estado", unaBodegap.estado);
             GuardarLog(unaBodegap, usuarioLogueadop, accion, null);
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
-            }
-
-            if (unaBodegap.TipoBodega.idTipoBodega != 1)
-            {
-
-                CambiarTipodeBodega(unaBodegap.idRegistroBodega);
-            }else
-            {
-                EliminaripodeBodega(unaBodegap.idRegistroBodega);
-                listInventario = AsociarBodegaConInventario();
-                foreach (InventarioProducto unInvetario in listInventario)
-                {
-                    InsertarInvetarioEnBodega(unInvetario,unaBodegap.idRegistroBodega);
-                }
             }
         }
 
@@ -228,12 +215,13 @@ namespace SIME_UTN.DAL
             List<InventarioProducto> listInventario = new List<InventarioProducto>();
             string accion = "";
             accion = "Insertar";
-            int ultimiIdInsertado = 0;
+            int idBodega = 0;
             SqlCommand comando = new SqlCommand("sp_INSERT_RegistroBodega");
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@nombre", unaBodegap.nombre);
             comando.Parameters.AddWithValue("@descripcion", unaBodegap.descripcion);
+            comando.Parameters.AddWithValue("@idubicacion", unaBodegap.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@tipo", unaBodegap.TipoBodega.idTipoBodega);
             comando.Parameters.AddWithValue("@estado", unaBodegap.estado);
 
@@ -244,63 +232,50 @@ namespace SIME_UTN.DAL
             {
                 DataSet ds = db.ExecuteReader(comando, "consulta");
 
-
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-
-                    ultimiIdInsertado = Convert.ToInt32(dr["IDRegistroBodega"].ToString());
-
+                    idBodega = Convert.ToInt32(dr["IDRegistroBodega"].ToString());
                 }
+
             }
-   
-                listInventario = AsociarBodegaConInventario();
-                foreach(InventarioProducto unInvetario in listInventario)
-                {
-                    if (unaBodegap.TipoBodega.idTipoBodega == 1)
-                     {
-                        InsertarInvetarioEnBodega(unInvetario, ultimiIdInsertado);
-                        }else
-                        {
-                            InsertarInvetarioEnBodega(unInvetario, ultimiIdInsertado);
-                            CambiarTipodeBodega(ultimiIdInsertado);
-                        }
-                }
-            
+
+            InsertarProductoEnBodega(idBodega);
         }
-
-
-        /// <summary>
-        /// Metodo optiene los productos del inventario y los asocia a la bodega si esta es fisica
-        /// </summary>
-        /// <param name="unInvetariop"></param>
-        /// <param name="ultimiIdInsertadop"></param>
-        internal static void InsertarInvetarioEnBodega(InventarioProducto unInvetariop, int ultimiIdInsertadop)
+        internal static void InsertarProductoEnBodega(int idBodegap)
         {
+            string accion = "";
+            accion = "Insertar";
+            double cantidad = 0;
 
-            SqlCommand comando1 = new SqlCommand("sp_INSERT_Bodega");
-            comando1.CommandType = CommandType.StoredProcedure;
+            List<RegistroIngresoProductoDTO> listaProductos = new List<RegistroIngresoProductoDTO>();
 
-            comando1.Parameters.AddWithValue("@idregistrobodega", ultimiIdInsertadop);
-            comando1.Parameters.AddWithValue("@idproducto", unInvetariop.idProducto.idProducto);
-            comando1.Parameters.AddWithValue("@codigoavatar", unInvetariop.codigoAvatar);
-            comando1.Parameters.AddWithValue("@descripcion", unInvetariop.descripcion);
-            comando1.Parameters.AddWithValue("@idunidadmedida", unInvetariop.idUnidadMedida.idUnidadMedida);
-            comando1.Parameters.AddWithValue("@contenido", unInvetariop.stockActual);
-            comando1.Parameters.AddWithValue("@estado", unInvetariop.estado);
+            listaProductos = ObtenertProductoInvetario();
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            foreach (RegistroIngresoProductoDTO producto in listaProductos)
             {
-                db.ExecuteNonQuery(comando1);
+                SqlCommand comando = new SqlCommand("sp_INSERT_Bodega");
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idregistrobodega", idBodegap);
+                comando.Parameters.AddWithValue("@idproducto", producto.idProducto);
+                comando.Parameters.AddWithValue("@codigoavatar", producto.codigoAvatar);
+                comando.Parameters.AddWithValue("@nombre", producto.nombreProducto);
+                comando.Parameters.AddWithValue("@idunidadmedida", producto.Idunidad);
+                comando.Parameters.AddWithValue("@contenido", 0);
+                comando.Parameters.AddWithValue("@estado", 1);
+
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(comando);
+
+
+                }
             }
+
         }
 
-        /// <summary>
-        /// Metodo optiene los productos del inventario para poder asociarlos
-        /// </summary>
-        /// <returns></returns>
-        internal static List<InventarioProducto> AsociarBodegaConInventario()
+        internal static List<RegistroIngresoProductoDTO> ObtenertProductoInvetario()
         {
-            List<InventarioProducto> listInventario = new List<InventarioProducto>();
+            List<RegistroIngresoProductoDTO> listaProductos = new List<RegistroIngresoProductoDTO>();
             SqlCommand comando = new SqlCommand("sp_SELECT_InventarioProducto_All");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -311,25 +286,18 @@ namespace SIME_UTN.DAL
 
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    InventarioProducto inventario = new InventarioProducto();
-                    Producto unProducto = new Producto();
-                    UnidadMedida unidadMedida = new UnidadMedida();
-                    inventario.idInventarioProducto = Convert.ToInt32(dr["idinventarioproducto"].ToString());
+                    RegistroIngresoProductoDTO unProducto = new RegistroIngresoProductoDTO();
                     unProducto.idProducto = Convert.ToInt32(dr["idproducto"].ToString());
-                    inventario.idProducto = unProducto;
-                    inventario.codigoAvatar = dr["codigoavatar"].ToString();
-                    inventario.descripcion = dr["descripcion"].ToString();
-                    unidadMedida.idUnidadMedida = Convert.ToInt32(dr["idunidadmedida"].ToString());
-                    inventario.idUnidadMedida = unidadMedida;
-                    inventario.stockActual = float.Parse(dr["stockactual"].ToString());
-                    inventario.stockMinimo = float.Parse(dr["stockminimo"].ToString());
-                    inventario.stockMaximo = float.Parse(dr["stockmaximo"].ToString());
-                    inventario.estado = Convert.ToInt32(dr["estado"]);
-                    listInventario.Add(inventario);
+                    unProducto.codigoAvatar = dr["codigoavatar"].ToString();
+                    unProducto.nombreProducto = dr["descripcion"].ToString();
+                    unProducto.Idunidad = Convert.ToInt32(dr["idunidadmedida"].ToString());
+                    listaProductos.Add(unProducto);
                 }
             }
-            return listInventario;
+
+            return listaProductos;
         }
+
 
         /// <summary>
         /// Metodo guarda todo cambio en la tabla log

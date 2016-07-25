@@ -36,7 +36,6 @@ namespace SIME_UTN.DAL
                         unProducto.NombreProducto = dr["nombre"].ToString();
                         unProducto.Descripcion = dr["descripcion"].ToString();
                         unProducto.Categoria = dr["categoria"].ToString();
-                        unProducto.Ubicacion = dr["ubicacion"].ToString();
                         unProducto.UnidadMedida = dr["unidadmedida"].ToString();
                         listaProductos.Add(unProducto);
                     }
@@ -68,10 +67,10 @@ namespace SIME_UTN.DAL
                     unProducto.codigoAvatar = dr["codigoavatar"].ToString();
                     unProducto.nombreProducto = dr["nombre"].ToString();
                     unProducto.descripcion = dr["descripcion"].ToString();
+                    unProducto.contendio = Double.Parse(dr["contenido"].ToString());
                     unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
                     unProducto.Categoria = CategoriaDAL.ObtenerCategoriaID(Convert.ToInt32(ds.Tables[0].Rows[0]["idcategoria"].ToString()));
                     unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(ds.Tables[0].Rows[0]["idunidadmedida"].ToString()));
-                    unProducto.Ubicacion = UbicacionDAL.ObtenerUbicacionID(Convert.ToInt32(ds.Tables[0].Rows[0]["idubicacion"].ToString()));
 
                 }
             }
@@ -147,8 +146,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
             comando.Parameters.AddWithValue("@descripcion", unProductop.descripcion);
             comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
-            comando.Parameters.AddWithValue("@idubicacion", unProductop.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@contenido", unProductop.contendio);
             comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
             comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
@@ -168,6 +167,7 @@ namespace SIME_UTN.DAL
         {
             string accion = "";
             accion = "Insertar";
+            int idProducto = 0;
             SqlCommand comando = new SqlCommand("sp_INSERT_Producto");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -175,8 +175,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
             comando.Parameters.AddWithValue("@descripcion", unProductop.descripcion);
             comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
-            comando.Parameters.AddWithValue("@idubicacion", unProductop.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@contenido", unProductop.contendio);
             comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
             comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
@@ -185,9 +185,87 @@ namespace SIME_UTN.DAL
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
-                db.ExecuteNonQuery(comando);
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    idProducto = Convert.ToInt32(dr["IDProducto"].ToString());
+                }
             }
+            unProductop.idProducto = idProducto;
+            VerificarBodegaByID(unProductop);
+            
         }
+
+        /// <summary>
+        /// Metodo que verifica si el producto esta asociado a una bodega
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        internal static void VerificarBodegaByID(Producto unProductop)
+        {
+            bool existe = false;
+         
+
+            List<RegistroBodegaTipoBodegaDTO> listaBodegas = new List<RegistroBodegaTipoBodegaDTO>();
+            listaBodegas = RegistroBodegaDAL.ObtenertBodegas();
+
+            foreach(RegistroBodegaTipoBodegaDTO bodega in listaBodegas)
+            {
+                existe = false;
+                string sql = @"sp_SELECT_Bodega_ByID";
+                SqlCommand command = new SqlCommand(sql);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@idbodega", bodega.idregistrobodega);
+                command.Parameters.AddWithValue("@idproducto", unProductop.idProducto);
+
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    DataSet ds = db.ExecuteReader(command, "consulta");
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        existe = true;
+                    }
+
+                }
+                if (existe == false)
+                {
+                    InsertarProductoEnBodega(bodega.idregistrobodega,unProductop);
+                }
+            }
+
+           
+        }
+
+        internal static void InsertarProductoEnBodega(int idBodega,Producto unProductop)
+        {
+            string accion = "";
+            accion = "Insertar";
+
+
+                SqlCommand comando = new SqlCommand("sp_INSERT_Bodega");
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idregistrobodega", idBodega);
+                comando.Parameters.AddWithValue("@idproducto", unProductop.idProducto);
+                comando.Parameters.AddWithValue("@codigoavatar", unProductop.codigoAvatar);
+                comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
+                comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+                comando.Parameters.AddWithValue("@contenido", 0);
+                comando.Parameters.AddWithValue("@estado", 1);
+
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(comando);
+
+
+                }
+       }
+            
+            
+
+        
 
         /// <summary>
         /// Metodo que obtiene una lista de todos los productos
@@ -208,17 +286,14 @@ namespace SIME_UTN.DAL
                     Producto unProducto = new Producto();
                     Categoria unaCategoria = new Categoria();
                     UnidadMedida unaUnidadMedida = new UnidadMedida();
-                    Ubicacion unaUbicacion = new Ubicacion();
                     unProducto.idProducto = Convert.ToInt32(dr["idproducto"].ToString());
                     unProducto.codigoAvatar = dr["codigoavatar"].ToString();
                     unProducto.nombreProducto = dr["nombre"].ToString();
                     unProducto.descripcion = dr["descripcion"].ToString();
                     unaCategoria.idCategoria = int.Parse(dr["idcategoria"].ToString());
-                    unaUbicacion.idUbicacion = int.Parse(dr["idubicacion"].ToString());
                     unaUnidadMedida.idUnidadMedida = int.Parse(dr["idunidadmedida"].ToString());
                     unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
                     unProducto.Categoria = unaCategoria;
-                    unProducto.Ubicacion = unaUbicacion;
                     unProducto.UnidadMedida = unaUnidadMedida;
                     listaProductos.Add(unProducto);
                 }
@@ -249,16 +324,16 @@ namespace SIME_UTN.DAL
             if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
+                descripcion = "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion +"\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
 
             }
             if (accion == "Modificar")
             {
                 viejoProducto = ObtenerProductoPorCodigoAvatar(unProductop.codigoAvatar);
                 estado = "Activo";
-                descripcion = "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nUbicacion: " + viejoProducto.Ubicacion.nombre + "\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + viejoProducto.cantMinima + "\r\nCantidad Maxima: " + viejoProducto.cantMaxima + "\r\nEstado: " + estado;
+                descripcion = "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion +"\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + viejoProducto.cantMinima + "\r\nCantidad Maxima: " + viejoProducto.cantMaxima + "\r\nEstado: " + estado;
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUbicacion: " + unProductop.Ubicacion.nombre + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion+ "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
+                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion +"\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion+ "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
             }
 
             DateTime date = DateTime.Now;

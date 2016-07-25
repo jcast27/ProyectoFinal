@@ -30,7 +30,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@cantidad", unaMezclaProductoUnidadDTOp.cantidad);
             comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estado);
 
-            GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
+
+           GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {

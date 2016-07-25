@@ -11,6 +11,7 @@ namespace SIME_UTN.Entities
         public string nombre { set; get; }
         public string descripcion { set; get; }
         public TipoBodega TipoBodega { set; get; }
+        public Ubicacion Ubicacion { set; get; }
         public int estado { set; get; }
 
         public RegistroBodega() { }

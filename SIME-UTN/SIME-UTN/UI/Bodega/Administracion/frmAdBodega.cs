@@ -20,6 +20,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         static RegistroBodega bodegaEstatico = null;
         RegistroBodega unaBodega = null;
         TipoBodega unTipoBodega = null;
+        Ubicacion unaUbicacion = null;
 
         public frmAdBodega()
         {
@@ -51,6 +52,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         private void frmAdBodega_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetUbicacion.sp_SELECT_Ubicacion_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_Ubicacion_AllTableAdapter.Fill(this.dataSetUbicacion.sp_SELECT_Ubicacion_All);
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'dataSetTipoBodegaCMB.sp_SELECT_TipoBodega_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_TipoBodega_AllTableAdapter.Fill(this.dataSetTipoBodegaCMB.sp_SELECT_TipoBodega_All);
@@ -68,6 +71,15 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     if (value == bodegaEstatico.TipoBodega.descripcion)
                     {
                         cmbTipoBodega.SelectedIndex = i;
+                    }
+                }
+
+                for (int i = 0; i < cmbUbicacion.Items.Count; i++)
+                {
+                    string value = cmbUbicacion.GetItemText(cmbUbicacion.Items[i]);
+                    if (value == bodegaEstatico.Ubicacion.nombre)
+                    {
+                        cmbUbicacion.SelectedIndex = i;
                     }
                 }
 
@@ -141,6 +153,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             gestorBodega = GestorRegistroBodega.GetInstance();
             unaBodega = new RegistroBodega();
             unTipoBodega = new TipoBodega();
+            unaUbicacion = new Ubicacion();
             try
             {
 
@@ -149,6 +162,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unTipoBodega.idTipoBodega = int.Parse(cmbTipoBodega.SelectedValue.ToString());
                 unTipoBodega.descripcion = cmbTipoBodega.GetItemText(cmbTipoBodega.Items[cmbTipoBodega.SelectedIndex]);
                 unaBodega.TipoBodega = unTipoBodega;
+                unaUbicacion.idUbicacion = int.Parse(cmbUbicacion.SelectedValue.ToString());
+                unaUbicacion.nombre = cmbUbicacion.GetItemText(cmbUbicacion.Items[cmbUbicacion.SelectedIndex]);
+                unaBodega.Ubicacion = unaUbicacion;
                 unaBodega.estado = 1;
                 if (accionp == "Modificar")
                 {
@@ -201,6 +217,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             {
                 epError.SetError(cmbTipoBodega, "Campo Requerido");
                 cmbTipoBodega.Focus();
+                error = true;
+            }
+            if (cmbUbicacion.SelectedIndex == -1)
+            {
+                epError.SetError(cmbUbicacion, "Campo Requerido");
+                cmbUbicacion.Focus();
                 error = true;
             }
             if (chkedEstado.Checked == false)

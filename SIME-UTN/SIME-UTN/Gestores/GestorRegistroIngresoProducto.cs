@@ -28,19 +28,15 @@ namespace SIME_UTN.Gestores
             return instancia;
         }
 
-        internal void GuardarIngresoProducto(RegistroIngresoProductoDTO unIngProdDTO, string usuarioLogueado)
-        {
-            RegistroIngresoProductoBLL.GuardarIngresoProducto(unIngProdDTO, usuarioLogueado);
-        }
 
         internal List<RegistroIngresoProductoDTO> ObtenerProductosPorIdRegistro(int idRegIngProd)
         {
             return RegistroIngresoProductoBLL.ObtenerProductosPorIdRegistro(idRegIngProd);
         }
 
-        internal void EliminarIngresoDeProducto(Producto unProductop, int idIngProd, string usuarioLogueadop)
+        internal void EliminarIngresoDeProducto(int idRegistroBodegap,Producto unProductop, int idIngProd, string usuarioLogueadop)
         {
-            RegistroIngresoProductoBLL.EliminarIngresoDeProducto(unProductop, idIngProd, usuarioLogueadop);
+            RegistroIngresoProductoBLL.EliminarIngresoDeProducto(idRegistroBodegap,unProductop, idIngProd, usuarioLogueadop);
         }
 
         internal void ModificarIngresoProducto(RegistroIngresoProductoDTO unIngProd, string usuarioLogueado)

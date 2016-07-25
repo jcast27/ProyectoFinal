@@ -30,7 +30,7 @@ namespace SIME_UTN.Gestores
 
         internal void GuardarMezclaProducto(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTO, string usuarioLogueado)
         {
-            BLL.MezclaProductoBLL.GuardarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
+            BLL.MezclaProductoBLL.ModificarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
         }
 
         internal List<ProductoDTO> ObtenerProductosPorIdMezcla(int idRegistroMezclap)
@@ -43,9 +43,5 @@ namespace SIME_UTN.Gestores
             BLL.MezclaProductoBLL.EliminarProductoDeMezcla(unProductop,idMezclap,usuarioLogueadop);
         }
 
-        internal void ModificarMezclaProducto(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTO, string usuarioLogueado)
-        {
-            BLL.MezclaProductoBLL.ModificarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
-        }
     }
 }

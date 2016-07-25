@@ -47,6 +47,8 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void frmRegistroProducto_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetRBodegaNombre.sp_SELECT_RegistroBodega_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_RegistroBodega_AllTableAdapter.Fill(this.dataSetRBodegaNombre.sp_SELECT_RegistroBodega_All);
             // TODO: esta línea de código carga datos en la tabla 'dataSetUsuario.Usuario' Puede moverla o quitarla según sea necesario.
             this.usuarioTableAdapter.Fill(this.dataSetUsuario.Usuario);
             // TODO: esta línea de código carga datos en la tabla 'dataSetRegistroProducto.RegistroProducto' Puede moverla o quitarla según sea necesario.
@@ -69,15 +71,18 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             gestorRegistro = new GestorRegistroProducto();
             unRegProd = new RegistroProducto();
+            RegistroBodega bodega = new RegistroBodega();
             try
             {
+                bodega.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString());
                 unRegProd.idIngresoProducto = int.Parse(gridView1.GetFocusedRowCellValue("IDIngresoProducto").ToString());
                 unRegProd.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
+                unRegProd.Bodega = bodega;
 
 
                 if (MessageBox.Show("¿Seguro que desea eliminar el registro " + unRegProd.descripcion + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    gestorRegistro.EliminarRegistroProducto(unRegProd.idIngresoProducto, unRegProd.descripcion, usuarioLogueado);
+                    gestorRegistro.EliminarRegistroProducto(unRegProd.Bodega.idRegistroBodega,unRegProd.idIngresoProducto, unRegProd.descripcion, usuarioLogueado);
                     
                     MessageBox.Show("El Registro " + unRegProd.descripcion + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmRegistroProducto_Load(null, null);
@@ -111,16 +116,19 @@ namespace SIME_UTN.UI.Bodega.Procesos
             UsuarioTable user = new UsuarioTable();
             try
             {
-                
+                RegistroBodega bodega = new RegistroBodega();
+                System.Data.DataRowView row = null;
                 mBtnModificar.Enabled = true;
                 mBtnEliminar.Enabled = true;
                 registroEstatico.idIngresoProducto = int.Parse(gridView1.GetFocusedRowCellValue("IDIngresoProducto").ToString());
-               // user.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("idusuario").ToString());
-                //registroEstatico.Usuario = user;
                 registroEstatico.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
                 registroEstatico.solicitudAvatar = gridView1.GetFocusedRowCellValue("SolicitudAvatar").ToString();
                 registroEstatico.fechaIngreso = gridView1.GetFocusedRowCellValue("FechaIngreso").ToString();
-                registroEstatico.fechaCaducidad = gridView1.GetFocusedRowCellValue("FechaCaducidad").ToString();
+                bodega.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString());
+                row = LookUpEditBodega.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString())) as DataRowView;
+                bodega.nombre = row.Row["nombre"].ToString();
+                registroEstatico.Bodega = bodega;
+               
             }
             catch (ApplicationException app)
             {

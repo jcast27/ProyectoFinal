@@ -55,6 +55,11 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.sp_SELECT_RegistroBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRegistroBodegaTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
+            this.colIDLocalizacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpUbicacion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.dataSetBodegaUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaUbicacion();
+            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRegistroBodegaBindingSource)).BeginInit();
@@ -66,6 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecBodegas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaUbicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCBodegas
@@ -78,7 +86,8 @@
             this.gCBodegas.MainView = this.gridView1;
             this.gCBodegas.Name = "gCBodegas";
             this.gCBodegas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.LookUpTipoBodega});
+            this.LookUpTipoBodega,
+            this.LookUpUbicacion});
             this.gCBodegas.Size = new System.Drawing.Size(1033, 479);
             this.gCBodegas.TabIndex = 0;
             this.gCBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -107,6 +116,7 @@
             this.colnombre,
             this.coldescripcion,
             this.coltipo,
+            this.colIDLocalizacion,
             this.colestado});
             this.gridView1.GridControl = this.gCBodegas;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
@@ -310,6 +320,42 @@
             // 
             this.sp_SELECT_TipoBodega_AllTableAdapter.ClearBeforeFill = true;
             // 
+            // colIDLocalizacion
+            // 
+            this.colIDLocalizacion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colIDLocalizacion.AppearanceCell.Options.UseFont = true;
+            this.colIDLocalizacion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colIDLocalizacion.AppearanceHeader.Options.UseFont = true;
+            this.colIDLocalizacion.ColumnEdit = this.LookUpUbicacion;
+            this.colIDLocalizacion.FieldName = "IDLocalizacion";
+            this.colIDLocalizacion.Name = "colIDLocalizacion";
+            this.colIDLocalizacion.Visible = true;
+            this.colIDLocalizacion.VisibleIndex = 3;
+            // 
+            // LookUpUbicacion
+            // 
+            this.LookUpUbicacion.AutoHeight = false;
+            this.LookUpUbicacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
+            this.LookUpUbicacion.DisplayMember = "nombre";
+            this.LookUpUbicacion.Name = "LookUpUbicacion";
+            this.LookUpUbicacion.ValueMember = "idubicacion";
+            // 
+            // dataSetBodegaUbicacion
+            // 
+            this.dataSetBodegaUbicacion.DataSetName = "DataSetBodegaUbicacion";
+            this.dataSetBodegaUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spSELECTUbicacionAllBindingSource
+            // 
+            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
+            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetBodegaUbicacion;
+            // 
+            // sp_SELECT_Ubicacion_AllTableAdapter
+            // 
+            this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
+            // 
             // frmBodegas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,6 +382,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecBodegas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaUbicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,5 +416,10 @@
         private DataSets.Bodega.Admistracion.DataSetTipoBodega dataSetTipoBodega;
         private System.Windows.Forms.BindingSource spSELECTTipoBodegaAllBindingSource;
         private DataSets.Bodega.Admistracion.DataSetTipoBodegaTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter sp_SELECT_TipoBodega_AllTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colIDLocalizacion;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpUbicacion;
+        private DataSets.Bodega.Admistracion.DataSetBodegaUbicacion dataSetBodegaUbicacion;
+        private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetBodegaUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
     }
 }

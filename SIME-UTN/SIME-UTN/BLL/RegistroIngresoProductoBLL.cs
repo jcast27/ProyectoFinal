@@ -10,21 +10,16 @@ namespace SIME_UTN.BLL
 {
     class RegistroIngresoProductoBLL
     {
-        internal static void GuardarIngresoProducto(RegistroIngresoProductoDTO unIngProdDTO, string usuarioLogueado)
-        {
 
-            RegistroIngresoProductoDAL.GuardarIngresoProducto(unIngProdDTO, usuarioLogueado);
-
-        }
 
         internal static List<RegistroIngresoProductoDTO> ObtenerProductosPorIdRegistro(int idRegIngrProd)
         {
             return RegistroIngresoProductoDAL.ObtenerProductosPorIdRegistro(idRegIngrProd);
         }
 
-        internal static void EliminarIngresoDeProducto(Producto unProductop, int idIngProd, string usuarioLogueadop)
+        internal static void EliminarIngresoDeProducto(int idRegistroBodegap,Producto unProductop, int idIngProd, string usuarioLogueadop)
         {
-            RegistroIngresoProductoDAL.EliminarIngresoDeProducto(unProductop, idIngProd, usuarioLogueadop);
+            RegistroIngresoProductoDAL.EliminarIngresoDeProducto(idRegistroBodegap,unProductop, idIngProd, usuarioLogueadop);
         }
 
         internal static void ModificarIngresoProducto(RegistroIngresoProductoDTO unIngProd, string usuarioLogueado)

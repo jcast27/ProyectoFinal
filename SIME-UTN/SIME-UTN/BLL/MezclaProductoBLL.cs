@@ -10,12 +10,6 @@ namespace SIME_UTN.BLL
 {
     class MezclaProductoBLL
     {
-        internal static void GuardarMezclaProducto(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTO, string usuarioLogueado)
-        {
-
-                DAL.MezclaProductoDAL.GuardarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
-
-        }
 
         internal static List<ProductoDTO> ObtenerProductosPorIdMezcla(int idRegistroMezclap)
         {

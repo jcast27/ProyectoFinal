@@ -285,6 +285,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             private global::System.Data.DataColumn columndescripcion;
             
+            private global::System.Data.DataColumn columnIDLocalizacion;
+            
             private global::System.Data.DataColumn columntipo;
             
             private global::System.Data.DataColumn columnestado;
@@ -348,6 +350,14 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDLocalizacionColumn {
+                get {
+                    return this.columnIDLocalizacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn tipoColumn {
                 get {
                     return this.columntipo;
@@ -399,12 +409,13 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_SELECT_RegistroBodega_AllRow Addsp_SELECT_RegistroBodega_AllRow(string nombre, string descripcion, int tipo, bool estado) {
+            public sp_SELECT_RegistroBodega_AllRow Addsp_SELECT_RegistroBodega_AllRow(string nombre, string descripcion, int IDLocalizacion, int tipo, bool estado) {
                 sp_SELECT_RegistroBodega_AllRow rowsp_SELECT_RegistroBodega_AllRow = ((sp_SELECT_RegistroBodega_AllRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         nombre,
                         descripcion,
+                        IDLocalizacion,
                         tipo,
                         estado};
                 rowsp_SELECT_RegistroBodega_AllRow.ItemArray = columnValuesArray;
@@ -439,6 +450,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                 this.columnidregistrobodega = base.Columns["idregistrobodega"];
                 this.columnnombre = base.Columns["nombre"];
                 this.columndescripcion = base.Columns["descripcion"];
+                this.columnIDLocalizacion = base.Columns["IDLocalizacion"];
                 this.columntipo = base.Columns["tipo"];
                 this.columnestado = base.Columns["estado"];
             }
@@ -452,6 +464,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                 base.Columns.Add(this.columnnombre);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
+                this.columnIDLocalizacion = new global::System.Data.DataColumn("IDLocalizacion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDLocalizacion);
                 this.columntipo = new global::System.Data.DataColumn("tipo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntipo);
                 this.columnestado = new global::System.Data.DataColumn("estado", typeof(bool), null, global::System.Data.MappingType.Element);
@@ -653,6 +667,23 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IDLocalizacion {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_SELECT_RegistroBodega_All.IDLocalizacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDLocalizacion\' in table \'sp_SELECT_RegistroBodega_All\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_SELECT_RegistroBodega_All.IDLocalizacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int tipo {
                 get {
                     try {
@@ -707,6 +738,18 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdescripcionNull() {
                 this[this.tablesp_SELECT_RegistroBodega_All.descripcionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDLocalizacionNull() {
+                return this.IsNull(this.tablesp_SELECT_RegistroBodega_All.IDLocalizacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDLocalizacionNull() {
+                this[this.tablesp_SELECT_RegistroBodega_All.IDLocalizacionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -896,6 +939,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRegistroBodegaTableAdapte
             tableMapping.ColumnMappings.Add("idregistrobodega", "idregistrobodega");
             tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("descripcion", "descripcion");
+            tableMapping.ColumnMappings.Add("IDLocalizacion", "IDLocalizacion");
             tableMapping.ColumnMappings.Add("tipo", "tipo");
             tableMapping.ColumnMappings.Add("estado", "estado");
             this._adapter.TableMappings.Add(tableMapping);
