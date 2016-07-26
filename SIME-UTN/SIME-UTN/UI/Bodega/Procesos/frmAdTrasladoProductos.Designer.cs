@@ -646,6 +646,7 @@
             this.gCProductos.TabIndex = 0;
             this.gCProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            this.gCProductos.Click += new System.EventHandler(this.gCProductos_Click);
             // 
             // gridView2
             // 

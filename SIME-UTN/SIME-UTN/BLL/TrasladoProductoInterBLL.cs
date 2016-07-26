@@ -19,7 +19,7 @@ namespace SIME_UTN.BLL
         {
             if (DAL.TrasladoProductoInterDAL.ValidarTrasladoProducto(trasladoInterDTOp.idTraslado, trasladoInterDTOp.idProducto) ==true)
             {
-                DAL.TrasladoProductoInterDAL.ActualizarTrasladoProductos(trasladoInterDTOp);
+                DAL.TrasladoProductoInterDAL.ActualizarTrasladoProductos(trasladoInterDTOp, trasladop);
             }
             else
             {

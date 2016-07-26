@@ -51,10 +51,11 @@ namespace SIME_UTN.DAL
         /// Metodo que actualiza los productos de un traslado
         /// </summary>
         /// <param name="trasladoInterDTOp"></param>
-        internal static void ActualizarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp)
+        internal static void ActualizarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp, TrasladoProducto trasladop)
         {
             string accion = "";
             accion = "Insertar";
+            double cantidad = ObtenerUltimaCantidadDelTraslado(trasladoInterDTOp);
             SqlCommand comando = new SqlCommand("sp_UPDATE_TrasladoProductoInter");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -69,6 +70,35 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
+            
+            BodegaDAL.CambiarCantidadyActualizarla(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, cantidad, trasladoInterDTOp.cantidad);
+
+        }
+
+        internal static double ObtenerUltimaCantidadDelTraslado(TrasladoProductoInterDTO trasladoInterDTOp)
+        {
+            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
+            double cantidad = 0;
+            SqlCommand comando = new SqlCommand("sp_SELECT_TrasladoCantidad");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idTraslado", trasladoInterDTOp.idTraslado);
+            comando.Parameters.AddWithValue("@idProducto", trasladoInterDTOp.idProducto);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+
+                    cantidad = Double.Parse(dr["cantidad"].ToString());
+
+                }
+            }
+
+            return cantidad;
         }
 
         /// <summary>
@@ -126,13 +156,7 @@ namespace SIME_UTN.DAL
                 db.ExecuteNonQuery(comando);
             }
 
-            if ((trasladop.BodegaOrigen.TipoBodega.idTipoBodega==1) &&(trasladop.BodegaDestino.TipoBodega.idTipoBodega != 1))
-            {
-                BodegaDAL.ActualizarCantidad(trasladop.BodegaDestino.idRegistroBodega,trasladoInterDTOp.idProducto,trasladoInterDTOp.cantidad);
-            }else
-            {
-                BodegaDAL.ActualizarCantidadAmbasBodegas(trasladop,trasladoInterDTOp.idProducto, trasladoInterDTOp.cantidad);
-            }
+                BodegaDAL.ActualizarCantidad(trasladop.BodegaOrigen.idRegistroBodega,trasladoInterDTOp.idProducto,trasladoInterDTOp.cantidad);
 
         }
     }

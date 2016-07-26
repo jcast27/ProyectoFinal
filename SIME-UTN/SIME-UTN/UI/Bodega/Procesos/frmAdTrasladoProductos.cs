@@ -608,5 +608,15 @@ namespace SIME_UTN.UI.Bodega.Procesos
             }
           
         }
+
+        private void gCProductos_Click(object sender, EventArgs e)
+        {
+            txtECodigoProducto.Text = gridView2.GetFocusedRowCellValue("CodigoProducto").ToString();
+            txtNombreProducto.Text = gridView2.GetFocusedRowCellValue("Nombre").ToString();
+            txtUnidadMedida.Text = gridView2.GetFocusedRowCellValue("UnidadMedida").ToString();
+            txtCantidad.Text = gridView2.GetFocusedRowCellValue("Cantidad").ToString();
+
+         
+        }
     }
 }

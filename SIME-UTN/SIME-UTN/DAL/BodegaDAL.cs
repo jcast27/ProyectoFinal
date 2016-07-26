@@ -21,7 +21,7 @@ namespace SIME_UTN.DAL
         internal static List<PBodega> ObtenerProductosPorIdBodega(int idRegistroBodegap)
         {
             List<PBodega> listaProductos = new List<PBodega>();
-            SqlCommand comando = new SqlCommand("sp_SELECT_Bodega_ByID");
+            SqlCommand comando = new SqlCommand("sp_SELECT_Bodega_ByIDBodega");
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@idbodega", idRegistroBodegap);
@@ -33,7 +33,7 @@ namespace SIME_UTN.DAL
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     PBodega unProducto = new PBodega();
-                    unProducto.idBodega = Convert.ToInt32(dr["idbodega"].ToString());
+                    //unProducto.idBodega = Convert.ToInt32(dr["idbodega"].ToString());
                     unProducto.RegistroBodega = RegistroBodegaDAL.ObtenerBodega(Convert.ToInt32(dr["idregistrobodega"].ToString()));
                     unProducto.Producto = ProductoDAL.ObtenerProductoPorCodigoAvatar(dr["codigoavatar"].ToString());
                     unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(dr["idunidadmedida"].ToString()));
@@ -68,15 +68,15 @@ namespace SIME_UTN.DAL
             }
         }
 
-        internal static void ActualizarCantidadAmbasBodegas(TrasladoProducto trasladop, int idProducto, double cantidad)
+        internal static void CambiarCantidadyActualizarla(int idRegistroBodegap, int idProducto, double ucantidad, double cantidad)
         {
-            SqlCommand comando = new SqlCommand("sp_UPDATE_Bodega_Cantidades");
+            SqlCommand comando = new SqlCommand("sp_UPDATE_Bodega_Update_Cantidad");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@idregistrobodega", trasladop.BodegaDestino.idRegistroBodega);
+            comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodegap);
             comando.Parameters.AddWithValue("@idproducto", idProducto);
+            comando.Parameters.AddWithValue("@UContenido", ucantidad);
             comando.Parameters.AddWithValue("@Contenido", cantidad);
-            comando.Parameters.AddWithValue("@idregistrobodegaOrigen", trasladop.BodegaOrigen.idRegistroBodega);
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
