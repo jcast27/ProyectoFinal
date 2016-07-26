@@ -11,6 +11,8 @@ using System.Threading;
 using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using SIME_UTN.Gestores;
 using DevExpress.XtraBars.Docking2010.Views;
+using SIME_UTN.UI.Reportes;
+using SIME_UTN.UI.Bodega.Procesos;
 
 namespace SIME_UTN.UI.Bodega
 {
@@ -422,6 +424,13 @@ namespace SIME_UTN.UI.Bodega
             modulo = true;
             FormClosing -= frmMDI_FormClosing;
             Close();
+        }
+
+        private void mBtnReportes_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            tipoDeProceso = "Reportes";
+            frmBodegaReporte frm = new frmBodegaReporte(usuarioLogueado);
+            frm.Show(this);
         }
     }
 }

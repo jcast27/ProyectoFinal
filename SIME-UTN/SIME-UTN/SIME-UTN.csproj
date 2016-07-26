@@ -467,6 +467,12 @@
     <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.Designer.cs">
       <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmBodegaReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmBodegaReporte.Designer.cs">
+      <DependentUpon>frmBodegaReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Bodega\Procesos\frmTrasladosDeProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -651,10 +657,10 @@
     <Compile Include="UI\Formulario\frmMDIForm.Designer.cs">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\frmFormReporte.cs">
+    <Compile Include="UI\Formulario\Procesos\frmFormReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\frmFormReporte.Designer.cs">
+    <Compile Include="UI\Formulario\Procesos\frmFormReporte.Designer.cs">
       <DependentUpon>frmFormReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\frmReporte.cs">
@@ -668,6 +674,18 @@
     </Compile>
     <Compile Include="UI\Reportes\rptActivo.Designer.cs">
       <DependentUpon>rptActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptBodegaNumero.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptBodegaNumero.Designer.cs">
+      <DependentUpon>rptBodegaNumero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptBodega.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptBodega.Designer.cs">
+      <DependentUpon>rptBodega.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\rptFormularioFecha.cs">
       <SubType>Component</SubType>
@@ -686,6 +704,24 @@
     </Compile>
     <Compile Include="UI\Reportes\rptItem.Designer.cs">
       <DependentUpon>rptItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoUser.Designer.cs">
+      <DependentUpon>rptTrasladoUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoFecha.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoFecha.Designer.cs">
+      <DependentUpon>rptTrasladoFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTraslado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTraslado.Designer.cs">
+      <DependentUpon>rptTraslado.cs</DependentUpon>
     </Compile>
     <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -738,6 +774,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Procesos\frmAdTrasladoProductos.resx">
       <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmBodegaReporte.resx">
+      <DependentUpon>frmBodegaReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Procesos\frmTrasladosDeProductos.resx">
       <DependentUpon>frmTrasladosDeProductos.cs</DependentUpon>
@@ -827,7 +866,7 @@
     <EmbeddedResource Include="UI\Formulario\frmMDIForm.resx">
       <DependentUpon>frmMDIForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\frmFormReporte.resx">
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmFormReporte.resx">
       <DependentUpon>frmFormReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\frmReporte.resx">
@@ -835,6 +874,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptActivo.resx">
       <DependentUpon>rptActivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptBodegaNumero.resx">
+      <DependentUpon>rptBodegaNumero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptBodega.resx">
+      <DependentUpon>rptBodega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptFormularioFecha.resx">
       <DependentUpon>rptFormularioFecha.cs</DependentUpon>
@@ -844,6 +889,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptItem.resx">
       <DependentUpon>rptItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptTrasladoUser.resx">
+      <DependentUpon>rptTrasladoUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptTrasladoFecha.resx">
+      <DependentUpon>rptTrasladoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptTraslado.resx">
+      <DependentUpon>rptTraslado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

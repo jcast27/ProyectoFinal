@@ -71,8 +71,8 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.@FechaInicio = new DevExpress.XtraReports.Parameters.Parameter();
-            this.@FechaFin = new DevExpress.XtraReports.Parameters.Parameter();
+            this.FechaInicio = new DevExpress.XtraReports.Parameters.Parameter();
+            this.FechaFin = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -177,10 +177,10 @@
             customSqlQuery1.Name = "Formulario";
             queryParameter1.Name = "@FechaInicio";
             queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.@FechaInicio]", typeof(System.DateTime));
+            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.FechaInicio]", typeof(System.DateTime));
             queryParameter2.Name = "@FechaFin";
             queryParameter2.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter2.Value = new DevExpress.DataAccess.Expression("[Parameters.@FechaFin]", typeof(System.DateTime));
+            queryParameter2.Value = new DevExpress.DataAccess.Expression("[Parameters.FechaFin]", typeof(System.DateTime));
             customSqlQuery1.Parameters.Add(queryParameter1);
             customSqlQuery1.Parameters.Add(queryParameter2);
             customSqlQuery1.Sql = resources.GetString("customSqlQuery1.Sql");
@@ -432,19 +432,19 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // @FechaInicio
+            // FechaInicio
             // 
-            this.@FechaInicio.Description = "Fecha de Inicio";
-            this.@FechaInicio.Name = "@FechaInicio";
-            this.@FechaInicio.Type = typeof(System.DateTime);
-            this.@FechaInicio.ValueInfo = "2016-07-25";
+            this.FechaInicio.Description = "Fecha de Inicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.Type = typeof(System.DateTime);
+            this.FechaInicio.ValueInfo = "2016-07-25";
             // 
-            // @FechaFin
+            // FechaFin
             // 
-            this.@FechaFin.Description = "Fecha Final";
-            this.@FechaFin.Name = "@FechaFin";
-            this.@FechaFin.Type = typeof(System.DateTime);
-            this.@FechaFin.ValueInfo = "2016-07-25";
+            this.FechaFin.Description = "Fecha Final";
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.Type = typeof(System.DateTime);
+            this.FechaFin.ValueInfo = "2016-07-25";
             // 
             // rptFormularioFecha
             // 
@@ -460,8 +460,8 @@
             this.DataMember = "Formulario";
             this.DataSource = this.sqlDataSource1;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.@FechaInicio,
-            this.@FechaFin});
+            this.FechaInicio,
+            this.FechaFin});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,

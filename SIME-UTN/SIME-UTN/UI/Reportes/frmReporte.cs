@@ -37,6 +37,21 @@ namespace SIME_UTN.UI.Reportes
                 case ("btnItem"):
                     reporte = new rptFormularioFecha(user);
                     break;
+                case ("btnBodega"):
+                    reporte = new rptBodega(user);
+                    break;
+                case ("btnBodegaN"):
+                    reporte = new rptBodegaNumero(user);
+                    break;
+                case ("btnTraslado"):
+                    reporte = new rptTraslado(user);
+                    break;
+                case ("btnTrasladoFecha"):
+                    reporte = new rptTrasladoFecha(user);
+                    break;
+                case ("btnTrasladoUser"):
+                    reporte = new rptTrasladoUser(user);
+                    break;
                 default:
                     break;
             }

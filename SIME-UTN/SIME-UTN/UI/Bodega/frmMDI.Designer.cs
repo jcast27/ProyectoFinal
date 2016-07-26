@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
@@ -43,13 +42,13 @@
             this.mBtnInventarios = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnReportes = new DevExpress.XtraBars.Navigation.NavButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView(this.components);
-            this.FlyoutCloseAction = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout(this.components);
-            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
-            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
-            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView();
+            this.FlyoutCloseAction = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout();
+            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document();
+            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document();
+            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
+            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
             this.lblNombreProyecto = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usuarioTSMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,6 +154,7 @@
             this.mBtnReportes.Caption = "Reportes";
             this.mBtnReportes.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnReportes.Glyph")));
             this.mBtnReportes.Name = "mBtnReportes";
+            this.mBtnReportes.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnReportes_ElementClick);
             // 
             // splitter1
             // 
