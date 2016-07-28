@@ -12,13 +12,13 @@ namespace SIME_UTN.UI.Reportes
 {
     public partial class frmReporte : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmReporte(string nombre, string user)
+        public frmReporte(string nombre, string user, int id)
         {
             InitializeComponent();
-            cargarReporte(nombre, user);
+            cargarReporte(nombre, user, id);
         }
 
-        public void cargarReporte(string nombre, string user)
+        public void cargarReporte(string nombre, string user, int id)
         {
 
             XtraReport reporte = new XtraReport();
@@ -35,7 +35,7 @@ namespace SIME_UTN.UI.Reportes
                     reporte = new rptFormularioFecha(user);
                     break;
                 case ("btnItem"):
-                    reporte = new rptFormularioFecha(user);
+                    reporte = new rptItem(user);
                     break;
                 case ("btnBodega"):
                     reporte = new rptBodega(user);
@@ -51,6 +51,10 @@ namespace SIME_UTN.UI.Reportes
                     break;
                 case ("btnTrasladoUser"):
                     reporte = new rptTrasladoUser(user);
+                    break;
+                case ("imprimir"):
+                    reporte = new rptImprimirForm(user);
+                    reporte.Parameters["Id"].Value = id;
                     break;
                 default:
                     break;

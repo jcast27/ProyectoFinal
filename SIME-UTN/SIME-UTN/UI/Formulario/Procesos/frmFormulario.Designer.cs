@@ -289,7 +289,6 @@
             this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 46;
             this.label6.Text = "N° Serie";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtSerie
             // 
@@ -639,9 +638,7 @@
             this.Name = "frmFormulario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Formulario";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmFormulario_FormClosed);
             this.Load += new System.EventHandler(this.frmFormulario_Load);
-            this.SizeChanged += new System.EventHandler(this.frmFormulario_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetActivo)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdDespacho));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
@@ -38,26 +39,48 @@
             this.txtCantidadMez = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbMezcla = new System.Windows.Forms.ComboBox();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetRMezclasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetRMezclas = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclas();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
-            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gcDespacho = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.columnaID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnaProducto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnaCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetFuncionario = new SIME_UTN.DataSets.Formulario.DataSetFuncionario();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtCantidadProd = new System.Windows.Forms.TextBox();
             this.txtRemover = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.gcProducto = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProducto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colContenido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
+            this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter();
+            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbGridViewFuncionario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDespacho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -83,7 +106,7 @@
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(770, 40);
+            this.tileNavPane1.Size = new System.Drawing.Size(806, 40);
             this.tileNavPane1.TabIndex = 35;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
@@ -97,6 +120,7 @@
             this.mBtnNuevo.Caption = "Nuevo";
             this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
             this.mBtnNuevo.Name = "mBtnNuevo";
+            this.mBtnNuevo.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnNuevo_ElementClick);
             // 
             // mBtnAceptar
             // 
@@ -119,6 +143,7 @@
             this.mBtnSalir.Caption = "Cancelar";
             this.mBtnSalir.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnSalir.Glyph")));
             this.mBtnSalir.Name = "mBtnSalir";
+            this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
             // 
             // gbGridViewFuncionario
             // 
@@ -132,7 +157,7 @@
             this.gbGridViewFuncionario.ForeColor = System.Drawing.Color.White;
             this.gbGridViewFuncionario.Location = new System.Drawing.Point(9, 431);
             this.gbGridViewFuncionario.Name = "gbGridViewFuncionario";
-            this.gbGridViewFuncionario.Size = new System.Drawing.Size(750, 68);
+            this.gbGridViewFuncionario.Size = new System.Drawing.Size(785, 68);
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Mezclas";
@@ -141,7 +166,7 @@
             // 
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnGenerar.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerar.Location = new System.Drawing.Point(451, 28);
+            this.btnGenerar.Location = new System.Drawing.Point(399, 29);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(85, 26);
             this.btnGenerar.TabIndex = 34;
@@ -151,7 +176,7 @@
             // txtCantidadMez
             // 
             this.txtCantidadMez.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtCantidadMez.Location = new System.Drawing.Point(303, 30);
+            this.txtCantidadMez.Location = new System.Drawing.Point(284, 30);
             this.txtCantidadMez.Name = "txtCantidadMez";
             this.txtCantidadMez.Size = new System.Drawing.Size(100, 24);
             this.txtCantidadMez.TabIndex = 33;
@@ -160,7 +185,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label4.Location = new System.Drawing.Point(220, 30);
+            this.label4.Location = new System.Drawing.Point(201, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 18);
             this.label4.TabIndex = 32;
@@ -168,12 +193,30 @@
             // 
             // cmbMezcla
             // 
+            this.cmbMezcla.DataSource = this.productoBindingSource;
+            this.cmbMezcla.DisplayMember = "nombre";
             this.cmbMezcla.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbMezcla.FormattingEnabled = true;
             this.cmbMezcla.Location = new System.Drawing.Point(72, 30);
             this.cmbMezcla.Name = "cmbMezcla";
             this.cmbMezcla.Size = new System.Drawing.Size(121, 24);
             this.cmbMezcla.TabIndex = 31;
+            this.cmbMezcla.ValueMember = "idregistromezcla";
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataMember = "Producto";
+            this.productoBindingSource.DataSource = this.dataSetRMezclasBindingSource;
+            // 
+            // dataSetRMezclasBindingSource
+            // 
+            this.dataSetRMezclasBindingSource.DataSource = this.dataSetRMezclas;
+            this.dataSetRMezclasBindingSource.Position = 0;
+            // 
+            // dataSetRMezclas
+            // 
+            this.dataSetRMezclas.DataSetName = "DataSetRMezclas";
+            this.dataSetRMezclas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -201,9 +244,9 @@
             // 
             // gbGridViewRegistroProductos
             // 
+            this.gbGridViewRegistroProductos.Controls.Add(this.gcDespacho);
             this.gbGridViewRegistroProductos.Controls.Add(this.cmbFuncionario);
             this.gbGridViewRegistroProductos.Controls.Add(this.label3);
-            this.gbGridViewRegistroProductos.Controls.Add(this.gcDespacho);
             this.gbGridViewRegistroProductos.Controls.Add(this.txtCantidadProd);
             this.gbGridViewRegistroProductos.Controls.Add(this.txtRemover);
             this.gbGridViewRegistroProductos.Controls.Add(this.btnAgregar);
@@ -214,49 +257,93 @@
             this.gbGridViewRegistroProductos.ForeColor = System.Drawing.Color.White;
             this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(12, 47);
             this.gbGridViewRegistroProductos.Name = "gbGridViewRegistroProductos";
-            this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(745, 379);
+            this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(782, 379);
             this.gbGridViewRegistroProductos.TabIndex = 37;
             this.gbGridViewRegistroProductos.TabStop = false;
             this.gbGridViewRegistroProductos.Text = "Despacho";
             // 
-            // cmbFuncionario
-            // 
-            this.cmbFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cmbFuncionario.FormattingEnabled = true;
-            this.cmbFuncionario.Location = new System.Drawing.Point(608, 33);
-            this.cmbFuncionario.Name = "cmbFuncionario";
-            this.cmbFuncionario.Size = new System.Drawing.Size(121, 24);
-            this.cmbFuncionario.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label3.Location = new System.Drawing.Point(512, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 18);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Funcionario:";
-            // 
             // gcDespacho
             // 
-            this.gcDespacho.Location = new System.Drawing.Point(406, 69);
+            this.gcDespacho.Location = new System.Drawing.Point(441, 69);
             this.gcDespacho.MainView = this.gridView2;
             this.gcDespacho.Name = "gcDespacho";
             this.gcDespacho.Size = new System.Drawing.Size(323, 288);
-            this.gcDespacho.TabIndex = 7;
+            this.gcDespacho.TabIndex = 10;
             this.gcDespacho.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
             // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.columnaID,
+            this.columnaProducto,
+            this.columnaCantidad});
             this.gridView2.GridControl = this.gcDespacho;
             this.gridView2.Name = "gridView2";
+            // 
+            // columnaID
+            // 
+            this.columnaID.Caption = "ID";
+            this.columnaID.FieldName = "Producto.idProducto";
+            this.columnaID.Name = "columnaID";
+            // 
+            // columnaProducto
+            // 
+            this.columnaProducto.Caption = "Producto";
+            this.columnaProducto.FieldName = "Producto.nombreProducto";
+            this.columnaProducto.Name = "columnaProducto";
+            this.columnaProducto.Visible = true;
+            this.columnaProducto.VisibleIndex = 0;
+            // 
+            // columnaCantidad
+            // 
+            this.columnaCantidad.Caption = "Cantidad";
+            this.columnaCantidad.FieldName = "contenido";
+            this.columnaCantidad.Name = "columnaCantidad";
+            this.columnaCantidad.Visible = true;
+            this.columnaCantidad.VisibleIndex = 1;
+            // 
+            // cmbFuncionario
+            // 
+            this.cmbFuncionario.DataSource = this.funcionarioBindingSource;
+            this.cmbFuncionario.DisplayMember = "Nombre";
+            this.cmbFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cmbFuncionario.FormattingEnabled = true;
+            this.cmbFuncionario.Location = new System.Drawing.Point(593, 33);
+            this.cmbFuncionario.Name = "cmbFuncionario";
+            this.cmbFuncionario.Size = new System.Drawing.Size(171, 24);
+            this.cmbFuncionario.TabIndex = 9;
+            this.cmbFuncionario.ValueMember = "IDFuncionario";
+            // 
+            // funcionarioBindingSource
+            // 
+            this.funcionarioBindingSource.DataMember = "Funcionario";
+            this.funcionarioBindingSource.DataSource = this.dataSetFuncionarioBindingSource;
+            // 
+            // dataSetFuncionarioBindingSource
+            // 
+            this.dataSetFuncionarioBindingSource.DataSource = this.dataSetFuncionario;
+            this.dataSetFuncionarioBindingSource.Position = 0;
+            // 
+            // dataSetFuncionario
+            // 
+            this.dataSetFuncionario.DataSetName = "DataSetFuncionario";
+            this.dataSetFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label3.Location = new System.Drawing.Point(497, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 18);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Funcionario:";
             // 
             // txtCantidadProd
             // 
             this.txtCantidadProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtCantidadProd.Location = new System.Drawing.Point(350, 189);
+            this.txtCantidadProd.Location = new System.Drawing.Point(370, 188);
             this.txtCantidadProd.Name = "txtCantidadProd";
             this.txtCantidadProd.Size = new System.Drawing.Size(50, 24);
             this.txtCantidadProd.TabIndex = 6;
@@ -265,23 +352,25 @@
             // 
             this.txtRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.txtRemover.ForeColor = System.Drawing.Color.Black;
-            this.txtRemover.Location = new System.Drawing.Point(350, 219);
+            this.txtRemover.Location = new System.Drawing.Point(370, 218);
             this.txtRemover.Name = "txtRemover";
             this.txtRemover.Size = new System.Drawing.Size(50, 28);
             this.txtRemover.TabIndex = 4;
             this.txtRemover.Text = "<";
             this.txtRemover.UseVisualStyleBackColor = true;
+            this.txtRemover.Click += new System.EventHandler(this.txtRemover_Click);
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(350, 154);
+            this.btnAgregar.Location = new System.Drawing.Point(370, 153);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 29);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = ">";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // gcProducto
             // 
@@ -295,16 +384,43 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID,
+            this.colProducto,
+            this.colContenido});
             this.gridView1.GridControl = this.gcProducto;
             this.gridView1.Name = "gridView1";
+            // 
+            // colID
+            // 
+            this.colID.Caption = "ID";
+            this.colID.FieldName = "Producto.idProducto";
+            this.colID.Name = "colID";
+            // 
+            // colProducto
+            // 
+            this.colProducto.Caption = "Producto";
+            this.colProducto.FieldName = "Producto.nombreProducto";
+            this.colProducto.Name = "colProducto";
+            this.colProducto.Visible = true;
+            this.colProducto.VisibleIndex = 0;
+            // 
+            // colContenido
+            // 
+            this.colContenido.Caption = "Cantidad";
+            this.colContenido.FieldName = "contenido";
+            this.colContenido.Name = "colContenido";
+            this.colContenido.Visible = true;
+            this.colContenido.VisibleIndex = 1;
             // 
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.txtBuscar.Location = new System.Drawing.Point(99, 31);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(100, 24);
+            this.txtBuscar.Size = new System.Drawing.Size(147, 24);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
             // label1
             // 
@@ -316,29 +432,48 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Búsqueda:";
             // 
+            // funcionarioTableAdapter
+            // 
+            this.funcionarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // productoTableAdapter
+            // 
+            this.productoTableAdapter.ClearBeforeFill = true;
+            // 
+            // ePError
+            // 
+            this.ePError.ContainerControl = this;
+            // 
             // frmAdDespacho
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 511);
+            this.ClientSize = new System.Drawing.Size(806, 511);
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(786, 639);
+            this.MaximumSize = new System.Drawing.Size(822, 549);
             this.Name = "frmAdDespacho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Despacho De Producto";
             this.Load += new System.EventHandler(this.frmAdDespachoProductos_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             this.gbGridViewRegistroProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDespacho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,8 +489,6 @@
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
         private System.Windows.Forms.ComboBox cmbFuncionario;
         private System.Windows.Forms.Label label3;
-        private DevExpress.XtraGrid.GridControl gcDespacho;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.TextBox txtCantidadProd;
         private System.Windows.Forms.Button txtRemover;
         private System.Windows.Forms.Button btnAgregar;
@@ -368,5 +501,22 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbMezcla;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource dataSetFuncionarioBindingSource;
+        private DataSets.Formulario.DataSetFuncionario dataSetFuncionario;
+        private System.Windows.Forms.BindingSource funcionarioBindingSource;
+        private DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colID;
+        private DevExpress.XtraGrid.Columns.GridColumn colProducto;
+        private DevExpress.XtraGrid.Columns.GridColumn colContenido;
+        private DevExpress.XtraGrid.GridControl gcDespacho;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaID;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaProducto;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaCantidad;
+        private System.Windows.Forms.BindingSource dataSetRMezclasBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetRMezclas dataSetRMezclas;
+        private System.Windows.Forms.BindingSource productoBindingSource;
+        private DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter productoTableAdapter;
+        private System.Windows.Forms.ErrorProvider ePError;
     }
 }

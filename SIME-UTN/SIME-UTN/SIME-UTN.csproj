@@ -384,6 +384,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\AcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AcercaDe.Designer.cs">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -478,12 +484,6 @@
     </Compile>
     <Compile Include="UI\Bodega\Procesos\frmTrasladosDeProductos.Designer.cs">
       <DependentUpon>frmTrasladosDeProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Bodega\Procesos\frmAdDespachoProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Bodega\Procesos\frmAdDespachoProductos.Designer.cs">
-      <DependentUpon>frmAdDespachoProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.cs">
       <SubType>Form</SubType>
@@ -616,6 +616,12 @@
     <Compile Include="UI\Bodega\Procesos\frmFiltroBodegas.Designer.cs">
       <DependentUpon>frmFiltroBodegas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmSplashRestaurar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSplashRestaurar.Designer.cs">
+      <DependentUpon>frmSplashRestaurar.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -699,6 +705,12 @@
     <Compile Include="UI\Reportes\rptFormulario.Designer.cs">
       <DependentUpon>rptFormulario.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\rptImprimirForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptImprimirForm.Designer.cs">
+      <DependentUpon>rptImprimirForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\rptItem.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -735,6 +747,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AcercaDe.resx">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmAdMezclas.resx">
       <DependentUpon>frmAdMezclas.cs</DependentUpon>
@@ -780,9 +795,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Procesos\frmTrasladosDeProductos.resx">
       <DependentUpon>frmTrasladosDeProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdDespachoProductos.resx">
-      <DependentUpon>frmAdDespachoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.resx">
       <DependentUpon>frmAdUnidadDeMedida.cs</DependentUpon>
@@ -850,6 +862,9 @@
     <EmbeddedResource Include="UI\Bodega\Procesos\frmFiltroBodegas.resx">
       <DependentUpon>frmFiltroBodegas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSplashRestaurar.resx">
+      <DependentUpon>frmSplashRestaurar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -886,6 +901,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptFormulario.resx">
       <DependentUpon>rptFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptImprimirForm.resx">
+      <DependentUpon>rptImprimirForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptItem.resx">
       <DependentUpon>rptItem.cs</DependentUpon>
@@ -1376,6 +1394,7 @@
     <None Include="Resources\min.PNG" />
     <None Include="Resources\mezclas.png" />
     <None Include="Resources\Reporte.png" />
+    <None Include="Resources\Logo.png" />
     <Content Include="Resources\usuarios1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

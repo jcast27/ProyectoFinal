@@ -15,6 +15,7 @@ using SIME_UTN.Entities;
 using SIME_UTN.UI.Formulario.Procesos;
 using SIME_UTN.DAL;
 using SIME_UTN.UI.Reportes;
+using Microsoft.VisualBasic;
 
 namespace SIME_UTN.UI.Formulario
 {
@@ -300,8 +301,30 @@ namespace SIME_UTN.UI.Formulario
 
         private void restaurarBDToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string pass = Interaction.InputBox("Ingresar contraseña de Seguridad\nRecuerde pausar cual acción en las demás terminales del sistema", "Seguridad");
             restoreDB rDB = new restoreDB();
-            rDB.Restore();
+            
+            if (rDB.validarPass(pass))
+            {
+                try
+                {
+                    Thread tardar = new Thread(new ThreadStart(SplashScreen));
+                    tardar.Start();
+                    rDB.Restore();
+                    //Thread.Sleep(2000); // Tardanza para iniciar aplicacion (6000)
+                    tardar.Abort();
+                    MessageBox.Show("Base de Datos restaurada correctamente", "Restauración");
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Ha ocurrido el siguiente error: \n" + error.Message, "Restauración");
+                }
+            }           
+        }
+
+        static void SplashScreen()
+        {
+            Application.Run(new frmSplashRestaurar());
         }
 
         private void mBtnReportes_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -312,6 +335,12 @@ namespace SIME_UTN.UI.Formulario
             tipoDeProceso = "Reportes";
             frmFormReporte frm = new frmFormReporte(usuarioLogueado);
             frm.Show(this);
+        }
+
+        private void acercaDeStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AcercaDe about = new AcercaDe();
+            about.ShowDialog(this);
         }
 
         //public void CrearDocumentosReportes(Boolean estado)

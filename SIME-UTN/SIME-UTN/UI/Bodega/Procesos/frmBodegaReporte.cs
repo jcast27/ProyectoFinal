@@ -35,7 +35,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            frmReporte frm = new frmReporte(btn.Name, user);
+            frmReporte frm = new frmReporte(btn.Name, user, 0);
             frm.ShowDialog(this);
         }
 

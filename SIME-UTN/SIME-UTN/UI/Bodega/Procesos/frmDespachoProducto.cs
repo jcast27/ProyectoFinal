@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIME_UTN.Entities;
 using SIME_UTN.Gestores;
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.UI.Bodega.Procesos
 {
@@ -16,10 +17,11 @@ namespace SIME_UTN.UI.Bodega.Procesos
     {
         string usuarioLogueado = "";
         GestorUsuarioTable gestor = null;
+        GestorRegistroBodega gestorBodega = null;
         public frmDespachoProducto()
         {
             InitializeComponent();
-          
+            RefrescarLista();
         }
 
       
@@ -29,22 +31,56 @@ namespace SIME_UTN.UI.Bodega.Procesos
             usuarioLogueado = gestor.ObtenerUsuarioLogeado();
         }
 
-
-        private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            frmAdDespachoProductos ofrmAdDespachoProducto = new frmAdDespachoProductos();
-            ofrmAdDespachoProducto.ShowDialog(this);
-          
-        }
-
         private void frmDespachoProducto_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.Icono;
-            // TODO: This line of code loads data into the 'dataSetTipoBodegaDespacho.sp_SELECT_TipoBodega_All' table. You can move, or remove it, as needed.
-            this.sp_SELECT_TipoBodega_AllTableAdapter.Fill(this.dataSetTipoBodegaDespacho.sp_SELECT_TipoBodega_All);
-            // TODO: This line of code loads data into the 'dataSetBodegaDespacho.sp_SELECT_RegistroBodega_By_Type' table. You can move, or remove it, as needed.
-            this.sp_SELECT_RegistroBodega_By_TypeTableAdapter.Fill(this.dataSetBodegaDespacho.sp_SELECT_RegistroBodega_By_Type);
+        }
 
+        private void RefrescarLista()
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "Bodegas";
+            dt.Columns.Add(new DataColumn("IDRegistroBodega"));
+            dt.Columns.Add(new DataColumn("Nombre"));
+            dt.Columns.Add(new DataColumn("Descripcion"));
+
+            try
+            {
+                gestorBodega = GestorRegistroBodega.GetInstance();
+
+                List<RegistroBodegaTipoBodegaDTO> lista = new List<RegistroBodegaTipoBodegaDTO>(gestorBodega.ObtenertBodegas());
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    if (lista[i].tipobodega.Equals("Despacho"))
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr["IDRegistroBodega"] = lista[i].idregistrobodega;
+                        dr["Nombre"] = lista[i].nombre;
+                        dr["Descripcion"] = lista[i].descripcion;
+                        dt.Rows.Add(dr);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            gCBodegas.DataSource = dt;
+
+        }
+
+        private void gCBodegas_Click(object sender, EventArgs e)
+        {
+            mBtnDespachar.Enabled = true;
+        }
+
+        private void mBtnDespachar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            frmAdDespacho frm = new frmAdDespacho(int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString()));
+            frm.ShowDialog(this);
         }
     }
 }

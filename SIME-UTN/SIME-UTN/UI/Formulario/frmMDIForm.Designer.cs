@@ -56,6 +56,8 @@
             this.cambiarContrasennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarModuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restaurarBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).BeginInit();
@@ -252,9 +254,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioTSMI});
-            this.menuStrip1.Location = new System.Drawing.Point(826, 9);
+            this.menuStrip1.Location = new System.Drawing.Point(734, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(52, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(144, 40);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -264,7 +266,9 @@
             this.cambiarSessionToolStripMenuItem,
             this.cambiarContrasennaToolStripMenuItem,
             this.cambiarModuloToolStripMenuItem,
-            this.restaurarBDToolStripMenuItem});
+            this.restaurarBDToolStripMenuItem,
+            this.ayudaToolStripMenuItem,
+            this.acercaDeStripMenuItem});
             this.usuarioTSMI.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuarioTSMI.Image = ((System.Drawing.Image)(resources.GetObject("usuarioTSMI.Image")));
             this.usuarioTSMI.Name = "usuarioTSMI";
@@ -303,6 +307,21 @@
             this.restaurarBDToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.restaurarBDToolStripMenuItem.Text = "Restaurar Base de Datos";
             this.restaurarBDToolStripMenuItem.Click += new System.EventHandler(this.restaurarBDToolStripMenuItem_Click);
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // acercaDeStripMenuItem
+            // 
+            this.acercaDeStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.acercaDeStripMenuItem.Name = "acercaDeStripMenuItem";
+            this.acercaDeStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.acercaDeStripMenuItem.Text = "Acerca De";
+            this.acercaDeStripMenuItem.Click += new System.EventHandler(this.acercaDeStripMenuItem_Click);
             // 
             // frmMDIForm
             // 
@@ -360,5 +379,7 @@
         private System.Windows.Forms.ToolStripMenuItem cambiarContrasennaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarModuloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restaurarBDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeStripMenuItem;
     }
 }

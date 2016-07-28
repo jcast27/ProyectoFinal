@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
@@ -42,19 +43,22 @@
             this.mBtnInventarios = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnReportes = new DevExpress.XtraBars.Navigation.NavButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView();
-            this.FlyoutCloseAction = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout();
-            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document();
-            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document();
-            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
-            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView(this.components);
+            this.FlyoutCloseAction = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Flyout(this.components);
+            this.frmUsuariosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
+            this.frmProductosDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
+            this.frmUsuariosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
+            this.frmProductosTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
             this.lblNombreProyecto = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usuarioTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContrasennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarModuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resturarDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).BeginInit();
@@ -266,9 +270,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioTSMI});
-            this.menuStrip1.Location = new System.Drawing.Point(826, 9);
+            this.menuStrip1.Location = new System.Drawing.Point(734, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(52, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(144, 40);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -277,7 +281,10 @@
             this.usuarioTSMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cambiarSessionToolStripMenuItem,
             this.cambiarContrasennaToolStripMenuItem,
-            this.cambiarModuloToolStripMenuItem});
+            this.cambiarModuloToolStripMenuItem,
+            this.resturarDBToolStripMenuItem,
+            this.ayudaStripMenuItem,
+            this.acercaDeStripMenuItem});
             this.usuarioTSMI.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuarioTSMI.Image = ((System.Drawing.Image)(resources.GetObject("usuarioTSMI.Image")));
             this.usuarioTSMI.Name = "usuarioTSMI";
@@ -288,7 +295,7 @@
             this.cambiarSessionToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.cambiarSessionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambiarSessionToolStripMenuItem.Name = "cambiarSessionToolStripMenuItem";
-            this.cambiarSessionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.cambiarSessionToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.cambiarSessionToolStripMenuItem.Text = "Cambiar Usuario";
             this.cambiarSessionToolStripMenuItem.Click += new System.EventHandler(this.cambiarSessionToolStripMenuItem_Click);
             // 
@@ -297,7 +304,7 @@
             this.cambiarContrasennaToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.cambiarContrasennaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambiarContrasennaToolStripMenuItem.Name = "cambiarContrasennaToolStripMenuItem";
-            this.cambiarContrasennaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.cambiarContrasennaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.cambiarContrasennaToolStripMenuItem.Text = "Cambiar Contraseña";
             this.cambiarContrasennaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContrasennaToolStripMenuItem_Click);
             // 
@@ -305,9 +312,32 @@
             // 
             this.cambiarModuloToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.cambiarModuloToolStripMenuItem.Name = "cambiarModuloToolStripMenuItem";
-            this.cambiarModuloToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.cambiarModuloToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.cambiarModuloToolStripMenuItem.Text = "Cambiar Módulo";
             this.cambiarModuloToolStripMenuItem.Click += new System.EventHandler(this.cambiarModuloToolStripMenuItem_Click);
+            // 
+            // resturarDBToolStripMenuItem
+            // 
+            this.resturarDBToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.resturarDBToolStripMenuItem.Name = "resturarDBToolStripMenuItem";
+            this.resturarDBToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.resturarDBToolStripMenuItem.Text = "Resturar Base de Datos";
+            this.resturarDBToolStripMenuItem.Click += new System.EventHandler(this.resturarDBToolStripMenuItem_Click);
+            // 
+            // ayudaStripMenuItem
+            // 
+            this.ayudaStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.ayudaStripMenuItem.Name = "ayudaStripMenuItem";
+            this.ayudaStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.ayudaStripMenuItem.Text = "Ayuda";
+            // 
+            // acercaDeStripMenuItem
+            // 
+            this.acercaDeStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.acercaDeStripMenuItem.Name = "acercaDeStripMenuItem";
+            this.acercaDeStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.acercaDeStripMenuItem.Text = "Acerca De";
+            this.acercaDeStripMenuItem.Click += new System.EventHandler(this.acercaDeStripMenuItem_Click);
             // 
             // frmMDI
             // 
@@ -365,5 +395,8 @@
         private System.Windows.Forms.ToolStripMenuItem cambiarSessionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarContrasennaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarModuloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resturarDBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeStripMenuItem;
     }
 }

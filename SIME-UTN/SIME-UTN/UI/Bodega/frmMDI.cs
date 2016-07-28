@@ -13,6 +13,8 @@ using SIME_UTN.Gestores;
 using DevExpress.XtraBars.Docking2010.Views;
 using SIME_UTN.UI.Reportes;
 using SIME_UTN.UI.Bodega.Procesos;
+using SIME_UTN.DAL;
+using Microsoft.VisualBasic;
 
 namespace SIME_UTN.UI.Bodega
 {
@@ -431,6 +433,40 @@ namespace SIME_UTN.UI.Bodega
             tipoDeProceso = "Reportes";
             frmBodegaReporte frm = new frmBodegaReporte(usuarioLogueado);
             frm.Show(this);
+        }
+
+        private void acercaDeStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AcercaDe about = new AcercaDe();
+            about.ShowDialog(this);
+        }
+
+        private void resturarDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string pass = Interaction.InputBox("Ingresar contraseña de Seguridad\nRecuerde pausar cual acción en las demás terminales del sistema", "Seguridad");
+            restoreDB rDB = new restoreDB();
+
+            if (rDB.validarPass(pass))
+            {
+                try
+                {
+                    Thread tardar = new Thread(new ThreadStart(SplashScreen));
+                    tardar.Start();
+                    rDB.Restore();
+                    //Thread.Sleep(2000); // Tardanza para iniciar aplicacion (6000)
+                    tardar.Abort();
+                    MessageBox.Show("Base de Datos restaurada correctamente", "Restauración");
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Ha ocurrido el siguiente error: \n" + error.Message, "Restauración");
+                }
+            }
+        }
+
+        static void SplashScreen()
+        {
+            Application.Run(new frmSplashRestaurar());
         }
     }
 }

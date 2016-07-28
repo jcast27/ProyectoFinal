@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SIME_UTN.Entities;
 using SIME_UTN.Gestores;
 using SIME_UTN.BLL;
+using SIME_UTN.UI.Reportes;
 
 namespace SIME_UTN.UI.Formulario.Procesos
 {
@@ -25,6 +26,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
         public frmFormulario(string categoriaP)
         {
             InitializeComponent();
+            UsuarioLogueado();
             cont = 0;
             gestor = GestorCategoria.GetInstance();
             categoria = gestor.ObtenerCategoriaDescripcion(categoriaP);
@@ -265,7 +267,8 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
                     if (result == DialogResult.Yes)
                     {
-
+                        frmReporte frmRep = new frmReporte("imprimir", usuarioLogueado, form.idFormulario);
+                        frmRep.ShowDialog(this);
                     }
                     else
                     {
@@ -391,11 +394,6 @@ namespace SIME_UTN.UI.Formulario.Procesos
             }
         }
 
-        private void frmFormulario_SizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvSiNo_SizeChanged(object sender, EventArgs e)
         {
             dgvSiNo.Columns[1].Width = dgvSiNo.Width - 80;
@@ -411,15 +409,6 @@ namespace SIME_UTN.UI.Formulario.Procesos
             dgvTextoLibre.Columns[1].Width = dgvTextoLibre.Width - 210;
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmFormulario_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -446,5 +435,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 txtUbicacion.Text = a.ubicacion.nombre;
             }
         }
+
+
     }
 }
