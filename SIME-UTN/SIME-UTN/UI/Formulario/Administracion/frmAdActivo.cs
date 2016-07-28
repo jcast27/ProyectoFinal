@@ -14,9 +14,14 @@ namespace SIME_UTN.UI.Formulario.Administracion
 {
     public partial class frmAdActivo : DevExpress.XtraEditors.XtraForm
     {
-        GestorCategoria gestor = null;
+        GestorActivo gestor = null;
+        GestorCategoria gestorCategoria = null;
+        GestorUbicacion gestorUbicacion = null;
         GestorUsuarioTable gestorUsuario = null;
         Activo activo = null;
+        Categoria categoria = null;
+        Ubicacion ubicacion = null;
+        bool modificar = false;
         static string usuarioLogueado = "";
 
         public frmAdActivo()
@@ -37,8 +42,9 @@ namespace SIME_UTN.UI.Formulario.Administracion
             InitializeComponent();
             activo = new Activo();
             activo = activop;
-            gCActivo();
+            
             mBtnGuardar.Visible = false;
+            modificar = true;
         }
 
         private void frmAdActivo_Load(object sender, EventArgs e)
@@ -49,6 +55,17 @@ namespace SIME_UTN.UI.Formulario.Administracion
             this.categoriaTableAdapter.Fill(this.dataSetCategoria.Categoria);
             Icon = Properties.Resources.Icono;
             UsuarioLogueado();
+
+            if (modificar)
+            {
+                gCActivo();
+            }
+            else
+            {
+                cmbCategoria.SelectedIndex = -1;
+                cmbUbicacion.SelectedIndex = -1;
+
+            }
         }
 
         public bool ValidarCampos()
@@ -63,7 +80,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
                 txtNombre.Focus();
                 r = false;
             }
-            else if (DateTime.TryParse(dtpIngreso.Text.Trim(), out date))
+            else if (dtpIngreso.Text.Trim() == ""/*DateTime.TryParse(dtpIngreso.Text.Trim(), out date)*/)
             {
                 ePError.SetError(dtpIngreso, "Fecha no válida");
                 dtpIngreso.Focus();
@@ -129,7 +146,17 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             try
             {
-                txtNombre.Text = activo.descripcion;
+                txtId.Text = activo.idActivo.ToString();
+                txtNombre.Text = activo.nombre;
+                dtpIngreso.Value = activo.annoIngreso;
+                cmbCategoria.SelectedValue = activo.categoria.idCategoria;
+                txtMarca.Text = activo.marca;
+                txtModelo.Text = activo.modelo;
+                txtPatrimonio.Text = activo.patrimonio;
+                txtSerie.Text = activo.numeroSerie;
+                txtValor.Text = activo.valor.ToString();
+                cmbUbicacion.SelectedValue = activo.ubicacion.idUbicacion;
+                txtDescripcion.Text = activo.descripcion;
 
             }
             catch (ApplicationException app)
@@ -144,60 +171,50 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
         private void guardarActivo(string accion)
         {
+            categoria = new Categoria();
+            ubicacion = new Ubicacion();
+
             if (ValidarCampos())
             {
-                /*gestor = GestorCategoria.GetInstance();
-                GestorItem gestorItem = GestorItem.GetInstance();
-                GestorCategoriaItem gestorCI = GestorCategoriaItem.GetInstance();
+                gestor = GestorActivo.GetInstance();
+                categoria = new Categoria();
+                ubicacion = new Ubicacion();
+                gestorCategoria = GestorCategoria.GetInstance();
+                gestorUbicacion = GestorUbicacion.GetInstance();
 
-                string descripcion = "La Categoría fue agregada correctamente";
+
+                string descripcion = "El activo fue agregado correctamente";
 
                 if (accion == "U")
                 {
-                    categoria.idCategoria = int.Parse(txtId.Text);
-                    descripcion = descripcion.Replace("agregada", "actualizada");
+                    activo.idActivo = int.Parse(txtId.Text);
+                    descripcion = descripcion.Replace("agregado", "actualizado");
                 }
                 else
                 {
-                    categoria.estado = 1;
+                    activo.estado = 1;
                 }
 
-                categoria.descripcion = txtNombre.Text.Trim();
-                categoria.pertenencia = Pertenece.Formulario.ToString();
+                activo.nombre = txtNombre.Text;
+                activo.annoIngreso = dtpIngreso.Value;
+                categoria.idCategoria = int.Parse(cmbCategoria.SelectedValue.ToString());
+                categoria.descripcion = cmbCategoria.GetItemText(cmbCategoria.Items[cmbCategoria.SelectedIndex]);
+                activo.categoria = categoria;
+                activo.marca = txtMarca.Text;
+                activo.modelo = txtModelo.Text;
+                activo.patrimonio = txtPatrimonio.Text;
+                activo.numeroSerie = txtSerie.Text;
+                activo.valor = double.Parse(txtValor.Text);
+                ubicacion.idUbicacion = int.Parse(cmbUbicacion.SelectedValue.ToString());
+                ubicacion.nombre = cmbUbicacion.GetItemText(cmbUbicacion.Items[cmbUbicacion.SelectedIndex]);
+                activo.ubicacion = ubicacion;
+                activo.descripcion = txtDescripcion.Text;
 
-                List<Item> listaItems = new List<Item>();
-
-                foreach (var item in clbItems.CheckedItems)
-                {
-                    if (!item.ToString().Equals("Seleccionar Todos"))
-                    {
-                        listaItems.Add(gestorItem.ObtenerItemDescripcion(item.ToString().Trim()));
-                    }
-                }
-
-                categoria.listaItems = listaItems;
-
-                gestor.AgregarCategoria(categoria);
-                int id = gestor.guardarActivo(usuarioLogueado);
-
-                if (id != 0)
-                {
-                    categoria.idCategoria = id;
-                }
-
-                gestorCI.EliminarCategoriaItem(categoria.idCategoria.ToString());
-                foreach (Item item in categoria.listaItems)
-                {
-                    CategoriaItem CI = new CategoriaItem();
-                    CI.idCategoria = categoria.idCategoria;
-                    CI.idItem = item.idItem;
-                    gestorCI.AgregarCategoriaItem(CI);
-                    gestorCI.guardarActivoItem();
-                }
-
+                gestor.AgregarActivo(activo);
+                gestor.GuardarActivo(usuarioLogueado);
                 MessageBox.Show(descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Close();*/
+                Close();
             }
         }
 

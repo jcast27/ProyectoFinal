@@ -57,7 +57,7 @@ namespace SIME_UTN.DAL
             SqlCommand comando = new SqlCommand("sp_INSERT_Activo");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@IDActivo", Activop.idActivo);
+           // comando.Parameters.AddWithValue("@IDActivo", Activop.idActivo);
             comando.Parameters.AddWithValue("@Nombre", Activop.nombre);
             comando.Parameters.AddWithValue("@NumeroSerie", Activop.numeroSerie);
             comando.Parameters.AddWithValue("@Descripcion", Activop.descripcion);

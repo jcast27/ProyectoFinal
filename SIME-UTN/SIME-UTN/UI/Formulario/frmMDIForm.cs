@@ -87,9 +87,9 @@ namespace SIME_UTN.UI.Formulario
 
         private FlyoutAction createCloseAction(Flyout flyout)
         {
-            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmación", Description = "Desea Cerrar Esta Aplicacion?" };
+            FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmación", Description = "¿Desea cerrar esta aplicación?" };
             // closeaction.Description = "Desea Cerrar Esta Aplicacion?";
-            FlyoutCommand comandoYes = new FlyoutCommand() { Text = "Si", Result = System.Windows.Forms.DialogResult.Yes };
+            FlyoutCommand comandoYes = new FlyoutCommand() { Text = "Sí", Result = System.Windows.Forms.DialogResult.Yes };
             FlyoutCommand comandoNO = new FlyoutCommand() { Text = "No", Result = System.Windows.Forms.DialogResult.No };
             closeaction.Commands.Add(comandoYes);
             closeaction.Commands.Add(comandoNO);

@@ -158,6 +158,8 @@ namespace SIME_UTN.UI.Formulario.Administracion
         private void frmActivo_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.Icono;
+            gestor = GestorActivo.GetInstance();
+            activo = new Activo();
             try
             {
                 RefrescarLista();
