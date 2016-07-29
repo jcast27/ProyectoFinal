@@ -17,6 +17,8 @@ namespace SIME_UTN.UI.Bodega.Procesos
         GestorUsuarioTable gestor = null;
         GestorBodega gb = new GestorBodega();
         int idBodega = 0;
+        string user;
+
         public frmAdDespacho(int idBodegap)
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         public void UsuarioLogueado()
         {
             gestor = GestorUsuarioTable.GetInstance();
-            //txtUsuario.Text = gestor.ObtenerUsuarioLogeado();
+            user = gestor.ObtenerUsuarioLogeado();
         }
 
         private void frmAdDespachoProductos_Load(object sender, EventArgs e)
@@ -56,9 +58,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int cantProd = int.Parse(gridView1.GetFocusedRowCellValue("contenido").ToString());
+            double cantProd = int.Parse(gridView1.GetFocusedRowCellValue("contenido").ToString());
 
-            int cantDesp = validarCampos(cantProd, 0);
+            double cantDesp = validarCampos(cantProd, 0);
 
             if (cantDesp > 0)
             {
@@ -103,15 +105,16 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 gcDespacho.DataSource = listaDesp;
             }
 
-            
+
 
         }
 
-        public int validarCampos(int cantProd, int cantDesp) {
+        public double validarCampos(double cantProd, double cantDesp)
+        {
 
-            int r = cantDesp;
+            double r = cantDesp;
 
-            if (int.TryParse(txtCantidadProd.Text, out cantDesp))
+            if (double.TryParse(txtCantidadProd.Text, out cantDesp))
             {
                 if (cantDesp > 0)
                 {
@@ -146,9 +149,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void txtRemover_Click(object sender, EventArgs e)
         {
-            int cantProd = int.Parse(gridView2.GetFocusedRowCellValue("contenido").ToString());
+            double cantProd = int.Parse(gridView2.GetFocusedRowCellValue("contenido").ToString());
 
-            int cantDevol = validarCampos(cantProd, 0);
+            double cantDevol = validarCampos(cantProd, 0);
 
             if (cantDevol > 0)
             {
@@ -191,7 +194,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
                 gridView1.ActiveFilterString = "[Producto.nombreProducto] LIKE '%" + txtBuscar.Text + "%'";
             }
-            
+
         }
 
         private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -204,6 +207,70 @@ namespace SIME_UTN.UI.Bodega.Procesos
             txtCantidadProd.Clear();
             txtCantidadMez.Clear();
             txtBuscar.Focus();
+        }
+
+        private void mBtnAceptar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            if (validarRegistro())
+            {
+                List<PBodega> lista = (List<PBodega>)gcDespacho.DataSource;
+
+                GestorFuncionario gf = GestorFuncionario.GetInstance();
+                Funcionario f = gf.ObtenerFuncionarioId(int.Parse(cmbFuncionario.SelectedValue.ToString()));
+                UsuarioTable usuario = gestor.ValidarUsuarioPorUsuario(user);
+                GestorDespacho gd = GestorDespacho.GetInstance();
+
+                try
+                {
+                    int idDespacho = gd.GuardarDespacho(idBodega, usuario, txtObservaciones.Text, f);
+
+                    foreach (PBodega pb in lista)
+                    {
+                        pb.idBodega = idBodega;
+                        pb.estado = 1;
+                        gd.GuardarDespachoDetalle(idDespacho, pb);
+                    }
+
+                    MessageBox.Show("Despacho realizado con éxito", "Despacho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error al despachar el producto\r\nDetalle del error: " + error.Message, "Despacho", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        public bool validarRegistro()
+        {
+
+            bool r = false;
+
+            if (cmbFuncionario.SelectedIndex == -1)
+            {
+                ePError.SetError(cmbFuncionario, "Seleccione un funcionario");
+                cmbFuncionario.Focus();
+                r = false;
+            }
+            else if (gridView2.DataRowCount == 0)
+            {
+                ePError.SetError(gcDespacho, "No hay productos para despachar");
+                gcDespacho.Focus();
+                r = false;
+            }
+            else if (txtObservaciones.Text == "")
+            {
+                ePError.SetError(txtObservaciones, "Favor ingresar comentarios");
+                txtObservaciones.Focus();
+                r = false;
+            }
+            else
+            {
+                ePError.Clear();
+                r = true;
+            }
+
+            return r;
         }
     }
 }

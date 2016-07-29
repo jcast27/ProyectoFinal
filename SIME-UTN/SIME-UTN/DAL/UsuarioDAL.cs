@@ -431,6 +431,7 @@ namespace SIME_UTN.DAL
                         unUsuario.nombre = dr["Nombre"].ToString();
                         unUsuario.apellido1 = dr["Apellido1"].ToString();
                         unUsuario.apellido2 = dr["Apellido2"].ToString();
+                        unUsuario.usuario = dr["Usuario"].ToString();
                         unUsuario.perfil = dr["Perfil"].ToString();
                         unUsuario.contrasena = dr["Contrasena"].ToString();
                         unUsuario.estado = Convert.ToInt32(dr["Estado"].ToString());

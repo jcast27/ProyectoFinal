@@ -45,11 +45,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.gcDespacho = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.columnaID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnaProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnaCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnaUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbFuncionario = new System.Windows.Forms.ComboBox();
             this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -63,6 +66,7 @@
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContenido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
@@ -132,6 +136,7 @@
             this.mBtnAceptar.Caption = "Registrar";
             this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
             this.mBtnAceptar.Name = "mBtnAceptar";
+            this.mBtnAceptar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAceptar_ElementClick);
             // 
             // mBtnSalir
             // 
@@ -155,7 +160,7 @@
             this.gbGridViewFuncionario.Controls.Add(this.lblCodigoUsuario);
             this.gbGridViewFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewFuncionario.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewFuncionario.Location = new System.Drawing.Point(9, 431);
+            this.gbGridViewFuncionario.Location = new System.Drawing.Point(9, 499);
             this.gbGridViewFuncionario.Name = "gbGridViewFuncionario";
             this.gbGridViewFuncionario.Size = new System.Drawing.Size(785, 68);
             this.gbGridViewFuncionario.TabIndex = 36;
@@ -244,6 +249,8 @@
             // 
             // gbGridViewRegistroProductos
             // 
+            this.gbGridViewRegistroProductos.Controls.Add(this.label5);
+            this.gbGridViewRegistroProductos.Controls.Add(this.txtObservaciones);
             this.gbGridViewRegistroProductos.Controls.Add(this.gcDespacho);
             this.gbGridViewRegistroProductos.Controls.Add(this.cmbFuncionario);
             this.gbGridViewRegistroProductos.Controls.Add(this.label3);
@@ -255,12 +262,31 @@
             this.gbGridViewRegistroProductos.Controls.Add(this.label1);
             this.gbGridViewRegistroProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewRegistroProductos.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(12, 47);
+            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(9, 46);
             this.gbGridViewRegistroProductos.Name = "gbGridViewRegistroProductos";
-            this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(782, 379);
+            this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(785, 454);
             this.gbGridViewRegistroProductos.TabIndex = 37;
             this.gbGridViewRegistroProductos.TabStop = false;
             this.gbGridViewRegistroProductos.Text = "Despacho";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label5.Location = new System.Drawing.Point(18, 372);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 18);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Observaciones:";
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtObservaciones.Location = new System.Drawing.Point(21, 393);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(743, 48);
+            this.txtObservaciones.TabIndex = 11;
             // 
             // gcDespacho
             // 
@@ -277,7 +303,8 @@
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.columnaID,
             this.columnaProducto,
-            this.columnaCantidad});
+            this.columnaCantidad,
+            this.columnaUnidad});
             this.gridView2.GridControl = this.gcDespacho;
             this.gridView2.Name = "gridView2";
             // 
@@ -286,22 +313,37 @@
             this.columnaID.Caption = "ID";
             this.columnaID.FieldName = "Producto.idProducto";
             this.columnaID.Name = "columnaID";
+            this.columnaID.OptionsColumn.AllowEdit = false;
             // 
             // columnaProducto
             // 
             this.columnaProducto.Caption = "Producto";
             this.columnaProducto.FieldName = "Producto.nombreProducto";
             this.columnaProducto.Name = "columnaProducto";
+            this.columnaProducto.OptionsColumn.AllowEdit = false;
             this.columnaProducto.Visible = true;
             this.columnaProducto.VisibleIndex = 0;
+            this.columnaProducto.Width = 101;
             // 
             // columnaCantidad
             // 
             this.columnaCantidad.Caption = "Cantidad";
             this.columnaCantidad.FieldName = "contenido";
             this.columnaCantidad.Name = "columnaCantidad";
+            this.columnaCantidad.OptionsColumn.AllowEdit = false;
             this.columnaCantidad.Visible = true;
             this.columnaCantidad.VisibleIndex = 1;
+            this.columnaCantidad.Width = 101;
+            // 
+            // columnaUnidad
+            // 
+            this.columnaUnidad.Caption = "Unidad";
+            this.columnaUnidad.FieldName = "UnidadMedida.codigo";
+            this.columnaUnidad.Name = "columnaUnidad";
+            this.columnaUnidad.OptionsColumn.AllowEdit = false;
+            this.columnaUnidad.Visible = true;
+            this.columnaUnidad.VisibleIndex = 2;
+            this.columnaUnidad.Width = 45;
             // 
             // cmbFuncionario
             // 
@@ -387,7 +429,8 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colProducto,
-            this.colContenido});
+            this.colContenido,
+            this.colUnidadMedida});
             this.gridView1.GridControl = this.gcProducto;
             this.gridView1.Name = "gridView1";
             // 
@@ -396,22 +439,37 @@
             this.colID.Caption = "ID";
             this.colID.FieldName = "Producto.idProducto";
             this.colID.Name = "colID";
+            this.colID.OptionsColumn.AllowEdit = false;
             // 
             // colProducto
             // 
             this.colProducto.Caption = "Producto";
             this.colProducto.FieldName = "Producto.nombreProducto";
             this.colProducto.Name = "colProducto";
+            this.colProducto.OptionsColumn.AllowEdit = false;
             this.colProducto.Visible = true;
             this.colProducto.VisibleIndex = 0;
+            this.colProducto.Width = 101;
             // 
             // colContenido
             // 
             this.colContenido.Caption = "Cantidad";
             this.colContenido.FieldName = "contenido";
             this.colContenido.Name = "colContenido";
+            this.colContenido.OptionsColumn.AllowEdit = false;
             this.colContenido.Visible = true;
             this.colContenido.VisibleIndex = 1;
+            this.colContenido.Width = 101;
+            // 
+            // colUnidadMedida
+            // 
+            this.colUnidadMedida.Caption = "Unidad";
+            this.colUnidadMedida.FieldName = "UnidadMedida.codigo";
+            this.colUnidadMedida.Name = "colUnidadMedida";
+            this.colUnidadMedida.OptionsColumn.AllowEdit = false;
+            this.colUnidadMedida.Visible = true;
+            this.colUnidadMedida.VisibleIndex = 2;
+            this.colUnidadMedida.Width = 45;
             // 
             // txtBuscar
             // 
@@ -450,11 +508,10 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 511);
+            this.ClientSize = new System.Drawing.Size(806, 579);
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(822, 549);
             this.Name = "frmAdDespacho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Despacho De Producto";
@@ -518,5 +575,9 @@
         private System.Windows.Forms.BindingSource productoBindingSource;
         private DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter productoTableAdapter;
         private System.Windows.Forms.ErrorProvider ePError;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnidadMedida;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaUnidad;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtObservaciones;
     }
 }

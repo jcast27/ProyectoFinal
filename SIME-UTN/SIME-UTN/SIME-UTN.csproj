@@ -84,6 +84,7 @@
     <Compile Include="BLL\CategoriaItemBLL.cs" />
     <Compile Include="BLL\CategoriaBLL.cs" />
     <Compile Include="BLL\DepartamentoBLL.cs" />
+    <Compile Include="BLL\DespachoBLL.cs" />
     <Compile Include="BLL\DetalleFormularioBLL.cs" />
     <Compile Include="BLL\FormularioBLL.cs" />
     <Compile Include="BLL\FuncionarioBLL.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="BLL\UbicacionBLL.cs" />
     <Compile Include="BLL\UnidadMedidaBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="DAL\DespachoDAL.cs" />
     <Compile Include="DAL\BodegaDAL.cs" />
     <Compile Include="DAL\DepartamentoDAL.cs" />
     <Compile Include="DAL\ActivoDAL.cs" />
@@ -359,6 +361,7 @@
     <Compile Include="Enum\Pertenece.cs" />
     <Compile Include="Enum\EstadoMantenimiento.cs" />
     <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="Gestores\GestorDespacho.cs" />
     <Compile Include="Gestores\GestorActivo.cs" />
     <Compile Include="Gestores\GestorBodega.cs" />
     <Compile Include="Gestores\GestorDepartamento.cs" />
