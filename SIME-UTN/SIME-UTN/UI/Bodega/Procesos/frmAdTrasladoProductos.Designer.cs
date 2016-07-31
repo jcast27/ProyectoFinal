@@ -347,7 +347,6 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 22);
             this.txtCantidad.TabIndex = 60;
-            this.txtCantidad.Text = "42";
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblCantidad
@@ -646,7 +645,6 @@
             this.gCProductos.TabIndex = 0;
             this.gCProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            this.gCProductos.Click += new System.EventHandler(this.gCProductos_Click);
             // 
             // gridView2
             // 

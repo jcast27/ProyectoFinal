@@ -121,6 +121,7 @@
             this.mBtnAceptar.Enabled = false;
             this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
             this.mBtnAceptar.Name = "mBtnAceptar";
+            this.mBtnAceptar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAceptar_ElementClick);
             // 
             // mBtnDeclinar
             // 
@@ -130,8 +131,10 @@
             this.mBtnDeclinar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mBtnDeclinar.AppearanceHovered.Options.UseFont = true;
             this.mBtnDeclinar.Caption = "Declinar";
+            this.mBtnDeclinar.Enabled = false;
             this.mBtnDeclinar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnDeclinar.Glyph")));
             this.mBtnDeclinar.Name = "mBtnDeclinar";
+            this.mBtnDeclinar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnDeclinar_ElementClick);
             // 
             // panel1
             // 
@@ -169,7 +172,7 @@
             this.gbGridViewTrasladoProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewTrasladoProductos.Location = new System.Drawing.Point(152, 64);
             this.gbGridViewTrasladoProductos.Name = "gbGridViewTrasladoProductos";
-            this.gbGridViewTrasladoProductos.Size = new System.Drawing.Size(1039, 522);
+            this.gbGridViewTrasladoProductos.Size = new System.Drawing.Size(1039, 604);
             this.gbGridViewTrasladoProductos.TabIndex = 34;
             this.gbGridViewTrasladoProductos.TabStop = false;
             this.gbGridViewTrasladoProductos.Text = "Detalle Traslados";
@@ -183,7 +186,7 @@
             this.gCTraslados.Location = new System.Drawing.Point(3, 55);
             this.gCTraslados.MainView = this.gridView1;
             this.gCTraslados.Name = "gCTraslados";
-            this.gCTraslados.Size = new System.Drawing.Size(1030, 464);
+            this.gCTraslados.Size = new System.Drawing.Size(1030, 543);
             this.gCTraslados.TabIndex = 0;
             this.gCTraslados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -225,7 +228,6 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
-            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // colidtraslado
             // 

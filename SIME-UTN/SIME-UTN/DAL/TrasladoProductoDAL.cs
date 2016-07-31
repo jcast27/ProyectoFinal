@@ -7,33 +7,117 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.DAL
 {
     class TrasladoProductoDAL
     {
+        static TrasladoProducto viejoTraslado = null;
 
         /// <summary>
-        /// Metodo que desabilita una mezcla
+        /// Metodo que declina un traslado
         /// </summary>
-        /// <param name="idRegistroMezclap"></param>
-        /// <param name="nombrep"></param>
+        /// <param name="trasladoEstatico"></param>
         /// <param name="usuarioLogueadop"></param>
-        internal static void EliminarTraslado(int idTrasladop, string usuarioLogueadop)
+        internal static void DeclinarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
         {
-
+            viejoTraslado = new TrasladoProducto();
             string accion = "";
-            accion = "Eliminar";
-            SqlCommand comando = new SqlCommand("sp_DESABLE_TrasladoProducto_ByID");
+            accion = "Modificar";
+            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
+            listaProductosDTO = TrasladoProductoInterDAL.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
+            SqlCommand comando = new SqlCommand("sp_DECLINE_TrasladoProducto_ByID");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@idtraslado", idTrasladop);
-            GuardarLog(null, usuarioLogueadop, accion, idTrasladop.ToString());
+            comando.Parameters.AddWithValue("@idtraslado", trasladoEstatico.idTraslado);
+            viejoTraslado = ObtenerTrasladoPorID(trasladoEstatico.idTraslado);
+            
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(trasladoEstatico, usuarioLogueadop, accion, null);
+            VolverProductoEliminadoABodega(trasladoEstatico, listaProductosDTO);
+        }
+
+
+        /// <summary>
+        /// Metodo que acepta un traslado
+        /// </summary>
+        /// <param name="trasladoEstatico"></param>
+        /// <param name="usuarioLogueadop"></param>
+        internal static void AceptarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
+        {
+            viejoTraslado = new TrasladoProducto();
+            string accion = "";
+            accion = "Modificar";
+            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
+            listaProductosDTO = TrasladoProductoInterDAL.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
+            SqlCommand comando = new SqlCommand("sp_ACCEPT_TrasladoProducto_ByID");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idtraslado", trasladoEstatico.idTraslado);
+            viejoTraslado = ObtenerTrasladoPorID(trasladoEstatico.idTraslado);
+            
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(comando);
+            }
+            GuardarLog(trasladoEstatico, usuarioLogueadop, accion, null);
+            TrasladarProductosABodegaDestino(trasladoEstatico, listaProductosDTO);
+        }
+
+
+        /// <summary>
+        /// Metodo que traslada los productos a la bodega destino
+        /// </summary>
+        /// <param name="trasladoEstatico"></param>
+        /// <param name="listaProductosDTO"></param>
+        private static void TrasladarProductosABodegaDestino(TrasladoProducto trasladoEstatico, List<TrasladoProductoInterDTO> listaProductosDTO)
+        {
+            foreach (TrasladoProductoInterDTO producto in listaProductosDTO)
+            {
+                SqlCommand comando = new SqlCommand("sp_TrasladarProductoABodegaDestino");
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idregistrobodega", trasladoEstatico.BodegaDestino.idRegistroBodega);
+                comando.Parameters.AddWithValue("@idproducto", producto.idProducto);
+                comando.Parameters.AddWithValue("@CantidadIngresada", producto.cantidad);
+
+
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(comando);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Metodo que devuelve los producto a la bodega origen
+        /// </summary>
+        /// <param name="trasladoEstatico"></param>
+        /// <param name="listaProductosDTO"></param>
+        internal static void VolverProductoEliminadoABodega(TrasladoProducto trasladoEstatico, List<TrasladoProductoInterDTO> listaProductosDTO)
+        {
+
+
+            foreach (TrasladoProductoInterDTO producto in listaProductosDTO)
+            {
+                SqlCommand comando = new SqlCommand("sp_VolverProductoABodega");
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idregistrobodega", trasladoEstatico.BodegaOrigen.idRegistroBodega);
+                comando.Parameters.AddWithValue("@idproducto", producto.idProducto);
+                comando.Parameters.AddWithValue("@CantidadIngresada", producto.cantidad);
+
+
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(comando);
+                }
+            }
+
         }
 
 
@@ -44,6 +128,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         internal static void GuardarTraslado(TrasladoProducto trasladop, string usuarioLogueadop)
         {
+            viejoTraslado = new TrasladoProducto();
             string accion = "";
             accion = "Insertar";
 
@@ -58,13 +143,14 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@tipotraslado", trasladop.TipoTraslado.idTipoTraslado);
             comando.Parameters.AddWithValue("@estadotraslado", trasladop.EstadoTraslado.idEstadoTraslado);
             comando.Parameters.AddWithValue("@estado", trasladop.estado);
-
-            GuardarLog(trasladop, usuarioLogueadop, accion, null);
+            viejoTraslado = ObtenerTrasladoPorID(trasladop.idTraslado);
+          
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(trasladop, usuarioLogueadop, accion, null);
         }
 
 
@@ -75,6 +161,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         internal static void ActualizarTraslado(TrasladoProducto trasladop, string usuarioLogueadop)
         {
+            viejoTraslado = new TrasladoProducto();
             string accion = "";
             accion = "Modificar";
 
@@ -90,13 +177,14 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@tipotraslado", trasladop.TipoTraslado.idTipoTraslado);
             comando.Parameters.AddWithValue("@estadotraslado", trasladop.EstadoTraslado.idEstadoTraslado);
             comando.Parameters.AddWithValue("@estado", trasladop.estado);
-
-            GuardarLog(trasladop, usuarioLogueadop, accion, null);
+            viejoTraslado = ObtenerTrasladoPorID(trasladop.idTraslado);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(trasladop, usuarioLogueadop, accion, null);
         }
 
         /// <summary>
@@ -139,7 +227,7 @@ namespace SIME_UTN.DAL
         public static void GuardarLog(TrasladoProducto trasladop, string usuarioLogueado, string accion, string trasladoEliminadop)
         {
 
-            TrasladoProducto viejoTraslado = new TrasladoProducto();
+            TrasladoProducto nuevoTraslado = new TrasladoProducto();
             string descripcion = "";
             string estado = "";
 
@@ -151,16 +239,20 @@ namespace SIME_UTN.DAL
             if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Bodega Origen: " + trasladop.BodegaOrigen.nombre + "\r\nBodega Destino: " + trasladop.BodegaDestino.nombre + "\r\nUsuario: " + trasladop.Usuario.usuario + "\r\nObervaciones: " + trasladop.observaciones + "\r\nFechaTraslado: " + trasladop.fechaTraslado + "\r\nTipo de Traslado: " + trasladop.TipoTraslado.descripcion + "\r\nEstado del Traslado: " + trasladop.EstadoTraslado.descripcion+ "\r\nEstado: " + estado;
+                descripcion = "\r\nTraslados de Productos:";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Bodega Origen: " + trasladop.BodegaOrigen.nombre + "\r\nBodega Destino: " + trasladop.BodegaDestino.nombre + "\r\nUsuario: " + trasladop.Usuario.usuario + "\r\nObervaciones: " + trasladop.observaciones + "\r\nFechaTraslado: " + trasladop.fechaTraslado + "\r\nTipo de Traslado: " + trasladop.TipoTraslado.descripcion + "\r\nEstado del Traslado: " + trasladop.EstadoTraslado.descripcion+ "\r\nEstado: " + estado;
 
             }
             if (accion == "Modificar")
             {
-                viejoTraslado = ObtenerTrasladoPorID(trasladop.idTraslado);
+                nuevoTraslado = ObtenerTrasladoPorID(trasladop.idTraslado);
                 estado = "Activo";
-                descripcion = "Antes del Cambio" + "\r\nBodega Origen: " + viejoTraslado.BodegaOrigen.nombre + "\r\nBodega Destino: " + viejoTraslado.BodegaDestino.nombre + "\r\nUsuario: " + viejoTraslado.Usuario.usuario + "\r\nObervaciones: " + viejoTraslado.observaciones + "\r\nFechaTraslado: " + viejoTraslado.fechaTraslado + "\r\nTipo de Traslado: " + viejoTraslado.TipoTraslado.descripcion + "\r\nEstado del Traslado: " + viejoTraslado.EstadoTraslado.descripcion + "\r\nEstado: " + estado;
+                descripcion = "\r\nTraslados de Productos:";
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion = "Despues del Cambio" + "\r\nBodega Origen: " + trasladop.BodegaOrigen.nombre + "\r\nBodega Destino: " + trasladop.BodegaDestino.nombre + "\r\nUsuario: " + trasladop.Usuario.usuario + "\r\nObervaciones: " + trasladop.observaciones + "\r\nFechaTraslado: " + trasladop.fechaTraslado + "\r\nTipo de Traslado: " + trasladop.TipoTraslado.descripcion + "\r\nEstado del Traslado: " + trasladop.EstadoTraslado.descripcion + "\r\nEstado: " + estado;
+                descripcion += "Antes del Cambio" + "\r\nBodega Origen: " + viejoTraslado.BodegaOrigen.nombre + "\r\nBodega Destino: " + viejoTraslado.BodegaDestino.nombre + "\r\nUsuario: " + viejoTraslado.Usuario.usuario + "\r\nObervaciones: " + viejoTraslado.observaciones + "\r\nFechaTraslado: " + viejoTraslado.fechaTraslado + "\r\nTipo de Traslado: " + viejoTraslado.TipoTraslado.descripcion + "\r\nEstado del Traslado: " + viejoTraslado.EstadoTraslado.descripcion + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nBodega Origen: " + nuevoTraslado.BodegaOrigen.nombre + "\r\nBodega Destino: " + nuevoTraslado.BodegaDestino.nombre + "\r\nUsuario: " + nuevoTraslado.Usuario.usuario + "\r\nObervaciones: " + nuevoTraslado.observaciones + "\r\nFechaTraslado: " + nuevoTraslado.fechaTraslado + "\r\nTipo de Traslado: " + nuevoTraslado.TipoTraslado.descripcion + "\r\nEstado del Traslado: " + nuevoTraslado.EstadoTraslado.descripcion + "\r\nEstado: " + estado;
             }
 
             DateTime date = DateTime.Now;

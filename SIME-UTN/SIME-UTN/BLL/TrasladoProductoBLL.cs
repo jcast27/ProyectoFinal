@@ -9,9 +9,9 @@ namespace SIME_UTN.BLL
 {
     class TrasladoProductoBLL
     {
-        internal static void EliminarTraslado(int idTrasladop, string usuarioLogueadop)
+        internal static void DeclinarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
         {
-            DAL.TrasladoProductoDAL.EliminarTraslado(idTrasladop, usuarioLogueadop);
+            DAL.TrasladoProductoDAL.DeclinarTraslado(trasladoEstatico, usuarioLogueadop);
         }
 
         internal static string ObtenerSiguienteNumeroTraslado()
@@ -28,6 +28,11 @@ namespace SIME_UTN.BLL
             {
                 TrasladoProductoDAL.GuardarTraslado(trasladop, usuarioLogueadop);
             }
+        }
+
+        internal static void AceptarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
+        {
+            DAL.TrasladoProductoDAL.AceptarTraslado(trasladoEstatico, usuarioLogueadop);
         }
     }
 }

@@ -62,6 +62,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
             trasladoEstatico = new TrasladoProducto();
             UsuarioLogueado();
             Icon = Properties.Resources.Icono;
+            mBtnAceptar.Enabled = false;
+            mBtnDeclinar.Enabled = false;
+            mBtnAgregar.Caption = "Agregar";
         }
         /// <summary>
         /// Metodo que permite extrae el traslado seleccionado del grid y colocar la informacion en los campos del formulario
@@ -72,9 +75,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             try
             {
-                mBtnAceptar.Enabled = true;
-                mBtnDeclinar.Enabled = true;
-                mBtnAgregar.Caption = "Modificar";
+              
                 RegistroBodega bodegaOrigen = new RegistroBodega();
                 RegistroBodega bodegaDestino = new RegistroBodega();
                 UsuarioTable unUsuario = new UsuarioTable();
@@ -99,6 +100,19 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 estadoTraslado.idEstadoTraslado = int.Parse(gridView1.GetFocusedRowCellValue("IDEstadoTraslado").ToString());
                 estadoTraslado.descripcion = gridView1.GetFocusedRowCellValue("EstadoTraslado").ToString();
                 trasladoEstatico.EstadoTraslado = estadoTraslado;
+                if (trasladoEstatico.EstadoTraslado.idEstadoTraslado == 1)
+                {
+                    mBtnAgregar.Caption = "Modificar";
+                    mBtnAceptar.Enabled = true;
+                    mBtnDeclinar.Enabled = true;
+                }
+                else
+                {
+                    mBtnAceptar.Enabled = false;
+                    mBtnDeclinar.Enabled = false;
+                    mBtnAgregar.Caption = "Agregar";
+                    MessageBox.Show("No se puede utilizar este traslado, debido a que se encuentra: " + trasladoEstatico.EstadoTraslado.descripcion, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
 
             }
@@ -113,24 +127,23 @@ namespace SIME_UTN.UI.Bodega.Procesos
         }
 
         /// <summary>
-        /// Metodo que desactiva una Ubicacion
+        /// Metodo que declina un traslado
         /// </summary>
-        public void DesactivarTraslados()
+        public void DeclinarTraslados()
         {
-            traslado = new TrasladoProducto();
+
             gestorTraslado = new GestorTrasladoProducto();
             try
             {
-                traslado.idTraslado = int.Parse(gridView1.GetFocusedRowCellValue("idtraslado").ToString());
+               
 
-
-                if (MessageBox.Show("¿Seguro que desea eliminar el traslado # " + traslado.idTraslado + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    gestorTraslado.EliminarTraslado(traslado.idTraslado, usuarioLogueado);
-                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmTrasladosDeProductos_Load(null, null);
-
-                }
+                    if (MessageBox.Show("¿Seguro que desea declinar el traslado # " + trasladoEstatico.idTraslado + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        gestorTraslado.DeclinarTraslado(trasladoEstatico, usuarioLogueado);
+                        MessageBox.Show("El traslado # " + trasladoEstatico.idTraslado + " fue declinado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmTrasladosDeProductos_Load(null, null);
+                    }
+                
 
             }
             catch (Exception ex)
@@ -140,30 +153,50 @@ namespace SIME_UTN.UI.Bodega.Procesos
         }
 
         /// <summary>
-        /// Invoca al metodo desactivar un traslado, al seleccionar un row del grid y pulsar la tecla Delete del teclado
+        /// Metodo que acepta un traslado
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        public void AceptarTraslados()
         {
-            if (e.KeyCode == Keys.Delete)
+
+            gestorTraslado = new GestorTrasladoProducto();
+            try
             {
-                DesactivarTraslados();
-                e.Handled = true;
+
+
+                if (MessageBox.Show("¿Seguro que desea aceptar el traslado # " + trasladoEstatico.idTraslado + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gestorTraslado.AceptarTraslado(trasladoEstatico, usuarioLogueado);
+                    MessageBox.Show("El traslado # " + trasladoEstatico.idTraslado + " fue aceptado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmTrasladosDeProductos_Load(null, null);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
         /// <summary>
-        /// Invoca al metodo desactivar un traslado, al seleccionar un row del grid y pulsar el boton eliminar del menu principal
+        /// Invoca al metodo desactivar un traslado, al seleccionar un row del grid y pulsar el boton Declinar del menu principal
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void mBtnEliminar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        private void mBtnDeclinar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            DesactivarTraslados();
+            DeclinarTraslados();
         }
 
-      
+        /// <summary>
+        /// Invoca al metodo acepta un traslado, al seleccionar un row del grid y pulsar el boton Aceptar del menu principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mBtnAceptar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            AceptarTraslados();
+        }
     }
 }
