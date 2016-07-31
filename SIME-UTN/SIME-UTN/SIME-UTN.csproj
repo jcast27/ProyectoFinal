@@ -1366,6 +1366,7 @@
     <Content Include="Resources\boton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Ayuda.docx" />
     <None Include="Resources\ProyectoFinal.pdf" />
     <None Include="Resources\utn128x99.png" />
     <None Include="Resources\warehouse.png" />

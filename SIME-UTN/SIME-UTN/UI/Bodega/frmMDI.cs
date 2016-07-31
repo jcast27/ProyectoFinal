@@ -15,6 +15,7 @@ using SIME_UTN.UI.Reportes;
 using SIME_UTN.UI.Bodega.Procesos;
 using SIME_UTN.DAL;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
 
 namespace SIME_UTN.UI.Bodega
 {
@@ -467,6 +468,20 @@ namespace SIME_UTN.UI.Bodega
         static void SplashScreen()
         {
             Application.Run(new frmSplashRestaurar());
+        }
+
+        private void ayudaStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Iniciar proceso
+            Process pr = new Process();
+
+            //Directorio
+            pr.StartInfo.WorkingDirectory = @"..\..\Resources\";
+
+            // Aqui se introduce el nombre del archivo
+            pr.StartInfo.FileName = "Ayuda.docx";
+
+            pr.Start();
         }
     }
 }

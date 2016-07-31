@@ -330,6 +330,7 @@
             this.ayudaStripMenuItem.Name = "ayudaStripMenuItem";
             this.ayudaStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.ayudaStripMenuItem.Text = "Ayuda";
+            this.ayudaStripMenuItem.Click += new System.EventHandler(this.ayudaStripMenuItem_Click);
             // 
             // acercaDeStripMenuItem
             // 
