@@ -338,17 +338,12 @@ namespace SIME_UTN.UI.Formulario
             frm.Show(this);
         }
 
-        private void acercaDeStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AcercaDe about = new AcercaDe();
-            about.ShowDialog(this);
-        }
 
-        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mBtnAyuda_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             //Iniciar proceso
             Process pr = new Process();
-            
+
             //Directorio
             pr.StartInfo.WorkingDirectory = @"..\..\Resources\";
 
@@ -356,6 +351,12 @@ namespace SIME_UTN.UI.Formulario
             pr.StartInfo.FileName = "Ayuda.docx";
 
             pr.Start();
+        }
+
+        private void mBtnAcercaDe_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            AcercaDe about = new AcercaDe();
+            about.ShowDialog(this);
         }
 
         //public void CrearDocumentosReportes(Boolean estado)

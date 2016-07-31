@@ -514,11 +514,6 @@ namespace SIME_UTN.UI.Bodega
             tipoDeProceso = "Reportes";
         }
 
-        private void acercaDeStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AcercaDe about = new AcercaDe();
-            about.ShowDialog(this);
-        }
 
         private void resturarDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -548,7 +543,8 @@ namespace SIME_UTN.UI.Bodega
             Application.Run(new frmSplashRestaurar());
         }
 
-        private void ayudaStripMenuItem_Click(object sender, EventArgs e)
+
+        private void mBtnAyuda_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             //Iniciar proceso
             Process pr = new Process();
@@ -560,6 +556,12 @@ namespace SIME_UTN.UI.Bodega
             pr.StartInfo.FileName = "Ayuda.docx";
 
             pr.Start();
+        }
+
+        private void mBtnAcercaDe_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            AcercaDe about = new AcercaDe();
+            about.ShowDialog(this);
         }
     }
 }
