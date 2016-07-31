@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.BLL
 {
@@ -21,7 +22,10 @@ namespace SIME_UTN.BLL
 
         internal static void EliminarRegistroProducto(int idRegistroBodega,int idRegProd, string nombrep, string usuarioLogueadop)
         {
+            List<RegistroIngresoProductoDTO> listregistriIngresoProducto = new List<RegistroIngresoProductoDTO>();
+            listregistriIngresoProducto = RegistroIngresoProductoDAL.ObtenerProductosPorIdRegistro(idRegProd);
             RegistroProductoDAL.EliminarRegistroProducto(idRegistroBodega,idRegProd, nombrep, usuarioLogueadop);
+            RegistroProductoDAL.DescargarInvetarioRegistroProductoEliminado(idRegistroBodega, listregistriIngresoProducto);
         }
 
     }

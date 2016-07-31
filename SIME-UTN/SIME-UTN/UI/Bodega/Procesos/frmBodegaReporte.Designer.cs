@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ePError = new System.Windows.Forms.ErrorProvider();
+            this.components = new System.ComponentModel.Container();
+            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnForms = new System.Windows.Forms.Panel();
+            this.btnTrasladoUser = new System.Windows.Forms.Button();
             this.btnTrasladoFecha = new System.Windows.Forms.Button();
             this.btnTraslado = new System.Windows.Forms.Button();
             this.btnBodegaN = new System.Windows.Forms.Button();
             this.btnBodega = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.atrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTrasladoUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.pnForms.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -59,6 +60,22 @@
             this.pnForms.Name = "pnForms";
             this.pnForms.Size = new System.Drawing.Size(889, 524);
             this.pnForms.TabIndex = 0;
+            // 
+            // btnTrasladoUser
+            // 
+            this.btnTrasladoUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnTrasladoUser.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnTrasladoUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrasladoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
+            this.btnTrasladoUser.Image = global::SIME_UTN.Properties.Resources.Reporte;
+            this.btnTrasladoUser.Location = new System.Drawing.Point(656, 15);
+            this.btnTrasladoUser.Name = "btnTrasladoUser";
+            this.btnTrasladoUser.Size = new System.Drawing.Size(155, 139);
+            this.btnTrasladoUser.TabIndex = 4;
+            this.btnTrasladoUser.Text = "Traslados por Usuario";
+            this.btnTrasladoUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnTrasladoUser.UseVisualStyleBackColor = false;
+            this.btnTrasladoUser.Click += new System.EventHandler(this.Btn_Click);
             // 
             // btnTrasladoFecha
             // 
@@ -142,22 +159,6 @@
             this.atrasToolStripMenuItem.Text = "Atrás";
             this.atrasToolStripMenuItem.Click += new System.EventHandler(this.atrasToolStripMenuItem_Click);
             // 
-            // btnTrasladoUser
-            // 
-            this.btnTrasladoUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnTrasladoUser.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnTrasladoUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrasladoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.75F);
-            this.btnTrasladoUser.Image = global::SIME_UTN.Properties.Resources.Reporte;
-            this.btnTrasladoUser.Location = new System.Drawing.Point(656, 15);
-            this.btnTrasladoUser.Name = "btnTrasladoUser";
-            this.btnTrasladoUser.Size = new System.Drawing.Size(155, 139);
-            this.btnTrasladoUser.TabIndex = 4;
-            this.btnTrasladoUser.Text = "Traslados por Usuario";
-            this.btnTrasladoUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnTrasladoUser.UseVisualStyleBackColor = false;
-            this.btnTrasladoUser.Click += new System.EventHandler(this.Btn_Click);
-            // 
             // frmBodegaReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,8 +170,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmBodegaReporte";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Items";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmFormReporte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.pnForms.ResumeLayout(false);

@@ -56,7 +56,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         public string ObtenerFecha()
         {
             DateTime date = DateTime.Now;
-            string fecha = date.ToString("dd/MM/yyyy");
+            string fecha = date.ToString("MM/dd/yyyy");
             return fecha;
         }
 

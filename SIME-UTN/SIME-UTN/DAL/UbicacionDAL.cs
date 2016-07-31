@@ -10,6 +10,7 @@ namespace SIME_UTN.DAL
 {
     class UbicacionDAL
     {
+        static Ubicacion viejaUbicacion = null;
         /// <summary>
         /// Metodo que obtiene una lista de ubicaciones
         /// </summary>
@@ -61,14 +62,15 @@ namespace SIME_UTN.DAL
             accion = "Eliminar";
             SqlCommand comando = new SqlCommand("sp_DISABLE_Ubicacion_ByID");
             comando.CommandType = CommandType.StoredProcedure;
-
+            
             comando.Parameters.AddWithValue("@idubicacion", idUbicacionp);
-            GuardarLog(null, usuarioLogueadop, accion, nombrep);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(null, usuarioLogueadop, accion, nombrep);
         }
 
         /// <summary>
@@ -78,6 +80,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         public static void GuardarUbicacion(Ubicacion Ubicacionp,string usuarioLogueadop)
         {
+            viejaUbicacion = new Ubicacion();
             string accion = "";
             accion = "Insertar";
             SqlCommand comando = new SqlCommand("sp_INSERT_Ubicacion");
@@ -87,13 +90,14 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@otrassennas", Ubicacionp.otraSennas);
             comando.Parameters.AddWithValue("@iddepartamento", Ubicacionp.Departamento.idDepartamento);
             comando.Parameters.AddWithValue("@estado", Ubicacionp.estado);
-
-            GuardarLog(Ubicacionp, usuarioLogueadop, accion, null);
+            viejaUbicacion = ObtenerUbicacionID(Ubicacionp.idUbicacion);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(Ubicacionp, usuarioLogueadop, accion, null);
         }
 
         /// <summary>
@@ -172,6 +176,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         internal static void ActualizarUbicacion(Ubicacion Ubicacionp, string usuarioLogueadop)
         {
+            viejaUbicacion = new Ubicacion();
             string accion = "";
             accion = "Modificar";
             SqlCommand comando = new SqlCommand("sp_UPDATE_Ubicacion");
@@ -181,12 +186,13 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@nombre", Ubicacionp.nombre);
             comando.Parameters.AddWithValue("@otrassennas", Ubicacionp.otraSennas);
             comando.Parameters.AddWithValue("@iddepartamento", Ubicacionp.Departamento.idDepartamento);
-
-            GuardarLog(Ubicacionp, usuarioLogueadop, accion, null);
+            viejaUbicacion = ObtenerUbicacionID(Ubicacionp.idUbicacion);
+           
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(Ubicacionp, usuarioLogueadop, accion, null);
         }
 
         /// <summary>
@@ -198,7 +204,7 @@ namespace SIME_UTN.DAL
         /// <param name="ubicacionEliminadap"></param>
         public static void GuardarLog(Ubicacion ubicacionp, string usuarioLogueado, string accion, string ubicacionEliminadap)
         {
-            Ubicacion oldUbicacion = new Ubicacion();
+            Ubicacion nuevaUbicacion = new Ubicacion();
             string descripcion = "";
             string estado = "";
             if (accion == "Eliminar")
@@ -209,16 +215,21 @@ namespace SIME_UTN.DAL
             if(accion== "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Ubicacion: " + ubicacionp.nombre + "\r\nOtras Senas: " + ubicacionp.otraSennas +"\r\nDepartamento: " + ubicacionp.Departamento.descripcion + "\r\nEstado: " + estado;
+                descripcion = "\r\nUbicaciones";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Ubicacion: " + ubicacionp.nombre + "\r\nOtras Senas: " + ubicacionp.otraSennas +"\r\nDepartamento: " + ubicacionp.Departamento.descripcion + "\r\nEstado: " + estado;
 
             }
             if (accion == "Modificar")
             {
-                oldUbicacion = ObtenerUbicacionID(ubicacionp.idUbicacion);
+                nuevaUbicacion = ObtenerUbicacionID(ubicacionp.idUbicacion);
+                
                 estado = "Activo";
-                descripcion = "Antes del Cambio"+"\r\nUbicacion: " + oldUbicacion.nombre + "\r\nOtras Senas: " + oldUbicacion.otraSennas +"\r\nDepartamento: "+ oldUbicacion.Departamento.descripcion + "\r\nEstado: " + estado;
+                descripcion = "\r\nUbicaciones";
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "Despues del Cambio" + "\r\nUbicacion: " + ubicacionp.nombre + "\r\nOtras Senas: " + ubicacionp.otraSennas + "\r\nDepartamento: " + ubicacionp.Departamento.descripcion + "\r\nEstado: " + estado;
+                descripcion += "Antes del Cambio"+"\r\nUbicacion: " + viejaUbicacion.nombre + "\r\nOtras Senas: " + viejaUbicacion.otraSennas +"\r\nDepartamento: "+ viejaUbicacion.Departamento.descripcion + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nUbicacion: " + nuevaUbicacion.nombre + "\r\nOtras Senas: " + nuevaUbicacion.otraSennas + "\r\nDepartamento: " + nuevaUbicacion.Departamento.descripcion + "\r\nEstado: " + estado;
             }
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");

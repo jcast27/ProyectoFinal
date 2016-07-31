@@ -43,12 +43,13 @@ namespace SIME_UTN.UI.Bodega.Procesos
             registroEstatico = new RegistroProducto();
             registroEstatico = registroEstaticop;
             gCRegistroProductos();
+            cmbBodega.Enabled = false;
         }
 
         public string ObtenerFecha()
         {
             DateTime date = DateTime.Now;
-            string fecha = date.ToString("dd/MM/yyyy");
+            string fecha = date.ToString("MM/dd/yyyy");
             return fecha;
         }
 
@@ -127,33 +128,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
         }
 
-        public bool ValidarCamposAgregarRegistroProducto()
-        {
-            bool error = false;
-            if (txtECodigoProducto.Text.Trim() == "")
-            {
-                epError.SetError(txtECodigoProducto, "Campo Requerido");
-                txtECodigoProducto.Focus();
-                error = true;
-            }
-            if (txtCantidadXEmpaque.Text.Trim() == "")
-            {
-                epError.SetError(txtCantidadXEmpaque, "Campo Requerido");
-                txtCantidadXEmpaque.Focus();
-                error = true;
-            }
-            if (txtCosto.Text.Trim() == "")
-            {
-                epError.SetError(txtCosto, "Campo Requerido");
-                txtCosto.Focus();
-                error = true;
-            }
-            if (error == false)
-            {
-                epError.Clear();
-            }
-            return error;
-        }
+     
 
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
@@ -249,9 +224,11 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     break;
 
                 case EstadoMantenimiento.Editar:
-                    txtSolicitudAvatar.Enabled = false;
-                    txtDescripcion.Enabled = false;
-                    txtUsuario.Enabled = false;
+                    cmbBodega.Enabled = false;
+                    txtECodigoProducto.Enabled = false;
+                    txtCantidadXEmpaque.Enabled = false;
+                    txtCosto.Enabled = false;
+                    dateFechaCaducidad.Enabled = false;
                     
                     break;
 
@@ -263,6 +240,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     txtCantidadXEmpaque.Text = "";
                     txtUnidadMedida.Text = "";
                     txtCosto.Text = "";
+                    dateFechaCaducidad.Text = "";
                     break;
             }
         }
@@ -405,6 +383,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         public bool ValidarCamposModificar()
         {
+            epError.Clear();
             bool error = false;
            
             if (txtSolicitudAvatar.Text.Trim() == "")
@@ -417,12 +396,6 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
                 epError.SetError(txtDescripcion, "Campo Requerido");
                 txtDescripcion.Focus();
-                error = true;
-            }
-            if (dateFechaCaducidad.Text.Trim() == "")
-            {
-                epError.SetError(dateFechaCaducidad, "Campo Requerido");
-                dateFechaCaducidad.Focus();
                 error = true;
             }
             if (txtUsuario.Text.Trim() == "")
@@ -440,6 +413,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         public bool ValidarCampos()
         {
+            epError.Clear();
             bool error = false;
           
             if (txtSolicitudAvatar.Text.Trim() == "")
@@ -454,16 +428,44 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 txtDescripcion.Focus();
                 error = true;
             }
+            if (txtUsuario.Text.Trim() == "")
+            {
+                epError.SetError(txtUsuario, "Campo Requerido");
+                txtUsuario.Focus();
+                error = true;
+            }
+            if (error == false)
+            {
+                epError.Clear();
+            }
+            return error;
+        }
+        public bool ValidarCamposAgregarRegistroProducto()
+        {
+            epError.Clear();
+            bool error = false;
+            if (txtECodigoProducto.Text.Trim() == "")
+            {
+                epError.SetError(txtECodigoProducto, "Campo Requerido");
+                txtECodigoProducto.Focus();
+                error = true;
+            }
+            if (txtCantidadXEmpaque.Text.Trim() == "")
+            {
+                epError.SetError(txtCantidadXEmpaque, "Campo Requerido");
+                txtCantidadXEmpaque.Focus();
+                error = true;
+            }
             if (dateFechaCaducidad.Text.Trim() == "")
             {
                 epError.SetError(dateFechaCaducidad, "Campo Requerido");
                 dateFechaCaducidad.Focus();
                 error = true;
             }
-            if (txtUsuario.Text.Trim() == "")
+            if (txtCosto.Text.Trim() == "")
             {
-                epError.SetError(txtUsuario, "Campo Requerido");
-                txtUsuario.Focus();
+                epError.SetError(txtCosto, "Campo Requerido");
+                txtCosto.Focus();
                 error = true;
             }
             if (error == false)

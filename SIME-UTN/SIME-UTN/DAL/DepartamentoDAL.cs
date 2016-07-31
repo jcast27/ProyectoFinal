@@ -10,6 +10,7 @@ namespace SIME_UTN.DAL
 {
     class DepartamentoDAL
     {
+        static Departamento viejoDepartamento = null;
         public static List<Departamento> ObtenerDepartamentos()
         {
             string sql = @"sp_SELECT_Departamento_All";
@@ -45,6 +46,7 @@ namespace SIME_UTN.DAL
 
         public static void GuardarDepartamento(Departamento Departamentop, string usuarioLogueadop)
         {
+            viejoDepartamento = new Departamento();
             string accion = "";
             accion = "Insertar";
             SqlCommand comando = new SqlCommand("sp_INSERT_Departamento");
@@ -53,13 +55,14 @@ namespace SIME_UTN.DAL
             //  comando.Parameters.AddWithValue("@IDDepartamento", Departamentop.idDepartamento);
             comando.Parameters.AddWithValue("@descripcion", Departamentop.descripcion);
             comando.Parameters.AddWithValue("@estado", Departamentop.estado);
-
-            GuardarLog(Departamentop, usuarioLogueadop, accion, null);
+            viejoDepartamento = ObtenerDepartamentoID(Departamentop.idDepartamento);
+            
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(Departamentop, usuarioLogueadop, accion, null);
         }
 
         public static Departamento ObtenerDepartamentoID(int idDepartamentop)
@@ -101,33 +104,19 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@iddepartamento", deptoIdp);
-            GuardarLog(null, usuarioLoguadop, accion, deptop);
+          
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(null, usuarioLoguadop, accion, deptop);
         }
 
-        /*  internal static void DesactivarDepartamento(string DepartamentoIdp, string accion)
-          {
-              accion = accion.Equals("Habilitar") ? "1" : "0";
-
-              SqlCommand comando = new SqlCommand("sp_DISABLE_Departamento_ByID");
-              comando.CommandType = CommandType.StoredProcedure;
-
-              comando.Parameters.AddWithValue("@IDDepartamento", DepartamentoIdp);
-              comando.Parameters.AddWithValue("@estado", accion);
-
-
-              using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-              {
-                  db.ExecuteNonQuery(comando);
-              }
-          }*/
 
         internal static void ActualizarDepartamento(Departamento Departamentop, string usuarioLogueadop)
         {
+            viejoDepartamento = new Departamento();
             string accion = "";
             accion = "Modificar";
 
@@ -137,13 +126,14 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@iddepartamento", Departamentop.idDepartamento);
             comando.Parameters.AddWithValue("@descripcion", Departamentop.descripcion);
             comando.Parameters.AddWithValue("@estado", Departamentop.estado);
-
-            GuardarLog(Departamentop, usuarioLogueadop, accion, null);
+            viejoDepartamento = ObtenerDepartamentoID(Departamentop.idDepartamento);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(Departamentop, usuarioLogueadop, accion, null);
         }
 
         public static void GuardarLog(Departamento unDepto, string usuarioLogueado, string accion, string deptoEliminado)
@@ -151,16 +141,31 @@ namespace SIME_UTN.DAL
 
             string descripcion = "";
             string estado = "";
-            if (unDepto == null)
+            Departamento nuevoDepartamento = new Departamento();
+
+            if (accion == "Eliminar")
             {
                 descripcion = "Departamento eliminado: " + deptoEliminado;
                 estado = "Desactivado";
             }
-            else
+            if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Departamento: " + unDepto.descripcion + "\r\nEstado: " + estado;
+                descripcion = "\r\nDepartamento";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Departamento: " + unDepto.descripcion + "\r\nEstado: " + estado;
 
+            }
+            if (accion == "Modificar")
+            {
+               
+                nuevoDepartamento = ObtenerDepartamentoID(unDepto.idDepartamento);
+                estado = "Activo";
+                descripcion = "\r\nDepartamento";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Antes del Cambio" + "\r\nDepartamento: " + viejoDepartamento.descripcion + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nDepartamento: " + nuevoDepartamento.descripcion + "\r\nEstado: " + estado;
             }
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");

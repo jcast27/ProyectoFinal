@@ -103,6 +103,16 @@ namespace SIME_UTN.UI.Bodega
                 e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioMaximo();
             if (e.Document.Caption == "Ventana Inventario Actual")
                 e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioActual();
+            if (e.Document.Caption == "Reporte Bodega")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodega",usuarioLogueado,0);
+            if (e.Document.Caption == "Reporte Bodega Especifica")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodegaN", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Traslados")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTraslado", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Traslados Por Fecha")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Traslados Por Usuario")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoUser", usuarioLogueado, 0);
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
         }
@@ -355,6 +365,60 @@ namespace SIME_UTN.UI.Bodega
 
         }
 
+        public void CrearDocumentosReportes(Boolean estado)
+        {
+            string nombreElemento = "";
+            string grupo = "";
+            Image imagen = null;
+
+            this.windowsUIView1.BeginUpdate();
+            this.windowsUIView1.Controller.CloseAll();
+            this.windowsUIView1.Documents.Clear();
+            //Creating documents
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodega = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodegaEspecifica = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega Especifica" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTraslados = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Fecha" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosUsuario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Usuario" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptBodega, docRptBodegaEspecifica, docTraslados, docTrasladosFecha, docTrasladosUsuario });
+            //Creating and populating content container
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
+            tileContainer2.Properties.ItemSize = 140;
+            tileContainer2.Properties.Orientation = Orientation.Horizontal;
+            //Propiedades para el decumento Reporte Bodega
+            grupo = "Group 1";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Bodega";
+            tileContainer2.Items.Add(this.crearTile(docRptBodega, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Bodega Especifica
+            grupo = "Group 2";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Bodega Especifica";
+            tileContainer2.Items.Add(this.crearTile(docRptBodegaEspecifica, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Traslados
+            grupo = "Group 3";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Taslados";
+            tileContainer2.Items.Add(this.crearTile(docTraslados, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Traslados Fecha
+            grupo = "Group 1";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Taslados Por Fecha";
+            tileContainer2.Items.Add(this.crearTile(docTrasladosFecha, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Traslados Usuario
+            grupo = "Group 2";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Taslados Por Usuario";
+            tileContainer2.Items.Add(this.crearTile(docTrasladosUsuario, nombreElemento, grupo, imagen, estado));
+
+
+            windowsUIView1.ContentContainers.Add(tileContainer2);
+            this.windowsUIView1.ActivateContainer(tileContainer2);
+            this.windowsUIView1.EndUpdate();
+            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+
+        }
+
 
         private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
         {
@@ -369,6 +433,10 @@ namespace SIME_UTN.UI.Bodega
             if (tipoDeProceso == "Inventarios")
             {
                 this.CrearDocumentosInventario(true);
+            }
+            if (tipoDeProceso == "Reportes")
+            {
+                this.CrearDocumentosReportes(true);
             }
 
         }
@@ -407,6 +475,10 @@ namespace SIME_UTN.UI.Bodega
                 {
                     this.CrearDocumentosInventario(true);
                 }
+                if (tipoDeProceso == "Reportes")
+                {
+                    this.CrearDocumentosReportes(true);
+                }
             }
             security();
         }
@@ -431,9 +503,15 @@ namespace SIME_UTN.UI.Bodega
 
         private void mBtnReportes_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
+            //tipoDeProceso = "Reportes";
+            //frmBodegaReporte frm = new frmBodegaReporte(usuarioLogueado);
+            //frm.ShowDialog(this);
+
+            this.CrearDocumentosAdministracion(false);
+            this.CrearDocumentosProceso(false);
+            this.CrearDocumentosInventario(false);
+            this.CrearDocumentosReportes(true);
             tipoDeProceso = "Reportes";
-            frmBodegaReporte frm = new frmBodegaReporte(usuarioLogueado);
-            frm.Show(this);
         }
 
         private void acercaDeStripMenuItem_Click(object sender, EventArgs e)

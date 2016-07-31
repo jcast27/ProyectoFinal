@@ -25,8 +25,7 @@ namespace SIME_UTN.DAL
             viejoTraslado = new TrasladoProducto();
             string accion = "";
             accion = "Modificar";
-            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
-            listaProductosDTO = TrasladoProductoInterDAL.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
+         
             SqlCommand comando = new SqlCommand("sp_DECLINE_TrasladoProducto_ByID");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -39,7 +38,7 @@ namespace SIME_UTN.DAL
                 db.ExecuteNonQuery(comando);
             }
             GuardarLog(trasladoEstatico, usuarioLogueadop, accion, null);
-            VolverProductoEliminadoABodega(trasladoEstatico, listaProductosDTO);
+           
         }
 
 
@@ -53,8 +52,6 @@ namespace SIME_UTN.DAL
             viejoTraslado = new TrasladoProducto();
             string accion = "";
             accion = "Modificar";
-            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
-            listaProductosDTO = TrasladoProductoInterDAL.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
             SqlCommand comando = new SqlCommand("sp_ACCEPT_TrasladoProducto_ByID");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -66,7 +63,7 @@ namespace SIME_UTN.DAL
                 db.ExecuteNonQuery(comando);
             }
             GuardarLog(trasladoEstatico, usuarioLogueadop, accion, null);
-            TrasladarProductosABodegaDestino(trasladoEstatico, listaProductosDTO);
+          
         }
 
 
@@ -75,7 +72,7 @@ namespace SIME_UTN.DAL
         /// </summary>
         /// <param name="trasladoEstatico"></param>
         /// <param name="listaProductosDTO"></param>
-        private static void TrasladarProductosABodegaDestino(TrasladoProducto trasladoEstatico, List<TrasladoProductoInterDTO> listaProductosDTO)
+        internal static void TrasladarProductosABodegaDestino(TrasladoProducto trasladoEstatico, List<TrasladoProductoInterDTO> listaProductosDTO)
         {
             foreach (TrasladoProductoInterDTO producto in listaProductosDTO)
             {

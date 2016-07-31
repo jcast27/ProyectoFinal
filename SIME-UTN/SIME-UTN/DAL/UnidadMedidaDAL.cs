@@ -10,6 +10,7 @@ namespace SIME_UTN.DAL
 {
     class UnidadMedidaDAL
     {
+        static UnidadMedida viejaUnidadMedida = null;
         internal static void EliminarUnidad(int unidadId, string unidadp, string usuarioLoguadop)
         {
             string accion = "";
@@ -18,12 +19,13 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@idunidadmedida", unidadId);
-            GuardarLog(null, usuarioLoguadop, accion, unidadp);
+          
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(null, usuarioLoguadop, accion, unidadp);
         }
 
         internal static bool ObtenerUnidadByID(int idUnidad)
@@ -85,6 +87,7 @@ namespace SIME_UTN.DAL
 
         internal static void ActualizarUnidad(UnidadMedida unaUnidadp, string usuarioLogueadop)
         {
+            viejaUnidadMedida = new UnidadMedida();
             string accion = "";
             accion = "Modificar";
             SqlCommand comando = new SqlCommand("sp_UPDATE_UnidadMedidaProducto");
@@ -94,16 +97,19 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@descripcion", unaUnidadp.descripcion);
             comando.Parameters.AddWithValue("@Decimales", unaUnidadp.decimales);
             comando.Parameters.AddWithValue("@estado", unaUnidadp.estado);
-            GuardarLog(unaUnidadp, usuarioLogueadop, accion, null);
+            viejaUnidadMedida = ObtenerUnidadMediadById(unaUnidadp.idUnidadMedida);
+           
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(unaUnidadp, usuarioLogueadop, accion, null);
         }
 
 
         internal static void GuardarUnidad(UnidadMedida unaUnidad, string usuarioLogueadop)
         {
+            viejaUnidadMedida = new UnidadMedida();
             string accion = "";
             accion = "Insertar";
             SqlCommand comando = new SqlCommand("sp_INSERT_UnidadMedidaProducto");
@@ -113,13 +119,14 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@descripcion", unaUnidad.descripcion);
             comando.Parameters.AddWithValue("@Decimales", unaUnidad.decimales);
             comando.Parameters.AddWithValue("@estado", unaUnidad.estado);
-
-            GuardarLog(unaUnidad, usuarioLogueadop, accion, null);
+            viejaUnidadMedida = ObtenerUnidadMediadById(unaUnidad.idUnidadMedida);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(unaUnidad, usuarioLogueadop, accion, null);
         }
 
         internal static List<UnidadMedida> ObtenerUnidades()
@@ -166,20 +173,36 @@ namespace SIME_UTN.DAL
         }
         public static void GuardarLog(UnidadMedida unaMedidap, string usuarioLogueado, string accion, string unidadEliminada)
         {
-
+            UnidadMedida nevaUnidadMedida = new UnidadMedida();
             string descripcion = "";
             string estado = "";
-            if (unaMedidap == null)
+
+
+            if (accion == "Eliminar")
             {
                 descripcion = "Unidad de medida eliminada: " + unidadEliminada;
                 estado = "Desactivado";
             }
-            else
+            if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Codigo: " + unaMedidap.codigo + "\r\nUnidad de Medida: " + unaMedidap.descripcion + "\r\nDecimales: " + unaMedidap.decimales == "0" ? "No":"Si" + "\r\nEstado: " + estado;
+                descripcion = "\r\nUnidad de Medida";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Codigo: " + unaMedidap.codigo + "\r\nUnidad de Medida: " + unaMedidap.descripcion + "\r\nDecimales: " + unaMedidap.decimales == "0" ? "No" : "Si" + "\r\nEstado: " + estado;
 
             }
+            if (accion == "Modificar")
+            {
+                
+                nevaUnidadMedida = ObtenerUnidadMediadById(unaMedidap.idUnidadMedida);
+                estado = "Activo";
+                descripcion = "\r\nUnidad de Medida";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Antes del Cambio" + "\r\nCodigo: " + unaMedidap.codigo + "\r\nUnidad de Medida: " + unaMedidap.descripcion + "\r\nDecimales: " + unaMedidap.decimales == "0" ? "No" : "Si" + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nCodigo: " + nevaUnidadMedida.codigo + "\r\nUnidad de Medida: " + nevaUnidadMedida.descripcion + "\r\nDecimales: " + nevaUnidadMedida.decimales == "0" ? "No" : "Si" + "\r\nEstado: " + estado;
+            }
+
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");
             SqlCommand comando = new SqlCommand("sp_INSERT_log");

@@ -10,6 +10,7 @@ namespace SIME_UTN.DAL
 {
     class FuncionarioDAL
     {
+        static Funcionario viejoFuncionario = null;
         public static List<Funcionario> ObtenerFuncionarios()
         {
             string sql = @"sp_SELECT_Funcionario_All";
@@ -56,6 +57,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         public static void GuardarFuncionario(Funcionario unFuncionariop, string usuarioLogueadop)
         {
+            viejoFuncionario = new Funcionario();
             string accion = "";
             accion = "Insertar";
             SqlCommand comando = new SqlCommand("sp_INSERT_Funcionario");
@@ -68,7 +70,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@correo", unFuncionariop.correo);
             comando.Parameters.AddWithValue("@iddepartamento", unFuncionariop.Departamento.idDepartamento);
             comando.Parameters.AddWithValue("@estado", unFuncionariop.estado);
-
+            viejoFuncionario = ObtenerFuncionarioID(unFuncionariop.idFuncionario);
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
@@ -77,30 +79,6 @@ namespace SIME_UTN.DAL
             GuardarLog(unFuncionariop, usuarioLogueadop, accion, null);
         }
 
-     /*   internal static bool ObtenerFuncionarioID(int idFuncionario)
-        {
-            bool existe = false;
-            string sql = @"sp_SELECT_Funcionario_ByID";
-
-            List<Funcionario> lista = new List<Funcionario>();
-
-            SqlCommand command = new SqlCommand(sql);
-            command.CommandType = CommandType.StoredProcedure;
-
-            command.Parameters.AddWithValue("@IDFuncionario", idFuncionario);
-
-            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-            {
-                DataSet ds = db.ExecuteReader(command, "consulta");
-
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    existe = true;
-                }
-
-            }
-            return existe;
-        }*/
 
           public static Funcionario ObtenerFuncionarioID(int idFuncionariop)
           {
@@ -157,28 +135,9 @@ namespace SIME_UTN.DAL
         }
 
 
-        /*  internal static void DesactivarFuncionario(string FuncionarioIdp, string accion)
-          {
-              accion = accion.Equals("Habilitar") ? "1" : "0";
-
-              SqlCommand comando = new SqlCommand("sp_DISABLE_Funcionario_ByID");
-              comando.CommandType = CommandType.StoredProcedure;
-
-              comando.Parameters.AddWithValue("@IDFuncionario", FuncionarioIdp);
-              comando.Parameters.AddWithValue("@estado", accion);
-
-
-              using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-              {
-                  db.ExecuteNonQuery(comando);
-              }
-          }*/
-
-
-
-
         internal static void ActualizarFuncionario(Funcionario Funcionariop, string usuarioLogueadop)
         {
+            viejoFuncionario = new Funcionario();
             string accion = "";
             accion = "Modificar";
 
@@ -192,7 +151,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@correo", Funcionariop.correo);
             comando.Parameters.AddWithValue("@iddepartamento", Funcionariop.Departamento.idDepartamento);
             comando.Parameters.AddWithValue("@estado", Funcionariop.estado);
-            
+            viejoFuncionario = ObtenerFuncionarioID(Funcionariop.idFuncionario);
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
@@ -206,19 +165,38 @@ namespace SIME_UTN.DAL
 
             string descripcion = "";
             string estado = "";
-            if (unFuncionario == null)
+            Funcionario nuevoFuncionario = new Funcionario();
+
+            if (accion == "Eliminar")
             {
                 descripcion = "Funcionario eliminado: " + funcionarioEliminado;
                 estado = "Desactivado";
             }
-            else
+            if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Cédula: " + unFuncionario.cedula + "\r\nFuncionario: " + unFuncionario.nombre +
-                    "\r\nCorreo: " + unFuncionario.correo + "\r\nTeléfono: " + unFuncionario.telefono +
-                    "\r\nDepartamento: " + unFuncionario.Departamento.descripcion + "\r\nEstado: " + estado;
+                descripcion = "\r\nFuncionario";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Cédula: " + unFuncionario.cedula + "\r\nFuncionario: " + unFuncionario.nombre +"\r\nCorreo: " + unFuncionario.correo + "\r\nTeléfono: " + unFuncionario.telefono +
+                "\r\nDepartamento: " + unFuncionario.Departamento.descripcion + "\r\nEstado: " + estado;
 
             }
+            if (accion == "Modificar")
+            {
+                
+                nuevoFuncionario = ObtenerFuncionarioID(unFuncionario.idFuncionario);
+                estado = "Activo";
+                descripcion = "\r\nFuncionario";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Antes del Cambio" + "\r\nCédula: " + viejoFuncionario.cedula + "\r\nFuncionario: " + viejoFuncionario.nombre + "\r\nCorreo: " + viejoFuncionario.correo + "\r\nTeléfono: " + viejoFuncionario.telefono +
+                "\r\nDepartamento: " + viejoFuncionario.Departamento.descripcion + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nCédula: " + nuevoFuncionario.cedula + "\r\nFuncionario: " + nuevoFuncionario.nombre + "\r\nCorreo: " + nuevoFuncionario.correo + "\r\nTeléfono: " + nuevoFuncionario.telefono +
+                "\r\nDepartamento: " + nuevoFuncionario.Departamento.descripcion + "\r\nEstado: " + estado;
+            }
+
+
+
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");
             SqlCommand comando = new SqlCommand("sp_INSERT_log");

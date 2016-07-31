@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SIME_UTN.DAL;
 using SIME_UTN.Entities;
+using SIME_UTN.DTOs;
 
 namespace SIME_UTN.BLL
 {
@@ -11,7 +12,10 @@ namespace SIME_UTN.BLL
     {
         internal static void DeclinarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
         {
+            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
+            listaProductosDTO = TrasladoProductoInterDAL.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
             DAL.TrasladoProductoDAL.DeclinarTraslado(trasladoEstatico, usuarioLogueadop);
+            TrasladoProductoDAL.VolverProductoEliminadoABodega(trasladoEstatico, listaProductosDTO);
         }
 
         internal static string ObtenerSiguienteNumeroTraslado()
@@ -33,6 +37,17 @@ namespace SIME_UTN.BLL
         internal static void AceptarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
         {
             DAL.TrasladoProductoDAL.AceptarTraslado(trasladoEstatico, usuarioLogueadop);
+
+            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
+            listaProductosDTO = TrasladoProductoInterDAL.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
+            if (trasladoEstatico.TipoTraslado.descripcion == "Traslado")
+            {
+                DAL.TrasladoProductoDAL.TrasladarProductosABodegaDestino(trasladoEstatico, listaProductosDTO);
+            }
+            else
+            {
+                DAL.TrasladoProductoDAL.VolverProductoEliminadoABodega(trasladoEstatico, listaProductosDTO);
+            }
         }
     }
 }
