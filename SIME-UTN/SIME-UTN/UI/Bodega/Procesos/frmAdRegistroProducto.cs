@@ -30,6 +30,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             InitializeComponent();
             txtFechaRecibido.Text = ObtenerFecha();
+            lista.Clear();
         }
 
         public frmAdRegistroProducto(RegistroProducto registroEstaticop)

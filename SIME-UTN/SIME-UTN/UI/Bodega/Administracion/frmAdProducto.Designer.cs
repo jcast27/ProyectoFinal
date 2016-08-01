@@ -146,7 +146,7 @@
             // txtContenido
             // 
             this.txtContenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContenido.Location = new System.Drawing.Point(853, 123);
+            this.txtContenido.Location = new System.Drawing.Point(517, 121);
             this.txtContenido.Name = "txtContenido";
             this.txtContenido.Size = new System.Drawing.Size(172, 22);
             this.txtContenido.TabIndex = 40;
@@ -156,7 +156,7 @@
             // 
             this.lblContenido.AutoSize = true;
             this.lblContenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContenido.Location = new System.Drawing.Point(717, 127);
+            this.lblContenido.Location = new System.Drawing.Point(379, 124);
             this.lblContenido.Name = "lblContenido";
             this.lblContenido.Size = new System.Drawing.Size(80, 18);
             this.lblContenido.TabIndex = 39;
@@ -209,9 +209,9 @@
             this.cmbUnidadMedida.DisplayMember = "Descripcion";
             this.cmbUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnidadMedida.FormattingEnabled = true;
-            this.cmbUnidadMedida.Location = new System.Drawing.Point(515, 121);
+            this.cmbUnidadMedida.Location = new System.Drawing.Point(853, 119);
             this.cmbUnidadMedida.Name = "cmbUnidadMedida";
-            this.cmbUnidadMedida.Size = new System.Drawing.Size(180, 24);
+            this.cmbUnidadMedida.Size = new System.Drawing.Size(172, 24);
             this.cmbUnidadMedida.TabIndex = 33;
             this.cmbUnidadMedida.ValueMember = "IDUnidadMedida";
             // 
@@ -233,7 +233,7 @@
             this.lblUnidadMedida.AutoSize = true;
             this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(379, 122);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(717, 125);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(130, 18);
             this.lblUnidadMedida.TabIndex = 32;

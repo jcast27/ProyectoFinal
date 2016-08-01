@@ -357,9 +357,9 @@
             this.lblCantidad.ForeColor = System.Drawing.Color.White;
             this.lblCantidad.Location = new System.Drawing.Point(414, 251);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(70, 18);
+            this.lblCantidad.Size = new System.Drawing.Size(74, 18);
             this.lblCantidad.TabIndex = 59;
-            this.lblCantidad.Text = "Cantidad:";
+            this.lblCantidad.Text = "Unidades:";
             // 
             // lblCodigo
             // 

@@ -223,9 +223,9 @@
             this.txtFechaRecibido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtFechaRecibido.Enabled = false;
             this.txtFechaRecibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaRecibido.Location = new System.Drawing.Point(596, 96);
+            this.txtFechaRecibido.Location = new System.Drawing.Point(962, 96);
             this.txtFechaRecibido.Name = "txtFechaRecibido";
-            this.txtFechaRecibido.Size = new System.Drawing.Size(153, 22);
+            this.txtFechaRecibido.Size = new System.Drawing.Size(138, 22);
             this.txtFechaRecibido.TabIndex = 54;
             // 
             // cmbBodega
@@ -238,9 +238,9 @@
             this.cmbBodega.DisplayMember = "nombre";
             this.cmbBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBodega.FormattingEnabled = true;
-            this.cmbBodega.Location = new System.Drawing.Point(962, 96);
+            this.cmbBodega.Location = new System.Drawing.Point(226, 46);
             this.cmbBodega.Name = "cmbBodega";
-            this.cmbBodega.Size = new System.Drawing.Size(138, 24);
+            this.cmbBodega.Size = new System.Drawing.Size(153, 24);
             this.cmbBodega.TabIndex = 53;
             this.cmbBodega.ValueMember = "idregistrobodega";
             // 
@@ -408,7 +408,7 @@
             this.lblBodega.AutoSize = true;
             this.lblBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodega.ForeColor = System.Drawing.Color.White;
-            this.lblBodega.Location = new System.Drawing.Point(785, 101);
+            this.lblBodega.Location = new System.Drawing.Point(29, 47);
             this.lblBodega.Name = "lblBodega";
             this.lblBodega.Size = new System.Drawing.Size(63, 18);
             this.lblBodega.TabIndex = 35;
@@ -422,7 +422,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(29, 101);
+            this.lblUsuario.Location = new System.Drawing.Point(425, 100);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(64, 18);
             this.lblUsuario.TabIndex = 22;
@@ -436,7 +436,7 @@
             this.lblFechaIngreso.AutoSize = true;
             this.lblFechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaIngreso.ForeColor = System.Drawing.Color.White;
-            this.lblFechaIngreso.Location = new System.Drawing.Point(425, 101);
+            this.lblFechaIngreso.Location = new System.Drawing.Point(785, 97);
             this.lblFechaIngreso.Name = "lblFechaIngreso";
             this.lblFechaIngreso.Size = new System.Drawing.Size(115, 18);
             this.lblFechaIngreso.TabIndex = 23;
@@ -450,7 +450,7 @@
             this.lblSolicitudAvatar.AutoSize = true;
             this.lblSolicitudAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSolicitudAvatar.ForeColor = System.Drawing.Color.White;
-            this.lblSolicitudAvatar.Location = new System.Drawing.Point(29, 50);
+            this.lblSolicitudAvatar.Location = new System.Drawing.Point(29, 100);
             this.lblSolicitudAvatar.Name = "lblSolicitudAvatar";
             this.lblSolicitudAvatar.Size = new System.Drawing.Size(191, 18);
             this.lblSolicitudAvatar.TabIndex = 1;
@@ -461,7 +461,7 @@
             this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(226, 96);
+            this.txtUsuario.Location = new System.Drawing.Point(596, 96);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(153, 22);
             this.txtUsuario.TabIndex = 27;
@@ -498,7 +498,7 @@
             // 
             this.txtSolicitudAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtSolicitudAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSolicitudAvatar.Location = new System.Drawing.Point(226, 49);
+            this.txtSolicitudAvatar.Location = new System.Drawing.Point(226, 100);
             this.txtSolicitudAvatar.Name = "txtSolicitudAvatar";
             this.txtSolicitudAvatar.Size = new System.Drawing.Size(153, 22);
             this.txtSolicitudAvatar.TabIndex = 3;

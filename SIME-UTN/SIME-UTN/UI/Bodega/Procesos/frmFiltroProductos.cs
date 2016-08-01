@@ -88,5 +88,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             Icon = Properties.Resources.Icono;
         }
+
+        private void mBtnSalir_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
