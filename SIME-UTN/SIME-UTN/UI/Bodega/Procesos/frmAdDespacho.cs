@@ -205,8 +205,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
             gcDespacho.DataSource = null;
             txtBuscar.Clear();
             txtCantidadProd.Clear();
-            txtCantidadMez.Clear();
+            txtCantidadMez.ResetText();
             txtBuscar.Focus();
+            txtObservaciones.Clear();
         }
 
         private void mBtnAceptar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -271,6 +272,27 @@ namespace SIME_UTN.UI.Bodega.Procesos
             }
 
             return r;
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            if (true)
+            {
+
+            }
+        }
+
+        private void btnIngredientes_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbMezcla_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMezcla.SelectedIndex > -1)
+            {
+
+            }
         }
     }
 }

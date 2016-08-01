@@ -26,19 +26,18 @@ namespace SIME_UTN.UI.Bodega.Administracion
         GestorUnidadMedida gestorUnidadMedida = null;
         GestorMezcla gestorMezcla = null;
         GestorMezclaProducto gestorMezclaProducto = null;
-        static string usuarioLogueado="";
+        static string usuarioLogueado = "";
         static Mezcla mezclaEstatica = null;
         Categoria unaCategoria = null;
 
         public frmAdMezclas()
         {
             InitializeComponent();
-           
+            cmbCategoria.SelectedIndex = -1;
         }
 
         public frmAdMezclas(Mezcla mezclaEstaticap)
         {
-           
             InitializeComponent();
             mBtnEliminar.Visible = true;
             mBtnNuevo.Visible = false;
@@ -69,7 +68,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             ofrmFiltroProductos.ShowDialog(this);
             this.txtECodigoProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.CodigoAvatar;
             this.txtNombreProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.NombreProducto;
-            txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
+            txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.presentacion + " " + ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
             txtCantidad.Enabled = true;
         }
 
@@ -85,6 +84,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             dt.Columns.Add(new DataColumn("Nombre"));
             dt.Columns.Add(new DataColumn("Cantidad"));
             dt.Columns.Add(new DataColumn("UnidadMedida"));
+            dt.Columns.Add(new DataColumn("Presentacion"));
 
             try
             {
@@ -96,6 +96,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     dr["Nombre"] = listaProductoDTO[i].nombreProducto;
                     dr["Cantidad"] = listaProductoDTO[i].cantidad;
                     dr["UnidadMedida"] = listaProductoDTO[i].unidadMedida;
+                    dr["Presentacion"] = listaProductoDTO[i].cantidadPorEmpaque;
                     dt.Rows.Add(dr);
                 }
 
@@ -135,7 +136,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unProducto.codigoAvatar = txtECodigoProducto.Text;
                 unProducto.nombreProducto = txtNombreProducto.Text;
                 unProducto.cantidad = double.Parse(txtCantidad.Text);
-                unProducto.unidadMedida = txtUnidadMedida.Text;
+                unProducto.unidadMedida = txtUnidadMedida.Text.Split(' ')[1];
+                unProducto.cantidadPorEmpaque = txtUnidadMedida.Text;
                 if (existe == true)
                 {
                     listaProductoDTO.Insert(index, unProducto);
@@ -177,7 +179,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     gridView1.Columns.Clear();
                     txtNombre.Enabled = true;
                     txtDescripcion.Enabled = true;
-                    txtDescripcion.Text = "";
+                    txtDescripcion.Clear();
                     txtECodigoProducto.Text = "";
                     txtNombreProducto.Text = "";
                     txtNombre.Text = "";
@@ -234,7 +236,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             gestorUnidadMedida = new GestorUnidadMedida();
-            if (gestorUnidadMedida.ObtenerUnidadesConDecimales(txtUnidadMedida.Text)!=true)
+            if (gestorUnidadMedida.ObtenerUnidadesConDecimales(txtUnidadMedida.Text) != true)
             {
                 if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
                 {
@@ -329,11 +331,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unaMezcla.Categoria = unaCategoria;
                 if (accionp == "Modificar")
                 {
-                   
+
                     unaMezcla.idRegistroMezcla = int.Parse(lblIdMezcla.Text);
                     gestorMezcla.ActualizarMezcla(unaMezcla, usuarioLogueado);
 
-                }else
+                }
+                else
                 {
                     unaMezcla.idRegistroMezcla = gestorMezcla.GuardarRegistroMezcla(unaMezcla, usuarioLogueado);
 
@@ -479,7 +482,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 GuardarCambiosMezcla("Modificar");
             }
 
-          
+
         }
 
 
@@ -507,10 +510,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtNombre.Focus();
                 error = true;
             }
-            if (txtDescripcion.Text.Trim() == "")
+            if (txtNombre.Text.Trim() == "")
             {
-                epError.SetError(txtDescripcion, "Campo Requerido");
-                txtDescripcion.Focus();
+                epError.SetError(txtNombre, "Campo Requerido");
+                txtNombre.Focus();
                 error = true;
             }
             if (error == false)
@@ -534,10 +537,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtNombre.Focus();
                 error = true;
             }
-            if (txtDescripcion.Text.Trim() == "")
+            if (txtNombre.Text.Trim() == "")
             {
-                epError.SetError(txtDescripcion, "Campo Requerido");
-                txtDescripcion.Focus();
+                epError.SetError(txtNombre, "Campo Requerido");
+                txtNombre.Focus();
                 error = true;
             }
             if (error == false)
