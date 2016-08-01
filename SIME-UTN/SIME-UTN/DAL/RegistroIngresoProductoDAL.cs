@@ -12,10 +12,9 @@ namespace SIME_UTN.DAL
     class RegistroIngresoProductoDAL
     {
  
-        internal static void GuardarIngresoProducto(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop)
+        internal static double GuardarIngresoProducto(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop)
         {
-            string accion = "";
-            accion = "Insertar";
+           
             double cantidad = 0;
            
             Producto unProducto = new Producto();
@@ -34,7 +33,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@FechaCaducidad", unIngresoProdDTO.fechaCaducidad);
             comando.Parameters.AddWithValue("@estado", unIngresoProdDTO.estado);
 
-            GuardarLog(unIngresoProdDTO, usuarioLogueadop, accion, null);
+           // GuardarLog(unIngresoProdDTO, usuarioLogueadop, accion, null);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -44,9 +43,7 @@ namespace SIME_UTN.DAL
 
             //    GuardarBodega(unIngresoProdDTO, usuarioLogueadop);
             //}
-            
-            ActualizarInventarioCantidad(unIngresoProdDTO.idBodega,unIngresoProdDTO.idProducto,cantidad,0, accion);
-
+            return cantidad;
         }
         /// <summary>
         /// Metodo que actualiza el invetario producto, respecto a la cantidad registrada
@@ -82,10 +79,9 @@ namespace SIME_UTN.DAL
             }
         }
 
-        internal static void ActualizarIngresoProducto(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop)
+        internal static double ActualizarIngresoProducto(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop)
         {
-            string accion = "";
-            accion = "Modificar";
+
             double cantidad = 0;
             Producto unProducto = new Producto();
             SqlCommand comando = new SqlCommand("sp_UPDATE_RegistroIngresoProducto");
@@ -102,15 +98,15 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@costoxempaque", unIngresoProdDTO.costoPorEmpaque);
             comando.Parameters.AddWithValue("@estado", unIngresoProdDTO.estado);
 
-            GuardarLog(unIngresoProdDTO, usuarioLogueadop, accion, null);
+           // GuardarLog(unIngresoProdDTO, usuarioLogueadop, accion, null);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
 
+            return cantidad;
            
-            ActualizarInventarioCantidad(unIngresoProdDTO.idBodega,unIngresoProdDTO.idProducto, cantidad, unIngresoProdDTO.uCantidad, accion);
         }
 
         internal static bool ObtenerIngresoProductoByID(int idIngresop, int idProductop)
@@ -169,8 +165,7 @@ namespace SIME_UTN.DAL
         {
             string accion = "";
             accion = "Eliminar";
-            List<RegistroIngresoProductoDTO> listregistriIngresoProducto = new List<RegistroIngresoProductoDTO>();
-            listregistriIngresoProducto = RegistroIngresoProductoDAL.ObtenerProductosPorIdRegistro(idIngRegProd);
+          
 
 
             SqlCommand comando = new SqlCommand("sp_DISABLE_RegistroIngresoProducto_ByID");
@@ -178,14 +173,13 @@ namespace SIME_UTN.DAL
 
             comando.Parameters.AddWithValue("@idingresoproducto", idIngRegProd);
             comando.Parameters.AddWithValue("@idproducto", unProductop.idProducto);
-            GuardarLog(null, usuarioLogueadop, accion, unProductop.nombreProducto);
+           // GuardarLog(null, usuarioLogueadop, accion, unProductop.nombreProducto);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
 
-            DescargarInvetarioRegistroProductoEliminado(idRegistroBodegap,listregistriIngresoProducto);
         }
 
         internal static void DescargarInvetarioRegistroProductoEliminado(int idRegistroBodegap,List<RegistroIngresoProductoDTO> listregistriIngresoProductop)
@@ -242,7 +236,7 @@ namespace SIME_UTN.DAL
             return listaProductosDTO;
         }
 
-        public static void GuardarLog(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop, string accion, string ingresoProdEliminado)
+     /*   public static void GuardarLog(RegistroIngresoProductoDTO unIngresoProdDTO, string usuarioLogueadop, string accion, string ingresoProdEliminado)
         {
 
             string descripcion = "";
@@ -278,7 +272,7 @@ namespace SIME_UTN.DAL
                 db.ExecuteNonQuery(comando);
             }
 
-        }
+        }*/
 
        
     }

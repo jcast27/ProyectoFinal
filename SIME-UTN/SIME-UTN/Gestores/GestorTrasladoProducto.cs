@@ -27,9 +27,9 @@ namespace SIME_UTN.Gestores
             return instancia;
         }
 
-        internal void EliminarTraslado(int idTrasladop, string usuarioLogueadop)
+        internal void DeclinarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
         {
-            TrasladoProductoBLL.EliminarTraslado(idTrasladop, usuarioLogueadop);
+            TrasladoProductoBLL.DeclinarTraslado(trasladoEstatico, usuarioLogueadop);
         }
 
         internal string ObtenerSiguienteNumeroTraslado()
@@ -40,6 +40,11 @@ namespace SIME_UTN.Gestores
         internal void GuardarTraslado(TrasladoProducto trasladop, string usuarioLogueadop)
         {
             TrasladoProductoBLL.GuardarTraslado(trasladop, usuarioLogueadop);
+        }
+
+        internal void AceptarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
+        {
+            TrasladoProductoBLL.AceptarTraslado(trasladoEstatico, usuarioLogueadop);
         }
     }
 }

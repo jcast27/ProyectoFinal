@@ -43,6 +43,8 @@
             this.spSELECTRegistroBodegaLessVirtualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetBodegas = new SIME_UTN.DataSets.Bodega.Procesos.DataSetBodegas();
             this.txtCosto = new System.Windows.Forms.TextBox();
+            this.dateFechaCaducidad = new DevExpress.XtraEditors.DateEdit();
+            this.lblFechaCaducidad = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUnidadMedida = new System.Windows.Forms.TextBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.txtCantidadXEmpaque = new System.Windows.Forms.TextBox();
             this.txtECodigoProducto = new DevExpress.XtraEditors.ButtonEdit();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.dateFechaCaducidad = new DevExpress.XtraEditors.DateEdit();
-            this.lblFechaCaducidad = new System.Windows.Forms.Label();
             this.lblCantidadXEmpaque = new System.Windows.Forms.Label();
             this.lblBodega = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -71,9 +71,9 @@
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaLessVirtualBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -264,6 +264,42 @@
             this.txtCosto.TabIndex = 52;
             this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
             // 
+            // dateFechaCaducidad
+            // 
+            this.dateFechaCaducidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dateFechaCaducidad.EditValue = null;
+            this.dateFechaCaducidad.Location = new System.Drawing.Point(962, 209);
+            this.dateFechaCaducidad.MaximumSize = new System.Drawing.Size(200, 22);
+            this.dateFechaCaducidad.Name = "dateFechaCaducidad";
+            this.dateFechaCaducidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateFechaCaducidad.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateFechaCaducidad.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
+            this.dateFechaCaducidad.Properties.DisplayFormat.FormatString = "";
+            this.dateFechaCaducidad.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateFechaCaducidad.Properties.EditFormat.FormatString = "";
+            this.dateFechaCaducidad.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateFechaCaducidad.Properties.Mask.EditMask = "";
+            this.dateFechaCaducidad.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.dateFechaCaducidad.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dateFechaCaducidad.Size = new System.Drawing.Size(138, 20);
+            this.dateFechaCaducidad.TabIndex = 40;
+            // 
+            // lblFechaCaducidad
+            // 
+            this.lblFechaCaducidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFechaCaducidad.AutoSize = true;
+            this.lblFechaCaducidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaCaducidad.ForeColor = System.Drawing.Color.White;
+            this.lblFechaCaducidad.Location = new System.Drawing.Point(785, 213);
+            this.lblFechaCaducidad.Name = "lblFechaCaducidad";
+            this.lblFechaCaducidad.Size = new System.Drawing.Size(150, 18);
+            this.lblFechaCaducidad.TabIndex = 39;
+            this.lblFechaCaducidad.Text = "Fecha De Caducidad:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -349,42 +385,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(504, 22);
             this.txtDescripcion.TabIndex = 42;
-            // 
-            // dateFechaCaducidad
-            // 
-            this.dateFechaCaducidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dateFechaCaducidad.EditValue = null;
-            this.dateFechaCaducidad.Location = new System.Drawing.Point(962, 209);
-            this.dateFechaCaducidad.MaximumSize = new System.Drawing.Size(200, 22);
-            this.dateFechaCaducidad.Name = "dateFechaCaducidad";
-            this.dateFechaCaducidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFechaCaducidad.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFechaCaducidad.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
-            this.dateFechaCaducidad.Properties.DisplayFormat.FormatString = "";
-            this.dateFechaCaducidad.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateFechaCaducidad.Properties.EditFormat.FormatString = "";
-            this.dateFechaCaducidad.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateFechaCaducidad.Properties.Mask.EditMask = "";
-            this.dateFechaCaducidad.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.dateFechaCaducidad.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateFechaCaducidad.Size = new System.Drawing.Size(138, 20);
-            this.dateFechaCaducidad.TabIndex = 40;
-            // 
-            // lblFechaCaducidad
-            // 
-            this.lblFechaCaducidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFechaCaducidad.AutoSize = true;
-            this.lblFechaCaducidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaCaducidad.ForeColor = System.Drawing.Color.White;
-            this.lblFechaCaducidad.Location = new System.Drawing.Point(785, 213);
-            this.lblFechaCaducidad.Name = "lblFechaCaducidad";
-            this.lblFechaCaducidad.Size = new System.Drawing.Size(150, 18);
-            this.lblFechaCaducidad.TabIndex = 39;
-            this.lblFechaCaducidad.Text = "Fecha De Caducidad:";
             // 
             // lblCantidadXEmpaque
             // 
@@ -544,7 +544,6 @@
             this.gCRegistroProducto.TabIndex = 0;
             this.gCRegistroProducto.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gCRegistroProducto.Click += new System.EventHandler(this.gCRegistroProducto_Click);
             // 
             // gridView1
             // 
@@ -582,13 +581,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Producto";
             this.Load += new System.EventHandler(this.frmAdRegistroProducto_Load);
+            this.Click += new System.EventHandler(this.gCRegistroProducto_Click);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaLessVirtualBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFechaCaducidad.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCRegistroProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

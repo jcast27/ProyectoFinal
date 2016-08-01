@@ -11,7 +11,7 @@ namespace SIME_UTN.DAL
 {
     class RegistroBodegaDAL
     {
-
+        static RegistroBodega viejaBodega = null;
         /// <summary>
         /// Metodo que elimina una Bodega
         /// </summary>
@@ -26,15 +26,15 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@idregistrobodega", idBodegap);
-            GuardarLog(null, usuarioLogueadop, accion, bodegap);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
-
+            GuardarLog(null, usuarioLogueadop, accion, bodegap);
             int estado = 0;
-            DesableTipodeBodega(idBodegap);
+           
         }
 
 
@@ -137,6 +137,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         internal static void ActualizarBodega(RegistroBodega unaBodegap, string usuarioLogueadop)
         {
+            viejaBodega = new RegistroBodega();
             List<InventarioProducto> listInventario = new List<InventarioProducto>();
             string accion = "";
             accion = "Modificar";
@@ -148,11 +149,13 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idubicacion", unaBodegap.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@tipo", unaBodegap.TipoBodega.idTipoBodega);
             comando.Parameters.AddWithValue("@estado", unaBodegap.estado);
-            GuardarLog(unaBodegap, usuarioLogueadop, accion, null);
+            viejaBodega = ObtenerBodega(unaBodegap.idRegistroBodega);
+           
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(unaBodegap, usuarioLogueadop, accion, null);
         }
 
 
@@ -210,8 +213,9 @@ namespace SIME_UTN.DAL
         /// </summary>
         /// <param name="unaBodegap"></param>
         /// <param name="usuarioLogueadop"></param>
-        internal static void GuardarBodega(RegistroBodega unaBodegap, string usuarioLogueadop)
+        internal static int GuardarBodega(RegistroBodega unaBodegap, string usuarioLogueadop)
         {
+            viejaBodega = new RegistroBodega();
             List<InventarioProducto> listInventario = new List<InventarioProducto>();
             string accion = "";
             accion = "Insertar";
@@ -224,9 +228,9 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idubicacion", unaBodegap.Ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@tipo", unaBodegap.TipoBodega.idTipoBodega);
             comando.Parameters.AddWithValue("@estado", unaBodegap.estado);
+            viejaBodega = ObtenerBodega(unaBodegap.idRegistroBodega);
 
-
-            GuardarLog(unaBodegap, usuarioLogueadop, accion, null);
+          
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -238,8 +242,8 @@ namespace SIME_UTN.DAL
                 }
 
             }
-
-            InsertarProductoEnBodega(idBodega);
+            GuardarLog(unaBodegap, usuarioLogueadop, accion, null);
+            return idBodega;
         }
         internal static void InsertarProductoEnBodega(int idBodegap)
         {
@@ -308,18 +312,33 @@ namespace SIME_UTN.DAL
         /// <param name="bodegaEliminadap"></param>
         private static void GuardarLog(RegistroBodega unaBodegap, string usuarioLogueadop, string accion, string bodegaEliminadap)
         {
+            RegistroBodega nuevaBodega = new RegistroBodega();
             string descripcion = "";
             string estado = "";
-            if (unaBodegap == null)
+
+            if (accion == "Eliminar")
             {
                 descripcion = "Producto eliminado: " + bodegaEliminadap;
                 estado = "Desactivado";
             }
-            else
+            if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Bodega: " + unaBodegap.nombre + "\r\nDescripcion: " + unaBodegap.descripcion + "\r\nTipo de Bodega: " + unaBodegap.TipoBodega.descripcion + "\r\nEstado: " + estado;
+                descripcion = "\r\nRegistro Bodega";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Bodega: " + unaBodegap.nombre + "\r\nDescripcion: " + unaBodegap.descripcion + "\r\nTipo de Bodega: " + unaBodegap.TipoBodega.descripcion + "\r\nEstado: " + estado;
 
+            }
+            if (accion == "Modificar")
+            {
+                
+                nuevaBodega = ObtenerBodega(unaBodegap.idRegistroBodega);
+                estado = "Activo";
+                descripcion = "\r\nRegistro Bodega";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Antes del Cambio" + "\r\nBodega: " + viejaBodega.nombre + "\r\nDescripcion: " + viejaBodega.descripcion + "\r\nTipo de Bodega: " + viejaBodega.TipoBodega.descripcion + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nBodega: " + nuevaBodega.nombre + "\r\nDescripcion: " + nuevaBodega.descripcion + "\r\nTipo de Bodega: " + nuevaBodega.TipoBodega.descripcion + "\r\nEstado: " + estado;
             }
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");

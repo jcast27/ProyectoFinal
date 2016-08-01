@@ -25,7 +25,20 @@ namespace SIME_UTN.BLL
             if (ProductoDAL.ObtenerProductoByID(unProductop.idProducto) == false)
             {
 
-                ProductoDAL.GuardarProducto(unProductop, usuarioLogueadop);
+                unProductop.idProducto = ProductoDAL.GuardarProducto(unProductop, usuarioLogueadop);
+               
+
+                List<RegistroBodegaTipoBodegaDTO> listaBodegas = new List<RegistroBodegaTipoBodegaDTO>();
+                listaBodegas = RegistroBodegaDAL.ObtenertBodegas();
+
+                foreach (RegistroBodegaTipoBodegaDTO bodega in listaBodegas)
+                {
+                   if(ProductoDAL.VerificarBodegaByID(bodega.idregistrobodega, unProductop.idProducto) == false)
+                    {
+                        ProductoDAL.InsertarProductoEnBodega(bodega.idregistrobodega, unProductop);
+                    }
+                }
+
             }
             else
             {

@@ -56,7 +56,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
         public string ObtenerFecha()
         {
             DateTime date = DateTime.Now;
-            string fecha = date.ToString("dd/MM/yyyy");
+            string fecha = date.ToString("MM/dd/yyyy");
             return fecha;
         }
 
@@ -172,6 +172,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 traslado.TipoTraslado = tipoTraslado;
                 traslado.observaciones = txtObservaciones.Text;
                 estadoTraslado.idEstadoTraslado = 1;
+                estadoTraslado.descripcion = "En proceso";
                 traslado.EstadoTraslado = estadoTraslado;
                 traslado.estado = 1;
                 gestorTraslado.GuardarTraslado(traslado,usuarioLogueado);
@@ -324,6 +325,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     cmbBodegaDestino.Enabled = false;
                     txtUsuario.Enabled = false;
                     txtFechaTraslado.Enabled = false;
+                    txtECodigoProducto.Enabled = false;
+                    txtCantidad.Enabled = false;
+                    mBtnAgregar.Visible = false;
 
 
                     break;
@@ -609,14 +613,5 @@ namespace SIME_UTN.UI.Bodega.Procesos
           
         }
 
-        private void gCProductos_Click(object sender, EventArgs e)
-        {
-            txtECodigoProducto.Text = gridView2.GetFocusedRowCellValue("CodigoProducto").ToString();
-            txtNombreProducto.Text = gridView2.GetFocusedRowCellValue("Nombre").ToString();
-            txtUnidadMedida.Text = gridView2.GetFocusedRowCellValue("UnidadMedida").ToString();
-            txtCantidad.Text = gridView2.GetFocusedRowCellValue("Cantidad").ToString();
-
-         
-        }
     }
 }

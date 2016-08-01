@@ -11,6 +11,7 @@ namespace SIME_UTN.DAL
 {
     class UsuarioDAL
     {
+        static UsuarioTable oldUsuario = null;
         #region Metodos
 
         /// <summary>
@@ -229,8 +230,8 @@ namespace SIME_UTN.DAL
         /// <param name="usuario"></param>
         public static void GuardarUsuario(UsuarioTable usuariop,string usuarioLogueado)
         {
+            oldUsuario = new UsuarioTable();
 
-            
             StringBuilder sql = new StringBuilder();
             Encriptar encriptar = new Encriptar();
             String contrasennaEncriptada = encriptar.Cifrar(usuariop.contrasena);
@@ -238,27 +239,25 @@ namespace SIME_UTN.DAL
             sql.AppendFormat(" CREATE LOGIN {0} WITH PASSWORD=N'{1}', DEFAULT_DATABASE=[SIMEUTN], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF ", usuariop.usuario, usuariop.contrasena);
             sql.AppendFormat(" EXEC master..sp_addsrvrolemember @loginame = N'{0}', @rolename = N'sysadmin'", usuariop.usuario);
             sql.AppendFormat("USE [SIMEUTN] CREATE USER [{0}] FOR LOGIN [{0}]", usuariop.usuario);
-
-
-
             sql.AppendFormat(@"use SIMEUTN; insert into Usuario(Usuario,Nombre,Apellido1,Apellido2,Perfil,Contrasena,Estado)values ('{0}','{1}','{2}','{3}','{4}','{5}',{6})", usuariop.usuario,usuariop.nombre,usuariop.apellido1,usuariop.apellido2, usuariop.perfil,contrasennaEncriptada, usuariop.estado);
 
 
             SqlCommand command = new SqlCommand(sql.ToString());
             string accion = "Insertar";
-            GuardarLog(usuariop, usuarioLogueado,accion,"");
+            oldUsuario = ValidarUsuarioPorUsuario(usuariop.usuario);
+            
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(command);
             }
-
+            GuardarLog(usuariop, usuarioLogueado, accion, "");
         }
 
         public static void GuardarLog(UsuarioTable usuariop, string usuarioLogueado,string accion, string usuarioEliminadop)
         {
-            UsuarioTable oldUsuario = new UsuarioTable();
+            UsuarioTable nuevoUsuario = new UsuarioTable();
             string contrasennaEncriptada = "**********";
             string descripcion = "";
             string estado = "";
@@ -271,19 +270,24 @@ namespace SIME_UTN.DAL
             if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Usuario: " + usuariop.usuario + "\r\nNombres: " + usuariop.nombre + "\r\nPrimer Apellido: " + usuariop.apellido1 + 
+                descripcion = "\r\nUsuario:";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Usuario: " + usuariop.usuario + "\r\nNombres: " + usuariop.nombre + "\r\nPrimer Apellido: " + usuariop.apellido1 + 
                     "\r\nSegundoApellido: " + usuariop.apellido2 + "\r\nPerfil: " + usuariop.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
 
             }
             if (accion == "Modificar")
             {
-                oldUsuario = ValidarUsuarioPorUsuario(usuariop.usuario);
+                
+                nuevoUsuario = ValidarUsuarioPorUsuario(usuariop.usuario);
                 estado = "Activo";
-                descripcion = "Antes del Cambio" + "\r\nUsuario: " + oldUsuario.usuario + "\r\nNombres: " + oldUsuario.nombre + "\r\nPrimer Apellido: " + oldUsuario.apellido1 +
-                    "\r\nSegundoApellido: " + oldUsuario.apellido2 + "\r\nPerfil: " + oldUsuario.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
+                descripcion = "\r\nUsuario:";
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "Despues del Cambio" + "\r\nUsuario: " + usuariop.usuario + "\r\nNombres: " + usuariop.nombre + "\r\nPrimer Apellido: " + usuariop.apellido1 + 
-                    "\r\nSegundoApellido: " + usuariop.apellido2 + "\r\nPerfil: " + usuariop.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
+                descripcion += "Antes del Cambio" + "\r\nUsuario: " + oldUsuario.usuario + "\r\nNombres: " + oldUsuario.nombre + "\r\nPrimer Apellido: " + oldUsuario.apellido1 +
+                "\r\nSegundoApellido: " + oldUsuario.apellido2 + "\r\nPerfil: " + oldUsuario.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nUsuario: " + nuevoUsuario.usuario + "\r\nNombres: " + nuevoUsuario.nombre + "\r\nPrimer Apellido: " + nuevoUsuario.apellido1 + 
+                    "\r\nSegundoApellido: " + nuevoUsuario.apellido2 + "\r\nPerfil: " + nuevoUsuario.perfil + "\r\nContrasenna: " + contrasennaEncriptada + "\r\nEstado: " + estado;
             }
 
             DateTime date = DateTime.Now;
@@ -363,13 +367,13 @@ namespace SIME_UTN.DAL
             SqlCommand command = new SqlCommand(sql.ToString());
             string accion = "Eliminar";
             string usuarioEliminado = "Usuario: " + "-" + UsuarioNombrep;
-            GuardarLog(null,usuarioLogueadop, accion,usuarioEliminado);
+       
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(command);
             }
-
+            GuardarLog(null, usuarioLogueadop, accion, usuarioEliminado);
         }
 
         /// <summary>
@@ -378,6 +382,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuariop"></param>
         internal static void ActualizarUsuario(UsuarioTable usuariop,string usuarioLogueado)
         {
+            oldUsuario = new UsuarioTable();
             string sql = @"Update Usuario
                            set
                            Nombre =@Nombre,
@@ -394,12 +399,14 @@ namespace SIME_UTN.DAL
             command.Parameters.AddWithValue("@CodigoUsuario", usuariop.codigoUsuario);
 
             string accion = "Modificar";
-            GuardarLog(usuariop, usuarioLogueado, accion,"");
+            oldUsuario = ValidarUsuarioPorUsuario(usuariop.usuario);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(command, IsolationLevel.ReadCommitted);
             }
+            GuardarLog(usuariop, usuarioLogueado, accion, "");
         }
         #endregion
 

@@ -16,6 +16,7 @@ using SIME_UTN.UI.Formulario.Procesos;
 using SIME_UTN.DAL;
 using SIME_UTN.UI.Reportes;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
 
 namespace SIME_UTN.UI.Formulario
 {
@@ -337,7 +338,22 @@ namespace SIME_UTN.UI.Formulario
             frm.Show(this);
         }
 
-        private void acercaDeStripMenuItem_Click(object sender, EventArgs e)
+
+        private void mBtnAyuda_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            //Iniciar proceso
+            Process pr = new Process();
+
+            //Directorio
+            pr.StartInfo.WorkingDirectory = @"..\..\Resources\";
+
+            // Aqui se introduce el nombre del archivo
+            pr.StartInfo.FileName = "Ayuda.docx";
+
+            pr.Start();
+        }
+
+        private void mBtnAcercaDe_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             AcercaDe about = new AcercaDe();
             about.ShowDialog(this);

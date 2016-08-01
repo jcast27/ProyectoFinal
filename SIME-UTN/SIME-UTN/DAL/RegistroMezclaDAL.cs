@@ -11,6 +11,7 @@ namespace SIME_UTN.DAL
 {
     class RegistroMezclaDAL
     {
+        static Producto viejoProducto = null;
 
         /// <summary>
         /// Metodo que guarda una nueva mezcla
@@ -19,16 +20,10 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         internal static int GuardarRegistroMezcla(Mezcla unaMezclap,string usuarioLogueadop)
         {
+            viejoProducto = new Producto();
             string accion = "";
             accion = "Insertar";
             int ultimiIdInsertado = 0;
-            //SqlCommand comando = new SqlCommand("sp_INSERT_RegistroMezcla");
-            //comando.CommandType = CommandType.StoredProcedure;
-
-            //comando.Parameters.AddWithValue("@nombre", unaMezclap.nombre);
-            //comando.Parameters.AddWithValue("@descripcion", unaMezclap.descripcion);
-            //comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
-
 
             SqlCommand comando = new SqlCommand("sp_INSERT_Producto");
             comando.CommandType = CommandType.StoredProcedure;
@@ -43,8 +38,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@stockmaximo", 1000);
             comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
 
+            viejoProducto = ProductoDAL.ObtenerProductoPorID(unaMezclap.idRegistroMezcla);
 
-            GuardarLog(unaMezclap, usuarioLogueadop, accion, null);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -58,7 +53,7 @@ namespace SIME_UTN.DAL
 
                 }
             }
-
+            GuardarLog(unaMezclap, usuarioLogueadop, accion, null);
             return ultimiIdInsertado;
         }
 
@@ -77,12 +72,13 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@idproducto", idRegistroMezclap);
-            GuardarLog(null, usuarioLogueadop, accion, nombrep);
+           
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(null, usuarioLogueadop, accion, nombrep);
         }
 
 
@@ -93,15 +89,10 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         internal static void ActualizarMezcla(Mezcla unaMezclap, string usuarioLogueadop)
         {
+            viejoProducto = new Producto();
             string accion = "";
             accion = "Modificar";
-            //SqlCommand comando = new SqlCommand("sp_UPDATE_RegistroMezcla");
-            //comando.CommandType = CommandType.StoredProcedure;
-            //comando.Parameters.AddWithValue("@idregistromezcla", unaMezclap.idRegistroMezcla);
-            //comando.Parameters.AddWithValue("@nombre", unaMezclap.nombre);
-            //comando.Parameters.AddWithValue("@descripcion", unaMezclap.descripcion);
-            //comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
-            //GuardarLog(unaMezclap, usuarioLogueadop, accion, null);
+
 
             SqlCommand comando = new SqlCommand("sp_UPDATE_Producto");
             comando.CommandType = CommandType.StoredProcedure;
@@ -115,11 +106,12 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@stockminimo", 1);
             comando.Parameters.AddWithValue("@stockmaximo", 1000);
             comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
-
+            viejoProducto = ProductoDAL.ObtenerProductoPorID(unaMezclap.idRegistroMezcla);
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
+            GuardarLog(unaMezclap, usuarioLogueadop, accion, null);
         }
 
 
@@ -133,19 +125,34 @@ namespace SIME_UTN.DAL
         /// <param name="mezclaEliminadap"></param>
         public static void GuardarLog(Mezcla unaMezclap, string usuarioLogueado, string accion, string mezclaEliminadap)
         {
-
+            Producto nuevoProducto = new Producto();
             string descripcion = "";
             string estado = "";
-            if (unaMezclap == null)
+           
+
+            if (accion == "Eliminar")
             {
                 descripcion = "Mezcla eliminada: " + mezclaEliminadap;
                 estado = "Desactivado";
             }
-            else
+            if (accion == "Insertar")
             {
                 estado = "Activo";
-                descripcion = "Nombre Mezcla: " + unaMezclap.nombre + "\r\nDescripción: " + unaMezclap.descripcion + "\r\nEstado: " + estado;
+                descripcion = "\r\nRegistro Mezcla";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Nombre Mezcla: " + unaMezclap.nombre + "\r\nDescripción: " + unaMezclap.descripcion + "\r\nCategoria: "+unaMezclap.Categoria.descripcion+"\r\nEstado: " + estado;
 
+            }
+            if (accion == "Modificar")
+            {
+                
+                nuevoProducto = ProductoDAL.ObtenerProductoPorID(unaMezclap.idRegistroMezcla);
+                estado = "Activo";
+                descripcion = "\r\nRegistro Mezcla";
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Antes del Cambio" + "\r\nNombre Mezcla: " + viejoProducto.nombreProducto + "\r\nDescripción: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nEstado: " + estado;
+                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
+                descripcion += "Despues del Cambio" + "\r\nNombre Mezcla: " + nuevoProducto.nombreProducto + "\r\nDescripción: " + nuevoProducto.descripcion + "\r\nCategoria: " + nuevoProducto.Categoria.descripcion + "\r\nEstado: " + estado;
             }
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");

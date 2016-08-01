@@ -55,7 +55,6 @@ namespace SIME_UTN.DAL
         {
             string accion = "";
             accion = "Insertar";
-            double cantidad = ObtenerUltimaCantidadDelTraslado(trasladoInterDTOp);
             SqlCommand comando = new SqlCommand("sp_UPDATE_TrasladoProductoInter");
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -71,7 +70,7 @@ namespace SIME_UTN.DAL
                 db.ExecuteNonQuery(comando);
             }
             
-            BodegaDAL.CambiarCantidadyActualizarla(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, cantidad, trasladoInterDTOp.cantidad);
+           
 
         }
 
@@ -155,8 +154,7 @@ namespace SIME_UTN.DAL
             {
                 db.ExecuteNonQuery(comando);
             }
-
-                BodegaDAL.ActualizarCantidad(trasladop.BodegaOrigen.idRegistroBodega,trasladoInterDTOp.idProducto,trasladoInterDTOp.cantidad);
+  
 
         }
     }

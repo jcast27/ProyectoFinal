@@ -13,6 +13,7 @@ namespace SIME_UTN.BLL
         internal static void EliminarBodega(int idBodegap, string bodegap, string usuarioLogueadop)
         {
             RegistroBodegaDAL.EliminarBodega(idBodegap,bodegap,usuarioLogueadop);
+            RegistroBodegaDAL.DesableTipodeBodega(idBodegap);
         }
 
         internal static void GuardarBodega(RegistroBodega unaBodegap, string usuarioLogueadop)
@@ -20,7 +21,8 @@ namespace SIME_UTN.BLL
             if (RegistroBodegaDAL.ObtenerBodegaByID(unaBodegap.idRegistroBodega) == false)
             {
 
-                RegistroBodegaDAL.GuardarBodega(unaBodegap, usuarioLogueadop);
+               int idbodega= RegistroBodegaDAL.GuardarBodega(unaBodegap, usuarioLogueadop);
+                RegistroBodegaDAL.InsertarProductoEnBodega(idbodega);
             }
             else
             {

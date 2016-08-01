@@ -31,7 +31,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estado);
 
 
-           GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
+           //GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -59,7 +59,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@cantidad", unaMezclaProductoUnidadDTOp.cantidad);
             comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estado);
 
-            GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
+            //GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -114,7 +114,7 @@ namespace SIME_UTN.DAL
 
             comando.Parameters.AddWithValue("@idmezcla", idMezclap);
             comando.Parameters.AddWithValue("@idproducto", unProductop.idProducto);
-            GuardarLog(null, usuarioLogueadop, accion, unProductop.nombreProducto);
+            //GuardarLog(null, usuarioLogueadop, accion, unProductop.nombreProducto);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -164,7 +164,7 @@ namespace SIME_UTN.DAL
         /// <param name="usuarioLogueadop"></param>
         /// <param name="accion"></param>
         /// <param name="mezclaProductoEliminadap"></param>
-        public static void GuardarLog(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTOp, string usuarioLogueadop, string accion, string mezclaProductoEliminadap)
+       /* public static void GuardarLog(MezclaProductoUnidaMedidaDTO unaMezclaProductoUnidadDTOp, string usuarioLogueadop, string accion, string mezclaProductoEliminadap)
         {
 
             string descripcion = "";
@@ -197,6 +197,6 @@ namespace SIME_UTN.DAL
                 db.ExecuteNonQuery(comando);
             }
 
-        }
+        }*/
     }
 }
