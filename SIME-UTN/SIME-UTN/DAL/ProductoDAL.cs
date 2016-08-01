@@ -28,10 +28,8 @@ namespace SIME_UTN.DAL
             {
                 DataSet ds = db.ExecuteReader(comando, "consulta");
 
-
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    if (!dr["codigoavatar"].ToString().Equals("Mezcla"))
+            
+                    foreach (DataRow dr in ds.Tables[0].Rows)
                     {
                         ProductoCategoriaUnidadMedidaDTO unProducto = new ProductoCategoriaUnidadMedidaDTO();
                         unProducto.idProducto = Convert.ToInt32(dr["idproducto"].ToString());
@@ -40,10 +38,8 @@ namespace SIME_UTN.DAL
                         unProducto.Descripcion = dr["descripcion"].ToString();
                         unProducto.Categoria = dr["categoria"].ToString();
                         unProducto.UnidadMedida = dr["unidadmedida"].ToString();
-                        unProducto.presentacion = dr["presentacion"].ToString();
                         listaProductos.Add(unProducto);
                     }
-                }
             }
 
             return listaProductos;
@@ -64,7 +60,7 @@ namespace SIME_UTN.DAL
 
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-
+                   
                     Categoria unaCategoria = new Categoria();
                     UnidadMedida unaUnidadMedida = new UnidadMedida();
                     Ubicacion unaUbicacion = new Ubicacion();
@@ -122,7 +118,7 @@ namespace SIME_UTN.DAL
         /// <param name="productoIDp"></param>
         /// <param name="productop"></param>
         /// <param name="usuarioLoguadop"></param>
-        internal static void EliminarUsuario(int productoIDp, string productop, string usuarioLoguadop)
+        internal static void EliminarUsuario(int productoIDp,string productop, string usuarioLoguadop)
         {
             string accion = "";
             accion = "Eliminar";
@@ -154,7 +150,7 @@ namespace SIME_UTN.DAL
             SqlCommand command = new SqlCommand(sql);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@idproducto", idProducto);
+            command.Parameters.AddWithValue("@idproducto",idProducto);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -223,13 +219,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
             comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
-<<<<<<< HEAD
-
-            GuardarLog(unProductop, usuarioLogueadop, accion, null);
-=======
             viejoProducto = ObtenerProductoPorCodigoAvatar(unProductop.codigoAvatar);
            
->>>>>>> origin/development
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -240,14 +231,9 @@ namespace SIME_UTN.DAL
                     idProducto = Convert.ToInt32(dr["IDProducto"].ToString());
                 }
             }
-<<<<<<< HEAD
-            unProductop.idProducto = idProducto;
-            VerificarBodegaByID(unProductop);
-=======
             GuardarLog(unProductop, usuarioLogueadop, accion, null);
             return idProducto;
 
->>>>>>> origin/development
 
         }
 
@@ -259,17 +245,7 @@ namespace SIME_UTN.DAL
         internal static bool VerificarBodegaByID(int idregistrobodega, int idProducto)
         {
             bool existe = false;
-<<<<<<< HEAD
-
-
-            List<RegistroBodegaTipoBodegaDTO> listaBodegas = new List<RegistroBodegaTipoBodegaDTO>();
-            listaBodegas = RegistroBodegaDAL.ObtenertBodegas();
-
-            foreach (RegistroBodegaTipoBodegaDTO bodega in listaBodegas)
-            {
-=======
          
->>>>>>> origin/development
                 existe = false;
                 string sql = @"sp_SELECT_Bodega_ByID";
                 SqlCommand command = new SqlCommand(sql);
@@ -288,48 +264,38 @@ namespace SIME_UTN.DAL
                     }
 
                 }
-<<<<<<< HEAD
-                if (existe == false)
-                {
-                    InsertarProductoEnBodega(bodega.idregistrobodega, unProductop);
-                }
-            }
-
-
-=======
             
 
             return existe;
->>>>>>> origin/development
         }
 
-        internal static void InsertarProductoEnBodega(int idBodega, Producto unProductop)
+        internal static void InsertarProductoEnBodega(int idBodega,Producto unProductop)
         {
             string accion = "";
             accion = "Insertar";
 
 
-            SqlCommand comando = new SqlCommand("sp_INSERT_Bodega");
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idregistrobodega", idBodega);
-            comando.Parameters.AddWithValue("@idproducto", unProductop.idProducto);
-            comando.Parameters.AddWithValue("@codigoavatar", unProductop.codigoAvatar);
-            comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
-            comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
-            comando.Parameters.AddWithValue("@contenido", 0);
-            comando.Parameters.AddWithValue("@estado", 1);
+                SqlCommand comando = new SqlCommand("sp_INSERT_Bodega");
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idregistrobodega", idBodega);
+                comando.Parameters.AddWithValue("@idproducto", unProductop.idProducto);
+                comando.Parameters.AddWithValue("@codigoavatar", unProductop.codigoAvatar);
+                comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
+                comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+                comando.Parameters.AddWithValue("@contenido", 0);
+                comando.Parameters.AddWithValue("@estado", 1);
 
-            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-            {
-                db.ExecuteNonQuery(comando);
-
-
-            }
-        }
+                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                {
+                    db.ExecuteNonQuery(comando);
 
 
+                }
+       }
+            
+            
 
-
+        
 
         /// <summary>
         /// Metodo que obtiene una lista de todos los productos
@@ -388,13 +354,9 @@ namespace SIME_UTN.DAL
             if (accion == "Insertar")
             {
                 estado = "Activo";
-<<<<<<< HEAD
-                descripcion = "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
-=======
                 descripcion = "\r\nProducto";
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
                 descripcion += "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion +"\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
->>>>>>> origin/development
 
             }
             if (accion == "Modificar")
@@ -402,17 +364,11 @@ namespace SIME_UTN.DAL
                 nuevoProducto = ObtenerProductoPorCodigoAvatar(unProductop.codigoAvatar);
                 
                 estado = "Activo";
-<<<<<<< HEAD
-                descripcion = "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + viejoProducto.cantMinima + "\r\nCantidad Maxima: " + viejoProducto.cantMaxima + "\r\nEstado: " + estado;
-                descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
-=======
                 descripcion = "\r\nProducto";
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
                 descripcion += "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion +"\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + viejoProducto.cantMinima + "\r\nCantidad Maxima: " + viejoProducto.cantMaxima + "\r\nEstado: " + estado;
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
                 descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + nuevoProducto.codigoAvatar + "\r\nProducto: " + nuevoProducto.nombreProducto + "\r\nDescripcion: " + nuevoProducto.descripcion + "\r\nCategoria: " + nuevoProducto.Categoria.descripcion +"\r\nUnidad de Medida: " + nuevoProducto.UnidadMedida.descripcion+ "\r\nCantidad Minima: " + nuevoProducto.cantMinima + "\r\nCantidad Maxima: " + nuevoProducto.cantMaxima + "\r\nEstado: " + estado;
->>>>>>> origin/development
             }
 
             DateTime date = DateTime.Now;

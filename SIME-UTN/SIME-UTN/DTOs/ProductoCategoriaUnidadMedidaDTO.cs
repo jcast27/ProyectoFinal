@@ -14,6 +14,5 @@ namespace SIME_UTN.DTOs
         public string Categoria { set; get; }
         public string Ubicacion { set; get; }
         public string UnidadMedida { set; get; }
-        public string presentacion { set; get; }
     }
 }
