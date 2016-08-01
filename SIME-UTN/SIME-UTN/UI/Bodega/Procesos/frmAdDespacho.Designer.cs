@@ -35,8 +35,8 @@
             this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
-            this.txtCantidadMez = new System.Windows.Forms.NumericUpDown();
             this.btnGenerar = new System.Windows.Forms.Button();
+            this.txtCantidadMez = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbMezcla = new System.Windows.Forms.ComboBox();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,10 +72,7 @@
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnIngredientes = new System.Windows.Forms.Button();
             this.gbGridViewFuncionario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadMez)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).BeginInit();
@@ -155,10 +152,8 @@
             // 
             // gbGridViewFuncionario
             // 
-            this.gbGridViewFuncionario.Controls.Add(this.btnIngredientes);
-            this.gbGridViewFuncionario.Controls.Add(this.label6);
-            this.gbGridViewFuncionario.Controls.Add(this.txtCantidadMez);
             this.gbGridViewFuncionario.Controls.Add(this.btnGenerar);
+            this.gbGridViewFuncionario.Controls.Add(this.txtCantidadMez);
             this.gbGridViewFuncionario.Controls.Add(this.label4);
             this.gbGridViewFuncionario.Controls.Add(this.cmbMezcla);
             this.gbGridViewFuncionario.Controls.Add(this.label2);
@@ -167,36 +162,35 @@
             this.gbGridViewFuncionario.ForeColor = System.Drawing.Color.White;
             this.gbGridViewFuncionario.Location = new System.Drawing.Point(9, 499);
             this.gbGridViewFuncionario.Name = "gbGridViewFuncionario";
-            this.gbGridViewFuncionario.Size = new System.Drawing.Size(785, 65);
+            this.gbGridViewFuncionario.Size = new System.Drawing.Size(785, 68);
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Mezclas";
-            // 
-            // txtCantidadMez
-            // 
-            this.txtCantidadMez.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtCantidadMez.Location = new System.Drawing.Point(406, 27);
-            this.txtCantidadMez.Name = "txtCantidadMez";
-            this.txtCantidadMez.Size = new System.Drawing.Size(101, 24);
-            this.txtCantidadMez.TabIndex = 35;
             // 
             // btnGenerar
             // 
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnGenerar.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerar.Location = new System.Drawing.Point(535, 26);
+            this.btnGenerar.Location = new System.Drawing.Point(399, 29);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(85, 26);
             this.btnGenerar.TabIndex = 34;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
-            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // txtCantidadMez
+            // 
+            this.txtCantidadMez.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtCantidadMez.Location = new System.Drawing.Point(284, 30);
+            this.txtCantidadMez.Name = "txtCantidadMez";
+            this.txtCantidadMez.Size = new System.Drawing.Size(100, 24);
+            this.txtCantidadMez.TabIndex = 33;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label4.Location = new System.Drawing.Point(330, 29);
+            this.label4.Location = new System.Drawing.Point(201, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 18);
             this.label4.TabIndex = 32;
@@ -213,7 +207,6 @@
             this.cmbMezcla.Size = new System.Drawing.Size(121, 24);
             this.cmbMezcla.TabIndex = 31;
             this.cmbMezcla.ValueMember = "idregistromezcla";
-            this.cmbMezcla.SelectedIndexChanged += new System.EventHandler(this.cmbMezcla_SelectedIndexChanged);
             // 
             // productoBindingSource
             // 
@@ -509,47 +502,22 @@
             // 
             this.ePError.ContainerControl = this;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label6.Location = new System.Drawing.Point(199, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 18);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Ingredientes:";
-            // 
-            // btnIngredientes
-            // 
-            this.btnIngredientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnIngredientes.ForeColor = System.Drawing.Color.Black;
-            this.btnIngredientes.Location = new System.Drawing.Point(291, 27);
-            this.btnIngredientes.Name = "btnIngredientes";
-            this.btnIngredientes.Size = new System.Drawing.Size(20, 28);
-            this.btnIngredientes.TabIndex = 37;
-            this.btnIngredientes.Text = "?";
-            this.btnIngredientes.UseVisualStyleBackColor = true;
-            this.btnIngredientes.Click += new System.EventHandler(this.btnIngredientes_Click);
-            // 
             // frmAdDespacho
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 576);
+            this.ClientSize = new System.Drawing.Size(806, 579);
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(822, 614);
-            this.MinimumSize = new System.Drawing.Size(822, 614);
             this.Name = "frmAdDespacho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Despacho De Producto";
             this.Load += new System.EventHandler(this.frmAdDespachoProductos_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadMez)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).EndInit();
@@ -586,6 +554,7 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.TextBox txtCantidadMez;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbMezcla;
         private System.Windows.Forms.Label label2;
@@ -610,8 +579,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn columnaUnidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtObservaciones;
-        private System.Windows.Forms.NumericUpDown txtCantidadMez;
-        private System.Windows.Forms.Button btnIngredientes;
-        private System.Windows.Forms.Label label6;
     }
 }
