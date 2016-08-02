@@ -12,6 +12,6 @@ namespace SIME_UTN.DTOs
         public string nombreProducto { set; get; }
         public double cantidad { set; get; }
         public string unidadMedida { set; get; }
-        public double cantidadPorEmpaque { set; get; }
+        public string cantidadPorEmpaque { set; get; }
     }
 }

@@ -12,6 +12,7 @@ using SIME_UTN.Gestores;
 using SIME_UTN.UI.Bodega.Procesos;
 using SIME_UTN.Entities;
 using System.Threading;
+using System.Globalization;
 
 namespace SIME_UTN.UI.Bodega.Administracion
 {
@@ -29,11 +30,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
         static string usuarioLogueado="";
         static Mezcla mezclaEstatica = null;
         Categoria unaCategoria = null;
+        List<int> listaMultiplos = new List<int>();
 
         public frmAdMezclas()
         {
             InitializeComponent();
-           
         }
 
         public frmAdMezclas(Mezcla mezclaEstaticap)
@@ -69,7 +70,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             ofrmFiltroProductos.ShowDialog(this);
             this.txtECodigoProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.CodigoAvatar;
             this.txtNombreProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.NombreProducto;
-            txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
+            txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.presentacion + " " + ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
             txtCantidad.Enabled = true;
         }
 
@@ -85,6 +86,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             dt.Columns.Add(new DataColumn("Nombre"));
             dt.Columns.Add(new DataColumn("Cantidad"));
             dt.Columns.Add(new DataColumn("UnidadMedida"));
+            dt.Columns.Add(new DataColumn("Presentacion"));
 
             try
             {
@@ -96,6 +98,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     dr["Nombre"] = listaProductoDTO[i].nombreProducto;
                     dr["Cantidad"] = listaProductoDTO[i].cantidad;
                     dr["UnidadMedida"] = listaProductoDTO[i].unidadMedida;
+                    dr["Presentacion"] = listaProductoDTO[i].cantidadPorEmpaque;
                     dt.Rows.Add(dr);
                 }
 
@@ -115,6 +118,84 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             if (ValidarCamposAgregarProducto() != true)
             {
+                CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+                culture.NumberFormat.NumberDecimalSeparator = ".";
+
+                int presentacion = int.Parse(txtUnidadMedida.Text.Split(' ')[0]);
+                double cantidad = double.Parse(txtCantidad.Text, culture);
+                double multiplos = 0;
+
+                if (cantidad == presentacion)
+                {
+                    multiplos = 1;
+                }
+                else if (cantidad > presentacion)
+                {
+                    int presActual = presentacion;
+
+                    bool continuar = true;
+                    int cont = 0;
+                    do
+                    {
+                        cont++;
+                        presActual += presentacion;
+
+                        continuar = cantidad > presActual ? true : false;
+
+                        if (!continuar)
+                        {
+                            double residuo = presActual % cantidad;
+
+                            if (residuo == 0)
+                            {
+                                multiplos = presActual / presentacion;
+                            }
+                            else
+                            {
+                                epError.SetError(txtCantidad, "Cantidad no váldia");
+                                txtCantidad.Focus();
+                                return;
+                            }
+                        }
+
+
+                        if (cont == 10)
+                        {
+                            epError.SetError(txtCantidad, "Cantidad necesaria muy alta. Favor corregir");
+                            txtCantidad.Focus();
+                            return;
+                        }
+
+                    } while (continuar);
+                }
+                else if (cantidad < presentacion)
+                {
+                    double residuo = Math.Round(presentacion % cantidad,0);
+
+                    if (residuo == 0)
+                    {
+                        multiplos = presentacion / cantidad;
+                    }
+                    else
+                    {
+                        epError.SetError(txtCantidad, "Cantidad no váldia");
+                        txtCantidad.Focus();
+                        return;
+                    }
+                }
+
+
+                listaMultiplos.Add(int.Parse(multiplos.ToString()));
+
+                if (string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    txtDescripcion.Text = multiplos.ToString();
+                }
+                else
+                {
+                    txtDescripcion.Text = cantidadMezcla(listaMultiplos);
+                }
+
                 int index = 0;
                 bool existe = false;
                 if (listaProductoDTO.Count != 0)
@@ -131,11 +212,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     }
                 }
 
+
                 ProductoDTO unProducto = new ProductoDTO();
                 unProducto.codigoAvatar = txtECodigoProducto.Text;
                 unProducto.nombreProducto = txtNombreProducto.Text;
-                unProducto.cantidad = double.Parse(txtCantidad.Text);
-                unProducto.unidadMedida = txtUnidadMedida.Text;
+                unProducto.cantidad = cantidad;
+                unProducto.unidadMedida = txtUnidadMedida.Text.Split(' ')[1];
+                unProducto.cantidadPorEmpaque = txtUnidadMedida.Text.Split(' ')[0];
                 if (existe == true)
                 {
                     listaProductoDTO.Insert(index, unProducto);
@@ -147,6 +230,36 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 this.CargarGrid();
                 CambiarEstado(EstadoMantenimiento.Agregar);
             }
+        }
+
+        private string cantidadMezcla(List<int> lista)
+        {
+            int n = lista.Count;
+            int n1 = n;
+            int k = lista[0];
+            n--;
+            while (n >= 1)
+            {
+                k = lcm(k, lista[n--]);
+            }
+
+            return k.ToString();
+        }
+
+        private int gcd(int a, int b)
+        {
+            if (b > a)
+                return gcd(b, a);
+            if (b == 0)
+                return a;
+            return gcd(b, a % b);
+        }
+
+        private int lcm(int a, int b)
+        {
+            int k = gcd(a, b);
+            a /= k;
+            return a * b;
         }
 
         private void frmAdRegistroProducto_Load(object sender, EventArgs e)
@@ -234,7 +347,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             gestorUnidadMedida = new GestorUnidadMedida();
-            if (gestorUnidadMedida.ObtenerUnidadesConDecimales(txtUnidadMedida.Text)!=true)
+            if (gestorUnidadMedida.ObtenerUnidadesConDecimales(txtUnidadMedida.Text.Split(' ')[1])!=true)
             {
                 if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
                 {

@@ -104,7 +104,7 @@ namespace SIME_UTN.UI.Bodega
             if (e.Document.Caption == "Ventana Inventario Actual")
                 e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioActual();
             if (e.Document.Caption == "Reporte Bodega")
-                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodega",usuarioLogueado,0);
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodega", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Bodega Especifica")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodegaN", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados")
@@ -449,38 +449,43 @@ namespace SIME_UTN.UI.Bodega
 
         private void cambiarSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCambioUsuario ofrNuevoUsuario = new frmCambioUsuario(usuarioLogueado);
-            ofrNuevoUsuario.ShowDialog(this);
-            this.UsuarioLogueado();
-            string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
-
-            if (ofrNuevoUsuario.DialogResult == DialogResult.OK)
+            try
             {
-                if (perfil.Equals("Administrador"))
+                frmCambioUsuario ofrNuevoUsuario = new frmCambioUsuario(usuarioLogueado);
+                ofrNuevoUsuario.ShowDialog(this);
+                this.UsuarioLogueado();
+                string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
+
+                if (ofrNuevoUsuario.DialogResult == DialogResult.OK)
                 {
-                    if (tipoDeProceso == "Administracion")
+                    if (perfil.Equals("Administrador"))
                     {
-                        this.CrearDocumentosAdministracion(true);
+                        if (tipoDeProceso == "Administracion")
+                        {
+                            this.CrearDocumentosAdministracion(true);
+                        }
+                    }
+                    else
+                    {
+                        this.CrearDocumentosAdministracion(false);
+                    }
+                    if (tipoDeProceso == "Procesos")
+                    {
+                        this.CrearDocumentosProceso(true);
+                    }
+                    if (tipoDeProceso == "Inventarios")
+                    {
+                        this.CrearDocumentosInventario(true);
+                    }
+                    if (tipoDeProceso == "Reportes")
+                    {
+                        this.CrearDocumentosReportes(true);
                     }
                 }
-                else
-                {
-                    this.CrearDocumentosAdministracion(false);
-                }
-                if (tipoDeProceso == "Procesos")
-                {
-                    this.CrearDocumentosProceso(true);
-                }
-                if (tipoDeProceso == "Inventarios")
-                {
-                    this.CrearDocumentosInventario(true);
-                }
-                if (tipoDeProceso == "Reportes")
-                {
-                    this.CrearDocumentosReportes(true);
-                }
+                security();
             }
-            security();
+            catch (Exception)
+            { }
         }
 
         private void cambiarContrasennaToolStripMenuItem_Click(object sender, EventArgs e)

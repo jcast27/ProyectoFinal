@@ -50,7 +50,8 @@ namespace SIME_UTN.UI.Formulario
             usuarioTSMI.Text = "Usuario: " + usuarioLogueado;
         }
 
-        public void security() {
+        public void security()
+        {
 
             try
             {
@@ -62,9 +63,9 @@ namespace SIME_UTN.UI.Formulario
                 }
             }
             catch (Exception)
-            {}
+            { }
         }
-        
+
 
         // Assigning a required content for each auto generated Document
         void windowsUIView1_QueryControl(object sender, QueryControlEventArgs e)
@@ -226,7 +227,7 @@ namespace SIME_UTN.UI.Formulario
             this.windowsUIView1.Documents.Clear();
 
             Document doc1 = new Document { Caption = "Ventana Formularios" };
-            this.windowsUIView1.Documents.AddRange(new Document[] { doc1});
+            this.windowsUIView1.Documents.AddRange(new Document[] { doc1 });
 
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
@@ -262,23 +263,39 @@ namespace SIME_UTN.UI.Formulario
 
         private void cambiarSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCambioUsuario ofrNuevoUsuario = new frmCambioUsuario(usuarioLogueado);
-            ofrNuevoUsuario.ShowDialog(this);
-
-
-            if (ofrNuevoUsuario.DialogResult == DialogResult.OK)
+            try
             {
-                this.UsuarioLogueado();
-                if (tipoDeProceso == "Administracion")
+                frmCambioUsuario ofrNuevoUsuario = new frmCambioUsuario(usuarioLogueado);
+                ofrNuevoUsuario.ShowDialog(this);
+                string perfil = gestor.ValidarUsuarioPorUsuario(usuarioLogueado).perfil;
+
+                if (ofrNuevoUsuario.DialogResult == DialogResult.OK)
                 {
-                    this.CrearDocumentosAdministracion(true);
+                    this.UsuarioLogueado();
+                    if (perfil.Equals("Administrador"))
+                    {
+                        if (tipoDeProceso == "Administracion")
+                        {
+                            this.CrearDocumentosAdministracion(true);
+                        }
+                    }
+                    else
+                    {
+                        this.CrearDocumentosAdministracion(false);
+                    }
+                    if (tipoDeProceso == "Administracion")
+                    {
+                        this.CrearDocumentosAdministracion(true);
+                    }
+                    if (tipoDeProceso == "Formularios")
+                    {
+                        this.CrearDocumentosFormulario(true);
+                    }
                 }
-                if (tipoDeProceso == "Formularios")
-                {
-                    this.CrearDocumentosFormulario(true);
-                }
+                security();
             }
-            security();
+            catch (Exception)
+            { }
 
         }
 
@@ -304,7 +321,7 @@ namespace SIME_UTN.UI.Formulario
         {
             string pass = Interaction.InputBox("Ingresar contraseña de Seguridad\nRecuerde pausar cual acción en las demás terminales del sistema", "Seguridad");
             restoreDB rDB = new restoreDB();
-            
+
             if (rDB.validarPass(pass))
             {
                 try
@@ -320,7 +337,7 @@ namespace SIME_UTN.UI.Formulario
                 {
                     MessageBox.Show("Ha ocurrido el siguiente error: \n" + error.Message, "Restauración");
                 }
-            }           
+            }
         }
 
         static void SplashScreen()
