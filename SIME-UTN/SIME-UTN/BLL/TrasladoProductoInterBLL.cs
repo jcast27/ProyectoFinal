@@ -21,12 +21,12 @@ namespace SIME_UTN.BLL
             {
                 double cantidad = TrasladoProductoInterDAL.ObtenerUltimaCantidadDelTraslado(trasladoInterDTOp);
                 DAL.TrasladoProductoInterDAL.ActualizarTrasladoProductos(trasladoInterDTOp, trasladop);
-                BodegaDAL.CambiarCantidadyActualizarla(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, cantidad, trasladoInterDTOp.cantidad);
+                BodegaDAL.CambiarCantidadyActualizarla(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, cantidad, trasladoInterDTOp.unidades);
             }
             else
             {
                 DAL.TrasladoProductoInterDAL.GuardarTrasladoProductos(trasladoInterDTOp,trasladop);
-                BodegaDAL.ActualizarCantidad(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, trasladoInterDTOp.cantidad);
+                BodegaDAL.ActualizarCantidad(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, trasladoInterDTOp.unidades,trasladop.idTraslado);
             }
            
         }

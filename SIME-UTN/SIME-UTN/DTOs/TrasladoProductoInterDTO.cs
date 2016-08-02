@@ -13,7 +13,8 @@ namespace SIME_UTN.DTOs
         public string codigoAvatar { set; get; }
         public int idUnidadMedida { set; get; }
         public string nombreUnidadMedida { set; get; }
-        public double cantidad { set; get; }
+        public double contenido { set; get; }
+        public int unidades { set; get; }
         public int estado { set; get; }
     }
 }

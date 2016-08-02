@@ -80,7 +80,8 @@ namespace SIME_UTN.DAL
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@idregistrobodega", trasladoEstatico.BodegaDestino.idRegistroBodega);
                 comando.Parameters.AddWithValue("@idproducto", producto.idProducto);
-                comando.Parameters.AddWithValue("@CantidadIngresada", producto.cantidad);
+                comando.Parameters.AddWithValue("@CantidadIngresada", producto.contenido);
+                comando.Parameters.AddWithValue("@UnidadesIngresadas", producto.unidades);
 
 
                 using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
@@ -106,7 +107,8 @@ namespace SIME_UTN.DAL
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@idregistrobodega", trasladoEstatico.BodegaOrigen.idRegistroBodega);
                 comando.Parameters.AddWithValue("@idproducto", producto.idProducto);
-                comando.Parameters.AddWithValue("@CantidadIngresada", producto.cantidad);
+                comando.Parameters.AddWithValue("@CantidadIngresada", producto.contenido);
+                comando.Parameters.AddWithValue("@UnidadesIngresadas", producto.unidades);
 
 
                 using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))

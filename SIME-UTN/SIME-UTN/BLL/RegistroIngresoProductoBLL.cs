@@ -9,6 +9,7 @@ using System.Text;
 namespace SIME_UTN.BLL
 {
     class RegistroIngresoProductoBLL
+
     {
 
 
@@ -35,14 +36,14 @@ namespace SIME_UTN.BLL
             {
                 accion = "Modificar";
                 cantidad = RegistroIngresoProductoDAL.ActualizarIngresoProducto(unIngProd, usuarioLogueado);
-                RegistroIngresoProductoDAL.ActualizarInventarioCantidad(unIngProd.idBodega, unIngProd.idProducto, cantidad, unIngProd.uCantidad, accion);
+                RegistroIngresoProductoDAL.ActualizarInventarioCantidad(unIngProd.idBodega, unIngProd.idProducto, cantidad, unIngProd.uCantidad, accion, unIngProd.cantidadPorEmpaque);
             }
             else
             {
                
                 accion = "Insertar";
                 cantidad =RegistroIngresoProductoDAL.GuardarIngresoProducto(unIngProd, usuarioLogueado);
-                RegistroIngresoProductoDAL.ActualizarInventarioCantidad(unIngProd.idBodega, unIngProd.idProducto, cantidad, 0, accion);
+                RegistroIngresoProductoDAL.ActualizarInventarioCantidad(unIngProd.idBodega, unIngProd.idProducto, cantidad, 0, accion, unIngProd.cantidadPorEmpaque);
             }
 
         }

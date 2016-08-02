@@ -38,6 +38,7 @@ namespace SIME_UTN.DAL
                     unProducto.Producto = ProductoDAL.ObtenerProductoPorCodigoAvatar(dr["codigoavatar"].ToString());
                     unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(dr["idunidadmedida"].ToString()));
                     unProducto.contenido = double.Parse(dr["contenido"].ToString());
+                    unProducto.unidades = int.Parse(dr["Unidades"].ToString());
                     listaProductos.Add(unProducto);
                 }
             }
@@ -51,7 +52,7 @@ namespace SIME_UTN.DAL
         /// <param name="idRegistroBodegap"></param>
         /// <param name="idProductop"></param>
         /// <param name="cantidadp"></param>
-        internal static void ActualizarCantidad(int idRegistroBodegap, int idProductop, double cantidadp)
+        internal static void ActualizarCantidad(int idRegistroBodegap, int idProductop, double unidadesp, int idTrasladop)
         {
 
             SqlCommand comando = new SqlCommand("sp_UPDATE_Bodega_Cantidad");
@@ -59,7 +60,8 @@ namespace SIME_UTN.DAL
 
             comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodegap);
             comando.Parameters.AddWithValue("@idproducto", idProductop);
-            comando.Parameters.AddWithValue("@Contenido", cantidadp);
+            comando.Parameters.AddWithValue("@idTraslado", idTrasladop);
+            comando.Parameters.AddWithValue("@Unidades", unidadesp);
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
@@ -68,7 +70,7 @@ namespace SIME_UTN.DAL
             }
         }
 
-        internal static void CambiarCantidadyActualizarla(int idRegistroBodegap, int idProducto, double ucantidad, double cantidad)
+        internal static void CambiarCantidadyActualizarla(int idRegistroBodegap, int idProducto, double ucantidad, double unidadesp)
         {
             SqlCommand comando = new SqlCommand("sp_UPDATE_Bodega_Update_Cantidad");
             comando.CommandType = CommandType.StoredProcedure;
@@ -76,7 +78,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodegap);
             comando.Parameters.AddWithValue("@idproducto", idProducto);
             comando.Parameters.AddWithValue("@UContenido", ucantidad);
-            comando.Parameters.AddWithValue("@Contenido", cantidad);
+            comando.Parameters.AddWithValue("@unidades", unidadesp);
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
