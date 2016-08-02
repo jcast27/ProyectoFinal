@@ -12,6 +12,7 @@ namespace SIME_UTN.Entities
         public Producto Producto { set; get; }
         public UnidadMedida UnidadMedida { set; get; }
         public double contenido { set; get; }
+        public int unidades { set; get; }
         public int estado { set; get; }
 
         public PBodega() { }

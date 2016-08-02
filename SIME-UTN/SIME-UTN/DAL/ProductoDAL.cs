@@ -282,6 +282,7 @@ namespace SIME_UTN.DAL
                 comando.Parameters.AddWithValue("@codigoavatar", unProductop.codigoAvatar);
                 comando.Parameters.AddWithValue("@nombre", unProductop.nombreProducto);
                 comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
+                comando.Parameters.AddWithValue("@Unidades", 0);
                 comando.Parameters.AddWithValue("@contenido", 0);
                 comando.Parameters.AddWithValue("@estado", 1);
 

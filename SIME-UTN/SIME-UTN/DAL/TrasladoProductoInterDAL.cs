@@ -38,7 +38,8 @@ namespace SIME_UTN.DAL
                     unProducto.nombreProducto = dr["Nombre"].ToString();
                     unProducto.idUnidadMedida = int.Parse(dr["IDUnidadMedida"].ToString());
                     unProducto.nombreUnidadMedida = dr["UnidadMedida"].ToString();
-                    unProducto.cantidad = Double.Parse(dr["Cantidad"].ToString());
+                    unProducto.unidades = int.Parse(dr["Unidades"].ToString());
+                    unProducto.contenido = double.Parse(dr["Cantidad"].ToString());
                     listaProductosDTO.Add(unProducto);
                 }
             }
@@ -61,7 +62,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idtraslado", trasladoInterDTOp.idTraslado);
             comando.Parameters.AddWithValue("@idproducto", trasladoInterDTOp.idProducto);
             comando.Parameters.AddWithValue("@idunidadmedida", trasladoInterDTOp.idUnidadMedida);
-            comando.Parameters.AddWithValue("@cantidad", trasladoInterDTOp.cantidad);
+            comando.Parameters.AddWithValue("@Unidades", trasladoInterDTOp.unidades);
             comando.Parameters.AddWithValue("@estado", trasladoInterDTOp.estado);
 
 
@@ -146,7 +147,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idtraslado", trasladoInterDTOp.idTraslado);
             comando.Parameters.AddWithValue("@idproducto", trasladoInterDTOp.idProducto);
             comando.Parameters.AddWithValue("@idunidadmedida", trasladoInterDTOp.idUnidadMedida);
-            comando.Parameters.AddWithValue("@cantidad", trasladoInterDTOp.cantidad);
+            comando.Parameters.AddWithValue("@unidades", trasladoInterDTOp.unidades);
             comando.Parameters.AddWithValue("@estado", trasladoInterDTOp.estado);
 
 

@@ -66,7 +66,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             dt.TableName = "Prodcutos";
             dt.Columns.Add(new DataColumn("CodigoProducto"));
             dt.Columns.Add(new DataColumn("Nombre"));
-            dt.Columns.Add(new DataColumn("Cantidad"));
+            dt.Columns.Add(new DataColumn("Unidades"));
             dt.Columns.Add(new DataColumn("UnidadMedida"));
 
             try
@@ -77,7 +77,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     DataRow dr = dt.NewRow();
                     dr["CodigoProducto"] = lista[i].codigoAvatar;
                     dr["Nombre"] = lista[i].nombreProducto;
-                    dr["Cantidad"] = lista[i].cantidad;
+                    dr["Unidades"] = lista[i].unidades;
                     dr["UnidadMedida"] = lista[i].nombreUnidadMedida;
                     dt.Rows.Add(dr);
                 }
@@ -94,10 +94,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
         public void CargarGridBodegaOrigen()
         {
             DataTable dt = new DataTable();
-            dt.TableName = "Prodcutos";
+            dt.TableName = "Productos";
             dt.Columns.Add(new DataColumn("CodigoProducto"));
             dt.Columns.Add(new DataColumn("Nombre"));
-            dt.Columns.Add(new DataColumn("Cantidad"));
+            dt.Columns.Add(new DataColumn("Unidades"));
             dt.Columns.Add(new DataColumn("UnidadMedida"));
 
             try
@@ -108,7 +108,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     DataRow dr = dt.NewRow();
                     dr["CodigoProducto"] = listaPBodega[i].Producto.codigoAvatar;
                     dr["Nombre"] = listaPBodega[i].Producto.nombreProducto;
-                    dr["Cantidad"] = listaPBodega[i].contenido;
+                    dr["Unidades"] = listaPBodega[i].unidades;
                     dr["UnidadMedida"] = listaPBodega[i].UnidadMedida.descripcion;
                     dt.Rows.Add(dr);
                 }
@@ -229,7 +229,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
 
                 unProducto.codigoAvatar = txtECodigoProducto.Text;
-                unProducto.cantidad = double.Parse(txtCantidad.Text);
+                unProducto.unidades = int.Parse(txtCantidad.Text);
 
                 //se compara la cantida por agregar, contra la cantidad el producto en bodega
                 foreach (PBodega productoBodega in listaPBodega)
@@ -237,7 +237,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     if (productoBodega.Producto.codigoAvatar == unProducto.codigoAvatar)
                     {
                         existeProducto = true;
-                        if (productoBodega.contenido >= unProducto.cantidad)
+                        if (productoBodega.contenido >= unProducto.unidades)
                         {
                             cantidadSuficiente = true;
                         }  

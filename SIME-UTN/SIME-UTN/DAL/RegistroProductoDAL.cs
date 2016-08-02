@@ -80,6 +80,7 @@ namespace SIME_UTN.DAL
                 comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodega);
                 comando.Parameters.AddWithValue("@idproducto", registriIngresoProducto.idProducto);
                 comando.Parameters.AddWithValue("@UCantidadIngresada", registriIngresoProducto.uCantidad);
+                comando.Parameters.AddWithValue("@unidades", registriIngresoProducto.cantidadPorEmpaque);
 
 
                 using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))

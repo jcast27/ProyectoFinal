@@ -49,7 +49,7 @@ namespace SIME_UTN.DAL
         /// Metodo que actualiza el invetario producto, respecto a la cantidad registrada
         /// </summary>
         /// <param name="unIngresoProdDTO"></param>
-        internal static void ActualizarInventarioCantidad(int idBodega,int idProductop, double contendiop, double uCantidadp,string estadop)
+        internal static void ActualizarInventarioCantidad(int idBodega,int idProductop, double contendiop, double uCantidadp,string estadop, int unidadesp)
         {
             SqlCommand comando1 = null;
             if (estadop == "Insertar")
@@ -59,6 +59,7 @@ namespace SIME_UTN.DAL
                 comando1.Parameters.AddWithValue("@IDRegistroBodega", idBodega);
                 comando1.Parameters.AddWithValue("@idproducto", idProductop);
                 comando1.Parameters.AddWithValue("@stockactual", contendiop);
+                comando1.Parameters.AddWithValue("@unidades", unidadesp);
             }
             if (estadop == "Modificar")
             {
@@ -193,6 +194,7 @@ namespace SIME_UTN.DAL
                 comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodegap);
                 comando.Parameters.AddWithValue("@idproducto", registriIngresoProducto.idProducto);
                 comando.Parameters.AddWithValue("@UCantidadIngresada", registriIngresoProducto.uCantidad);
+                comando.Parameters.AddWithValue("@unidades", registriIngresoProducto.cantidadPorEmpaque);
 
 
                 using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
