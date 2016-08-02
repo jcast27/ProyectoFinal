@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdDespacho));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
@@ -39,8 +38,8 @@
             this.txtCantidadMez = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbMezcla = new System.Windows.Forms.ComboBox();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetRMezclasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productoBindingSource = new System.Windows.Forms.BindingSource();
+            this.dataSetRMezclasBindingSource = new System.Windows.Forms.BindingSource();
             this.dataSetRMezclas = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclas();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
@@ -54,8 +53,8 @@
             this.columnaCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnaUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource();
+            this.dataSetFuncionarioBindingSource = new System.Windows.Forms.BindingSource();
             this.dataSetFuncionario = new SIME_UTN.DataSets.Formulario.DataSetFuncionario();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCantidadProd = new System.Windows.Forms.TextBox();
@@ -66,12 +65,11 @@
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContenido = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter();
-            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ePError = new System.Windows.Forms.ErrorProvider();
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclasBindingSource)).BeginInit();
@@ -429,8 +427,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colProducto,
-            this.colContenido,
-            this.colUnidadMedida});
+            this.colContenido});
             this.gridView1.GridControl = this.gcProducto;
             this.gridView1.Name = "gridView1";
             // 
@@ -453,23 +450,13 @@
             // 
             // colContenido
             // 
-            this.colContenido.Caption = "Cantidad";
-            this.colContenido.FieldName = "contenido";
+            this.colContenido.Caption = "Unidades";
+            this.colContenido.FieldName = "unidades";
             this.colContenido.Name = "colContenido";
             this.colContenido.OptionsColumn.AllowEdit = false;
             this.colContenido.Visible = true;
             this.colContenido.VisibleIndex = 1;
             this.colContenido.Width = 101;
-            // 
-            // colUnidadMedida
-            // 
-            this.colUnidadMedida.Caption = "Unidad";
-            this.colUnidadMedida.FieldName = "UnidadMedida.codigo";
-            this.colUnidadMedida.Name = "colUnidadMedida";
-            this.colUnidadMedida.OptionsColumn.AllowEdit = false;
-            this.colUnidadMedida.Visible = true;
-            this.colUnidadMedida.VisibleIndex = 2;
-            this.colUnidadMedida.Width = 45;
             // 
             // txtBuscar
             // 
@@ -575,7 +562,6 @@
         private System.Windows.Forms.BindingSource productoBindingSource;
         private DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter productoTableAdapter;
         private System.Windows.Forms.ErrorProvider ePError;
-        private DevExpress.XtraGrid.Columns.GridColumn colUnidadMedida;
         private DevExpress.XtraGrid.Columns.GridColumn columnaUnidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtObservaciones;
