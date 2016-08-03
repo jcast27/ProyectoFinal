@@ -84,7 +84,7 @@
             this.clbItems.Location = new System.Drawing.Point(17, 124);
             this.clbItems.Name = "clbItems";
             this.clbItems.Size = new System.Drawing.Size(399, 191);
-            this.clbItems.TabIndex = 35;
+            this.clbItems.TabIndex = 2;
             this.clbItems.SelectedIndexChanged += new System.EventHandler(this.clbItems_SelectedIndexChanged);
             // 
             // txtId
@@ -94,7 +94,7 @@
             this.txtId.Location = new System.Drawing.Point(97, 39);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(163, 22);
-            this.txtId.TabIndex = 34;
+            this.txtId.TabIndex = 0;
             // 
             // lblId
             // 
@@ -133,7 +133,7 @@
             this.txtNombre.Location = new System.Drawing.Point(97, 67);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(163, 22);
-            this.txtNombre.TabIndex = 31;
+            this.txtNombre.TabIndex = 1;
             // 
             // label1
             // 
@@ -192,7 +192,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(448, 40);
-            this.tileNavPane1.TabIndex = 35;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo

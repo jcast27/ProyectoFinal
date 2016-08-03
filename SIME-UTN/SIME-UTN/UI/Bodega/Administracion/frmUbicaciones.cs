@@ -64,7 +64,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
 
         /// <summary>
-        /// Metodo que permite extrae la Ubicacion seleccionada del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae la Ubicacion seleccionada del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -109,10 +109,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 ubicacionEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
 
 
-                if (MessageBox.Show("¿Seguro que desea eliminar la ubicacion " + ubicacionEstatica.nombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Seguro que desea eliminar la ubicación " + ubicacionEstatica.nombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     gestorUbicacion.EliminarUbicacion(ubicacionEstatica.idUbicacion,ubicacionEstatica.nombre, usuarioLogueado);
-                    MessageBox.Show("La ubicacion " + ubicacionEstatica.nombre + " fue eliminada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La ubicación " + ubicacionEstatica.nombre + " fue eliminada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmUbicaciones_Load(null, null);
 
                 }

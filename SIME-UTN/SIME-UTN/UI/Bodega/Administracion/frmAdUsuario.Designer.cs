@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdUsuario));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
-            this.gbInformacionPersonal = new System.Windows.Forms.GroupBox();
+            this.gbInformaciónPersonal = new System.Windows.Forms.GroupBox();
+            this.rdbDesp = new System.Windows.Forms.RadioButton();
+            this.rdbAdmin = new System.Windows.Forms.RadioButton();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -48,11 +51,9 @@
             this.lblConfirmacion = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
-            this.ePError = new System.Windows.Forms.ErrorProvider();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
-            this.rdbAdmin = new System.Windows.Forms.RadioButton();
-            this.rdbDesp = new System.Windows.Forms.RadioButton();
-            this.gbInformacionPersonal.SuspendLayout();
+            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.gbInformaciónPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +83,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(530, 40);
-            this.tileNavPane1.TabIndex = 34;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo
@@ -132,33 +133,57 @@
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick);
             // 
-            // gbInformacionPersonal
+            // gbInformaciónPersonal
             // 
-            this.gbInformacionPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbInformaciónPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbInformacionPersonal.Controls.Add(this.rdbDesp);
-            this.gbInformacionPersonal.Controls.Add(this.rdbAdmin);
-            this.gbInformacionPersonal.Controls.Add(this.lblCodigoUsuario);
-            this.gbInformacionPersonal.Controls.Add(this.txtPassword);
-            this.gbInformacionPersonal.Controls.Add(this.txtUsuario);
-            this.gbInformacionPersonal.Controls.Add(this.label1);
-            this.gbInformacionPersonal.Controls.Add(this.lblApellido1);
-            this.gbInformacionPersonal.Controls.Add(this.txtApellido2);
-            this.gbInformacionPersonal.Controls.Add(this.txtNombre);
-            this.gbInformacionPersonal.Controls.Add(this.lblApellido2);
-            this.gbInformacionPersonal.Controls.Add(this.lblNombre);
-            this.gbInformacionPersonal.Controls.Add(this.txtConfirmacion);
-            this.gbInformacionPersonal.Controls.Add(this.lblConfirmacion);
-            this.gbInformacionPersonal.Controls.Add(this.lblPassword);
-            this.gbInformacionPersonal.Controls.Add(this.txtApellido1);
-            this.gbInformacionPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInformacionPersonal.ForeColor = System.Drawing.Color.White;
-            this.gbInformacionPersonal.Location = new System.Drawing.Point(12, 61);
-            this.gbInformacionPersonal.Name = "gbInformacionPersonal";
-            this.gbInformacionPersonal.Size = new System.Drawing.Size(506, 262);
-            this.gbInformacionPersonal.TabIndex = 35;
-            this.gbInformacionPersonal.TabStop = false;
-            this.gbInformacionPersonal.Text = "Informacion del Usuario";
+            this.gbInformaciónPersonal.Controls.Add(this.rdbDesp);
+            this.gbInformaciónPersonal.Controls.Add(this.rdbAdmin);
+            this.gbInformaciónPersonal.Controls.Add(this.lblCodigoUsuario);
+            this.gbInformaciónPersonal.Controls.Add(this.txtPassword);
+            this.gbInformaciónPersonal.Controls.Add(this.txtUsuario);
+            this.gbInformaciónPersonal.Controls.Add(this.label1);
+            this.gbInformaciónPersonal.Controls.Add(this.lblApellido1);
+            this.gbInformaciónPersonal.Controls.Add(this.txtApellido2);
+            this.gbInformaciónPersonal.Controls.Add(this.txtNombre);
+            this.gbInformaciónPersonal.Controls.Add(this.lblApellido2);
+            this.gbInformaciónPersonal.Controls.Add(this.lblNombre);
+            this.gbInformaciónPersonal.Controls.Add(this.txtConfirmacion);
+            this.gbInformaciónPersonal.Controls.Add(this.lblConfirmacion);
+            this.gbInformaciónPersonal.Controls.Add(this.lblPassword);
+            this.gbInformaciónPersonal.Controls.Add(this.txtApellido1);
+            this.gbInformaciónPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbInformaciónPersonal.ForeColor = System.Drawing.Color.White;
+            this.gbInformaciónPersonal.Location = new System.Drawing.Point(12, 46);
+            this.gbInformaciónPersonal.Name = "gbInformaciónPersonal";
+            this.gbInformaciónPersonal.Size = new System.Drawing.Size(506, 262);
+            this.gbInformaciónPersonal.TabIndex = 35;
+            this.gbInformaciónPersonal.TabStop = false;
+            this.gbInformaciónPersonal.Text = "Información del Usuario";
+            // 
+            // rdbDesp
+            // 
+            this.rdbDesp.AutoSize = true;
+            this.rdbDesp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.rdbDesp.Location = new System.Drawing.Point(156, 36);
+            this.rdbDesp.Name = "rdbDesp";
+            this.rdbDesp.Size = new System.Drawing.Size(115, 22);
+            this.rdbDesp.TabIndex = 31;
+            this.rdbDesp.TabStop = true;
+            this.rdbDesp.Text = "Despachador";
+            this.rdbDesp.UseVisualStyleBackColor = true;
+            // 
+            // rdbAdmin
+            // 
+            this.rdbAdmin.AutoSize = true;
+            this.rdbAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.rdbAdmin.Location = new System.Drawing.Point(17, 36);
+            this.rdbAdmin.Name = "rdbAdmin";
+            this.rdbAdmin.Size = new System.Drawing.Size(117, 22);
+            this.rdbAdmin.TabIndex = 30;
+            this.rdbAdmin.TabStop = true;
+            this.rdbAdmin.Text = "Administrador";
+            this.rdbAdmin.UseVisualStyleBackColor = true;
             // 
             // lblCodigoUsuario
             // 
@@ -184,7 +209,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(270, 22);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "123";
             // 
             // txtUsuario
@@ -194,7 +219,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(166, 217);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(147, 22);
-            this.txtUsuario.TabIndex = 26;
+            this.txtUsuario.TabIndex = 5;
             // 
             // label1
             // 
@@ -233,7 +258,7 @@
             this.txtApellido2.Location = new System.Drawing.Point(166, 133);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(270, 22);
-            this.txtApellido2.TabIndex = 28;
+            this.txtApellido2.TabIndex = 2;
             this.txtApellido2.Text = "morera";
             // 
             // txtNombre
@@ -245,7 +270,7 @@
             this.txtNombre.Location = new System.Drawing.Point(166, 77);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(270, 22);
-            this.txtNombre.TabIndex = 3;
+            this.txtNombre.TabIndex = 0;
             this.txtNombre.Text = "jose";
             // 
             // lblApellido2
@@ -286,7 +311,7 @@
             this.txtConfirmacion.Name = "txtConfirmacion";
             this.txtConfirmacion.PasswordChar = '*';
             this.txtConfirmacion.Size = new System.Drawing.Size(270, 22);
-            this.txtConfirmacion.TabIndex = 14;
+            this.txtConfirmacion.TabIndex = 4;
             this.txtConfirmacion.Text = "123";
             // 
             // lblConfirmacion
@@ -301,7 +326,7 @@
             this.lblConfirmacion.Name = "lblConfirmacion";
             this.lblConfirmacion.Size = new System.Drawing.Size(101, 18);
             this.lblConfirmacion.TabIndex = 13;
-            this.lblConfirmacion.Text = "Confirmacion:";
+            this.lblConfirmacion.Text = "Confirmación:";
             // 
             // lblPassword
             // 
@@ -326,7 +351,7 @@
             this.txtApellido1.Location = new System.Drawing.Point(166, 105);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(270, 22);
-            this.txtApellido1.TabIndex = 27;
+            this.txtApellido1.TabIndex = 1;
             this.txtApellido1.Text = "castro";
             // 
             // ePError
@@ -337,45 +362,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // rdbAdmin
-            // 
-            this.rdbAdmin.AutoSize = true;
-            this.rdbAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdbAdmin.Location = new System.Drawing.Point(17, 36);
-            this.rdbAdmin.Name = "rdbAdmin";
-            this.rdbAdmin.Size = new System.Drawing.Size(117, 22);
-            this.rdbAdmin.TabIndex = 30;
-            this.rdbAdmin.TabStop = true;
-            this.rdbAdmin.Text = "Administrador";
-            this.rdbAdmin.UseVisualStyleBackColor = true;
-            // 
-            // rdbDesp
-            // 
-            this.rdbDesp.AutoSize = true;
-            this.rdbDesp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.rdbDesp.Location = new System.Drawing.Point(156, 36);
-            this.rdbDesp.Name = "rdbDesp";
-            this.rdbDesp.Size = new System.Drawing.Size(115, 22);
-            this.rdbDesp.TabIndex = 31;
-            this.rdbDesp.TabStop = true;
-            this.rdbDesp.Text = "Despachador";
-            this.rdbDesp.UseVisualStyleBackColor = true;
-            // 
             // frmAdUsuario
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 333);
-            this.Controls.Add(this.gbInformacionPersonal);
+            this.ClientSize = new System.Drawing.Size(530, 323);
+            this.Controls.Add(this.gbInformaciónPersonal);
             this.Controls.Add(this.tileNavPane1);
+            this.MaximumSize = new System.Drawing.Size(546, 361);
+            this.MinimumSize = new System.Drawing.Size(546, 361);
             this.Name = "frmAdUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.frmAdUsuario_Load);
-            this.gbInformacionPersonal.ResumeLayout(false);
-            this.gbInformacionPersonal.PerformLayout();
+            this.gbInformaciónPersonal.ResumeLayout(false);
+            this.gbInformaciónPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -387,7 +390,7 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
-        private System.Windows.Forms.GroupBox gbInformacionPersonal;
+        private System.Windows.Forms.GroupBox gbInformaciónPersonal;
         private System.Windows.Forms.Label lblCodigoUsuario;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsuario;

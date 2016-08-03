@@ -111,7 +111,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 {
                     gestorDepto.AgregarDepartamento(unDepto);
                     gestorDepto.GuardarDepartamento(unDepto, usuarioLogueado);
-                    MessageBox.Show("El Departamento " + unDepto.descripcion + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El departamento " + unDepto.descripcion + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 CambiarEstado(EstadoMantenimiento.Editar);

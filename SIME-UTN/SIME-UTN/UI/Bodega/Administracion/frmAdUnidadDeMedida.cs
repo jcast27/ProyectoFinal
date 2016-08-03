@@ -119,13 +119,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     unaUnidadMedida.idUnidadMedida = int.Parse(idUnidad);
                     gestorUnidad.AgregarUnidad(unaUnidadMedida);
                     gestorUnidad.GuardarUnidad(unaUnidadMedida, usuarioLogueado);
-                    MessageBox.Show("La unidad de medida " + unaUnidadMedida.descripcion + " fue modificada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La unidad de medida " + unaUnidadMedida.descripcion + " fue modificada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     gestorUnidad.AgregarUnidad(unaUnidadMedida);
                     gestorUnidad.GuardarUnidad(unaUnidadMedida, usuarioLogueado);
-                    MessageBox.Show("La unidad de medida " + unaUnidadMedida.descripcion + " fue agregada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La unidad de medida " + unaUnidadMedida.descripcion + " fue agregada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 CambiarEstado(EstadoMantenimiento.Editar);

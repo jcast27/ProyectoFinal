@@ -193,12 +193,12 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
                 if (accionp == "Modificar")
                 {
-                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
 
@@ -250,7 +250,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
                     if (cantidadSuficiente == false)
                     {
-                        MessageBox.Show("La cantidad digitda es mayor que la cantida en bodega para este producto, digitar otra cantidad", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("La cantidad digitada es mayor que la cantidad en bodega para este producto, digitar otra cantidad", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {

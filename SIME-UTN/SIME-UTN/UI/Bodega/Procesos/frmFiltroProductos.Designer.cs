@@ -47,9 +47,9 @@
             this.gbCliente.Controls.Add(this.txtNombreProducto);
             this.gbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCliente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.gbCliente.Location = new System.Drawing.Point(12, 82);
+            this.gbCliente.Location = new System.Drawing.Point(12, 46);
             this.gbCliente.Name = "gbCliente";
-            this.gbCliente.Size = new System.Drawing.Size(638, 71);
+            this.gbCliente.Size = new System.Drawing.Size(247, 71);
             this.gbCliente.TabIndex = 20;
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Digite el nombre del Producto";
@@ -59,7 +59,7 @@
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.Location = new System.Drawing.Point(19, 28);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(593, 26);
+            this.txtNombreProducto.Size = new System.Drawing.Size(199, 26);
             this.txtNombreProducto.TabIndex = 0;
             this.txtNombreProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCliente_KeyUp);
             // 
@@ -68,7 +68,7 @@
             this.groupBox1.Controls.Add(this.gCProductos);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 189);
+            this.groupBox1.Location = new System.Drawing.Point(12, 123);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(697, 285);
             this.groupBox1.TabIndex = 21;
@@ -113,7 +113,7 @@
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(731, 40);
+            this.tileNavPane1.Size = new System.Drawing.Size(719, 40);
             this.tileNavPane1.TabIndex = 22;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
@@ -135,11 +135,13 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 505);
+            this.ClientSize = new System.Drawing.Size(719, 422);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(735, 456);
+            this.MinimumSize = new System.Drawing.Size(735, 456);
             this.Name = "frmFiltroProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";

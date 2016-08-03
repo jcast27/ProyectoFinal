@@ -331,7 +331,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     if (MessageBox.Show("¿Seguro que desea eliminar al producto " + unProducto.nombreProducto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         gestRegIngProd.EliminarIngresoDeProducto(registroEstatico.Bodega.idRegistroBodega,unProducto, int.Parse(lblIdRegProd.Text), usuarioLogueado);
-                        MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         lista.Clear();
                         gCRegistroProductos();
                     }
@@ -349,7 +349,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                                 break;
                             }
                         }
-                        MessageBox.Show("El Producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         CargarGrid();
                     }
                 }
@@ -541,12 +541,12 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 
                 if (accionp == "Modificar")
                 {
-                    MessageBox.Show("El Registro " + unRegProd.descripcion + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El registro " + unRegProd.descripcion + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("El Registro " + unRegProd.descripcion + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El registro " + unRegProd.descripcion + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
 

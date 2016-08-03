@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.sslMensaje = new System.Windows.Forms.ToolStripStatusLabel();
@@ -40,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,7 +80,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(427, 51);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(191, 26);
-            this.txtUsuario.TabIndex = 41;
+            this.txtUsuario.TabIndex = 0;
             this.txtUsuario.Text = "elópez";
             this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
@@ -92,7 +93,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(191, 26);
-            this.txtContrasena.TabIndex = 42;
+            this.txtContrasena.TabIndex = 1;
             this.txtContrasena.Text = "123";
             this.txtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContrasena_KeyDown);
             // 
@@ -108,7 +109,7 @@
             this.cmbModulo.Location = new System.Drawing.Point(427, 138);
             this.cmbModulo.Name = "cmbModulo";
             this.cmbModulo.Size = new System.Drawing.Size(191, 28);
-            this.cmbModulo.TabIndex = 43;
+            this.cmbModulo.TabIndex = 2;
             this.cmbModulo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbModulo_KeyDown);
             // 
             // lblUsuario
@@ -161,7 +162,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(466, 191);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(152, 39);
-            this.btnCancelar.TabIndex = 37;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "&Salir";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -179,7 +180,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(278, 191);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(152, 39);
-            this.btnAceptar.TabIndex = 36;
+            this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = false;

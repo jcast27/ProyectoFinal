@@ -138,13 +138,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     unFuncionario.idFuncionario = int.Parse(idFuncionario);
                     gestorFuncionario.AgregarFuncionario(unFuncionario);
                     gestorFuncionario.GuardarFuncionario(unFuncionario, usuarioLogueado);
-                    MessageBox.Show("El Funcionario " + unFuncionario.nombre + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El funcionario " + unFuncionario.nombre + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     gestorFuncionario.AgregarFuncionario(unFuncionario);
                     gestorFuncionario.GuardarFuncionario(unFuncionario, usuarioLogueado);
-                    MessageBox.Show("El Funcionario " + unFuncionario.nombre + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El funcionario " + unFuncionario.nombre + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 CambiarEstado(EstadoMantenimiento.Editar);

@@ -64,7 +64,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
 
         /// <summary>
-        /// Metodo que permite extrae el Producto seleccionado del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae el Producto seleccionado del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -145,7 +145,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (MessageBox.Show("¿Seguro que desea eliminar al producto " + producto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 gestorProducto.EliminarUsuario(productoID, producto, usuarioLogueado);
-                MessageBox.Show("El Producto " + producto + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El producto " + producto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmProductos_Load(null, null);
 
             }

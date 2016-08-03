@@ -189,13 +189,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     unProducto.idProducto = int.Parse(idProducto);
                     gestorProducto.AgregarProducto(unProducto);
                     gestorProducto.GuardarProducto(unProducto, usuarioLogueado);
-                    MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El producto " + unProducto.nombreProducto + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     gestorProducto.AgregarProducto(unProducto);
                     gestorProducto.GuardarProducto(unProducto, usuarioLogueado);
-                    MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El producto " + unProducto.nombreProducto + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 CambiarEstado(EstadoMantenimiento.Editar);

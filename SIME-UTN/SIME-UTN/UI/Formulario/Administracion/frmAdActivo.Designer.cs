@@ -460,7 +460,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(561, 40);
-            this.tileNavPane1.TabIndex = 35;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo

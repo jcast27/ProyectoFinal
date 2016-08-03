@@ -256,7 +256,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 }
                 catch (Exception error)
                 {
-                    MessageBox.Show("Error al despachar el producto\r\nDetalle del error: " + error.Message, "Despacho", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Error al despachar el producto.\r\nDetalle del error: " + error.Message, "Despacho", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

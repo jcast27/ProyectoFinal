@@ -49,7 +49,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::SIME_UTN.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 90);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 23);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(252, 254);
             this.pictureBox1.TabIndex = 0;
@@ -62,7 +62,7 @@
             this.lblContrasennaAntigua.BackColor = System.Drawing.Color.Transparent;
             this.lblContrasennaAntigua.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContrasennaAntigua.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblContrasennaAntigua.Location = new System.Drawing.Point(321, 181);
+            this.lblContrasennaAntigua.Location = new System.Drawing.Point(288, 114);
             this.lblContrasennaAntigua.Name = "lblContrasennaAntigua";
             this.lblContrasennaAntigua.Size = new System.Drawing.Size(160, 18);
             this.lblContrasennaAntigua.TabIndex = 47;
@@ -75,7 +75,7 @@
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUsuario.Location = new System.Drawing.Point(321, 124);
+            this.lblUsuario.Location = new System.Drawing.Point(288, 57);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(72, 18);
             this.lblUsuario.TabIndex = 46;
@@ -85,7 +85,7 @@
             // 
             this.btnIngresar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIngresar.Image = global::SIME_UTN.Properties.Resources.Forward_32x32;
-            this.btnIngresar.Location = new System.Drawing.Point(597, 310);
+            this.btnIngresar.Location = new System.Drawing.Point(564, 243);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(44, 36);
             this.btnIngresar.TabIndex = 49;
@@ -103,7 +103,7 @@
             this.lblContrasennaNueva.BackColor = System.Drawing.Color.Transparent;
             this.lblContrasennaNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContrasennaNueva.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblContrasennaNueva.Location = new System.Drawing.Point(321, 239);
+            this.lblContrasennaNueva.Location = new System.Drawing.Point(288, 172);
             this.lblContrasennaNueva.Name = "lblContrasennaNueva";
             this.lblContrasennaNueva.Size = new System.Drawing.Size(152, 18);
             this.lblContrasennaNueva.TabIndex = 51;
@@ -112,11 +112,10 @@
             // txtContrasennaNueva
             // 
             this.txtContrasennaNueva.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContrasennaNueva.Location = new System.Drawing.Point(325, 260);
-            this.txtContrasennaNueva.Multiline = true;
+            this.txtContrasennaNueva.Location = new System.Drawing.Point(292, 193);
             this.txtContrasennaNueva.Name = "txtContrasennaNueva";
             this.txtContrasennaNueva.PasswordChar = '*';
-            this.txtContrasennaNueva.Size = new System.Drawing.Size(257, 25);
+            this.txtContrasennaNueva.Size = new System.Drawing.Size(257, 21);
             this.txtContrasennaNueva.TabIndex = 50;
             // 
             // lblConfirmarContrasenna
@@ -126,7 +125,7 @@
             this.lblConfirmarContrasenna.BackColor = System.Drawing.Color.Transparent;
             this.lblConfirmarContrasenna.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmarContrasenna.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblConfirmarContrasenna.Location = new System.Drawing.Point(322, 298);
+            this.lblConfirmarContrasenna.Location = new System.Drawing.Point(289, 231);
             this.lblConfirmarContrasenna.Name = "lblConfirmarContrasenna";
             this.lblConfirmarContrasenna.Size = new System.Drawing.Size(180, 18);
             this.lblConfirmarContrasenna.TabIndex = 53;
@@ -135,30 +134,27 @@
             // txtConfirmarContrasenna
             // 
             this.txtConfirmarContrasenna.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtConfirmarContrasenna.Location = new System.Drawing.Point(324, 319);
-            this.txtConfirmarContrasenna.Multiline = true;
+            this.txtConfirmarContrasenna.Location = new System.Drawing.Point(291, 252);
             this.txtConfirmarContrasenna.Name = "txtConfirmarContrasenna";
             this.txtConfirmarContrasenna.PasswordChar = '*';
-            this.txtConfirmarContrasenna.Size = new System.Drawing.Size(257, 25);
+            this.txtConfirmarContrasenna.Size = new System.Drawing.Size(257, 21);
             this.txtConfirmarContrasenna.TabIndex = 52;
             // 
             // txtContrasennaAntigua
             // 
             this.txtContrasennaAntigua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContrasennaAntigua.Location = new System.Drawing.Point(325, 202);
-            this.txtContrasennaAntigua.Multiline = true;
+            this.txtContrasennaAntigua.Location = new System.Drawing.Point(292, 135);
             this.txtContrasennaAntigua.Name = "txtContrasennaAntigua";
             this.txtContrasennaAntigua.PasswordChar = '*';
-            this.txtContrasennaAntigua.Size = new System.Drawing.Size(257, 25);
+            this.txtContrasennaAntigua.Size = new System.Drawing.Size(257, 21);
             this.txtContrasennaAntigua.TabIndex = 54;
             // 
             // txtUsuario
             // 
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsuario.Location = new System.Drawing.Point(324, 145);
-            this.txtUsuario.Multiline = true;
+            this.txtUsuario.Location = new System.Drawing.Point(291, 78);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(257, 25);
+            this.txtUsuario.Size = new System.Drawing.Size(257, 21);
             this.txtUsuario.TabIndex = 55;
             // 
             // lblTitulo
@@ -168,7 +164,7 @@
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitulo.Location = new System.Drawing.Point(322, 90);
+            this.lblTitulo.Location = new System.Drawing.Point(289, 23);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(227, 25);
             this.lblTitulo.TabIndex = 56;
@@ -180,7 +176,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 457);
+            this.ClientSize = new System.Drawing.Size(630, 304);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtContrasennaAntigua);
@@ -193,6 +189,8 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(646, 338);
+            this.MinimumSize = new System.Drawing.Size(646, 338);
             this.Name = "frmCambioContrasenna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambio de Contraseña";

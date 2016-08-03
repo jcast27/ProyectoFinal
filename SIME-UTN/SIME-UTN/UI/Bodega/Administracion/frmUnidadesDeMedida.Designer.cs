@@ -31,7 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUnidadesMedida));
             this.gCUnidadesMedida = new DevExpress.XtraGrid.GridControl();
+            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetRUnidadM = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRUnidadM();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colidunidadmedida = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldecimales = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
@@ -41,20 +48,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewSelecBodegas = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
-            this.dataSetRUnidadM = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRUnidadM();
-            this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRUnidadMTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
-            this.colidunidadmedida = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldecimales = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gCUnidadesMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRUnidadM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecBodegas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetRUnidadM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCUnidadesMedida
@@ -71,6 +71,16 @@
             this.gCUnidadesMedida.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCUnidadesMedida.Click += new System.EventHandler(this.gCUnidadesMedida_Click);
+            // 
+            // spSELECTUnidadMedidaProductoAllBindingSource
+            // 
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
+            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetRUnidadM;
+            // 
+            // dataSetRUnidadM
+            // 
+            this.dataSetRUnidadM.DataSetName = "DataSetRUnidadM";
+            this.dataSetRUnidadM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -90,6 +100,45 @@
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            // 
+            // colidunidadmedida
+            // 
+            this.colidunidadmedida.FieldName = "idunidadmedida";
+            this.colidunidadmedida.Name = "colidunidadmedida";
+            // 
+            // colcodigo
+            // 
+            this.colcodigo.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colcodigo.AppearanceCell.Options.UseFont = true;
+            this.colcodigo.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colcodigo.AppearanceHeader.Options.UseFont = true;
+            this.colcodigo.Caption = "Código de Unidad de Medida";
+            this.colcodigo.FieldName = "codigo";
+            this.colcodigo.Name = "colcodigo";
+            this.colcodigo.Visible = true;
+            this.colcodigo.VisibleIndex = 0;
+            // 
+            // coldescripcion
+            // 
+            this.coldescripcion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coldescripcion.AppearanceCell.Options.UseFont = true;
+            this.coldescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.coldescripcion.AppearanceHeader.Options.UseFont = true;
+            this.coldescripcion.Caption = "Unidad de Medida";
+            this.coldescripcion.FieldName = "descripcion";
+            this.coldescripcion.Name = "coldescripcion";
+            this.coldescripcion.Visible = true;
+            this.coldescripcion.VisibleIndex = 1;
+            // 
+            // coldecimales
+            // 
+            this.coldecimales.FieldName = "decimales";
+            this.coldecimales.Name = "coldecimales";
+            // 
+            // colestado
+            // 
+            this.colestado.FieldName = "estado";
+            this.colestado.Name = "colestado";
             // 
             // ePError
             // 
@@ -120,7 +169,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1200, 45);
-            this.tileNavPane1.TabIndex = 29;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "Nuevo";
             // 
             // mBtnAgregar
@@ -201,58 +250,9 @@
             this.navButton1.Enabled = false;
             this.navButton1.Name = "navButton1";
             // 
-            // dataSetRUnidadM
-            // 
-            this.dataSetRUnidadM.DataSetName = "DataSetRUnidadM";
-            this.dataSetRUnidadM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTUnidadMedidaProductoAllBindingSource
-            // 
-            this.spSELECTUnidadMedidaProductoAllBindingSource.DataMember = "sp_SELECT_UnidadMedidaProducto_All";
-            this.spSELECTUnidadMedidaProductoAllBindingSource.DataSource = this.dataSetRUnidadM;
-            // 
             // sp_SELECT_UnidadMedidaProducto_AllTableAdapter
             // 
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
-            // 
-            // colidunidadmedida
-            // 
-            this.colidunidadmedida.FieldName = "idunidadmedida";
-            this.colidunidadmedida.Name = "colidunidadmedida";
-            // 
-            // colcodigo
-            // 
-            this.colcodigo.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colcodigo.AppearanceCell.Options.UseFont = true;
-            this.colcodigo.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colcodigo.AppearanceHeader.Options.UseFont = true;
-            this.colcodigo.Caption = "Codigo de Unidad de Medida";
-            this.colcodigo.FieldName = "codigo";
-            this.colcodigo.Name = "colcodigo";
-            this.colcodigo.Visible = true;
-            this.colcodigo.VisibleIndex = 0;
-            // 
-            // coldescripcion
-            // 
-            this.coldescripcion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coldescripcion.AppearanceCell.Options.UseFont = true;
-            this.coldescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.coldescripcion.AppearanceHeader.Options.UseFont = true;
-            this.coldescripcion.Caption = "Unidad de Medida";
-            this.coldescripcion.FieldName = "descripcion";
-            this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 1;
-            // 
-            // coldecimales
-            // 
-            this.coldecimales.FieldName = "decimales";
-            this.coldecimales.Name = "coldecimales";
-            // 
-            // colestado
-            // 
-            this.colestado.FieldName = "estado";
-            this.colestado.Name = "colestado";
             // 
             // frmUnidadesMedida
             // 
@@ -270,11 +270,11 @@
             this.Text = "Ventana Unidades De Medida";
             this.Load += new System.EventHandler(this.frmUnidad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCUnidadesMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRUnidadM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecBodegas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetRUnidadM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

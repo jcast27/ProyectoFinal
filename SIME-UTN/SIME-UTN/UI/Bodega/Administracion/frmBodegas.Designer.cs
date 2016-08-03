@@ -42,6 +42,10 @@
             this.LookUpTipoBodega = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.spSELECTTipoBodegaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTipoBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodega();
+            this.colIDLocalizacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LookUpUbicacion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetBodegaUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaUbicacion();
             this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
@@ -55,10 +59,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.sp_SELECT_RegistroBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRegistroBodegaTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
-            this.colIDLocalizacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LookUpUbicacion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.dataSetBodegaUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaUbicacion();
-            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).BeginInit();
@@ -68,12 +68,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodega)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecBodegas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaUbicacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCBodegas
@@ -192,6 +192,38 @@
             this.dataSetTipoBodega.DataSetName = "DataSetTipoBodega";
             this.dataSetTipoBodega.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // colIDLocalizacion
+            // 
+            this.colIDLocalizacion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colIDLocalizacion.AppearanceCell.Options.UseFont = true;
+            this.colIDLocalizacion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colIDLocalizacion.AppearanceHeader.Options.UseFont = true;
+            this.colIDLocalizacion.ColumnEdit = this.LookUpUbicacion;
+            this.colIDLocalizacion.FieldName = "IDLocalizacion";
+            this.colIDLocalizacion.Name = "colIDLocalizacion";
+            this.colIDLocalizacion.Visible = true;
+            this.colIDLocalizacion.VisibleIndex = 3;
+            // 
+            // LookUpUbicacion
+            // 
+            this.LookUpUbicacion.AutoHeight = false;
+            this.LookUpUbicacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookUpUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
+            this.LookUpUbicacion.DisplayMember = "nombre";
+            this.LookUpUbicacion.Name = "LookUpUbicacion";
+            this.LookUpUbicacion.ValueMember = "idubicacion";
+            // 
+            // spSELECTUbicacionAllBindingSource
+            // 
+            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
+            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetBodegaUbicacion;
+            // 
+            // dataSetBodegaUbicacion
+            // 
+            this.dataSetBodegaUbicacion.DataSetName = "DataSetBodegaUbicacion";
+            this.dataSetBodegaUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // colestado
             // 
             this.colestado.FieldName = "estado";
@@ -226,7 +258,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1200, 45);
-            this.tileNavPane1.TabIndex = 29;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "Nuevo";
             // 
             // mBtnAgregar
@@ -320,38 +352,6 @@
             // 
             this.sp_SELECT_TipoBodega_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // colIDLocalizacion
-            // 
-            this.colIDLocalizacion.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colIDLocalizacion.AppearanceCell.Options.UseFont = true;
-            this.colIDLocalizacion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colIDLocalizacion.AppearanceHeader.Options.UseFont = true;
-            this.colIDLocalizacion.ColumnEdit = this.LookUpUbicacion;
-            this.colIDLocalizacion.FieldName = "IDLocalizacion";
-            this.colIDLocalizacion.Name = "colIDLocalizacion";
-            this.colIDLocalizacion.Visible = true;
-            this.colIDLocalizacion.VisibleIndex = 3;
-            // 
-            // LookUpUbicacion
-            // 
-            this.LookUpUbicacion.AutoHeight = false;
-            this.LookUpUbicacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
-            this.LookUpUbicacion.DisplayMember = "nombre";
-            this.LookUpUbicacion.Name = "LookUpUbicacion";
-            this.LookUpUbicacion.ValueMember = "idubicacion";
-            // 
-            // dataSetBodegaUbicacion
-            // 
-            this.dataSetBodegaUbicacion.DataSetName = "DataSetBodegaUbicacion";
-            this.dataSetBodegaUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTUbicacionAllBindingSource
-            // 
-            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
-            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetBodegaUbicacion;
-            // 
             // sp_SELECT_Ubicacion_AllTableAdapter
             // 
             this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
@@ -379,12 +379,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodega)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecBodegas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookUpUbicacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetBodegaUbicacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

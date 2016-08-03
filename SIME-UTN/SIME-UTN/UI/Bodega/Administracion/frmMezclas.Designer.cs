@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMezclas));
             this.gCMezclas = new DevExpress.XtraGrid.GridControl();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetRMezclas = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclas();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colidregistromezcla = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,16 +48,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewSelecBodegas = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
-            this.dataSetRMezclas = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclas();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gCMezclas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecBodegas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gCMezclas
@@ -74,6 +74,16 @@
             this.gCMezclas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCMezclas.Click += new System.EventHandler(this.gCMezclas_Click);
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataMember = "Producto";
+            this.productoBindingSource.DataSource = this.dataSetRMezclas;
+            // 
+            // dataSetRMezclas
+            // 
+            this.dataSetRMezclas.DataSetName = "DataSetRMezclas";
+            this.dataSetRMezclas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -165,7 +175,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1200, 45);
-            this.tileNavPane1.TabIndex = 29;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "Nuevo";
             // 
             // mBtnAgregar
@@ -247,16 +257,6 @@
             this.navButton1.Enabled = false;
             this.navButton1.Name = "navButton1";
             // 
-            // dataSetRMezclas
-            // 
-            this.dataSetRMezclas.DataSetName = "DataSetRMezclas";
-            this.dataSetRMezclas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataMember = "Producto";
-            this.productoBindingSource.DataSource = this.dataSetRMezclas;
-            // 
             // productoTableAdapter
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
@@ -277,12 +277,12 @@
             this.Text = "Ventana Mezclas";
             this.Load += new System.EventHandler(this.frmMezclas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCMezclas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecBodegas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

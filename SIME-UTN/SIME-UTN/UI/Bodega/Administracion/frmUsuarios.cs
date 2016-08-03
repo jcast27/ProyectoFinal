@@ -118,10 +118,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 else
                 {
 
-                    if (MessageBox.Show("¿Seguro que desea eliminar al Usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Seguro que desea eliminar al usuario " + usuario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         gestor.EliminarUsuario(UsuarioID, usuario, usuarioLogueado);
-                        MessageBox.Show("El Usuario " + usuario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El usuario " + usuario + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         frmUsuarios_Load(null, null);
 
                     }
@@ -138,7 +138,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
 
         /// <summary>
-        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdBodega));
             this.gbGridViewBodega = new System.Windows.Forms.GroupBox();
+            this.cmbUbicacion = new System.Windows.Forms.ComboBox();
+            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
+            this.lblLocalizacion = new System.Windows.Forms.Label();
             this.chkedEstado = new DevExpress.XtraEditors.CheckEdit();
             this.cmbTipoBodega = new System.Windows.Forms.ComboBox();
             this.spSELECTTipoBodegaAllBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -52,12 +56,10 @@
             this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaCMBTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
-            this.cmbUbicacion = new System.Windows.Forms.ComboBox();
-            this.lblLocalizacion = new System.Windows.Forms.Label();
-            this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacion();
-            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             this.gbGridViewBodega.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkedEstado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaCMB)).BeginInit();
@@ -65,8 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbGridViewBodega
@@ -86,19 +86,59 @@
             this.gbGridViewBodega.Controls.Add(this.txtDescripcion);
             this.gbGridViewBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewBodega.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewBodega.Location = new System.Drawing.Point(6, 63);
+            this.gbGridViewBodega.Location = new System.Drawing.Point(6, 50);
             this.gbGridViewBodega.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbGridViewBodega.Name = "gbGridViewBodega";
-            this.gbGridViewBodega.Size = new System.Drawing.Size(550, 312);
+            this.gbGridViewBodega.Size = new System.Drawing.Size(544, 207);
             this.gbGridViewBodega.TabIndex = 33;
             this.gbGridViewBodega.TabStop = false;
             this.gbGridViewBodega.Text = "Registro Bodega";
+            // 
+            // cmbUbicacion
+            // 
+            this.cmbUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbUbicacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTUbicacionAllBindingSource, "idubicacion", true));
+            this.cmbUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
+            this.cmbUbicacion.DisplayMember = "nombre";
+            this.cmbUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUbicacion.FormattingEnabled = true;
+            this.cmbUbicacion.Location = new System.Drawing.Point(142, 118);
+            this.cmbUbicacion.Name = "cmbUbicacion";
+            this.cmbUbicacion.Size = new System.Drawing.Size(284, 24);
+            this.cmbUbicacion.TabIndex = 2;
+            this.cmbUbicacion.ValueMember = "idubicacion";
+            // 
+            // spSELECTUbicacionAllBindingSource
+            // 
+            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
+            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetUbicacion;
+            // 
+            // dataSetUbicacion
+            // 
+            this.dataSetUbicacion.DataSetName = "DataSetUbicacion";
+            this.dataSetUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblLocalizacion
+            // 
+            this.lblLocalizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLocalizacion.AutoSize = true;
+            this.lblLocalizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalizacion.ForeColor = System.Drawing.Color.White;
+            this.lblLocalizacion.Location = new System.Drawing.Point(25, 124);
+            this.lblLocalizacion.Name = "lblLocalizacion";
+            this.lblLocalizacion.Size = new System.Drawing.Size(95, 18);
+            this.lblLocalizacion.TabIndex = 35;
+            this.lblLocalizacion.Text = "Localización:";
             // 
             // chkedEstado
             // 
             this.chkedEstado.EditValue = true;
             this.chkedEstado.Enabled = false;
-            this.chkedEstado.Location = new System.Drawing.Point(414, 231);
+            this.chkedEstado.Location = new System.Drawing.Point(357, 157);
             this.chkedEstado.Name = "chkedEstado";
             this.chkedEstado.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.chkedEstado.Properties.Appearance.Options.UseFont = true;
@@ -116,10 +156,10 @@
             this.cmbTipoBodega.DisplayMember = "descripcion";
             this.cmbTipoBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoBodega.FormattingEnabled = true;
-            this.cmbTipoBodega.Location = new System.Drawing.Point(199, 227);
+            this.cmbTipoBodega.Location = new System.Drawing.Point(142, 158);
             this.cmbTipoBodega.Name = "cmbTipoBodega";
-            this.cmbTipoBodega.Size = new System.Drawing.Size(78, 24);
-            this.cmbTipoBodega.TabIndex = 32;
+            this.cmbTipoBodega.Size = new System.Drawing.Size(113, 24);
+            this.cmbTipoBodega.TabIndex = 3;
             this.cmbTipoBodega.ValueMember = "idtipobodega";
             // 
             // spSELECTTipoBodegaAllBindingSource1
@@ -159,11 +199,11 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(25, 131);
+            this.lblDescripcion.Location = new System.Drawing.Point(25, 84);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(91, 18);
             this.lblDescripcion.TabIndex = 22;
-            this.lblDescripcion.Text = "Descripcion:";
+            this.lblDescripcion.Text = "Descripción:";
             // 
             // txtBodega
             // 
@@ -171,11 +211,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBodega.Location = new System.Drawing.Point(199, 74);
+            this.txtBodega.Location = new System.Drawing.Point(142, 47);
             this.txtBodega.Name = "txtBodega";
-            this.txtBodega.Size = new System.Drawing.Size(290, 22);
-            this.txtBodega.TabIndex = 3;
-            this.txtBodega.Text = "A";
+            this.txtBodega.Size = new System.Drawing.Size(284, 22);
+            this.txtBodega.TabIndex = 0;
             // 
             // lblTipo
             // 
@@ -185,7 +224,7 @@
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipo.ForeColor = System.Drawing.Color.White;
-            this.lblTipo.Location = new System.Drawing.Point(25, 233);
+            this.lblTipo.Location = new System.Drawing.Point(25, 164);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(41, 18);
             this.lblTipo.TabIndex = 23;
@@ -199,7 +238,7 @@
             this.lblBodega.AutoSize = true;
             this.lblBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodega.ForeColor = System.Drawing.Color.White;
-            this.lblBodega.Location = new System.Drawing.Point(25, 78);
+            this.lblBodega.Location = new System.Drawing.Point(25, 47);
             this.lblBodega.Name = "lblBodega";
             this.lblBodega.Size = new System.Drawing.Size(63, 18);
             this.lblBodega.TabIndex = 1;
@@ -211,11 +250,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(199, 131);
+            this.txtDescripcion.Location = new System.Drawing.Point(142, 83);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(290, 22);
-            this.txtDescripcion.TabIndex = 27;
-            this.txtDescripcion.Text = "Para productos fisicos";
+            this.txtDescripcion.Size = new System.Drawing.Size(284, 22);
+            this.txtDescripcion.TabIndex = 1;
             // 
             // tipoBodegaBindingSource
             // 
@@ -252,7 +290,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(562, 40);
-            this.tileNavPane1.TabIndex = 34;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo
@@ -314,46 +352,6 @@
             // 
             this.sp_SELECT_TipoBodega_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // cmbUbicacion
-            // 
-            this.cmbUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbUbicacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTUbicacionAllBindingSource, "idubicacion", true));
-            this.cmbUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
-            this.cmbUbicacion.DisplayMember = "nombre";
-            this.cmbUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUbicacion.FormattingEnabled = true;
-            this.cmbUbicacion.Location = new System.Drawing.Point(199, 182);
-            this.cmbUbicacion.Name = "cmbUbicacion";
-            this.cmbUbicacion.Size = new System.Drawing.Size(290, 24);
-            this.cmbUbicacion.TabIndex = 36;
-            this.cmbUbicacion.ValueMember = "idubicacion";
-            // 
-            // lblLocalizacion
-            // 
-            this.lblLocalizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLocalizacion.AutoSize = true;
-            this.lblLocalizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocalizacion.ForeColor = System.Drawing.Color.White;
-            this.lblLocalizacion.Location = new System.Drawing.Point(22, 183);
-            this.lblLocalizacion.Name = "lblLocalizacion";
-            this.lblLocalizacion.Size = new System.Drawing.Size(95, 18);
-            this.lblLocalizacion.TabIndex = 35;
-            this.lblLocalizacion.Text = "Localización:";
-            // 
-            // dataSetUbicacion
-            // 
-            this.dataSetUbicacion.DataSetName = "DataSetUbicacion";
-            this.dataSetUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTUbicacionAllBindingSource
-            // 
-            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
-            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetUbicacion;
-            // 
             // sp_SELECT_Ubicacion_AllTableAdapter
             // 
             this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
@@ -364,16 +362,19 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 377);
+            this.ClientSize = new System.Drawing.Size(562, 269);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewBodega);
-            this.MaximumSize = new System.Drawing.Size(578, 416);
+            this.MaximumSize = new System.Drawing.Size(578, 307);
+            this.MinimumSize = new System.Drawing.Size(578, 307);
             this.Name = "frmAdBodega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bodega";
             this.Load += new System.EventHandler(this.frmAdBodega_Load);
             this.gbGridViewBodega.ResumeLayout(false);
             this.gbGridViewBodega.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkedEstado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTipoBodegaAllBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoBodegaCMB)).EndInit();
@@ -381,8 +382,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

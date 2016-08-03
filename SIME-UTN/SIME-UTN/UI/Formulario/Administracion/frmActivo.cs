@@ -101,7 +101,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
         }
 
         /// <summary>
-        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -144,7 +144,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             try
             {
                 gestor.DesactivarActivo(gridView1.GetFocusedRowCellValue("IDActivo").ToString(), mBtnEliminar.Caption, usuarioLogueado);
-                MessageBox.Show("El Activo ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El activo ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
                 RefrescarLista();
             }

@@ -82,7 +82,7 @@ namespace SIME_UTN.UI
                             {
                                 oUsuarioDB.usuario = txtUsuario.Text.Trim();
                                 oUsuarioDB.contrasenna = txtContrasennaNueva.Text.Trim();
-                                MessageBox.Show("Contraseña fue cambiada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Contraseña fue cambiada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Close();
                             }
                         }

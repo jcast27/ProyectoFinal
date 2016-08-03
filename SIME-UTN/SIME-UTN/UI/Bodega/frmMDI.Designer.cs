@@ -30,18 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame3 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame2 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
             this.tileNavPane2 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnAdministracion = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnProcesos = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnInventarios = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnReportes = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnAyuda = new DevExpress.XtraBars.Navigation.NavButton();
+            this.mBtnAcercaDe = new DevExpress.XtraBars.Navigation.NavButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView(this.components);
@@ -57,8 +59,6 @@
             this.cambiarContrasennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarModuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resturarDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mBtnAyuda = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnAcercaDe = new DevExpress.XtraBars.Navigation.NavButton();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlyoutCloseAction)).BeginInit();
@@ -162,6 +162,30 @@
             this.mBtnReportes.Name = "mBtnReportes";
             this.mBtnReportes.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnReportes_ElementClick);
             // 
+            // mBtnAyuda
+            // 
+            this.mBtnAyuda.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnAyuda.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnAyuda.Appearance.Options.UseFont = true;
+            this.mBtnAyuda.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnAyuda.AppearanceHovered.Options.UseFont = true;
+            this.mBtnAyuda.Caption = "Ayuda";
+            this.mBtnAyuda.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAyuda.Glyph")));
+            this.mBtnAyuda.Name = "mBtnAyuda";
+            this.mBtnAyuda.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAyuda_ElementClick);
+            // 
+            // mBtnAcercaDe
+            // 
+            this.mBtnAcercaDe.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
+            this.mBtnAcercaDe.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
+            this.mBtnAcercaDe.Appearance.Options.UseFont = true;
+            this.mBtnAcercaDe.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.mBtnAcercaDe.AppearanceHovered.Options.UseFont = true;
+            this.mBtnAcercaDe.Caption = "Acerca De";
+            this.mBtnAcercaDe.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAcercaDe.Glyph")));
+            this.mBtnAcercaDe.Name = "mBtnAcercaDe";
+            this.mBtnAcercaDe.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAcercaDe_ElementClick);
+            // 
             // splitter1
             // 
             this.splitter1.BackColor = System.Drawing.Color.DimGray;
@@ -212,31 +236,10 @@
             // frmUsuariosTile
             // 
             this.frmUsuariosTile.Document = this.frmUsuariosDocument;
-            tileItemElement5.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement5.Image")));
-            tileItemElement5.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement5.Text = "element1";
-            this.frmUsuariosTile.Elements.Add(tileItemElement5);
-            tileItemFrame3.Appearance.BackColor = System.Drawing.Color.Transparent;
-            tileItemFrame3.Appearance.BorderColor = System.Drawing.Color.Black;
-            tileItemFrame3.Appearance.Options.UseBackColor = true;
-            tileItemFrame3.Appearance.Options.UseBorderColor = true;
-            tileItemElement6.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement6.Image")));
-            tileItemElement6.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement6.Text = "element1";
-            tileItemFrame3.Elements.Add(tileItemElement6);
-            tileItemFrame3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame3.Image")));
-            this.frmUsuariosTile.Frames.Add(tileItemFrame3);
-            this.frmUsuariosTile.Group = "TileGroup2";
-            this.frmUsuariosTile.Name = "frmUsuariosTile";
-            this.frmUsuariosTile.Visible = false;
-            // 
-            // frmProductosTile
-            // 
-            this.frmProductosTile.Document = this.frmProductosDocument;
             tileItemElement1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement1.Image")));
             tileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
             tileItemElement1.Text = "element1";
-            this.frmProductosTile.Elements.Add(tileItemElement1);
+            this.frmUsuariosTile.Elements.Add(tileItemElement1);
             tileItemFrame1.Appearance.BackColor = System.Drawing.Color.Transparent;
             tileItemFrame1.Appearance.BorderColor = System.Drawing.Color.Black;
             tileItemFrame1.Appearance.Options.UseBackColor = true;
@@ -246,7 +249,28 @@
             tileItemElement2.Text = "element1";
             tileItemFrame1.Elements.Add(tileItemElement2);
             tileItemFrame1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame1.Image")));
-            this.frmProductosTile.Frames.Add(tileItemFrame1);
+            this.frmUsuariosTile.Frames.Add(tileItemFrame1);
+            this.frmUsuariosTile.Group = "TileGroup2";
+            this.frmUsuariosTile.Name = "frmUsuariosTile";
+            this.frmUsuariosTile.Visible = false;
+            // 
+            // frmProductosTile
+            // 
+            this.frmProductosTile.Document = this.frmProductosDocument;
+            tileItemElement3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement3.Image")));
+            tileItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement3.Text = "element1";
+            this.frmProductosTile.Elements.Add(tileItemElement3);
+            tileItemFrame2.Appearance.BackColor = System.Drawing.Color.Transparent;
+            tileItemFrame2.Appearance.BorderColor = System.Drawing.Color.Black;
+            tileItemFrame2.Appearance.Options.UseBackColor = true;
+            tileItemFrame2.Appearance.Options.UseBorderColor = true;
+            tileItemElement4.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement4.Image")));
+            tileItemElement4.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement4.Text = "element1";
+            tileItemFrame2.Elements.Add(tileItemElement4);
+            tileItemFrame2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemFrame2.Image")));
+            this.frmProductosTile.Frames.Add(tileItemFrame2);
             this.frmProductosTile.Name = "frmProductosTile";
             this.frmProductosTile.Visible = false;
             // 
@@ -272,9 +296,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioTSMI});
-            this.menuStrip1.Location = new System.Drawing.Point(877, 9);
+            this.menuStrip1.Location = new System.Drawing.Point(969, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(144, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(52, 40);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -295,7 +319,7 @@
             this.cambiarSessionToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.cambiarSessionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambiarSessionToolStripMenuItem.Name = "cambiarSessionToolStripMenuItem";
-            this.cambiarSessionToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.cambiarSessionToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.cambiarSessionToolStripMenuItem.Text = "Cambiar Usuario";
             this.cambiarSessionToolStripMenuItem.Click += new System.EventHandler(this.cambiarSessionToolStripMenuItem_Click);
             // 
@@ -304,7 +328,7 @@
             this.cambiarContrasennaToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.cambiarContrasennaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambiarContrasennaToolStripMenuItem.Name = "cambiarContrasennaToolStripMenuItem";
-            this.cambiarContrasennaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.cambiarContrasennaToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.cambiarContrasennaToolStripMenuItem.Text = "Cambiar Contraseña";
             this.cambiarContrasennaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContrasennaToolStripMenuItem_Click);
             // 
@@ -312,7 +336,7 @@
             // 
             this.cambiarModuloToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.cambiarModuloToolStripMenuItem.Name = "cambiarModuloToolStripMenuItem";
-            this.cambiarModuloToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.cambiarModuloToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.cambiarModuloToolStripMenuItem.Text = "Cambiar Módulo";
             this.cambiarModuloToolStripMenuItem.Click += new System.EventHandler(this.cambiarModuloToolStripMenuItem_Click);
             // 
@@ -320,33 +344,9 @@
             // 
             this.resturarDBToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.resturarDBToolStripMenuItem.Name = "resturarDBToolStripMenuItem";
-            this.resturarDBToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.resturarDBToolStripMenuItem.Text = "Resturar Base de Datos";
+            this.resturarDBToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.resturarDBToolStripMenuItem.Text = "Restaurar Base de Datos";
             this.resturarDBToolStripMenuItem.Click += new System.EventHandler(this.resturarDBToolStripMenuItem_Click);
-            // 
-            // mBtnAyuda
-            // 
-            this.mBtnAyuda.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnAyuda.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnAyuda.Appearance.Options.UseFont = true;
-            this.mBtnAyuda.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnAyuda.AppearanceHovered.Options.UseFont = true;
-            this.mBtnAyuda.Caption = "Ayuda";
-            this.mBtnAyuda.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAyuda.Glyph")));
-            this.mBtnAyuda.Name = "mBtnAyuda";
-            this.mBtnAyuda.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAyuda_ElementClick);
-            // 
-            // mBtnAcercaDe
-            // 
-            this.mBtnAcercaDe.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnAcercaDe.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnAcercaDe.Appearance.Options.UseFont = true;
-            this.mBtnAcercaDe.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnAcercaDe.AppearanceHovered.Options.UseFont = true;
-            this.mBtnAcercaDe.Caption = "Acerca De";
-            this.mBtnAcercaDe.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAcercaDe.Glyph")));
-            this.mBtnAcercaDe.Name = "mBtnAcercaDe";
-            this.mBtnAcercaDe.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAcercaDe_ElementClick);
             // 
             // frmMDI
             // 

@@ -50,7 +50,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
             this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
-            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).BeginInit();
@@ -73,7 +72,7 @@
             this.gCUsuarios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.UsuarioItemLookUpEdit1});
             this.gCUsuarios.Size = new System.Drawing.Size(995, 424);
-            this.gCUsuarios.TabIndex = 19;
+            this.gCUsuarios.TabIndex = 0;
             this.gCUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCUsuarios.Click += new System.EventHandler(this.gCUsuarios_Click);
@@ -96,8 +95,7 @@
             this.colPrimerApellido,
             this.colSegundoApellido,
             this.colUsuario,
-            this.colPerfil,
-            this.colEstado});
+            this.colPerfil});
             this.gridView1.GridControl = this.gCUsuarios;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -216,7 +214,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1162, 45);
-            this.tileNavPane1.TabIndex = 29;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "Nuevo";
             // 
             // mBtnAgregar
@@ -295,13 +293,6 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // colEstado
-            // 
-            this.colEstado.FieldName = "Estado";
-            this.colEstado.Name = "colEstado";
-            this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 5;
-            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,6 +340,5 @@
         private SIME_UTN.DataSets.DataSetUsuario dataSetUsuario;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
         private SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
-        private DevExpress.XtraGrid.Columns.GridColumn colEstado;
     }
 }

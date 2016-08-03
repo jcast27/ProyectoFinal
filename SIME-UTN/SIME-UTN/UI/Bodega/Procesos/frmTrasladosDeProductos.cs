@@ -67,7 +67,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             mBtnAgregar.Caption = "Agregar";
         }
         /// <summary>
-        /// Metodo que permite extrae el traslado seleccionado del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae el traslado seleccionado del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -111,7 +111,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     mBtnAceptar.Enabled = false;
                     mBtnDeclinar.Enabled = false;
                     mBtnAgregar.Caption = "Agregar";
-                    MessageBox.Show("No se puede utilizar este traslado, debido a que se encuentra: " + trasladoEstatico.EstadoTraslado.descripcion, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se puede utilizar este traslado debido a que se encuentra: " + trasladoEstatico.EstadoTraslado.descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
 
@@ -140,7 +140,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     if (MessageBox.Show("¿Seguro que desea declinar el traslado # " + trasladoEstatico.idTraslado + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         gestorTraslado.DeclinarTraslado(trasladoEstatico, usuarioLogueado);
-                        MessageBox.Show("El traslado # " + trasladoEstatico.idTraslado + " fue declinado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El traslado # " + trasladoEstatico.idTraslado + " fue declinado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         frmTrasladosDeProductos_Load(null, null);
                     }
                 
@@ -166,7 +166,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 if (MessageBox.Show("¿Seguro que desea aceptar el traslado # " + trasladoEstatico.idTraslado + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     gestorTraslado.AceptarTraslado(trasladoEstatico, usuarioLogueado);
-                    MessageBox.Show("El traslado # " + trasladoEstatico.idTraslado + " fue aceptado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El traslado # " + trasladoEstatico.idTraslado + " fue aceptado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmTrasladosDeProductos_Load(null, null);
                 }
 

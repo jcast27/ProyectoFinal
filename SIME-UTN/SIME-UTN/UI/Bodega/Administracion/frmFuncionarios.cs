@@ -120,7 +120,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (MessageBox.Show("¿Seguro que desea eliminar al funcionario " + funcionario + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 gestorFuncionario.EliminarFuncionario(funcionarioId, funcionario, usuarioLogueado);
-                MessageBox.Show("El Funcionario " + funcionario + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El funcionario " + funcionario + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmFuncionarios_Load(null, null);
 
             }

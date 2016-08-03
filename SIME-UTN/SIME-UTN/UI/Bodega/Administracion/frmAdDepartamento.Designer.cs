@@ -59,10 +59,10 @@
             this.gbGridViewUnidadMedida.Controls.Add(this.lblNombre);
             this.gbGridViewUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 63);
+            this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 46);
             this.gbGridViewUnidadMedida.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbGridViewUnidadMedida.Name = "gbGridViewUnidadMedida";
-            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(611, 127);
+            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(611, 84);
             this.gbGridViewUnidadMedida.TabIndex = 33;
             this.gbGridViewUnidadMedida.TabStop = false;
             this.gbGridViewUnidadMedida.Text = "Registro Departamentos";
@@ -87,11 +87,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(234, 61);
+            this.txtNombre.Location = new System.Drawing.Point(254, 42);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(277, 22);
             this.txtNombre.TabIndex = 3;
-            this.txtNombre.Text = "Informatica";
             // 
             // lblNombre
             // 
@@ -101,11 +100,11 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(24, 65);
+            this.lblNombre.Location = new System.Drawing.Point(44, 42);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(183, 18);
+            this.lblNombre.Size = new System.Drawing.Size(187, 18);
             this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre del Departamento";
+            this.lblNombre.Text = "Nombre del Departamento:";
             // 
             // tipoBodegaBindingSource
             // 
@@ -206,10 +205,11 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 202);
+            this.ClientSize = new System.Drawing.Size(629, 142);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewUnidadMedida);
-            this.MaximumSize = new System.Drawing.Size(645, 331);
+            this.MaximumSize = new System.Drawing.Size(645, 180);
+            this.MinimumSize = new System.Drawing.Size(645, 180);
             this.Name = "frmAdDepartamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Departamentos";

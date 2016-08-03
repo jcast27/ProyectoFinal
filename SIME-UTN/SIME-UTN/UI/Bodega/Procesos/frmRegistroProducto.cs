@@ -84,7 +84,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 {
                     gestorRegistro.EliminarRegistroProducto(unRegProd.Bodega.idRegistroBodega,unRegProd.idIngresoProducto, unRegProd.descripcion, usuarioLogueado);
                     
-                    MessageBox.Show("El Registro " + unRegProd.descripcion + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El registro " + unRegProd.descripcion + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmRegistroProducto_Load(null, null);
 
                 }

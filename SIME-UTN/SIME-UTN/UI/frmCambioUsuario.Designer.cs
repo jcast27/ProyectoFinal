@@ -46,7 +46,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::SIME_UTN.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 90);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(252, 249);
             this.pictureBox1.TabIndex = 0;
@@ -59,7 +59,7 @@
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(320, 90);
+            this.lblUsuario.Location = new System.Drawing.Point(287, 15);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(148, 29);
             this.lblUsuario.TabIndex = 1;
@@ -68,21 +68,19 @@
             // txtUsuario
             // 
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsuario.Location = new System.Drawing.Point(325, 203);
-            this.txtUsuario.Multiline = true;
+            this.txtUsuario.Location = new System.Drawing.Point(292, 128);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(257, 33);
-            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Size = new System.Drawing.Size(257, 21);
+            this.txtUsuario.TabIndex = 0;
             // 
             // txtContrasenna
             // 
             this.txtContrasenna.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContrasenna.Location = new System.Drawing.Point(325, 276);
-            this.txtContrasenna.Multiline = true;
+            this.txtContrasenna.Location = new System.Drawing.Point(292, 201);
             this.txtContrasenna.Name = "txtContrasenna";
             this.txtContrasenna.PasswordChar = '*';
-            this.txtContrasenna.Size = new System.Drawing.Size(257, 33);
-            this.txtContrasenna.TabIndex = 3;
+            this.txtContrasenna.Size = new System.Drawing.Size(257, 21);
+            this.txtContrasenna.TabIndex = 1;
             // 
             // lblSesion
             // 
@@ -91,7 +89,7 @@
             this.lblSesion.BackColor = System.Drawing.Color.Transparent;
             this.lblSesion.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSesion.ForeColor = System.Drawing.Color.White;
-            this.lblSesion.Location = new System.Drawing.Point(322, 135);
+            this.lblSesion.Location = new System.Drawing.Point(289, 60);
             this.lblSesion.Name = "lblSesion";
             this.lblSesion.Size = new System.Drawing.Size(64, 16);
             this.lblSesion.TabIndex = 4;
@@ -104,7 +102,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(321, 253);
+            this.label2.Location = new System.Drawing.Point(288, 178);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 20);
             this.label2.TabIndex = 47;
@@ -117,7 +115,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(321, 180);
+            this.label1.Location = new System.Drawing.Point(288, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 46;
@@ -127,10 +125,10 @@
             // 
             this.btnIngresar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIngresar.Image = global::SIME_UTN.Properties.Resources.Forward_32x32;
-            this.btnIngresar.Location = new System.Drawing.Point(588, 275);
+            this.btnIngresar.Location = new System.Drawing.Point(555, 192);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(44, 36);
-            this.btnIngresar.TabIndex = 49;
+            this.btnIngresar.TabIndex = 2;
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
@@ -144,7 +142,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 457);
+            this.ClientSize = new System.Drawing.Size(631, 286);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -154,6 +152,8 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(647, 320);
+            this.MinimumSize = new System.Drawing.Size(647, 320);
             this.Name = "frmCambioUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambio de Usuario";

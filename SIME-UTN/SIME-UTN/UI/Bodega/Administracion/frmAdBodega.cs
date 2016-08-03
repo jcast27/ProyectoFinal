@@ -172,13 +172,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     unaBodega.idRegistroBodega = int.Parse(idBodega);
                     gestorBodega.AgregarBodega(unaBodega);
                     gestorBodega.GuardarBodega(unaBodega,usuarioLogueado);
-                    MessageBox.Show("La Bodega: " + unaBodega.nombre + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La Bodega: " + unaBodega.nombre + " fue modificada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     gestorBodega.AgregarBodega(unaBodega);
                     gestorBodega.GuardarBodega(unaBodega, usuarioLogueado);
-                    MessageBox.Show("La Bodega: " + unaBodega.nombre + " fue agregada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La Bodega: " + unaBodega.nombre + " fue agregada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 CambiarEstado(EstadoMantenimiento.Editar);

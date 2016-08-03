@@ -104,7 +104,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
         }
 
         /// <summary>
-        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

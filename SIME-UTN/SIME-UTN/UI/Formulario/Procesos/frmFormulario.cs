@@ -341,7 +341,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
             }
             else if (brm)
             {
-                ePError.SetError(txtFecha, "BRM - Items sin valor");
+                ePError.SetError(txtFecha, "B/R/M - Items sin valor");
                 r = false;
             }
             else if (texto)

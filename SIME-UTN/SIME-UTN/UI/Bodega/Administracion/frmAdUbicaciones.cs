@@ -132,14 +132,14 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     unaUbicacion.idUbicacion = int.Parse(idUbicacion);
                     gestorUbicacion.AgregarUbicacion(unaUbicacion);
                     gestorUbicacion.GuardarUbicacion(unaUbicacion,usuarioLogueado);
-                    MessageBox.Show("La ubicacion " + unaUbicacion.nombre + " fue modificada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La ubicación " + unaUbicacion.nombre + " fue modificada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     unaUbicacion.estado = 1;
                     gestorUbicacion.AgregarUbicacion(unaUbicacion);
                     gestorUbicacion.GuardarUbicacion(unaUbicacion, usuarioLogueado);
-                    MessageBox.Show("La ubicacion  " + unaUbicacion.nombre + " fue agregada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La ubicación  " + unaUbicacion.nombre + " fue agregada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 CambiarEstado(EstadoMantenimiento.Editar);

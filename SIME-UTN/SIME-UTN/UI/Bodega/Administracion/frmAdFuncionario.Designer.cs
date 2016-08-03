@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdFuncionario));
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
+            this.spSELECTDepartamentoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetDepartamento = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetDepartamento();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.lblCodigoFuncionario = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
@@ -48,13 +50,11 @@
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataSetDepartamento = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetDepartamento();
-            this.spSELECTDepartamentoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_SELECT_Departamento_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter();
             this.gbGridViewFuncionario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // gbGridViewFuncionario
@@ -75,13 +75,13 @@
             this.gbGridViewFuncionario.Controls.Add(this.txtCedula);
             this.gbGridViewFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewFuncionario.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewFuncionario.Location = new System.Drawing.Point(6, 63);
+            this.gbGridViewFuncionario.Location = new System.Drawing.Point(6, 46);
             this.gbGridViewFuncionario.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbGridViewFuncionario.Name = "gbGridViewFuncionario";
-            this.gbGridViewFuncionario.Size = new System.Drawing.Size(611, 413);
-            this.gbGridViewFuncionario.TabIndex = 33;
+            this.gbGridViewFuncionario.Size = new System.Drawing.Size(611, 212);
+            this.gbGridViewFuncionario.TabIndex = 0;
             this.gbGridViewFuncionario.TabStop = false;
-            this.gbGridViewFuncionario.Text = "Informacion del Funcionario";
+            this.gbGridViewFuncionario.Text = "Información del Funcionario";
             // 
             // cmbDepartamento
             // 
@@ -93,11 +93,21 @@
             this.cmbDepartamento.DisplayMember = "descripcion";
             this.cmbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Location = new System.Drawing.Point(205, 321);
+            this.cmbDepartamento.Location = new System.Drawing.Point(205, 165);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(375, 24);
-            this.cmbDepartamento.TabIndex = 33;
+            this.cmbDepartamento.TabIndex = 4;
             this.cmbDepartamento.ValueMember = "IDDepartamento";
+            // 
+            // spSELECTDepartamentoAllBindingSource
+            // 
+            this.spSELECTDepartamentoAllBindingSource.DataMember = "sp_SELECT_Departamento_All";
+            this.spSELECTDepartamentoAllBindingSource.DataSource = this.dataSetDepartamento;
+            // 
+            // dataSetDepartamento
+            // 
+            this.dataSetDepartamento.DataSetName = "DataSetDepartamento";
+            this.dataSetDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtCorreo
             // 
@@ -105,11 +115,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(205, 257);
+            this.txtCorreo.Location = new System.Drawing.Point(205, 137);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(375, 22);
-            this.txtCorreo.TabIndex = 30;
-            this.txtCorreo.Text = "pedro23@gmail.com";
+            this.txtCorreo.TabIndex = 3;
             // 
             // lblCodigoFuncionario
             // 
@@ -133,11 +142,11 @@
             this.lblCedula.AutoSize = true;
             this.lblCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCedula.ForeColor = System.Drawing.Color.White;
-            this.lblCedula.Location = new System.Drawing.Point(31, 134);
+            this.lblCedula.Location = new System.Drawing.Point(28, 85);
             this.lblCedula.Name = "lblCedula";
             this.lblCedula.Size = new System.Drawing.Size(58, 18);
             this.lblCedula.TabIndex = 22;
-            this.lblCedula.Text = "Cedula:";
+            this.lblCedula.Text = "Cédula:";
             // 
             // txtTelefono
             // 
@@ -145,11 +154,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(205, 188);
+            this.txtTelefono.Location = new System.Drawing.Point(205, 109);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(375, 22);
-            this.txtTelefono.TabIndex = 28;
-            this.txtTelefono.Text = "24345676";
+            this.txtTelefono.TabIndex = 2;
             // 
             // txtNombreFuncionario
             // 
@@ -157,11 +165,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreFuncionario.Location = new System.Drawing.Point(205, 69);
+            this.txtNombreFuncionario.Location = new System.Drawing.Point(205, 53);
             this.txtNombreFuncionario.Name = "txtNombreFuncionario";
             this.txtNombreFuncionario.Size = new System.Drawing.Size(375, 22);
-            this.txtNombreFuncionario.TabIndex = 3;
-            this.txtNombreFuncionario.Text = "Pedro";
+            this.txtNombreFuncionario.TabIndex = 0;
             // 
             // lblTelefono
             // 
@@ -171,11 +178,11 @@
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.White;
-            this.lblTelefono.Location = new System.Drawing.Point(31, 192);
+            this.lblTelefono.Location = new System.Drawing.Point(28, 113);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(70, 18);
             this.lblTelefono.TabIndex = 23;
-            this.lblTelefono.Text = "Telefono:";
+            this.lblTelefono.Text = "Teléfono:";
             // 
             // lblNombreFuncionario
             // 
@@ -185,7 +192,7 @@
             this.lblNombreFuncionario.AutoSize = true;
             this.lblNombreFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreFuncionario.ForeColor = System.Drawing.Color.White;
-            this.lblNombreFuncionario.Location = new System.Drawing.Point(30, 73);
+            this.lblNombreFuncionario.Location = new System.Drawing.Point(28, 57);
             this.lblNombreFuncionario.Name = "lblNombreFuncionario";
             this.lblNombreFuncionario.Size = new System.Drawing.Size(171, 18);
             this.lblNombreFuncionario.TabIndex = 1;
@@ -199,7 +206,7 @@
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartamento.ForeColor = System.Drawing.Color.White;
-            this.lblDepartamento.Location = new System.Drawing.Point(31, 327);
+            this.lblDepartamento.Location = new System.Drawing.Point(28, 171);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(106, 18);
             this.lblDepartamento.TabIndex = 13;
@@ -213,7 +220,7 @@
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreo.ForeColor = System.Drawing.Color.White;
-            this.lblCorreo.Location = new System.Drawing.Point(31, 261);
+            this.lblCorreo.Location = new System.Drawing.Point(28, 141);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(59, 18);
             this.lblCorreo.TabIndex = 2;
@@ -225,11 +232,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedula.Location = new System.Drawing.Point(205, 130);
+            this.txtCedula.Location = new System.Drawing.Point(205, 81);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(375, 22);
-            this.txtCedula.TabIndex = 27;
-            this.txtCedula.Text = "2312345";
+            this.txtCedula.TabIndex = 1;
             // 
             // tileNavPane1
             // 
@@ -256,7 +262,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(629, 40);
-            this.tileNavPane1.TabIndex = 34;
+            this.tileNavPane1.TabIndex = 1;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo
@@ -310,16 +316,6 @@
             // 
             this.epError.ContainerControl = this;
             // 
-            // dataSetDepartamento
-            // 
-            this.dataSetDepartamento.DataSetName = "DataSetDepartamento";
-            this.dataSetDepartamento.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTDepartamentoAllBindingSource
-            // 
-            this.spSELECTDepartamentoAllBindingSource.DataMember = "sp_SELECT_Departamento_All";
-            this.spSELECTDepartamentoAllBindingSource.DataSource = this.dataSetDepartamento;
-            // 
             // sp_SELECT_Departamento_AllTableAdapter
             // 
             this.sp_SELECT_Departamento_AllTableAdapter.ClearBeforeFill = true;
@@ -330,7 +326,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 478);
+            this.ClientSize = new System.Drawing.Size(629, 277);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Name = "frmAdFuncionario";
@@ -339,9 +335,9 @@
             this.Load += new System.EventHandler(this.frmAdFuncionario_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTDepartamentoAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
 
         }

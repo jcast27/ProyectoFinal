@@ -67,10 +67,10 @@
             this.gbGridViewUnidadMedida.Controls.Add(this.txtDescripcion);
             this.gbGridViewUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 63);
+            this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 46);
             this.gbGridViewUnidadMedida.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbGridViewUnidadMedida.Name = "gbGridViewUnidadMedida";
-            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(611, 256);
+            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(611, 153);
             this.gbGridViewUnidadMedida.TabIndex = 33;
             this.gbGridViewUnidadMedida.TabStop = false;
             this.gbGridViewUnidadMedida.Text = "Registro Ubicaciones";
@@ -83,7 +83,7 @@
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartamento.ForeColor = System.Drawing.Color.White;
-            this.lblDepartamento.Location = new System.Drawing.Point(25, 196);
+            this.lblDepartamento.Location = new System.Drawing.Point(25, 109);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(106, 18);
             this.lblDepartamento.TabIndex = 35;
@@ -99,10 +99,10 @@
             this.cmbDepartamento.DisplayMember = "Descripcion";
             this.cmbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Location = new System.Drawing.Point(222, 190);
+            this.cmbDepartamento.Location = new System.Drawing.Point(222, 108);
             this.cmbDepartamento.Name = "cmbDepartamento";
-            this.cmbDepartamento.Size = new System.Drawing.Size(277, 24);
-            this.cmbDepartamento.TabIndex = 34;
+            this.cmbDepartamento.Size = new System.Drawing.Size(361, 24);
+            this.cmbDepartamento.TabIndex = 2;
             this.cmbDepartamento.ValueMember = "IDDepartamento";
             // 
             // spSELECTDepartamentoAllBindingSource
@@ -137,7 +137,7 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(25, 135);
+            this.lblDescripcion.Location = new System.Drawing.Point(25, 81);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(185, 18);
             this.lblDescripcion.TabIndex = 22;
@@ -149,10 +149,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(222, 74);
+            this.txtNombre.Location = new System.Drawing.Point(222, 52);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(277, 22);
-            this.txtNombre.TabIndex = 3;
+            this.txtNombre.Size = new System.Drawing.Size(361, 22);
+            this.txtNombre.TabIndex = 0;
             this.txtNombre.Text = "ml";
             // 
             // lblNombre
@@ -163,11 +163,11 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(25, 78);
+            this.lblNombre.Location = new System.Drawing.Point(25, 53);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(167, 18);
             this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre de la Ubicacion";
+            this.lblNombre.Text = "Nombre de la Ubicación";
             // 
             // txtDescripcion
             // 
@@ -175,10 +175,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(222, 134);
+            this.txtDescripcion.Location = new System.Drawing.Point(222, 80);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(361, 22);
-            this.txtDescripcion.TabIndex = 27;
+            this.txtDescripcion.TabIndex = 1;
             this.txtDescripcion.Text = "Mililitros";
             // 
             // tileNavPane1
@@ -206,7 +206,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(629, 40);
-            this.tileNavPane1.TabIndex = 34;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo
@@ -271,10 +271,11 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 321);
+            this.ClientSize = new System.Drawing.Size(629, 211);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewUnidadMedida);
-            this.MaximumSize = new System.Drawing.Size(645, 360);
+            this.MaximumSize = new System.Drawing.Size(645, 249);
+            this.MinimumSize = new System.Drawing.Size(645, 249);
             this.Name = "frmAdUbicaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubicaciones";

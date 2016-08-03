@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdMezclas));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
@@ -38,7 +39,7 @@
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetMezclaCategoria = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetMezclaCategoria();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblIdMezcla = new System.Windows.Forms.Label();
@@ -58,7 +59,7 @@
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
             this.gCRegistroProducto = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.epError = new System.Windows.Forms.ErrorProvider();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetMezclaCategoriaTableAdapters.CategoriaTableAdapter();
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
@@ -97,7 +98,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1136, 40);
-            this.tileNavPane1.TabIndex = 35;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo
@@ -215,7 +216,7 @@
             this.cmbCategoria.Location = new System.Drawing.Point(203, 77);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(167, 24);
-            this.cmbCategoria.TabIndex = 53;
+            this.cmbCategoria.TabIndex = 1;
             this.cmbCategoria.ValueMember = "IDCategoria";
             // 
             // categoriaBindingSource
@@ -290,7 +291,7 @@
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(125, 18);
             this.lblCodigo.TabIndex = 46;
-            this.lblCodigo.Text = "Codigo Producto:";
+            this.lblCodigo.Text = "Código Producto:";
             // 
             // txtNombreProducto
             // 
@@ -309,8 +310,7 @@
             this.txtNombre.Location = new System.Drawing.Point(203, 49);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(167, 22);
-            this.txtNombre.TabIndex = 43;
-            this.txtNombre.Text = "MezclaD";
+            this.txtNombre.TabIndex = 0;
             // 
             // txtECodigoProducto
             // 
@@ -320,7 +320,7 @@
             this.txtECodigoProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtECodigoProducto.Size = new System.Drawing.Size(167, 20);
-            this.txtECodigoProducto.TabIndex = 44;
+            this.txtECodigoProducto.TabIndex = 3;
             this.txtECodigoProducto.Click += new System.EventHandler(this.txtECodigoProducto_Click);
             // 
             // txtDescripcion
@@ -331,7 +331,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(203, 107);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(167, 22);
-            this.txtDescripcion.TabIndex = 42;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // txtCantidad
             // 
@@ -341,7 +341,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(547, 77);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 22);
-            this.txtCantidad.TabIndex = 41;
+            this.txtCantidad.TabIndex = 4;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblNombre
@@ -394,7 +394,7 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(26, 111);
+            this.lblDescripcion.Location = new System.Drawing.Point(24, 111);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(91, 18);
             this.lblDescripcion.TabIndex = 13;
@@ -419,7 +419,7 @@
             this.gbGridViewRegistroProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbGridViewRegistroProductos.Controls.Add(this.gCRegistroProducto);
-            this.gbGridViewRegistroProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGridViewRegistroProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.gbGridViewRegistroProductos.ForeColor = System.Drawing.Color.White;
             this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(12, 210);
             this.gbGridViewRegistroProductos.Name = "gbGridViewRegistroProductos";
@@ -473,7 +473,8 @@
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(1152, 675);
+            this.MaximumSize = new System.Drawing.Size(1152, 518);
+            this.MinimumSize = new System.Drawing.Size(1152, 518);
             this.Name = "frmAdMezclas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro De Mezclas";

@@ -123,7 +123,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1136, 40);
-            this.tileNavPane1.TabIndex = 35;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo
@@ -189,7 +189,6 @@
             // 
             // gbGridViewFuncionario
             // 
-            this.gbGridViewFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gbGridViewFuncionario.Controls.Add(this.txtFechaTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaDestino);
             this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaOrigen);
@@ -217,37 +216,33 @@
             this.gbGridViewFuncionario.Controls.Add(this.lblObservaciones);
             this.gbGridViewFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewFuncionario.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewFuncionario.Location = new System.Drawing.Point(12, 57);
+            this.gbGridViewFuncionario.Location = new System.Drawing.Point(12, 46);
             this.gbGridViewFuncionario.Name = "gbGridViewFuncionario";
-            this.gbGridViewFuncionario.Size = new System.Drawing.Size(1124, 293);
+            this.gbGridViewFuncionario.Size = new System.Drawing.Size(1112, 193);
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Traslado de Producto";
             // 
             // txtFechaTraslado
             // 
-            this.txtFechaTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtFechaTraslado.Enabled = false;
             this.txtFechaTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaTraslado.Location = new System.Drawing.Point(570, 132);
+            this.txtFechaTraslado.Location = new System.Drawing.Point(541, 78);
             this.txtFechaTraslado.Name = "txtFechaTraslado";
             this.txtFechaTraslado.Size = new System.Drawing.Size(167, 22);
-            this.txtFechaTraslado.TabIndex = 69;
+            this.txtFechaTraslado.TabIndex = 4;
             // 
             // cmbBodegaDestino
             // 
-            this.cmbBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbBodegaDestino.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaAllBindingSource1, "idregistrobodega", true));
             this.cmbBodegaDestino.DataSource = this.spSELECTRegistroBodegaAllBindingSource1;
             this.cmbBodegaDestino.DisplayMember = "nombre";
             this.cmbBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBodegaDestino.FormattingEnabled = true;
-            this.cmbBodegaDestino.Location = new System.Drawing.Point(911, 61);
+            this.cmbBodegaDestino.Location = new System.Drawing.Point(873, 48);
             this.cmbBodegaDestino.Name = "cmbBodegaDestino";
             this.cmbBodegaDestino.Size = new System.Drawing.Size(167, 24);
-            this.cmbBodegaDestino.TabIndex = 68;
+            this.cmbBodegaDestino.TabIndex = 2;
             this.cmbBodegaDestino.ValueMember = "idregistrobodega";
             // 
             // spSELECTRegistroBodegaAllBindingSource1
@@ -262,18 +257,15 @@
             // 
             // cmbBodegaOrigen
             // 
-            this.cmbBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbBodegaOrigen.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaAllBindingSource, "idregistrobodega", true));
             this.cmbBodegaOrigen.DataSource = this.spSELECTRegistroBodegaAllBindingSource;
             this.cmbBodegaOrigen.DisplayMember = "nombre";
             this.cmbBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBodegaOrigen.FormattingEnabled = true;
-            this.cmbBodegaOrigen.Location = new System.Drawing.Point(570, 63);
+            this.cmbBodegaOrigen.Location = new System.Drawing.Point(541, 49);
             this.cmbBodegaOrigen.Name = "cmbBodegaOrigen";
             this.cmbBodegaOrigen.Size = new System.Drawing.Size(167, 24);
-            this.cmbBodegaOrigen.TabIndex = 67;
+            this.cmbBodegaOrigen.TabIndex = 1;
             this.cmbBodegaOrigen.ValueMember = "idregistrobodega";
             this.cmbBodegaOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbBodegaOrigen_SelectedIndexChanged);
             // 
@@ -289,9 +281,6 @@
             // 
             // lblIDBodegaDestino
             // 
-            this.lblIDBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIDBodegaDestino.AutoSize = true;
             this.lblIDBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDBodegaDestino.ForeColor = System.Drawing.Color.White;
@@ -303,9 +292,6 @@
             // 
             // lblIDBodegaOrigen
             // 
-            this.lblIDBodegaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIDBodegaOrigen.AutoSize = true;
             this.lblIDBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDBodegaOrigen.ForeColor = System.Drawing.Color.White;
@@ -317,23 +303,19 @@
             // 
             // txtUnidadMedida
             // 
-            this.txtUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtUnidadMedida.Enabled = false;
             this.txtUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnidadMedida.Location = new System.Drawing.Point(914, 247);
+            this.txtUnidadMedida.Location = new System.Drawing.Point(873, 134);
             this.txtUnidadMedida.Name = "txtUnidadMedida";
-            this.txtUnidadMedida.Size = new System.Drawing.Size(164, 22);
-            this.txtUnidadMedida.TabIndex = 62;
+            this.txtUnidadMedida.Size = new System.Drawing.Size(167, 22);
+            this.txtUnidadMedida.TabIndex = 10;
             // 
             // lblUnidadMedida
             // 
-            this.lblUnidadMedida.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUnidadMedida.AutoSize = true;
             this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(775, 251);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(734, 135);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(133, 18);
             this.lblUnidadMedida.TabIndex = 61;
@@ -341,21 +323,19 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(570, 247);
+            this.txtCantidad.Location = new System.Drawing.Point(541, 132);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 22);
-            this.txtCantidad.TabIndex = 60;
+            this.txtCantidad.TabIndex = 9;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblCantidad
             // 
-            this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(414, 251);
+            this.lblCantidad.Location = new System.Drawing.Point(414, 133);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(74, 18);
             this.lblCantidad.TabIndex = 59;
@@ -363,11 +343,10 @@
             // 
             // lblCodigo
             // 
-            this.lblCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(775, 192);
+            this.lblCodigo.Location = new System.Drawing.Point(734, 108);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(125, 18);
             this.lblCodigo.TabIndex = 58;
@@ -375,23 +354,21 @@
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtNombreProducto.Enabled = false;
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(209, 247);
+            this.txtNombreProducto.Location = new System.Drawing.Point(180, 132);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(176, 22);
-            this.txtNombreProducto.TabIndex = 57;
+            this.txtNombreProducto.TabIndex = 8;
             // 
             // txtECodigoProducto
             // 
-            this.txtECodigoProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtECodigoProducto.Location = new System.Drawing.Point(911, 193);
+            this.txtECodigoProducto.Location = new System.Drawing.Point(873, 108);
             this.txtECodigoProducto.Name = "txtECodigoProducto";
             this.txtECodigoProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtECodigoProducto.Size = new System.Drawing.Size(167, 20);
-            this.txtECodigoProducto.TabIndex = 56;
+            this.txtECodigoProducto.TabIndex = 7;
             this.txtECodigoProducto.Click += new System.EventHandler(this.txtECodigoProducto_Click);
             // 
             // lblProducto
@@ -402,7 +379,7 @@
             this.lblProducto.AutoSize = true;
             this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProducto.ForeColor = System.Drawing.Color.White;
-            this.lblProducto.Location = new System.Drawing.Point(24, 251);
+            this.lblProducto.Location = new System.Drawing.Point(24, 134);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(154, 18);
             this.lblProducto.TabIndex = 55;
@@ -410,13 +387,10 @@
             // 
             // lblBodegaDestino
             // 
-            this.lblBodegaDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBodegaDestino.AutoSize = true;
             this.lblBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodegaDestino.ForeColor = System.Drawing.Color.White;
-            this.lblBodegaDestino.Location = new System.Drawing.Point(775, 67);
+            this.lblBodegaDestino.Location = new System.Drawing.Point(734, 49);
             this.lblBodegaDestino.Name = "lblBodegaDestino";
             this.lblBodegaDestino.Size = new System.Drawing.Size(118, 18);
             this.lblBodegaDestino.TabIndex = 53;
@@ -424,18 +398,15 @@
             // 
             // cmbTipoTraslado
             // 
-            this.cmbTipoTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoTraslado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tipoTrasladoBindingSource, "IDTipoTraslado", true));
             this.cmbTipoTraslado.DataSource = this.tipoTrasladoBindingSource;
             this.cmbTipoTraslado.DisplayMember = "Descripcion";
             this.cmbTipoTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoTraslado.FormattingEnabled = true;
-            this.cmbTipoTraslado.Location = new System.Drawing.Point(911, 128);
+            this.cmbTipoTraslado.Location = new System.Drawing.Point(873, 78);
             this.cmbTipoTraslado.Name = "cmbTipoTraslado";
             this.cmbTipoTraslado.Size = new System.Drawing.Size(167, 24);
-            this.cmbTipoTraslado.TabIndex = 49;
+            this.cmbTipoTraslado.TabIndex = 5;
             this.cmbTipoTraslado.ValueMember = "IDTipoTraslado";
             // 
             // tipoTrasladoBindingSource
@@ -455,13 +426,12 @@
             // 
             // txtNumeroTraslado
             // 
-            this.txtNumeroTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtNumeroTraslado.Enabled = false;
             this.txtNumeroTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroTraslado.Location = new System.Drawing.Point(209, 63);
+            this.txtNumeroTraslado.Location = new System.Drawing.Point(180, 48);
             this.txtNumeroTraslado.Name = "txtNumeroTraslado";
             this.txtNumeroTraslado.Size = new System.Drawing.Size(176, 22);
-            this.txtNumeroTraslado.TabIndex = 48;
+            this.txtNumeroTraslado.TabIndex = 0;
             // 
             // lblNumeroTraslado
             // 
@@ -471,7 +441,7 @@
             this.lblNumeroTraslado.AutoSize = true;
             this.lblNumeroTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblNumeroTraslado.Location = new System.Drawing.Point(24, 67);
+            this.lblNumeroTraslado.Location = new System.Drawing.Point(24, 49);
             this.lblNumeroTraslado.Name = "lblNumeroTraslado";
             this.lblNumeroTraslado.Size = new System.Drawing.Size(99, 18);
             this.lblNumeroTraslado.TabIndex = 47;
@@ -479,22 +449,18 @@
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(209, 188);
+            this.txtObservaciones.Location = new System.Drawing.Point(180, 104);
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(528, 22);
-            this.txtObservaciones.TabIndex = 42;
+            this.txtObservaciones.TabIndex = 6;
             // 
             // lblTipoTraslado
             // 
-            this.lblTipoTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTipoTraslado.AutoSize = true;
             this.lblTipoTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblTipoTraslado.Location = new System.Drawing.Point(775, 134);
+            this.lblTipoTraslado.Location = new System.Drawing.Point(734, 77);
             this.lblTipoTraslado.Name = "lblTipoTraslado";
             this.lblTipoTraslado.Size = new System.Drawing.Size(123, 18);
             this.lblTipoTraslado.TabIndex = 39;
@@ -508,7 +474,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(24, 133);
+            this.lblUsuario.Location = new System.Drawing.Point(24, 77);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(64, 18);
             this.lblUsuario.TabIndex = 22;
@@ -516,13 +482,10 @@
             // 
             // lblFechaTraslado
             // 
-            this.lblFechaTraslado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaTraslado.AutoSize = true;
             this.lblFechaTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblFechaTraslado.Location = new System.Drawing.Point(414, 133);
+            this.lblFechaTraslado.Location = new System.Drawing.Point(414, 77);
             this.lblFechaTraslado.Name = "lblFechaTraslado";
             this.lblFechaTraslado.Size = new System.Drawing.Size(115, 18);
             this.lblFechaTraslado.TabIndex = 23;
@@ -530,13 +493,10 @@
             // 
             // lblBodega
             // 
-            this.lblBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBodega.AutoSize = true;
             this.lblBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodega.ForeColor = System.Drawing.Color.White;
-            this.lblBodega.Location = new System.Drawing.Point(430, 71);
+            this.lblBodega.Location = new System.Drawing.Point(414, 49);
             this.lblBodega.Name = "lblBodega";
             this.lblBodega.Size = new System.Drawing.Size(111, 18);
             this.lblBodega.TabIndex = 1;
@@ -544,13 +504,12 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(209, 133);
+            this.txtUsuario.Location = new System.Drawing.Point(180, 76);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(176, 22);
-            this.txtUsuario.TabIndex = 27;
+            this.txtUsuario.TabIndex = 3;
             // 
             // lblCodigoUsuario
             // 
@@ -574,7 +533,7 @@
             this.lblObservaciones.AutoSize = true;
             this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblObservaciones.ForeColor = System.Drawing.Color.White;
-            this.lblObservaciones.Location = new System.Drawing.Point(24, 188);
+            this.lblObservaciones.Location = new System.Drawing.Point(24, 105);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(112, 18);
             this.lblObservaciones.TabIndex = 13;
@@ -587,7 +546,7 @@
             this.gbGridViewRegistroProductos.Controls.Add(this.gCBodega);
             this.gbGridViewRegistroProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewRegistroProductos.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(1, 377);
+            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(14, 245);
             this.gbGridViewRegistroProductos.Name = "gbGridViewRegistroProductos";
             this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(552, 255);
             this.gbGridViewRegistroProductos.TabIndex = 37;
@@ -599,7 +558,7 @@
             this.gCBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gCBodega.Location = new System.Drawing.Point(6, 46);
+            this.gCBodega.Location = new System.Drawing.Point(6, 30);
             this.gCBodega.MainView = this.gridView1;
             this.gCBodega.Name = "gCBodega";
             this.gCBodega.Size = new System.Drawing.Size(534, 209);
@@ -626,7 +585,7 @@
             this.groupBox1.Controls.Add(this.gCProductos);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(559, 377);
+            this.groupBox1.Location = new System.Drawing.Point(572, 245);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(552, 255);
             this.groupBox1.TabIndex = 38;
@@ -638,7 +597,7 @@
             this.gCProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gCProductos.Location = new System.Drawing.Point(6, 46);
+            this.gCProductos.Location = new System.Drawing.Point(6, 30);
             this.gCProductos.MainView = this.gridView2;
             this.gCProductos.Name = "gCProductos";
             this.gCProductos.Size = new System.Drawing.Size(534, 209);
@@ -680,12 +639,13 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 636);
+            this.ClientSize = new System.Drawing.Size(1136, 512);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(1152, 675);
+            this.MaximumSize = new System.Drawing.Size(1152, 550);
+            this.MinimumSize = new System.Drawing.Size(1152, 550);
             this.Name = "frmAdTrasladoProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Traslado De Producto";

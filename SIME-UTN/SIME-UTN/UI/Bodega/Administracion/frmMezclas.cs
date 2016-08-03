@@ -76,7 +76,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 if (MessageBox.Show("¿Seguro que desea eliminar la mezcla " + unaMezcla.nombre + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     gestorMezcla.EliminarMezcla(unaMezcla.idRegistroMezcla, unaMezcla.nombre, usuarioLogueado);
-                    MessageBox.Show("La mezcla " + unaMezcla.nombre + " fue eliminada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La mezcla " + unaMezcla.nombre + " fue eliminada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmMezclas_Load(null, null);
 
                 }
@@ -126,7 +126,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         }
 
         /// <summary>
-        /// Metodo que permite extrae la Mezcla seleccionada del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae la Mezcla seleccionada del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -123,7 +123,7 @@
             this.colnombre.AppearanceCell.Options.UseFont = true;
             this.colnombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.colnombre.AppearanceHeader.Options.UseFont = true;
-            this.colnombre.Caption = "Localizacion";
+            this.colnombre.Caption = "Localización";
             this.colnombre.FieldName = "nombre";
             this.colnombre.Name = "colnombre";
             this.colnombre.Visible = true;
@@ -204,7 +204,7 @@
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1200, 45);
-            this.tileNavPane1.TabIndex = 29;
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "Nuevo";
             // 
             // mBtnAgregar

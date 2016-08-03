@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdUnidadMedida));
             this.gbGridViewUnidadMedida = new System.Windows.Forms.GroupBox();
+            this.chkDecimales = new System.Windows.Forms.CheckBox();
             this.lblCodigoUnidad = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.tipoBodegaTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.chkDecimales = new System.Windows.Forms.CheckBox();
             this.gbGridViewUnidadMedida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
@@ -65,13 +65,25 @@
             this.gbGridViewUnidadMedida.Controls.Add(this.txtDescripcion);
             this.gbGridViewUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 63);
+            this.gbGridViewUnidadMedida.Location = new System.Drawing.Point(6, 46);
             this.gbGridViewUnidadMedida.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbGridViewUnidadMedida.Name = "gbGridViewUnidadMedida";
-            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(611, 227);
+            this.gbGridViewUnidadMedida.Size = new System.Drawing.Size(409, 153);
             this.gbGridViewUnidadMedida.TabIndex = 33;
             this.gbGridViewUnidadMedida.TabStop = false;
             this.gbGridViewUnidadMedida.Text = "Registro Unidad De Medida";
+            // 
+            // chkDecimales
+            // 
+            this.chkDecimales.AutoSize = true;
+            this.chkDecimales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDecimales.Location = new System.Drawing.Point(28, 111);
+            this.chkDecimales.Name = "chkDecimales";
+            this.chkDecimales.Size = new System.Drawing.Size(160, 24);
+            this.chkDecimales.TabIndex = 31;
+            this.chkDecimales.Text = "Permite Decimales";
+            this.chkDecimales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkDecimales.UseVisualStyleBackColor = true;
             // 
             // lblCodigoUnidad
             // 
@@ -95,7 +107,7 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(25, 135);
+            this.lblDescripcion.Location = new System.Drawing.Point(25, 75);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(91, 18);
             this.lblDescripcion.TabIndex = 22;
@@ -107,11 +119,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(199, 74);
+            this.txtCodigo.Location = new System.Drawing.Point(135, 41);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(139, 22);
-            this.txtCodigo.TabIndex = 3;
-            this.txtCodigo.Text = "ml";
+            this.txtCodigo.Size = new System.Drawing.Size(215, 22);
+            this.txtCodigo.TabIndex = 0;
             // 
             // lblCodigo
             // 
@@ -121,7 +132,7 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(25, 78);
+            this.lblCodigo.Location = new System.Drawing.Point(25, 42);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(60, 18);
             this.lblCodigo.TabIndex = 1;
@@ -133,11 +144,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(199, 135);
+            this.txtDescripcion.Location = new System.Drawing.Point(135, 74);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(375, 22);
-            this.txtDescripcion.TabIndex = 27;
-            this.txtDescripcion.Text = "Mililitros";
+            this.txtDescripcion.Size = new System.Drawing.Size(215, 22);
+            this.txtDescripcion.TabIndex = 1;
             // 
             // tipoBodegaBindingSource
             // 
@@ -173,8 +183,8 @@
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(629, 40);
-            this.tileNavPane1.TabIndex = 34;
+            this.tileNavPane1.Size = new System.Drawing.Size(412, 40);
+            this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // mBtnNuevo
@@ -232,28 +242,17 @@
             // 
             this.epError.ContainerControl = this;
             // 
-            // chkDecimales
-            // 
-            this.chkDecimales.AutoSize = true;
-            this.chkDecimales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDecimales.Location = new System.Drawing.Point(414, 182);
-            this.chkDecimales.Name = "chkDecimales";
-            this.chkDecimales.Size = new System.Drawing.Size(160, 24);
-            this.chkDecimales.TabIndex = 31;
-            this.chkDecimales.Text = "Permite Decimales";
-            this.chkDecimales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkDecimales.UseVisualStyleBackColor = true;
-            // 
             // frmAdUnidadMedida
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 292);
+            this.ClientSize = new System.Drawing.Size(412, 218);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewUnidadMedida);
-            this.MaximumSize = new System.Drawing.Size(645, 331);
+            this.MaximumSize = new System.Drawing.Size(428, 256);
+            this.MinimumSize = new System.Drawing.Size(428, 256);
             this.Name = "frmAdUnidadMedida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unidad De Medida";

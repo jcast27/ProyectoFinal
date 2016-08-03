@@ -76,7 +76,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
 
         /// <summary>
-        /// Metodo que permite extrae la bodega seleccionada del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae la bodega seleccionada del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -124,7 +124,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (MessageBox.Show("¿Seguro que desea eliminar la bodega: " + bodega + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 gestorBodega.EliminarBodega(idBodega, bodega, usuarioLogueado);
-                MessageBox.Show("La Bodega: " + bodega + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("La bodega: " + bodega + " fue eliminada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmBodegas_Load(null, null);
 
             }

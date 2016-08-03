@@ -111,7 +111,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             if (txtNombre.Text.Trim() == "")
             {
-                ePError.SetError(txtNombre, "Campo Usuario en Blanco");
+                ePError.SetError(txtNombre, "Campo Requerido");
                 txtNombre.Focus();
             }
             else
@@ -120,7 +120,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             if (txtPassword.Text.Trim() == "")
             {
-                ePError.SetError(txtPassword, "Campo Password en Blanco");
+                ePError.SetError(txtPassword, "Campo Requerido");
                 txtPassword.Focus();
             }
             else
@@ -129,7 +129,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             if (txtConfirmacion.Text.Trim() == "")
             {
-                ePError.SetError(txtConfirmacion, "Campo Confirmacion en Blanco");
+                ePError.SetError(txtConfirmacion, "Campo Requerido");
                 txtConfirmacion.Focus();
             }
             else
@@ -215,7 +215,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 usuario.estado = 1;
                 gestor.AgregarUsuario(usuario);
                 gestor.GuardarUsuario(usuarioLogueado);
-                MessageBox.Show("El Usuario " + usuario.usuario + " fue modificado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El usuario " + usuario.usuario + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CambiarEstado(EstadoMantenimiento.Nuevo);
                 Close();
             }
@@ -267,14 +267,14 @@ namespace SIME_UTN.UI.Bodega.Administracion
                         gestor.AgregarUsuario(usuario);
                         gestor.GuardarUsuario(usuarioLogueado);
                         txtUsuario.Text = user;
-                        MessageBox.Show("El Usuario " + usuario.usuario + " fue agregado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El usuario " + usuario.usuario + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         CambiarEstado(EstadoMantenimiento.Nuevo);
                         Close();
 
                     }
                     else
                     {
-                        MessageBox.Show("Confirmar contrasena", "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Confirmar contraseña", "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

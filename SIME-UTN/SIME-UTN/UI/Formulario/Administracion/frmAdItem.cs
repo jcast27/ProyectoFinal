@@ -115,7 +115,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
                 var rdb = gbItem.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
 
-                string descripcion = "El Item fue agregado correctamente";
+                string descripcion = "El item fue agregado correctamente";
 
                 if (accion == "U")
                 {
@@ -144,7 +144,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
                 }
                 else
                 {
-                    MessageBox.Show("Ya existe un nombre con este Item", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ya existe un item con este nombre", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 Close();

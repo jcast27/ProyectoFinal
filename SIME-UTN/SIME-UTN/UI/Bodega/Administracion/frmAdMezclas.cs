@@ -86,7 +86,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             dt.Columns.Add(new DataColumn("Nombre"));
             dt.Columns.Add(new DataColumn("Cantidad"));
             dt.Columns.Add(new DataColumn("UnidadMedida"));
-            dt.Columns.Add(new DataColumn("Presentacion"));
+            dt.Columns.Add(new DataColumn("Presentación"));
 
             try
             {
@@ -98,7 +98,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     dr["Nombre"] = listaProductoDTO[i].nombreProducto;
                     dr["Cantidad"] = listaProductoDTO[i].cantidad;
                     dr["UnidadMedida"] = listaProductoDTO[i].unidadMedida;
-                    dr["Presentacion"] = listaProductoDTO[i].cantidadPorEmpaque;
+                    dr["Presentación"] = listaProductoDTO[i].cantidadPorEmpaque;
                     dt.Rows.Add(dr);
                 }
 
@@ -152,7 +152,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                             }
                             else
                             {
-                                epError.SetError(txtCantidad, "Cantidad no váldia");
+                                epError.SetError(txtCantidad, "Cantidad no válida");
                                 txtCantidad.Focus();
                                 return;
                             }
@@ -178,7 +178,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     }
                     else
                     {
-                        epError.SetError(txtCantidad, "Cantidad no váldia");
+                        epError.SetError(txtCantidad, "Cantidad no válida");
                         txtCantidad.Focus();
                         return;
                     }
@@ -470,11 +470,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                 if (accionp == "Modificar")
                 {
-                    MessageBox.Show("La Mezcla " + unaMezcla.nombre + " fue modificada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La mezcla " + unaMezcla.nombre + " fue modificada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("La Mezcla " + unaMezcla.nombre + " fue agregada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La mezcla " + unaMezcla.nombre + " fue agregada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
 
@@ -533,7 +533,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     {
 
                         gestorMezclaProducto.EliminarProductoDeMezcla(unProducto, int.Parse(lblIdMezcla.Text), usuarioLogueado);
-                        MessageBox.Show("El Producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         listaProductoDTO.Clear();
                         gCMezclas();
                     }
@@ -551,7 +551,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                                 break;
                             }
                         }
-                        MessageBox.Show("El Producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " fue eliminado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         CargarGrid();
                     }
                 }
@@ -565,7 +565,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
 
         /// <summary>
-        /// Metodo que permite extrae el Producto seleccionado del grid y colocar la informacion en los campos del formulario
+        /// Metodo que permite extrae el Producto seleccionado del grid y colocar la Información en los campos del formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

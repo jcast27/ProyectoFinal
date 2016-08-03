@@ -120,17 +120,11 @@
   <metadata name="spSELECTUbicacionAllBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>431, 56</value>
   </metadata>
-  <metadata name="spSELECTTipoBodegaAllBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="spSELECTTipoBodegaAllBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>816, 17</value>
+  <metadata name="dataSetUbicacion.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>285, 56</value>
   </metadata>
   <metadata name="spSELECTTipoBodegaAllBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
-  </metadata>
-  <metadata name="dataSetTipoBodegaCMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>632, 17</value>
   </metadata>
   <metadata name="dataSetTipoBodegaCMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>632, 17</value>
@@ -144,14 +138,11 @@
   <metadata name="dataSetTBodega.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="dataSetTBodega.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tileNavPane1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAMwCAIAAABORer3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAA/7JJREFUeF7U/em6XUdynW37h11VttzIciuJJNi3IECy7Evnf2bfnfnMFcg91wZV
+        wgAADsIBFShKgAAA/7JJREFUeF7U/em6XUdynW37h11VttzIciuJJNi3IECy7Evnf2bfnfnMFcg91wZV
         fj830viR14gRIyJj5mrnAgj+iz/+c8Cf/vSnP/zhD1fwEukMg3+9kRiHUjdnyLB6vcymlA2nHoRX7mV2
         9BFbb6mbHoGy1n/zb/5NHPC/+qu/siYOTiVnYkpIhyveuKSHP5w6bONCKbgSj6qTG68Jt/HqGQf83/7b
         f8uQP5JYdruuKsB37z/trteFM/+7f/fvhAjI/of/8B9KObdspeqGENnyJMZrEn9GNh5IyW93ELZFHUpt
@@ -24151,9 +24142,6 @@
   </metadata>
   <metadata name="sp_SELECT_TipoBodega_AllTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1077, 17</value>
-  </metadata>
-  <metadata name="dataSetUbicacion.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>285, 56</value>
   </metadata>
   <metadata name="sp_SELECT_Ubicacion_AllTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>681, 56</value>

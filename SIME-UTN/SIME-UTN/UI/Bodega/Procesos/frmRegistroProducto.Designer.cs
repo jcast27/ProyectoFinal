@@ -51,12 +51,12 @@
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSolicitudAvatar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaIngreso = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.registroProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter();
-            this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
             this.colIDRegistroBodega = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpEditBodega = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.dataSetRBodegaNombre = new SIME_UTN.DataSets.Bodega.Procesos.DataSetRBodegaNombre();
             this.spSELECTRegistroBodegaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetRBodegaNombre = new SIME_UTN.DataSets.Bodega.Procesos.DataSetRBodegaNombre();
+            this.registroProductoTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProductoTableAdapters.RegistroProductoTableAdapter();
+            this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
             this.sp_SELECT_RegistroBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetRBodegaNombreTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
@@ -68,8 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditBodega)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetRBodegaNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRBodegaNombre)).BeginInit();
             this.SuspendLayout();
             // 
             // ePError
@@ -275,6 +275,7 @@
             this.colDescripcion.AppearanceCell.Options.UseFont = true;
             this.colDescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.colDescripcion.AppearanceHeader.Options.UseFont = true;
+            this.colDescripcion.Caption = "Descripción";
             this.colDescripcion.FieldName = "Descripcion";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
@@ -302,14 +303,6 @@
             this.colFechaIngreso.Visible = true;
             this.colFechaIngreso.VisibleIndex = 2;
             // 
-            // registroProductoTableAdapter
-            // 
-            this.registroProductoTableAdapter.ClearBeforeFill = true;
-            // 
-            // usuarioTableAdapter
-            // 
-            this.usuarioTableAdapter.ClearBeforeFill = true;
-            // 
             // colIDRegistroBodega
             // 
             this.colIDRegistroBodega.ColumnEdit = this.LookUpEditBodega;
@@ -327,15 +320,23 @@
             this.LookUpEditBodega.Name = "LookUpEditBodega";
             this.LookUpEditBodega.ValueMember = "idregistrobodega";
             // 
+            // spSELECTRegistroBodegaAllBindingSource
+            // 
+            this.spSELECTRegistroBodegaAllBindingSource.DataMember = "sp_SELECT_RegistroBodega_All";
+            this.spSELECTRegistroBodegaAllBindingSource.DataSource = this.dataSetRBodegaNombre;
+            // 
             // dataSetRBodegaNombre
             // 
             this.dataSetRBodegaNombre.DataSetName = "DataSetRBodegaNombre";
             this.dataSetRBodegaNombre.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // spSELECTRegistroBodegaAllBindingSource
+            // registroProductoTableAdapter
             // 
-            this.spSELECTRegistroBodegaAllBindingSource.DataMember = "sp_SELECT_RegistroBodega_All";
-            this.spSELECTRegistroBodegaAllBindingSource.DataSource = this.dataSetRBodegaNombre;
+            this.registroProductoTableAdapter.ClearBeforeFill = true;
+            // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
             // sp_SELECT_RegistroBodega_AllTableAdapter
             // 
@@ -366,8 +367,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditBodega)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetRBodegaNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRBodegaNombre)).EndInit();
             this.ResumeLayout(false);
 
         }

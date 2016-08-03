@@ -74,7 +74,7 @@ namespace SIME_UTN.UI
                         // devolver OK
                         this.DialogResult = DialogResult.OK;
                         // Cerrar ventana de Login
-                        MessageBox.Show("Usuario fue cambiado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Usuario fue cambiado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
                     Close();
                     }else

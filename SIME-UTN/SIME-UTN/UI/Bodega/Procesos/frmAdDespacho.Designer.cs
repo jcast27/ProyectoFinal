@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdDespacho));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
+            this.nudCantidadMez = new System.Windows.Forms.NumericUpDown();
             this.lblComponentes = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbMezcla = new System.Windows.Forms.ComboBox();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource();
-            this.dataSetRMezclasBindingSource = new System.Windows.Forms.BindingSource();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetRMezclasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetRMezclas = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclas();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
@@ -53,8 +55,8 @@
             this.columnaProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnaCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource();
-            this.dataSetFuncionarioBindingSource = new System.Windows.Forms.BindingSource();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetFuncionario = new SIME_UTN.DataSets.Formulario.DataSetFuncionario();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCantidadProd = new System.Windows.Forms.TextBox();
@@ -69,10 +71,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter();
-            this.ePError = new System.Windows.Forms.ErrorProvider();
-            this.toolTip = new System.Windows.Forms.ToolTip();
-            this.nudCantidadMez = new System.Windows.Forms.NumericUpDown();
+            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.gbGridViewFuncionario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMez)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).BeginInit();
@@ -85,7 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMez)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -170,13 +171,26 @@
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Mezclas";
             // 
+            // nudCantidadMez
+            // 
+            this.nudCantidadMez.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.nudCantidadMez.Location = new System.Drawing.Point(415, 32);
+            this.nudCantidadMez.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudCantidadMez.Name = "nudCantidadMez";
+            this.nudCantidadMez.Size = new System.Drawing.Size(104, 24);
+            this.nudCantidadMez.TabIndex = 37;
+            // 
             // lblComponentes
             // 
             this.lblComponentes.AutoSize = true;
             this.lblComponentes.BackColor = System.Drawing.Color.White;
             this.lblComponentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblComponentes.ForeColor = System.Drawing.Color.Black;
-            this.lblComponentes.Location = new System.Drawing.Point(309, 34);
+            this.lblComponentes.Location = new System.Drawing.Point(321, 33);
             this.lblComponentes.Name = "lblComponentes";
             this.lblComponentes.Size = new System.Drawing.Size(16, 18);
             this.lblComponentes.TabIndex = 36;
@@ -186,7 +200,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label6.Location = new System.Drawing.Point(199, 34);
+            this.label6.Location = new System.Drawing.Point(211, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 18);
             this.label6.TabIndex = 35;
@@ -196,7 +210,7 @@
             // 
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnGenerar.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerar.Location = new System.Drawing.Point(513, 31);
+            this.btnGenerar.Location = new System.Drawing.Point(525, 30);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(85, 26);
             this.btnGenerar.TabIndex = 34;
@@ -208,7 +222,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label4.Location = new System.Drawing.Point(331, 35);
+            this.label4.Location = new System.Drawing.Point(343, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 18);
             this.label4.TabIndex = 32;
@@ -220,7 +234,7 @@
             this.cmbMezcla.DisplayMember = "nombre";
             this.cmbMezcla.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbMezcla.FormattingEnabled = true;
-            this.cmbMezcla.Location = new System.Drawing.Point(72, 33);
+            this.cmbMezcla.Location = new System.Drawing.Point(84, 32);
             this.cmbMezcla.Name = "cmbMezcla";
             this.cmbMezcla.Size = new System.Drawing.Size(121, 24);
             this.cmbMezcla.TabIndex = 31;
@@ -246,7 +260,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label2.Location = new System.Drawing.Point(6, 35);
+            this.label2.Location = new System.Drawing.Point(18, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 18);
             this.label2.TabIndex = 30;
@@ -292,7 +306,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label5.Location = new System.Drawing.Point(18, 372);
+            this.label5.Location = new System.Drawing.Point(18, 368);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 18);
             this.label5.TabIndex = 12;
@@ -301,7 +315,7 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtObservaciones.Location = new System.Drawing.Point(21, 393);
+            this.txtObservaciones.Location = new System.Drawing.Point(21, 389);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(743, 48);
@@ -500,19 +514,6 @@
             // 
             this.ePError.ContainerControl = this;
             // 
-            // nudCantidadMez
-            // 
-            this.nudCantidadMez.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudCantidadMez.Location = new System.Drawing.Point(403, 33);
-            this.nudCantidadMez.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudCantidadMez.Name = "nudCantidadMez";
-            this.nudCantidadMez.Size = new System.Drawing.Size(104, 24);
-            this.nudCantidadMez.TabIndex = 37;
-            // 
             // frmAdDespacho
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -529,6 +530,7 @@
             this.Load += new System.EventHandler(this.frmAdDespachoProductos_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMez)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRMezclas)).EndInit();
@@ -542,7 +544,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMez)).EndInit();
             this.ResumeLayout(false);
 
         }

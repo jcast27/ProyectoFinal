@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdItem));
             this.gbItem = new System.Windows.Forms.GroupBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -38,7 +39,7 @@
             this.lblSeccion = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.ePError = new System.Windows.Forms.ErrorProvider();
+            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
@@ -66,7 +67,7 @@
             this.gbItem.Location = new System.Drawing.Point(6, 46);
             this.gbItem.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbItem.Name = "gbItem";
-            this.gbItem.Size = new System.Drawing.Size(433, 230);
+            this.gbItem.Size = new System.Drawing.Size(433, 231);
             this.gbItem.TabIndex = 33;
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Registro Items";
@@ -78,7 +79,7 @@
             this.txtId.Location = new System.Drawing.Point(109, 41);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(161, 22);
-            this.txtId.TabIndex = 35;
+            this.txtId.TabIndex = 0;
             // 
             // lblId
             // 
@@ -154,7 +155,7 @@
             this.txtNombre.Location = new System.Drawing.Point(109, 69);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(161, 55);
+            this.txtNombre.Size = new System.Drawing.Size(161, 56);
             this.txtNombre.TabIndex = 29;
             // 
             // lblDescripcion
@@ -257,10 +258,11 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 288);
+            this.ClientSize = new System.Drawing.Size(448, 289);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbItem);
-            this.MaximumSize = new System.Drawing.Size(464, 422);
+            this.MaximumSize = new System.Drawing.Size(464, 327);
+            this.MinimumSize = new System.Drawing.Size(464, 327);
             this.Name = "frmAdItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Items";

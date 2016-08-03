@@ -57,7 +57,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (MessageBox.Show("¿Seguro que desea eliminar la unidad de medida " + unidad + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 gestorUnidad.EliminarUnidad(unidadId, unidad, usuarioLogueado);
-                MessageBox.Show("La Unidad de Medida " + unidad + " fue eliminada correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("La unidad de medida " + unidad + " fue eliminada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmUnidad_Load(null, null);
 
             }
