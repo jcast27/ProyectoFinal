@@ -15,7 +15,7 @@ namespace SIME_UTN.Entities
         public UnidadMedida UnidadMedida { set; get; }
         public int estado { set; get; }
 
-        public double contendio { set; get; }
+        public double contenido { set; get; }
         public double cantMinima { set; get; }
         public double cantMaxima { set; get; }
 

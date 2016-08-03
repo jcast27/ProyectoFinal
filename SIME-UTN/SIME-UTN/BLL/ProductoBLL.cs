@@ -56,5 +56,10 @@ namespace SIME_UTN.BLL
         {
             return ProductoDAL.ObtenerProductoPorCodigoAvatar(codigoAvatarp);
         }
+
+        internal static Producto ObtenerProductoPorID(int codigoProducto) {
+
+            return ProductoDAL.ObtenerProductoPorID(codigoProducto);
+        }
     }
 }

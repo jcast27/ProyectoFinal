@@ -69,7 +69,7 @@ namespace SIME_UTN.DAL
                     unProducto.codigoAvatar = dr["codigoavatar"].ToString();
                     unProducto.nombreProducto = dr["nombre"].ToString();
                     unProducto.descripcion = dr["descripcion"].ToString();
-                    unProducto.contendio = Double.Parse(dr["contenido"].ToString());
+                    unProducto.contenido = Double.Parse(dr["contenido"].ToString());
                     unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
                     unProducto.Categoria = CategoriaDAL.ObtenerCategoriaID(Convert.ToInt32(ds.Tables[0].Rows[0]["idcategoria"].ToString()));
                     unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(ds.Tables[0].Rows[0]["idunidadmedida"].ToString()));
@@ -103,7 +103,7 @@ namespace SIME_UTN.DAL
                     unProducto.codigoAvatar = dr["codigoavatar"].ToString();
                     unProducto.nombreProducto = dr["nombre"].ToString();
                     unProducto.descripcion = dr["descripcion"].ToString();
-                    unProducto.contendio = Double.Parse(dr["contenido"].ToString());
+                    unProducto.contenido = Double.Parse(dr["Contenido"].ToString());
                     unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
                     unProducto.Categoria = CategoriaDAL.ObtenerCategoriaID(Convert.ToInt32(ds.Tables[0].Rows[0]["idcategoria"].ToString()));
                     unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(ds.Tables[0].Rows[0]["idunidadmedida"].ToString()));
@@ -184,7 +184,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@descripcion", unProductop.descripcion);
             comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
             comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
-            comando.Parameters.AddWithValue("@contenido", unProductop.contendio);
+            comando.Parameters.AddWithValue("@contenido", unProductop.contenido);
             comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
             comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
@@ -216,7 +216,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@descripcion", unProductop.descripcion);
             comando.Parameters.AddWithValue("@idcategoria", unProductop.Categoria.idCategoria);
             comando.Parameters.AddWithValue("@idunidadmedida", unProductop.UnidadMedida.idUnidadMedida);
-            comando.Parameters.AddWithValue("@contenido", unProductop.contendio);
+            comando.Parameters.AddWithValue("@contenido", unProductop.contenido);
             comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
             comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);

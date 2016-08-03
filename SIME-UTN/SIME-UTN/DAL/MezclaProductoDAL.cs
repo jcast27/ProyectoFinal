@@ -149,6 +149,7 @@ namespace SIME_UTN.DAL
                     unProducto.nombreProducto = dr["Nombre"].ToString();
                     unProducto.unidadMedida = dr["UnidadMedida"].ToString();
                     unProducto.cantidad = Double.Parse(dr["Cantidad"].ToString());
+                    unProducto.cantidadPorEmpaque = dr["MCantidad"].ToString();
                     listaProductosDTO.Add(unProducto);
                 }
             }

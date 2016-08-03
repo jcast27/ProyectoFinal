@@ -94,6 +94,7 @@
     <Compile Include="BLL\FuncionarioBLL.cs" />
     <Compile Include="BLL\ItemBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
+    <Compile Include="BLL\MezclaBLL.cs" />
     <Compile Include="BLL\MezclaProductoBLL.cs" />
     <Compile Include="BLL\ProductoBLL.cs" />
     <Compile Include="BLL\RegistroBodegaBLL.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="DAL\FuncionarioDAL.cs" />
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\MezclaDAL.cs" />
     <Compile Include="DAL\MezclaProductoDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\RegistroBodegaDAL.cs" />

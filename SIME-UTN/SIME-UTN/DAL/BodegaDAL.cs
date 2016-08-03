@@ -32,14 +32,16 @@ namespace SIME_UTN.DAL
 
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    PBodega unProducto = new PBodega();
-                    //unProducto.idBodega = Convert.ToInt32(dr["idbodega"].ToString());
-                    unProducto.RegistroBodega = RegistroBodegaDAL.ObtenerBodega(Convert.ToInt32(dr["idregistrobodega"].ToString()));
-                    unProducto.Producto = ProductoDAL.ObtenerProductoPorCodigoAvatar(dr["codigoavatar"].ToString());
-                    unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(dr["idunidadmedida"].ToString()));
-                    unProducto.contenido = double.Parse(dr["contenido"].ToString());
-                    unProducto.unidades = int.Parse(dr["Unidades"].ToString());
-                    listaProductos.Add(unProducto);
+                    if (double.Parse(dr["contenido"].ToString()) > 0)
+                    {
+                        PBodega unProducto = new PBodega();
+                        unProducto.RegistroBodega = RegistroBodegaDAL.ObtenerBodega(Convert.ToInt32(dr["idregistrobodega"].ToString()));
+                        unProducto.Producto = ProductoDAL.ObtenerProductoPorCodigoAvatar(dr["codigoavatar"].ToString());
+                        unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(dr["idunidadmedida"].ToString()));
+                        unProducto.contenido = double.Parse(dr["contenido"].ToString());
+                        unProducto.unidades = int.Parse(dr["Unidades"].ToString());
+                        listaProductos.Add(unProducto);
+                    }
                 }
             }
 

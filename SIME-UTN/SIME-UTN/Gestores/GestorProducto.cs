@@ -57,5 +57,11 @@ namespace SIME_UTN.Gestores
         {
             return ProductoBLL.ObtenerProductoPorCodigoAvatar(codigoAvatarp);
         }
+
+        internal Producto ObtenerProductoPorID(int codigoProducto)
+        {
+
+            return ProductoBLL.ObtenerProductoPorID(codigoProducto);
+        }
     }
 }

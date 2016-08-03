@@ -20,14 +20,13 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idDespacho", idDespacho);
             comando.Parameters.AddWithValue("@idBodega", Bodegap.idBodega);
             comando.Parameters.AddWithValue("@idProducto", Bodegap.Producto.idProducto);
-            comando.Parameters.AddWithValue("@CantidadDespachada", Bodegap.contenido);
+            comando.Parameters.AddWithValue("@CantidadDespachada", Bodegap.unidades);
             comando.Parameters.AddWithValue("@Estado", 1);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(comando);
             }
-
         }
 
         public static int GuardarDespacho(int idBodega, UsuarioTable user, string descripcion, Funcionario funcionario)

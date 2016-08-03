@@ -21,14 +21,14 @@ namespace SIME_UTN.DAL
             SqlCommand comando = new SqlCommand("sp_INSERT_RegistroIngresoProducto");
             comando.CommandType = CommandType.StoredProcedure;
             unProducto = ProductoDAL.ObtenerProductoPorCodigoAvatar(unIngresoProdDTO.codigoAvatar);
-            cantidad = unIngresoProdDTO.cantidadPorEmpaque * unProducto.contendio;
+            cantidad = unIngresoProdDTO.cantidadPorEmpaque * unProducto.contenido;
             comando.Parameters.AddWithValue("@idBodega", unIngresoProdDTO.idBodega);
             comando.Parameters.AddWithValue("@idingresoproducto", unIngresoProdDTO.idIngreso);
             comando.Parameters.AddWithValue("@idproducto", unIngresoProdDTO.idProducto);
             comando.Parameters.AddWithValue("@idunidadmedida",unIngresoProdDTO.Idunidad);
             comando.Parameters.AddWithValue("@cantidadxempaque", unIngresoProdDTO.cantidadPorEmpaque);
             comando.Parameters.AddWithValue("@UCantidadIngresada", cantidad);
-            comando.Parameters.AddWithValue("@cantidad", unProducto.contendio);
+            comando.Parameters.AddWithValue("@cantidad", unProducto.contenido);
             comando.Parameters.AddWithValue("@costoxempaque", unIngresoProdDTO.costoPorEmpaque);
             comando.Parameters.AddWithValue("@FechaCaducidad", unIngresoProdDTO.fechaCaducidad);
             comando.Parameters.AddWithValue("@estado", unIngresoProdDTO.estado);
@@ -88,14 +88,14 @@ namespace SIME_UTN.DAL
             SqlCommand comando = new SqlCommand("sp_UPDATE_RegistroIngresoProducto");
             comando.CommandType = CommandType.StoredProcedure;
             unProducto = ProductoDAL.ObtenerProductoPorCodigoAvatar(unIngresoProdDTO.codigoAvatar);
-            cantidad = unIngresoProdDTO.cantidadPorEmpaque * unProducto.contendio;
+            cantidad = unIngresoProdDTO.cantidadPorEmpaque * unProducto.contenido;
             comando.Parameters.AddWithValue("@idingresoproducto", unIngresoProdDTO.idIngreso);
             comando.Parameters.AddWithValue("@idproducto", unIngresoProdDTO.idProducto);
             comando.Parameters.AddWithValue("@FechaCaducidad", unIngresoProdDTO.fechaCaducidad);
             comando.Parameters.AddWithValue("@UCantidadIngresada", cantidad);
             comando.Parameters.AddWithValue("@idunidadmedida", unIngresoProdDTO.Idunidad);
             comando.Parameters.AddWithValue("@cantidadxempaque", unIngresoProdDTO.cantidadPorEmpaque);
-            comando.Parameters.AddWithValue("@cantidad", unProducto.contendio);
+            comando.Parameters.AddWithValue("@cantidad", unProducto.contenido);
             comando.Parameters.AddWithValue("@costoxempaque", unIngresoProdDTO.costoPorEmpaque);
             comando.Parameters.AddWithValue("@estado", unIngresoProdDTO.estado);
 

@@ -125,7 +125,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtNombreProducto.Text = productoEstatico.nombreProducto;
                 txtDescripcion.Text = productoEstatico.descripcion;
                 txtCodigoAvatar.Text = productoEstatico.codigoAvatar;
-                txtContenido.Text = productoEstatico.contendio.ToString();
+                txtContenido.Text = productoEstatico.contenido.ToString();
                 lblCodigoProducto.Text = productoEstatico.idProducto.ToString();
                 txtCantMinima.Text = productoEstatico.cantMinima.ToString();
                 txtCantMaxima.Text = productoEstatico.cantMaxima.ToString();
@@ -179,7 +179,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unaUnidadMedida.idUnidadMedida = int.Parse(cmbUnidadMedida.SelectedValue.ToString());
                 unaUnidadMedida.descripcion = cmbUnidadMedida.GetItemText(cmbUnidadMedida.Items[cmbUnidadMedida.SelectedIndex]);
                 unProducto.UnidadMedida = unaUnidadMedida;
-                unProducto.contendio = Double.Parse(txtContenido.Text);
+                unProducto.contenido = Double.Parse(txtContenido.Text);
                 unProducto.cantMinima = Double.Parse(txtCantMinima.Text);
                 unProducto.cantMaxima = Double.Parse(txtCantMaxima.Text);
                 unProducto.estado = 1;

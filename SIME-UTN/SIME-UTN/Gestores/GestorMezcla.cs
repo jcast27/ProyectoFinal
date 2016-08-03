@@ -35,12 +35,22 @@ namespace SIME_UTN.Gestores
 
         internal void ActualizarMezcla(Mezcla unaMezclap, string usuarioLogueadop)
         {
-            BLL.RegistroMezclaBLL.ActualizarMezcla(unaMezclap,usuarioLogueadop);
+            BLL.RegistroMezclaBLL.ActualizarMezcla(unaMezclap, usuarioLogueadop);
         }
 
         internal void EliminarMezcla(int idRegistroMezclap, string nombrep, string usuarioLogueadop)
         {
-            BLL.RegistroMezclaBLL.EliminarMezcla(idRegistroMezclap,nombrep,usuarioLogueadop);
+            BLL.RegistroMezclaBLL.EliminarMezcla(idRegistroMezclap, nombrep, usuarioLogueadop);
+        }
+
+        internal void agregarMezcla(int idBodega, Producto mezcla, int contenido)
+        {
+            MezclaBLL.agregarMezcla(idBodega, mezcla, contenido);
+        }
+
+        internal void removerComponentes(int idBodega, int idProducto, int contenido, int unidades)
+        {
+            MezclaBLL.removerComponentes(idBodega, idProducto, contenido, unidades);
         }
     }
 }

@@ -200,7 +200,7 @@
             this.gbGridViewFuncionario.Size = new System.Drawing.Size(1112, 147);
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
-            this.gbGridViewFuncionario.Text = "Regristro de Mezclas";
+            this.gbGridViewFuncionario.Text = "Registro de Mezclas";
             // 
             // cmbCategoria
             // 
@@ -476,7 +476,7 @@
             this.MaximumSize = new System.Drawing.Size(1152, 675);
             this.Name = "frmAdMezclas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Regristro De Mezclas";
+            this.Text = "Registro De Mezclas";
             this.Load += new System.EventHandler(this.frmAdRegistroProducto_Load);
             this.gbGridViewFuncionario.ResumeLayout(false);
             this.gbGridViewFuncionario.PerformLayout();

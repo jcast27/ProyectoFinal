@@ -33,7 +33,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@descripcion", unaMezclap.descripcion);
             comando.Parameters.AddWithValue("@idcategoria", unaMezclap.Categoria.idCategoria);
             comando.Parameters.AddWithValue("@idunidadmedida", 10);
-            comando.Parameters.AddWithValue("@contenido", 0);
+            comando.Parameters.AddWithValue("@contenido", 1);
             comando.Parameters.AddWithValue("@stockminimo", 1);
             comando.Parameters.AddWithValue("@stockmaximo", 1000);
             comando.Parameters.AddWithValue("@estado", unaMezclap.estado);
