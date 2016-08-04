@@ -51,8 +51,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
         public void DesactivarUnidad()
         {
-            string unidad = gridView1.GetFocusedRowCellValue("Descripcion").ToString(); ;
-            int unidadId = Int32.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString());
+            string unidad = gridView1.GetFocusedRowCellValue("descripcion").ToString(); ;
+            int unidadId = Int32.Parse(gridView1.GetFocusedRowCellValue("idunidadmedida").ToString());
 
             if (MessageBox.Show("¿Seguro que desea eliminar la unidad de medida " + unidad + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
