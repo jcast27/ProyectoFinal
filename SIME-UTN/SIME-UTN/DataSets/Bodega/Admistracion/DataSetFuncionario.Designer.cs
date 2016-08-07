@@ -969,7 +969,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionarioTableAdapters 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Funcionario] WHERE (([IDFuncionario] = @Original_IDFuncionario) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Cedula = 1 AND [Cedula] IS NULL) OR ([Cedula] = @Original_Cedula)) AND ((@IsNull_Telefono = 1 AND [Telefono] IS NULL) OR ([Telefono] = @Original_Telefono)) AND ((@IsNull_Correo = 1 AND [Correo] IS NULL) OR ([Correo] = @Original_Correo)) AND ([IDDepartamento] = @Original_IDDepartamento) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Funcionario] WHERE (([IDFuncionario] = @Original_IDFuncionario) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Cedula = 1 AND [Cedula] IS NULL) OR ([Cedula] = @Original_Cedula)) AND ((@IsNull_Telefono = 1 AND [Telefono] IS NULL) OR ([Telefono] = @Original_Telefono)) AND ((@IsNull_Correo = 1 AND [Correo] IS NULL) OR ([Correo] = @Original_Correo)) AND ([IDDepartamento] = @Original_IDDepartamento) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDFuncionario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDFuncionario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Nombre", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -985,7 +985,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionarioTableAdapters 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Funcionario] ([Nombre], [Cedula], [Telefono], [Correo], [IDDepartamento], [Estado]) VALUES (@Nombre, @Cedula, @Telefono, @Correo, @IDDepartamento, @Estado);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Funcionario] ([Nombre], [Cedula], [Telefono], [Correo], [IDDepartamento], [Estado]) VALUES (@Nombre, @Cedula, @Telefono, @Correo, @IDDepartamento, @Estado);
 SELECT IDFuncionario, Nombre, Cedula, Telefono, Correo, IDDepartamento, Estado FROM Funcionario WHERE (IDFuncionario = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -996,7 +996,7 @@ SELECT IDFuncionario, Nombre, Cedula, Telefono, Correo, IDDepartamento, Estado F
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Funcionario] SET [Nombre] = @Nombre, [Cedula] = @Cedula, [Telefono] = @Telefono, [Correo] = @Correo, [IDDepartamento] = @IDDepartamento, [Estado] = @Estado WHERE (([IDFuncionario] = @Original_IDFuncionario) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Cedula = 1 AND [Cedula] IS NULL) OR ([Cedula] = @Original_Cedula)) AND ((@IsNull_Telefono = 1 AND [Telefono] IS NULL) OR ([Telefono] = @Original_Telefono)) AND ((@IsNull_Correo = 1 AND [Correo] IS NULL) OR ([Correo] = @Original_Correo)) AND ([IDDepartamento] = @Original_IDDepartamento) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Funcionario] SET [Nombre] = @Nombre, [Cedula] = @Cedula, [Telefono] = @Telefono, [Correo] = @Correo, [IDDepartamento] = @IDDepartamento, [Estado] = @Estado WHERE (([IDFuncionario] = @Original_IDFuncionario) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Cedula = 1 AND [Cedula] IS NULL) OR ([Cedula] = @Original_Cedula)) AND ((@IsNull_Telefono = 1 AND [Telefono] IS NULL) OR ([Telefono] = @Original_Telefono)) AND ((@IsNull_Correo = 1 AND [Correo] IS NULL) OR ([Correo] = @Original_Correo)) AND ([IDDepartamento] = @Original_IDDepartamento) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
 SELECT IDFuncionario, Nombre, Cedula, Telefono, Correo, IDDepartamento, Estado FROM Funcionario WHERE (IDFuncionario = @IDFuncionario)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1033,8 +1033,8 @@ SELECT IDFuncionario, Nombre, Cedula, Telefono, Correo, IDDepartamento, Estado F
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDFuncionario, Nombre, Cedula, Telefono, Correo, IDDepartamento, Estado FR" +
-                "OM dbo.Funcionario";
+            this._commandCollection[0].CommandText = "SELECT        IDFuncionario, Nombre, Cedula, Telefono, Correo, IDDepartamento, Es" +
+                "tado\r\nFROM            Funcionario\r\nWHERE        (Estado = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

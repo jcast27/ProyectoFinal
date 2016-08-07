@@ -49,7 +49,6 @@
             this.tipoBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
@@ -99,6 +98,8 @@
             this.cmbUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbUbicacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTUbicacionAllBindingSource, "idubicacion", true));
             this.cmbUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
             this.cmbUbicacion.DisplayMember = "nombre";
@@ -145,12 +146,15 @@
             this.chkedEstado.Properties.Caption = "Activo";
             this.chkedEstado.Size = new System.Drawing.Size(75, 22);
             this.chkedEstado.TabIndex = 33;
+            this.chkedEstado.Visible = false;
             // 
             // cmbTipoBodega
             // 
             this.cmbTipoBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTipoBodega.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTipoBodega.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbTipoBodega.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTTipoBodegaAllBindingSource1, "idtipobodega", true));
             this.cmbTipoBodega.DataSource = this.spSELECTTipoBodegaAllBindingSource;
             this.cmbTipoBodega.DisplayMember = "descripcion";
@@ -269,7 +273,6 @@
             // 
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
@@ -292,17 +295,6 @@
             this.tileNavPane1.Size = new System.Drawing.Size(562, 40);
             this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
             // 
             // mBtnGuardar
             // 
@@ -365,8 +357,8 @@
             this.ClientSize = new System.Drawing.Size(562, 269);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewBodega);
-            this.MaximumSize = new System.Drawing.Size(578, 307);
-            this.MinimumSize = new System.Drawing.Size(578, 307);
+            this.MaximumSize = new System.Drawing.Size(578, 308);
+            this.MinimumSize = new System.Drawing.Size(578, 308);
             this.Name = "frmAdBodega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bodega";
@@ -398,7 +390,6 @@
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private System.Windows.Forms.ComboBox cmbTipoBodega;
         private DevExpress.XtraEditors.CheckEdit chkedEstado;
         private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega dataSetTBodega;

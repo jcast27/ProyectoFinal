@@ -170,11 +170,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 error = true;
             }
 
-            if (chkDecimales.Checked == false)
+            if (error == false)
             {
-                epError.SetError(chkDecimales, "Campo Requerido");
-                chkDecimales.Focus();
-                error = true;
+                epError.Clear();
             }
 
             return error;

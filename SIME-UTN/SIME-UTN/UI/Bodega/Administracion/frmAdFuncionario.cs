@@ -55,7 +55,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             // TODO: This line of code loads data into the 'dataSetDepartamento.sp_SELECT_Departamento_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_Departamento_AllTableAdapter.Fill(this.dataSetDepartamento.sp_SELECT_Departamento_All);
             Icon = Properties.Resources.Icono;
-          
 
             UsuarioLogueado();
             if (funcionarioEstatico == null)

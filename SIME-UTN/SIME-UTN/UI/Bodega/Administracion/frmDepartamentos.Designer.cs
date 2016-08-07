@@ -95,6 +95,8 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.coliddepartamento, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // coliddepartamento
@@ -106,6 +108,7 @@
             this.coliddepartamento.Caption = "ID Departamento";
             this.coliddepartamento.FieldName = "iddepartamento";
             this.coliddepartamento.Name = "coliddepartamento";
+            this.coliddepartamento.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.coliddepartamento.Visible = true;
             this.coliddepartamento.VisibleIndex = 0;
             // 

@@ -45,7 +45,6 @@
             this.lblCorreo = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
@@ -88,6 +87,8 @@
             this.cmbDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbDepartamento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbDepartamento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDepartamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTDepartamentoAllBindingSource, "iddepartamento", true));
             this.cmbDepartamento.DataSource = this.spSELECTDepartamentoAllBindingSource;
             this.cmbDepartamento.DisplayMember = "descripcion";
@@ -241,7 +242,6 @@
             // 
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
@@ -264,17 +264,6 @@
             this.tileNavPane1.Size = new System.Drawing.Size(629, 40);
             this.tileNavPane1.TabIndex = 1;
             this.tileNavPane1.Text = "tileNavPane1";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
             // 
             // mBtnGuardar
             // 
@@ -329,6 +318,8 @@
             this.ClientSize = new System.Drawing.Size(629, 277);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewFuncionario);
+            this.MaximumSize = new System.Drawing.Size(645, 316);
+            this.MinimumSize = new System.Drawing.Size(645, 316);
             this.Name = "frmAdFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funcionario";
@@ -358,7 +349,6 @@
         private System.Windows.Forms.TextBox txtCedula;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;

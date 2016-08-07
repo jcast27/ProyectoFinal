@@ -23,28 +23,29 @@ namespace SIME_UTN.UI.Bodega.Procesos
         GestorTrasladoProductoInter gestorTrasladoPInter = null;
         GestorTrasladoProducto gestorTraslado = null;
         GestorBodega gestorBodega = null;
-        GestorUnidadMedida gestorUnidadMedida = null;
         GestorProducto gestorProducto = null;
 
 
         static TrasladoProducto trasladoEstatico = null;
         public frmAdTrasladoProductos()
         {
+          
             InitializeComponent();
+            lista.Clear();
+            listaPBodega.Clear();
             gestorTraslado = new GestorTrasladoProducto();
             txtNumeroTraslado.Text = gestorTraslado.ObtenerSiguienteNumeroTraslado();
             txtFechaTraslado.Text = ObtenerFecha();
         }
 
-        public frmAdTrasladoProductos(TrasladoProducto trasladoEstaticop)
+        private void RefrescarBodega(int idBodega)
         {
-            InitializeComponent();
-            trasladoEstatico = new TrasladoProducto();
-            trasladoEstatico = trasladoEstaticop;
-            gCTraslados();
-            CambiarEstado(EstadoMantenimiento.Editar);
+            gestorBodega = new GestorBodega();
+            List<PBodega> lista = new List<PBodega>();
+            lista = gestorBodega.ObtenerProductosPorIdBodega(idBodega);
+            gCBodega.DataSource = lista;
+            gCProductos.DataSource = null;
         }
-
 
         public void UsuarioLogueado()
         {
@@ -60,67 +61,6 @@ namespace SIME_UTN.UI.Bodega.Procesos
             return fecha;
         }
 
-        public void CargarGridProductos()
-        {
-            DataTable dt = new DataTable();
-            dt.TableName = "Prodcutos";
-            dt.Columns.Add(new DataColumn("CodigoProducto"));
-            dt.Columns.Add(new DataColumn("Nombre"));
-            dt.Columns.Add(new DataColumn("Unidades"));
-            dt.Columns.Add(new DataColumn("UnidadMedida"));
-
-            try
-            {
-               
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["CodigoProducto"] = lista[i].codigoAvatar;
-                    dr["Nombre"] = lista[i].nombreProducto;
-                    dr["Unidades"] = lista[i].unidades;
-                    dr["UnidadMedida"] = lista[i].nombreUnidadMedida;
-                    dt.Rows.Add(dr);
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.gCProductos.DataSource = dt;
-        }
-
-        public void CargarGridBodegaOrigen()
-        {
-            DataTable dt = new DataTable();
-            dt.TableName = "Productos";
-            dt.Columns.Add(new DataColumn("CodigoProducto"));
-            dt.Columns.Add(new DataColumn("Nombre"));
-            dt.Columns.Add(new DataColumn("Unidades"));
-            dt.Columns.Add(new DataColumn("UnidadMedida"));
-
-            try
-            {
-
-                for (int i = 0; i < listaPBodega.Count; i++)
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["CodigoProducto"] = listaPBodega[i].Producto.codigoAvatar;
-                    dr["Nombre"] = listaPBodega[i].Producto.nombreProducto;
-                    dr["Unidades"] = listaPBodega[i].unidades;
-                    dr["UnidadMedida"] = listaPBodega[i].UnidadMedida.descripcion;
-                    dt.Rows.Add(dr);
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.gCBodega.DataSource = dt;
-        }
 
         public void gCTraslados()
         {
@@ -134,8 +74,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 txtObservaciones.Text = trasladoEstatico.observaciones;
                 lista = gestorTrasladoPInter.ObtenerProductosPorIdTraslado(trasladoEstatico.idTraslado);
                 listaPBodega = gestorBodega.ObtenerProductosPorIdBodega(trasladoEstatico.BodegaOrigen.idRegistroBodega);
-                CargarGridProductos();
-                CargarGridBodegaOrigen();
+
 
 
             }
@@ -149,7 +88,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             }
         }
 
-        public void GuardarCambiosTraslado(string accionp)
+        public void GuardarCambiosTraslado()
         {
             traslado = new TrasladoProducto();
             gestorTrasladoPInter = new GestorTrasladoProductoInter();
@@ -160,6 +99,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             Producto producto = new Producto();
             gestorProducto = new GestorProducto();
             GestorRegistroBodega gestorRBodega = new GestorRegistroBodega();
+            List<PBodega> lista = (List<PBodega>)gCProductos.DataSource;
             try
             {
                 traslado.idTraslado = int.Parse(txtNumeroTraslado.Text);
@@ -179,28 +119,18 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
                 if (lista.Count != 0)
                 {
-                    foreach (TrasladoProductoInterDTO trasladoInterDTO in lista)
+                    foreach (PBodega productoBodega in lista)
                     {
-                        producto = gestorProducto.ObtenerProductoPorCodigoAvatar(trasladoInterDTO.codigoAvatar);
-                        trasladoInterDTO.idProducto = producto.idProducto;
-                        trasladoInterDTO.idTraslado = traslado.idTraslado;
-                        trasladoInterDTO.idUnidadMedida = producto.UnidadMedida.idUnidadMedida;
-                        trasladoInterDTO.estado = 1;
-                        gestorTrasladoPInter.GuardarTrasladoProductos(trasladoInterDTO,traslado);
+                        productoBodega.estado = 1;
+                        gestorTrasladoPInter.GuardarTrasladoProductos(productoBodega, traslado);
                     }
 
                 }
 
-                if (accionp == "Modificar")
-                {
-                    MessageBox.Show("El traslado # " + traslado.idTraslado + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                }
-                else
-                {
+
                     MessageBox.Show("El traslado # " + traslado.idTraslado + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
-                }
+                
 
             }
             catch (Exception ex)
@@ -209,91 +139,44 @@ namespace SIME_UTN.UI.Bodega.Procesos
             }
         }
 
-        private void txtECodigoProducto_Click(object sender, EventArgs e)
-        {
-            frmFiltroProductos ofrmFiltroProductos = new frmFiltroProductos();
-            ofrmFiltroProductos.ShowDialog(this);
-            this.txtECodigoProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.CodigoAvatar;
-            this.txtNombreProducto.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.NombreProducto;
-            txtUnidadMedida.Text = ofrmFiltroProductos.Productoseleccionado == null ? "" : ofrmFiltroProductos.Productoseleccionado.UnidadMedida;
-        }
 
-        private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        public int validarCampos(int cantProd, int cantDesp)
         {
-            TrasladoProductoInterDTO unProducto = new TrasladoProductoInterDTO();
-            bool cantidadSuficiente = false;
-            bool existeProducto = false;
 
-            //se valida que los campos requeridos no esten vacios
-            if (ValidarCamposAgregarProducto() != true)
+            int r = cantDesp;
+
+            if (int.TryParse(txtCantidadProd.Text, out cantDesp))
             {
-
-                unProducto.codigoAvatar = txtECodigoProducto.Text;
-                unProducto.unidades = int.Parse(txtCantidad.Text);
-
-                //se compara la cantida por agregar, contra la cantidad el producto en bodega
-                foreach (PBodega productoBodega in listaPBodega)
+                if (cantDesp > 0)
                 {
-                    if (productoBodega.Producto.codigoAvatar == unProducto.codigoAvatar)
-                    {
-                        existeProducto = true;
-                        if (productoBodega.contenido >= unProducto.unidades)
-                        {
-                            cantidadSuficiente = true;
-                        }  
-                    }
+                    r = int.Parse(txtCantidadProd.Text);
+                    epError.Clear();
                 }
-
-                // se valida si el producto por agregar ya existe en la bodega, de lo contrario no se puede agregar
-                if (existeProducto == true)
+                else
                 {
-
-                    if (cantidadSuficiente == false)
-                    {
-                        MessageBox.Show("La cantidad digitada es mayor que la cantidad en bodega para este producto, digitar otra cantidad", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-
-                        int index = 0;
-                        bool existe = false;
-                        if (lista.Count != 0)
-                        {
-                            existe = true;
-
-                            // se valida si se agregar un producto repetido, de ser asi, se elimina y se vuelve agregar a la lista
-                            foreach (TrasladoProductoInterDTO unProductoDTO in lista)
-                            {
-                                if (unProductoDTO.codigoAvatar == txtECodigoProducto.Text)
-                                {
-                                    lista.RemoveAt(index);
-                                    break;
-                                }
-                                index++;
-                            }
-                        }
-
-                        unProducto.nombreProducto = txtNombreProducto.Text;
-                        unProducto.nombreUnidadMedida = txtUnidadMedida.Text;
-
-                        if (existe == true)
-                        {
-                            lista.Insert(index, unProducto);
-                        }
-                        else
-                        {
-                            lista.Add(unProducto);
-                        }
-                        this.CargarGridProductos();
-                        CambiarEstado(EstadoMantenimiento.Agregar);
-                    }
-                }else
-                {
-                    MessageBox.Show("El producto seleccionado no existe en la bodega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    CambiarEstado(EstadoMantenimiento.Agregar);
+                    epError.SetError(txtCantidadProd, "Cantidad no válida");
+                    txtCantidadProd.Focus();
+                    r = 0;
                 }
             }
-           
+            else
+            {
+                epError.SetError(txtCantidadProd, "Cantidad no válida");
+                txtCantidadProd.Focus();
+                r = 0;
+            }
+
+            cantProd = cantProd - cantDesp;
+
+            if (cantProd < 0)
+            {
+                epError.SetError(txtCantidadProd, "Productos Insuficientes");
+                txtCantidadProd.Focus();
+                r = 0;
+            }
+
+
+            return r;
         }
 
         public void CambiarEstado(EstadoMantenimiento estado)
@@ -310,40 +193,24 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     cmbTipoTraslado.Enabled = true;
                     cmbTipoTraslado.SelectedIndex = -1;
                     txtObservaciones.Text = "";
-                    txtNombreProducto.Text = "";
-                    txtECodigoProducto.Text = "";
-                    txtCantidad.Text = "";
-                    txtUnidadMedida.Text = "";
                  
                     break;
 
                 case EstadoMantenimiento.Editar:
                     mBtnAceptar.Visible = false;
-                    mBtnModificar.Visible = true;
                     txtNumeroTraslado.Enabled = false;
                     cmbBodegaOrigen.Enabled = false;
                     cmbBodegaDestino.Enabled = false;
                     txtUsuario.Enabled = false;
                     txtFechaTraslado.Enabled = false;
-                    txtECodigoProducto.Enabled = false;
-                    txtCantidad.Enabled = false;
-                    mBtnAgregar.Visible = false;
+
 
 
                     break;
 
                 case EstadoMantenimiento.Agregar:
-                    txtNombreProducto.Text = "";
-                    txtECodigoProducto.Text = "";
-                    txtCantidad.Text = "";
-                    txtUnidadMedida.Text = "";
                     break;
             }
-        }
-
-        private void mBtnNuevo_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            CambiarEstado(EstadoMantenimiento.Nuevo);
         }
 
         private void mBtnSalir_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -400,91 +267,12 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         }
 
-
-        /// <summary>
-        /// Invoca al metodo que permite hacerle las validacions pertinentes al campo cantidad
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            gestorUnidadMedida = new GestorUnidadMedida();
-            if (gestorUnidadMedida.ObtenerUnidadesConDecimales(txtUnidadMedida.Text) != true)
-            {
-                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-                {
-                    e.Handled = true;
-                    return;
-                }
-            }
-            else
-            {
-
-                if (e.KeyChar == 8)
-                {
-                    e.Handled = false;
-                    return;
-                }
-
-                bool IsDec = false;
-                int nroDec = 0;
-
-                for (int i = 0; i < txtCantidad.Text.Length; i++)
-                {
-                    if (txtCantidad.Text[i] == '.')
-                        IsDec = true;
-
-                    if (IsDec && nroDec++ >= 2)
-                    {
-                        e.Handled = true;
-                        return;
-                    }
-
-
-                }
-
-                if (e.KeyChar >= 48 && e.KeyChar <= 57)
-                    e.Handled = false;
-                else if (e.KeyChar == 46)
-                    e.Handled = (IsDec) ? true : false;
-                else
-                    e.Handled = true;
-
-            }
-        }
-
-        /// <summary>
-        /// Metodo que valida los campos requeridos para poder agregar productos al traslado
-        /// </summary>
-        /// <returns></returns>
-        public bool ValidarCamposAgregarProducto()
-        {
-            bool error = false;
-            if (txtECodigoProducto.Text.Trim() == "")
-            {
-                epError.SetError(txtECodigoProducto, "Campo Requerido");
-                txtECodigoProducto.Focus();
-                error = true;
-            }
-            if (txtCantidad.Text.Trim() == "")
-            {
-                epError.SetError(txtCantidad, "Campo Requerido");
-                txtCantidad.Focus();
-                error = true;
-            }
-            if (error == false)
-            {
-                epError.Clear();
-            }
-            return error;
-        }
-
         private void mBtnAceptar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
 
             if( ValidarCampos() != true)
             {
-                GuardarCambiosTraslado("Guardar");
+                GuardarCambiosTraslado();
             }
             
         }
@@ -544,61 +332,6 @@ namespace SIME_UTN.UI.Bodega.Procesos
             return error;
         }
 
-        public bool ValidarCamposModificar()
-        {
-            bool error = false;
-
-            if (txtNumeroTraslado.Text.Trim() == "")
-            {
-                epError.SetError(txtNumeroTraslado, "Campo Requerido");
-                txtNumeroTraslado.Focus();
-                error = true;
-            }
-            if (cmbBodegaOrigen.SelectedIndex == -1)
-            {
-                epError.SetError(cmbBodegaOrigen, "Campo Requerido");
-                cmbBodegaOrigen.Focus();
-                error = true;
-            }
-            if (cmbBodegaDestino.SelectedIndex == -1)
-            {
-                epError.SetError(cmbBodegaDestino, "Campo Requerido");
-                cmbBodegaDestino.Focus();
-                error = true;
-            }
-
-            if (txtUsuario.Text.Trim() == "")
-            {
-                epError.SetError(txtUsuario, "Campo Requerido");
-                txtUsuario.Focus();
-                error = true;
-            }
-            if (txtFechaTraslado.Text.Trim() == "")
-            {
-                epError.SetError(txtFechaTraslado, "Campo Requerido");
-                txtFechaTraslado.Focus();
-                error = true;
-            }
-            if (cmbTipoTraslado.SelectedIndex == -1)
-            {
-                epError.SetError(cmbTipoTraslado, "Campo Requerido");
-                cmbTipoTraslado.Focus();
-                error = true;
-            }
-            if (error == false)
-            {
-                epError.Clear();
-            }
-            return error;
-        }
-
-        private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            if (ValidarCamposModificar() != true)
-            {
-                GuardarCambiosTraslado("Modificar");
-            }
-        }
 
         private void cmbBodegaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -606,12 +339,152 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
                 gestorBodega = new GestorBodega();
                 int idBodega = int.Parse(cmbBodegaOrigen.SelectedValue.ToString());
-                listaPBodega = gestorBodega.ObtenerProductosPorIdBodega(idBodega);
-                lista.Clear();
-                CargarGridBodegaOrigen();
+                RefrescarBodega(idBodega);
+
             }
           
         }
 
+        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscar.Text))
+            {
+                gridView1.ActiveFilterString = "[Producto.nombreProducto] LIKE '%%'";
+            }
+            else
+            {
+                gridView1.ActiveFilterString = "[Producto.nombreProducto] LIKE '%" + txtBuscar.Text + "%'";
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCantidadProd.Clear();
+                txtCantidadProd.Focus();
+            }
+        }
+
+        public void TrasladarProductos()
+        {
+            int cantProd = int.Parse(gridView1.GetFocusedRowCellValue("unidades").ToString());
+
+            int cantTras = validarCampos(cantProd, 0);
+
+            if (cantTras > 0)
+            {
+                int id = int.Parse(gridView1.GetFocusedRowCellValue("Producto.idProducto").ToString());
+
+                List<PBodega> listaProd = (List<PBodega>)gCBodega.DataSource;
+
+                int indexProd = listaProd.FindIndex(a => a.Producto.idProducto == id);
+
+                listaProd[indexProd].unidades -= int.Parse(cantTras.ToString());
+
+                List<PBodega> listaDesp = new List<PBodega>();
+
+                if (gCProductos.DataSource != null)
+                {
+                    listaDesp = (List<PBodega>)gCProductos.DataSource;
+                }
+
+                int indexDesp = listaDesp.FindIndex(a => a.Producto.idProducto == id);
+
+                if (indexDesp == -1)
+                {
+                    PBodega nuevo = new PBodega();
+                    nuevo.estado = listaProd[indexProd].estado;
+                    nuevo.idBodega = listaProd[indexProd].idBodega;
+                    nuevo.Producto = listaProd[indexProd].Producto;
+                    nuevo.RegistroBodega = listaProd[indexProd].RegistroBodega;
+                    nuevo.UnidadMedida = listaProd[indexProd].UnidadMedida;
+                    nuevo.contenido = cantTras;
+                    nuevo.unidades = int.Parse(cantTras.ToString());
+                    listaDesp.Add(nuevo);
+                }
+                else
+                {
+                    listaDesp[indexDesp].unidades += int.Parse(cantTras.ToString());
+                }
+
+
+                gCBodega.DataSource = null;
+                gCProductos.DataSource = null;
+
+                gCBodega.DataSource = listaProd;
+                gCProductos.DataSource = listaDesp;
+
+                txtCantidadProd.Clear();
+                txtBuscar.Clear();
+                txtBuscar.Focus();
+            }
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            TrasladarProductos();
+        }
+
+        /// <summary>
+        /// Invoca al metodo que permite hacerle las validacions pertinentes al campo cantidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCantidadProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void txtRemover_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int cantProd = int.Parse(gridView2.GetFocusedRowCellValue("unidades").ToString());
+
+                int cantDevol = validarCampos(cantProd, 0);
+
+                if (cantDevol > 0)
+                {
+                    int id = int.Parse(gridView2.GetFocusedRowCellValue("Producto.idProducto").ToString());
+
+                    List<PBodega> listaProd = (List<PBodega>)gCBodega.DataSource;
+                    List<PBodega> listaDesp = listaDesp = (List<PBodega>)gCProductos.DataSource;
+
+                    int indexProd = listaProd.FindIndex(a => a.Producto.idProducto == id);
+                    int indexDesp = listaDesp.FindIndex(a => a.Producto.idProducto == id);
+
+                    listaProd[indexProd].unidades += int.Parse(cantDevol.ToString());
+
+                    double prodDesp = listaDesp[indexDesp].unidades - cantDevol;
+
+                    if (prodDesp == 0)
+                    {
+                        listaDesp.RemoveAt(indexDesp);
+                    }
+                    else
+                    {
+                        listaDesp[indexDesp].unidades -= int.Parse(cantDevol.ToString());
+                    }
+
+                    gCBodega.DataSource = null;
+                    gCProductos.DataSource = null;
+
+                    gCBodega.DataSource = listaProd;
+                    gCProductos.DataSource = listaDesp;
+                }
+            }
+            catch (Exception)
+            { }
+        }
+
+        private void txtCantidadProd_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TrasladarProductos();
+                txtCantidadProd.Clear();
+            }
+        }
     }
 }

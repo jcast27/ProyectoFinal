@@ -48,8 +48,8 @@ namespace SIME_UTN.UI.Bodega.Procesos
             }
             if(mBtnAgregar.Caption== "Modificar")
             {
-                frmAdTrasladoProductos ofrmAdTrasladoProducto = new frmAdTrasladoProductos(trasladoEstatico);
-                ofrmAdTrasladoProducto.ShowDialog(this);
+                frmModTrasladoProductos ofrmModTrasladoProducto = new frmModTrasladoProductos(trasladoEstatico);
+                ofrmModTrasladoProducto.ShowDialog(this);
                 frmTrasladosDeProductos_Load(null, null);
             }
 

@@ -28,7 +28,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idproducto", unaMezclaProductoUnidadDTOp.idProducto);
             comando.Parameters.AddWithValue("@idunidadmedida", unaMezclaProductoUnidadDTOp.idUnidadMedida);
             comando.Parameters.AddWithValue("@cantidad", unaMezclaProductoUnidadDTOp.cantidad);
-            comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estado);
+            comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estadoMezcla);
 
 
            //GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
@@ -57,7 +57,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idmezcla", unaMezclaProductoUnidadDTOp.idMezcla);
             comando.Parameters.AddWithValue("@idproducto", unaMezclaProductoUnidadDTOp.idProducto);
             comando.Parameters.AddWithValue("@cantidad", unaMezclaProductoUnidadDTOp.cantidad);
-            comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estado);
+            comando.Parameters.AddWithValue("@estado", unaMezclaProductoUnidadDTOp.estadoProducto);
 
             //GuardarLog(unaMezclaProductoUnidadDTOp, usuarioLogueadop, accion, null);
 
@@ -148,8 +148,10 @@ namespace SIME_UTN.DAL
                     unProducto.codigoAvatar = dr["CodigoAvatar"].ToString();
                     unProducto.nombreProducto = dr["Nombre"].ToString();
                     unProducto.unidadMedida = dr["UnidadMedida"].ToString();
+                    unProducto.presentacion = int.Parse(dr["Presentacion"].ToString());
                     unProducto.cantidad = Double.Parse(dr["Cantidad"].ToString());
                     unProducto.cantidadPorEmpaque = dr["MCantidad"].ToString();
+                    unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
                     listaProductosDTO.Add(unProducto);
                 }
             }

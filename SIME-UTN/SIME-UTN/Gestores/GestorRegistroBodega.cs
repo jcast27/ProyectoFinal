@@ -29,9 +29,9 @@ namespace SIME_UTN.Gestores
             return instancia;
         }
 
-        internal void EliminarBodega(int idBodegap, string bodegap, string usuarioLogueadop)
+        internal void DisableBodega(int idBodegap, string bodegap, string usuarioLogueadop)
         {
-            RegistroBodegaBLL.EliminarBodega(idBodegap,bodegap,usuarioLogueadop);
+            RegistroBodegaBLL.DisableBodega(idBodegap,bodegap,usuarioLogueadop);
         }
 
         internal void AgregarBodega(RegistroBodega unaBodegap)

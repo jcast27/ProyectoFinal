@@ -37,7 +37,6 @@
             this.tipoBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
@@ -120,7 +119,6 @@
             // 
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
@@ -143,17 +141,6 @@
             this.tileNavPane1.Size = new System.Drawing.Size(629, 40);
             this.tileNavPane1.TabIndex = 34;
             this.tileNavPane1.Text = "tileNavPane1";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
             // 
             // mBtnGuardar
             // 
@@ -208,8 +195,8 @@
             this.ClientSize = new System.Drawing.Size(629, 142);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewUnidadMedida);
-            this.MaximumSize = new System.Drawing.Size(645, 180);
-            this.MinimumSize = new System.Drawing.Size(645, 180);
+            this.MaximumSize = new System.Drawing.Size(645, 181);
+            this.MinimumSize = new System.Drawing.Size(645, 181);
             this.Name = "frmAdDepartamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Departamentos";
@@ -231,7 +218,6 @@
         private System.Windows.Forms.Label lblNombre;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodega dataSetTBodega;
         private System.Windows.Forms.BindingSource tipoBodegaBindingSource;
         private SIME_UTN.DataSets.Bodega.Admistracion.DataSetTBodegaTableAdapters.TipoBodegaTableAdapter tipoBodegaTableAdapter;

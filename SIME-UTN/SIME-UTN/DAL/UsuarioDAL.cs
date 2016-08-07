@@ -56,8 +56,7 @@ namespace SIME_UTN.DAL
 
         }
 
-      
-
+    
         internal static bool CambiarContrasenna(string usuariop, string contrasenaAntiguap, string contrasenaNuevap)
         {
             Encriptar encriptar = new Encriptar();
@@ -349,6 +348,19 @@ namespace SIME_UTN.DAL
             }
 
         }
+        internal static void EliminarUsuarioTable(int usuarioIdp, string usuarioNombrep, string usuarioLogueadop)
+        {
+            StringBuilder sql = new StringBuilder();
+            string accion = "Eliminar";
+            string usuarioEliminado = "Usuario: " + "-" + usuarioNombrep;
+            sql.AppendFormat("update Usuario set Estado=0  where Usuario.CodigoUsuario = {0} and Usuario.Usuario = '{1}'", usuarioIdp, usuarioNombrep);
+            SqlCommand command = new SqlCommand(sql.ToString());
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                db.ExecuteNonQuery(command);
+            }
+            GuardarLog(null, usuarioLogueadop, accion, usuarioEliminado);
+        }
 
 
         /// <summary>
@@ -356,24 +368,21 @@ namespace SIME_UTN.DAL
         /// </summary>
         /// <param name="UsuarioIdp"></param>
         /// <param name="UsuarioNombrep"></param>
-        internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep, string usuarioLogueadop)
+        internal static void EliminarUsuarioDB(int UsuarioIdp, string UsuarioNombrep, string usuarioLogueadop)
         {
             UsuarioTable unUsuario = new UsuarioTable();
             StringBuilder sql = new StringBuilder();
             sql.AppendFormat("USE [master] DROP LOGIN [{0}] ", UsuarioNombrep);
             sql.AppendFormat("USE [SIMEUTN] DROP USER [{0}] ", UsuarioNombrep);
-            sql.AppendFormat("delete from Usuario where Usuario.CodigoUsuario = {0} and Usuario.Usuario = '{1}'", UsuarioIdp, UsuarioNombrep);
+          
 
             SqlCommand command = new SqlCommand(sql.ToString());
-            string accion = "Eliminar";
-            string usuarioEliminado = "Usuario: " + "-" + UsuarioNombrep;
-       
+     
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
                 db.ExecuteNonQuery(command);
             }
-            GuardarLog(null, usuarioLogueadop, accion, usuarioEliminado);
         }
 
         /// <summary>
@@ -418,7 +427,7 @@ namespace SIME_UTN.DAL
         {
 
             UsuarioTable unUsuario = null;
-            string sql = @"use SIMEUTN; select * from Usuario where Usuario= @Usuario";
+            string sql = @"use SIMEUTN; select * from Usuario where Usuario= @Usuario and Estado=1";
 
 
             SqlCommand commando = new SqlCommand(sql);

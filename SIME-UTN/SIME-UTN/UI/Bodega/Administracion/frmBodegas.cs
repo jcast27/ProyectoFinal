@@ -16,7 +16,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
     {
         string usuarioLogueado = "";
         GestorUsuarioTable gestorUsuario = null;
-        GestorRegistroBodega gestorBodega = null;
+        GestorRegistroBodega gestorRegistroBodega = null;
+        GestorBodega gestorBodega = null;
         static RegistroBodega bodegaEstatico = null;
         TipoBodega unTipoBodega = null;
         Ubicacion unaUbicacion = null;
@@ -69,7 +70,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.sp_SELECT_TipoBodega_AllTableAdapter.Fill(this.dataSetTipoBodega.sp_SELECT_TipoBodega_All);
             // TODO: This line of code loads data into the 'dataSetRegistroBodega.sp_SELECT_RegistroBodega_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_RegistroBodega_AllTableAdapter.Fill(this.dataSetRegistroBodega.sp_SELECT_RegistroBodega_All);
-            gestorBodega = GestorRegistroBodega.GetInstance();
+            gestorRegistroBodega = GestorRegistroBodega.GetInstance();
             bodegaEstatico = new RegistroBodega();
             UsuarioLogueado();
         }
@@ -118,15 +119,31 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// </summary>
         public void DesactivarBodega()
         {
+            gestorBodega = new GestorBodega();
+            List<PBodega> listaProductosenBodega = new List<PBodega>();
             string bodega = gridView1.GetFocusedRowCellValue("nombre").ToString(); ;
             int idBodega = Int32.Parse(gridView1.GetFocusedRowCellValue("idregistrobodega").ToString());
+            int cantidad = 0;
+            listaProductosenBodega=gestorBodega.ObtenerProductosPorIdBodega(idBodega);
 
-            if (MessageBox.Show("¿Seguro que desea eliminar la bodega: " + bodega + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            foreach(PBodega producto in listaProductosenBodega)
             {
-                gestorBodega.EliminarBodega(idBodega, bodega, usuarioLogueado);
-                MessageBox.Show("La bodega: " + bodega + " fue eliminada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmBodegas_Load(null, null);
+                cantidad += producto.unidades;
+            }
 
+            if (cantidad == 0)
+            {
+
+                if (MessageBox.Show("¿Seguro que desea eliminar la bodega: " + bodega + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gestorRegistroBodega.DisableBodega(idBodega, bodega, usuarioLogueado);
+                    MessageBox.Show("La bodega: " + bodega + " fue eliminada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmBodegas_Load(null, null);
+
+                }
+            }else
+            {
+                MessageBox.Show("La bodega: " + bodega + " no puede ser eliminada, debido a que contiene productos", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

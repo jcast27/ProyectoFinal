@@ -69,20 +69,50 @@ namespace SIME_UTN.UI
             try
             {
                 gestor = GestorUsuarioTable.GetInstance();
-                UsuarioDB oUsuario = UsuarioDB.GetInstance();
-                oUsuario.usuario = txtUsuario.Text.Trim();
+                UsuarioTable oUsuario = new UsuarioTable();
+                UsuarioDB oUsuario1 = UsuarioDB.GetInstance();
+                oUsuario1.usuario = "sa";
+                oUsuario1.contrasenna = "sa1";
+                Encriptar encriptar = new Encriptar();
+                oUsuario = gestor.ValidarUsuarioPorUsuario(txtUsuario.Text.Trim());
 
-                //Se utliza el gestor User, para almacenar el usuario que ingresa al programa
-                gestor.InsertarNombreUsuario(txtUsuario.Text.Trim());
-                oUsuario.contrasenna = txtContrasena.Text.Trim();
-                //  validar la conexion 
-                BLL.LoginBLL.Conexion(txtUsuario.Text.Trim(), txtContrasena.Text.Trim());
-                // modulo seleccionado
-                Modulo = cmbModulo.SelectedIndex;
-                // devolver OK
-                this.DialogResult = DialogResult.OK;
-                // Cerrar ventana de Login
-                Close();
+                if (oUsuario != null)
+                {
+
+                    if (encriptar.Descifrar(oUsuario.contrasena) == txtContrasena.Text.Trim())
+                    {
+                        oUsuario1.usuario = txtUsuario.Text.Trim();
+                        oUsuario1.contrasenna = txtContrasena.Text.Trim();
+                        //Se utliza el gestor User, para almacenar el usuario que ingresa al programa
+
+                        gestor.InsertarNombreUsuario(txtUsuario.Text.Trim());
+
+
+                        //ValidarUsuarioPorUsuario
+
+
+                        //  validar la conexion 
+                        BLL.LoginBLL.Conexion(txtUsuario.Text.Trim(), txtContrasena.Text.Trim());
+                        // devolver OK
+                        this.DialogResult = DialogResult.OK;
+                        // Cerrar ventana de Login
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contrasena Incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtContrasena.Text = "";
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUsuario.Text = "";
+                    txtContrasena.Text = "";
+                    cmbModulo.SelectedIndex= - 1;
+                }
             }
             catch (Exception error)
             {

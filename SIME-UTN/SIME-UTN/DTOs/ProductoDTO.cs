@@ -11,7 +11,9 @@ namespace SIME_UTN.DTOs
         public string codigoAvatar { set; get; }
         public string nombreProducto { set; get; }
         public double cantidad { set; get; }
+        public int presentacion { set; get; }
         public string unidadMedida { set; get; }
         public string cantidadPorEmpaque { set; get; }
+        public int estado { set; get; }
     }
 }

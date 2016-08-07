@@ -59,7 +59,8 @@ namespace SIME_UTN.BLL
 
         internal static void EliminarUsuario(int UsuarioIdp, string UsuarioNombrep, string usuarioLogueadop)
         {
-            UsuarioDAL.EliminarUsuario(UsuarioIdp, UsuarioNombrep, usuarioLogueadop);
+          
+            UsuarioDAL.EliminarUsuarioTable(UsuarioIdp, UsuarioNombrep, usuarioLogueadop);
         }
 
         internal static int ValidarUsuario(string usuariop)

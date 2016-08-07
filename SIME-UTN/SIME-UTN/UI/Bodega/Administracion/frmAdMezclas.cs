@@ -31,23 +31,26 @@ namespace SIME_UTN.UI.Bodega.Administracion
         static Mezcla mezclaEstatica = null;
         Categoria unaCategoria = null;
         List<int> listaMultiplos = new List<int>();
+        double multiplosMod = 0;
 
         public frmAdMezclas()
         {
             InitializeComponent();
+            listaProductoDTO.Clear();
         }
 
         public frmAdMezclas(Mezcla mezclaEstaticap)
         {
-           
+            listaProductoDTO.Clear();
             InitializeComponent();
             mBtnEliminar.Visible = true;
-            mBtnNuevo.Visible = false;
             mBtnGuardar.Visible = false;
             mBtnModificar.Visible = true;
             mezclaEstatica = new Mezcla();
             mezclaEstatica = mezclaEstaticap;
             gCMezclas();
+            multiplosMod = double.Parse(txtDescripcion.Text);
+            listaMultiplos.Add(int.Parse(multiplosMod.ToString()));
         }
 
         /// <summary>
@@ -80,26 +83,29 @@ namespace SIME_UTN.UI.Bodega.Administracion
         /// </summary>
         public void CargarGrid()
         {
+            int i = 0;
             DataTable dt = new DataTable();
             dt.TableName = "Productos";
             dt.Columns.Add(new DataColumn("CodigoProducto"));
             dt.Columns.Add(new DataColumn("Nombre"));
             dt.Columns.Add(new DataColumn("Cantidad"));
-            dt.Columns.Add(new DataColumn("UnidadMedida"));
             dt.Columns.Add(new DataColumn("Presentación"));
 
             try
             {
 
-                for (int i = 0; i < listaProductoDTO.Count; i++)
+                foreach (ProductoDTO unProductoDTO in listaProductoDTO)
                 {
-                    DataRow dr = dt.NewRow();
-                    dr["CodigoProducto"] = listaProductoDTO[i].codigoAvatar;
-                    dr["Nombre"] = listaProductoDTO[i].nombreProducto;
-                    dr["Cantidad"] = listaProductoDTO[i].cantidad;
-                    dr["UnidadMedida"] = listaProductoDTO[i].unidadMedida;
-                    dr["Presentación"] = listaProductoDTO[i].cantidadPorEmpaque;
-                    dt.Rows.Add(dr);
+                    if (unProductoDTO.estado != 0)
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr["CodigoProducto"] = listaProductoDTO[i].codigoAvatar;
+                        dr["Nombre"] = listaProductoDTO[i].nombreProducto;
+                        dr["Cantidad"] = listaProductoDTO[i].cantidad;
+                        dr["Presentación"] = listaProductoDTO[i].presentacion + " " + listaProductoDTO[i].unidadMedida;
+                        dt.Rows.Add(dr);
+                        i++;
+                    }
                 }
 
             }
@@ -112,18 +118,116 @@ namespace SIME_UTN.UI.Bodega.Administracion
         }
 
         /// <summary>
-        /// Metodo que permite agregar un Producto de la mezcla
+        /// Metodo que permite recalcular la cantidad de mezcla necesaria, cuando se elimina un producto
         /// </summary>
+        public void RecalcularCantidaddeMezcla()
+        {
+            if (ValidarCamposAgregarProducto() != true)
+            {
+                CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+                culture.NumberFormat.NumberDecimalSeparator = ".";
+                listaMultiplos.Clear();
+                int presentacion = 0;
+                double cantidad = 0;
+                double multiplos = 0;
+
+                foreach (ProductoDTO unProductoDTO in listaProductoDTO)
+                {
+                    if (unProductoDTO.estado != 0)
+                    {
+                        cantidad = double.Parse(unProductoDTO.cantidad.ToString(), culture);
+                        presentacion = unProductoDTO.presentacion;
+
+
+                        if (cantidad == presentacion)
+                        {
+                            multiplos = 1;
+                        }
+                        else if (cantidad > presentacion)
+                        {
+                            int presActual = presentacion;
+
+                            bool continuar = true;
+                            int cont = 0;
+                            do
+                            {
+                                cont++;
+                                presActual += presentacion;
+
+                                continuar = cantidad > presActual ? true : false;
+
+                                if (!continuar)
+                                {
+                                    double residuo = presActual % cantidad;
+
+                                    if (residuo == 0)
+                                    {
+                                        multiplos = presActual / presentacion;
+                                    }
+                                    else
+                                    {
+                                        epError.SetError(txtCantidad, "Cantidad no válida");
+                                        txtCantidad.Focus();
+                                        return;
+                                    }
+                                }
+
+
+                                if (cont == 10)
+                                {
+                                    epError.SetError(txtCantidad, "Cantidad necesaria muy alta. Favor corregir");
+                                    txtCantidad.Focus();
+                                    return;
+                                }
+
+                            } while (continuar);
+                        }
+                        else if (cantidad < presentacion)
+                        {
+                            double residuo = Math.Round(presentacion % cantidad, 0);
+
+                            if (residuo == 0)
+                            {
+                                multiplos = presentacion / cantidad;
+                            }
+                            else
+                            {
+                                epError.SetError(txtCantidad, "Cantidad no válida");
+                                txtCantidad.Focus();
+                                return;
+                            }
+                        }
+
+
+                        listaMultiplos.Add(int.Parse(multiplos.ToString()));
+
+                        if (string.IsNullOrEmpty(txtDescripcion.Text))
+                        {
+                            txtDescripcion.Text = multiplos.ToString();
+                        }
+                        else
+                        {
+                            txtDescripcion.Text = cantidadMezcla(listaMultiplos);
+                        }
+
+
+                        this.CargarGrid();
+                        CambiarEstado(EstadoMantenimiento.Agregar);
+                    }
+            }
+
+            }
+        }
         private void mBtnAgregar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             if (ValidarCamposAgregarProducto() != true)
             {
                 CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
                 culture.NumberFormat.NumberDecimalSeparator = ".";
-
+                double multiplos = 0;
                 int presentacion = int.Parse(txtUnidadMedida.Text.Split(' ')[0]);
                 double cantidad = double.Parse(txtCantidad.Text, culture);
-                double multiplos = 0;
+               
 
                 if (cantidad == presentacion)
                 {
@@ -170,7 +274,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 }
                 else if (cantidad < presentacion)
                 {
-                    double residuo = Math.Round(presentacion % cantidad,0);
+                    double residuo = Math.Round(presentacion % cantidad, 0);
 
                     if (residuo == 0)
                     {
@@ -189,7 +293,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                 if (string.IsNullOrEmpty(txtDescripcion.Text))
                 {
-                    txtDescripcion.Text = multiplos.ToString();
+                    txtDescripcion.Text = (multiplos+multiplosMod).ToString();
                 }
                 else
                 {
@@ -200,11 +304,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 bool existe = false;
                 if (listaProductoDTO.Count != 0)
                 {
-                    existe = true;
+                  
                     foreach (ProductoDTO unProductoDTO in listaProductoDTO)
                     {
                         if (unProductoDTO.codigoAvatar == txtECodigoProducto.Text)
                         {
+                            existe = true;
                             listaProductoDTO.RemoveAt(index);
                             break;
                         }
@@ -218,7 +323,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unProducto.nombreProducto = txtNombreProducto.Text;
                 unProducto.cantidad = cantidad;
                 unProducto.unidadMedida = txtUnidadMedida.Text.Split(' ')[1];
-                unProducto.cantidadPorEmpaque = txtUnidadMedida.Text.Split(' ')[0];
+                unProducto.presentacion = int.Parse(txtUnidadMedida.Text.Split(' ')[0]);
+                unProducto.estado = 1;
                 if (existe == true)
                 {
                     listaProductoDTO.Insert(index, unProducto);
@@ -462,7 +568,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     unaMezclaProductoUnidadDTO.idUnidadMedida = unProducto.UnidadMedida.idUnidadMedida;
                     unaMezclaProductoUnidadDTO.nombreUnidadMedida = unProductoDTO.unidadMedida;
                     unaMezclaProductoUnidadDTO.cantidad = unProductoDTO.cantidad;
-                    unaMezclaProductoUnidadDTO.estado = 1;
+                    unaMezclaProductoUnidadDTO.estadoMezcla = 1;
+                    unaMezclaProductoUnidadDTO.estadoProducto = unProductoDTO.estado;
                     gestorMezclaProducto.GuardarMezclaProducto(unaMezclaProductoUnidadDTO, usuarioLogueado);
 
                 }
@@ -512,6 +619,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             gestorMezclaProducto = new GestorMezclaProducto();
             unProducto = new Producto();
+            unProducto.nombreProducto = gridView1.GetFocusedRowCellValue("Nombre").ToString();
             unProducto.codigoAvatar = gridView1.GetFocusedRowCellValue("CodigoProducto").ToString();
 
             try
@@ -520,22 +628,29 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 if (lblIdMezcla.Text != "")
                 {
 
-                    foreach (ProductoDTO unProductoDTO in listaProductoDTO)
-                    {
-                        if (unProductoDTO.codigoAvatar == unProducto.codigoAvatar)
-                        {
-                            unProducto.idProducto = unProductoDTO.idProducto;
-                            unProducto.nombreProducto = unProductoDTO.nombreProducto;
-                        }
-                    }
 
                     if (MessageBox.Show("¿Seguro que desea eliminar al producto " + unProducto.nombreProducto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-
-                        gestorMezclaProducto.EliminarProductoDeMezcla(unProducto, int.Parse(lblIdMezcla.Text), usuarioLogueado);
+                        int index = 0;
+                        foreach (ProductoDTO unProductoDTO in listaProductoDTO)
+                        {
+                           
+                            if (unProductoDTO.codigoAvatar == unProducto.codigoAvatar)
+                            {
+                                unProductoDTO.estado = 0;
+                                //listaProductoDTO.RemoveAt(index);
+                                //listaProductoDTO.Insert(index, unProductoDTO);
+                                break;
+                            }
+                            index++;
+                        }
+                        //listaProductoDTO.RemoveAt(index);
+                        //gestorMezclaProducto.EliminarProductoDeMezcla(unProducto, int.Parse(lblIdMezcla.Text), usuarioLogueado);
                         MessageBox.Show("El producto " + unProducto.nombreProducto + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        listaProductoDTO.Clear();
-                        gCMezclas();
+                        //listaProductoDTO.Clear();
+                        CargarGrid();
+                        RecalcularCantidaddeMezcla();
+
                     }
 
                 }
@@ -575,7 +690,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             txtCantidad.Enabled = true;
             txtECodigoProducto.Text = gridView1.GetFocusedRowCellValue("CodigoProducto").ToString();
             txtNombreProducto.Text = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-            txtUnidadMedida.Text = gridView1.GetFocusedRowCellValue("UnidadMedida").ToString();
+            txtUnidadMedida.Text = gridView1.GetFocusedRowCellValue("Presentación").ToString().Split(' ')[1];
             txtCantidad.Text = gridView1.GetFocusedRowCellValue("Cantidad").ToString();
         }
 

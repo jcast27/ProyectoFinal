@@ -104,39 +104,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        /// <summary>
-        /// Metodo que valida los campos antes de guardar el usuario
-        /// </summary>
-        public void ValidarCampos()
-        {
-            if (txtNombre.Text.Trim() == "")
-            {
-                ePError.SetError(txtNombre, "Campo Requerido");
-                txtNombre.Focus();
-            }
-            else
-            {
-                ePError.Clear();
-            }
-            if (txtPassword.Text.Trim() == "")
-            {
-                ePError.SetError(txtPassword, "Campo Requerido");
-                txtPassword.Focus();
-            }
-            else
-            {
-                ePError.Clear();
-            }
-            if (txtConfirmacion.Text.Trim() == "")
-            {
-                ePError.SetError(txtConfirmacion, "Campo Requerido");
-                txtConfirmacion.Focus();
-            }
-            else
-            {
-                ePError.Clear();
-            }
-        }
 
         private void frmAdUsuario_Load(object sender, EventArgs e)
         {
@@ -192,18 +159,17 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
-        private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        public void GuardarCambios(string accion)
         {
             gestor = GestorUsuarioTable.GetInstance();
             usuario = new UsuarioTable();
             try
             {
-                string ID = lblCodigoUsuario.Text;
-                usuario.codigoUsuario = int.Parse(ID);
+            
                 usuario.nombre = txtNombre.Text;
                 usuario.apellido1 = txtApellido1.Text;
                 usuario.apellido2 = txtApellido2.Text;
-                usuario.usuario = txtUsuario.Text;
+               
                 if (rdbAdmin.Checked)
                 {
                     usuario.perfil = "Administrador";
@@ -213,9 +179,36 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     usuario.perfil = "Despachador";
                 }
                 usuario.estado = 1;
-                gestor.AgregarUsuario(usuario);
-                gestor.GuardarUsuario(usuarioLogueado);
-                MessageBox.Show("El usuario " + usuario.usuario + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+              
+
+                if (accion == "Guardar")
+                {
+                    string user = (txtNombre.Text.Substring(0, 1) + txtApellido1.Text).ToLower();
+                    int numeroUsuario = gestor.ValidarUsuario(user);
+                    if (numeroUsuario == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        user += numeroUsuario;
+                    }
+                    usuario.contrasena = txtPassword.Text;
+                    usuario.usuario = user;
+                    gestor.AgregarUsuario(usuario);
+                    gestor.GuardarUsuario(usuarioLogueado);
+                    MessageBox.Show("El usuario " + usuario.usuario + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if (accion == "Modificar")
+                {
+                    string ID = lblCodigoUsuario.Text;
+                    usuario.codigoUsuario = int.Parse(ID);
+                    usuario.usuario = txtUsuario.Text;
+                    gestor.AgregarUsuario(usuario);
+                    gestor.GuardarUsuario(usuarioLogueado);
+                    MessageBox.Show("El usuario " + usuario.usuario + " fue modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+  
                 CambiarEstado(EstadoMantenimiento.Nuevo);
                 Close();
             }
@@ -225,67 +218,76 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
         }
 
+        private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            if (ValidarCampos() == false)
+            {
+                GuardarCambios("Modificar");
+            }
+        }
+
         private void mBtnGuardar_ElementClick_1(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            gestor = GestorUsuarioTable.GetInstance();
-            usuario = new UsuarioTable();
-
-            try
+            if (ValidarCampos() == false)
             {
-                if (txtPassword.Text.Trim() != "" && txtConfirmacion.Text.Trim() != "")
-                {
-                    if (txtPassword.Text.Equals(txtConfirmacion.Text))
-                    {
-
-                        usuario.nombre = txtNombre.Text;
-                        usuario.apellido1 = txtApellido1.Text;
-                        usuario.apellido2 = txtApellido2.Text;
-                        usuario.contrasena = txtPassword.Text;
-                        string user = (txtNombre.Text.Substring(0, 1) + txtApellido1.Text).ToLower();
-                        int numeroUsuario = gestor.ValidarUsuario(user);
-                        if (numeroUsuario == 0)
-                        {
-
-                        }
-                        else
-                        {
-                            user += numeroUsuario;
-                        }
-
-                        usuario.usuario = user;
-
-                        if (rdbAdmin.Checked)
-                        {
-                            usuario.perfil = "Administrador";
-                        }
-                        if (rdbDesp.Checked)
-                        {
-                            usuario.perfil = "Despachador";
-                        }
-                        usuario.estado = 1;
-
-                        gestor.AgregarUsuario(usuario);
-                        gestor.GuardarUsuario(usuarioLogueado);
-                        txtUsuario.Text = user;
-                        MessageBox.Show("El usuario " + usuario.usuario + " fue agregado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CambiarEstado(EstadoMantenimiento.Nuevo);
-                        Close();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Confirmar contraseña", "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                GuardarCambios("Guardar");
             }
-            catch (ApplicationException app)
+        }
+
+
+
+        /// <summary>
+        /// Metodo que valida los campos antes de guardar el usuario
+        /// </summary>
+        public bool ValidarCampos()
+        {
+            bool error = false;
+            if (txtNombre.Text.Trim() == "")
             {
-                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                epError.SetError(txtNombre, "Campo Requerido");
+                txtNombre.Focus();
+                error = true;
             }
-            catch (Exception ex)
+            if (txtApellido1.Text.Trim() == "")
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                epError.SetError(txtApellido1, "Campo Requerido");
+                txtApellido1.Focus();
+                error = true;
             }
+            if (txtApellido2.Text.Trim() == "")
+            {
+                epError.SetError(txtApellido2, "Campo Requerido");
+                txtApellido2.Focus();
+                error = true;
+            }
+            if (txtPassword.Text.Trim() == "")
+            {
+                epError.SetError(txtPassword, "Campo Requerido");
+                txtPassword.Focus();
+                error = true;
+            }
+            if (txtConfirmacion.Text.Trim() == "")
+            {
+                epError.SetError(txtConfirmacion, "Campo Requerido");
+                txtConfirmacion.Focus();
+                error = true;
+            }
+            if (!txtPassword.Text.Trim().Equals(txtConfirmacion.Text.Trim()))
+            {
+                epError.SetError(txtConfirmacion, "Confirmacion incorrecta");
+                txtConfirmacion.Focus();
+                error = true;
+            }
+                if ((rdbAdmin.Checked == false)&&(rdbDesp.Checked==false))
+            {
+                epError.SetError(rdbDesp, "Seleccionar Rol");
+                error = true;
+            }
+            if (error == false)
+            {
+                epError.Clear();
+            }
+            return error;
         }
     }
 }

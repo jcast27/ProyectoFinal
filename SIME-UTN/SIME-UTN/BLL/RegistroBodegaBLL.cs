@@ -10,10 +10,9 @@ namespace SIME_UTN.BLL
 {
     class RegistroBodegaBLL
     {
-        internal static void EliminarBodega(int idBodegap, string bodegap, string usuarioLogueadop)
+        internal static void DisableBodega(int idBodegap, string bodegap, string usuarioLogueadop)
         {
-            RegistroBodegaDAL.EliminarBodega(idBodegap,bodegap,usuarioLogueadop);
-            RegistroBodegaDAL.DesableTipodeBodega(idBodegap);
+            RegistroBodegaDAL.DisableBodega(idBodegap,bodegap,usuarioLogueadop);
         }
 
         internal static void GuardarBodega(RegistroBodega unaBodegap, string usuarioLogueadop)

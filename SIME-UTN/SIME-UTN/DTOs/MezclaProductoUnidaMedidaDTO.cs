@@ -14,7 +14,8 @@ namespace SIME_UTN.DTOs
         public int idUnidadMedida { set; get; }
         public string nombreUnidadMedida { set; get; }
         public double cantidad { set; get; }
-        public int estado { set; get; }
+        public int estadoMezcla { set; get; }
+        public int estadoProducto { set; get; }
 
         public MezclaProductoUnidaMedidaDTO() { }
     }

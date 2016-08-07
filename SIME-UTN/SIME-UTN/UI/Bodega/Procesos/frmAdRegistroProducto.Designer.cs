@@ -233,6 +233,8 @@
             this.cmbBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBodega.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbBodega.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbBodega.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaLessVirtualBindingSource, "idregistrobodega", true));
             this.cmbBodega.DataSource = this.spSELECTRegistroBodegaLessVirtualBindingSource;
             this.cmbBodega.DisplayMember = "nombre";
@@ -576,8 +578,8 @@
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(1152, 530);
-            this.MinimumSize = new System.Drawing.Size(1152, 530);
+            this.MaximumSize = new System.Drawing.Size(1152, 531);
+            this.MinimumSize = new System.Drawing.Size(1152, 531);
             this.Name = "frmAdRegistroProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Producto";

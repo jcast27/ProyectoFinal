@@ -81,7 +81,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(191, 26);
             this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.Text = "elópez";
+            this.txtUsuario.Text = "jcastro";
             this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // txtContrasena
@@ -217,6 +217,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
+            this.MaximumSize = new System.Drawing.Size(679, 337);
+            this.MinimumSize = new System.Drawing.Size(679, 337);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";

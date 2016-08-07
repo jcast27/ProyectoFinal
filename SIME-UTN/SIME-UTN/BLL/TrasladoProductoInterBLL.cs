@@ -15,18 +15,19 @@ namespace SIME_UTN.BLL
             return DAL.TrasladoProductoInterDAL.ObtenerProductosPorIdTraslado(idTrasladop);
         }
 
-        internal static void GuardarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp,TrasladoProducto trasladop)
+        internal static void GuardarTrasladoProductos(PBodega productoBodega, TrasladoProducto trasladop)
         {
-            if (DAL.TrasladoProductoInterDAL.ValidarTrasladoProducto(trasladoInterDTOp.idTraslado, trasladoInterDTOp.idProducto) ==true)
+            if (DAL.TrasladoProductoInterDAL.ValidarTrasladoProducto(trasladop.idTraslado, productoBodega.Producto.idProducto) ==true)
             {
-                double cantidad = TrasladoProductoInterDAL.ObtenerUltimaCantidadDelTraslado(trasladoInterDTOp);
-                DAL.TrasladoProductoInterDAL.ActualizarTrasladoProductos(trasladoInterDTOp, trasladop);
-                BodegaDAL.CambiarCantidadyActualizarla(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, cantidad, trasladoInterDTOp.unidades);
+                double cantidad = TrasladoProductoInterDAL.ObtenerUltimaCantidadDelTraslado(productoBodega, trasladop);
+            
+                DAL.TrasladoProductoInterDAL.ActualizarTrasladoProductos(productoBodega, trasladop);
+                BodegaDAL.CambiarCantidadyActualizarla(trasladop.BodegaOrigen.idRegistroBodega, productoBodega.Producto.idProducto, cantidad, productoBodega.unidades);
             }
             else
             {
-                DAL.TrasladoProductoInterDAL.GuardarTrasladoProductos(trasladoInterDTOp,trasladop);
-                BodegaDAL.ActualizarCantidad(trasladop.BodegaOrigen.idRegistroBodega, trasladoInterDTOp.idProducto, trasladoInterDTOp.unidades,trasladop.idTraslado);
+                DAL.TrasladoProductoInterDAL.GuardarTrasladoProductos(productoBodega, trasladop);
+                BodegaDAL.ActualizarCantidad(trasladop.BodegaOrigen.idRegistroBodega, productoBodega.Producto.idProducto, productoBodega.unidades,trasladop.idTraslado);
             }
            
         }

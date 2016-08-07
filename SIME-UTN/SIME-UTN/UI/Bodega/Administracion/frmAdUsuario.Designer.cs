@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdUsuario));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
@@ -51,10 +50,10 @@
             this.lblConfirmacion = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
-            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbInformaciónPersonal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +61,6 @@
             // 
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
             this.tileNavPane1.Buttons.Add(this.mBtnGuardar);
             this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
@@ -85,17 +83,6 @@
             this.tileNavPane1.Size = new System.Drawing.Size(530, 40);
             this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
             // 
             // mBtnGuardar
             // 
@@ -354,9 +341,9 @@
             this.txtApellido1.TabIndex = 1;
             this.txtApellido1.Text = "castro";
             // 
-            // ePError
+            // epError
             // 
-            this.ePError.ContainerControl = this;
+            this.epError.ContainerControl = this;
             // 
             // errorProvider1
             // 
@@ -371,15 +358,15 @@
             this.ClientSize = new System.Drawing.Size(530, 323);
             this.Controls.Add(this.gbInformaciónPersonal);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(546, 361);
-            this.MinimumSize = new System.Drawing.Size(546, 361);
+            this.MaximumSize = new System.Drawing.Size(546, 362);
+            this.MinimumSize = new System.Drawing.Size(546, 362);
             this.Name = "frmAdUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.frmAdUsuario_Load);
             this.gbInformaciónPersonal.ResumeLayout(false);
             this.gbInformaciónPersonal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -389,7 +376,6 @@
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private DevExpress.XtraBars.Navigation.NavButton mBtnGuardar;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private System.Windows.Forms.GroupBox gbInformaciónPersonal;
         private System.Windows.Forms.Label lblCodigoUsuario;
         private System.Windows.Forms.TextBox txtPassword;
@@ -404,7 +390,7 @@
         private System.Windows.Forms.Label lblConfirmacion;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtApellido1;
-        private System.Windows.Forms.ErrorProvider ePError;
+        private System.Windows.Forms.ErrorProvider epError;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.RadioButton rdbDesp;

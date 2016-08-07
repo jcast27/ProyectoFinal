@@ -30,7 +30,6 @@ namespace SIME_UTN.UI.Bodega.Administracion
         public frmAdUbicaciones(Ubicacion ubicacionEstaticap)
         {
             InitializeComponent();
-            mBtnNuevo.Visible = false;
             ubicacionEstatica = new Ubicacion();
             ubicacionEstatica = ubicacionEstaticap;
             mBtnGuardar.Visible = false;
@@ -188,6 +187,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 epError.SetError(cmbDepartamento, "Campo Requerido");
                 cmbDepartamento.Focus();
                 error = true;
+            }
+            if (error == false)
+            {
+                epError.Clear();
             }
 
             return error;

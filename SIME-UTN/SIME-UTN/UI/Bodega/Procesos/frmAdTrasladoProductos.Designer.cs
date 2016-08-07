@@ -31,10 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdTrasladoProductos));
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.mBtnNuevo = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnAgregar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnAceptar = new DevExpress.XtraBars.Navigation.NavButton();
-            this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewFuncionario = new System.Windows.Forms.GroupBox();
             this.txtFechaTraslado = new System.Windows.Forms.TextBox();
@@ -46,14 +43,6 @@
             this.dataSetTPRegistroBodega = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodega();
             this.lblIDBodegaDestino = new System.Windows.Forms.Label();
             this.lblIDBodegaOrigen = new System.Windows.Forms.Label();
-            this.txtUnidadMedida = new System.Windows.Forms.TextBox();
-            this.lblUnidadMedida = new System.Windows.Forms.Label();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtNombreProducto = new System.Windows.Forms.TextBox();
-            this.txtECodigoProducto = new DevExpress.XtraEditors.ButtonEdit();
-            this.lblProducto = new System.Windows.Forms.Label();
             this.lblBodegaDestino = new System.Windows.Forms.Label();
             this.cmbTipoTraslado = new System.Windows.Forms.ComboBox();
             this.tipoTrasladoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -70,21 +59,33 @@
             this.lblCodigoUsuario = new System.Windows.Forms.Label();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.gCBodega = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProducto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnidades = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gCProductos = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.columnaID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnaProducto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnaUnidades = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.columnaUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tipoTrasladoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoTrasladoTableAdapters.TipoTrasladoTableAdapter();
             this.sp_SELECT_RegistroBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             this.sp_SELECT_RegistroBodega_AllTableAdapter1 = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTPRegistroBodegaDTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtCantidadProd = new System.Windows.Forms.TextBox();
+            this.txtRemover = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodegaD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodega)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoTrasladoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTrasladoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTraslado)).BeginInit();
@@ -101,10 +102,7 @@
             // 
             this.tileNavPane1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tileNavPane1.BackgroundImage")));
             this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
-            this.tileNavPane1.Buttons.Add(this.mBtnNuevo);
-            this.tileNavPane1.Buttons.Add(this.mBtnAgregar);
             this.tileNavPane1.Buttons.Add(this.mBtnAceptar);
-            this.tileNavPane1.Buttons.Add(this.mBtnModificar);
             this.tileNavPane1.Buttons.Add(this.mBtnSalir);
             // 
             // tileNavCategory1
@@ -122,33 +120,9 @@
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(1136, 40);
+            this.tileNavPane1.Size = new System.Drawing.Size(853, 40);
             this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
-            // 
-            // mBtnNuevo
-            // 
-            this.mBtnNuevo.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnNuevo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnNuevo.Appearance.Options.UseFont = true;
-            this.mBtnNuevo.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnNuevo.AppearanceHovered.Options.UseFont = true;
-            this.mBtnNuevo.Caption = "Nuevo";
-            this.mBtnNuevo.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnNuevo.Glyph")));
-            this.mBtnNuevo.Name = "mBtnNuevo";
-            this.mBtnNuevo.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnNuevo_ElementClick);
-            // 
-            // mBtnAgregar
-            // 
-            this.mBtnAgregar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnAgregar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnAgregar.Appearance.Options.UseFont = true;
-            this.mBtnAgregar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnAgregar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnAgregar.Caption = "Agregar";
-            this.mBtnAgregar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAgregar.Glyph")));
-            this.mBtnAgregar.Name = "mBtnAgregar";
-            this.mBtnAgregar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAgregar_ElementClick);
             // 
             // mBtnAceptar
             // 
@@ -161,19 +135,6 @@
             this.mBtnAceptar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnAceptar.Glyph")));
             this.mBtnAceptar.Name = "mBtnAceptar";
             this.mBtnAceptar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnAceptar_ElementClick);
-            // 
-            // mBtnModificar
-            // 
-            this.mBtnModificar.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Left;
-            this.mBtnModificar.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.mBtnModificar.Appearance.Options.UseFont = true;
-            this.mBtnModificar.AppearanceHovered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.mBtnModificar.AppearanceHovered.Options.UseFont = true;
-            this.mBtnModificar.Caption = "Modificar";
-            this.mBtnModificar.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnModificar.Glyph")));
-            this.mBtnModificar.Name = "mBtnModificar";
-            this.mBtnModificar.Visible = false;
-            this.mBtnModificar.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnModificar_ElementClick);
             // 
             // mBtnSalir
             // 
@@ -194,14 +155,6 @@
             this.gbGridViewFuncionario.Controls.Add(this.cmbBodegaOrigen);
             this.gbGridViewFuncionario.Controls.Add(this.lblIDBodegaDestino);
             this.gbGridViewFuncionario.Controls.Add(this.lblIDBodegaOrigen);
-            this.gbGridViewFuncionario.Controls.Add(this.txtUnidadMedida);
-            this.gbGridViewFuncionario.Controls.Add(this.lblUnidadMedida);
-            this.gbGridViewFuncionario.Controls.Add(this.txtCantidad);
-            this.gbGridViewFuncionario.Controls.Add(this.lblCantidad);
-            this.gbGridViewFuncionario.Controls.Add(this.lblCodigo);
-            this.gbGridViewFuncionario.Controls.Add(this.txtNombreProducto);
-            this.gbGridViewFuncionario.Controls.Add(this.txtECodigoProducto);
-            this.gbGridViewFuncionario.Controls.Add(this.lblProducto);
             this.gbGridViewFuncionario.Controls.Add(this.lblBodegaDestino);
             this.gbGridViewFuncionario.Controls.Add(this.cmbTipoTraslado);
             this.gbGridViewFuncionario.Controls.Add(this.txtNumeroTraslado);
@@ -218,7 +171,7 @@
             this.gbGridViewFuncionario.ForeColor = System.Drawing.Color.White;
             this.gbGridViewFuncionario.Location = new System.Drawing.Point(12, 46);
             this.gbGridViewFuncionario.Name = "gbGridViewFuncionario";
-            this.gbGridViewFuncionario.Size = new System.Drawing.Size(1112, 193);
+            this.gbGridViewFuncionario.Size = new System.Drawing.Size(832, 195);
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Traslado de Producto";
@@ -227,21 +180,23 @@
             // 
             this.txtFechaTraslado.Enabled = false;
             this.txtFechaTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaTraslado.Location = new System.Drawing.Point(541, 78);
+            this.txtFechaTraslado.Location = new System.Drawing.Point(210, 122);
             this.txtFechaTraslado.Name = "txtFechaTraslado";
-            this.txtFechaTraslado.Size = new System.Drawing.Size(167, 22);
+            this.txtFechaTraslado.Size = new System.Drawing.Size(176, 22);
             this.txtFechaTraslado.TabIndex = 4;
             // 
             // cmbBodegaDestino
             // 
+            this.cmbBodegaDestino.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbBodegaDestino.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbBodegaDestino.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaAllBindingSource1, "idregistrobodega", true));
             this.cmbBodegaDestino.DataSource = this.spSELECTRegistroBodegaAllBindingSource1;
             this.cmbBodegaDestino.DisplayMember = "nombre";
             this.cmbBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBodegaDestino.FormattingEnabled = true;
-            this.cmbBodegaDestino.Location = new System.Drawing.Point(873, 48);
+            this.cmbBodegaDestino.Location = new System.Drawing.Point(210, 82);
             this.cmbBodegaDestino.Name = "cmbBodegaDestino";
-            this.cmbBodegaDestino.Size = new System.Drawing.Size(167, 24);
+            this.cmbBodegaDestino.Size = new System.Drawing.Size(176, 24);
             this.cmbBodegaDestino.TabIndex = 2;
             this.cmbBodegaDestino.ValueMember = "idregistrobodega";
             // 
@@ -257,14 +212,16 @@
             // 
             // cmbBodegaOrigen
             // 
+            this.cmbBodegaOrigen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbBodegaOrigen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbBodegaOrigen.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTRegistroBodegaAllBindingSource, "idregistrobodega", true));
             this.cmbBodegaOrigen.DataSource = this.spSELECTRegistroBodegaAllBindingSource;
             this.cmbBodegaOrigen.DisplayMember = "nombre";
             this.cmbBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBodegaOrigen.FormattingEnabled = true;
-            this.cmbBodegaOrigen.Location = new System.Drawing.Point(541, 49);
+            this.cmbBodegaOrigen.Location = new System.Drawing.Point(571, 41);
             this.cmbBodegaOrigen.Name = "cmbBodegaOrigen";
-            this.cmbBodegaOrigen.Size = new System.Drawing.Size(167, 24);
+            this.cmbBodegaOrigen.Size = new System.Drawing.Size(176, 24);
             this.cmbBodegaOrigen.TabIndex = 1;
             this.cmbBodegaOrigen.ValueMember = "idregistrobodega";
             this.cmbBodegaOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbBodegaOrigen_SelectedIndexChanged);
@@ -295,102 +252,18 @@
             this.lblIDBodegaOrigen.AutoSize = true;
             this.lblIDBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDBodegaOrigen.ForeColor = System.Drawing.Color.White;
-            this.lblIDBodegaOrigen.Location = new System.Drawing.Point(550, 71);
+            this.lblIDBodegaOrigen.Location = new System.Drawing.Point(580, 69);
             this.lblIDBodegaOrigen.Name = "lblIDBodegaOrigen";
             this.lblIDBodegaOrigen.Size = new System.Drawing.Size(0, 18);
             this.lblIDBodegaOrigen.TabIndex = 65;
             this.lblIDBodegaOrigen.Visible = false;
-            // 
-            // txtUnidadMedida
-            // 
-            this.txtUnidadMedida.Enabled = false;
-            this.txtUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnidadMedida.Location = new System.Drawing.Point(873, 134);
-            this.txtUnidadMedida.Name = "txtUnidadMedida";
-            this.txtUnidadMedida.Size = new System.Drawing.Size(167, 22);
-            this.txtUnidadMedida.TabIndex = 10;
-            // 
-            // lblUnidadMedida
-            // 
-            this.lblUnidadMedida.AutoSize = true;
-            this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidadMedida.ForeColor = System.Drawing.Color.White;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(734, 135);
-            this.lblUnidadMedida.Name = "lblUnidadMedida";
-            this.lblUnidadMedida.Size = new System.Drawing.Size(133, 18);
-            this.lblUnidadMedida.TabIndex = 61;
-            this.lblUnidadMedida.Text = "Unidad De Medida:";
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(541, 132);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(167, 22);
-            this.txtCantidad.TabIndex = 9;
-            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(414, 133);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(74, 18);
-            this.lblCantidad.TabIndex = 59;
-            this.lblCantidad.Text = "Unidades:";
-            // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(734, 108);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(125, 18);
-            this.lblCodigo.TabIndex = 58;
-            this.lblCodigo.Text = "Codigo Producto:";
-            // 
-            // txtNombreProducto
-            // 
-            this.txtNombreProducto.Enabled = false;
-            this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(180, 132);
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(176, 22);
-            this.txtNombreProducto.TabIndex = 8;
-            // 
-            // txtECodigoProducto
-            // 
-            this.txtECodigoProducto.Location = new System.Drawing.Point(873, 108);
-            this.txtECodigoProducto.Name = "txtECodigoProducto";
-            this.txtECodigoProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtECodigoProducto.Size = new System.Drawing.Size(167, 20);
-            this.txtECodigoProducto.TabIndex = 7;
-            this.txtECodigoProducto.Click += new System.EventHandler(this.txtECodigoProducto_Click);
-            // 
-            // lblProducto
-            // 
-            this.lblProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducto.ForeColor = System.Drawing.Color.White;
-            this.lblProducto.Location = new System.Drawing.Point(24, 134);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(154, 18);
-            this.lblProducto.TabIndex = 55;
-            this.lblProducto.Text = "Nombre del Producto:";
             // 
             // lblBodegaDestino
             // 
             this.lblBodegaDestino.AutoSize = true;
             this.lblBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodegaDestino.ForeColor = System.Drawing.Color.White;
-            this.lblBodegaDestino.Location = new System.Drawing.Point(734, 49);
+            this.lblBodegaDestino.Location = new System.Drawing.Point(54, 86);
             this.lblBodegaDestino.Name = "lblBodegaDestino";
             this.lblBodegaDestino.Size = new System.Drawing.Size(118, 18);
             this.lblBodegaDestino.TabIndex = 53;
@@ -398,14 +271,16 @@
             // 
             // cmbTipoTraslado
             // 
+            this.cmbTipoTraslado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTipoTraslado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbTipoTraslado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tipoTrasladoBindingSource, "IDTipoTraslado", true));
             this.cmbTipoTraslado.DataSource = this.tipoTrasladoBindingSource;
             this.cmbTipoTraslado.DisplayMember = "Descripcion";
             this.cmbTipoTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoTraslado.FormattingEnabled = true;
-            this.cmbTipoTraslado.Location = new System.Drawing.Point(873, 78);
+            this.cmbTipoTraslado.Location = new System.Drawing.Point(571, 117);
             this.cmbTipoTraslado.Name = "cmbTipoTraslado";
-            this.cmbTipoTraslado.Size = new System.Drawing.Size(167, 24);
+            this.cmbTipoTraslado.Size = new System.Drawing.Size(176, 24);
             this.cmbTipoTraslado.TabIndex = 5;
             this.cmbTipoTraslado.ValueMember = "IDTipoTraslado";
             // 
@@ -428,7 +303,7 @@
             // 
             this.txtNumeroTraslado.Enabled = false;
             this.txtNumeroTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroTraslado.Location = new System.Drawing.Point(180, 48);
+            this.txtNumeroTraslado.Location = new System.Drawing.Point(210, 46);
             this.txtNumeroTraslado.Name = "txtNumeroTraslado";
             this.txtNumeroTraslado.Size = new System.Drawing.Size(176, 22);
             this.txtNumeroTraslado.TabIndex = 0;
@@ -441,7 +316,7 @@
             this.lblNumeroTraslado.AutoSize = true;
             this.lblNumeroTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblNumeroTraslado.Location = new System.Drawing.Point(24, 49);
+            this.lblNumeroTraslado.Location = new System.Drawing.Point(54, 47);
             this.lblNumeroTraslado.Name = "lblNumeroTraslado";
             this.lblNumeroTraslado.Size = new System.Drawing.Size(99, 18);
             this.lblNumeroTraslado.TabIndex = 47;
@@ -450,9 +325,9 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(180, 104);
+            this.txtObservaciones.Location = new System.Drawing.Point(210, 159);
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(528, 22);
+            this.txtObservaciones.Size = new System.Drawing.Size(537, 22);
             this.txtObservaciones.TabIndex = 6;
             // 
             // lblTipoTraslado
@@ -460,7 +335,7 @@
             this.lblTipoTraslado.AutoSize = true;
             this.lblTipoTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblTipoTraslado.Location = new System.Drawing.Point(734, 77);
+            this.lblTipoTraslado.Location = new System.Drawing.Point(444, 123);
             this.lblTipoTraslado.Name = "lblTipoTraslado";
             this.lblTipoTraslado.Size = new System.Drawing.Size(123, 18);
             this.lblTipoTraslado.TabIndex = 39;
@@ -474,7 +349,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(24, 77);
+            this.lblUsuario.Location = new System.Drawing.Point(444, 86);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(64, 18);
             this.lblUsuario.TabIndex = 22;
@@ -485,7 +360,7 @@
             this.lblFechaTraslado.AutoSize = true;
             this.lblFechaTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblFechaTraslado.Location = new System.Drawing.Point(414, 77);
+            this.lblFechaTraslado.Location = new System.Drawing.Point(54, 126);
             this.lblFechaTraslado.Name = "lblFechaTraslado";
             this.lblFechaTraslado.Size = new System.Drawing.Size(115, 18);
             this.lblFechaTraslado.TabIndex = 23;
@@ -496,7 +371,7 @@
             this.lblBodega.AutoSize = true;
             this.lblBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodega.ForeColor = System.Drawing.Color.White;
-            this.lblBodega.Location = new System.Drawing.Point(414, 49);
+            this.lblBodega.Location = new System.Drawing.Point(444, 47);
             this.lblBodega.Name = "lblBodega";
             this.lblBodega.Size = new System.Drawing.Size(111, 18);
             this.lblBodega.TabIndex = 1;
@@ -506,7 +381,7 @@
             // 
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(180, 76);
+            this.txtUsuario.Location = new System.Drawing.Point(571, 82);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(176, 22);
             this.txtUsuario.TabIndex = 3;
@@ -533,7 +408,7 @@
             this.lblObservaciones.AutoSize = true;
             this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblObservaciones.ForeColor = System.Drawing.Color.White;
-            this.lblObservaciones.Location = new System.Drawing.Point(24, 105);
+            this.lblObservaciones.Location = new System.Drawing.Point(54, 159);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(112, 18);
             this.lblObservaciones.TabIndex = 13;
@@ -543,31 +418,47 @@
             // 
             this.gbGridViewRegistroProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbGridViewRegistroProductos.Controls.Add(this.txtBuscar);
             this.gbGridViewRegistroProductos.Controls.Add(this.gCBodega);
+            this.gbGridViewRegistroProductos.Controls.Add(this.label1);
             this.gbGridViewRegistroProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewRegistroProductos.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(14, 245);
+            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(14, 259);
             this.gbGridViewRegistroProductos.Name = "gbGridViewRegistroProductos";
-            this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(552, 255);
+            this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(370, 417);
             this.gbGridViewRegistroProductos.TabIndex = 37;
             this.gbGridViewRegistroProductos.TabStop = false;
             this.gbGridViewRegistroProductos.Text = "Detalle De Bodega Origen";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtBuscar.Location = new System.Drawing.Point(96, 40);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(147, 24);
+            this.txtBuscar.TabIndex = 40;
+            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
             // gCBodega
             // 
             this.gCBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gCBodega.Location = new System.Drawing.Point(6, 30);
+            this.gCBodega.Location = new System.Drawing.Point(6, 85);
             this.gCBodega.MainView = this.gridView1;
             this.gCBodega.Name = "gCBodega";
-            this.gCBodega.Size = new System.Drawing.Size(534, 209);
+            this.gCBodega.Size = new System.Drawing.Size(358, 316);
             this.gCBodega.TabIndex = 0;
             this.gCBodega.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID,
+            this.colProducto,
+            this.colUnidades,
+            this.colUnidadMedida});
             this.gridView1.GridControl = this.gCBodega;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -578,6 +469,46 @@
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
             // 
+            // colID
+            // 
+            this.colID.Caption = "ID";
+            this.colID.FieldName = "Producto.idProducto";
+            this.colID.Name = "colID";
+            // 
+            // colProducto
+            // 
+            this.colProducto.Caption = "Producto";
+            this.colProducto.FieldName = "Producto.nombreProducto";
+            this.colProducto.Name = "colProducto";
+            this.colProducto.Visible = true;
+            this.colProducto.VisibleIndex = 0;
+            // 
+            // colUnidades
+            // 
+            this.colUnidades.Caption = "Unidades";
+            this.colUnidades.FieldName = "unidades";
+            this.colUnidades.Name = "colUnidades";
+            this.colUnidades.Visible = true;
+            this.colUnidades.VisibleIndex = 1;
+            // 
+            // colUnidadMedida
+            // 
+            this.colUnidadMedida.Caption = "Unidad De Medida";
+            this.colUnidadMedida.FieldName = "Producto.UnidadMedida";
+            this.colUnidadMedida.Name = "colUnidadMedida";
+            this.colUnidadMedida.Visible = true;
+            this.colUnidadMedida.VisibleIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label1.Location = new System.Drawing.Point(12, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 18);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Búsqueda:";
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -585,9 +516,9 @@
             this.groupBox1.Controls.Add(this.gCProductos);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(572, 245);
+            this.groupBox1.Location = new System.Drawing.Point(474, 259);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(552, 255);
+            this.groupBox1.Size = new System.Drawing.Size(370, 417);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle de Productos";
@@ -600,13 +531,18 @@
             this.gCProductos.Location = new System.Drawing.Point(6, 30);
             this.gCProductos.MainView = this.gridView2;
             this.gCProductos.Name = "gCProductos";
-            this.gCProductos.Size = new System.Drawing.Size(534, 209);
+            this.gCProductos.Size = new System.Drawing.Size(358, 371);
             this.gCProductos.TabIndex = 0;
             this.gCProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
             // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.columnaID,
+            this.columnaProducto,
+            this.columnaUnidades,
+            this.columnaUnidadMedida});
             this.gridView2.GridControl = this.gCProductos;
             this.gridView2.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView2.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -616,6 +552,36 @@
             this.gridView2.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView2.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView2.OptionsEditForm.PopupEditFormWidth = 900;
+            // 
+            // columnaID
+            // 
+            this.columnaID.Caption = "gridColumn1";
+            this.columnaID.FieldName = "Producto.idProducto";
+            this.columnaID.Name = "columnaID";
+            // 
+            // columnaProducto
+            // 
+            this.columnaProducto.Caption = "Producto";
+            this.columnaProducto.FieldName = "Producto.nombreProducto";
+            this.columnaProducto.Name = "columnaProducto";
+            this.columnaProducto.Visible = true;
+            this.columnaProducto.VisibleIndex = 0;
+            // 
+            // columnaUnidades
+            // 
+            this.columnaUnidades.Caption = "Unidades";
+            this.columnaUnidades.FieldName = "unidades";
+            this.columnaUnidades.Name = "columnaUnidades";
+            this.columnaUnidades.Visible = true;
+            this.columnaUnidades.VisibleIndex = 1;
+            // 
+            // columnaUnidadMedida
+            // 
+            this.columnaUnidadMedida.Caption = "Unidad de Medida";
+            this.columnaUnidadMedida.FieldName = "Producto.UnidadMedida";
+            this.columnaUnidadMedida.Name = "columnaUnidadMedida";
+            this.columnaUnidadMedida.Visible = true;
+            this.columnaUnidadMedida.VisibleIndex = 2;
             // 
             // tipoTrasladoTableAdapter
             // 
@@ -633,19 +599,56 @@
             // 
             this.epError.ContainerControl = this;
             // 
+            // txtCantidadProd
+            // 
+            this.txtCantidadProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtCantidadProd.Location = new System.Drawing.Point(403, 433);
+            this.txtCantidadProd.Name = "txtCantidadProd";
+            this.txtCantidadProd.Size = new System.Drawing.Size(50, 24);
+            this.txtCantidadProd.TabIndex = 41;
+            this.txtCantidadProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadProd_KeyPress);
+            this.txtCantidadProd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCantidadProd_KeyUp);
+            // 
+            // txtRemover
+            // 
+            this.txtRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtRemover.ForeColor = System.Drawing.Color.Black;
+            this.txtRemover.Location = new System.Drawing.Point(403, 463);
+            this.txtRemover.Name = "txtRemover";
+            this.txtRemover.Size = new System.Drawing.Size(50, 28);
+            this.txtRemover.TabIndex = 40;
+            this.txtRemover.Text = "<";
+            this.txtRemover.UseVisualStyleBackColor = true;
+            this.txtRemover.Click += new System.EventHandler(this.txtRemover_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.Location = new System.Drawing.Point(403, 398);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(50, 29);
+            this.btnAgregar.TabIndex = 39;
+            this.btnAgregar.Text = ">";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // frmAdTrasladoProductos
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 512);
+            this.ClientSize = new System.Drawing.Size(853, 688);
+            this.Controls.Add(this.txtCantidadProd);
+            this.Controls.Add(this.txtRemover);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(1152, 550);
-            this.MinimumSize = new System.Drawing.Size(1152, 550);
+            this.MaximumSize = new System.Drawing.Size(869, 727);
+            this.MinimumSize = new System.Drawing.Size(869, 727);
             this.Name = "frmAdTrasladoProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Traslado De Producto";
@@ -656,11 +659,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodegaD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTPRegistroBodega)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtECodigoProducto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoTrasladoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTrasladoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTipoTraslado)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
+            this.gbGridViewRegistroProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -668,13 +671,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnNuevo;
         private DevExpress.XtraBars.Navigation.NavButton mBtnAceptar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnSalir;
         private System.Windows.Forms.GroupBox gbGridViewFuncionario;
@@ -691,20 +694,11 @@
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
         private DevExpress.XtraGrid.GridControl gCBodega;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnAgregar;
         private System.Windows.Forms.ComboBox cmbTipoTraslado;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraGrid.GridControl gCProductos;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.Label lblBodegaDestino;
-        private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox txtNombreProducto;
-        private DevExpress.XtraEditors.ButtonEdit txtECodigoProducto;
-        private System.Windows.Forms.Label lblProducto;
-        private System.Windows.Forms.TextBox txtUnidadMedida;
-        private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.BindingSource dataSetTipoTrasladoBindingSource;
         private DataSets.Bodega.Admistracion.DataSetTipoTraslado dataSetTipoTraslado;
         private System.Windows.Forms.BindingSource tipoTrasladoBindingSource;
@@ -720,7 +714,19 @@
         private System.Windows.Forms.BindingSource spSELECTRegistroBodegaAllBindingSource1;
         private DataSets.Bodega.Procesos.DataSetTPRegistroBodegaDTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter sp_SELECT_RegistroBodega_AllTableAdapter1;
         private System.Windows.Forms.TextBox txtFechaTraslado;
-        private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private System.Windows.Forms.ErrorProvider epError;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCantidadProd;
+        private System.Windows.Forms.Button txtRemover;
+        private System.Windows.Forms.Button btnAgregar;
+        private DevExpress.XtraGrid.Columns.GridColumn colID;
+        private DevExpress.XtraGrid.Columns.GridColumn colProducto;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnidades;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnidadMedida;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaID;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaProducto;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaUnidades;
+        private DevExpress.XtraGrid.Columns.GridColumn columnaUnidadMedida;
     }
 }

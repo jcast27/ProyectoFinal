@@ -126,7 +126,7 @@
             // 
             this.coldescripcion.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coldescripcion.AppearanceHeader.Options.UseFont = true;
-            this.coldescripcion.Caption = "Descripcion";
+            this.coldescripcion.Caption = "Cantidad minima de Mezclas";
             this.coldescripcion.FieldName = "descripcion";
             this.coldescripcion.Name = "coldescripcion";
             this.coldescripcion.Visible = true;

@@ -61,7 +61,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             if (bodegaEstatico == null)
             {
                 cmbTipoBodega.SelectedIndex = -1;
-
+                cmbUbicacion.SelectedIndex = -1;
             }
             else
             {

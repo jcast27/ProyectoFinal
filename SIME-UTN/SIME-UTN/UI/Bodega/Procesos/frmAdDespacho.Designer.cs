@@ -369,6 +369,8 @@
             // 
             // cmbFuncionario
             // 
+            this.cmbFuncionario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbFuncionario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbFuncionario.DataSource = this.funcionarioBindingSource;
             this.cmbFuncionario.DisplayMember = "Nombre";
             this.cmbFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -524,6 +526,8 @@
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
+            this.MaximumSize = new System.Drawing.Size(822, 618);
+            this.MinimumSize = new System.Drawing.Size(822, 618);
             this.Name = "frmAdDespacho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Despacho De Producto";

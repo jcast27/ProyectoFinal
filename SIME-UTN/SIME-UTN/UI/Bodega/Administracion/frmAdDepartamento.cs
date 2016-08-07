@@ -149,6 +149,10 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 txtNombre.Focus();
                 error = true;
             }
+            if (error == false)
+            {
+                epError.Clear();
+            }
             return error;
         }
 

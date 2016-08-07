@@ -18,7 +18,7 @@ namespace SIME_UTN.DAL
         /// <param name="idBodegap"></param>
         /// <param name="bodegap"></param>
         /// <param name="usuarioLogueadop"></param>
-        internal static void EliminarBodega(int idBodegap, string bodegap, string usuarioLogueadop)
+        internal static void DisableBodega(int idBodegap, string bodegap, string usuarioLogueadop)
         {
             string accion = "";
             accion = "Eliminar";
@@ -175,21 +175,6 @@ namespace SIME_UTN.DAL
         }
 
 
-        /// <summary>
-        /// Metodo que desabilita los productos asociado a la bodega
-        /// </summary>
-        /// <param name="idRegistroBodegap"></param>
-        internal static void DesableTipodeBodega(int idRegistroBodegap)
-        {
-            SqlCommand comando = new SqlCommand("sp_Desable_Bodega");
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idregistrobodega", idRegistroBodegap);
-            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-            {
-                db.ExecuteNonQuery(comando);
-            }
-        }
-
 
         /// <summary>
         /// Metodo que elimina los productos asociado a la bodega
@@ -257,22 +242,24 @@ namespace SIME_UTN.DAL
 
             foreach (RegistroIngresoProductoDTO producto in listaProductos)
             {
-                SqlCommand comando = new SqlCommand("sp_INSERT_Bodega");
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@idregistrobodega", idBodegap);
-                comando.Parameters.AddWithValue("@idproducto", producto.idProducto);
-                comando.Parameters.AddWithValue("@codigoavatar", producto.codigoAvatar);
-                comando.Parameters.AddWithValue("@nombre", producto.nombreProducto);
-                comando.Parameters.AddWithValue("@idunidadmedida", producto.Idunidad);
-                comando.Parameters.AddWithValue("@Unidades", 0);
-                comando.Parameters.AddWithValue("@contenido", 0);
-                comando.Parameters.AddWithValue("@estado", 1);
+                if (producto.Idunidad!=10){
+                    SqlCommand comando = new SqlCommand("sp_INSERT_Bodega");
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@idregistrobodega", idBodegap);
+                    comando.Parameters.AddWithValue("@idproducto", producto.idProducto);
+                    comando.Parameters.AddWithValue("@codigoavatar", producto.codigoAvatar);
+                    comando.Parameters.AddWithValue("@nombre", producto.nombreProducto);
+                    comando.Parameters.AddWithValue("@idunidadmedida", producto.Idunidad);
+                    comando.Parameters.AddWithValue("@Unidades", 0);
+                    comando.Parameters.AddWithValue("@contenido", 0);
+                    comando.Parameters.AddWithValue("@estado", 1);
 
-                using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
-                {
-                    db.ExecuteNonQuery(comando);
+                    using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+                    {
+                        db.ExecuteNonQuery(comando);
 
 
+                    }
                 }
             }
 

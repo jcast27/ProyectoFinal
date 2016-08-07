@@ -52,18 +52,18 @@ namespace SIME_UTN.DAL
         /// Metodo que actualiza los productos de un traslado
         /// </summary>
         /// <param name="trasladoInterDTOp"></param>
-        internal static void ActualizarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp, TrasladoProducto trasladop)
+        internal static void ActualizarTrasladoProductos(PBodega productoBodega, TrasladoProducto trasladop)
         {
             string accion = "";
             accion = "Insertar";
             SqlCommand comando = new SqlCommand("sp_UPDATE_TrasladoProductoInter");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@idtraslado", trasladoInterDTOp.idTraslado);
-            comando.Parameters.AddWithValue("@idproducto", trasladoInterDTOp.idProducto);
-            comando.Parameters.AddWithValue("@idunidadmedida", trasladoInterDTOp.idUnidadMedida);
-            comando.Parameters.AddWithValue("@Unidades", trasladoInterDTOp.unidades);
-            comando.Parameters.AddWithValue("@estado", trasladoInterDTOp.estado);
+            comando.Parameters.AddWithValue("@idtraslado", trasladop.idTraslado);
+            comando.Parameters.AddWithValue("@idproducto", productoBodega.Producto.idProducto);
+            comando.Parameters.AddWithValue("@idunidadmedida", productoBodega.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@Unidades", productoBodega.unidades);
+            comando.Parameters.AddWithValue("@estado", productoBodega.estado);
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
@@ -75,15 +75,14 @@ namespace SIME_UTN.DAL
 
         }
 
-        internal static double ObtenerUltimaCantidadDelTraslado(TrasladoProductoInterDTO trasladoInterDTOp)
+        internal static double ObtenerUltimaCantidadDelTraslado(PBodega productoBodega,TrasladoProducto TrasladoProducto)
         {
-            List<TrasladoProductoInterDTO> listaProductosDTO = new List<TrasladoProductoInterDTO>();
             double cantidad = 0;
             SqlCommand comando = new SqlCommand("sp_SELECT_TrasladoCantidad");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@idTraslado", trasladoInterDTOp.idTraslado);
-            comando.Parameters.AddWithValue("@idProducto", trasladoInterDTOp.idProducto);
+            comando.Parameters.AddWithValue("@idTraslado", TrasladoProducto.idTraslado);
+            comando.Parameters.AddWithValue("@idProducto", productoBodega.Producto.idProducto);
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
             {
@@ -137,18 +136,18 @@ namespace SIME_UTN.DAL
         /// Metodo que guarda los productos de un traslado
         /// </summary>
         /// <param name="unaMezclaProductoUnidadDTOp"></param>
-        internal static void GuardarTrasladoProductos(TrasladoProductoInterDTO trasladoInterDTOp,TrasladoProducto trasladop)
+        internal static void GuardarTrasladoProductos(PBodega productoBodega, TrasladoProducto trasladop)
         {
             string accion = "";
             accion = "Insertar";
             SqlCommand comando = new SqlCommand("sp_INSERT_TrasladoProductoInter");
             comando.CommandType = CommandType.StoredProcedure;
 
-            comando.Parameters.AddWithValue("@idtraslado", trasladoInterDTOp.idTraslado);
-            comando.Parameters.AddWithValue("@idproducto", trasladoInterDTOp.idProducto);
-            comando.Parameters.AddWithValue("@idunidadmedida", trasladoInterDTOp.idUnidadMedida);
-            comando.Parameters.AddWithValue("@unidades", trasladoInterDTOp.unidades);
-            comando.Parameters.AddWithValue("@estado", trasladoInterDTOp.estado);
+            comando.Parameters.AddWithValue("@idtraslado", trasladop.idTraslado);
+            comando.Parameters.AddWithValue("@idproducto", productoBodega.Producto.idProducto);
+            comando.Parameters.AddWithValue("@idunidadmedida", productoBodega.UnidadMedida.idUnidadMedida);
+            comando.Parameters.AddWithValue("@unidades", productoBodega.unidades);
+            comando.Parameters.AddWithValue("@estado", productoBodega.estado);
 
 
             using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))

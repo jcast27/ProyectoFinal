@@ -447,6 +447,12 @@
     <Compile Include="UI\Bodega\Administracion\frmAdDepartamento.Designer.cs">
       <DependentUpon>frmAdDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmModTrasladoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmModTrasladoProductos.Designer.cs">
+      <DependentUpon>frmModTrasladoProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Bodega\Inventarios\frmInventarioActual.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -783,6 +789,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Administracion\frmAdDepartamento.resx">
       <DependentUpon>frmAdDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmModTrasladoProductos.resx">
+      <DependentUpon>frmModTrasladoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioActual.resx">
       <DependentUpon>frmInventarioActual.cs</DependentUpon>
