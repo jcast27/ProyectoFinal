@@ -124,7 +124,7 @@ namespace SIME_UTN.UI
 
                 // Si el mensaje es "Error de inicio de sesión del usuario" es un error de usuario inválido 
                 if (error.Message.Trim().Contains("Error de inicio de sesión del usuario") == true || error.Message.Trim().Contains("Login failed") == true)
-                    MessageBox.Show("Usuario inválido, intento No " + contador, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Usuario no existe, intento No " + contador, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                     // otro Error
                     MessageBox.Show("Error ->" + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

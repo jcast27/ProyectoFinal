@@ -227,8 +227,9 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 double multiplos = 0;
                 int presentacion = int.Parse(txtUnidadMedida.Text.Split(' ')[0]);
                 double cantidad = double.Parse(txtCantidad.Text, culture);
-               
 
+
+             
                 if (cantidad == presentacion)
                 {
                     multiplos = 1;
@@ -300,11 +301,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     txtDescripcion.Text = cantidadMezcla(listaMultiplos);
                 }
 
+
                 int index = 0;
                 bool existe = false;
                 if (listaProductoDTO.Count != 0)
                 {
-                  
+
                     foreach (ProductoDTO unProductoDTO in listaProductoDTO)
                     {
                         if (unProductoDTO.codigoAvatar == txtECodigoProducto.Text)
@@ -328,12 +330,17 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 if (existe == true)
                 {
                     listaProductoDTO.Insert(index, unProducto);
+                    this.CargarGrid();
+                    RecalcularCantidaddeMezcla();
+
                 }
                 else
                 {
                     listaProductoDTO.Add(unProducto);
+                    this.CargarGrid();
                 }
-                this.CargarGrid();
+
+
                 CambiarEstado(EstadoMantenimiento.Agregar);
             }
         }
@@ -625,8 +632,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             try
             {
 
-                if (lblIdMezcla.Text != "")
-                {
+               
 
 
                     if (MessageBox.Show("¿Seguro que desea eliminar al producto " + unProducto.nombreProducto + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -653,23 +659,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
                     }
 
-                }
-                else
-                {
-                    if (MessageBox.Show("¿Seguro que desea eliminar al producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        foreach (ProductoDTO unProductoDTO in listaProductoDTO)
-                        {
-                            if (unProductoDTO.codigoAvatar == unProducto.codigoAvatar)
-                            {
-                                listaProductoDTO.Remove(unProductoDTO);
-                                break;
-                            }
-                        }
-                        MessageBox.Show("El producto " + gridView1.GetFocusedRowCellValue("Nombre").ToString() + " fue eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarGrid();
-                    }
-                }
+                
+               
             }
             catch (Exception ex)
             {
