@@ -504,7 +504,6 @@
             this.txtSolicitudAvatar.Name = "txtSolicitudAvatar";
             this.txtSolicitudAvatar.Size = new System.Drawing.Size(153, 22);
             this.txtSolicitudAvatar.TabIndex = 2;
-            this.txtSolicitudAvatar.Text = "AD234";
             // 
             // lblProducto
             // 
@@ -579,7 +578,7 @@
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
             this.MaximumSize = new System.Drawing.Size(1152, 531);
-            this.MinimumSize = new System.Drawing.Size(1152, 531);
+            this.MinimumSize = new System.Drawing.Size(1152, 530);
             this.Name = "frmAdRegistroProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Producto";

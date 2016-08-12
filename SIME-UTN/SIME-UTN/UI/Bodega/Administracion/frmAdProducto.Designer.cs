@@ -280,7 +280,6 @@
             this.txtCodigoAvatar.Name = "txtCodigoAvatar";
             this.txtCodigoAvatar.Size = new System.Drawing.Size(187, 22);
             this.txtCodigoAvatar.TabIndex = 2;
-            this.txtCodigoAvatar.Text = "A234";
             // 
             // txtNombreProducto
             // 
@@ -292,7 +291,6 @@
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(187, 22);
             this.txtNombreProducto.TabIndex = 0;
-            this.txtNombreProducto.Text = "Cloro";
             // 
             // lblCodigoAvatar
             // 
@@ -346,7 +344,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(187, 22);
             this.txtDescripcion.TabIndex = 1;
-            this.txtDescripcion.Text = "Limpieza";
             // 
             // categoriaTableAdapter
             // 
@@ -414,7 +411,7 @@
             this.Controls.Add(this.gbInformaciónPersonal);
             this.Controls.Add(this.tileNavPane1);
             this.MaximumSize = new System.Drawing.Size(794, 331);
-            this.MinimumSize = new System.Drawing.Size(794, 331);
+            this.MinimumSize = new System.Drawing.Size(794, 330);
             this.Name = "frmAdProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Producto";
