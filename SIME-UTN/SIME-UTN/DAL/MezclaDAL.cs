@@ -16,7 +16,6 @@ namespace SIME_UTN.DAL
             comando.CommandType = CommandType.StoredProcedure;
 
             //(@idBodega int, @idMezcla int, @CodigoAvatar varchar(30), @Nombre varchar(30), @IDUnidadMedida int, @Unidades int, @contenido float)
-
             comando.Parameters.AddWithValue("@idBodega", idBodega);
             comando.Parameters.AddWithValue("@idMezcla", mezcla.idProducto);
             comando.Parameters.AddWithValue("@CodigoAvatar", mezcla.codigoAvatar);

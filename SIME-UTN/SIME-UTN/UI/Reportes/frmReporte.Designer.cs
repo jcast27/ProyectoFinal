@@ -259,7 +259,7 @@
             this.documentViewer.IsMetric = true;
             this.documentViewer.Location = new System.Drawing.Point(0, 143);
             this.documentViewer.Name = "documentViewer";
-            this.documentViewer.Size = new System.Drawing.Size(1130, 456);
+            this.documentViewer.Size = new System.Drawing.Size(1224, 408);
             this.documentViewer.TabIndex = 0;
             // 
             // documentViewerRibbonController1
@@ -330,14 +330,14 @@
             this.printPreviewStaticItem2,
             this.zoomTrackBarEditItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 63;
+            this.ribbonControl1.MaxItemId = 71;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemProgressBar1,
             this.repositoryItemZoomTrackBar1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1130, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(1224, 143);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.TransparentEditors = true;
             // 
@@ -1299,7 +1299,7 @@
             // 
             // printPreviewStaticItem1
             // 
-            this.printPreviewStaticItem1.Caption = "ninguno";
+            this.printPreviewStaticItem1.Caption = "Nothing";
             this.printPreviewStaticItem1.Id = 49;
             this.printPreviewStaticItem1.LeftIndent = 1;
             this.printPreviewStaticItem1.Name = "printPreviewStaticItem1";
@@ -1512,6 +1512,7 @@
             this.printPreviewRibbonPageGroup8.ShowCaptionButton = false;
             this.printPreviewRibbonPageGroup8.Text = "Cerrar";
             this.printPreviewRibbonPageGroup8.Visible = false;
+            this.printPreviewRibbonPageGroup8.CaptionButtonClick += new DevExpress.XtraBars.Ribbon.RibbonPageGroupEventHandler(this.printPreviewRibbonPageGroup8_CaptionButtonClick);
             // 
             // ribbonStatusBar1
             // 
@@ -1522,19 +1523,20 @@
             this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewStaticItem2);
             this.ribbonStatusBar1.ItemLinks.Add(this.zoomTrackBarEditItem1);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 599);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 551);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1130, 31);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1224, 31);
             // 
             // frmReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 630);
+            this.ClientSize = new System.Drawing.Size(1224, 582);
             this.Controls.Add(this.documentViewer);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmReporte";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;

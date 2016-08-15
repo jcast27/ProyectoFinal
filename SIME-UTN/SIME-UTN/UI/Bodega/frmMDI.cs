@@ -117,6 +117,7 @@ namespace SIME_UTN.UI.Bodega
             //    e.Control = new System.Windows.Forms.Control();
         }
 
+
         private FlyoutAction createCloseAction(Flyout flyout)
         {
             FlyoutAction closeaction = new FlyoutAction() { Caption = "Confirmación", Description = "¿Desea cerrar esta aplicación?" };
@@ -418,7 +419,6 @@ namespace SIME_UTN.UI.Bodega
             this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
 
         }
-
 
         private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
         {

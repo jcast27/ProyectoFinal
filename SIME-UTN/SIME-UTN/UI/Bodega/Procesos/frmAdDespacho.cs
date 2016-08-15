@@ -340,9 +340,9 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     {
                         int indexProd = listaProd.FindIndex(a => a.Producto.idProducto == prod.idProducto);
                         int contenido = int.Parse(prod.cantidadPorEmpaque) * int.Parse(mezcla.descripcion);
-                        double unidades = listaProd[indexProd].Producto.contenido / contenido;
+                        int unidades = contenido / int.Parse(listaProd[indexProd].Producto.contenido.ToString());
 
-                        gm.removerComponentes(idBodega, prod.idProducto, contenido, int.Parse(unidades.ToString()));
+                        gm.removerComponentes(idBodega, prod.idProducto, contenido, unidades);
                     }
 
                     MessageBox.Show("Mezcla generada con éxito", "Despacho");

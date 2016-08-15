@@ -62,5 +62,12 @@ namespace SIME_UTN.UI.Reportes
 
             documentViewer.DocumentSource = reporte;
         }
+
+
+        private void printPreviewRibbonPageGroup8_CaptionButtonClick(object sender, DevExpress.XtraBars.Ribbon.RibbonPageGroupEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

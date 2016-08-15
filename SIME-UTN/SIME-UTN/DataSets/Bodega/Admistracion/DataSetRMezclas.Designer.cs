@@ -895,8 +895,8 @@ SELECT IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS descripc
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS de" +
-                "scripcion, Estado AS estado\r\nFROM            Producto\r\nWHERE        (CodigoAvata" +
-                "r = \'Mezcla\') AND (Estado = 1)";
+                "scripcion, Estado AS estado\r\nFROM            Producto\r\nWHERE        (IDUnidadMed" +
+                "ida = 10) AND (Estado = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
