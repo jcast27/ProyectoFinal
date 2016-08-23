@@ -131,12 +131,12 @@
   inner join "dbo"."Usuario" "Usuario"
        on ("Usuario"."CodigoUsuario" = "TrasladoProducto"."IDUsuario"))
   inner join "dbo"."EstadoTraslado" "EstadoTraslado"
-       on ("EstadoTraslado"."IDEstadoTraslado" = "TrasladoProducto"."IDTipoTraslado"))
+       on ("EstadoTraslado"."IDEstadoTraslado" = "TrasladoProducto"."IDEstadoTraslado"))
   inner join "dbo"."RegistroBodega" "RegistroBodega"
        on ("RegistroBodega"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaOrigen"))
   inner join "dbo"."RegistroBodega" "RegistroBodega_1"
        on ("RegistroBodega_1"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaDestino"))
-  where "EstadoTraslado"."Descripcion" &lt;&gt; 'En Proceso' and "TrasladoProducto"."FechaTraslado" between @FechaInicio and @FechaFin</value>
+  where "TrasladoProducto"."IDEstadoTraslado" &gt; 1 and "TrasladoProducto"."FechaTraslado" between @FechaInicio and @FechaFin</value>
   </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRyYXNsYWRvUHJvZHVjdG8iPjxGaWVsZCBOYW1lPSJOwrAgVHJhc2xhZG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkVzdGFkbyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EgT3JpZ2VuIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkJvZGVnYSBEZXN0aW5vIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>

@@ -708,17 +708,17 @@
     <Compile Include="UI\Reportes\rptBodega.Designer.cs">
       <DependentUpon>rptBodega.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\rptFormularioFecha.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Reportes\rptFormularioFecha.Designer.cs">
-      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Reportes\rptFormulario.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reportes\rptFormulario.Designer.cs">
       <DependentUpon>rptFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptFormularioFecha.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptFormularioFecha.Designer.cs">
+      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\rptImprimirForm.cs">
       <SubType>Component</SubType>
@@ -914,11 +914,11 @@
     <EmbeddedResource Include="UI\Reportes\rptBodega.resx">
       <DependentUpon>rptBodega.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\rptFormularioFecha.resx">
-      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptFormulario.resx">
       <DependentUpon>rptFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptFormularioFecha.resx">
+      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptImprimirForm.resx">
       <DependentUpon>rptImprimirForm.cs</DependentUpon>

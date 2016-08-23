@@ -120,6 +120,19 @@
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>select "Formulario"."IDFormulario",
+       "Formulario"."Fecha",
+       "Formulario"."Observaciones",
+       "Activo"."Nombre" as "Activo_Nombre",
+       "Funcionario"."Nombre" as "Funcionario_Nombre"
+  from (("dbo"."Formulario" "Formulario"
+  inner join "dbo"."Activo" "Activo"
+       on ("Activo"."IDActivo" = "Formulario"."IDActivo"))
+  inner join "dbo"."Funcionario" "Funcionario"
+       on ("Funcionario"."IDFuncionario" = "Formulario"."IDFuncionario"))
+  where "Formulario"."Fecha" between @FechaInicio and @FechaFin</value>
+  </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkZvcm11bGFyaW8iPjxGaWVsZCBOYW1lPSJJREZvcm11bGFyaW8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9Ik9ic2VydmFjaW9uZXMiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQWN0aXZvX05vbWJyZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJGdW5jaW9uYXJpb19Ob21icmUiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
   </data>

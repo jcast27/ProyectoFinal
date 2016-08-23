@@ -109,8 +109,8 @@ namespace SIME_UTN.UI.Bodega
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodegaN", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTraslado", usuarioLogueado, 0);
-            if (e.Document.Caption == "Reporte Traslados Por Fecha")
-                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
+            //if (e.Document.Caption == "Reporte Traslados Por Fecha")
+            //    e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados Por Usuario")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoUser", usuarioLogueado, 0);
             //if (e.Control == null)
@@ -379,9 +379,9 @@ namespace SIME_UTN.UI.Bodega
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodega = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodegaEspecifica = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega Especifica" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTraslados = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Fecha" };
+            //DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Fecha" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosUsuario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Usuario" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptBodega, docRptBodegaEspecifica, docTraslados, docTrasladosFecha, docTrasladosUsuario });
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptBodega, docRptBodegaEspecifica, docTraslados, docTrasladosUsuario });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 140;
@@ -402,12 +402,12 @@ namespace SIME_UTN.UI.Bodega
             nombreElemento = "RPT. Taslados";
             tileContainer2.Items.Add(this.crearTile(docTraslados, nombreElemento, grupo, imagen, estado));
             //Propiedades para el decumento Reporte Traslados Fecha
+            //grupo = "Group 1";
+            //imagen = Properties.Resources.Reporte;
+            //nombreElemento = "RPT. Taslados Por Fecha";
+            //tileContainer2.Items.Add(this.crearTile(docTrasladosFecha, nombreElemento, grupo, imagen, estado));
+            ////Propiedades para el decumento Reporte Traslados Usuario
             grupo = "Group 1";
-            imagen = Properties.Resources.Reporte;
-            nombreElemento = "RPT. Taslados Por Fecha";
-            tileContainer2.Items.Add(this.crearTile(docTrasladosFecha, nombreElemento, grupo, imagen, estado));
-            //Propiedades para el decumento Reporte Traslados Usuario
-            grupo = "Group 2";
             imagen = Properties.Resources.Reporte;
             nombreElemento = "RPT. Taslados Por Usuario";
             tileContainer2.Items.Add(this.crearTile(docTrasladosUsuario, nombreElemento, grupo, imagen, estado));
