@@ -127,7 +127,7 @@
             this.mBtnProcesos.AppearanceHovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mBtnProcesos.AppearanceHovered.Options.UseFont = true;
             this.mBtnProcesos.AppearanceHovered.Options.UseForeColor = true;
-            this.mBtnProcesos.Caption = "Formularios";
+            this.mBtnProcesos.Caption = "Procesos";
             this.mBtnProcesos.Glyph = ((System.Drawing.Image)(resources.GetObject("mBtnProcesos.Glyph")));
             this.mBtnProcesos.Name = "mBtnProcesos";
             this.mBtnProcesos.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnProcesos_ElementClick);

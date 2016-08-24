@@ -21,9 +21,9 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void frmItem_Load(object sender, EventArgs e)
         {
-            Location = new Point(150, 176);
-            Height = Owner.Height - 176;
-            Width = Owner.Width - 300;
+            //Location = new Point(150, 176);
+            //Height = Owner.Height - 176;
+            //Width = Owner.Width - 300;
             Icon = Properties.Resources.Icono;
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             try
@@ -37,7 +37,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
                     if (cat.estado == 1)
                     {
                         Button btn = new Button();
-                        btn.FlatAppearance.BorderColor = Color.White;
+                        btn.FlatAppearance.BorderColor = Color.Black;
                         btn.FlatStyle = FlatStyle.Flat;
                         btn.Font = new Font("Microsoft Sans Serif", 11.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                         btn.Image = global::SIME_UTN.Properties.Resources.form;

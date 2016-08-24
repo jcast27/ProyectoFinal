@@ -72,7 +72,7 @@ namespace SIME_UTN.UI
                 UsuarioTable oUsuario = new UsuarioTable();
                 UsuarioDB oUsuario1 = UsuarioDB.GetInstance();
                 oUsuario1.usuario = "sa";
-                oUsuario1.contrasenna = "sa123456!";
+                oUsuario1.contrasenna = "sa1";
                 Encriptar encriptar = new Encriptar();
                 oUsuario = gestor.ValidarUsuarioPorUsuario(txtUsuario.Text.Trim());
 
@@ -93,6 +93,7 @@ namespace SIME_UTN.UI
 
                         //  validar la conexion 
                         BLL.LoginBLL.Conexion(txtUsuario.Text.Trim(), txtContrasena.Text.Trim());
+                        modulo = cmbModulo.SelectedIndex;
                         // devolver OK
                         this.DialogResult = DialogResult.OK;
                         // Cerrar ventana de Login

@@ -684,6 +684,12 @@
     <Compile Include="UI\Formulario\Procesos\frmFormReporte.Designer.cs">
       <DependentUpon>frmFormReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Ayuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Ayuda.Designer.cs">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\frmReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -762,6 +768,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
@@ -901,6 +908,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Procesos\frmFormReporte.resx">
       <DependentUpon>frmFormReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Ayuda.resx">
+      <DependentUpon>Ayuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\frmReporte.resx">
       <DependentUpon>frmReporte.cs</DependentUpon>
@@ -1377,8 +1387,7 @@
     <Content Include="Resources\boton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\Ayuda.docx" />
-    <None Include="Resources\ProyectoFinal.pdf" />
+    <None Include="Resources\Ayuda.pdf" />
     <None Include="Resources\utn128x99.png" />
     <None Include="Resources\warehouse.png" />
     <None Include="Resources\fondoCambioUser.png" />

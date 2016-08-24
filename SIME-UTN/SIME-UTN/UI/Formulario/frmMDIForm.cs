@@ -82,9 +82,18 @@ namespace SIME_UTN.UI.Formulario
                 e.Control = new Administracion.frmActivo();
             else if (e.Document.Caption == "Ventana Departamentos")
                 e.Control = new Bodega.Administracion.frmDepartamentos();
-            //else {
-            //    e.Control = new frmForms();
-            //}
+            else if (e.Document.Caption == "Ventana Formularios")
+                e.Control = new Formulario.Procesos.frmForms();
+
+            if (e.Document.Caption == "Reporte Activos")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnActivo", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Formularios")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnFormulario", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Formularios Por Fecha")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnFormularioFecha", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Utilizacion de Items")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnItem", usuarioLogueado, 0);
+
         }
 
         private FlyoutAction createCloseAction(Flyout flyout)
@@ -117,11 +126,13 @@ namespace SIME_UTN.UI.Formulario
 
         private void mBtnProcesos_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            //this.CrearDocumentosAdministracion(false);
+            this.CrearDocumentosAdministracion(false);
+            this.CrearDocumentosReportes(false);
+            this.CrearDocumentosFormulario(true);
             //CrearDocumentosFormulario(true);
-            tipoDeProceso = "Formularios";
-            frmForms frm = new frmForms();
-            frm.ShowDialog(this);
+            //tipoDeProceso = "Formularios";
+            //frmForms frm = new frmForms();
+            //frm.ShowDialog(this);
         }
 
         //Se crea un elemento que sera agregado al frame
@@ -222,6 +233,9 @@ namespace SIME_UTN.UI.Formulario
 
         public void CrearDocumentosFormulario(Boolean estado)
         {
+            string nombreElemento = "";
+            string grupo = "";
+            Image imagen = null;
             this.windowsUIView1.BeginUpdate();
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
@@ -233,6 +247,59 @@ namespace SIME_UTN.UI.Formulario
             TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 120;
             tileContainer2.Properties.Orientation = Orientation.Horizontal;
+
+            grupo = "Group 1";
+            imagen = Properties.Resources.form;
+            nombreElemento = "Formularios";
+            tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
+
+            windowsUIView1.ContentContainers.Add(tileContainer2);
+            this.windowsUIView1.ActivateContainer(tileContainer2);
+            this.windowsUIView1.EndUpdate();
+            this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
+
+        }
+
+        public void CrearDocumentosReportes(Boolean estado)
+        {
+            string nombreElemento = "";
+            string grupo = "";
+            Image imagen = null;
+
+            this.windowsUIView1.BeginUpdate();
+            this.windowsUIView1.Controller.CloseAll();
+            this.windowsUIView1.Documents.Clear();
+            //Creating documents
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptActivos = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Activos" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptFormularios = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Formularios" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docFormulariosPorFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Formularios Por Fecha" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docUtilizaciondeItems = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Utilizacion de Items" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptActivos, docRptFormularios, docFormulariosPorFecha, docUtilizaciondeItems });
+            //Creating and populating content container
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
+            tileContainer2.Properties.ItemSize = 140;
+            tileContainer2.Properties.Orientation = Orientation.Horizontal;
+            //Propiedades para el decumento Reporte Bodega
+            grupo = "Group 1";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Activos";
+            tileContainer2.Items.Add(this.crearTile(docRptActivos, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Bodega Especifica
+            grupo = "Group 2";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Formularios";
+            tileContainer2.Items.Add(this.crearTile(docRptFormularios, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Traslados
+            grupo = "Group 3";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Fromularios Por Fecha";
+            tileContainer2.Items.Add(this.crearTile(docFormulariosPorFecha, nombreElemento, grupo, imagen, estado));
+
+            grupo = "Group 1";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Utilizacion de Items";
+            tileContainer2.Items.Add(this.crearTile(docUtilizaciondeItems, nombreElemento, grupo, imagen, estado));
+
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);
@@ -347,33 +414,25 @@ namespace SIME_UTN.UI.Formulario
 
         private void mBtnReportes_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            //CrearDocumentosFormulario(false);
-            //CrearDocumentosAdministracion(false);
-            //CrearDocumentosReportes(true);
-            tipoDeProceso = "Reportes";
-            frmFormReporte frm = new frmFormReporte(usuarioLogueado);
-            frm.Show(this);
+            CrearDocumentosFormulario(false);
+            CrearDocumentosAdministracion(false);
+            CrearDocumentosReportes(true);
+
         }
 
 
-        private void mBtnAyuda_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
-        {
-            //Iniciar proceso
-            Process pr = new Process();
 
-            //Directorio
-            pr.StartInfo.WorkingDirectory = @"..\..\Resources\";
-
-            // Aqui se introduce el nombre del archivo
-            pr.StartInfo.FileName = "Ayuda.docx";
-
-            pr.Start();
-        }
 
         private void mBtnAcercaDe_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             AcercaDe about = new AcercaDe();
             about.ShowDialog(this);
+        }
+
+        private void mBtnAyuda_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            Ayuda ofrmAyuda = new Ayuda();
+            ofrmAyuda.ShowDialog(this);
         }
 
         //public void CrearDocumentosReportes(Boolean estado)
