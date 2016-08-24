@@ -154,7 +154,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(361, 22);
             this.txtNombre.TabIndex = 0;
-            this.txtNombre.Text = "ml";
             // 
             // lblNombre
             // 
@@ -180,7 +179,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(361, 22);
             this.txtDescripcion.TabIndex = 1;
-            this.txtDescripcion.Text = "Mililitros";
             // 
             // tileNavPane1
             // 
@@ -263,7 +261,7 @@
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbGridViewUnidadMedida);
             this.MaximumSize = new System.Drawing.Size(645, 250);
-            this.MinimumSize = new System.Drawing.Size(645, 250);
+            this.MinimumSize = new System.Drawing.Size(645, 249);
             this.Name = "frmAdUbicaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubicaciones";

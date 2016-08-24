@@ -122,7 +122,7 @@
             this.lblItem.Name = "lblItem";
             this.lblItem.Size = new System.Drawing.Size(48, 18);
             this.lblItem.TabIndex = 32;
-            this.lblItem.Text = "Items:";
+            this.lblItem.Text = "Ítems:";
             // 
             // txtNombre
             // 

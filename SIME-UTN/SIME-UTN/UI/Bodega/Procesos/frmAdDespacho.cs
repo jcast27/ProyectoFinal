@@ -253,7 +253,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                     }
 
                     MessageBox.Show("Despacho realizado con éxito", "Despacho", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    limpiar();
                 }
                 catch (Exception error)
                 {

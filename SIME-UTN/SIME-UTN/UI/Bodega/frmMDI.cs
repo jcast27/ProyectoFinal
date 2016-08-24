@@ -113,6 +113,8 @@ namespace SIME_UTN.UI.Bodega
             //    e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados Por Usuario")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoUser", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Inventario Minimo")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnMinimo", usuarioLogueado, 0);
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
         }
@@ -381,7 +383,8 @@ namespace SIME_UTN.UI.Bodega
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTraslados = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados" };
             //DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Fecha" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosUsuario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Usuario" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptBodega, docRptBodegaEspecifica, docTraslados, docTrasladosUsuario });
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventarioMinimo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario Minimo" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptBodega, docRptBodegaEspecifica, docTraslados, docTrasladosUsuario, docInventarioMinimo });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 140;
@@ -412,6 +415,10 @@ namespace SIME_UTN.UI.Bodega
             nombreElemento = "RPT. Taslados Por Usuario";
             tileContainer2.Items.Add(this.crearTile(docTrasladosUsuario, nombreElemento, grupo, imagen, estado));
 
+            grupo = "Group 2";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Inventario Mínimo";
+            tileContainer2.Items.Add(this.crearTile(docInventarioMinimo, nombreElemento, grupo, imagen, estado));
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);

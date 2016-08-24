@@ -49,10 +49,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
         private void frmAdActivo_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSetCategoriaPertenencia.Categoria' Puede moverla o quitarla según sea necesario.
+            this.categoriaTableAdapter.FillPertenencia(this.dataSetCategoriaPertenencia.Categoria);
             // TODO: esta línea de código carga datos en la tabla 'dataSetFUbicacion.Ubicacion' Puede moverla o quitarla según sea necesario.
             this.ubicacionTableAdapter.Fill(this.dataSetFUbicacion.Ubicacion);
-            // TODO: esta línea de código carga datos en la tabla 'dataSetCategoria.Categoria' Puede moverla o quitarla según sea necesario.
-            this.categoriaTableAdapter.Fill(this.dataSetCategoria.Categoria);
             Icon = Properties.Resources.Icono;
             UsuarioLogueado();
 
@@ -257,6 +257,19 @@ namespace SIME_UTN.UI.Formulario.Administracion
 
         private void label4_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void fillByPertenenciaToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.categoriaTableAdapter.FillPertenencia(this.dataSetCategoriaPertenencia.Categoria);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
     }

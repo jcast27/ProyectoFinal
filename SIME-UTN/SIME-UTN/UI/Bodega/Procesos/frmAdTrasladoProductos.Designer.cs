@@ -171,7 +171,7 @@
             this.gbGridViewFuncionario.ForeColor = System.Drawing.Color.White;
             this.gbGridViewFuncionario.Location = new System.Drawing.Point(12, 46);
             this.gbGridViewFuncionario.Name = "gbGridViewFuncionario";
-            this.gbGridViewFuncionario.Size = new System.Drawing.Size(832, 195);
+            this.gbGridViewFuncionario.Size = new System.Drawing.Size(832, 182);
             this.gbGridViewFuncionario.TabIndex = 36;
             this.gbGridViewFuncionario.TabStop = false;
             this.gbGridViewFuncionario.Text = "Traslado de Producto";
@@ -180,7 +180,7 @@
             // 
             this.txtFechaTraslado.Enabled = false;
             this.txtFechaTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaTraslado.Location = new System.Drawing.Point(210, 122);
+            this.txtFechaTraslado.Location = new System.Drawing.Point(553, 43);
             this.txtFechaTraslado.Name = "txtFechaTraslado";
             this.txtFechaTraslado.Size = new System.Drawing.Size(176, 22);
             this.txtFechaTraslado.TabIndex = 4;
@@ -194,7 +194,7 @@
             this.cmbBodegaDestino.DisplayMember = "nombre";
             this.cmbBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBodegaDestino.FormattingEnabled = true;
-            this.cmbBodegaDestino.Location = new System.Drawing.Point(210, 82);
+            this.cmbBodegaDestino.Location = new System.Drawing.Point(553, 99);
             this.cmbBodegaDestino.Name = "cmbBodegaDestino";
             this.cmbBodegaDestino.Size = new System.Drawing.Size(176, 24);
             this.cmbBodegaDestino.TabIndex = 2;
@@ -219,7 +219,7 @@
             this.cmbBodegaOrigen.DisplayMember = "nombre";
             this.cmbBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBodegaOrigen.FormattingEnabled = true;
-            this.cmbBodegaOrigen.Location = new System.Drawing.Point(571, 41);
+            this.cmbBodegaOrigen.Location = new System.Drawing.Point(160, 99);
             this.cmbBodegaOrigen.Name = "cmbBodegaOrigen";
             this.cmbBodegaOrigen.Size = new System.Drawing.Size(176, 24);
             this.cmbBodegaOrigen.TabIndex = 1;
@@ -252,7 +252,7 @@
             this.lblIDBodegaOrigen.AutoSize = true;
             this.lblIDBodegaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDBodegaOrigen.ForeColor = System.Drawing.Color.White;
-            this.lblIDBodegaOrigen.Location = new System.Drawing.Point(580, 69);
+            this.lblIDBodegaOrigen.Location = new System.Drawing.Point(654, 69);
             this.lblIDBodegaOrigen.Name = "lblIDBodegaOrigen";
             this.lblIDBodegaOrigen.Size = new System.Drawing.Size(0, 18);
             this.lblIDBodegaOrigen.TabIndex = 65;
@@ -263,7 +263,7 @@
             this.lblBodegaDestino.AutoSize = true;
             this.lblBodegaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodegaDestino.ForeColor = System.Drawing.Color.White;
-            this.lblBodegaDestino.Location = new System.Drawing.Point(54, 86);
+            this.lblBodegaDestino.Location = new System.Drawing.Point(432, 105);
             this.lblBodegaDestino.Name = "lblBodegaDestino";
             this.lblBodegaDestino.Size = new System.Drawing.Size(118, 18);
             this.lblBodegaDestino.TabIndex = 53;
@@ -278,7 +278,7 @@
             this.cmbTipoTraslado.DisplayMember = "Descripcion";
             this.cmbTipoTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoTraslado.FormattingEnabled = true;
-            this.cmbTipoTraslado.Location = new System.Drawing.Point(571, 117);
+            this.cmbTipoTraslado.Location = new System.Drawing.Point(160, 69);
             this.cmbTipoTraslado.Name = "cmbTipoTraslado";
             this.cmbTipoTraslado.Size = new System.Drawing.Size(176, 24);
             this.cmbTipoTraslado.TabIndex = 5;
@@ -303,7 +303,7 @@
             // 
             this.txtNumeroTraslado.Enabled = false;
             this.txtNumeroTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroTraslado.Location = new System.Drawing.Point(210, 46);
+            this.txtNumeroTraslado.Location = new System.Drawing.Point(160, 41);
             this.txtNumeroTraslado.Name = "txtNumeroTraslado";
             this.txtNumeroTraslado.Size = new System.Drawing.Size(176, 22);
             this.txtNumeroTraslado.TabIndex = 0;
@@ -316,18 +316,18 @@
             this.lblNumeroTraslado.AutoSize = true;
             this.lblNumeroTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblNumeroTraslado.Location = new System.Drawing.Point(54, 47);
+            this.lblNumeroTraslado.Location = new System.Drawing.Point(24, 42);
             this.lblNumeroTraslado.Name = "lblNumeroTraslado";
-            this.lblNumeroTraslado.Size = new System.Drawing.Size(99, 18);
+            this.lblNumeroTraslado.Size = new System.Drawing.Size(91, 18);
             this.lblNumeroTraslado.TabIndex = 47;
-            this.lblNumeroTraslado.Text = "Nro.Traslado:";
+            this.lblNumeroTraslado.Text = "N° Traslado:";
             // 
             // txtObservaciones
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(210, 159);
+            this.txtObservaciones.Location = new System.Drawing.Point(160, 129);
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(537, 22);
+            this.txtObservaciones.Size = new System.Drawing.Size(569, 22);
             this.txtObservaciones.TabIndex = 6;
             // 
             // lblTipoTraslado
@@ -335,7 +335,7 @@
             this.lblTipoTraslado.AutoSize = true;
             this.lblTipoTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblTipoTraslado.Location = new System.Drawing.Point(444, 123);
+            this.lblTipoTraslado.Location = new System.Drawing.Point(24, 75);
             this.lblTipoTraslado.Name = "lblTipoTraslado";
             this.lblTipoTraslado.Size = new System.Drawing.Size(123, 18);
             this.lblTipoTraslado.TabIndex = 39;
@@ -349,7 +349,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(444, 86);
+            this.lblUsuario.Location = new System.Drawing.Point(432, 72);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(64, 18);
             this.lblUsuario.TabIndex = 22;
@@ -360,7 +360,7 @@
             this.lblFechaTraslado.AutoSize = true;
             this.lblFechaTraslado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaTraslado.ForeColor = System.Drawing.Color.White;
-            this.lblFechaTraslado.Location = new System.Drawing.Point(54, 126);
+            this.lblFechaTraslado.Location = new System.Drawing.Point(432, 43);
             this.lblFechaTraslado.Name = "lblFechaTraslado";
             this.lblFechaTraslado.Size = new System.Drawing.Size(115, 18);
             this.lblFechaTraslado.TabIndex = 23;
@@ -371,7 +371,7 @@
             this.lblBodega.AutoSize = true;
             this.lblBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodega.ForeColor = System.Drawing.Color.White;
-            this.lblBodega.Location = new System.Drawing.Point(444, 47);
+            this.lblBodega.Location = new System.Drawing.Point(25, 105);
             this.lblBodega.Name = "lblBodega";
             this.lblBodega.Size = new System.Drawing.Size(111, 18);
             this.lblBodega.TabIndex = 1;
@@ -381,7 +381,7 @@
             // 
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(571, 82);
+            this.txtUsuario.Location = new System.Drawing.Point(553, 71);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(176, 22);
             this.txtUsuario.TabIndex = 3;
@@ -408,7 +408,7 @@
             this.lblObservaciones.AutoSize = true;
             this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblObservaciones.ForeColor = System.Drawing.Color.White;
-            this.lblObservaciones.Location = new System.Drawing.Point(54, 159);
+            this.lblObservaciones.Location = new System.Drawing.Point(24, 130);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(112, 18);
             this.lblObservaciones.TabIndex = 13;
@@ -423,7 +423,7 @@
             this.gbGridViewRegistroProductos.Controls.Add(this.label1);
             this.gbGridViewRegistroProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewRegistroProductos.ForeColor = System.Drawing.Color.White;
-            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(14, 259);
+            this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(12, 234);
             this.gbGridViewRegistroProductos.Name = "gbGridViewRegistroProductos";
             this.gbGridViewRegistroProductos.Size = new System.Drawing.Size(370, 417);
             this.gbGridViewRegistroProductos.TabIndex = 37;
@@ -516,7 +516,7 @@
             this.groupBox1.Controls.Add(this.gCProductos);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(474, 259);
+            this.groupBox1.Location = new System.Drawing.Point(471, 234);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(370, 417);
             this.groupBox1.TabIndex = 38;
@@ -602,7 +602,7 @@
             // txtCantidadProd
             // 
             this.txtCantidadProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtCantidadProd.Location = new System.Drawing.Point(403, 433);
+            this.txtCantidadProd.Location = new System.Drawing.Point(401, 415);
             this.txtCantidadProd.Name = "txtCantidadProd";
             this.txtCantidadProd.Size = new System.Drawing.Size(50, 24);
             this.txtCantidadProd.TabIndex = 41;
@@ -613,7 +613,7 @@
             // 
             this.txtRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.txtRemover.ForeColor = System.Drawing.Color.Black;
-            this.txtRemover.Location = new System.Drawing.Point(403, 463);
+            this.txtRemover.Location = new System.Drawing.Point(401, 445);
             this.txtRemover.Name = "txtRemover";
             this.txtRemover.Size = new System.Drawing.Size(50, 28);
             this.txtRemover.TabIndex = 40;
@@ -625,7 +625,7 @@
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(403, 398);
+            this.btnAgregar.Location = new System.Drawing.Point(401, 380);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 29);
             this.btnAgregar.TabIndex = 39;
@@ -639,7 +639,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 688);
+            this.ClientSize = new System.Drawing.Size(853, 661);
             this.Controls.Add(this.txtCantidadProd);
             this.Controls.Add(this.txtRemover);
             this.Controls.Add(this.btnAgregar);
@@ -647,8 +647,8 @@
             this.Controls.Add(this.gbGridViewRegistroProductos);
             this.Controls.Add(this.gbGridViewFuncionario);
             this.Controls.Add(this.tileNavPane1);
-            this.MaximumSize = new System.Drawing.Size(869, 727);
-            this.MinimumSize = new System.Drawing.Size(869, 727);
+            this.MaximumSize = new System.Drawing.Size(869, 699);
+            this.MinimumSize = new System.Drawing.Size(869, 699);
             this.Name = "frmAdTrasladoProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Traslado De Producto";

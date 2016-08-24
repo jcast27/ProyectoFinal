@@ -454,9 +454,9 @@
             this.lblSolicitudAvatar.ForeColor = System.Drawing.Color.White;
             this.lblSolicitudAvatar.Location = new System.Drawing.Point(29, 77);
             this.lblSolicitudAvatar.Name = "lblSolicitudAvatar";
-            this.lblSolicitudAvatar.Size = new System.Drawing.Size(191, 18);
+            this.lblSolicitudAvatar.Size = new System.Drawing.Size(195, 18);
             this.lblSolicitudAvatar.TabIndex = 1;
-            this.lblSolicitudAvatar.Text = "Solicitud de Compra Avatar:";
+            this.lblSolicitudAvatar.Text = "Código de Requisión Avatar:";
             // 
             // txtUsuario
             // 

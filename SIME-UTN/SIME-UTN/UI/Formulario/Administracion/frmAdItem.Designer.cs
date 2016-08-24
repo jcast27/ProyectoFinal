@@ -70,7 +70,7 @@
             this.gbItem.Size = new System.Drawing.Size(433, 231);
             this.gbItem.TabIndex = 33;
             this.gbItem.TabStop = false;
-            this.gbItem.Text = "Registro Items";
+            this.gbItem.Text = "Registro Ítems";
             // 
             // txtId
             // 
@@ -265,7 +265,7 @@
             this.MinimumSize = new System.Drawing.Size(464, 327);
             this.Name = "frmAdItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Items";
+            this.Text = "Ítems";
             this.Load += new System.EventHandler(this.frmAdItem_Load);
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();

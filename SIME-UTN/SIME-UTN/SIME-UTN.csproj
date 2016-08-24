@@ -317,6 +317,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetCategoria.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Formulario\DataSetCategoriaPertenencia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Formulario\DataSetFUbicacion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -738,6 +743,12 @@
     <Compile Include="UI\Reportes\rptItem.Designer.cs">
       <DependentUpon>rptItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\rptMinimo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptMinimo.Designer.cs">
+      <DependentUpon>rptMinimo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\rptTrasladoUser.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -935,6 +946,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptItem.resx">
       <DependentUpon>rptItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptMinimo.resx">
+      <DependentUpon>rptMinimo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptTrasladoUser.resx">
       <DependentUpon>rptTrasladoUser.cs</DependentUpon>
@@ -1325,6 +1339,17 @@
     </None>
     <None Include="DataSets\Formulario\DataSetCategoria.xss">
       <DependentUpon>DataSetCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xsc">
+      <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCategoriaPertenencia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xss">
+      <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Formulario\DataSetFUbicacion.xsc">
       <DependentUpon>DataSetFUbicacion.xsd</DependentUpon>

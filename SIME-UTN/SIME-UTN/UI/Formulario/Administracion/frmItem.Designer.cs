@@ -93,7 +93,7 @@
             // 
             // colItem
             // 
-            this.colItem.Caption = "Item";
+            this.colItem.Caption = "Ítem";
             this.colItem.FieldName = "Descripcion";
             this.colItem.Name = "colItem";
             this.colItem.Visible = true;
@@ -228,7 +228,7 @@
             this.gbItem.Size = new System.Drawing.Size(1001, 497);
             this.gbItem.TabIndex = 33;
             this.gbItem.TabStop = false;
-            this.gbItem.Text = "Seleccionar Item";
+            this.gbItem.Text = "Seleccionar Ítem";
             // 
             // frmItem
             // 

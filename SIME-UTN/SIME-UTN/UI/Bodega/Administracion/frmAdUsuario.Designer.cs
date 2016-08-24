@@ -197,7 +197,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(270, 22);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Text = "123";
             // 
             // txtUsuario
             // 
@@ -246,7 +245,6 @@
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(270, 22);
             this.txtApellido2.TabIndex = 2;
-            this.txtApellido2.Text = "morera";
             // 
             // txtNombre
             // 
@@ -258,7 +256,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(270, 22);
             this.txtNombre.TabIndex = 0;
-            this.txtNombre.Text = "jose";
             // 
             // lblApellido2
             // 
@@ -299,7 +296,6 @@
             this.txtConfirmacion.PasswordChar = '*';
             this.txtConfirmacion.Size = new System.Drawing.Size(270, 22);
             this.txtConfirmacion.TabIndex = 4;
-            this.txtConfirmacion.Text = "123";
             // 
             // lblConfirmacion
             // 
@@ -339,7 +335,6 @@
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(270, 22);
             this.txtApellido1.TabIndex = 1;
-            this.txtApellido1.Text = "castro";
             // 
             // epError
             // 
@@ -359,7 +354,7 @@
             this.Controls.Add(this.gbInformaciónPersonal);
             this.Controls.Add(this.tileNavPane1);
             this.MaximumSize = new System.Drawing.Size(546, 362);
-            this.MinimumSize = new System.Drawing.Size(546, 362);
+            this.MinimumSize = new System.Drawing.Size(546, 361);
             this.Name = "frmAdUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";

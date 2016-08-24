@@ -417,7 +417,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                     break;
 
                 case EstadoMantenimiento.Agregar:
-                    txtNombre.Enabled = false;
+                    txtNombre.Enabled = true;
                     txtDescripcion.Enabled = false;
                     txtCantidad.Enabled = false;
                     txtECodigoProducto.Text = "";

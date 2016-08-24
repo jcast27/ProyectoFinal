@@ -269,6 +269,7 @@ namespace SIME_UTN.UI.Formulario.Procesos
                     {
                         frmReporte frmRep = new frmReporte("imprimir", usuarioLogueado, form.idFormulario);
                         frmRep.ShowDialog(this);
+                        Close();
                     }
                     else
                     {

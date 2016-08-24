@@ -52,6 +52,9 @@ namespace SIME_UTN.UI.Reportes
                 case ("btnTrasladoUser"):
                     reporte = new rptTrasladoUser(user);
                     break;
+                case ("btnMinimo"):
+                    reporte = new rptMinimo(user);
+                    break;
                 case ("imprimir"):
                     reporte = new rptImprimirForm(user);
                     reporte.Parameters["Id"].Value = id;

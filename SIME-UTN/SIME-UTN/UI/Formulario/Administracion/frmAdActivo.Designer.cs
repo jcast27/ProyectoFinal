@@ -36,8 +36,6 @@
             this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetFUbicacion = new SIME_UTN.DataSets.Formulario.DataSetFUbicacion();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetCategoria = new SIME_UTN.DataSets.Formulario.DataSetCategoria();
             this.txtPatrimonio = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -66,16 +64,20 @@
             this.mBtnGuardar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnModificar = new DevExpress.XtraBars.Navigation.NavButton();
             this.mBtnSalir = new DevExpress.XtraBars.Navigation.NavButton();
-            this.categoriaTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter();
             this.ubicacionTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetFUbicacionTableAdapters.UbicacionTableAdapter();
+            this.dataSetCategoriaPertenencia = new SIME_UTN.DataSets.Formulario.DataSetCategoriaPertenencia();
+            this.dataSetCategoriaPertenenciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetCategoriaPertenenciaTableAdapters.CategoriaTableAdapter();
             this.gbActivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetFUbicacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoriaPertenencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoriaPertenenciaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbActivo
@@ -111,7 +113,7 @@
             this.gbActivo.Location = new System.Drawing.Point(6, 46);
             this.gbActivo.MaximumSize = new System.Drawing.Size(611, 413);
             this.gbActivo.Name = "gbActivo";
-            this.gbActivo.Size = new System.Drawing.Size(543, 221);
+            this.gbActivo.Size = new System.Drawing.Size(547, 222);
             this.gbActivo.TabIndex = 33;
             this.gbActivo.TabStop = false;
             this.gbActivo.Text = "Registro Activo";
@@ -122,7 +124,7 @@
             this.dtpIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpIngreso.Location = new System.Drawing.Point(97, 94);
             this.dtpIngreso.Name = "dtpIngreso";
-            this.dtpIngreso.Size = new System.Drawing.Size(163, 22);
+            this.dtpIngreso.Size = new System.Drawing.Size(167, 22);
             this.dtpIngreso.TabIndex = 2;
             // 
             // cmbUbicacion
@@ -136,7 +138,7 @@
             this.cmbUbicacion.FormattingEnabled = true;
             this.cmbUbicacion.Location = new System.Drawing.Point(364, 122);
             this.cmbUbicacion.Name = "cmbUbicacion";
-            this.cmbUbicacion.Size = new System.Drawing.Size(163, 24);
+            this.cmbUbicacion.Size = new System.Drawing.Size(167, 24);
             this.cmbUbicacion.TabIndex = 9;
             this.cmbUbicacion.ValueMember = "IDUbicacion";
             // 
@@ -161,19 +163,9 @@
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(97, 122);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(163, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(167, 24);
             this.cmbCategoria.TabIndex = 3;
             this.cmbCategoria.ValueMember = "IDCategoria";
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.dataSetCategoria;
-            // 
-            // dataSetCategoria
-            // 
-            this.dataSetCategoria.DataSetName = "DataSetCategoria";
-            this.dataSetCategoria.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtPatrimonio
             // 
@@ -183,7 +175,7 @@
             this.txtPatrimonio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPatrimonio.Location = new System.Drawing.Point(364, 39);
             this.txtPatrimonio.Name = "txtPatrimonio";
-            this.txtPatrimonio.Size = new System.Drawing.Size(163, 22);
+            this.txtPatrimonio.Size = new System.Drawing.Size(167, 22);
             this.txtPatrimonio.TabIndex = 6;
             // 
             // label10
@@ -209,7 +201,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(364, 152);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(163, 50);
+            this.txtDescripcion.Size = new System.Drawing.Size(167, 51);
             this.txtDescripcion.TabIndex = 10;
             // 
             // label9
@@ -234,7 +226,7 @@
             this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValor.Location = new System.Drawing.Point(364, 94);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(163, 22);
+            this.txtValor.Size = new System.Drawing.Size(167, 22);
             this.txtValor.TabIndex = 8;
             // 
             // label8
@@ -273,7 +265,7 @@
             this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModelo.Location = new System.Drawing.Point(97, 180);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(163, 22);
+            this.txtModelo.Size = new System.Drawing.Size(167, 22);
             this.txtModelo.TabIndex = 5;
             // 
             // label6
@@ -298,7 +290,7 @@
             this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.Location = new System.Drawing.Point(97, 152);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(163, 22);
+            this.txtMarca.Size = new System.Drawing.Size(167, 22);
             this.txtMarca.TabIndex = 4;
             // 
             // label5
@@ -352,7 +344,7 @@
             this.txtSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSerie.Location = new System.Drawing.Point(364, 67);
             this.txtSerie.Name = "txtSerie";
-            this.txtSerie.Size = new System.Drawing.Size(163, 22);
+            this.txtSerie.Size = new System.Drawing.Size(167, 22);
             this.txtSerie.TabIndex = 7;
             // 
             // label2
@@ -375,7 +367,7 @@
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtId.Location = new System.Drawing.Point(97, 39);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(163, 22);
+            this.txtId.Size = new System.Drawing.Size(167, 22);
             this.txtId.TabIndex = 0;
             // 
             // lblId
@@ -400,7 +392,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(97, 67);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(163, 22);
+            this.txtNombre.Size = new System.Drawing.Size(167, 22);
             this.txtNombre.TabIndex = 1;
             // 
             // label1
@@ -511,13 +503,28 @@
             this.mBtnSalir.Name = "mBtnSalir";
             this.mBtnSalir.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.mBtnSalir_ElementClick_1);
             // 
-            // categoriaTableAdapter
-            // 
-            this.categoriaTableAdapter.ClearBeforeFill = true;
-            // 
             // ubicacionTableAdapter
             // 
             this.ubicacionTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataSetCategoriaPertenencia
+            // 
+            this.dataSetCategoriaPertenencia.DataSetName = "DataSetCategoriaPertenencia";
+            this.dataSetCategoriaPertenencia.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSetCategoriaPertenenciaBindingSource
+            // 
+            this.dataSetCategoriaPertenenciaBindingSource.DataSource = this.dataSetCategoriaPertenencia;
+            this.dataSetCategoriaPertenenciaBindingSource.Position = 0;
+            // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.dataSetCategoriaPertenenciaBindingSource;
+            // 
+            // categoriaTableAdapter
+            // 
+            this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
             // frmAdActivo
             // 
@@ -525,6 +532,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(561, 279);
             this.Controls.Add(this.tileNavPane1);
             this.Controls.Add(this.gbActivo);
@@ -538,11 +546,12 @@
             this.gbActivo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetFUbicacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBodegaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoriaPertenencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoriaPertenenciaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -581,11 +590,12 @@
         private System.Windows.Forms.TextBox txtSerie;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpIngreso;
-        private DataSets.Formulario.DataSetCategoria dataSetCategoria;
-        private System.Windows.Forms.BindingSource categoriaBindingSource;
-        private DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
         private DataSets.Formulario.DataSetFUbicacion dataSetFUbicacion;
         private System.Windows.Forms.BindingSource ubicacionBindingSource;
         private DataSets.Formulario.DataSetFUbicacionTableAdapters.UbicacionTableAdapter ubicacionTableAdapter;
+        private System.Windows.Forms.BindingSource dataSetCategoriaPertenenciaBindingSource;
+        private DataSets.Formulario.DataSetCategoriaPertenencia dataSetCategoriaPertenencia;
+        private System.Windows.Forms.BindingSource categoriaBindingSource;
+        private DataSets.Formulario.DataSetCategoriaPertenenciaTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
     }
 }
