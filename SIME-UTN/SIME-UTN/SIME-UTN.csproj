@@ -90,6 +90,7 @@
     <Compile Include="BLL\DepartamentoBLL.cs" />
     <Compile Include="BLL\DespachoBLL.cs" />
     <Compile Include="BLL\DetalleFormularioBLL.cs" />
+    <Compile Include="BLL\EmpresaBLL.cs" />
     <Compile Include="BLL\FormularioBLL.cs" />
     <Compile Include="BLL\FuncionarioBLL.cs" />
     <Compile Include="BLL\ItemBLL.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="DAL\CategoriaItemDAL.cs" />
     <Compile Include="DAL\CategoriaDAL.cs" />
     <Compile Include="DAL\DetalleFormularioDAL.cs" />
+    <Compile Include="DAL\EmpresaDAL.cs" />
     <Compile Include="DAL\FormularioDAL.cs" />
     <Compile Include="DAL\FuncionarioDAL.cs" />
     <Compile Include="DAL\ItemDAL.cs" />
@@ -322,6 +324,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Formulario\DataSetEmpresa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEmpresa.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Formulario\DataSetFUbicacion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -344,6 +351,7 @@
     <Compile Include="DTOs\RegistroIngresoProductoDTO.cs" />
     <Compile Include="DTOs\TrasladoProductoInterDTO.cs" />
     <Compile Include="Entities\Activo.cs" />
+    <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\PBodega.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\CategoriaItem.cs" />
@@ -377,6 +385,7 @@
     <Compile Include="Gestores\GestorBodega.cs" />
     <Compile Include="Gestores\GestorDepartamento.cs" />
     <Compile Include="Gestores\GestorDetalleFormulario.cs" />
+    <Compile Include="Gestores\GestorEmpresa.cs" />
     <Compile Include="Gestores\GestorFormulario.cs" />
     <Compile Include="Gestores\GestorFuncionario.cs" />
     <Compile Include="Gestores\GestorMezcla.cs" />
@@ -587,6 +596,12 @@
     <Compile Include="UI\Formulario\Administracion\frmActivo.Designer.cs">
       <DependentUpon>frmActivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdEmpresas.Designer.cs">
+      <DependentUpon>frmAdEmpresas.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formulario\Administracion\frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -600,6 +615,12 @@
       <DependentUpon>frmItem.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\restoreDB.cs" />
+    <Compile Include="UI\Formulario\Administracion\frmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmEmpresa.Designer.cs">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formulario\Procesos\frmFormulario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -778,8 +799,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
@@ -871,11 +892,17 @@
     <EmbeddedResource Include="UI\Formulario\Administracion\frmActivo.resx">
       <DependentUpon>frmActivo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmAdEmpresas.resx">
+      <DependentUpon>frmAdEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Administracion\frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Administracion\frmItem.resx">
       <DependentUpon>frmItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmEmpresa.resx">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Procesos\frmFormulario.resx">
       <DependentUpon>frmFormulario.cs</DependentUpon>
@@ -1351,6 +1378,17 @@
     <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xss">
       <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\Formulario\DataSetEmpresa.xsc">
+      <DependentUpon>DataSetEmpresa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetEmpresa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEmpresa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetEmpresa.xss">
+      <DependentUpon>DataSetEmpresa.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\Formulario\DataSetFUbicacion.xsc">
       <DependentUpon>DataSetFUbicacion.xsd</DependentUpon>
     </None>
@@ -1406,6 +1444,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\agency.png" />
     <Content Include="Resources\alpha-dista-grey-icon-19.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1421,6 +1460,8 @@
     <None Include="Resources\form.png" />
     <None Include="Resources\funcionarios.png" />
     <None Include="Resources\Departamento.png" />
+    <None Include="Resources\gency.ico" />
+    <None Include="Resources\categories.png" />
     <Content Include="Resources\gnome_panel_force_quit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1429,6 +1470,7 @@
     </Content>
     <None Include="Resources\inven.jpg" />
     <None Include="Resources\Icono.ico" />
+    <None Include="Resources\item.png" />
     <Content Include="Resources\items.png" />
     <None Include="Resources\Localizacion.png" />
     <Content Include="Resources\login.jpg">

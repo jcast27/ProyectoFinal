@@ -84,6 +84,8 @@ namespace SIME_UTN.UI.Formulario
                 e.Control = new Bodega.Administracion.frmDepartamentos();
             else if (e.Document.Caption == "Ventana Formularios")
                 e.Control = new Formulario.Procesos.frmForms();
+            else if (e.Document.Caption == "Ventana Empresa")
+                e.Control = new Formulario.Administracion.frmEmpresa();
 
             if (e.Document.Caption == "Reporte Activos")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnActivo", usuarioLogueado, 0);
@@ -188,7 +190,8 @@ namespace SIME_UTN.UI.Formulario
             Document doc3 = new Document { Caption = "Ventana Ubicaciones" };
             Document doc4 = new Document { Caption = "Ventana Departamentos" };
             Document doc5 = new Document { Caption = "Ventana Activos" };
-            this.windowsUIView1.Documents.AddRange(new Document[] { doc0, doc1, doc2, doc3, doc4, doc5 });
+            Document doc6 = new Document { Caption = "Ventana Empresa" };
+            this.windowsUIView1.Documents.AddRange(new Document[] { doc0, doc1, doc2, doc3, doc4, doc5, doc6 });
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 120;
@@ -200,22 +203,22 @@ namespace SIME_UTN.UI.Formulario
             tileContainer2.Items.Add(this.crearTile(doc0, nombreElemento, grupo, imagen, estado));
 
             grupo = "Group 1";
-            imagen = Properties.Resources.usuarios;
+            imagen = Properties.Resources.item;
             nombreElemento = "Items";
             tileContainer2.Items.Add(this.crearTile(doc1, nombreElemento, grupo, imagen, estado));
 
             grupo = "Group 2";
-            imagen = Properties.Resources.productos;
+            imagen = Properties.Resources.categories;
             nombreElemento = "Categorías";
             tileContainer2.Items.Add(this.crearTile(doc2, nombreElemento, grupo, imagen, estado));
 
             grupo = "Group 0";
-            imagen = Properties.Resources.inven;
+            imagen = Properties.Resources.Localizacion;
             nombreElemento = "Ubicaciones";
             tileContainer2.Items.Add(this.crearTile(doc3, nombreElemento, grupo, imagen, estado));
 
             grupo = "Group 1";
-            imagen = Properties.Resources.inven;
+            imagen = Properties.Resources.Departamento;
             nombreElemento = "Departamentos";
             tileContainer2.Items.Add(this.crearTile(doc4, nombreElemento, grupo, imagen, estado));
 
@@ -223,6 +226,11 @@ namespace SIME_UTN.UI.Formulario
             imagen = Properties.Resources.inven;
             nombreElemento = "Activos";
             tileContainer2.Items.Add(this.crearTile(doc5, nombreElemento, grupo, imagen, estado));
+
+            grupo = "Group 0";
+            imagen = Properties.Resources.agency;
+            nombreElemento = "Empresas";
+            tileContainer2.Items.Add(this.crearTile(doc6, nombreElemento, grupo, imagen, estado));
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);

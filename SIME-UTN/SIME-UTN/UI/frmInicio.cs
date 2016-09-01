@@ -72,7 +72,7 @@ namespace SIME_UTN.UI
                 UsuarioTable oUsuario = new UsuarioTable();
                 UsuarioDB oUsuario1 = UsuarioDB.GetInstance();
                 oUsuario1.usuario = "sa";
-                oUsuario1.contrasenna = "sa123456!";
+                oUsuario1.contrasenna = "sa1";
                 Encriptar encriptar = new Encriptar();
                 oUsuario = gestor.ValidarUsuarioPorUsuario(txtUsuario.Text.Trim());
 
