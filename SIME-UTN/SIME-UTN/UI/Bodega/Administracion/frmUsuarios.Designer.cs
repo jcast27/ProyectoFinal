@@ -50,6 +50,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewUsuario = new System.Windows.Forms.GroupBox();
             this.usuarioTableAdapter = new SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gCUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUsuario)).BeginInit();
@@ -57,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewUsuario.SuspendLayout();
+            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCUsuarios
@@ -65,6 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gCUsuarios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCUsuarios.BackgroundImage")));
+            this.gCUsuarios.ContextMenuStrip = this.cmMenuGrid;
             this.gCUsuarios.DataSource = this.usuarioBindingSource;
             this.gCUsuarios.Location = new System.Drawing.Point(6, 54);
             this.gCUsuarios.MainView = this.gridView1;
@@ -293,6 +298,24 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
+            // 
+            // sfdRuta
+            // 
+            this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewUsuario.ResumeLayout(false);
+            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -340,5 +364,8 @@
         private SIME_UTN.DataSets.DataSetUsuario dataSetUsuario;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
         private SIME_UTN.DataSets.DataSetUsuarioTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
+        private System.Windows.Forms.ContextMenuStrip cmMenuGrid;
+        private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog sfdRuta;
     }
 }

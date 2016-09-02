@@ -72,19 +72,19 @@ namespace SIME_UTN.UI.Formulario
         {
             if (e.Document.Caption == "Ventana Items")
                 e.Control = new Administracion.frmItem();
-            else if (e.Document.Caption == "Ventana Categorías")
+            if (e.Document.Caption == "Ventana Categorías")
                 e.Control = new Administracion.frmCategoria();
-            else if (e.Document.Caption == "Ventana Usuarios")
+            if (e.Document.Caption == "Ventana Usuarios")
                 e.Control = new Bodega.Administracion.frmUsuarios();
-            else if (e.Document.Caption == "Ventana Ubicaciones")
+            if (e.Document.Caption == "Ventana Ubicaciones")
                 e.Control = new Bodega.Administracion.frmUbicaciones();
-            else if (e.Document.Caption == "Ventana Activos")
-                e.Control = new Administracion.frmActivo();
-            else if (e.Document.Caption == "Ventana Departamentos")
+            if (e.Document.Caption == "Ventana Activos")
+                e.Control = new Formulario.Administracion.frmActivo();
+            if (e.Document.Caption == "Ventana Departamentos")
                 e.Control = new Bodega.Administracion.frmDepartamentos();
-            else if (e.Document.Caption == "Ventana Formularios")
+            if (e.Document.Caption == "Ventana Formularios")
                 e.Control = new Formulario.Procesos.frmForms();
-            else if (e.Document.Caption == "Ventana Empresa")
+           if (e.Document.Caption == "Ventana Empresa")
                 e.Control = new Formulario.Administracion.frmEmpresa();
 
             if (e.Document.Caption == "Reporte Activos")
@@ -131,10 +131,7 @@ namespace SIME_UTN.UI.Formulario
             this.CrearDocumentosAdministracion(false);
             this.CrearDocumentosReportes(false);
             this.CrearDocumentosFormulario(true);
-            //CrearDocumentosFormulario(true);
-            //tipoDeProceso = "Formularios";
-            //frmForms frm = new frmForms();
-            //frm.ShowDialog(this);
+            tipoDeProceso = "Formulario";
         }
 
         //Se crea un elemento que sera agregado al frame
@@ -184,14 +181,14 @@ namespace SIME_UTN.UI.Formulario
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
-            Document doc0 = new Document { Caption = "Ventana Usuarios" };
-            Document doc1 = new Document { Caption = "Ventana Items" };
-            Document doc2 = new Document { Caption = "Ventana Categorías" };
-            Document doc3 = new Document { Caption = "Ventana Ubicaciones" };
-            Document doc4 = new Document { Caption = "Ventana Departamentos" };
-            Document doc5 = new Document { Caption = "Ventana Activos" };
-            Document doc6 = new Document { Caption = "Ventana Empresa" };
-            this.windowsUIView1.Documents.AddRange(new Document[] { doc0, doc1, doc2, doc3, doc4, doc5, doc6 });
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc0 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Usuarios" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Items" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Categorías" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc3 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Ubicaciones" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc4 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Departamentos" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc5 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Activos" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document doc6 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Ventana Empresa" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { doc0, doc1, doc2, doc3, doc4, doc5, doc6 });
             //Creating and populating content container
             TileContainer tileContainer2 = new TileContainer();
             tileContainer2.Properties.ItemSize = 120;
@@ -317,18 +314,6 @@ namespace SIME_UTN.UI.Formulario
         }
 
 
-        private void windowsUIView1_BackButtonClick(object sender, BackButtonClickEventArgs e)
-        {
-            if (tipoDeProceso == "Administracion")
-            {
-                this.CrearDocumentosAdministracion(true);
-            }
-            if (tipoDeProceso == "Formularios")
-            {
-                this.CrearDocumentosFormulario(true);
-            }
-
-        }
 
         private void windowsUIView1_ControlReleasing(object sender, ControlReleasingEventArgs e)
         {
@@ -365,6 +350,10 @@ namespace SIME_UTN.UI.Formulario
                     if (tipoDeProceso == "Formularios")
                     {
                         this.CrearDocumentosFormulario(true);
+                    }
+                    if (tipoDeProceso == "Reportes")
+                    {
+                        this.CrearDocumentosReportes(true);
                     }
                 }
                 security();
@@ -425,6 +414,7 @@ namespace SIME_UTN.UI.Formulario
             CrearDocumentosFormulario(false);
             CrearDocumentosAdministracion(false);
             CrearDocumentosReportes(true);
+            tipoDeProceso = "Reportes";
 
         }
 
@@ -443,32 +433,23 @@ namespace SIME_UTN.UI.Formulario
             ofrmAyuda.ShowDialog(this);
         }
 
-        //public void CrearDocumentosReportes(Boolean estado)
-        //{
-        //    string nombreElemento = "";
-        //    string grupo = "";
-        //    Image imagen = null;
+        private void windowsUIView1_BackButtonClick_1(object sender, BackButtonClickEventArgs e)
+        {
 
-        //    this.windowsUIView1.BeginUpdate();
-        //    this.windowsUIView1.Controller.CloseAll();
-        //    this.windowsUIView1.Documents.Clear();
-        //    //Creating documents
-        //    Document doc0 = new Document { Caption = "Reporte Activos" };
-        //    this.windowsUIView1.Documents.AddRange(new Document[] { doc0 });
-        //    //Creating and populating content container
-        //    TileContainer tileContainer2 = new TileContainer();
-        //    tileContainer2.Properties.ItemSize = 120;
-        //    tileContainer2.Properties.Orientation = Orientation.Horizontal;
+            if (tipoDeProceso == "Administracion")
+            {
+                this.CrearDocumentosAdministracion(true);
+            }
+            if (tipoDeProceso == "Formulario")
+            {
+                this.CrearDocumentosFormulario(true);
+            }
+            if (tipoDeProceso == "Reportes")
+            {
+                this.CrearDocumentosReportes(true);
+            }
+        }
 
-        //    grupo = "Group 0";
-        //    imagen = Properties.Resources.usuarios;
-        //    nombreElemento = "Activos";
-        //    tileContainer2.Items.Add(this.crearTile(doc0, nombreElemento, grupo, imagen, estado));
 
-        //    windowsUIView1.ContentContainers.Add(tileContainer2);
-        //    this.windowsUIView1.ActivateContainer(tileContainer2);
-        //    this.windowsUIView1.EndUpdate();
-        //    this.windowsUIView1.QueryControl += windowsUIView1_QueryControl;
-        //}
     }
 }

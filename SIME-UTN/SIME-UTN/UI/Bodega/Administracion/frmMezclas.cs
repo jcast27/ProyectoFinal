@@ -156,5 +156,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCMezclas.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
     }
 }

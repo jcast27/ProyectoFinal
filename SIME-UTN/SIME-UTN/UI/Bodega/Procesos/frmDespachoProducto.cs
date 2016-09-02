@@ -68,7 +68,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            gCBodegas.DataSource = dt;
+            gCDespachoP.DataSource = dt;
 
         }
 
@@ -81,6 +81,14 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             frmAdDespacho frm = new frmAdDespacho(int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString()));
             frm.ShowDialog(this);
+        }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCDespachoP.ExportToXlsx(sfdRuta.FileName);
+            }
         }
     }
 }

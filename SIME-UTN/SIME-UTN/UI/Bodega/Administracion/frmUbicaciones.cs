@@ -168,5 +168,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
             mBtnEliminar.Enabled = false;
 
         }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCUbicaciones.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
     }
 }

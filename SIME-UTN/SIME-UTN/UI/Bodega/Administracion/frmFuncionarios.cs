@@ -137,5 +137,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             DesactivarFuncionario();
         }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCFuncionario.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
     }
 }

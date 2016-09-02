@@ -161,5 +161,13 @@ namespace SIME_UTN.UI.Formulario.Administracion
             mBtnModificar.Enabled = false;
             mBtnEliminar.Enabled = false;
         }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCEmpresas.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
     }
 }

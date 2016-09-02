@@ -28,25 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDespachoProducto));
-            this.ePError = new System.Windows.Forms.ErrorProvider();
+            this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.mBtnDespachar = new DevExpress.XtraBars.Navigation.NavButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
-            this.gCBodegas = new DevExpress.XtraGrid.GridControl();
+            this.gCDespachoP = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colidregistrobodega = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpTipoBodega = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gCDespachoP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // ePError
@@ -124,7 +129,7 @@
             this.gbGridViewRegistroProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbGridViewRegistroProductos.Controls.Add(this.gCBodegas);
+            this.gbGridViewRegistroProductos.Controls.Add(this.gCDespachoP);
             this.gbGridViewRegistroProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewRegistroProductos.Location = new System.Drawing.Point(152, 64);
             this.gbGridViewRegistroProductos.Name = "gbGridViewRegistroProductos";
@@ -133,21 +138,22 @@
             this.gbGridViewRegistroProductos.TabStop = false;
             this.gbGridViewRegistroProductos.Text = "Bodega - Despacho de Productos";
             // 
-            // gCBodegas
+            // gCDespachoP
             // 
-            this.gCBodegas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gCDespachoP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gCBodegas.Location = new System.Drawing.Point(3, 30);
-            this.gCBodegas.MainView = this.gridView1;
-            this.gCBodegas.Name = "gCBodegas";
-            this.gCBodegas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gCDespachoP.ContextMenuStrip = this.cmMenuGrid;
+            this.gCDespachoP.Location = new System.Drawing.Point(3, 30);
+            this.gCDespachoP.MainView = this.gridView1;
+            this.gCDespachoP.Name = "gCDespachoP";
+            this.gCDespachoP.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LookUpTipoBodega});
-            this.gCBodegas.Size = new System.Drawing.Size(1030, 414);
-            this.gCBodegas.TabIndex = 0;
-            this.gCBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gCDespachoP.Size = new System.Drawing.Size(1030, 414);
+            this.gCDespachoP.TabIndex = 0;
+            this.gCDespachoP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gCBodegas.Click += new System.EventHandler(this.gCBodegas_Click);
+            this.gCDespachoP.Click += new System.EventHandler(this.gCBodegas_Click);
             // 
             // gridView1
             // 
@@ -155,7 +161,7 @@
             this.colidregistrobodega,
             this.colnombre,
             this.coldescripcion});
-            this.gridView1.GridControl = this.gCBodegas;
+            this.gridView1.GridControl = this.gCDespachoP;
             this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Perfil", null, "({0})")});
@@ -199,6 +205,24 @@
             this.LookUpTipoBodega.Name = "LookUpTipoBodega";
             this.LookUpTipoBodega.ValueMember = "idtipobodega";
             // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
+            // 
+            // sfdRuta
+            // 
+            this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
+            // 
             // frmDespachoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,9 +240,10 @@
             this.Load += new System.EventHandler(this.frmDespachoProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gCDespachoP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -231,11 +256,14 @@
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraBars.Navigation.NavButton navButton1;
         private System.Windows.Forms.GroupBox gbGridViewRegistroProductos;
-        private DevExpress.XtraGrid.GridControl gCBodegas;
+        private DevExpress.XtraGrid.GridControl gCDespachoP;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colidregistrobodega;
         private DevExpress.XtraGrid.Columns.GridColumn colnombre;
         private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookUpTipoBodega;
+        private System.Windows.Forms.ContextMenuStrip cmMenuGrid;
+        private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog sfdRuta;
     }
 }

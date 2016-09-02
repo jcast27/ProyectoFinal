@@ -45,16 +45,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbItem = new System.Windows.Forms.GroupBox();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gCItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbItem.SuspendLayout();
+            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCItems
             // 
             this.gCItems.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCItems.BackgroundImage")));
+            this.gCItems.ContextMenuStrip = this.cmMenuGrid;
             this.gCItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gCItems.Location = new System.Drawing.Point(3, 27);
             this.gCItems.MainView = this.gridView1;
@@ -230,6 +235,24 @@
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Seleccionar Ítem";
             // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
+            // 
+            // sfdRuta
+            // 
+            this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
+            // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbItem.ResumeLayout(false);
+            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -270,5 +294,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colItem;
         private DevExpress.XtraGrid.Columns.GridColumn colSeccion;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
+        private System.Windows.Forms.ContextMenuStrip cmMenuGrid;
+        private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog sfdRuta;
     }
 }

@@ -203,5 +203,13 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             AceptarTraslados();
         }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCTraslados.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
     }
 }

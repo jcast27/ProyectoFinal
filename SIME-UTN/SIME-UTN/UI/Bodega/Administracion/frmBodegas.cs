@@ -180,6 +180,12 @@ namespace SIME_UTN.UI.Bodega.Administracion
             DesactivarBodega();
         }
 
-     
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCBodegas.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
     }
 }

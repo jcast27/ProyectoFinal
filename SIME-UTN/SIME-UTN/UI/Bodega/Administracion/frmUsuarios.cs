@@ -191,5 +191,13 @@ namespace SIME_UTN.UI.Bodega.Administracion
             frmUsuarios_Load(null, null);
 
         }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCUsuarios.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
     }
 }

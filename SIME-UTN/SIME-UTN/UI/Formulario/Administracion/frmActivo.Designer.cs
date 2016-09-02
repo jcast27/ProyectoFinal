@@ -30,14 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActivo));
-            this.gCActivos = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.cmbItems = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetCategoria = new SIME_UTN.DataSets.Formulario.DataSetCategoria();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
@@ -51,115 +43,22 @@
             this.dataSetCategorias1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategorias();
             this.categoriaTableAdapter1 = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter();
             this.categoriaTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter();
-            this.colSerie = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCategoria = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIngreso = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUbicacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPatrimonio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colModelo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMarca = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.gCActivos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).BeginInit();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
+            this.gCActivos = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.UsuarioItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewActivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias1)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gCActivos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gCActivos
-            // 
-            this.gCActivos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCActivos.BackgroundImage")));
-            this.gCActivos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gCActivos.Location = new System.Drawing.Point(3, 27);
-            this.gCActivos.MainView = this.gridView1;
-            this.gCActivos.Name = "gCActivos";
-            this.gCActivos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.UsuarioItemLookUpEdit1,
-            this.repositoryItemComboBox1,
-            this.cmbItems});
-            this.gCActivos.Size = new System.Drawing.Size(995, 467);
-            this.gCActivos.TabIndex = 19;
-            this.gCActivos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gCActivos.Click += new System.EventHandler(this.gCUsuarios_Click);
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId,
-            this.colNombre,
-            this.colDescripcion,
-            this.colSerie,
-            this.colCategoria,
-            this.colIngreso,
-            this.colValor,
-            this.colUbicacion,
-            this.colMarca,
-            this.colModelo,
-            this.colPatrimonio,
-            this.colEstado});
-            this.gridView1.GridControl = this.gCActivos;
-            this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
-            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Perfil", null, "({0})")});
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
-            this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
-            // 
-            // colId
-            // 
-            this.colId.Caption = "colId";
-            this.colId.FieldName = "IDActivo";
-            this.colId.Name = "colId";
-            this.colId.Width = 20;
-            // 
-            // colDescripcion
-            // 
-            this.colDescripcion.Caption = "Descripción";
-            this.colDescripcion.FieldName = "Descripcion";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.Visible = true;
-            this.colDescripcion.VisibleIndex = 1;
-            this.colDescripcion.Width = 150;
-            // 
-            // colEstado
-            // 
-            this.colEstado.Caption = "Estado";
-            this.colEstado.FieldName = "Estado";
-            this.colEstado.Name = "colEstado";
-            this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 10;
-            this.colEstado.Width = 60;
-            // 
-            // UsuarioItemLookUpEdit1
-            // 
-            this.UsuarioItemLookUpEdit1.AutoHeight = false;
-            this.UsuarioItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.UsuarioItemLookUpEdit1.Name = "UsuarioItemLookUpEdit1";
-            this.UsuarioItemLookUpEdit1.NullText = "";
-            // 
-            // repositoryItemComboBox1
-            // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
-            // cmbItems
-            // 
-            this.cmbItems.AutoHeight = false;
-            this.cmbItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbItems.Name = "cmbItems";
             // 
             // categoriaBindingSource
             // 
@@ -288,77 +187,61 @@
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
-            // colSerie
+            // cmMenuGrid
             // 
-            this.colSerie.Caption = "Serie";
-            this.colSerie.FieldName = "NumeroSerie";
-            this.colSerie.Name = "colSerie";
-            this.colSerie.Visible = true;
-            this.colSerie.VisibleIndex = 2;
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 26);
             // 
-            // colNombre
+            // exportarAExcelToolStripMenuItem
             // 
-            this.colNombre.Caption = "Nombre";
-            this.colNombre.FieldName = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.Visible = true;
-            this.colNombre.VisibleIndex = 0;
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
             // 
-            // colCategoria
+            // sfdRuta
             // 
-            this.colCategoria.Caption = "Categoría";
-            this.colCategoria.FieldName = "Categoria";
-            this.colCategoria.Name = "colCategoria";
-            this.colCategoria.Visible = true;
-            this.colCategoria.VisibleIndex = 9;
+            this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
             // 
-            // colIngreso
+            // gCActivos
             // 
-            this.colIngreso.Caption = "Ingreso";
-            this.colIngreso.FieldName = "Ingreso";
-            this.colIngreso.Name = "colIngreso";
-            this.colIngreso.Visible = true;
-            this.colIngreso.VisibleIndex = 6;
+            this.gCActivos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCActivos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gCActivos.BackgroundImage")));
+            this.gCActivos.ContextMenuStrip = this.cmMenuGrid;
+            this.gCActivos.Location = new System.Drawing.Point(3, 36);
+            this.gCActivos.MainView = this.gridView1;
+            this.gCActivos.Name = "gCActivos";
+            this.gCActivos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.UsuarioItemLookUpEdit1});
+            this.gCActivos.Size = new System.Drawing.Size(995, 424);
+            this.gCActivos.TabIndex = 2;
+            this.gCActivos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.gCActivos.Click += new System.EventHandler(this.gCActivos_Click);
             // 
-            // colValor
+            // gridView1
             // 
-            this.colValor.Caption = "Valor";
-            this.colValor.FieldName = "Valor";
-            this.colValor.Name = "colValor";
-            this.colValor.Visible = true;
-            this.colValor.VisibleIndex = 7;
+            this.gridView1.GridControl = this.gCActivos;
+            this.gridView1.GroupPanelText = "Arrastre un encabezado de columna aquí para agrupar por esa columna";
+            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Perfil", null, "({0})")});
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
+            this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
             // 
-            // colUbicacion
+            // UsuarioItemLookUpEdit1
             // 
-            this.colUbicacion.Caption = "Ubicación";
-            this.colUbicacion.FieldName = "Ubicacion";
-            this.colUbicacion.Name = "colUbicacion";
-            this.colUbicacion.Visible = true;
-            this.colUbicacion.VisibleIndex = 8;
-            // 
-            // colPatrimonio
-            // 
-            this.colPatrimonio.Caption = "Patrimonio";
-            this.colPatrimonio.FieldName = "Patrimonio";
-            this.colPatrimonio.Name = "colPatrimonio";
-            this.colPatrimonio.Visible = true;
-            this.colPatrimonio.VisibleIndex = 3;
-            // 
-            // colModelo
-            // 
-            this.colModelo.Caption = "Modelo";
-            this.colModelo.FieldName = "Modelo";
-            this.colModelo.Name = "colModelo";
-            this.colModelo.Visible = true;
-            this.colModelo.VisibleIndex = 5;
-            // 
-            // colMarca
-            // 
-            this.colMarca.Caption = "Marca";
-            this.colMarca.FieldName = "Marca";
-            this.colMarca.Name = "colMarca";
-            this.colMarca.Visible = true;
-            this.colMarca.VisibleIndex = 4;
+            this.UsuarioItemLookUpEdit1.AutoHeight = false;
+            this.UsuarioItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.UsuarioItemLookUpEdit1.Name = "UsuarioItemLookUpEdit1";
+            this.UsuarioItemLookUpEdit1.NullText = "";
             // 
             // frmActivo
             // 
@@ -375,24 +258,20 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana Items";
             this.Load += new System.EventHandler(this.frmActivo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gCActivos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewActivo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCategorias1)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gCActivos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuarioItemLookUpEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private DevExpress.XtraGrid.GridControl gCActivos;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit UsuarioItemLookUpEdit1;
         private System.Windows.Forms.ErrorProvider ePError;
         private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
         private DevExpress.XtraBars.Navigation.NavButton mBtnAgregar;
@@ -401,24 +280,16 @@
         private DevExpress.XtraBars.Navigation.NavButton mBtnModificar;
         private DevExpress.XtraBars.Navigation.NavButton mBtnEliminar;
         private System.Windows.Forms.GroupBox gbGridViewActivo;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-        private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit cmbItems;
-        private DevExpress.XtraGrid.Columns.GridColumn colEstado;
         private DataSets.Bodega.Admistracion.DataSetCategorias dataSetCategorias1;
         private DataSets.Bodega.Admistracion.DataSetCategoriasTableAdapters.CategoriaTableAdapter categoriaTableAdapter1;
         private DataSets.Formulario.DataSetCategoria dataSetCategoria;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private DataSets.Formulario.DataSetCategoriaTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
-        private DevExpress.XtraGrid.Columns.GridColumn colNombre;
-        private DevExpress.XtraGrid.Columns.GridColumn colSerie;
-        private DevExpress.XtraGrid.Columns.GridColumn colCategoria;
-        private DevExpress.XtraGrid.Columns.GridColumn colIngreso;
-        private DevExpress.XtraGrid.Columns.GridColumn colValor;
-        private DevExpress.XtraGrid.Columns.GridColumn colUbicacion;
-        private DevExpress.XtraGrid.Columns.GridColumn colMarca;
-        private DevExpress.XtraGrid.Columns.GridColumn colModelo;
-        private DevExpress.XtraGrid.Columns.GridColumn colPatrimonio;
+        private System.Windows.Forms.ContextMenuStrip cmMenuGrid;
+        private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog sfdRuta;
+        private DevExpress.XtraGrid.GridControl gCActivos;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit UsuarioItemLookUpEdit1;
     }
 }

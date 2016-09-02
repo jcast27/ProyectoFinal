@@ -101,35 +101,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             frmActivo_Load(null, null);
         }
 
-        /// <summary>
-        /// Metodo que permite extrae el Usuario seleccionado del grid y colocar la Información en los campos del formulario
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gCUsuarios_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                mBtnEliminar.Enabled = false;
-                mBtnModificar.Enabled = false;
 
-                activo.idActivo = int.Parse(gridView1.GetFocusedRowCellValue("IDActivo").ToString());
-                if (activo.idActivo != 0)
-                {
-                    mBtnEliminar.Enabled = true;
-                    mBtnModificar.Enabled = true;
-                    mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
-                }
-            }
-            catch (ApplicationException app)
-            {
-                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         /// <summary>
         /// Metodo que permite modificar un Usuario ya creado
@@ -184,6 +156,39 @@ namespace SIME_UTN.UI.Formulario.Administracion
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
          
+        }
+
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdRuta.ShowDialog(this) == DialogResult.OK)
+            {
+                gCActivos.ExportToXlsx(sfdRuta.FileName);
+            }
+        }
+
+        private void gCActivos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                mBtnEliminar.Enabled = false;
+                mBtnModificar.Enabled = false;
+
+                activo.idActivo = int.Parse(gridView1.GetFocusedRowCellValue("IDActivo").ToString());
+                if (activo.idActivo != 0)
+                {
+                    mBtnEliminar.Enabled = true;
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
+                }
+            }
+            catch (ApplicationException app)
+            {
+                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

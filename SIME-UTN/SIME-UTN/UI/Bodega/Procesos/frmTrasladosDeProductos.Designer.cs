@@ -58,12 +58,16 @@
             this.colEstadoTraslado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sp_SELECT_TrasladoProducto_All_DTOTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetTrasladoProductoTableAdapters.sp_SELECT_TrasladoProducto_All_DTOTableAdapter();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewTrasladoProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCTraslados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTrasladoProductoAllDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTrasladoProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // ePError
@@ -182,6 +186,7 @@
             this.gCTraslados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCTraslados.ContextMenuStrip = this.cmMenuGrid;
             this.gCTraslados.DataSource = this.spSELECTTrasladoProductoAllDTOBindingSource;
             this.gCTraslados.Location = new System.Drawing.Point(3, 55);
             this.gCTraslados.MainView = this.gridView1;
@@ -345,6 +350,24 @@
             // 
             this.sp_SELECT_TrasladoProducto_All_DTOTableAdapter.ClearBeforeFill = true;
             // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
+            // 
+            // sfdRuta
+            // 
+            this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
+            // 
             // frmTrasladosDeProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,6 +389,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTTrasladoProductoAllDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTrasladoProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -400,5 +424,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIDEstadoTraslado;
         private DevExpress.XtraGrid.Columns.GridColumn colEstadoTraslado;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
+        private System.Windows.Forms.ContextMenuStrip cmMenuGrid;
+        private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog sfdRuta;
     }
 }

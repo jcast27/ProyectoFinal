@@ -31,7 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmpresa));
             this.gCEmpresas = new DevExpress.XtraGrid.GridControl();
+            this.spSELECTEmpresaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetEmpresa = new SIME_UTN.DataSets.Formulario.DataSetEmpresa();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colidempresa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcedula = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltelefono = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpDepartamento = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
@@ -42,21 +49,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbGridViewSelecBodegas = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
-            this.dataSetEmpresa = new SIME_UTN.DataSets.Formulario.DataSetEmpresa();
-            this.spSELECTEmpresaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_SELECT_Empresa_AllTableAdapter = new SIME_UTN.DataSets.Formulario.DataSetEmpresaTableAdapters.sp_SELECT_Empresa_AllTableAdapter();
-            this.colidempresa = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcedula = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltelefono = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colestado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gCEmpresas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTEmpresaAllBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetEmpresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecBodegas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetEmpresa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTEmpresaAllBindingSource)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCEmpresas
@@ -64,6 +68,7 @@
             this.gCEmpresas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gCEmpresas.ContextMenuStrip = this.cmMenuGrid;
             this.gCEmpresas.DataSource = this.spSELECTEmpresaAllBindingSource;
             this.gCEmpresas.Location = new System.Drawing.Point(6, 39);
             this.gCEmpresas.MainView = this.gridView1;
@@ -75,6 +80,16 @@
             this.gCEmpresas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCEmpresas.Click += new System.EventHandler(this.gCUbicaciones_Click);
+            // 
+            // spSELECTEmpresaAllBindingSource
+            // 
+            this.spSELECTEmpresaAllBindingSource.DataMember = "sp_SELECT_Empresa_All";
+            this.spSELECTEmpresaAllBindingSource.DataSource = this.dataSetEmpresa;
+            // 
+            // dataSetEmpresa
+            // 
+            this.dataSetEmpresa.DataSetName = "DataSetEmpresa";
+            this.dataSetEmpresa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -94,6 +109,52 @@
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            // 
+            // colidempresa
+            // 
+            this.colidempresa.FieldName = "idempresa";
+            this.colidempresa.Name = "colidempresa";
+            // 
+            // colnombre
+            // 
+            this.colnombre.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colnombre.AppearanceCell.Options.UseFont = true;
+            this.colnombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colnombre.AppearanceHeader.Options.UseFont = true;
+            this.colnombre.Caption = "Nombre de la Empresa";
+            this.colnombre.FieldName = "nombre";
+            this.colnombre.Name = "colnombre";
+            this.colnombre.Visible = true;
+            this.colnombre.VisibleIndex = 0;
+            // 
+            // colcedula
+            // 
+            this.colcedula.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colcedula.AppearanceCell.Options.UseFont = true;
+            this.colcedula.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colcedula.AppearanceHeader.Options.UseFont = true;
+            this.colcedula.Caption = "Cedula Juridica";
+            this.colcedula.FieldName = "cedula";
+            this.colcedula.Name = "colcedula";
+            this.colcedula.Visible = true;
+            this.colcedula.VisibleIndex = 1;
+            // 
+            // coltelefono
+            // 
+            this.coltelefono.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.coltelefono.AppearanceCell.Options.UseFont = true;
+            this.coltelefono.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.coltelefono.AppearanceHeader.Options.UseFont = true;
+            this.coltelefono.Caption = "Numero Telefonico";
+            this.coltelefono.FieldName = "telefono";
+            this.coltelefono.Name = "coltelefono";
+            this.coltelefono.Visible = true;
+            this.coltelefono.VisibleIndex = 2;
+            // 
+            // colestado
+            // 
+            this.colestado.FieldName = "estado";
+            this.colestado.Name = "colestado";
             // 
             // LookUpDepartamento
             // 
@@ -215,65 +276,27 @@
             this.navButton1.Enabled = false;
             this.navButton1.Name = "navButton1";
             // 
-            // dataSetEmpresa
-            // 
-            this.dataSetEmpresa.DataSetName = "DataSetEmpresa";
-            this.dataSetEmpresa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spSELECTEmpresaAllBindingSource
-            // 
-            this.spSELECTEmpresaAllBindingSource.DataMember = "sp_SELECT_Empresa_All";
-            this.spSELECTEmpresaAllBindingSource.DataSource = this.dataSetEmpresa;
-            // 
             // sp_SELECT_Empresa_AllTableAdapter
             // 
             this.sp_SELECT_Empresa_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // colidempresa
+            // cmMenuGrid
             // 
-            this.colidempresa.FieldName = "idempresa";
-            this.colidempresa.Name = "colidempresa";
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
             // 
-            // colnombre
+            // exportarAExcelToolStripMenuItem
             // 
-            this.colnombre.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colnombre.AppearanceCell.Options.UseFont = true;
-            this.colnombre.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colnombre.AppearanceHeader.Options.UseFont = true;
-            this.colnombre.Caption = "Nombre de la Empresa";
-            this.colnombre.FieldName = "nombre";
-            this.colnombre.Name = "colnombre";
-            this.colnombre.Visible = true;
-            this.colnombre.VisibleIndex = 0;
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
             // 
-            // colcedula
+            // sfdRuta
             // 
-            this.colcedula.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colcedula.AppearanceCell.Options.UseFont = true;
-            this.colcedula.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colcedula.AppearanceHeader.Options.UseFont = true;
-            this.colcedula.Caption = "Cedula Juridica";
-            this.colcedula.FieldName = "cedula";
-            this.colcedula.Name = "colcedula";
-            this.colcedula.Visible = true;
-            this.colcedula.VisibleIndex = 1;
-            // 
-            // coltelefono
-            // 
-            this.coltelefono.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.coltelefono.AppearanceCell.Options.UseFont = true;
-            this.coltelefono.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.coltelefono.AppearanceHeader.Options.UseFont = true;
-            this.coltelefono.Caption = "Numero Telefonico";
-            this.coltelefono.FieldName = "telefono";
-            this.coltelefono.Name = "coltelefono";
-            this.coltelefono.Visible = true;
-            this.coltelefono.VisibleIndex = 2;
-            // 
-            // colestado
-            // 
-            this.colestado.FieldName = "estado";
-            this.colestado.Name = "colestado";
+            this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
             // 
             // frmEmpresa
             // 
@@ -291,12 +314,13 @@
             this.Text = "Ventana Ubicaciones";
             this.Load += new System.EventHandler(this.frmEmpresa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCEmpresas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTEmpresaAllBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetEmpresa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecBodegas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetEmpresa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spSELECTEmpresaAllBindingSource)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -323,5 +347,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcedula;
         private DevExpress.XtraGrid.Columns.GridColumn coltelefono;
         private DevExpress.XtraGrid.Columns.GridColumn colestado;
+        private System.Windows.Forms.ContextMenuStrip cmMenuGrid;
+        private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog sfdRuta;
     }
 }
