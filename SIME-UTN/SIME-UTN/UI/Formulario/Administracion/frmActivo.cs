@@ -14,10 +14,11 @@ namespace SIME_UTN.UI.Formulario.Administracion
 {
     public partial class frmActivo : Form
     {
+        
         string usuarioLogueado = "";
         GestorActivo gestor = null;
         GestorUsuarioTable gestorU = null;
-        Activo activo = null;
+        static Activo activo = null;
 
         public frmActivo()
         {
@@ -109,9 +110,16 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             try
             {
-                mBtnEliminar.Enabled = true;
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
+                mBtnEliminar.Enabled = false;
+                mBtnModificar.Enabled = false;
+
+                activo.idActivo = int.Parse(gridView1.GetFocusedRowCellValue("IDActivo").ToString());
+                if (activo.idActivo != 0)
+                {
+                    mBtnEliminar.Enabled = true;
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
+                }
             }
             catch (ApplicationException app)
             {
@@ -119,7 +127,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -130,9 +138,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            activo = gestor.ObtenerActivoId(int.Parse(gridView1.GetFocusedRowCellValue("IDActivo").ToString()));
+            Activo unActivo = new Activo();
+            unActivo = gestor.ObtenerActivoId(activo.idActivo);
 
-            frmAdActivo frm = new frmAdActivo(activo);
+            frmAdActivo frm = new frmAdActivo(unActivo);
             frm.ShowDialog(this);
             frmActivo_Load(null, null);
         }
@@ -143,7 +152,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gestor = GestorActivo.GetInstance();
             try
             {
-                gestor.DesactivarActivo(gridView1.GetFocusedRowCellValue("IDActivo").ToString(), mBtnEliminar.Caption, usuarioLogueado);
+                gestor.DesactivarActivo(activo.idActivo.ToString(), mBtnEliminar.Caption, usuarioLogueado);
                 MessageBox.Show("El activo ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
                 RefrescarLista();
@@ -163,6 +172,8 @@ namespace SIME_UTN.UI.Formulario.Administracion
             try
             {
                 RefrescarLista();
+                mBtnEliminar.Enabled = false;
+                mBtnModificar.Enabled = false;
             }
             catch (ApplicationException app)
             {
@@ -172,6 +183,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+         
         }
     }
 }

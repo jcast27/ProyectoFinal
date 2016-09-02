@@ -75,45 +75,50 @@ namespace SIME_UTN.UI.Bodega.Procesos
         {
             try
             {
-              
-                RegistroBodega bodegaOrigen = new RegistroBodega();
-                RegistroBodega bodegaDestino = new RegistroBodega();
-                UsuarioTable unUsuario = new UsuarioTable();
-                TipoTraslado tipoTraslado = new TipoTraslado();
-                EstadoTraslado estadoTraslado = new EstadoTraslado();
-                           
+                mBtnAgregar.Caption = "Agregar";
+                mBtnAceptar.Enabled = false;
+                mBtnDeclinar.Enabled = false;
                 trasladoEstatico.idTraslado = int.Parse(gridView1.GetFocusedRowCellValue("idtraslado").ToString());
-                bodegaOrigen.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodegaOrigen").ToString());
-                bodegaOrigen.nombre = gridView1.GetFocusedRowCellValue("BodegaOrigen").ToString();
-                trasladoEstatico.BodegaOrigen = bodegaOrigen;
-                bodegaDestino.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodegaDestino").ToString());
-                bodegaDestino.nombre = gridView1.GetFocusedRowCellValue("BodegaDestino").ToString();
-                trasladoEstatico.BodegaDestino = bodegaDestino;
-                unUsuario.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("IDUsuario").ToString());
-                unUsuario.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
-                trasladoEstatico.Usuario = unUsuario;
-                trasladoEstatico.observaciones = gridView1.GetFocusedRowCellValue("Observaciones").ToString();
-                trasladoEstatico.fechaTraslado = gridView1.GetFocusedRowCellValue("fechatraslado").ToString();
-                tipoTraslado.idTipoTraslado = int.Parse(gridView1.GetFocusedRowCellValue("IDTipoTraslado").ToString());
-                tipoTraslado.descripcion = gridView1.GetFocusedRowCellValue("TipoTraslado").ToString();
-                trasladoEstatico.TipoTraslado = tipoTraslado;
-                estadoTraslado.idEstadoTraslado = int.Parse(gridView1.GetFocusedRowCellValue("IDEstadoTraslado").ToString());
-                estadoTraslado.descripcion = gridView1.GetFocusedRowCellValue("EstadoTraslado").ToString();
-                trasladoEstatico.EstadoTraslado = estadoTraslado;
-                if (trasladoEstatico.EstadoTraslado.idEstadoTraslado == 1)
+                if (trasladoEstatico.idTraslado != 0)
                 {
-                    mBtnAgregar.Caption = "Modificar";
-                    mBtnAceptar.Enabled = true;
-                    mBtnDeclinar.Enabled = true;
-                }
-                else
-                {
-                    mBtnAceptar.Enabled = false;
-                    mBtnDeclinar.Enabled = false;
-                    mBtnAgregar.Caption = "Agregar";
-                    MessageBox.Show("No se puede utilizar este traslado debido a que se encuentra: " + trasladoEstatico.EstadoTraslado.descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
 
+                    RegistroBodega bodegaOrigen = new RegistroBodega();
+                    RegistroBodega bodegaDestino = new RegistroBodega();
+                    UsuarioTable unUsuario = new UsuarioTable();
+                    TipoTraslado tipoTraslado = new TipoTraslado();
+                    EstadoTraslado estadoTraslado = new EstadoTraslado();
+
+                    bodegaOrigen.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodegaOrigen").ToString());
+                    bodegaOrigen.nombre = gridView1.GetFocusedRowCellValue("BodegaOrigen").ToString();
+                    trasladoEstatico.BodegaOrigen = bodegaOrigen;
+                    bodegaDestino.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodegaDestino").ToString());
+                    bodegaDestino.nombre = gridView1.GetFocusedRowCellValue("BodegaDestino").ToString();
+                    trasladoEstatico.BodegaDestino = bodegaDestino;
+                    unUsuario.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("IDUsuario").ToString());
+                    unUsuario.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
+                    trasladoEstatico.Usuario = unUsuario;
+                    trasladoEstatico.observaciones = gridView1.GetFocusedRowCellValue("Observaciones").ToString();
+                    trasladoEstatico.fechaTraslado = gridView1.GetFocusedRowCellValue("fechatraslado").ToString();
+                    tipoTraslado.idTipoTraslado = int.Parse(gridView1.GetFocusedRowCellValue("IDTipoTraslado").ToString());
+                    tipoTraslado.descripcion = gridView1.GetFocusedRowCellValue("TipoTraslado").ToString();
+                    trasladoEstatico.TipoTraslado = tipoTraslado;
+                    estadoTraslado.idEstadoTraslado = int.Parse(gridView1.GetFocusedRowCellValue("IDEstadoTraslado").ToString());
+                    estadoTraslado.descripcion = gridView1.GetFocusedRowCellValue("EstadoTraslado").ToString();
+                    trasladoEstatico.EstadoTraslado = estadoTraslado;
+                    if (trasladoEstatico.EstadoTraslado.idEstadoTraslado == 1)
+                    {
+                        mBtnAgregar.Caption = "Modificar";
+                        mBtnAceptar.Enabled = true;
+                        mBtnDeclinar.Enabled = true;
+                    }
+                    else
+                    {
+                        mBtnAceptar.Enabled = false;
+                        mBtnDeclinar.Enabled = false;
+                        mBtnAgregar.Caption = "Agregar";
+                        MessageBox.Show("No se puede utilizar este traslado debido a que se encuentra: " + trasladoEstatico.EstadoTraslado.descripcion, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
 
             }
             catch (ApplicationException app)
@@ -122,7 +127,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

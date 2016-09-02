@@ -18,6 +18,7 @@ namespace SIME_UTN.Entities
         public double contenido { set; get; }
         public double cantMinima { set; get; }
         public double cantMaxima { set; get; }
+        public int cuentaPresupuestaria { set; get; }
 
         public Producto() { }
 

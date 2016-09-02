@@ -58,6 +58,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             UsuarioLogueado();
             gestorProducto = GestorProducto.GetInstance();
             productoEstatico = new Producto();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
 
 
         }
@@ -72,26 +74,32 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
-                Categoria unaCategoria = new Categoria();
-                UnidadMedida unaUnidadMedida = new UnidadMedida();
-                System.Data.DataRowView row = null;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 productoEstatico.idProducto = int.Parse(gridView1.GetFocusedRowCellValue("IDProducto").ToString());
-                productoEstatico.codigoAvatar = gridView1.GetFocusedRowCellValue("CodigoAvatar").ToString();
-                productoEstatico.nombreProducto = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-                productoEstatico.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
-                unaCategoria.idCategoria = int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString());
-                row = LookUpCategoria.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString()))as DataRowView;
-                unaCategoria.descripcion = row.Row["Descripcion"].ToString();
-                productoEstatico.Categoria = unaCategoria;
-                unaUnidadMedida.idUnidadMedida = int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString());
-                row = LookUpUnidadMedida.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString())) as DataRowView;
-                unaUnidadMedida.descripcion = row.Row["Descripcion"].ToString();
-                productoEstatico.UnidadMedida = unaUnidadMedida;
-                productoEstatico.contenido = Double.Parse(gridView1.GetFocusedRowCellValue("Contenido").ToString());
-                productoEstatico.cantMinima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMinima").ToString());
-                productoEstatico.cantMaxima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMaxima").ToString());
+                if (productoEstatico.idProducto!=0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    Categoria unaCategoria = new Categoria();
+                    UnidadMedida unaUnidadMedida = new UnidadMedida();
+                    System.Data.DataRowView row = null;
+                    productoEstatico.codigoAvatar = gridView1.GetFocusedRowCellValue("CodigoAvatar").ToString();
+                    productoEstatico.nombreProducto = gridView1.GetFocusedRowCellValue("Nombre").ToString();
+                    productoEstatico.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
+                    unaCategoria.idCategoria = int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString());
+                    row = LookUpCategoria.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString())) as DataRowView;
+                    unaCategoria.descripcion = row.Row["Descripcion"].ToString();
+                    productoEstatico.Categoria = unaCategoria;
+                    unaUnidadMedida.idUnidadMedida = int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString());
+                    row = LookUpUnidadMedida.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDUnidadMedida").ToString())) as DataRowView;
+                    unaUnidadMedida.descripcion = row.Row["Descripcion"].ToString();
+                    productoEstatico.UnidadMedida = unaUnidadMedida;
+                    productoEstatico.contenido = Double.Parse(gridView1.GetFocusedRowCellValue("Contenido").ToString());
+                    productoEstatico.cantMinima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMinima").ToString());
+                    productoEstatico.cantMaxima = Double.Parse(gridView1.GetFocusedRowCellValue("CantidadMaxima").ToString());
+                    productoEstatico.cuentaPresupuestaria = int.Parse(gridView1.GetFocusedRowCellValue("CuentaPresupuestaria").ToString());
+                }
 
             }
             catch (ApplicationException app)
@@ -100,7 +108,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

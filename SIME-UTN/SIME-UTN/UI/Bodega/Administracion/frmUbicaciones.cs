@@ -74,15 +74,20 @@ namespace SIME_UTN.UI.Bodega.Administracion
             System.Data.DataRowView row = null;
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
-                ubicacionEstatica.idUbicacion= int.Parse(gridView1.GetFocusedRowCellValue("idubicacion").ToString());
-                ubicacionEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
-                ubicacionEstatica.otraSennas = gridView1.GetFocusedRowCellValue("otrassennas").ToString();
-                unDepartamento.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString());
-                row = LookUpDepartamento.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString())) as DataRowView;
-                unDepartamento.descripcion = row.Row["descripcion"].ToString();
-                ubicacionEstatica.Departamento = unDepartamento;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
+                ubicacionEstatica.idUbicacion = int.Parse(gridView1.GetFocusedRowCellValue("idubicacion").ToString());
+                if (ubicacionEstatica.idUbicacion != 0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    ubicacionEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+                    ubicacionEstatica.otraSennas = gridView1.GetFocusedRowCellValue("otrassennas").ToString();
+                    unDepartamento.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString());
+                    row = LookUpDepartamento.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString())) as DataRowView;
+                    unDepartamento.descripcion = row.Row["descripcion"].ToString();
+                    ubicacionEstatica.Departamento = unDepartamento;
+                }
 
             }
             catch (ApplicationException app)
@@ -91,7 +96,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -159,6 +164,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.sp_SELECT_Ubicacion_AllTableAdapter.Fill(this.dataSetRegistrarUbicacion.sp_SELECT_Ubicacion_All);
             UsuarioLogueado();
             ubicacionEstatica = new Ubicacion();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
 
         }
     }

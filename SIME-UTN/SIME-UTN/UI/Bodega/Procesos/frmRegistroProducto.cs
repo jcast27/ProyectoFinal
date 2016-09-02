@@ -58,6 +58,8 @@ namespace SIME_UTN.UI.Bodega.Procesos
             Icon = Properties.Resources.Icono;
             UsuarioLogueado();
             registroEstatico = new RegistroProducto();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
         }
 
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -116,18 +118,24 @@ namespace SIME_UTN.UI.Bodega.Procesos
             UsuarioTable user = new UsuarioTable();
             try
             {
-                RegistroBodega bodega = new RegistroBodega();
-                System.Data.DataRowView row = null;
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 registroEstatico.idIngresoProducto = int.Parse(gridView1.GetFocusedRowCellValue("IDIngresoProducto").ToString());
-                registroEstatico.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
-                registroEstatico.solicitudAvatar = gridView1.GetFocusedRowCellValue("SolicitudAvatar").ToString();
-                registroEstatico.fechaIngreso = gridView1.GetFocusedRowCellValue("FechaIngreso").ToString();
-                bodega.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString());
-                row = LookUpEditBodega.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString())) as DataRowView;
-                bodega.nombre = row.Row["nombre"].ToString();
-                registroEstatico.Bodega = bodega;
+                if (registroEstatico.idIngresoProducto != 0)
+                {
+                    RegistroBodega bodega = new RegistroBodega();
+                    System.Data.DataRowView row = null;
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+
+                    registroEstatico.descripcion = gridView1.GetFocusedRowCellValue("Descripcion").ToString();
+                    registroEstatico.solicitudAvatar = gridView1.GetFocusedRowCellValue("SolicitudAvatar").ToString();
+                    registroEstatico.fechaIngreso = gridView1.GetFocusedRowCellValue("FechaIngreso").ToString();
+                    bodega.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString());
+                    row = LookUpEditBodega.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDRegistroBodega").ToString())) as DataRowView;
+                    bodega.nombre = row.Row["nombre"].ToString();
+                    registroEstatico.Bodega = bodega;
+                }
                
             }
             catch (ApplicationException app)
@@ -136,7 +144,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -54,6 +54,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             UsuarioLogueado();
             gestorFuncionario = GestorFuncionario.GetInstance();
             funcionarioEstatico = new Funcionario();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
 
         }
 
@@ -61,22 +63,27 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
-                Departamento unDepto = new Departamento();
-                Categoria unaCategoria = new Categoria();
-                Ubicacion unaUbicacion = new Ubicacion();
-                UnidadMedida unaUnidadMedida = new UnidadMedida();
-                System.Data.DataRowView row = null;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 funcionarioEstatico.idFuncionario = int.Parse(gridView1.GetFocusedRowCellValue("IDFuncionario").ToString());
-                funcionarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-                funcionarioEstatico.cedula = gridView1.GetFocusedRowCellValue("Cedula").ToString();
-                funcionarioEstatico.correo = gridView1.GetFocusedRowCellValue("Correo").ToString();
-                funcionarioEstatico.telefono = gridView1.GetFocusedRowCellValue("Telefono").ToString();
-                unDepto.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("IDDepartamento").ToString());
-                row = LookUpDepartamento.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDDepartamento").ToString())) as DataRowView;
-                unDepto.descripcion = row.Row["Descripcion"].ToString();
-                funcionarioEstatico.Departamento = unDepto;
+                if (funcionarioEstatico.idFuncionario != 0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    Departamento unDepto = new Departamento();
+                    Categoria unaCategoria = new Categoria();
+                    Ubicacion unaUbicacion = new Ubicacion();
+                    UnidadMedida unaUnidadMedida = new UnidadMedida();
+                    System.Data.DataRowView row = null;
+                    funcionarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
+                    funcionarioEstatico.cedula = gridView1.GetFocusedRowCellValue("Cedula").ToString();
+                    funcionarioEstatico.correo = gridView1.GetFocusedRowCellValue("Correo").ToString();
+                    funcionarioEstatico.telefono = gridView1.GetFocusedRowCellValue("Telefono").ToString();
+                    unDepto.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("IDDepartamento").ToString());
+                    row = LookUpDepartamento.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDDepartamento").ToString())) as DataRowView;
+                    unDepto.descripcion = row.Row["Descripcion"].ToString();
+                    funcionarioEstatico.Departamento = unDepto;
+                }
                 
             }
             catch (ApplicationException app)
@@ -85,7 +92,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

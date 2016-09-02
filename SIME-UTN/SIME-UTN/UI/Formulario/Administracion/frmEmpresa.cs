@@ -73,12 +73,17 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
-                empresaEstatica.idEmpresa= int.Parse(gridView1.GetFocusedRowCellValue("idempresa").ToString());
-                empresaEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
-                empresaEstatica.cedulaJuridica = gridView1.GetFocusedRowCellValue("cedula").ToString();
-                empresaEstatica.telefono = gridView1.GetFocusedRowCellValue("telefono").ToString();
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
+                empresaEstatica.idEmpresa = int.Parse(gridView1.GetFocusedRowCellValue("idempresa").ToString());
+                if (empresaEstatica.idEmpresa != 0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    empresaEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+                    empresaEstatica.cedulaJuridica = gridView1.GetFocusedRowCellValue("cedula").ToString();
+                    empresaEstatica.telefono = gridView1.GetFocusedRowCellValue("telefono").ToString();
+                }
 
             }
             catch (ApplicationException app)
@@ -87,7 +92,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -153,6 +158,8 @@ namespace SIME_UTN.UI.Formulario.Administracion
             // TODO: This line of code loads data into the 'dataSetEmpresa.sp_SELECT_Empresa_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_Empresa_AllTableAdapter.Fill(this.dataSetEmpresa.sp_SELECT_Empresa_All);
             empresaEstatica = new Empresa();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
         }
     }
 }

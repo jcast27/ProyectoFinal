@@ -73,6 +73,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             gestorRegistroBodega = GestorRegistroBodega.GetInstance();
             bodegaEstatico = new RegistroBodega();
             UsuarioLogueado();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
         }
 
 
@@ -85,22 +87,27 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
-                unTipoBodega = new TipoBodega();
-                unaUbicacion = new Ubicacion();
-                System.Data.DataRowView row = null;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 bodegaEstatico.idRegistroBodega = int.Parse(gridView1.GetFocusedRowCellValue("idregistrobodega").ToString());
-                bodegaEstatico.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
-                bodegaEstatico.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
-                unTipoBodega.idTipoBodega = int.Parse(gridView1.GetFocusedRowCellValue("tipo").ToString());
-                row = LookUpTipoBodega.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("tipo").ToString())) as DataRowView;
-                unTipoBodega.descripcion = row.Row["descripcion"].ToString();
-                bodegaEstatico.TipoBodega = unTipoBodega;
-                unaUbicacion.idUbicacion = int.Parse(gridView1.GetFocusedRowCellValue("IDLocalizacion").ToString());
-                row = LookUpUbicacion.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDLocalizacion").ToString())) as DataRowView;
-                unaUbicacion.nombre = row.Row["nombre"].ToString();
-                bodegaEstatico.Ubicacion = unaUbicacion;
+                if (bodegaEstatico.idRegistroBodega != 0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    unTipoBodega = new TipoBodega();
+                    unaUbicacion = new Ubicacion();
+                    System.Data.DataRowView row = null;
+                    bodegaEstatico.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+                    bodegaEstatico.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                    unTipoBodega.idTipoBodega = int.Parse(gridView1.GetFocusedRowCellValue("tipo").ToString());
+                    row = LookUpTipoBodega.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("tipo").ToString())) as DataRowView;
+                    unTipoBodega.descripcion = row.Row["descripcion"].ToString();
+                    bodegaEstatico.TipoBodega = unTipoBodega;
+                    unaUbicacion.idUbicacion = int.Parse(gridView1.GetFocusedRowCellValue("IDLocalizacion").ToString());
+                    row = LookUpUbicacion.GetDataSourceRowByKeyValue(int.Parse(gridView1.GetFocusedRowCellValue("IDLocalizacion").ToString())) as DataRowView;
+                    unaUbicacion.nombre = row.Row["nombre"].ToString();
+                    bodegaEstatico.Ubicacion = unaUbicacion;
+                }
 
             }
             catch (ApplicationException app)
@@ -109,7 +116,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -17,7 +17,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
         string usuarioLogueado = "";
         GestorCategoria gestor = null;
         GestorUsuarioTable gestorU = null;
-        Categoria categoria = null;
+        static Categoria categoria = null;
 
         public frmCategoria()
         {
@@ -32,11 +32,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             try
             {
+                categoria = new Categoria();
                 RefrescarLista();
-                /*.Fill(this.dataSetRDepartamento.sp_SELECT_Departamento_All);
-                UsuarioLogueado();
-                gestorDepto = GestorDepartamento.GetInstance();
-                deptoEstatico = new Departamento();*/
+                mBtnEliminar.Enabled = false;
+                mBtnModificar.Enabled = false;
             }
             catch (ApplicationException app)
             {
@@ -46,6 +45,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+         
         }
 
         /// <summary>
@@ -95,42 +95,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gCCategorias.DataSource = dt;
 
         }
-        /*
-
-        /// <summary>
-        /// Cambiar el estad de los objetos al seleccionar Nuevo,Editar,Borrar o Ninguno
-        /// </summary>
-        /// <param name="estado"></param>
-        public void CambiarEstado(EstadoMantenimiento estado)
-        {
-            switch (estado)
-            {
-                case EstadoMantenimiento.Nuevo:
-                    txtId.Text = "";
-                    txtDescripcion.Text = "";
-                    txtDescripcion.Enabled = true;
-                    this.mBtnAgregar.Enabled = true;
-                    this.mBtnModificar.Enabled = false;
-                    this.mBtnEliminar.Enabled = false;
-                    refrescarItems();
-                    break;
-                case EstadoMantenimiento.Editar:
-                    txtDescripcion.Enabled = true;
-                    this.mBtnAgregar.Enabled = false;
-                    this.mBtnModificar.Enabled = true;
-                    this.mBtnEliminar.Enabled = true;
-                    break;
-                case EstadoMantenimiento.Agregar:
-                    txtDescripcion.Enabled = false;
-                    txtDescripcion.Text = "";
-                    txtId.Text = "";
-                    this.mBtnAgregar.Enabled = true;
-                    this.mBtnModificar.Enabled = false;
-                    this.mBtnEliminar.Enabled = false;
-                    break;
-            }
-        }
-*/
+      
         /// <summary>
         /// Metodo que cierra la ventana Usuario
         /// </summary>
@@ -152,44 +117,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             frm.ShowDialog(this);
             frmCategoria_Load(null, null);            
 
-            /*gestor = GestorCategoria.GetInstance();
-            GestorItem gestorItem = GestorItem.GetInstance();
-            GestorCategoriaItem gestorCI = GestorCategoriaItem.GetInstance();
-
-            categoria = new Categoria();
-
-            if (ValidarCampos())
-            {
-                categoria.descripcion = txtDescripcion.Text.Trim();
-                categoria.pertenencia = Pertenece.Formulario.ToString();
-                categoria.estado = 1;
-
-                List<Item> listaItems = new List<Item>();
-
-                foreach (var item in clbItems.CheckedItems)
-                {
-                    if (!item.ToString().Equals("Seleccionar Todos"))
-                    {
-                        listaItems.Add(gestorItem.ObtenerItemDescripcion(item.ToString().Trim()));
-                    }
-                }
-
-                gestor.AgregarCategoria(categoria);
-                int idCategoria = gestor.GuardarCategoria();
-
-                foreach (Item item in listaItems)
-                {
-                    CategoriaItem CI = new CategoriaItem();
-                    CI.idCategoria = idCategoria;
-                    CI.idItem = item.idItem;
-                    gestorCI.AgregarCategoriaItem(CI);
-                    gestorCI.GuardarCategoriaItem();
-                }
-
-                MessageBox.Show("La Categoría fue actualizada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefrescarLista();
-                CambiarEstado(EstadoMantenimiento.Agregar);
-            }*/
+         
         }
 
         /// <summary>
@@ -201,9 +129,15 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             try
             {
-                mBtnEliminar.Enabled = true;
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
+                mBtnEliminar.Enabled = false;
+                mBtnModificar.Enabled = false;
+                categoria.idCategoria = int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString());
+                if (categoria.idCategoria != 0)
+                {
+                    mBtnEliminar.Enabled = true;
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
+                }
             }
             catch (ApplicationException app)
             {
@@ -211,7 +145,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -222,9 +156,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            categoria = gestor.ObtenerCategoriaId(int.Parse(gridView1.GetFocusedRowCellValue("IDCategoria").ToString()));
+            Categoria unaCategoria = new Categoria();
+            unaCategoria = gestor.ObtenerCategoriaId(categoria.idCategoria);
 
-            frmAdCategoria frm = new frmAdCategoria(categoria);
+            frmAdCategoria frm = new frmAdCategoria(unaCategoria);
             frm.ShowDialog(this);
             frmCategoria_Load(null, null);
         }
@@ -235,7 +170,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gestor = GestorCategoria.GetInstance();
             try
             {
-                gestor.DesactivarCategoria(gridView1.GetFocusedRowCellValue("IDCategoria").ToString(), mBtnEliminar.Caption, usuarioLogueado);
+                gestor.DesactivarCategoria(categoria.idCategoria.ToString(), mBtnEliminar.Caption, usuarioLogueado);
                 MessageBox.Show("El Item ha sido " + mBtnEliminar.Caption.Replace("ar", "ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
                 RefrescarLista();

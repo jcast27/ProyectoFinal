@@ -48,6 +48,7 @@
             this.dataSetUnidadMedida = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedida();
             this.colCantidadMinima = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCantidadMaxima = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCuentaPresupuestaria = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContenido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpUbicacion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -122,6 +123,7 @@
             this.colIDUnidadMedida,
             this.colCantidadMinima,
             this.colCantidadMaxima,
+            this.colCuentaPresupuestaria,
             this.colEstado,
             this.colContenido});
             this.gridView1.GridControl = this.gCProductos;
@@ -266,6 +268,18 @@
             this.colCantidadMaxima.AppearanceHeader.Options.UseFont = true;
             this.colCantidadMaxima.FieldName = "CantidadMaxima";
             this.colCantidadMaxima.Name = "colCantidadMaxima";
+            // 
+            // colCuentaPresupuestaria
+            // 
+            this.colCuentaPresupuestaria.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colCuentaPresupuestaria.AppearanceCell.Options.UseFont = true;
+            this.colCuentaPresupuestaria.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colCuentaPresupuestaria.AppearanceHeader.Options.UseFont = true;
+            this.colCuentaPresupuestaria.Caption = "C. Presupuestaria";
+            this.colCuentaPresupuestaria.FieldName = "CuentaPresupuestaria";
+            this.colCuentaPresupuestaria.Name = "colCuentaPresupuestaria";
+            this.colCuentaPresupuestaria.Visible = true;
+            this.colCuentaPresupuestaria.VisibleIndex = 5;
             // 
             // colEstado
             // 
@@ -489,5 +503,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCantidadMaxima;
         private DevExpress.XtraGrid.Columns.GridColumn colCantidadMinima;
         private DevExpress.XtraGrid.Columns.GridColumn colContenido;
+        private DevExpress.XtraGrid.Columns.GridColumn colCuentaPresupuestaria;
     }
 }

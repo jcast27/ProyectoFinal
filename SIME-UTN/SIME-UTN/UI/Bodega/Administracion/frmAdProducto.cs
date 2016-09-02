@@ -129,6 +129,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 lblCodigoProducto.Text = productoEstatico.idProducto.ToString();
                 txtCantMinima.Text = productoEstatico.cantMinima.ToString();
                 txtCantMaxima.Text = productoEstatico.cantMaxima.ToString();
+                txtCuentaP.Text = productoEstatico.cuentaPresupuestaria.ToString();
 
             }
             catch (ApplicationException app)
@@ -182,6 +183,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
                 unProducto.contenido = Double.Parse(txtContenido.Text);
                 unProducto.cantMinima = Double.Parse(txtCantMinima.Text);
                 unProducto.cantMaxima = Double.Parse(txtCantMaxima.Text);
+                unProducto.cuentaPresupuestaria = int.Parse(txtCuentaP.Text);
                 unProducto.estado = 1;
                 if (accionp == "Modificar")
                 {
@@ -322,6 +324,15 @@ namespace SIME_UTN.UI.Bodega.Administracion
         }
 
         private void txtCantMaxima_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCuentaP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {

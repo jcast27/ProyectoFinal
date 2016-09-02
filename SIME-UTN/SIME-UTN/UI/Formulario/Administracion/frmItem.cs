@@ -17,7 +17,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
         string usuarioLogueado = "";
         GestorItem gestor = null;
         GestorUsuarioTable gestorU = null;
-        Item item = null;
+        static Item item = null;
 
         public frmItem()
         {
@@ -30,8 +30,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             try
             {
+                item = new Item();
                 RefrescarLista();
-
+                mBtnEliminar.Enabled = false;
+                mBtnModificar.Enabled = false;
             }
             catch (ApplicationException app)
             {
@@ -41,6 +43,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+          
         }
 
 
@@ -100,7 +103,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             frmAdItem frm = new frmAdItem();
             frm.ShowDialog(this);
-            RefrescarLista();
+            frmItem_Load(null, null);
         }
 
         /// <summary>
@@ -112,9 +115,15 @@ namespace SIME_UTN.UI.Formulario.Administracion
         {
             try
             {
-                mBtnEliminar.Enabled = true;
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
+                mBtnEliminar.Enabled = false;
+                mBtnModificar.Enabled = false;
+                item.idItem = int.Parse(gridView1.GetFocusedRowCellValue("IDItem").ToString());
+                if (item.idItem != 0)
+                {
+                    mBtnEliminar.Enabled = true;
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Caption = gridView1.GetFocusedRowCellValue("Estado").ToString().Equals("Habilitado") ? "Deshabilitar" : "Habilitar";
+                }
             }
             catch (ApplicationException app)
             {
@@ -122,7 +131,7 @@ namespace SIME_UTN.UI.Formulario.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -135,11 +144,12 @@ namespace SIME_UTN.UI.Formulario.Administracion
         /// <param name="e"></param>
         private void mBtnModificar_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
-            item = gestor.ObtenerItemId(int.Parse(gridView1.GetFocusedRowCellValue("IDItem").ToString()));
+            Item unItem = new Item();
+            unItem = gestor.ObtenerItemId(item.idItem);
 
-            frmAdItem frm = new frmAdItem(item);
+            frmAdItem frm = new frmAdItem(unItem);
             frm.ShowDialog(this);
-            RefrescarLista();
+            frmItem_Load(null, null);
         }
 
 
@@ -153,10 +163,10 @@ namespace SIME_UTN.UI.Formulario.Administracion
             gestor = GestorItem.GetInstance();
             try
             {
-                gestor.EliminarItem(gridView1.GetFocusedRowCellValue("IDItem").ToString(), mBtnEliminar.Caption,usuarioLogueado);
+                gestor.EliminarItem(item.idItem.ToString(), mBtnEliminar.Caption,usuarioLogueado);
                 MessageBox.Show("El Item ha sido " + mBtnEliminar.Caption.Replace("ar","ado").ToLower(), "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mBtnEliminar.Caption = mBtnEliminar.Caption.Equals("Habilitar") ? "Deshabilitar" : "Habilitar";
-                RefrescarLista();
+                frmItem_Load(null, null);
             }
             catch (Exception ex)
             {

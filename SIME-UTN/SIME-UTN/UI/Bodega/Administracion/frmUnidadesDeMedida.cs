@@ -40,11 +40,11 @@ namespace SIME_UTN.UI.Bodega.Administracion
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All);
             // TODO: This line of code loads data into the 'dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All' table. You can move, or remove it, as needed.
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.Fill(this.dataSetRUnidadM.sp_SELECT_UnidadMedidaProducto_All);
-
-
             UsuarioLogueado();
             gestorUnidad = GestorUnidadMedida.GetInstance();
             unidadEstatica = new UnidadMedida();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
 
 
         }
@@ -93,20 +93,25 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 unidadEstatica.idUnidadMedida = int.Parse(gridView1.GetFocusedRowCellValue("idunidadmedida").ToString());
-                unidadEstatica.codigo = gridView1.GetFocusedRowCellValue("codigo").ToString();
-                unidadEstatica.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
-                bool valor = bool.Parse(gridView1.GetFocusedRowCellValue("decimales").ToString());
-                if(valor == true)
+                if (unidadEstatica.idUnidadMedida != 0)
                 {
-                    unidadEstatica.decimales =1;
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    unidadEstatica.codigo = gridView1.GetFocusedRowCellValue("codigo").ToString();
+                    unidadEstatica.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                    bool valor = bool.Parse(gridView1.GetFocusedRowCellValue("decimales").ToString());
+                    if (valor == true)
+                    {
+                        unidadEstatica.decimales = 1;
 
-                }
-                else
-                {
-                    unidadEstatica.decimales = 0;
+                    }
+                    else
+                    {
+                        unidadEstatica.decimales = 0;
+                    }
                 }
 
                 //unidadEstatica.decimales = 
@@ -118,7 +123,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

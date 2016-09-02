@@ -299,6 +299,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             private global::System.Data.DataColumn columnEstado;
             
+            private global::System.Data.DataColumn columnCuentaPresupuestaria;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProductoDataTable() {
@@ -414,6 +416,14 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CuentaPresupuestariaColumn {
+                get {
+                    return this.columnCuentaPresupuestaria;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +459,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProductoRow AddProductoRow(string CodigoAvatar, string Nombre, string Descripcion, int IDCategoria, int IDUnidadMedida, double Contenido, double CantidadMinima, double CantidadMaxima, bool Estado) {
+            public ProductoRow AddProductoRow(string CodigoAvatar, string Nombre, string Descripcion, int IDCategoria, int IDUnidadMedida, double Contenido, double CantidadMinima, double CantidadMaxima, bool Estado, int CuentaPresupuestaria) {
                 ProductoRow rowProductoRow = ((ProductoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -461,7 +471,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                         Contenido,
                         CantidadMinima,
                         CantidadMaxima,
-                        Estado};
+                        Estado,
+                        CuentaPresupuestaria};
                 rowProductoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductoRow);
                 return rowProductoRow;
@@ -501,6 +512,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                 this.columnCantidadMinima = base.Columns["CantidadMinima"];
                 this.columnCantidadMaxima = base.Columns["CantidadMaxima"];
                 this.columnEstado = base.Columns["Estado"];
+                this.columnCuentaPresupuestaria = base.Columns["CuentaPresupuestaria"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -526,6 +538,8 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
                 base.Columns.Add(this.columnCantidadMaxima);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
+                this.columnCuentaPresupuestaria = new global::System.Data.DataColumn("CuentaPresupuestaria", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuentaPresupuestaria);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIDProducto}, true));
                 this.columnIDProducto.AutoIncrement = true;
@@ -826,6 +840,22 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CuentaPresupuestaria {
+                get {
+                    try {
+                        return ((int)(this[this.tableProducto.CuentaPresupuestariaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CuentaPresupuestaria\' in table \'Producto\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProducto.CuentaPresupuestariaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCodigoAvatarNull() {
                 return this.IsNull(this.tableProducto.CodigoAvatarColumn);
             }
@@ -906,6 +936,18 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEstadoNull() {
                 this[this.tableProducto.EstadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCuentaPresupuestariaNull() {
+                return this.IsNull(this.tableProducto.CuentaPresupuestariaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCuentaPresupuestariaNull() {
+                this[this.tableProducto.CuentaPresupuestariaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1078,10 +1120,11 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductoTableAdapters {
             tableMapping.ColumnMappings.Add("CantidadMinima", "CantidadMinima");
             tableMapping.ColumnMappings.Add("CantidadMaxima", "CantidadMaxima");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("CuentaPresupuestaria", "CuentaPresupuestaria");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Producto] WHERE (([IDProducto] = @Original_IDProducto) AND ((@IsNull_CodigoAvatar = 1 AND [CodigoAvatar] IS NULL) OR ([CodigoAvatar] = @Original_CodigoAvatar)) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ([IDCategoria] = @Original_IDCategoria) AND ([IDUnidadMedida] = @Original_IDUnidadMedida) AND ((@IsNull_Contenido = 1 AND [Contenido] IS NULL) OR ([Contenido] = @Original_Contenido)) AND ((@IsNull_CantidadMinima = 1 AND [CantidadMinima] IS NULL) OR ([CantidadMinima] = @Original_CantidadMinima)) AND ((@IsNull_CantidadMaxima = 1 AND [CantidadMaxima] IS NULL) OR ([CantidadMaxima] = @Original_CantidadMaxima)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Producto] WHERE (([IDProducto] = @Original_IDProducto) AND ((@IsNull_CodigoAvatar = 1 AND [CodigoAvatar] IS NULL) OR ([CodigoAvatar] = @Original_CodigoAvatar)) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ([IDCategoria] = @Original_IDCategoria) AND ([IDUnidadMedida] = @Original_IDUnidadMedida) AND ((@IsNull_Contenido = 1 AND [Contenido] IS NULL) OR ([Contenido] = @Original_Contenido)) AND ((@IsNull_CantidadMinima = 1 AND [CantidadMinima] IS NULL) OR ([CantidadMinima] = @Original_CantidadMinima)) AND ((@IsNull_CantidadMaxima = 1 AND [CantidadMaxima] IS NULL) OR ([CantidadMaxima] = @Original_CantidadMaxima)) AND ((@IsNull_CuentaPresupuestaria = 1 AND [CuentaPresupuestaria] IS NULL) OR ([CuentaPresupuestaria] = @Original_CuentaPresupuestaria)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDProducto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProducto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodigoAvatar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodigoAvatar", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1098,12 +1141,14 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductoTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CantidadMinima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMinima", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CantidadMaxima", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMaxima", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CantidadMaxima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMaxima", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CuentaPresupuestaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaPresupuestaria", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CuentaPresupuestaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaPresupuestaria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Producto] ([CodigoAvatar], [Nombre], [Descripcion], [IDCategoria], [IDUnidadMedida], [Contenido], [CantidadMinima], [CantidadMaxima], [Estado]) VALUES (@CodigoAvatar, @Nombre, @Descripcion, @IDCategoria, @IDUnidadMedida, @Contenido, @CantidadMinima, @CantidadMaxima, @Estado);
-SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, Estado FROM Producto WHERE (IDProducto = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Producto] ([CodigoAvatar], [Nombre], [Descripcion], [IDCategoria], [IDUnidadMedida], [Contenido], [CantidadMinima], [CantidadMaxima], [CuentaPresupuestaria], [Estado]) VALUES (@CodigoAvatar, @Nombre, @Descripcion, @IDCategoria, @IDUnidadMedida, @Contenido, @CantidadMinima, @CantidadMaxima, @CuentaPresupuestaria, @Estado);
+SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupuestaria, Estado FROM Producto WHERE (IDProducto = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodigoAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodigoAvatar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1113,11 +1158,29 @@ SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedid
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contenido", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contenido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CantidadMinima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMinima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CantidadMaxima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMaxima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CuentaPresupuestaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaPresupuestaria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Producto] SET [CodigoAvatar] = @CodigoAvatar, [Nombre] = @Nombre, [Descripcion] = @Descripcion, [IDCategoria] = @IDCategoria, [IDUnidadMedida] = @IDUnidadMedida, [Contenido] = @Contenido, [CantidadMinima] = @CantidadMinima, [CantidadMaxima] = @CantidadMaxima, [Estado] = @Estado WHERE (([IDProducto] = @Original_IDProducto) AND ((@IsNull_CodigoAvatar = 1 AND [CodigoAvatar] IS NULL) OR ([CodigoAvatar] = @Original_CodigoAvatar)) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ([IDCategoria] = @Original_IDCategoria) AND ([IDUnidadMedida] = @Original_IDUnidadMedida) AND ((@IsNull_Contenido = 1 AND [Contenido] IS NULL) OR ([Contenido] = @Original_Contenido)) AND ((@IsNull_CantidadMinima = 1 AND [CantidadMinima] IS NULL) OR ([CantidadMinima] = @Original_CantidadMinima)) AND ((@IsNull_CantidadMaxima = 1 AND [CantidadMaxima] IS NULL) OR ([CantidadMaxima] = @Original_CantidadMaxima)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
-SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, Estado FROM Producto WHERE (IDProducto = @IDProducto)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Producto] SET [CodigoAvatar] = @CodigoAvatar, [Nombre] = @Nombre, [Descri" +
+                "pcion] = @Descripcion, [IDCategoria] = @IDCategoria, [IDUnidadMedida] = @IDUnida" +
+                "dMedida, [Contenido] = @Contenido, [CantidadMinima] = @CantidadMinima, [Cantidad" +
+                "Maxima] = @CantidadMaxima, [CuentaPresupuestaria] = @CuentaPresupuestaria, [Esta" +
+                "do] = @Estado WHERE (([IDProducto] = @Original_IDProducto) AND ((@IsNull_CodigoA" +
+                "vatar = 1 AND [CodigoAvatar] IS NULL) OR ([CodigoAvatar] = @Original_CodigoAvata" +
+                "r)) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nomb" +
+                "re)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] " +
+                "= @Original_Descripcion)) AND ([IDCategoria] = @Original_IDCategoria) AND ([IDUn" +
+                "idadMedida] = @Original_IDUnidadMedida) AND ((@IsNull_Contenido = 1 AND [Conteni" +
+                "do] IS NULL) OR ([Contenido] = @Original_Contenido)) AND ((@IsNull_CantidadMinim" +
+                "a = 1 AND [CantidadMinima] IS NULL) OR ([CantidadMinima] = @Original_CantidadMin" +
+                "ima)) AND ((@IsNull_CantidadMaxima = 1 AND [CantidadMaxima] IS NULL) OR ([Cantid" +
+                "adMaxima] = @Original_CantidadMaxima)) AND ((@IsNull_CuentaPresupuestaria = 1 AN" +
+                "D [CuentaPresupuestaria] IS NULL) OR ([CuentaPresupuestaria] = @Original_CuentaP" +
+                "resupuestaria)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @O" +
+                "riginal_Estado)));\r\nSELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCate" +
+                "goria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupue" +
+                "staria, Estado FROM Producto WHERE (IDProducto = @IDProducto)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodigoAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodigoAvatar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1127,6 +1190,7 @@ SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedid
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contenido", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contenido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CantidadMinima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMinima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CantidadMaxima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMaxima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CuentaPresupuestaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaPresupuestaria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDProducto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProducto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodigoAvatar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodigoAvatar", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1143,6 +1207,8 @@ SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedid
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CantidadMinima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMinima", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CantidadMaxima", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMaxima", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CantidadMaxima", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadMaxima", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CuentaPresupuestaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaPresupuestaria", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CuentaPresupuestaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuentaPresupuestaria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDProducto", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDProducto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1162,7 +1228,7 @@ SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedid
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"/****** Script for SelectTopNRows command from SSMS  ******/
-SELECT        IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, Estado
+SELECT        IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupuestaria, Estado
 FROM            Producto
 WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -1225,7 +1291,7 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IDProducto, string Original_CodigoAvatar, string Original_Nombre, string Original_Descripcion, int Original_IDCategoria, int Original_IDUnidadMedida, global::System.Nullable<double> Original_Contenido, global::System.Nullable<double> Original_CantidadMinima, global::System.Nullable<double> Original_CantidadMaxima, global::System.Nullable<bool> Original_Estado) {
+        public virtual int Delete(int Original_IDProducto, string Original_CodigoAvatar, string Original_Nombre, string Original_Descripcion, int Original_IDCategoria, int Original_IDUnidadMedida, global::System.Nullable<double> Original_Contenido, global::System.Nullable<double> Original_CantidadMinima, global::System.Nullable<double> Original_CantidadMaxima, global::System.Nullable<int> Original_CuentaPresupuestaria, global::System.Nullable<bool> Original_Estado) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IDProducto));
             if ((Original_CodigoAvatar == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1277,13 +1343,21 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_Estado.HasValue == true)) {
+            if ((Original_CuentaPresupuestaria.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_Estado.Value));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_CuentaPresupuestaria.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Estado.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((bool)(Original_Estado.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1305,7 +1379,7 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string CodigoAvatar, string Nombre, string Descripcion, int IDCategoria, int IDUnidadMedida, global::System.Nullable<double> Contenido, global::System.Nullable<double> CantidadMinima, global::System.Nullable<double> CantidadMaxima, global::System.Nullable<bool> Estado) {
+        public virtual int Insert(string CodigoAvatar, string Nombre, string Descripcion, int IDCategoria, int IDUnidadMedida, global::System.Nullable<double> Contenido, global::System.Nullable<double> CantidadMinima, global::System.Nullable<double> CantidadMaxima, global::System.Nullable<int> CuentaPresupuestaria, global::System.Nullable<bool> Estado) {
             if ((CodigoAvatar == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1344,11 +1418,17 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Estado.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Estado.Value));
+            if ((CuentaPresupuestaria.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(CuentaPresupuestaria.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Estado.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(Estado.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1379,6 +1459,7 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
                     global::System.Nullable<double> Contenido, 
                     global::System.Nullable<double> CantidadMinima, 
                     global::System.Nullable<double> CantidadMaxima, 
+                    global::System.Nullable<int> CuentaPresupuestaria, 
                     global::System.Nullable<bool> Estado, 
                     int Original_IDProducto, 
                     string Original_CodigoAvatar, 
@@ -1389,6 +1470,7 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
                     global::System.Nullable<double> Original_Contenido, 
                     global::System.Nullable<double> Original_CantidadMinima, 
                     global::System.Nullable<double> Original_CantidadMaxima, 
+                    global::System.Nullable<int> Original_CuentaPresupuestaria, 
                     global::System.Nullable<bool> Original_Estado, 
                     int IDProducto) {
             if ((CodigoAvatar == null)) {
@@ -1429,72 +1511,86 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Estado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Estado.Value));
+            if ((CuentaPresupuestaria.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(CuentaPresupuestaria.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_IDProducto));
-            if ((Original_CodigoAvatar == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            if ((Estado.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Estado.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_CodigoAvatar));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_IDProducto));
+            if ((Original_CodigoAvatar == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_CodigoAvatar));
             }
             if ((Original_Nombre == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Nombre));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Nombre));
             }
             if ((Original_Descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Descripcion));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Descripcion));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_IDCategoria));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_IDUnidadMedida));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_IDCategoria));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_IDUnidadMedida));
             if ((Original_Contenido.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(Original_Contenido.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((double)(Original_Contenido.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_CantidadMinima.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((double)(Original_CantidadMinima.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((double)(Original_CantidadMinima.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_CantidadMaxima.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((double)(Original_CantidadMaxima.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((double)(Original_CantidadMaxima.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CuentaPresupuestaria.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_CuentaPresupuestaria.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_Estado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((bool)(Original_Estado.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((bool)(Original_Estado.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(IDProducto));
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(IDProducto));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1524,6 +1620,7 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
                     global::System.Nullable<double> Contenido, 
                     global::System.Nullable<double> CantidadMinima, 
                     global::System.Nullable<double> CantidadMaxima, 
+                    global::System.Nullable<int> CuentaPresupuestaria, 
                     global::System.Nullable<bool> Estado, 
                     int Original_IDProducto, 
                     string Original_CodigoAvatar, 
@@ -1534,8 +1631,9 @@ WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
                     global::System.Nullable<double> Original_Contenido, 
                     global::System.Nullable<double> Original_CantidadMinima, 
                     global::System.Nullable<double> Original_CantidadMaxima, 
+                    global::System.Nullable<int> Original_CuentaPresupuestaria, 
                     global::System.Nullable<bool> Original_Estado) {
-            return this.Update(CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, Estado, Original_IDProducto, Original_CodigoAvatar, Original_Nombre, Original_Descripcion, Original_IDCategoria, Original_IDUnidadMedida, Original_Contenido, Original_CantidadMinima, Original_CantidadMaxima, Original_Estado, Original_IDProducto);
+            return this.Update(CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupuestaria, Estado, Original_IDProducto, Original_CodigoAvatar, Original_Nombre, Original_Descripcion, Original_IDCategoria, Original_IDUnidadMedida, Original_Contenido, Original_CantidadMinima, Original_CantidadMaxima, Original_CuentaPresupuestaria, Original_Estado, Original_IDProducto);
         }
     }
     

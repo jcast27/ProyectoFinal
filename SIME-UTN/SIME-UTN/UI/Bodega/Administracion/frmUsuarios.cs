@@ -38,19 +38,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             // TODO: This line of code loads data into the 'sIMEUTNDataSet.Usuario' table. You can move, or remove it, as needed.
             gestor = GestorUsuarioTable.GetInstance();
             usuarioEstatico = new UsuarioTable();
-            try
-            {
-
-            }
-
-            catch (ApplicationException app)
-            {
-                MessageBox.Show(app.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
         }
 
 
@@ -147,14 +136,19 @@ namespace SIME_UTN.UI.Bodega.Administracion
 
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 usuarioEstatico.codigoUsuario = int.Parse(gridView1.GetFocusedRowCellValue("CodigoUsuario").ToString());
-                usuarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
-                usuarioEstatico.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
-                usuarioEstatico.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
-                usuarioEstatico.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
-                usuarioEstatico.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
+                if (usuarioEstatico.codigoUsuario != 0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    usuarioEstatico.nombre = gridView1.GetFocusedRowCellValue("Nombre").ToString();
+                    usuarioEstatico.apellido1 = gridView1.GetFocusedRowCellValue("Apellido1").ToString();
+                    usuarioEstatico.apellido2 = gridView1.GetFocusedRowCellValue("Apellido2").ToString();
+                    usuarioEstatico.usuario = gridView1.GetFocusedRowCellValue("Usuario").ToString();
+                    usuarioEstatico.perfil = gridView1.GetFocusedRowCellValue("Perfil").ToString();
+                }
 
             }
             catch (ApplicationException app)
@@ -163,7 +157,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

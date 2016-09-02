@@ -122,6 +122,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             // TODO: This line of code loads data into the 'dataSetRMezclas.sp_SELECT_RegistroMezcla_All' table. You can move, or remove it, as needed.
             UsuarioLogueado();
             mezclaEstatica = new Mezcla();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
 
         }
 
@@ -134,11 +136,16 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 mezclaEstatica.idRegistroMezcla = int.Parse(gridView1.GetFocusedRowCellValue("idregistromezcla").ToString());
-                mezclaEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
-                mezclaEstatica.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                if (mezclaEstatica.idRegistroMezcla != 0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    mezclaEstatica.nombre = gridView1.GetFocusedRowCellValue("nombre").ToString();
+                    mezclaEstatica.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                }
             }
             catch (ApplicationException app)
             {
@@ -146,7 +153,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

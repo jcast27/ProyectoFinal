@@ -70,6 +70,7 @@ namespace SIME_UTN.DAL
                     unProducto.nombreProducto = dr["nombre"].ToString();
                     unProducto.descripcion = dr["descripcion"].ToString();
                     unProducto.contenido = Double.Parse(dr["contenido"].ToString());
+                    unProducto.cuentaPresupuestaria = int.Parse(dr["CuentaPresupuestaria"].ToString());
                     unProducto.estado = dr["estado"].ToString().Equals("True") ? 1 : 0;
                     unProducto.Categoria = CategoriaDAL.ObtenerCategoriaID(Convert.ToInt32(ds.Tables[0].Rows[0]["idcategoria"].ToString()));
                     unProducto.UnidadMedida = UnidadMedidaDAL.ObtenerUnidadMediadById(Convert.ToInt32(ds.Tables[0].Rows[0]["idunidadmedida"].ToString()));
@@ -187,6 +188,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@contenido", unProductop.contenido);
             comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
             comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
+            comando.Parameters.AddWithValue("@CuentaPresupuestaria", unProductop.cuentaPresupuestaria);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
             viejoProducto = ObtenerProductoPorCodigoAvatar(unProductop.codigoAvatar);
 
@@ -220,6 +222,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@stockminimo", unProductop.cantMinima);
             comando.Parameters.AddWithValue("@stockmaximo", unProductop.cantMaxima);
             comando.Parameters.AddWithValue("@estado", unProductop.estado);
+            comando.Parameters.AddWithValue("@CuentaPresupuestaria", unProductop.cuentaPresupuestaria);
             viejoProducto = ObtenerProductoPorCodigoAvatar(unProductop.codigoAvatar);
 
 
@@ -364,7 +367,7 @@ namespace SIME_UTN.DAL
                 estado = "Activo";
                 descripcion = "\r\nProducto";
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nEstado: " + estado;
+                descripcion += "CodigoAvatar: " + unProductop.codigoAvatar + "\r\nProducto: " + unProductop.nombreProducto + "\r\nDescripcion: " + unProductop.descripcion + "\r\nCategoria: " + unProductop.Categoria.descripcion + "\r\nUnidad de Medida: " + unProductop.UnidadMedida.descripcion + "\r\nCantidad Minima: " + unProductop.cantMinima + "\r\nCantidad Maxima: " + unProductop.cantMaxima + "\r\nCuenta Presupuestaria: " + unProductop.cuentaPresupuestaria + "\r\nEstado: " + estado;
 
             }
             if (accion == "Modificar")
@@ -374,9 +377,9 @@ namespace SIME_UTN.DAL
                 estado = "Activo";
                 descripcion = "\r\nProducto";
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + viejoProducto.cantMinima + "\r\nCantidad Maxima: " + viejoProducto.cantMaxima + "\r\nEstado: " + estado;
+                descripcion += "Antes del Cambio" + "\r\nCodigoAvatar: " + viejoProducto.codigoAvatar + "\r\nProducto: " + viejoProducto.nombreProducto + "\r\nDescripcion: " + viejoProducto.descripcion + "\r\nCategoria: " + viejoProducto.Categoria.descripcion + "\r\nUnidad de Medida: " + viejoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + viejoProducto.cantMinima + "\r\nCantidad Maxima: " + viejoProducto.cantMaxima + "\r\nCuenta Presupuestaria: " + viejoProducto.cuentaPresupuestaria + "\r\nEstado: " + estado;
                 descripcion += "\r\n-----------------------------------------------------------------------\r\n";
-                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + nuevoProducto.codigoAvatar + "\r\nProducto: " + nuevoProducto.nombreProducto + "\r\nDescripcion: " + nuevoProducto.descripcion + "\r\nCategoria: " + nuevoProducto.Categoria.descripcion + "\r\nUnidad de Medida: " + nuevoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + nuevoProducto.cantMinima + "\r\nCantidad Maxima: " + nuevoProducto.cantMaxima + "\r\nEstado: " + estado;
+                descripcion += "Despues del Cambio" + "\r\nCodigoAvatar: " + nuevoProducto.codigoAvatar + "\r\nProducto: " + nuevoProducto.nombreProducto + "\r\nDescripcion: " + nuevoProducto.descripcion + "\r\nCategoria: " + nuevoProducto.Categoria.descripcion + "\r\nUnidad de Medida: " + nuevoProducto.UnidadMedida.descripcion + "\r\nCantidad Minima: " + nuevoProducto.cantMinima + "\r\nCantidad Maxima: " + nuevoProducto.cantMaxima + "\r\nCuenta Presupuestaria: " + nuevoProducto.cuentaPresupuestaria + "\r\nEstado: " + estado;
             }
 
             DateTime date = DateTime.Now;

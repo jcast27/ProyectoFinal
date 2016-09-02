@@ -69,10 +69,15 @@ namespace SIME_UTN.UI.Bodega.Administracion
         {
             try
             {
-                mBtnModificar.Enabled = true;
-                mBtnEliminar.Enabled = true;
+                mBtnModificar.Enabled = false;
+                mBtnEliminar.Enabled = false;
                 deptoEstatico.idDepartamento = int.Parse(gridView1.GetFocusedRowCellValue("iddepartamento").ToString());
-                deptoEstatico.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                if (deptoEstatico.idDepartamento != 0)
+                {
+                    mBtnModificar.Enabled = true;
+                    mBtnEliminar.Enabled = true;
+                    deptoEstatico.descripcion = gridView1.GetFocusedRowCellValue("descripcion").ToString();
+                }
             }
             catch (ApplicationException app)
             {
@@ -80,7 +85,7 @@ namespace SIME_UTN.UI.Bodega.Administracion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Ocurrió un error: " + ex.Message, "SIME-UTN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -134,6 +139,8 @@ namespace SIME_UTN.UI.Bodega.Administracion
             UsuarioLogueado();
             gestorDepto = GestorDepartamento.GetInstance();
             deptoEstatico = new Departamento();
+            mBtnModificar.Enabled = false;
+            mBtnEliminar.Enabled = false;
         }
     }
 }
