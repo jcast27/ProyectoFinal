@@ -32,7 +32,7 @@ namespace SIME_UTN.DAL
                         unForm.fecha = Convert.ToDateTime(dr["Fecha"].ToString());
                         unForm.observaciones = dr["Observaciones"].ToString();
                         unForm.cliente = dr["Cliente"].ToString();
-                        unForm.funcionario = FuncionarioDAL.ObtenerFuncionarioID(Convert.ToInt32(dr["IDFuncionario"].ToString()));
+                        unForm.funcionario = UsuarioDAL.ObtenerUsuarioID(Convert.ToInt32(dr["IDFuncionario"].ToString()));
                         unForm.activo = ActivoDAL.ObtenerActivoID(Convert.ToInt32(dr["IDActivo"].ToString()));
                         unForm.listaDF = DetalleFormularioDAL.ObtenerDetalleFormularioID(unForm.idFormulario);
 
@@ -55,7 +55,8 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@Fecha", Formulariop.fecha);
             comando.Parameters.AddWithValue("@Observaciones", Formulariop.observaciones);
             comando.Parameters.AddWithValue("@Cliente", Formulariop.cliente);
-            comando.Parameters.AddWithValue("@IDFuncionario", Formulariop.funcionario.idFuncionario);
+            comando.Parameters.AddWithValue("@IDFuncionario", Formulariop.funcionario.codigoUsuario);
+            comando.Parameters.AddWithValue("@idempresa", Formulariop.empresa.idEmpresa);
             comando.Parameters.AddWithValue("@IDActivo", Formulariop.activo.idActivo);
 
             int idFormulario = 0;
@@ -93,7 +94,7 @@ namespace SIME_UTN.DAL
                     unForm.fecha = Convert.ToDateTime(ds.Tables[0].Rows[0]["Fecha"].ToString());
                     unForm.observaciones = ds.Tables[0].Rows[0]["Observaciones"].ToString();
                     unForm.cliente = ds.Tables[0].Rows[0]["Cliente"].ToString();
-                    unForm.funcionario = FuncionarioDAL.ObtenerFuncionarioID(Convert.ToInt32(ds.Tables[0].Rows[0]["IDFuncionario"].ToString()));
+                    unForm.funcionario = UsuarioDAL.ObtenerUsuarioID(Convert.ToInt32(ds.Tables[0].Rows[0]["IDFuncionario"].ToString()));
                     unForm.activo = ActivoDAL.ObtenerActivoID(Convert.ToInt32(ds.Tables[0].Rows[0]["IDActivo"].ToString()));
                     unForm.listaDF = DetalleFormularioDAL.ObtenerDetalleFormularioID(unForm.idFormulario);
 
@@ -111,7 +112,7 @@ namespace SIME_UTN.DAL
 
             string descripcion = "Form #: " + form.idFormulario + "\r\nFecha: " + form.fecha +
                 "\r\nObservaciones: " + form.observaciones + "\r\nCliente: " + form.cliente +
-                "\r\nFuncionario: " + form.funcionario.nombre + " - " + form.funcionario.cedula + "\r\nPatrimonio Activo: " + form.activo.patrimonio;
+                "\r\nFuncionario: " + form.funcionario.nombre + " - " + form.funcionario.apellido1 + "\r\nPatrimonio Activo: " + form.activo.patrimonio;
 
             DateTime date = DateTime.Now;
             string fecha = date.ToString("dd/MM/yyyy");

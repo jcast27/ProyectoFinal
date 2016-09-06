@@ -985,7 +985,7 @@ namespace SIME_UTN.DataSets.Bodega.Procesos.DataSetRegistroProductoTableAdapters
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [RegistroProducto] ([IDUsuario], [IDRegistroBodega], [Descripcion], [SolicitudAvatar], [FechaIngreso], [Estado]) VALUES (@IDUsuario, @IDRegistroBodega, @Descripcion, @SolicitudAvatar, @FechaIngreso, @Estado);
-SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAvatar, FechaIngreso, Estado FROM RegistroProducto WHERE (IDIngresoProducto = SCOPE_IDENTITY())";
+SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAvatar, FechaIngreso, Estado FROM RegistroProducto WHERE (IDIngresoProducto = SCOPE_IDENTITY()) ORDER BY IDIngresoProducto DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -996,7 +996,7 @@ SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAva
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [RegistroProducto] SET [IDUsuario] = @IDUsuario, [IDRegistroBodega] = @IDRegistroBodega, [Descripcion] = @Descripcion, [SolicitudAvatar] = @SolicitudAvatar, [FechaIngreso] = @FechaIngreso, [Estado] = @Estado WHERE (([IDIngresoProducto] = @Original_IDIngresoProducto) AND ([IDUsuario] = @Original_IDUsuario) AND ((@IsNull_IDRegistroBodega = 1 AND [IDRegistroBodega] IS NULL) OR ([IDRegistroBodega] = @Original_IDRegistroBodega)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ((@IsNull_SolicitudAvatar = 1 AND [SolicitudAvatar] IS NULL) OR ([SolicitudAvatar] = @Original_SolicitudAvatar)) AND ((@IsNull_FechaIngreso = 1 AND [FechaIngreso] IS NULL) OR ([FechaIngreso] = @Original_FechaIngreso)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
-SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAvatar, FechaIngreso, Estado FROM RegistroProducto WHERE (IDIngresoProducto = @IDIngresoProducto)";
+SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAvatar, FechaIngreso, Estado FROM RegistroProducto WHERE (IDIngresoProducto = @IDIngresoProducto) ORDER BY IDIngresoProducto DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRegistroBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRegistroBodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1034,7 +1034,7 @@ SELECT IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, SolicitudAva
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        IDIngresoProducto, IDUsuario, IDRegistroBodega, Descripcion, Solici" +
                 "tudAvatar, FechaIngreso, Estado\r\nFROM            RegistroProducto\r\nWHERE        " +
-                "(Estado = 1)";
+                "(Estado = 1)\r\nORDER BY IDIngresoProducto DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

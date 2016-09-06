@@ -45,6 +45,8 @@ namespace SIME_UTN.UI.Bodega.Procesos
 
         private void frmAdDespachoProductos_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetUbicacion.sp_SELECT_Ubicacion_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_Ubicacion_AllTableAdapter.Fill(this.dataSetUbicacion.sp_SELECT_Ubicacion_All);
             // TODO: esta línea de código carga datos en la tabla 'dataSetRMezclas.Producto' Puede moverla o quitarla según sea necesario.
             this.productoTableAdapter.Fill(this.dataSetRMezclas.Producto);
             // TODO: esta línea de código carga datos en la tabla 'dataSetFuncionario.Funcionario' Puede moverla o quitarla según sea necesario.
@@ -53,6 +55,7 @@ namespace SIME_UTN.UI.Bodega.Procesos
             UsuarioLogueado();
             cmbMezcla.SelectedIndex = -1;
             cmbFuncionario.SelectedIndex = -1;
+            cmbUbicacion.SelectedIndex = -1;
         }
 
         private void mBtnSalir_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -223,8 +226,10 @@ namespace SIME_UTN.UI.Bodega.Procesos
             RefrescarBodega(idBodega);
             cmbMezcla.SelectedIndex = -1;
             cmbFuncionario.SelectedIndex = -1;
+            cmbUbicacion.SelectedIndex = -1;
             gcDespacho.DataSource = null;
             txtBuscar.Clear();
+            txtObservaciones.Clear();
             txtCantidadProd.Clear();
             nudCantidadMez.ResetText();
             txtBuscar.Focus();
@@ -240,10 +245,11 @@ namespace SIME_UTN.UI.Bodega.Procesos
                 Funcionario f = gf.ObtenerFuncionarioId(int.Parse(cmbFuncionario.SelectedValue.ToString()));
                 UsuarioTable usuario = gestor.ValidarUsuarioPorUsuario(user);
                 GestorDespacho gd = GestorDespacho.GetInstance();
-
+                Ubicacion U = new Ubicacion();
+                U.idUbicacion = int.Parse(cmbUbicacion.SelectedValue.ToString());
                 try
                 {
-                    int idDespacho = gd.GuardarDespacho(idBodega, usuario, txtObservaciones.Text, f);
+                    int idDespacho = gd.GuardarDespacho(idBodega, usuario, txtObservaciones.Text, f, U);
 
                     foreach (PBodega pb in lista)
                     {
@@ -271,6 +277,12 @@ namespace SIME_UTN.UI.Bodega.Procesos
             {
                 ePError.SetError(cmbFuncionario, "Seleccione un funcionario");
                 cmbFuncionario.Focus();
+                r = false;
+            }
+            if (cmbUbicacion.SelectedIndex == -1)
+            {
+                ePError.SetError(cmbUbicacion, "Seleccione un modulo");
+                cmbUbicacion.Focus();
                 r = false;
             }
             else if (gridView2.DataRowCount == 0)

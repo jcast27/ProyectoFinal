@@ -1148,7 +1148,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetProductoTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [Producto] ([CodigoAvatar], [Nombre], [Descripcion], [IDCategoria], [IDUnidadMedida], [Contenido], [CantidadMinima], [CantidadMaxima], [CuentaPresupuestaria], [Estado]) VALUES (@CodigoAvatar, @Nombre, @Descripcion, @IDCategoria, @IDUnidadMedida, @Contenido, @CantidadMinima, @CantidadMaxima, @CuentaPresupuestaria, @Estado);
-SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupuestaria, Estado FROM Producto WHERE (IDProducto = SCOPE_IDENTITY())";
+SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupuestaria, Estado FROM Producto WHERE (IDProducto = SCOPE_IDENTITY()) ORDER BY IDProducto DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodigoAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodigoAvatar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1180,7 +1180,8 @@ SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedid
                 "resupuestaria)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @O" +
                 "riginal_Estado)));\r\nSELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCate" +
                 "goria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupue" +
-                "staria, Estado FROM Producto WHERE (IDProducto = @IDProducto)";
+                "staria, Estado FROM Producto WHERE (IDProducto = @IDProducto) ORDER BY IDProduct" +
+                "o DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodigoAvatar", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodigoAvatar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1230,7 +1231,8 @@ SELECT IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedid
             this._commandCollection[0].CommandText = @"/****** Script for SelectTopNRows command from SSMS  ******/
 SELECT        IDProducto, CodigoAvatar, Nombre, Descripcion, IDCategoria, IDUnidadMedida, Contenido, CantidadMinima, CantidadMaxima, CuentaPresupuestaria, Estado
 FROM            Producto
-WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)";
+WHERE        (Estado = 1) AND (IDUnidadMedida <> 10)
+ORDER BY IDProducto DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

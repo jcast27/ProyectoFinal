@@ -35,15 +35,18 @@ namespace SIME_UTN.UI.Formulario.Procesos
 
         private void frmFormulario_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetCMBEmpresa.sp_SELECT_Empresa_All' table. You can move, or remove it, as needed.
+            this.sp_SELECT_Empresa_AllTableAdapter.Fill(this.dataSetCMBEmpresa.sp_SELECT_Empresa_All);
 
             Icon = Properties.Resources.Icono;
             // TODO: esta línea de código carga datos en la tabla 'dataSetFuncionario.Funcionario' Puede moverla o quitarla según sea necesario.
             this.funcionarioTableAdapter.Fill(this.dataSetFuncionario.Funcionario);
             // TODO: esta línea de código carga datos en la tabla 'dataSetActivo.Activo' Puede moverla o quitarla según sea necesario.
             this.activoTableAdapter.Fill(this.dataSetActivo.Activo, categoria.idCategoria);
-
-            cmbFuncionario.SelectedIndex = -1;
+            txtFuncionario.Enabled = false;
+            txtFuncionario.Text = usuarioLogueado;
             cmbPatrimonio.SelectedIndex = -1;
+            cmbEmpresa.SelectedIndex = -1;
 
             try
             {
@@ -197,13 +200,16 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 if (ValidarCampos())
                 {
                     GestorActivo ga = new GestorActivo();
-                    GestorFuncionario gf = new GestorFuncionario();
+                    GestorUsuarioTable gf = new GestorUsuarioTable();
                     GestorFormulario gForm = new GestorFormulario();
                     GestorDetalleFormulario gDet = new GestorDetalleFormulario();
-
+                    Empresa unaEmpresa = new Empresa();
                     Entities.Formulario form = new Entities.Formulario();
                     form.activo = ga.ObtenerActivoId(int.Parse(cmbPatrimonio.SelectedValue.ToString()));
-                    form.funcionario = gf.ObtenerFuncionarioId(int.Parse(cmbFuncionario.SelectedValue.ToString()));
+                    form.funcionario = gf.ObtenerUsuarioPorNombreUsuario(usuarioLogueado);
+                    unaEmpresa.idEmpresa = int.Parse(cmbEmpresa.SelectedValue.ToString());
+                    unaEmpresa.nombre = cmbEmpresa.GetItemText(cmbEmpresa.Items[cmbEmpresa.SelectedIndex]);
+                    form.empresa = unaEmpresa;
                     form.fecha = DateTime.Parse(txtFecha.Text);
                     form.cliente = txtCliente.Text;
                     form.observaciones = txtComentario.Text;
@@ -329,10 +335,10 @@ namespace SIME_UTN.UI.Formulario.Procesos
                 cmbPatrimonio.Focus();
                 r = false;
             }
-            else if (cmbFuncionario.SelectedIndex == -1)
+            if (cmbEmpresa.SelectedIndex == -1)
             {
-                ePError.SetError(cmbFuncionario, "Funcionario no seleccionado");
-                cmbFuncionario.Focus();
+                ePError.SetError(cmbEmpresa, "Empresa no seleccionado");
+                cmbEmpresa.Focus();
                 r = false;
             }
             else if (sino)

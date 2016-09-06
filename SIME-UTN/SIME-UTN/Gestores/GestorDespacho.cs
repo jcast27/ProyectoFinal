@@ -32,9 +32,9 @@ namespace SIME_UTN.Gestores
             DespachoBLL.GuardarDespacho(idDespacho, Bodegap);
         }
 
-        public int GuardarDespacho(int idBodega, UsuarioTable user, string descripcion, Funcionario funcionario)
+        public int GuardarDespacho(int idBodega, UsuarioTable user, string descripcion, Funcionario funcionario, Ubicacion ubicacion)
         {
-            return DespachoBLL.GuardarDespacho(idBodega, user, descripcion, funcionario);
+            return DespachoBLL.GuardarDespacho(idBodega, user, descripcion, funcionario,ubicacion);
         }
     }
 }

@@ -463,5 +463,44 @@ namespace SIME_UTN.DAL
             return unUsuario;
         }
 
+        /// <summary>
+        /// Metodo que devuelve a un Usario de la base de datos, por medio del nombre de usuario
+        /// </summary>
+        /// <param name="CodigoUsuariop"></param>
+        /// <returns></returns>
+        public static UsuarioTable ObtenerUsuarioPorUser(string Userp)
+        {
+            string sql = @"select CodigoUsuario,Usuario
+                         from Usuario
+                         where Usuario = @nombreUsuario";
+
+
+            SqlCommand commando = new SqlCommand(sql);
+            commando.Parameters.AddWithValue("@nombreUsuario", Userp);
+
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(commando, "consulta");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    UsuarioTable unUsuario = new UsuarioTable();
+                    unUsuario.codigoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0]["CodigoUsuario"].ToString());
+                    unUsuario.usuario = ds.Tables[0].Rows[0]["Usuario"].ToString();
+
+                    return unUsuario;
+
+
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+
+        }
+
     }
 }

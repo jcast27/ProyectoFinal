@@ -100,7 +100,7 @@
             this.LookUpCategoria,
             this.LookUpUnidadMedida,
             this.LookUpUbicacion});
-            this.gCProductos.Size = new System.Drawing.Size(1027, 468);
+            this.gCProductos.Size = new System.Drawing.Size(974, 468);
             this.gCProductos.TabIndex = 0;
             this.gCProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -111,7 +111,7 @@
             this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportarAExcelToolStripMenuItem});
             this.cmMenuGrid.Name = "cmMenuGrid";
-            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 26);
             // 
             // exportarAExcelToolStripMenuItem
             // 
@@ -352,7 +352,7 @@
             this.tileNavPane1.Name = "tileNavPane1";
             this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Size = new System.Drawing.Size(1200, 45);
+            this.tileNavPane1.Size = new System.Drawing.Size(1147, 45);
             this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "Nuevo";
             // 
@@ -409,7 +409,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.Location = new System.Drawing.Point(1197, 41);
+            this.panel2.Location = new System.Drawing.Point(1144, 41);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(147, 647);
             this.panel2.TabIndex = 31;
@@ -423,7 +423,7 @@
             this.gbGridViewUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGridViewUsuario.Location = new System.Drawing.Point(152, 64);
             this.gbGridViewUsuario.Name = "gbGridViewUsuario";
-            this.gbGridViewUsuario.Size = new System.Drawing.Size(1039, 516);
+            this.gbGridViewUsuario.Size = new System.Drawing.Size(986, 516);
             this.gbGridViewUsuario.TabIndex = 33;
             this.gbGridViewUsuario.TabStop = false;
             this.gbGridViewUsuario.Text = "Seleccionar Producto";
@@ -460,7 +460,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1345, 680);
+            this.ClientSize = new System.Drawing.Size(1292, 680);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tileNavPane1);

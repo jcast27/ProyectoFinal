@@ -304,6 +304,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\DataSetUsuario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -323,6 +328,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetCMBEmpresa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCMBEmpresa.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Formulario\DataSetEmpresa.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1334,6 +1344,17 @@
     <None Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.xss">
       <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetUbicacion.xsc">
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetUbicacion.xss">
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\DataSetUsuario.xsc">
       <DependentUpon>DataSetUsuario.xsd</DependentUpon>
     </None>
@@ -1377,6 +1398,17 @@
     </None>
     <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xss">
       <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCMBEmpresa.xsc">
+      <DependentUpon>DataSetCMBEmpresa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCMBEmpresa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCMBEmpresa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCMBEmpresa.xss">
+      <DependentUpon>DataSetCMBEmpresa.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Formulario\DataSetEmpresa.xsc">
       <DependentUpon>DataSetEmpresa.xsd</DependentUpon>

@@ -135,7 +135,10 @@ namespace SIME_UTN.Gestores
             return NombreUsuario;
         }
 
-      
+        internal UsuarioTable ObtenerUsuarioPorNombreUsuario(string usuarioLogueado)
+        {
+            return UsuarioBLL.ObtenerUsuarioPorNombreUsuario(usuarioLogueado);
+        }
     }
   
 }

@@ -15,9 +15,9 @@ namespace SIME_UTN.BLL
             DespachoDAL.guardarDespachoDetalle(idDespacho, Bodegap);
         }
 
-        internal static int GuardarDespacho(int idBodega, UsuarioTable user, string descripcion, Funcionario funcionario)
+        internal static int GuardarDespacho(int idBodega, UsuarioTable user, string descripcion, Funcionario funcionario, Ubicacion ubicacion)
         {
-            return DespachoDAL.GuardarDespacho(idBodega, user, descripcion, funcionario);
+            return DespachoDAL.GuardarDespacho(idBodega, user, descripcion, funcionario, ubicacion);
         }
 
     }

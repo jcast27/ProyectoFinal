@@ -29,7 +29,7 @@ namespace SIME_UTN.DAL
             }
         }
 
-        public static int GuardarDespacho(int idBodega, UsuarioTable user, string descripcion, Funcionario funcionario)
+        public static int GuardarDespacho(int idBodega, UsuarioTable user, string descripcion, Funcionario funcionario, Ubicacion ubicacion)
         {
             //(@idBodega int, @IDUsuario int, @IDFuncionario int, @Descripcion nvarchar(300),@FechaDespacho varchar(30))
 
@@ -39,6 +39,7 @@ namespace SIME_UTN.DAL
             comando.Parameters.AddWithValue("@idBodega", idBodega);
             comando.Parameters.AddWithValue("@IDUsuario", user.codigoUsuario);
             comando.Parameters.AddWithValue("@IDFuncionario", funcionario.idFuncionario);
+            comando.Parameters.AddWithValue("@IDUbicacion", ubicacion.idUbicacion);
             comando.Parameters.AddWithValue("@Descripcion", descripcion);
             comando.Parameters.AddWithValue("@FechaDespacho", DateTime.Now);
 

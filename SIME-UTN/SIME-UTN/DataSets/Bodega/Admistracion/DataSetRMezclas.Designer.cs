@@ -866,7 +866,7 @@ namespace SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters {
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [Producto] SET [nombre] = @nombre, [descripcion] = @descripcion, [estado] = @estado WHERE (([IDProducto] = @Original_idregistromezcla) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)));
-SELECT IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS descripcion, Estado AS estado FROM Producto WHERE (IDProducto = @IDProducto)";
+SELECT IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS descripcion, Estado AS estado FROM Producto WHERE (IDProducto = @IDProducto) ORDER BY idregistromezcla DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -896,7 +896,7 @@ SELECT IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS descripc
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        IDProducto AS idregistromezcla, Nombre AS nombre, Descripcion AS de" +
                 "scripcion, Estado AS estado\r\nFROM            Producto\r\nWHERE        (IDUnidadMed" +
-                "ida = 10) AND (Estado = 1)";
+                "ida = 10) AND (Estado = 1)\r\nORDER BY idregistromezcla DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

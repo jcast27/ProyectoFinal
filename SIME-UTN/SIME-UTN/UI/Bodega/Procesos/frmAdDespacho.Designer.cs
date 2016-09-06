@@ -73,6 +73,11 @@
             this.productoTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRMezclasTableAdapters.ProductoTableAdapter();
             this.ePError = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lblUbicacion = new System.Windows.Forms.Label();
+            this.cmbUbicacion = new System.Windows.Forms.ComboBox();
+            this.dataSetUbicacion = new SIME_UTN.DataSets.Bodega.Procesos.DataSetUbicacion();
+            this.spSELECTUbicacionAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Procesos.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
             this.gbGridViewFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMez)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
@@ -87,6 +92,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -282,6 +289,8 @@
             // 
             // gbGridViewRegistroProductos
             // 
+            this.gbGridViewRegistroProductos.Controls.Add(this.cmbUbicacion);
+            this.gbGridViewRegistroProductos.Controls.Add(this.lblUbicacion);
             this.gbGridViewRegistroProductos.Controls.Add(this.label5);
             this.gbGridViewRegistroProductos.Controls.Add(this.txtObservaciones);
             this.gbGridViewRegistroProductos.Controls.Add(this.gcDespacho);
@@ -375,9 +384,9 @@
             this.cmbFuncionario.DisplayMember = "Nombre";
             this.cmbFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbFuncionario.FormattingEnabled = true;
-            this.cmbFuncionario.Location = new System.Drawing.Point(593, 33);
+            this.cmbFuncionario.Location = new System.Drawing.Point(350, 30);
             this.cmbFuncionario.Name = "cmbFuncionario";
-            this.cmbFuncionario.Size = new System.Drawing.Size(171, 24);
+            this.cmbFuncionario.Size = new System.Drawing.Size(155, 24);
             this.cmbFuncionario.TabIndex = 9;
             this.cmbFuncionario.ValueMember = "IDFuncionario";
             // 
@@ -400,7 +409,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label3.Location = new System.Drawing.Point(497, 31);
+            this.label3.Location = new System.Drawing.Point(254, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 18);
             this.label3.TabIndex = 8;
@@ -516,6 +525,45 @@
             // 
             this.ePError.ContainerControl = this;
             // 
+            // lblUbicacion
+            // 
+            this.lblUbicacion.AutoSize = true;
+            this.lblUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblUbicacion.Location = new System.Drawing.Point(522, 34);
+            this.lblUbicacion.Name = "lblUbicacion";
+            this.lblUbicacion.Size = new System.Drawing.Size(62, 18);
+            this.lblUbicacion.TabIndex = 13;
+            this.lblUbicacion.Text = "Modulo:";
+            // 
+            // cmbUbicacion
+            // 
+            this.cmbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbUbicacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spSELECTUbicacionAllBindingSource, "idubicacion", true));
+            this.cmbUbicacion.DataSource = this.spSELECTUbicacionAllBindingSource;
+            this.cmbUbicacion.DisplayMember = "nombre";
+            this.cmbUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cmbUbicacion.FormattingEnabled = true;
+            this.cmbUbicacion.Location = new System.Drawing.Point(593, 30);
+            this.cmbUbicacion.Name = "cmbUbicacion";
+            this.cmbUbicacion.Size = new System.Drawing.Size(171, 24);
+            this.cmbUbicacion.TabIndex = 14;
+            this.cmbUbicacion.ValueMember = "idubicacion";
+            // 
+            // dataSetUbicacion
+            // 
+            this.dataSetUbicacion.DataSetName = "DataSetUbicacion";
+            this.dataSetUbicacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spSELECTUbicacionAllBindingSource
+            // 
+            this.spSELECTUbicacionAllBindingSource.DataMember = "sp_SELECT_Ubicacion_All";
+            this.spSELECTUbicacionAllBindingSource.DataSource = this.dataSetUbicacion;
+            // 
+            // sp_SELECT_Ubicacion_AllTableAdapter
+            // 
+            this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
+            // 
             // frmAdDespacho
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -548,6 +596,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetUbicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spSELECTUbicacionAllBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -597,5 +647,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.NumericUpDown nudCantidadMez;
+        private System.Windows.Forms.ComboBox cmbUbicacion;
+        private System.Windows.Forms.Label lblUbicacion;
+        private DataSets.Bodega.Procesos.DataSetUbicacion dataSetUbicacion;
+        private System.Windows.Forms.BindingSource spSELECTUbicacionAllBindingSource;
+        private DataSets.Bodega.Procesos.DataSetUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter sp_SELECT_Ubicacion_AllTableAdapter;
     }
 }

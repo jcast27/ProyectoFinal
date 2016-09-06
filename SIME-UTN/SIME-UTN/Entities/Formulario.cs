@@ -11,7 +11,9 @@ namespace SIME_UTN.Entities
         public string cliente { set; get; }
         public Activo activo { set; get; }
         public DateTime fecha { set; get; }
-        public Funcionario funcionario { set; get; }
+        public UsuarioTable funcionario { set; get; }
+
+        public Empresa empresa { set; get; }
         public string observaciones { set; get; }
         public List<DetalleFormulario> listaDF { set; get; }
 

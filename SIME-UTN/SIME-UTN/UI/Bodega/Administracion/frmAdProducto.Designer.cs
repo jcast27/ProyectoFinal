@@ -59,8 +59,8 @@
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetUnidadMedidaTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
             this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.gbInformaciónPersonal = new System.Windows.Forms.GroupBox();
-            this.lblCuenta = new System.Windows.Forms.Label();
             this.txtCuentaP = new System.Windows.Forms.TextBox();
+            this.lblCuenta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetUnidadMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
@@ -175,9 +175,9 @@
             this.lblCantMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantMax.Location = new System.Drawing.Point(14, 243);
             this.lblCantMax.Name = "lblCantMax";
-            this.lblCantMax.Size = new System.Drawing.Size(126, 18);
+            this.lblCantMax.Size = new System.Drawing.Size(132, 18);
             this.lblCantMax.TabIndex = 36;
-            this.lblCantMax.Text = "Cantidad Máxima:";
+            this.lblCantMax.Text = "Inventario Máximo:";
             // 
             // lblCantMin
             // 
@@ -185,9 +185,9 @@
             this.lblCantMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantMin.Location = new System.Drawing.Point(385, 192);
             this.lblCantMin.Name = "lblCantMin";
-            this.lblCantMin.Size = new System.Drawing.Size(122, 18);
+            this.lblCantMin.Size = new System.Drawing.Size(128, 18);
             this.lblCantMin.TabIndex = 35;
-            this.lblCantMin.Text = "Cantidad Mínima:";
+            this.lblCantMin.Text = "Inventario Mínimo:";
             // 
             // cmbUnidadMedida
             // 
@@ -405,6 +405,18 @@
             this.gbInformaciónPersonal.TabStop = false;
             this.gbInformaciónPersonal.Text = "Información del Producto";
             // 
+            // txtCuentaP
+            // 
+            this.txtCuentaP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCuentaP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuentaP.Location = new System.Drawing.Point(549, 44);
+            this.txtCuentaP.Name = "txtCuentaP";
+            this.txtCuentaP.Size = new System.Drawing.Size(205, 22);
+            this.txtCuentaP.TabIndex = 41;
+            this.txtCuentaP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuentaP_KeyPress);
+            // 
             // lblCuenta
             // 
             this.lblCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -418,18 +430,6 @@
             this.lblCuenta.Size = new System.Drawing.Size(158, 18);
             this.lblCuenta.TabIndex = 40;
             this.lblCuenta.Text = "Cuenta Presupuestaria";
-            // 
-            // txtCuentaP
-            // 
-            this.txtCuentaP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCuentaP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuentaP.Location = new System.Drawing.Point(549, 44);
-            this.txtCuentaP.Name = "txtCuentaP";
-            this.txtCuentaP.Size = new System.Drawing.Size(205, 22);
-            this.txtCuentaP.TabIndex = 41;
-            this.txtCuentaP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuentaP_KeyPress);
             // 
             // frmAdProducto
             // 

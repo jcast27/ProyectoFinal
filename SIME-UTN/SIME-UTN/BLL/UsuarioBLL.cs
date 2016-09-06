@@ -72,5 +72,10 @@ namespace SIME_UTN.BLL
         {
             return UsuarioDAL.CambiarContrasenna(usuariop, contrasenaAntiguap, contrasenaNuevap);
         }
+
+        internal static UsuarioTable ObtenerUsuarioPorNombreUsuario(string usuarioLogueado)
+        {
+            return UsuarioDAL.ObtenerUsuarioPorUser(usuarioLogueado);
+        }
     }
 }

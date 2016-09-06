@@ -1050,7 +1050,7 @@ namespace SIME_UTN.DataSets.DataSetUsuarioTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [Usuario] ([Usuario], [Nombre], [Apellido1], [Apellido2], [Perfil], [Contrasena], [Estado]) VALUES (@Usuario, @Nombre, @Apellido1, @Apellido2, @Perfil, @Contrasena, @Estado);
-SELECT CodigoUsuario, Usuario, Nombre, Apellido1, Apellido2, Perfil, Contrasena, Estado FROM Usuario WHERE (CodigoUsuario = SCOPE_IDENTITY())";
+SELECT CodigoUsuario, Usuario, Nombre, Apellido1, Apellido2, Perfil, Contrasena, Estado FROM Usuario WHERE (CodigoUsuario = SCOPE_IDENTITY()) ORDER BY CodigoUsuario DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1062,7 +1062,7 @@ SELECT CodigoUsuario, Usuario, Nombre, Apellido1, Apellido2, Perfil, Contrasena,
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [Usuario] SET [Usuario] = @Usuario, [Nombre] = @Nombre, [Apellido1] = @Apellido1, [Apellido2] = @Apellido2, [Perfil] = @Perfil, [Contrasena] = @Contrasena, [Estado] = @Estado WHERE (([CodigoUsuario] = @Original_CodigoUsuario) AND ((@IsNull_Usuario = 1 AND [Usuario] IS NULL) OR ([Usuario] = @Original_Usuario)) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Apellido1 = 1 AND [Apellido1] IS NULL) OR ([Apellido1] = @Original_Apellido1)) AND ((@IsNull_Apellido2 = 1 AND [Apellido2] IS NULL) OR ([Apellido2] = @Original_Apellido2)) AND ((@IsNull_Perfil = 1 AND [Perfil] IS NULL) OR ([Perfil] = @Original_Perfil)) AND ((@IsNull_Contrasena = 1 AND [Contrasena] IS NULL) OR ([Contrasena] = @Original_Contrasena)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
-SELECT CodigoUsuario, Usuario, Nombre, Apellido1, Apellido2, Perfil, Contrasena, Estado FROM Usuario WHERE (CodigoUsuario = @CodigoUsuario)";
+SELECT CodigoUsuario, Usuario, Nombre, Apellido1, Apellido2, Perfil, Contrasena, Estado FROM Usuario WHERE (CodigoUsuario = @CodigoUsuario) ORDER BY CodigoUsuario DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1103,7 +1103,8 @@ SELECT CodigoUsuario, Usuario, Nombre, Apellido1, Apellido2, Perfil, Contrasena,
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        CodigoUsuario, Usuario, Nombre, Apellido1, Apellido2, Perfil, Contr" +
-                "asena, Estado\r\nFROM            Usuario\r\nWHERE        (Estado = 1)";
+                "asena, Estado\r\nFROM            Usuario\r\nWHERE        (Estado = 1)\r\nORDER BY Codi" +
+                "goUsuario DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
