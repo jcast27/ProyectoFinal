@@ -53,7 +53,7 @@ namespace SIME_UTN.UI.Reportes
                     reporte = new rptTrasladoUser(user);
                     break;
                 case ("btnMinimo"):
-                    reporte = new rptMinimo(user);
+                    reporte = new rptInvActual(user);
                     break;
                 case ("imprimir"):
                     reporte = new rptImprimirForm(user);

@@ -135,7 +135,7 @@
   inner join "dbo"."RegistroBodega"
        "RegistroBodega"
        on ("RegistroBodega"."IDRegistroBodega" = "Bodega"."IDRegistroBodega"))
-	where "Bodega"."Unidades" &gt; 0 and "Bodega"."IDRegistroBodega" = @IDBodega</value>
+	where "Bodega"."Unidades" &gt; 0 and "Bodega"."IDRegistroBodega" like @IDBodega</value>
   </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkJvZGVnYSI+PEZpZWxkIE5hbWU9IlVuaWRhZGVzIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iSURSZWdpc3Ryb0JvZGVnYSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9Ik5vbWJyZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb2RpZ29BdmF0YXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUmVnaXN0cm9Cb2RlZ2FfTm9tYnJlIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>

@@ -89,6 +89,8 @@
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("Unidades", DevExpress.XtraReports.UI.XRColumnSortOrder.Descending)});
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
@@ -157,7 +159,7 @@
             this.xrLabel1});
             this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("RegistroBodega_Nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.groupHeaderBand1.HeightF = 36F;
+            this.groupHeaderBand1.HeightF = 36.00001F;
             this.groupHeaderBand1.Level = 1;
             this.groupHeaderBand1.Name = "groupHeaderBand1";
             // 
@@ -165,19 +167,19 @@
             // 
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Bodega.RegistroBodega_Nombre")});
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(69.66669F, 0F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(69.66669F, 10.00001F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(172F, 36F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(172F, 26F);
             this.xrLabel2.StyleName = "DataField";
             this.xrLabel2.Text = "xrLabel2";
             // 
             // xrLabel1
             // 
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 10.00001F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(63.66668F, 36F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(63.66668F, 26F);
             this.xrLabel1.StyleName = "FieldCaption";
             this.xrLabel1.Text = "Bodega:";
             // 
@@ -357,9 +359,9 @@
             dynamicListLookUpSettings1.FilterString = null;
             dynamicListLookUpSettings1.ValueMember = "IDRegistroBodega";
             this.Bodega.LookUpSettings = dynamicListLookUpSettings1;
+            this.Bodega.MultiValue = true;
             this.Bodega.Name = "Bodega";
             this.Bodega.Type = typeof(short);
-            this.Bodega.ValueInfo = "0";
             // 
             // rptBodegaNumero
             // 
@@ -376,6 +378,7 @@
             this.sqlDataSource2});
             this.DataMember = "Bodega";
             this.DataSource = this.sqlDataSource1;
+            this.FilterString = "[IDRegistroBodega] In (?Bodega)";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.Bodega});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {

@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace SIME_UTN.UI.Reportes
 {
-    public partial class rptMinimo : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptInvActual : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptMinimo(string user)
+        public rptInvActual(string user)
         {
             InitializeComponent();
             lblUser.Text = user;

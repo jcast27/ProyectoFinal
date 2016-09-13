@@ -774,11 +774,11 @@
     <Compile Include="UI\Reportes\rptItem.Designer.cs">
       <DependentUpon>rptItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\rptMinimo.cs">
+    <Compile Include="UI\Reportes\rptInvActual.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\rptMinimo.Designer.cs">
-      <DependentUpon>rptMinimo.cs</DependentUpon>
+    <Compile Include="UI\Reportes\rptInvActual.Designer.cs">
+      <DependentUpon>rptInvActual.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\rptTrasladoUser.cs">
       <SubType>Component</SubType>
@@ -984,8 +984,8 @@
     <EmbeddedResource Include="UI\Reportes\rptItem.resx">
       <DependentUpon>rptItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\rptMinimo.resx">
-      <DependentUpon>rptMinimo.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Reportes\rptInvActual.resx">
+      <DependentUpon>rptInvActual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptTrasladoUser.resx">
       <DependentUpon>rptTrasladoUser.cs</DependentUpon>
