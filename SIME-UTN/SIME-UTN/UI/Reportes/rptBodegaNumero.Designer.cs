@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBodegaNumero));
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
-            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            this.reporteBodega2 = new SIME_UTN.DataSets.Reportes.ReporteBodega();
+            this.reporteArticulo1 = new SIME_UTN.DataSets.Reportes.ReporteArticulo();
+            this.reporteBodegaTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
+            this.articuloTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
@@ -63,29 +62,39 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.reporteBodega1 = new SIME_UTN.DataSets.Reportes.ReporteBodega();
+            this.reporteBodegaTableAdapter = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
             this.Bodega = new DevExpress.XtraReports.Parameters.Parameter();
+            this.Articulo = new DevExpress.XtraReports.Parameters.Parameter();
+            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reporteArticulo1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
-            // sqlDataSource2
+            // reporteBodega2
             // 
-            this.sqlDataSource2.ConnectionName = "SIME_UTN.Properties.Settings.SIMEUTNConnectionString";
-            this.sqlDataSource2.Name = "sqlDataSource2";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = "select \"RegistroBodega\".\"IDRegistroBodega\",\r\n       \"RegistroBodega\".\"Nombre\"\r\n  " +
-    "from \"dbo\".\"RegistroBodega\" \"RegistroBodega\"\r\nwhere \"RegistroBodega\".\"Estado\" = " +
-    "\'True\'";
-            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource2.ResultSchemaSerializable = "PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZ" +
-    "T0iSURSZWdpc3Ryb0JvZGVnYSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9Ik5vbWJyZSIgVHlwZ" +
-    "T0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+";
+            this.reporteBodega2.DataSetName = "ReporteBodega";
+            this.reporteBodega2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reporteArticulo1
+            // 
+            this.reporteArticulo1.DataSetName = "ReporteArticulo";
+            this.reporteArticulo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reporteBodegaTableAdapter1
+            // 
+            this.reporteBodegaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // articuloTableAdapter1
+            // 
+            this.articuloTableAdapter1.ClearBeforeFill = true;
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel6,
             this.xrLabel7,
-            this.xrLabel8});
+            this.xrLabel8,
+            this.xrLabel6});
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
@@ -94,35 +103,35 @@
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabel6
-            // 
-            this.xrLabel6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Bodega.CodigoAvatar")});
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(36F, 0F);
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(142F, 18F);
-            this.xrLabel6.Text = "xrLabel6";
-            // 
             // xrLabel7
             // 
             this.xrLabel7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Bodega.Unidades")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.Unidades")});
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(453.8326F, 0F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(190.1674F, 18F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(190.1673F, 23F);
             this.xrLabel7.Text = "xrLabel7";
             // 
             // xrLabel8
             // 
             this.xrLabel8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Bodega.Nombre")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.Nombre")});
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(178F, 0F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(275.8326F, 18F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(275.8326F, 23F);
             this.xrLabel8.Text = "xrLabel8";
+            // 
+            // xrLabel6
+            // 
+            this.xrLabel6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.CodigoAvatar")});
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(36F, 0F);
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(142F, 23F);
+            this.xrLabel6.Text = "xrLabel6";
             // 
             // TopMargin
             // 
@@ -133,24 +142,10 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 100F;
+            this.BottomMargin.HeightF = 100.1667F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "SIME_UTN.Properties.Settings.SIMEUTNConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery2.Name = "Bodega";
-            queryParameter1.Name = "IDBodega";
-            queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.Bodega]", typeof(short));
-            customSqlQuery2.Parameters.Add(queryParameter1);
-            customSqlQuery2.Sql = resources.GetString("customSqlQuery2.Sql");
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery2});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // groupHeaderBand1
             // 
@@ -159,19 +154,20 @@
             this.xrLabel1});
             this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("RegistroBodega_Nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.groupHeaderBand1.HeightF = 36.00001F;
+            this.groupHeaderBand1.HeightF = 36.00002F;
             this.groupHeaderBand1.Level = 1;
             this.groupHeaderBand1.Name = "groupHeaderBand1";
             // 
             // xrLabel2
             // 
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Bodega.RegistroBodega_Nombre")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.RegistroBodega_Nombre")});
+            this.xrLabel2.Font = new System.Drawing.Font("Arial", 10F);
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(69.66669F, 10.00001F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(172F, 26F);
-            this.xrLabel2.StyleName = "DataField";
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(150F, 26.00001F);
+            this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.Text = "xrLabel2";
             // 
             // xrLabel1
@@ -349,19 +345,43 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
+            // reporteBodega1
+            // 
+            this.reporteBodega1.DataSetName = "ReporteBodega";
+            this.reporteBodega1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reporteBodegaTableAdapter
+            // 
+            this.reporteBodegaTableAdapter.ClearBeforeFill = true;
+            // 
             // Bodega
             // 
             this.Bodega.Description = "Bodega";
-            dynamicListLookUpSettings1.DataAdapter = null;
-            dynamicListLookUpSettings1.DataMember = "Query";
-            dynamicListLookUpSettings1.DataSource = this.sqlDataSource2;
-            dynamicListLookUpSettings1.DisplayMember = "Nombre";
+            dynamicListLookUpSettings1.DataAdapter = this.reporteBodegaTableAdapter1;
+            dynamicListLookUpSettings1.DataMember = "ReporteBodega";
+            dynamicListLookUpSettings1.DataSource = this.reporteBodega2;
+            dynamicListLookUpSettings1.DisplayMember = "ReporteBodega.RegistroBodega_Nombre";
             dynamicListLookUpSettings1.FilterString = null;
-            dynamicListLookUpSettings1.ValueMember = "IDRegistroBodega";
+            dynamicListLookUpSettings1.ValueMember = "ReporteBodega.IDRegistroBodega";
             this.Bodega.LookUpSettings = dynamicListLookUpSettings1;
             this.Bodega.MultiValue = true;
             this.Bodega.Name = "Bodega";
-            this.Bodega.Type = typeof(short);
+            this.Bodega.Type = typeof(int);
+            // 
+            // Articulo
+            // 
+            this.Articulo.Description = "Articulo";
+            dynamicListLookUpSettings2.DataAdapter = this.articuloTableAdapter1;
+            dynamicListLookUpSettings2.DataMember = "Articulo";
+            dynamicListLookUpSettings2.DataSource = this.reporteArticulo1;
+            dynamicListLookUpSettings2.DisplayMember = "Articulo.Nombre";
+            dynamicListLookUpSettings2.FilterString = null;
+            dynamicListLookUpSettings2.ValueMember = "Articulo.IDProducto";
+            this.Articulo.LookUpSettings = dynamicListLookUpSettings2;
+            this.Articulo.MultiValue = true;
+            this.Articulo.Name = "Articulo";
+            this.Articulo.Type = typeof(int);
+            this.Articulo.ValueInfo = "0";
             // 
             // rptBodegaNumero
             // 
@@ -373,20 +393,23 @@
             this.groupHeaderBand2,
             this.pageFooterBand1,
             this.reportHeaderBand1});
-            this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1,
-            this.sqlDataSource2});
-            this.DataMember = "Bodega";
-            this.DataSource = this.sqlDataSource1;
-            this.FilterString = "[IDRegistroBodega] In (?Bodega)";
+            this.DataAdapter = this.reporteBodegaTableAdapter;
+            this.DataMember = "ReporteBodega";
+            this.DataSource = this.reporteBodega1;
+            this.FilterString = "[IDRegistroBodega] In (?Bodega) And [IDProducto] In (?Articulo)";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.Bodega});
+            this.Bodega,
+            this.Articulo});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
             this.PageInfo,
             this.DataField});
             this.Version = "15.2";
+            this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.rptBodegaNumero_ParametersRequestBeforeShow);
+            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reporteArticulo1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -396,12 +419,7 @@
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
@@ -421,7 +439,17 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.XRLabel lblUser;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
+        private DataSets.Reportes.ReporteBodega reporteBodega1;
+        private DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter reporteBodegaTableAdapter;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+        private DataSets.Reportes.ReporteBodega reporteBodega2;
+        private DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter reporteBodegaTableAdapter1;
         private DevExpress.XtraReports.Parameters.Parameter Bodega;
+        private DataSets.Reportes.ReporteArticulo reporteArticulo1;
+        private DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter articuloTableAdapter1;
+        private DevExpress.XtraReports.Parameters.Parameter Articulo;
     }
 }

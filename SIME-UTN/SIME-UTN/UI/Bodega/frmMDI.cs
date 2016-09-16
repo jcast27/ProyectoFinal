@@ -104,8 +104,6 @@ namespace SIME_UTN.UI.Bodega
             if (e.Document.Caption == "Ventana Inventario Actual")
                 e.Control = new SIME_UTN.UI.Bodega.Inventarios.frmInventarioActual();
             if (e.Document.Caption == "Reporte Bodega")
-                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodega", usuarioLogueado, 0);
-            if (e.Document.Caption == "Reporte Bodega Especifica")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodegaN", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTraslado", usuarioLogueado, 0);
@@ -113,7 +111,7 @@ namespace SIME_UTN.UI.Bodega
             //    e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados Por Usuario")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoUser", usuarioLogueado, 0);
-            if (e.Document.Caption == "Reporte Inventario Minimo")
+            if (e.Document.Caption == "Reporte Inventario")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnMinimo", usuarioLogueado, 0);
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
@@ -378,26 +376,20 @@ namespace SIME_UTN.UI.Bodega
             this.windowsUIView1.Controller.CloseAll();
             this.windowsUIView1.Documents.Clear();
             //Creating documents
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodega = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodegaEspecifica = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega Especifica" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodegaEspecifica = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTraslados = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados" };
             //DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Fecha" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosUsuario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Usuario" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventarioMinimo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario Minimo" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptBodega, docRptBodegaEspecifica, docTraslados, docTrasladosUsuario, docInventarioMinimo });
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventarioMinimo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] {docRptBodegaEspecifica, docTraslados, docTrasladosUsuario, docInventarioMinimo });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 140;
             tileContainer2.Properties.Orientation = Orientation.Horizontal;
-            //Propiedades para el decumento Reporte Bodega
-            grupo = "Group 1";
-            imagen = Properties.Resources.Reporte;
-            nombreElemento = "RPT. Bodega";
-            tileContainer2.Items.Add(this.crearTile(docRptBodega, nombreElemento, grupo, imagen, estado));
             //Propiedades para el decumento Reporte Bodega Especifica
             grupo = "Group 2";
             imagen = Properties.Resources.Reporte;
-            nombreElemento = "RPT. Bodega Especifica";
+            nombreElemento = "RPT. Bodega";
             tileContainer2.Items.Add(this.crearTile(docRptBodegaEspecifica, nombreElemento, grupo, imagen, estado));
             //Propiedades para el decumento Reporte Traslados
             grupo = "Group 3";
@@ -417,7 +409,7 @@ namespace SIME_UTN.UI.Bodega
 
             grupo = "Group 2";
             imagen = Properties.Resources.Reporte;
-            nombreElemento = "RPT. Inventario Mínimo";
+            nombreElemento = "RPT. Inventario";
             tileContainer2.Items.Add(this.crearTile(docInventarioMinimo, nombreElemento, grupo, imagen, estado));
 
             windowsUIView1.ContentContainers.Add(tileContainer2);

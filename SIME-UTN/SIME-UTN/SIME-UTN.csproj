@@ -354,6 +354,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetItem.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Reportes\ReporteArticulo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\ReporteBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteBodega.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DTOs\MezclaProductoUnidaMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoDTO.cs" />
@@ -744,23 +754,11 @@
     <Compile Include="UI\Reportes\rptBodegaNumero.Designer.cs">
       <DependentUpon>rptBodegaNumero.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\rptBodega.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Reportes\rptBodega.Designer.cs">
-      <DependentUpon>rptBodega.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Reportes\rptFormulario.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reportes\rptFormulario.Designer.cs">
       <DependentUpon>rptFormulario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Reportes\rptFormularioFecha.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Reportes\rptFormularioFecha.Designer.cs">
-      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\rptImprimirForm.cs">
       <SubType>Component</SubType>
@@ -774,11 +772,17 @@
     <Compile Include="UI\Reportes\rptItem.Designer.cs">
       <DependentUpon>rptItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\rptInvActual.cs">
+    <Compile Include="UI\Reportes\rptInv.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\rptInvActual.Designer.cs">
-      <DependentUpon>rptInvActual.cs</DependentUpon>
+    <Compile Include="UI\Reportes\rptInv.Designer.cs">
+      <DependentUpon>rptInv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptMinimo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptMinimo.Designer.cs">
+      <DependentUpon>rptMinimo.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\rptTrasladoUser.cs">
       <SubType>Component</SubType>
@@ -969,14 +973,8 @@
     <EmbeddedResource Include="UI\Reportes\rptBodegaNumero.resx">
       <DependentUpon>rptBodegaNumero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\rptBodega.resx">
-      <DependentUpon>rptBodega.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptFormulario.resx">
       <DependentUpon>rptFormulario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\rptFormularioFecha.resx">
-      <DependentUpon>rptFormularioFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptImprimirForm.resx">
       <DependentUpon>rptImprimirForm.cs</DependentUpon>
@@ -984,8 +982,11 @@
     <EmbeddedResource Include="UI\Reportes\rptItem.resx">
       <DependentUpon>rptItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\rptInvActual.resx">
-      <DependentUpon>rptInvActual.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Reportes\rptInv.resx">
+      <DependentUpon>rptInv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptMinimo.resx">
+      <DependentUpon>rptMinimo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptTrasladoUser.resx">
       <DependentUpon>rptTrasladoUser.cs</DependentUpon>
@@ -1453,6 +1454,28 @@
     </None>
     <None Include="DataSets\Formulario\DataSetItem.xss">
       <DependentUpon>DataSetItem.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteArticulo.xsc">
+      <DependentUpon>ReporteArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteArticulo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteArticulo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteArticulo.xss">
+      <DependentUpon>ReporteArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteBodega.xsc">
+      <DependentUpon>ReporteBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteBodega.xss">
+      <DependentUpon>ReporteBodega.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -91,8 +91,6 @@ namespace SIME_UTN.UI.Formulario
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnActivo", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Formularios")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnFormulario", usuarioLogueado, 0);
-            if (e.Document.Caption == "Reporte Formularios Por Fecha")
-                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnFormularioFecha", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Utilizacion de Items")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnItem", usuarioLogueado, 0);
 
@@ -277,9 +275,8 @@ namespace SIME_UTN.UI.Formulario
             //Creating documents
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptActivos = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Activos" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptFormularios = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Formularios" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docFormulariosPorFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Formularios Por Fecha" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docUtilizaciondeItems = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Utilizacion de Items" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptActivos, docRptFormularios, docFormulariosPorFecha, docUtilizaciondeItems });
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] { docRptActivos, docRptFormularios, docUtilizaciondeItems });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 140;
@@ -294,15 +291,10 @@ namespace SIME_UTN.UI.Formulario
             imagen = Properties.Resources.Reporte;
             nombreElemento = "RPT. Formularios";
             tileContainer2.Items.Add(this.crearTile(docRptFormularios, nombreElemento, grupo, imagen, estado));
-            //Propiedades para el decumento Reporte Traslados
+
             grupo = "Group 3";
             imagen = Properties.Resources.Reporte;
-            nombreElemento = "RPT. Fromularios Por Fecha";
-            tileContainer2.Items.Add(this.crearTile(docFormulariosPorFecha, nombreElemento, grupo, imagen, estado));
-
-            grupo = "Group 1";
-            imagen = Properties.Resources.Reporte;
-            nombreElemento = "RPT. Utilizacion de Items";
+            nombreElemento = "RPT. Utilización de Items";
             tileContainer2.Items.Add(this.crearTile(docUtilizaciondeItems, nombreElemento, grupo, imagen, estado));
 
 

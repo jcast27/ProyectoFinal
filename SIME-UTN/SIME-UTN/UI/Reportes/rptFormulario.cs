@@ -14,5 +14,11 @@ namespace SIME_UTN.UI.Reportes
             lblUser.Text = user;
         }
 
+        private void rptFormulario_ParametersRequestBeforeShow(object sender, DevExpress.XtraReports.Parameters.ParametersRequestEventArgs e)
+        {
+
+            e.ParametersInformation[0].Parameter.Value = DateTime.Now;
+            e.ParametersInformation[1].Parameter.Value = DateTime.Now;
+        }
     }
 }

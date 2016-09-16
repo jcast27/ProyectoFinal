@@ -48,8 +48,8 @@
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.groupHeaderBand3 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
@@ -202,6 +202,15 @@
             this.xrLabel1.StyleName = "FieldCaption";
             this.xrLabel1.Text = "Bodega Origen";
             // 
+            // xrLabel3
+            // 
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(283.9167F, 10.00001F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(110F, 25.99999F);
+            this.xrLabel3.StyleName = "FieldCaption";
+            this.xrLabel3.Text = "Bodega Destino";
+            // 
             // xrLabel4
             // 
             this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
@@ -212,15 +221,6 @@
             this.xrLabel4.SizeF = new System.Drawing.SizeF(110F, 25.99999F);
             this.xrLabel4.StyleName = "DataField";
             this.xrLabel4.Text = "xrLabel4";
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(283.9167F, 10.00001F);
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(110F, 25.99999F);
-            this.xrLabel3.StyleName = "FieldCaption";
-            this.xrLabel3.Text = "Bodega Destino";
             // 
             // groupHeaderBand3
             // 
