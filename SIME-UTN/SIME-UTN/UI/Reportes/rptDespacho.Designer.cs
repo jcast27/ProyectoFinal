@@ -32,6 +32,7 @@
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings3 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.dProductoTableAdapter1 = new SIME_UTN.DataSets.Reportes.DArticuloTableAdapters.DProductoTableAdapter();
             this.dArticulo1 = new SIME_UTN.DataSets.Reportes.DArticulo();
             this.localizacionTableAdapter1 = new SIME_UTN.DataSets.Reportes.DLocalizacionTableAdapters.LocalizacionTableAdapter();
@@ -74,6 +75,10 @@
             this.Articulo = new DevExpress.XtraReports.Parameters.Parameter();
             this.Modulo = new DevExpress.XtraReports.Parameters.Parameter();
             this.Funcionario = new DevExpress.XtraReports.Parameters.Parameter();
+            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.dArticulo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dLocalizacion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dFuncionario1)).BeginInit();
@@ -229,7 +234,7 @@
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(113.0001F, 18F);
-            this.xrLabel4.Text = "Cantidad";
+            this.xrLabel4.Text = "Unidades";
             // 
             // xrLabel5
             // 
@@ -450,6 +455,47 @@
             this.Funcionario.Name = "Funcionario";
             this.Funcionario.Type = typeof(int);
             // 
+            // GroupFooter1
+            // 
+            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine3,
+            this.xrLabel16,
+            this.xrLabel15});
+            this.GroupFooter1.HeightF = 33.33333F;
+            this.GroupFooter1.Name = "GroupFooter1";
+            // 
+            // xrLabel15
+            // 
+            this.xrLabel15.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(419.1237F, 10.00001F);
+            this.xrLabel15.Name = "xrLabel15";
+            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel15.SizeF = new System.Drawing.SizeF(117.876F, 22.99998F);
+            this.xrLabel15.StylePriority.UseFont = false;
+            this.xrLabel15.StylePriority.UseTextAlignment = false;
+            this.xrLabel15.Text = "Total:";
+            this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // xrLabel16
+            // 
+            this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Cantidad")});
+            this.xrLabel16.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(536.9999F, 10.00001F);
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(107.0001F, 23F);
+            this.xrLabel16.StylePriority.UseFont = false;
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrLabel16.Summary = xrSummary1;
+            // 
+            // xrLine3
+            // 
+            this.xrLine3.LineWidth = 2;
+            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(36F, 0F);
+            this.xrLine3.Name = "xrLine3";
+            this.xrLine3.SizeF = new System.Drawing.SizeF(613.9999F, 8.416667F);
+            // 
             // rptDespacho
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -459,7 +505,8 @@
             this.groupHeaderBand1,
             this.groupHeaderBand2,
             this.pageFooterBand1,
-            this.reportHeaderBand1});
+            this.reportHeaderBand1,
+            this.GroupFooter1});
             this.DataAdapter = this.rDespachoTableAdapter;
             this.DataMember = "RDespacho";
             this.DataSource = this.reporteDespacho1;
@@ -528,5 +575,9 @@
         private DataSets.Reportes.DFuncionario dFuncionario1;
         private DataSets.Reportes.DFuncionarioTableAdapters.DFuncionarioTableAdapter dFuncionarioTableAdapter1;
         private DevExpress.XtraReports.Parameters.Parameter Funcionario;
+        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel15;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
+        private DevExpress.XtraReports.UI.XRLine xrLine3;
     }
 }

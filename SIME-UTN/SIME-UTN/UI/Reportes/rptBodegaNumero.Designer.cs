@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBodegaNumero));
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.reporteBodegaTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
             this.reporteBodega2 = new SIME_UTN.DataSets.Reportes.ReporteBodega();
             this.articuloTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter();
@@ -66,6 +67,10 @@
             this.reporteBodegaTableAdapter = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
             this.Bodega = new DevExpress.XtraReports.Parameters.Parameter();
             this.Articulo = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.reporteBodega2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reporteArticulo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reporteBodega1)).BeginInit();
@@ -95,7 +100,7 @@
             this.xrLabel7,
             this.xrLabel8,
             this.xrLabel6});
-            this.Detail.HeightF = 23F;
+            this.Detail.HeightF = 33.41662F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
@@ -154,7 +159,7 @@
             this.xrLabel1});
             this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("RegistroBodega_Nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.groupHeaderBand1.HeightF = 36.00002F;
+            this.groupHeaderBand1.HeightF = 36.00004F;
             this.groupHeaderBand1.Level = 1;
             this.groupHeaderBand1.Name = "groupHeaderBand1";
             // 
@@ -205,7 +210,7 @@
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(190.1674F, 18F);
-            this.xrLabel4.Text = "Cantidad";
+            this.xrLabel4.Text = "Unidades";
             // 
             // xrLabel5
             // 
@@ -231,13 +236,13 @@
             // 
             this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo2});
-            this.pageFooterBand1.HeightF = 29F;
+            this.pageFooterBand1.HeightF = 48.79163F;
             this.pageFooterBand1.Name = "pageFooterBand1";
             // 
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "Página {0} de {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(331F, 6F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(331F, 25.79161F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo2.SizeF = new System.Drawing.SizeF(313F, 23F);
@@ -383,6 +388,47 @@
             this.Articulo.Type = typeof(int);
             this.Articulo.ValueInfo = "0";
             // 
+            // xrLabel13
+            // 
+            this.xrLabel13.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(371.9985F, 9.999974F);
+            this.xrLabel13.Name = "xrLabel13";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(81.83411F, 22.99998F);
+            this.xrLabel13.StylePriority.UseFont = false;
+            this.xrLabel13.StylePriority.UseTextAlignment = false;
+            this.xrLabel13.Text = "Total:";
+            this.xrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // xrLabel11
+            // 
+            this.xrLabel11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.Unidades")});
+            this.xrLabel11.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(453.8326F, 9.999974F);
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(190.1674F, 23F);
+            this.xrLabel11.StylePriority.UseFont = false;
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrLabel11.Summary = xrSummary1;
+            // 
+            // GroupFooter1
+            // 
+            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine3,
+            this.xrLabel13,
+            this.xrLabel11});
+            this.GroupFooter1.HeightF = 32.99997F;
+            this.GroupFooter1.Name = "GroupFooter1";
+            // 
+            // xrLine3
+            // 
+            this.xrLine3.LineWidth = 2;
+            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(26.00012F, 0F);
+            this.xrLine3.Name = "xrLine3";
+            this.xrLine3.SizeF = new System.Drawing.SizeF(623.9999F, 8.416667F);
+            // 
             // rptBodegaNumero
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -392,7 +438,8 @@
             this.groupHeaderBand1,
             this.groupHeaderBand2,
             this.pageFooterBand1,
-            this.reportHeaderBand1});
+            this.reportHeaderBand1,
+            this.GroupFooter1});
             this.DataAdapter = this.reporteBodegaTableAdapter;
             this.DataMember = "ReporteBodega";
             this.DataSource = this.reporteBodega1;
@@ -451,5 +498,9 @@
         private DataSets.Reportes.ReporteArticulo reporteArticulo1;
         private DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter articuloTableAdapter1;
         private DevExpress.XtraReports.Parameters.Parameter Articulo;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
+        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
+        private DevExpress.XtraReports.UI.XRLine xrLine3;
     }
 }

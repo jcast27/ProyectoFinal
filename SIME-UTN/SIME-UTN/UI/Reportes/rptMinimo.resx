@@ -132,7 +132,7 @@
        on ("Producto"."IDProducto" = "InventarioProducto"."IDProducto"))
   inner join "dbo"."UnidadMedidaProducto" "UnidadMedidaProducto"
        on ("UnidadMedidaProducto"."IDUnidadMedida" = "Producto"."IDUnidadMedida"))
-	where "InventarioProducto"."StockActual" &lt;= "InventarioProducto"."StockMinimo"</value>
+	where "InventarioProducto"."StockActual" &lt;= "InventarioProducto"."StockMinimo" and "InventarioProducto"."IDUnidadMedida"&lt;&gt;10</value>
   </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iU3RvY2tBY3R1YWxVbmlkYWRlcyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlN0b2NrQWN0dWFsIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IlN0b2NrTWluaW1vIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IlN0b2NrTWF4aW1vIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IlByb2R1Y3RvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRlc2NyaXBjaW9uIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
