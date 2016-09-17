@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace SIME_UTN.UI.Reportes
 {
-    public partial class rptTrasladoFecha : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptCostos : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptTrasladoFecha(string user)
+        public rptCostos(string user)
         {
             InitializeComponent();
             lblUser.Text = user;

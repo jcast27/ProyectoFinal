@@ -117,30 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="customSqlQuery1.Sql" xml:space="preserve">
-    <value>select "TrasladoProducto"."IDTraslado" as "N° Traslado",
-       "TrasladoProducto"."FechaTraslado" as "Fecha",
-       "Usuario"."Usuario",
-       "EstadoTraslado"."Descripcion" as "Estado",
-       "RegistroBodega"."Nombre" as "Bodega Origen",
-       "RegistroBodega_1"."Nombre" as "Bodega Destino"
-  from (((("dbo"."TrasladoProducto" "TrasladoProducto"
-  inner join "dbo"."Usuario" "Usuario"
-       on ("Usuario"."CodigoUsuario" = "TrasladoProducto"."IDUsuario"))
-  inner join "dbo"."EstadoTraslado" "EstadoTraslado"
-       on ("EstadoTraslado"."IDEstadoTraslado" = "TrasladoProducto"."IDEstadoTraslado"))
-  inner join "dbo"."RegistroBodega" "RegistroBodega"
-       on ("RegistroBodega"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaOrigen"))
-  inner join "dbo"."RegistroBodega" "RegistroBodega_1"
-       on ("RegistroBodega_1"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaDestino"))
-  where "TrasladoProducto"."IDEstadoTraslado" &gt; 1 and "TrasladoProducto"."FechaTraslado" between @FechaInicio and @FechaFin</value>
-  </data>
-  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRyYXNsYWRvUHJvZHVjdG8iPjxGaWVsZCBOYW1lPSJOwrAgVHJhc2xhZG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkVzdGFkbyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EgT3JpZ2VuIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkJvZGVnYSBEZXN0aW5vIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -220,5 +196,21 @@
         6fI5P65itld57Mv3rZ3yk2Bt3XwKvy06Gz/7saCv1U8/tVcAwjnZEdB2lIImazuWyUgdVvJu1aUfc7TR
         Mn3mc6+w8T5nh16XF1544YWz8OvX/wGzSwO+QJ7aSAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>SELECT        Producto.CodigoAvatar, Producto.Nombre, RegistroBodega.Nombre AS Bodega, RegistroIngresoProducto.IDProducto, SUM(RegistroIngresoProducto.CantidadXEmpaque) AS Unidades, 
+                         SUM(RegistroIngresoProducto.CantidadXEmpaque * RegistroIngresoProducto.CostoXEmpaque) AS Costo, RegistroProducto.FechaIngreso AS Fecha
+FROM            RegistroIngresoProducto INNER JOIN
+                         RegistroProducto ON RegistroIngresoProducto.IDIngresoProducto = RegistroProducto.IDIngresoProducto INNER JOIN
+                         Producto ON RegistroIngresoProducto.IDProducto = Producto.IDProducto INNER JOIN
+                         RegistroBodega ON RegistroProducto.IDRegistroBodega = RegistroBodega.IDRegistroBodega
+WHERE        (RegistroIngresoProducto.Estado = 1) and RegistroProducto.FechaIngreso between @FechaInicio and @FechaFin
+GROUP BY Producto.CodigoAvatar, Producto.Nombre, RegistroIngresoProducto.IDProducto, RegistroIngresoProducto.IDProducto, RegistroProducto.FechaIngreso, RegistroBodega.Nombre</value>
+  </data>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iQ29kaWdvQXZhdGFyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5vbWJyZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSURQcm9kdWN0byIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlVuaWRhZGVzIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQ29zdG8iIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iRmVjaGEiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
   </data>
 </root>

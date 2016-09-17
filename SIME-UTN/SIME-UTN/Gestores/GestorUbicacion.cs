@@ -41,5 +41,10 @@ namespace SIME_UTN.Gestores
         {
             BLL.UbicacionBLL.GuardarUbicacion(unaUbicacionp,usuarioLogueadop);
         }
+
+        internal List<Ubicacion> ObtenerUbicacion()
+        {
+            return BLL.UbicacionBLL.ObtenerUbicacion();
+        }
     }
 }

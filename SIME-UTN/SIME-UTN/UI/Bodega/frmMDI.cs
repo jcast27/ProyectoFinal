@@ -106,13 +106,19 @@ namespace SIME_UTN.UI.Bodega
             if (e.Document.Caption == "Reporte Bodega")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnBodegaN", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados")
-                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTraslado", usuarioLogueado, 0);
-            //if (e.Document.Caption == "Reporte Traslados Por Fecha")
-            //    e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Despacho")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnDespacho", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Traslados Por Usuario")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoUser", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Inventario")
-                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnMinimo", usuarioLogueado, 0);
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnInventario", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Inventario Minimo")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnInventarioMin", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Costos")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnCostos", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Costos Por Bodega")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnCostosBodega", usuarioLogueado, 0);
             //if (e.Control == null)
             //    e.Control = new System.Windows.Forms.Control();
         }
@@ -378,39 +384,58 @@ namespace SIME_UTN.UI.Bodega
             //Creating documents
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodegaEspecifica = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTraslados = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados" };
-            //DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosFecha = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Fecha" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docDespacho = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Despacho" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosUsuario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Usuario" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventarioMinimo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] {docRptBodegaEspecifica, docTraslados, docTrasladosUsuario, docInventarioMinimo });
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventarioMinimo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario Minimo" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docCostos = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Costos" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docCostosBodega = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Costos Por Bodega" };
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] {docRptBodegaEspecifica, docTraslados, docDespacho, docTrasladosUsuario, docInventario, docInventarioMinimo, docCostos, docCostosBodega });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 140;
             tileContainer2.Properties.Orientation = Orientation.Horizontal;
             //Propiedades para el decumento Reporte Bodega Especifica
-            grupo = "Group 2";
+            grupo = "Group 1";
             imagen = Properties.Resources.Reporte;
             nombreElemento = "RPT. Bodega";
             tileContainer2.Items.Add(this.crearTile(docRptBodegaEspecifica, nombreElemento, grupo, imagen, estado));
             //Propiedades para el decumento Reporte Traslados
-            grupo = "Group 3";
+            grupo = "Group 2";
             imagen = Properties.Resources.Reporte;
             nombreElemento = "RPT. Taslados";
             tileContainer2.Items.Add(this.crearTile(docTraslados, nombreElemento, grupo, imagen, estado));
-            //Propiedades para el decumento Reporte Traslados Fecha
-            //grupo = "Group 1";
-            //imagen = Properties.Resources.Reporte;
-            //nombreElemento = "RPT. Taslados Por Fecha";
-            //tileContainer2.Items.Add(this.crearTile(docTrasladosFecha, nombreElemento, grupo, imagen, estado));
-            ////Propiedades para el decumento Reporte Traslados Usuario
+            //Propiedades para el decumento Reporte Despachos
+            grupo = "Group 3";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Despachos";
+            tileContainer2.Items.Add(this.crearTile(docDespacho, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Traslados Usuario
             grupo = "Group 1";
             imagen = Properties.Resources.Reporte;
             nombreElemento = "RPT. Taslados Por Usuario";
             tileContainer2.Items.Add(this.crearTile(docTrasladosUsuario, nombreElemento, grupo, imagen, estado));
-
+            //Propiedades para el decumento Reporte Inventario
             grupo = "Group 2";
             imagen = Properties.Resources.Reporte;
             nombreElemento = "RPT. Inventario";
+            tileContainer2.Items.Add(this.crearTile(docInventario, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Inventario Minimo
+            grupo = "Group 3";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Inventario Minimo";
             tileContainer2.Items.Add(this.crearTile(docInventarioMinimo, nombreElemento, grupo, imagen, estado));
+
+            //Propiedades para el decumento Reporte Costos
+            grupo = "Group 1";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Costos";
+            tileContainer2.Items.Add(this.crearTile(docCostos, nombreElemento, grupo, imagen, estado));
+            //Propiedades para el decumento Reporte Costos por Bodega
+            grupo = "Group 2";
+            imagen = Properties.Resources.Reporte;
+            nombreElemento = "RPT. Costos Por Bodega";
+            tileContainer2.Items.Add(this.crearTile(docCostosBodega, nombreElemento, grupo, imagen, estado));
 
             windowsUIView1.ContentContainers.Add(tileContainer2);
             this.windowsUIView1.ActivateContainer(tileContainer2);

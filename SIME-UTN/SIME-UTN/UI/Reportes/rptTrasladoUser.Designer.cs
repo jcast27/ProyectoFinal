@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.TableQuery tableQuery1 = new DevExpress.DataAccess.Sql.TableQuery();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo1 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo1 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptTrasladoUser));
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            this.tUsuarioTableAdapter1 = new SIME_UTN.DataSets.Reportes.TUsuarioTableAdapters.TUsuarioTableAdapter();
+            this.tUsuario1 = new SIME_UTN.DataSets.Reportes.TUsuario();
             this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
@@ -69,24 +70,35 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.User = new DevExpress.XtraReports.Parameters.Parameter();
+            this.Usuario = new DevExpress.XtraReports.Parameters.Parameter();
+            ((System.ComponentModel.ISupportInitialize)(this.tUsuario1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // tUsuarioTableAdapter1
+            // 
+            this.tUsuarioTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tUsuario1
+            // 
+            this.tUsuario1.DataSetName = "TUsuario";
+            this.tUsuario1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sqlDataSource2
             // 
-            this.sqlDataSource2.ConnectionName = "default";
+            this.sqlDataSource2.ConnectionName = "SIME_UTN.Properties.Settings.SIMEUTNConnectionString";
             this.sqlDataSource2.Name = "sqlDataSource2";
-            tableQuery1.Name = "Usuario";
-            tableInfo1.Name = "Usuario";
-            columnInfo1.Name = "Usuario";
-            tableInfo1.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo1});
-            tableQuery1.Tables.AddRange(new DevExpress.DataAccess.Sql.TableInfo[] {
-            tableInfo1});
+            customSqlQuery1.Name = "Usuario";
+            queryParameter1.Name = "CodigoUsuario";
+            queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.Usuario]", typeof(int));
+            customSqlQuery1.Parameters.Add(queryParameter1);
+            customSqlQuery1.Sql = "select\"Usuario\".\"CodigoUsuario\",\r\n       \"Usuario\".\"Usuario\"\r\nfrom \"dbo\".\"Usuario" +
+    "\"\r\nwhere  \"Usuario\".\"Estado\" = 1\r\n";
             this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            tableQuery1});
+            customSqlQuery1});
             this.sqlDataSource2.ResultSchemaSerializable = "PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IlVzdWFyaW8iPjxGaWVsZCBOY" +
-    "W1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=";
+    "W1lPSJDb2RpZ29Vc3VhcmlvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iVXN1YXJpbyIgVHlwZ" +
+    "T0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+";
             // 
             // Detail
             // 
@@ -159,14 +171,14 @@
             // 
             this.sqlDataSource1.ConnectionName = "SIME_UTN.Properties.Settings.SIMEUTNConnectionString";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "TrasladoProducto";
-            queryParameter1.Name = "@User";
-            queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.User]", typeof(string));
-            customSqlQuery1.Parameters.Add(queryParameter1);
-            customSqlQuery1.Sql = resources.GetString("customSqlQuery1.Sql");
+            customSqlQuery2.Name = "TrasladoProducto";
+            queryParameter2.Name = "@User";
+            queryParameter2.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter2.Value = new DevExpress.DataAccess.Expression("[Parameters.User]", typeof(string));
+            customSqlQuery2.Parameters.Add(queryParameter2);
+            customSqlQuery2.Sql = resources.GetString("customSqlQuery2.Sql");
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
+            customSqlQuery2});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // groupHeaderBand1
@@ -397,17 +409,19 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // User
+            // Usuario
             // 
-            this.User.Description = "Usuario";
-            dynamicListLookUpSettings1.DataAdapter = null;
-            dynamicListLookUpSettings1.DataMember = "Usuario";
-            dynamicListLookUpSettings1.DataSource = this.sqlDataSource2;
-            dynamicListLookUpSettings1.DisplayMember = "Usuario";
+            this.Usuario.Description = "Usuario";
+            dynamicListLookUpSettings1.DataAdapter = this.tUsuarioTableAdapter1;
+            dynamicListLookUpSettings1.DataMember = null;
+            dynamicListLookUpSettings1.DataSource = this.tUsuario1;
+            dynamicListLookUpSettings1.DisplayMember = "TUsuario.Usuario";
             dynamicListLookUpSettings1.FilterString = null;
-            dynamicListLookUpSettings1.ValueMember = "Usuario";
-            this.User.LookUpSettings = dynamicListLookUpSettings1;
-            this.User.Name = "User";
+            dynamicListLookUpSettings1.ValueMember = "TUsuario.CodigoUsuario";
+            this.Usuario.LookUpSettings = dynamicListLookUpSettings1;
+            this.Usuario.MultiValue = true;
+            this.Usuario.Name = "Usuario";
+            this.Usuario.Type = typeof(int);
             // 
             // rptTrasladoUser
             // 
@@ -424,14 +438,17 @@
             this.sqlDataSource2});
             this.DataMember = "TrasladoProducto";
             this.DataSource = this.sqlDataSource1;
+            this.FilterString = "[CodigoUsuario] In (?Usuario)";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.User});
+            this.Usuario});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
             this.PageInfo,
             this.DataField});
             this.Version = "15.2";
+            this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.rptTrasladoUser_ParametersRequestBeforeShow);
+            ((System.ComponentModel.ISupportInitialize)(this.tUsuario1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -471,6 +488,8 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel14;
         private DevExpress.XtraReports.UI.XRLabel lblUser;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
-        private DevExpress.XtraReports.Parameters.Parameter User;
+        private DataSets.Reportes.TUsuario tUsuario1;
+        private DataSets.Reportes.TUsuarioTableAdapters.TUsuarioTableAdapter tUsuarioTableAdapter1;
+        private DevExpress.XtraReports.Parameters.Parameter Usuario;
     }
 }

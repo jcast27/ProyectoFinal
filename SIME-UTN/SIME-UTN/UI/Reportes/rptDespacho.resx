@@ -117,30 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="dProductoTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 251</value>
   </metadata>
-  <data name="customSqlQuery1.Sql" xml:space="preserve">
-    <value>select "TrasladoProducto"."IDTraslado" as "N° Traslado",
-       "TrasladoProducto"."FechaTraslado" as "Fecha",
-       "Usuario"."Usuario",
-       "EstadoTraslado"."Descripcion" as "Estado",
-       "RegistroBodega"."Nombre" as "Bodega Origen",
-       "RegistroBodega_1"."Nombre" as "Bodega Destino"
-  from (((("dbo"."TrasladoProducto" "TrasladoProducto"
-  inner join "dbo"."Usuario" "Usuario"
-       on ("Usuario"."CodigoUsuario" = "TrasladoProducto"."IDUsuario"))
-  inner join "dbo"."EstadoTraslado" "EstadoTraslado"
-       on ("EstadoTraslado"."IDEstadoTraslado" = "TrasladoProducto"."IDEstadoTraslado"))
-  inner join "dbo"."RegistroBodega" "RegistroBodega"
-       on ("RegistroBodega"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaOrigen"))
-  inner join "dbo"."RegistroBodega" "RegistroBodega_1"
-       on ("RegistroBodega_1"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaDestino"))
-  where "TrasladoProducto"."IDEstadoTraslado" &gt; 1 and "TrasladoProducto"."FechaTraslado" between @FechaInicio and @FechaFin</value>
-  </data>
-  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRyYXNsYWRvUHJvZHVjdG8iPjxGaWVsZCBOYW1lPSJOwrAgVHJhc2xhZG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkVzdGFkbyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EgT3JpZ2VuIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkJvZGVnYSBEZXN0aW5vIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
-  </data>
+  <metadata name="dArticulo1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="localizacionTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 329</value>
+  </metadata>
+  <metadata name="dLocalizacion1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 290</value>
+  </metadata>
+  <metadata name="dFuncionarioTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 407</value>
+  </metadata>
+  <metadata name="dFuncionario1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 368</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -221,4 +215,10 @@
         Mn3mc6+w8T5nh16XF1544YWz8OvX/wGzSwO+QJ7aSAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="reporteDespacho1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="rDespachoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
 </root>

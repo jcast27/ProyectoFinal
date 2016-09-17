@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="tUsuarioTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
+  </metadata>
+  <metadata name="tUsuario1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
   <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="customSqlQuery1.Sql" xml:space="preserve">
+  <data name="customSqlQuery2.Sql" xml:space="preserve">
     <value>select "TrasladoProducto"."IDTraslado" as "N° Traslado",
        "TrasladoProducto"."FechaTraslado" as "Fecha",
-       "Usuario"."Usuario",
+       "Usuario"."Usuario","Usuario"."CodigoUsuario",
        "EstadoTraslado"."Descripcion" as "Estado",
        "RegistroBodega"."Nombre" as "Bodega Origen",
        "RegistroBodega_1"."Nombre" as "Bodega Destino"
@@ -139,10 +145,10 @@
        on ("RegistroBodega"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaOrigen"))
   inner join "dbo"."RegistroBodega" "RegistroBodega_1"
        on ("RegistroBodega_1"."IDRegistroBodega" = "TrasladoProducto"."IDRegistroBodegaDestino"))
-  where "TrasladoProducto"."IDEstadoTraslado" &gt; 1 and "Usuario"."Usuario" = @User</value>
+  where "TrasladoProducto"."IDEstadoTraslado" &gt; 1</value>
   </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRyYXNsYWRvUHJvZHVjdG8iPjxGaWVsZCBOYW1lPSJOwrAgVHJhc2xhZG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkVzdGFkbyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EgT3JpZ2VuIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkJvZGVnYSBEZXN0aW5vIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRyYXNsYWRvUHJvZHVjdG8iPjxGaWVsZCBOYW1lPSJOwrAgVHJhc2xhZG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNvZGlnb1VzdWFyaW8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJFc3RhZG8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQm9kZWdhIE9yaWdlbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EgRGVzdGlubyIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

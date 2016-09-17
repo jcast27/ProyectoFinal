@@ -24,5 +24,10 @@ namespace SIME_UTN.BLL
                 DAL.UbicacionDAL.ActualizarUbicacion(unaUbicacionp, usuarioLogueadop);
             }
         }
+
+        internal static List<Ubicacion> ObtenerUbicacion()
+        {
+            return DAL.UbicacionDAL.ObtenerUbicacions();
+        }
     }
 }

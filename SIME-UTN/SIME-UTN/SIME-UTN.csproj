@@ -354,6 +354,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetItem.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Reportes\DArticulo.cs">
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DArticulo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DFuncionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DLocalizacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DLocalizacion.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Reportes\ReporteArticulo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -363,6 +381,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\ReporteCostos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCostos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\ReporteDespacho.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDespacho.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\TUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TUsuario.xsd</DependentUpon>
     </Compile>
     <Compile Include="DTOs\MezclaProductoUnidaMedidaDTO.cs" />
     <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
@@ -653,6 +686,18 @@
     <Compile Include="UI\Formulario\Procesos\frmForms.Designer.cs">
       <DependentUpon>frmForms.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\rptCostosPorBodega.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptCostosPorBodega.Designer.cs">
+      <DependentUpon>rptCostosPorBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptCostos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptCostos.Designer.cs">
+      <DependentUpon>rptCostos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmCambioContrasenna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -754,6 +799,12 @@
     <Compile Include="UI\Reportes\rptBodegaNumero.Designer.cs">
       <DependentUpon>rptBodegaNumero.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\rptDespacho.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptDespacho.Designer.cs">
+      <DependentUpon>rptDespacho.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\rptFormulario.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -795,12 +846,6 @@
     </Compile>
     <Compile Include="UI\Reportes\rptTrasladoFecha.Designer.cs">
       <DependentUpon>rptTrasladoFecha.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Reportes\rptTraslado.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Reportes\rptTraslado.Designer.cs">
-      <DependentUpon>rptTraslado.cs</DependentUpon>
     </Compile>
     <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -924,6 +969,12 @@
     <EmbeddedResource Include="UI\Formulario\Procesos\frmForms.resx">
       <DependentUpon>frmForms.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptCostosPorBodega.resx">
+      <DependentUpon>rptCostosPorBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptCostos.resx">
+      <DependentUpon>rptCostos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmCambioContrasenna.resx">
       <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
     </EmbeddedResource>
@@ -973,6 +1024,9 @@
     <EmbeddedResource Include="UI\Reportes\rptBodegaNumero.resx">
       <DependentUpon>rptBodegaNumero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptDespacho.resx">
+      <DependentUpon>rptDespacho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptFormulario.resx">
       <DependentUpon>rptFormulario.cs</DependentUpon>
     </EmbeddedResource>
@@ -993,9 +1047,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptTrasladoFecha.resx">
       <DependentUpon>rptTrasladoFecha.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\rptTraslado.resx">
-      <DependentUpon>rptTraslado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1455,6 +1506,39 @@
     <None Include="DataSets\Formulario\DataSetItem.xss">
       <DependentUpon>DataSetItem.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\Reportes\DArticulo.xsc">
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DArticulo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DArticulo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DArticulo.xss">
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DFuncionario.xsc">
+      <DependentUpon>DFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DFuncionario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DFuncionario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DFuncionario.xss">
+      <DependentUpon>DFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DLocalizacion.xsc">
+      <DependentUpon>DLocalizacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DLocalizacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DLocalizacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DLocalizacion.xss">
+      <DependentUpon>DLocalizacion.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\Reportes\ReporteArticulo.xsc">
       <DependentUpon>ReporteArticulo.xsd</DependentUpon>
     </None>
@@ -1476,6 +1560,39 @@
     </None>
     <None Include="DataSets\Reportes\ReporteBodega.xss">
       <DependentUpon>ReporteBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteCostos.xsc">
+      <DependentUpon>ReporteCostos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteCostos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteCostos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteCostos.xss">
+      <DependentUpon>ReporteCostos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteDespacho.xsc">
+      <DependentUpon>ReporteDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteDespacho.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteDespacho.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteDespacho.xss">
+      <DependentUpon>ReporteDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TUsuario.xsc">
+      <DependentUpon>TUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\TUsuario.xss">
+      <DependentUpon>TUsuario.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1499,6 +1616,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\xrPictureBox1.Image.png" />
     <None Include="Resources\agency.png" />
     <Content Include="Resources\alpha-dista-grey-icon-19.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

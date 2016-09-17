@@ -1,6 +1,6 @@
 ﻿namespace SIME_UTN.UI.Reportes
 {
-    partial class rptBodegaNumero
+    partial class rptDespacho
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBodegaNumero));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptDespacho));
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
-            this.reporteBodegaTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
-            this.reporteBodega2 = new SIME_UTN.DataSets.Reportes.ReporteBodega();
-            this.articuloTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter();
-            this.reporteArticulo1 = new SIME_UTN.DataSets.Reportes.ReporteArticulo();
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings3 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            this.dProductoTableAdapter1 = new SIME_UTN.DataSets.Reportes.DArticuloTableAdapters.DProductoTableAdapter();
+            this.dArticulo1 = new SIME_UTN.DataSets.Reportes.DArticulo();
+            this.localizacionTableAdapter1 = new SIME_UTN.DataSets.Reportes.DLocalizacionTableAdapters.LocalizacionTableAdapter();
+            this.dLocalizacion1 = new SIME_UTN.DataSets.Reportes.DLocalizacion();
+            this.dFuncionarioTableAdapter1 = new SIME_UTN.DataSets.Reportes.DFuncionarioTableAdapters.DFuncionarioTableAdapter();
+            this.dFuncionario1 = new SIME_UTN.DataSets.Reportes.DFuncionario();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.groupHeaderBand2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
@@ -62,75 +66,109 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.reporteBodega1 = new SIME_UTN.DataSets.Reportes.ReporteBodega();
-            this.reporteBodegaTableAdapter = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
-            this.Bodega = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.reporteDespacho1 = new SIME_UTN.DataSets.Reportes.ReporteDespacho();
+            this.rDespachoTableAdapter = new SIME_UTN.DataSets.Reportes.ReporteDespachoTableAdapters.RDespachoTableAdapter();
             this.Articulo = new DevExpress.XtraReports.Parameters.Parameter();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteArticulo1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega1)).BeginInit();
+            this.Modulo = new DevExpress.XtraReports.Parameters.Parameter();
+            this.Funcionario = new DevExpress.XtraReports.Parameters.Parameter();
+            ((System.ComponentModel.ISupportInitialize)(this.dArticulo1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dLocalizacion1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dFuncionario1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reporteDespacho1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
-            // reporteBodegaTableAdapter1
+            // dProductoTableAdapter1
             // 
-            this.reporteBodegaTableAdapter1.ClearBeforeFill = true;
+            this.dProductoTableAdapter1.ClearBeforeFill = true;
             // 
-            // reporteBodega2
+            // dArticulo1
             // 
-            this.reporteBodega2.DataSetName = "ReporteBodega";
-            this.reporteBodega2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dArticulo1.DataSetName = "DArticulo";
+            this.dArticulo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // articuloTableAdapter1
+            // localizacionTableAdapter1
             // 
-            this.articuloTableAdapter1.ClearBeforeFill = true;
+            this.localizacionTableAdapter1.ClearBeforeFill = true;
             // 
-            // reporteArticulo1
+            // dLocalizacion1
             // 
-            this.reporteArticulo1.DataSetName = "ReporteArticulo";
-            this.reporteArticulo1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dLocalizacion1.DataSetName = "DLocalizacion";
+            this.dLocalizacion1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dFuncionarioTableAdapter1
+            // 
+            this.dFuncionarioTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dFuncionario1
+            // 
+            this.dFuncionario1.DataSetName = "DFuncionario";
+            this.dFuncionario1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel14,
             this.xrLabel7,
+            this.xrLabel12,
             this.xrLabel8,
             this.xrLabel6});
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("Unidades", DevExpress.XtraReports.UI.XRColumnSortOrder.Descending)});
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel14
+            // 
+            this.xrLabel14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Modulo")});
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(419.1237F, 0F);
+            this.xrLabel14.Name = "xrLabel14";
+            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel14.SizeF = new System.Drawing.SizeF(117.8761F, 23F);
+            this.xrLabel14.Text = "xrLabel14";
             // 
             // xrLabel7
             // 
             this.xrLabel7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.Unidades")});
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(453.8326F, 0F);
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Cantidad")});
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(536.9998F, 0F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(190.1673F, 23F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(113.0002F, 23F);
             this.xrLabel7.Text = "xrLabel7";
+            // 
+            // xrLabel12
+            // 
+            this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Funcionario")});
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(285.9993F, 0F);
+            this.xrLabel12.Name = "xrLabel12";
+            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(133.1243F, 23F);
+            this.xrLabel12.Text = "xrLabel12";
             // 
             // xrLabel8
             // 
             this.xrLabel8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.Nombre")});
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(178F, 0F);
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Nombre")});
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(152.875F, 0F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(275.8326F, 23F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(133.1243F, 23F);
             this.xrLabel8.Text = "xrLabel8";
             // 
             // xrLabel6
             // 
             this.xrLabel6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.CodigoAvatar")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.CodigoAvatar")});
             this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(36F, 0F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(142F, 23F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(116.875F, 23F);
             this.xrLabel6.Text = "xrLabel6";
             // 
             // TopMargin
@@ -147,72 +185,58 @@
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // groupHeaderBand1
-            // 
-            this.groupHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel2,
-            this.xrLabel1});
-            this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("RegistroBodega_Nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.groupHeaderBand1.HeightF = 36.00002F;
-            this.groupHeaderBand1.Level = 1;
-            this.groupHeaderBand1.Name = "groupHeaderBand1";
-            // 
-            // xrLabel2
-            // 
-            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ReporteBodega.RegistroBodega_Nombre")});
-            this.xrLabel2.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(69.66669F, 10.00001F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(150F, 26.00001F);
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.Text = "xrLabel2";
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 10.00001F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(63.66668F, 26F);
-            this.xrLabel1.StyleName = "FieldCaption";
-            this.xrLabel1.Text = "Bodega:";
-            // 
             // groupHeaderBand2
             // 
             this.groupHeaderBand2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel13,
+            this.xrLabel11,
             this.xrLabel3,
             this.xrLabel4,
             this.xrLabel5,
             this.xrLine1,
             this.xrLine2});
-            this.groupHeaderBand2.HeightF = 27F;
+            this.groupHeaderBand2.HeightF = 27.00001F;
             this.groupHeaderBand2.Name = "groupHeaderBand2";
             this.groupHeaderBand2.StyleName = "FieldCaption";
+            // 
+            // xrLabel13
+            // 
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(419.1237F, 7.000001F);
+            this.xrLabel13.Name = "xrLabel13";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(117.8763F, 18F);
+            this.xrLabel13.Text = "Modulo";
+            // 
+            // xrLabel11
+            // 
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(285.9993F, 7.000001F);
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(133.1243F, 18F);
+            this.xrLabel11.Text = "Funcionario";
             // 
             // xrLabel3
             // 
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(36F, 7.000001F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(142F, 18F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(116.875F, 18F);
             this.xrLabel3.Text = "Código Avatar";
             // 
             // xrLabel4
             // 
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(453.8326F, 7.000001F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(536.9999F, 7.000001F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(190.1674F, 18F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(113.0001F, 18F);
             this.xrLabel4.Text = "Cantidad";
             // 
             // xrLabel5
             // 
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(178F, 7.000001F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(152.875F, 7.000001F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(275.8326F, 18F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(133.1243F, 18F);
             this.xrLabel5.Text = "Nombre";
             // 
             // xrLine1
@@ -270,7 +294,7 @@
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(272.1249F, 46F);
             this.xrLabel9.StyleName = "Title";
-            this.xrLabel9.Text = "Bodegas";
+            this.xrLabel9.Text = "Despachos";
             // 
             // xrPageInfo3
             // 
@@ -345,45 +369,88 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // reporteBodega1
+            // xrLabel1
             // 
-            this.reporteBodega1.DataSetName = "ReporteBodega";
-            this.reporteBodega1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 3.178914E-05F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(63.66668F, 26F);
+            this.xrLabel1.Text = "Bodega:";
             // 
-            // reporteBodegaTableAdapter
+            // groupHeaderBand1
             // 
-            this.reporteBodegaTableAdapter.ClearBeforeFill = true;
+            this.groupHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel2,
+            this.xrLabel1});
+            this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("Bodega", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.groupHeaderBand1.HeightF = 36F;
+            this.groupHeaderBand1.Level = 1;
+            this.groupHeaderBand1.Name = "groupHeaderBand1";
             // 
-            // Bodega
+            // xrLabel2
             // 
-            this.Bodega.Description = "Bodega";
-            dynamicListLookUpSettings1.DataAdapter = this.reporteBodegaTableAdapter1;
-            dynamicListLookUpSettings1.DataMember = "ReporteBodega";
-            dynamicListLookUpSettings1.DataSource = this.reporteBodega2;
-            dynamicListLookUpSettings1.DisplayMember = "ReporteBodega.RegistroBodega_Nombre";
-            dynamicListLookUpSettings1.FilterString = null;
-            dynamicListLookUpSettings1.ValueMember = "ReporteBodega.IDRegistroBodega";
-            this.Bodega.LookUpSettings = dynamicListLookUpSettings1;
-            this.Bodega.MultiValue = true;
-            this.Bodega.Name = "Bodega";
-            this.Bodega.Type = typeof(int);
+            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Bodega")});
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(63.66668F, 0F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel2.Text = "xrLabel2";
+            // 
+            // reporteDespacho1
+            // 
+            this.reporteDespacho1.DataSetName = "ReporteDespacho";
+            this.reporteDespacho1.EnforceConstraints = false;
+            this.reporteDespacho1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rDespachoTableAdapter
+            // 
+            this.rDespachoTableAdapter.ClearBeforeFill = true;
             // 
             // Articulo
             // 
             this.Articulo.Description = "Articulo";
-            dynamicListLookUpSettings2.DataAdapter = this.articuloTableAdapter1;
-            dynamicListLookUpSettings2.DataMember = "Articulo";
-            dynamicListLookUpSettings2.DataSource = this.reporteArticulo1;
-            dynamicListLookUpSettings2.DisplayMember = "Articulo.Nombre";
-            dynamicListLookUpSettings2.FilterString = null;
-            dynamicListLookUpSettings2.ValueMember = "Articulo.IDProducto";
-            this.Articulo.LookUpSettings = dynamicListLookUpSettings2;
+            dynamicListLookUpSettings1.DataAdapter = this.dProductoTableAdapter1;
+            dynamicListLookUpSettings1.DataMember = null;
+            dynamicListLookUpSettings1.DataSource = this.dArticulo1;
+            dynamicListLookUpSettings1.DisplayMember = "DProducto.Nombre";
+            dynamicListLookUpSettings1.FilterString = null;
+            dynamicListLookUpSettings1.ValueMember = "DProducto.IDProducto";
+            this.Articulo.LookUpSettings = dynamicListLookUpSettings1;
             this.Articulo.MultiValue = true;
             this.Articulo.Name = "Articulo";
             this.Articulo.Type = typeof(int);
-            this.Articulo.ValueInfo = "0";
             // 
-            // rptBodegaNumero
+            // Modulo
+            // 
+            this.Modulo.Description = "Modulo";
+            dynamicListLookUpSettings2.DataAdapter = this.localizacionTableAdapter1;
+            dynamicListLookUpSettings2.DataMember = null;
+            dynamicListLookUpSettings2.DataSource = this.dLocalizacion1;
+            dynamicListLookUpSettings2.DisplayMember = "Localizacion.Nombre";
+            dynamicListLookUpSettings2.FilterString = null;
+            dynamicListLookUpSettings2.ValueMember = "Localizacion.IDUbicacion";
+            this.Modulo.LookUpSettings = dynamicListLookUpSettings2;
+            this.Modulo.MultiValue = true;
+            this.Modulo.Name = "Modulo";
+            this.Modulo.Type = typeof(int);
+            // 
+            // Funcionario
+            // 
+            this.Funcionario.Description = "Funcionario";
+            dynamicListLookUpSettings3.DataAdapter = this.dFuncionarioTableAdapter1;
+            dynamicListLookUpSettings3.DataMember = null;
+            dynamicListLookUpSettings3.DataSource = this.dFuncionario1;
+            dynamicListLookUpSettings3.DisplayMember = "DFuncionario.Nombre";
+            dynamicListLookUpSettings3.FilterString = null;
+            dynamicListLookUpSettings3.ValueMember = "DFuncionario.IDFuncionario";
+            this.Funcionario.LookUpSettings = dynamicListLookUpSettings3;
+            this.Funcionario.MultiValue = true;
+            this.Funcionario.Name = "Funcionario";
+            this.Funcionario.Type = typeof(int);
+            // 
+            // rptDespacho
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
@@ -393,23 +460,26 @@
             this.groupHeaderBand2,
             this.pageFooterBand1,
             this.reportHeaderBand1});
-            this.DataAdapter = this.reporteBodegaTableAdapter;
-            this.DataMember = "ReporteBodega";
-            this.DataSource = this.reporteBodega1;
-            this.FilterString = "[IDRegistroBodega] In (?Bodega) And [IDProducto] In (?Articulo)";
+            this.DataAdapter = this.rDespachoTableAdapter;
+            this.DataMember = "RDespacho";
+            this.DataSource = this.reporteDespacho1;
+            this.FilterString = "[IDProducto] In (?Articulo) And [IDUbicacion] In (?Modulo) And [IDFuncionario] In" +
+    " (?Funcionario)";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.Bodega,
-            this.Articulo});
+            this.Articulo,
+            this.Modulo,
+            this.Funcionario});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
             this.PageInfo,
             this.DataField});
             this.Version = "15.2";
-            this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.rptBodegaNumero_ParametersRequestBeforeShow);
-            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteArticulo1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega1)).EndInit();
+            this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.rptDespacho_ParametersRequestBeforeShow);
+            ((System.ComponentModel.ISupportInitialize)(this.dArticulo1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dLocalizacion1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dFuncionario1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reporteDespacho1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -419,8 +489,6 @@
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
-        private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
@@ -439,17 +507,26 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.XRLabel lblUser;
-        private DataSets.Reportes.ReporteBodega reporteBodega1;
-        private DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter reporteBodegaTableAdapter;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DataSets.Reportes.ReporteBodega reporteBodega2;
-        private DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter reporteBodegaTableAdapter1;
-        private DevExpress.XtraReports.Parameters.Parameter Bodega;
-        private DataSets.Reportes.ReporteArticulo reporteArticulo1;
-        private DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter articuloTableAdapter1;
+        private DataSets.Reportes.ReporteDespacho reporteDespacho1;
+        private DataSets.Reportes.ReporteDespachoTableAdapters.RDespachoTableAdapter rDespachoTableAdapter;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel14;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
+        private DataSets.Reportes.DArticulo dArticulo1;
         private DevExpress.XtraReports.Parameters.Parameter Articulo;
+        private DevExpress.XtraReports.Parameters.Parameter Modulo;
+        private DataSets.Reportes.DArticuloTableAdapters.DProductoTableAdapter dProductoTableAdapter1;
+        private DataSets.Reportes.DLocalizacionTableAdapters.LocalizacionTableAdapter localizacionTableAdapter1;
+        private DataSets.Reportes.DLocalizacion dLocalizacion1;
+        private DataSets.Reportes.DFuncionario dFuncionario1;
+        private DataSets.Reportes.DFuncionarioTableAdapters.DFuncionarioTableAdapter dFuncionarioTableAdapter1;
+        private DevExpress.XtraReports.Parameters.Parameter Funcionario;
     }
 }

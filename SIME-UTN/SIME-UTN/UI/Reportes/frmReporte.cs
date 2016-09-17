@@ -37,17 +37,26 @@ namespace SIME_UTN.UI.Reportes
                 case ("btnBodegaN"):
                     reporte = new rptBodegaNumero(user);
                     break;
-                case ("btnTraslado"):
-                    reporte = new rptTraslado(user);
-                    break;
                 case ("btnTrasladoFecha"):
                     reporte = new rptTrasladoFecha(user);
                     break;
                 case ("btnTrasladoUser"):
                     reporte = new rptTrasladoUser(user);
                     break;
-                case ("btnMinimo"):
+                case ("btnDespacho"):
+                    reporte = new rptDespacho(user);
+                    break;
+                case ("btnInventarioMin"):
+                    reporte = new rptMinimo(user);
+                    break;
+                case ("btnInventario"):
                     reporte = new rptInv(user);
+                    break;
+                case ("btnCostos"):
+                    reporte = new rptCostos(user);
+                    break;
+                case ("btnCostosBodega"):
+                    reporte = new rptCostosPorBodega(user);
                     break;
                 case ("imprimir"):
                     reporte = new rptImprimirForm(user);

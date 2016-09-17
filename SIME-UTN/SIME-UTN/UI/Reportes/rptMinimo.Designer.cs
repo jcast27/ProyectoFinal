@@ -32,6 +32,7 @@
             DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptMinimo));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -46,6 +47,7 @@
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -67,8 +69,6 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.CantidadRequerida = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -82,6 +82,16 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.CantidadRequerida")});
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(497.9985F, 0F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(152.0016F, 23F);
+            this.xrLabel1.Text = "xrLabel1";
             // 
             // xrTable2
             // 
@@ -208,6 +218,19 @@
             this.xrTableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell15.Weight = 83.237500592665754D;
             // 
+            // xrTableCell7
+            // 
+            this.xrTableCell7.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrTableCell7.CanGrow = false;
+            this.xrTableCell7.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell7.Name = "xrTableCell7";
+            this.xrTableCell7.StylePriority.UseBorders = false;
+            this.xrTableCell7.StylePriority.UseFont = false;
+            this.xrTableCell7.StylePriority.UseTextAlignment = false;
+            this.xrTableCell7.Text = "Cantidad Óptima";
+            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell7.Weight = 75.762457142699418D;
+            // 
             // xrTableRow1
             // 
             this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
@@ -295,49 +318,49 @@
             this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(152.875F, 61F);
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(112.25F, 61F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
             // 
             // xrLabel9
             // 
             this.xrLabel9.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(152.875F, 0F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(112.25F, 0F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(272.1249F, 46F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(358.5831F, 46F);
             this.xrLabel9.StyleName = "Title";
             this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.Text = "Inventario Mínimo";
+            this.xrLabel9.Text = "Inv. Mínimo para Pedido";
             // 
             // xrLabel10
             // 
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(424.9998F, 0F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(470.8331F, 0F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(106.0001F, 23F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(76.8335F, 23F);
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
             this.xrLabel10.Text = "Usuario:";
-            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // lblUser
             // 
             this.lblUser.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblUser.LocationFloat = new DevExpress.Utils.PointFloat(530.9999F, 0F);
+            this.lblUser.LocationFloat = new DevExpress.Utils.PointFloat(547.6666F, 0F);
             this.lblUser.Name = "lblUser";
             this.lblUser.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblUser.SizeF = new System.Drawing.SizeF(119.0001F, 23F);
+            this.lblUser.SizeF = new System.Drawing.SizeF(102.3334F, 23F);
             this.lblUser.StylePriority.UseFont = false;
             // 
             // xrPageInfo3
             // 
             this.xrPageInfo3.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrPageInfo3.LocationFloat = new DevExpress.Utils.PointFloat(424.9998F, 23F);
+            this.xrPageInfo3.LocationFloat = new DevExpress.Utils.PointFloat(470.8331F, 23.00002F);
             this.xrPageInfo3.Name = "xrPageInfo3";
             this.xrPageInfo3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo3.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo3.SizeF = new System.Drawing.SizeF(225.0001F, 23F);
+            this.xrPageInfo3.SizeF = new System.Drawing.SizeF(179.1668F, 23F);
             this.xrPageInfo3.StyleName = "PageInfo";
             this.xrPageInfo3.StylePriority.UseFont = false;
             // 
@@ -388,29 +411,6 @@
             this.CantidadRequerida.DisplayName = "Cantidad Requerida";
             this.CantidadRequerida.Expression = "[StockMaximo] - [StockActualUnidades]";
             this.CantidadRequerida.Name = "CantidadRequerida";
-            // 
-            // xrTableCell7
-            // 
-            this.xrTableCell7.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrTableCell7.CanGrow = false;
-            this.xrTableCell7.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrTableCell7.Name = "xrTableCell7";
-            this.xrTableCell7.StylePriority.UseBorders = false;
-            this.xrTableCell7.StylePriority.UseFont = false;
-            this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            this.xrTableCell7.Text = "Cantidad Óptima";
-            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell7.Weight = 75.762457142699418D;
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Query.CantidadRequerida")});
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(497.9985F, 0F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(152.0016F, 23F);
-            this.xrLabel1.Text = "xrLabel1";
             // 
             // rptMinimo
             // 
