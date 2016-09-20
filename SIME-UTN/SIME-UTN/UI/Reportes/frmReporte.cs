@@ -40,8 +40,8 @@ namespace SIME_UTN.UI.Reportes
                 case ("btnTrasladoFecha"):
                     reporte = new rptTrasladoFecha(user);
                     break;
-                case ("btnTrasladoUser"):
-                    reporte = new rptTrasladoUser(user);
+                case ("btnTrasladoEspecifico"):
+                    reporte = new rptTrasladoEspecifico(user);
                     break;
                 case ("btnDespacho"):
                     reporte = new rptDespacho(user);

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TEUsuario" targetNamespace="http://tempuri.org/TEUsuario.xsd" xmlns:mstns="http://tempuri.org/TEUsuario.xsd" xmlns="http://tempuri.org/TEUsuario.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SIMEUTNConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SIMEUTNConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SIME_UTN.Properties.Settings.GlobalReference.Default.SIMEUTNConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TEUsuarioTableAdapter" GeneratorDataComponentClassName="TEUsuarioTableAdapter" Name="TEUsuario" UserDataComponentName="TEUsuarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SIMEUTNConnectionString (Settings)" DbObjectName="SIMEUTN.dbo.Usuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CodigoUsuario, Usuario
+FROM            Usuario
+WHERE        (Estado = 1) 
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CodigoUsuario" DataSetColumn="CodigoUsuario" />
+              <Mapping SourceColumn="Usuario" DataSetColumn="Usuario" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TEUsuario" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TEUsuario" msprop:Generator_UserDSName="TEUsuario">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TEUsuario" msprop:Generator_TableClassName="TEUsuarioDataTable" msprop:Generator_TableVarName="tableTEUsuario" msprop:Generator_TablePropName="_TEUsuario" msprop:Generator_RowDeletingName="TEUsuarioRowDeleting" msprop:Generator_RowChangingName="TEUsuarioRowChanging" msprop:Generator_RowEvHandlerName="TEUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="TEUsuarioRowDeleted" msprop:Generator_UserTableName="TEUsuario" msprop:Generator_RowChangedName="TEUsuarioRowChanged" msprop:Generator_RowEvArgName="TEUsuarioRowChangeEvent" msprop:Generator_RowClassName="TEUsuarioRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CodigoUsuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCodigoUsuario" msprop:Generator_ColumnPropNameInRow="CodigoUsuario" msprop:Generator_ColumnPropNameInTable="CodigoUsuarioColumn" msprop:Generator_UserColumnName="CodigoUsuario" type="xs:int" />
+              <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TEUsuario" />
+      <xs:field xpath="mstns:CodigoUsuario" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -109,8 +109,8 @@ namespace SIME_UTN.UI.Bodega
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoFecha", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Despacho")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnDespacho", usuarioLogueado, 0);
-            if (e.Document.Caption == "Reporte Traslados Por Usuario")
-                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoUser", usuarioLogueado, 0);
+            if (e.Document.Caption == "Reporte Traslados Especifico")
+                e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnTrasladoEspecifico", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Inventario")
                 e.Control = new SIME_UTN.UI.Reportes.frmReporte("btnInventario", usuarioLogueado, 0);
             if (e.Document.Caption == "Reporte Inventario Minimo")
@@ -385,12 +385,12 @@ namespace SIME_UTN.UI.Bodega
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docRptBodegaEspecifica = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Bodega" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTraslados = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docDespacho = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Despacho" };
-            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladosUsuario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Por Usuario" };
+            DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docTrasladoEspecifico = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Traslados Especifico" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventario = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docInventarioMinimo = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Inventario Minimo" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docCostos = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Costos" };
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document docCostosBodega = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document { Caption = "Reporte Costos Por Bodega" };
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] {docRptBodegaEspecifica, docTraslados, docDespacho, docTrasladosUsuario, docInventario, docInventarioMinimo, docCostos, docCostosBodega });
+            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document[] {docRptBodegaEspecifica, docTraslados, docDespacho, docTrasladoEspecifico, docInventario, docInventarioMinimo, docCostos, docCostosBodega });
             //Creating and populating content container
             DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer tileContainer2 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer();
             tileContainer2.Properties.ItemSize = 140;
@@ -413,8 +413,8 @@ namespace SIME_UTN.UI.Bodega
             //Propiedades para el decumento Reporte Traslados Usuario
             grupo = "Group 1";
             imagen = Properties.Resources.Reporte;
-            nombreElemento = "RPT. Taslados Por Usuario";
-            tileContainer2.Items.Add(this.crearTile(docTrasladosUsuario, nombreElemento, grupo, imagen, estado));
+            nombreElemento = "RPT. Taslados Especificos";
+            tileContainer2.Items.Add(this.crearTile(docTrasladoEspecifico, nombreElemento, grupo, imagen, estado));
             //Propiedades para el decumento Reporte Inventario
             grupo = "Group 2";
             imagen = Properties.Resources.Reporte;

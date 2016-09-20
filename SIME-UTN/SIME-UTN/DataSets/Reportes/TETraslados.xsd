@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TETraslados" targetNamespace="http://tempuri.org/TETraslados.xsd" xmlns:mstns="http://tempuri.org/TETraslados.xsd" xmlns="http://tempuri.org/TETraslados.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SIMEUTNConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SIMEUTNConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SIME_UTN.Properties.Settings.GlobalReference.Default.SIMEUTNConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TETrasladoProductoTableAdapter" GeneratorDataComponentClassName="TETrasladoProductoTableAdapter" Name="TETrasladoProducto" UserDataComponentName="TETrasladoProductoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SIMEUTNConnectionString (Settings)" DbObjectName="SIMEUTN.dbo.TrasladoProducto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IDTraslado, ('Traslado'+' '+LTRIM(Str(IDTraslado))) as Traslado
+FROM [SIMEUTN].[dbo].[TrasladoProducto]
+ where IDEstadoTraslado &gt; 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IDTraslado" DataSetColumn="IDTraslado" />
+              <Mapping SourceColumn="Traslado" DataSetColumn="Traslado" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TETraslados" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TETraslados" msprop:Generator_UserDSName="TETraslados">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TETrasladoProducto" msprop:Generator_TableClassName="TETrasladoProductoDataTable" msprop:Generator_TableVarName="tableTETrasladoProducto" msprop:Generator_TablePropName="TETrasladoProducto" msprop:Generator_RowDeletingName="TETrasladoProductoRowDeleting" msprop:Generator_RowChangingName="TETrasladoProductoRowChanging" msprop:Generator_RowEvHandlerName="TETrasladoProductoRowChangeEventHandler" msprop:Generator_RowDeletedName="TETrasladoProductoRowDeleted" msprop:Generator_UserTableName="TETrasladoProducto" msprop:Generator_RowChangedName="TETrasladoProductoRowChanged" msprop:Generator_RowEvArgName="TETrasladoProductoRowChangeEvent" msprop:Generator_RowClassName="TETrasladoProductoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDTraslado" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDTraslado" msprop:Generator_ColumnPropNameInRow="IDTraslado" msprop:Generator_ColumnPropNameInTable="IDTrasladoColumn" msprop:Generator_UserColumnName="IDTraslado" type="xs:int" />
+              <xs:element name="Traslado" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTraslado" msprop:Generator_ColumnPropNameInRow="Traslado" msprop:Generator_ColumnPropNameInTable="TrasladoColumn" msprop:Generator_UserColumnName="Traslado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="19" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TETrasladoProducto" />
+      <xs:field xpath="mstns:IDTraslado" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

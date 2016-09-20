@@ -392,6 +392,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteDespacho.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Reportes\TETraslados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TETraslados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\TEUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEUsuario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Reportes\TUsuario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -686,6 +696,12 @@
     <Compile Include="UI\Formulario\Procesos\frmForms.Designer.cs">
       <DependentUpon>frmForms.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoEspecifico.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoEspecifico.Designer.cs">
+      <DependentUpon>rptTrasladoEspecifico.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\rptCostosPorBodega.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -835,12 +851,6 @@
     <Compile Include="UI\Reportes\rptMinimo.Designer.cs">
       <DependentUpon>rptMinimo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\rptTrasladoUser.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Reportes\rptTrasladoUser.Designer.cs">
-      <DependentUpon>rptTrasladoUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Reportes\rptTrasladoFecha.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -969,6 +979,9 @@
     <EmbeddedResource Include="UI\Formulario\Procesos\frmForms.resx">
       <DependentUpon>frmForms.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptTrasladoEspecifico.resx">
+      <DependentUpon>rptTrasladoEspecifico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptCostosPorBodega.resx">
       <DependentUpon>rptCostosPorBodega.cs</DependentUpon>
     </EmbeddedResource>
@@ -1041,9 +1054,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptMinimo.resx">
       <DependentUpon>rptMinimo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\rptTrasladoUser.resx">
-      <DependentUpon>rptTrasladoUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptTrasladoFecha.resx">
       <DependentUpon>rptTrasladoFecha.cs</DependentUpon>
@@ -1582,6 +1592,28 @@
     </None>
     <None Include="DataSets\Reportes\ReporteDespacho.xss">
       <DependentUpon>ReporteDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TETraslados.xsc">
+      <DependentUpon>TETraslados.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TETraslados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TETraslados.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\TETraslados.xss">
+      <DependentUpon>TETraslados.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TEUsuario.xsc">
+      <DependentUpon>TEUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TEUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TEUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\TEUsuario.xss">
+      <DependentUpon>TEUsuario.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Reportes\TUsuario.xsc">
       <DependentUpon>TUsuario.xsd</DependentUpon>
