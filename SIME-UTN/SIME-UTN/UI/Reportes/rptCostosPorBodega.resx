@@ -201,16 +201,21 @@
     <value>17, 17</value>
   </metadata>
   <data name="customSqlQuery1.Sql" xml:space="preserve">
-    <value>SELECT        Producto.CodigoAvatar, Producto.Nombre, RegistroBodega.Nombre AS Bodega, RegistroIngresoProducto.IDProducto, SUM(RegistroIngresoProducto.CantidadXEmpaque) AS Unidades, 
-                         SUM(RegistroIngresoProducto.CantidadXEmpaque * RegistroIngresoProducto.CostoXEmpaque) AS Costo, RegistroProducto.FechaIngreso AS Fecha
-FROM            RegistroIngresoProducto INNER JOIN
-                         RegistroProducto ON RegistroIngresoProducto.IDIngresoProducto = RegistroProducto.IDIngresoProducto INNER JOIN
-                         Producto ON RegistroIngresoProducto.IDProducto = Producto.IDProducto INNER JOIN
-                         RegistroBodega ON RegistroProducto.IDRegistroBodega = RegistroBodega.IDRegistroBodega
-WHERE        (RegistroIngresoProducto.Estado = 1) and RegistroProducto.FechaIngreso between @FechaInicio and @FechaFin
-GROUP BY Producto.CodigoAvatar, Producto.Nombre, RegistroIngresoProducto.IDProducto, RegistroIngresoProducto.IDProducto, RegistroProducto.FechaIngreso, RegistroBodega.Nombre</value>
+    <value>select  RegistroProducto.IDIngresoProducto,RegistroBodega.Nombre AS Bodega,RegistroProducto.SolicitudAvatar, Producto.CodigoAvatar, Producto.Nombre, RI.IDProducto,(SUM(DISTINCT(RA.CantidadXEmpaque)))as Unidades,RA.CostoXEmpaque as Costo, RegistroProducto.FechaIngreso
+
+from RegistroProducto RegistroProducto
+INNER JOIN
+RegistroIngresoProducto RI ON RI.IDIngresoProducto = RegistroProducto.IDIngresoProducto
+INNER JOIN
+Producto ON Producto.IDProducto = RI.IDProducto  
+INNER JOIN 
+RegistroIngresoProducto RA on RA.IDIngresoProducto=RI.IDIngresoProducto and RA.IDProducto = RI.IDProducto and RA.CostoXEmpaque=RI.CostoXEmpaque
+INNER JOIN
+RegistroBodega ON RegistroProducto.IDRegistroBodega = RegistroBodega.IDRegistroBodega
+WHERE   (RI.Estado = 1) and RegistroProducto.FechaIngreso between @FechaInicio and @FechaFin
+GROUP BY RegistroProducto.IDIngresoProducto,RegistroBodega.Nombre,RegistroProducto.SolicitudAvatar,Producto.CodigoAvatar, Producto.Nombre, RI.IDProducto, RA.CostoXEmpaque,RegistroProducto.FechaIngreso,RA.CantidadXEmpaque</value>
   </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iQ29kaWdvQXZhdGFyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5vbWJyZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSURQcm9kdWN0byIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlVuaWRhZGVzIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQ29zdG8iIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iRmVjaGEiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iSURJbmdyZXNvUHJvZHVjdG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iU29saWNpdHVkQXZhdGFyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNvZGlnb0F2YXRhciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOb21icmUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSURQcm9kdWN0byIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlVuaWRhZGVzIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQ29zdG8iIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iRmVjaGFJbmdyZXNvIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
   </data>
 </root>

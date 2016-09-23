@@ -201,16 +201,19 @@
     <value>17, 17</value>
   </metadata>
   <data name="customSqlQuery1.Sql" xml:space="preserve">
-    <value>SELECT  Producto.CodigoAvatar, Producto.Nombre, RegistroIngresoProducto.IDProducto, SUM(RegistroIngresoProducto.CantidadXEmpaque) AS Unidades, 
-        SUM(RegistroIngresoProducto.CantidadXEmpaque * RegistroIngresoProducto.CostoXEmpaque) AS Costo
-FROM    RegistroIngresoProducto INNER JOIN
-        RegistroProducto ON RegistroIngresoProducto.IDIngresoProducto = RegistroProducto.IDIngresoProducto INNER JOIN
-        Producto ON RegistroIngresoProducto.IDProducto = Producto.IDProducto INNER JOIN
-        RegistroBodega ON RegistroProducto.IDRegistroBodega = RegistroBodega.IDRegistroBodega
-WHERE   (RegistroIngresoProducto.Estado = 1) and RegistroProducto.FechaIngreso between @FechaInicio and @FechaFin
-GROUP BY Producto.CodigoAvatar, Producto.Nombre, RegistroIngresoProducto.IDProducto, RegistroIngresoProducto.IDProducto</value>
+    <value>select  RegistroProducto.IDIngresoProducto,RegistroProducto.SolicitudAvatar, Producto.CodigoAvatar, Producto.Nombre, RI.IDProducto,(SUM(DISTINCT(RA.CantidadXEmpaque)))as Unidades,RA.CostoXEmpaque as Costo, RegistroProducto.FechaIngreso
+
+  from RegistroProducto RegistroProducto
+		INNER JOIN
+        RegistroIngresoProducto RI ON RI.IDIngresoProducto = RegistroProducto.IDIngresoProducto
+		INNER JOIN
+        Producto ON Producto.IDProducto = RI.IDProducto  
+		INNER JOIN 
+        RegistroIngresoProducto RA on RA.IDIngresoProducto=RI.IDIngresoProducto and RA.IDProducto = RI.IDProducto and RA.CostoXEmpaque=RI.CostoXEmpaque
+		WHERE   (RI.Estado = 1) and RegistroProducto.FechaIngreso between @FechaInicio and @FechaFin
+        GROUP BY RegistroProducto.IDIngresoProducto,RegistroProducto.SolicitudAvatar,Producto.CodigoAvatar, Producto.Nombre, RI.IDProducto, RA.CostoXEmpaque,RegistroProducto.FechaIngreso,RA.CantidadXEmpaque</value>
   </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iQ29kaWdvQXZhdGFyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5vbWJyZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJJRFByb2R1Y3RvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iVW5pZGFkZXMiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJDb3N0byIgVHlwZT0iRG91YmxlIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iSURJbmdyZXNvUHJvZHVjdG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJTb2xpY2l0dWRBdmF0YXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29kaWdvQXZhdGFyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5vbWJyZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJJRFByb2R1Y3RvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iVW5pZGFkZXMiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJDb3N0byIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJGZWNoYUluZ3Jlc28iIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
   </data>
 </root>
