@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUnidadesMedida));
             this.gCUnidadesMedida = new DevExpress.XtraGrid.GridControl();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spSELECTUnidadMedidaProductoAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetRUnidadM = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRUnidadM();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -49,16 +51,14 @@
             this.gbGridViewSelecBodegas = new System.Windows.Forms.GroupBox();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRUnidadMTableAdapters.sp_SELECT_UnidadMedidaProducto_AllTableAdapter();
-            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gCUnidadesMedida)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRUnidadM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecBodegas.SuspendLayout();
-            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCUnidadesMedida
@@ -76,6 +76,20 @@
             this.gCUnidadesMedida.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCUnidadesMedida.Click += new System.EventHandler(this.gCUnidadesMedida_Click);
+            // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 26);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
             // 
             // spSELECTUnidadMedidaProductoAllBindingSource
             // 
@@ -104,6 +118,7 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // colidunidadmedida
@@ -259,20 +274,6 @@
             // 
             this.sp_SELECT_UnidadMedidaProducto_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // cmMenuGrid
-            // 
-            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarAExcelToolStripMenuItem});
-            this.cmMenuGrid.Name = "cmMenuGrid";
-            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
-            // 
-            // exportarAExcelToolStripMenuItem
-            // 
-            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
-            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
-            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
-            // 
             // sfdRuta
             // 
             this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
@@ -293,12 +294,12 @@
             this.Text = "Ventana Unidades De Medida";
             this.Load += new System.EventHandler(this.frmUnidad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCUnidadesMedida)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTUnidadMedidaProductoAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRUnidadM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecBodegas.ResumeLayout(false);
-            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

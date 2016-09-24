@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBodegas));
             this.gCBodegas = new DevExpress.XtraGrid.GridControl();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spSELECTRegistroBodegaAllBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetRegistroBodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetRegistroBodega = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRegistroBodega();
@@ -60,10 +62,9 @@
             this.sp_SELECT_RegistroBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetRegistroBodegaTableAdapters.sp_SELECT_RegistroBodega_AllTableAdapter();
             this.sp_SELECT_TipoBodega_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetTipoBodegaTableAdapters.sp_SELECT_TipoBodega_AllTableAdapter();
             this.sp_SELECT_Ubicacion_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetBodegaUbicacionTableAdapters.sp_SELECT_Ubicacion_AllTableAdapter();
-            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRegistroBodegaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRegistroBodega)).BeginInit();
@@ -77,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecBodegas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCBodegas
@@ -98,6 +98,20 @@
             this.gCBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCBodegas.Click += new System.EventHandler(this.gCBodegas_Click);
+            // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 26);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
             // 
             // spSELECTRegistroBodegaAllBindingSource
             // 
@@ -132,6 +146,7 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             // 
             // colidregistrobodega
@@ -361,20 +376,6 @@
             // 
             this.sp_SELECT_Ubicacion_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // cmMenuGrid
-            // 
-            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarAExcelToolStripMenuItem});
-            this.cmMenuGrid.Name = "cmMenuGrid";
-            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
-            // 
-            // exportarAExcelToolStripMenuItem
-            // 
-            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
-            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
-            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
-            // 
             // sfdRuta
             // 
             this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
@@ -395,6 +396,7 @@
             this.Text = "Ventana Bodegas";
             this.Load += new System.EventHandler(this.frmBodegas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCBodegas)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spSELECTRegistroBodegaAllBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRegistroBodegaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetRegistroBodega)).EndInit();
@@ -408,7 +410,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecBodegas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

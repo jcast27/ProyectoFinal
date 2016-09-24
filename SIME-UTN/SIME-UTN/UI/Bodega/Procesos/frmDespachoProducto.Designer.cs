@@ -38,20 +38,20 @@
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.gbGridViewRegistroProductos = new System.Windows.Forms.GroupBox();
             this.gCDespachoP = new DevExpress.XtraGrid.GridControl();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colidregistrobodega = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LookUpTipoBodega = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewRegistroProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCDespachoP)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).BeginInit();
-            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // ePError
@@ -155,6 +155,20 @@
             this.gridView1});
             this.gCDespachoP.Click += new System.EventHandler(this.gCBodegas_Click);
             // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 26);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -170,6 +184,7 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
             // 
             // colidregistrobodega
             // 
@@ -205,20 +220,6 @@
             this.LookUpTipoBodega.Name = "LookUpTipoBodega";
             this.LookUpTipoBodega.ValueMember = "idtipobodega";
             // 
-            // cmMenuGrid
-            // 
-            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarAExcelToolStripMenuItem});
-            this.cmMenuGrid.Name = "cmMenuGrid";
-            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
-            // 
-            // exportarAExcelToolStripMenuItem
-            // 
-            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
-            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
-            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
-            // 
             // sfdRuta
             // 
             this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
@@ -241,9 +242,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewRegistroProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gCDespachoP)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpTipoBodega)).EndInit();
-            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

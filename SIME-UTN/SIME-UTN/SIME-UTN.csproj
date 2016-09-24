@@ -354,6 +354,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetItem.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Formulario\FormulariosCategoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormulariosCategoria.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Reportes\BBodega.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -712,6 +717,12 @@
     <Compile Include="UI\Formulario\Procesos\frmForms.Designer.cs">
       <DependentUpon>frmForms.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormsCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormsCategoria.Designer.cs">
+      <DependentUpon>frmFormsCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\rptTrasladoEspecifico.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -994,6 +1005,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formulario\Procesos\frmForms.resx">
       <DependentUpon>frmForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmFormsCategoria.resx">
+      <DependentUpon>frmFormsCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\rptTrasladoEspecifico.resx">
       <DependentUpon>rptTrasladoEspecifico.cs</DependentUpon>
@@ -1531,6 +1545,17 @@
     </None>
     <None Include="DataSets\Formulario\DataSetItem.xss">
       <DependentUpon>DataSetItem.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\FormulariosCategoria.xsc">
+      <DependentUpon>FormulariosCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\FormulariosCategoria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FormulariosCategoria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\FormulariosCategoria.xss">
+      <DependentUpon>FormulariosCategoria.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Reportes\BBodega.xsc">
       <DependentUpon>BBodega.xsd</DependentUpon>

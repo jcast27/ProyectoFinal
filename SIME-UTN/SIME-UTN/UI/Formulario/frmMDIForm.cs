@@ -83,7 +83,7 @@ namespace SIME_UTN.UI.Formulario
             if (e.Document.Caption == "Ventana Departamentos")
                 e.Control = new Bodega.Administracion.frmDepartamentos();
             if (e.Document.Caption == "Ventana Formularios")
-                e.Control = new Formulario.Procesos.frmForms();
+                e.Control = new Formulario.Procesos.frmFormsCategoria();
            if (e.Document.Caption == "Ventana Empresa")
                 e.Control = new Formulario.Administracion.frmEmpresa();
 

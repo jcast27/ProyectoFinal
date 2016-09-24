@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFuncionarios));
             this.gCFuncionario = new DevExpress.XtraGrid.GridControl();
+            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetFuncionario = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionario();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -55,10 +57,9 @@
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.funcionarioTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSetFuncionarioTableAdapters.FuncionarioTableAdapter();
             this.sp_SELECT_Departamento_AllTableAdapter = new SIME_UTN.DataSets.Bodega.Admistracion.DataSDepartamentoTableAdapters.sp_SELECT_Departamento_AllTableAdapter();
-            this.cmMenuGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sfdRuta = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).BeginInit();
+            this.cmMenuGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -67,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).BeginInit();
             this.gbGridViewSelecFuncionario.SuspendLayout();
-            this.cmMenuGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCFuncionario
@@ -87,6 +87,20 @@
             this.gCFuncionario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gCFuncionario.Click += new System.EventHandler(this.gCFuncionario_Click);
+            // 
+            // cmMenuGrid
+            // 
+            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarAExcelToolStripMenuItem});
+            this.cmMenuGrid.Name = "cmMenuGrid";
+            this.cmMenuGrid.Size = new System.Drawing.Size(156, 26);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
             // 
             // funcionarioBindingSource
             // 
@@ -117,6 +131,7 @@
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsEditForm.EditFormColumnCount = 2;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 900;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
             // 
             // colIDFuncionario
             // 
@@ -327,20 +342,6 @@
             // 
             this.sp_SELECT_Departamento_AllTableAdapter.ClearBeforeFill = true;
             // 
-            // cmMenuGrid
-            // 
-            this.cmMenuGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarAExcelToolStripMenuItem});
-            this.cmMenuGrid.Name = "cmMenuGrid";
-            this.cmMenuGrid.Size = new System.Drawing.Size(156, 48);
-            // 
-            // exportarAExcelToolStripMenuItem
-            // 
-            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
-            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
-            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
-            // 
             // sfdRuta
             // 
             this.sfdRuta.Filter = "Archivos Excel | *.xlsx";
@@ -361,6 +362,7 @@
             this.Text = "Ventana Funcionarios";
             this.Load += new System.EventHandler(this.frmFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gCFuncionario)).EndInit();
+            this.cmMenuGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -369,7 +371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePError)).EndInit();
             this.gbGridViewSelecFuncionario.ResumeLayout(false);
-            this.cmMenuGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
