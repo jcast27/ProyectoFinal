@@ -33,6 +33,7 @@
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptTrasladoFecha));
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
@@ -67,6 +68,10 @@
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.FechaInicio = new DevExpress.XtraReports.Parameters.Parameter();
             this.FechaFin = new DevExpress.XtraReports.Parameters.Parameter();
+            this.bBodega1 = new SIME_UTN.DataSets.Reportes.BBodega();
+            this.bbodegA_RegistroBodega_AllTableAdapter1 = new SIME_UTN.DataSets.Reportes.BBodegaTableAdapters.BBODEGA_RegistroBodega_AllTableAdapter();
+            this.BodegaOrigen = new DevExpress.XtraReports.Parameters.Parameter();
+            ((System.ComponentModel.ISupportInitialize)(this.bBodega1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -396,6 +401,29 @@
             this.FechaFin.Type = typeof(System.DateTime);
             this.FechaFin.ValueInfo = "2016-12-31";
             // 
+            // bBodega1
+            // 
+            this.bBodega1.DataSetName = "BBodega";
+            this.bBodega1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bbodegA_RegistroBodega_AllTableAdapter1
+            // 
+            this.bbodegA_RegistroBodega_AllTableAdapter1.ClearBeforeFill = true;
+            // 
+            // BodegaOrigen
+            // 
+            this.BodegaOrigen.Description = "BodegaOrigen";
+            dynamicListLookUpSettings1.DataAdapter = this.bbodegA_RegistroBodega_AllTableAdapter1;
+            dynamicListLookUpSettings1.DataMember = "BBODEGA";
+            dynamicListLookUpSettings1.DataSource = this.bBodega1;
+            dynamicListLookUpSettings1.DisplayMember = "nombre";
+            dynamicListLookUpSettings1.FilterString = null;
+            dynamicListLookUpSettings1.ValueMember = "idregistrobodega";
+            this.BodegaOrigen.LookUpSettings = dynamicListLookUpSettings1;
+            this.BodegaOrigen.MultiValue = true;
+            this.BodegaOrigen.Name = "BodegaOrigen";
+            this.BodegaOrigen.Type = typeof(int);
+            // 
             // rptTrasladoFecha
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -410,9 +438,11 @@
             this.sqlDataSource1});
             this.DataMember = "TrasladoProducto";
             this.DataSource = this.sqlDataSource1;
+            this.FilterString = "[IDRegistroBodega] In (?BodegaOrigen)";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.FechaInicio,
-            this.FechaFin});
+            this.FechaFin,
+            this.BodegaOrigen});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
@@ -420,6 +450,7 @@
             this.DataField});
             this.Version = "15.2";
             this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.rptTraslado_ParametersRequestBeforeShow);
+            ((System.ComponentModel.ISupportInitialize)(this.bBodega1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -460,5 +491,8 @@
         private DevExpress.XtraReports.Parameters.Parameter FechaInicio;
         private DevExpress.XtraReports.Parameters.Parameter FechaFin;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
+        private DataSets.Reportes.BBodega bBodega1;
+        private DataSets.Reportes.BBodegaTableAdapters.BBODEGA_RegistroBodega_AllTableAdapter bbodegA_RegistroBodega_AllTableAdapter1;
+        private DevExpress.XtraReports.Parameters.Parameter BodegaOrigen;
     }
 }

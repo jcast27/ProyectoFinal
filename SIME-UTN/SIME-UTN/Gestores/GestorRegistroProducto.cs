@@ -41,5 +41,10 @@ namespace SIME_UTN.Gestores
         {
             RegistroProductoBLL.EliminarRegistroProducto(idRegistroBodegap,idRegProdp, nombrep, usuarioLogueadop);
         }
+        internal List<RegistroProducto> ObtenerIngresos()
+        {
+           return RegistroProductoBLL.ObtenerIngresos();
+        }
+
     }
 }

@@ -21,14 +21,23 @@ namespace SIME_UTN.UI.Reportes
         private void rptTrasladoUser_ParametersRequestBeforeShow(object sender, DevExpress.XtraReports.Parameters.ParametersRequestEventArgs e)
         {
             List<UsuarioTable> listU = new List<UsuarioTable>();
-            List<int> ids = new List<int>();
+            List<TrasladoProducto> listTP = new List<TrasladoProducto>();
+            List<int> intlistU = new List<int>();
+            List<int> intlistTP = new List<int>();
             GestorUsuarioTable gU = new GestorUsuarioTable();
+            GestorTrasladoProducto gTP = new GestorTrasladoProducto();
             listU = gU.ObtenerUsuarios();
+            listTP = gTP.ObtenerTraslados();
             foreach (UsuarioTable u in listU)
             {
-                ids.Add(u.codigoUsuario);
+                intlistU.Add(u.codigoUsuario);
             }
-            e.ParametersInformation[0].Parameter.Value = ids;
+            e.ParametersInformation[0].Parameter.Value = intlistU;
+            foreach (TrasladoProducto t in listTP)
+            {
+                intlistTP.Add(t.idTraslado);
+            }
+            e.ParametersInformation[1].Parameter.Value = intlistTP;
         }
     }
 }

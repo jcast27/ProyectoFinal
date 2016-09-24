@@ -28,5 +28,9 @@ namespace SIME_UTN.BLL
             RegistroProductoDAL.DescargarInvetarioRegistroProductoEliminado(idRegistroBodega, listregistriIngresoProducto);
         }
 
+        internal static List<RegistroProducto> ObtenerIngresos()
+        {
+            return RegistroProductoDAL.ObtenerIngresos();
+        }
     }
 }

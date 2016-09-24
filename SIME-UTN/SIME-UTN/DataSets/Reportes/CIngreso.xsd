@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CIngreso" targetNamespace="http://tempuri.org/CIngreso.xsd" xmlns:mstns="http://tempuri.org/CIngreso.xsd" xmlns="http://tempuri.org/CIngreso.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SIMEUTNConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SIMEUTNConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SIME_UTN.Properties.Settings.GlobalReference.Default.SIMEUTNConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CIngreso" GeneratorDataComponentClassName="CIngreso1" Name="CIngreso" UserDataComponentName="CIngreso">
+            <MainSource>
+              <DbSource ConnectionRef="SIMEUTNConnectionString (Settings)" DbObjectName="SIMEUTN.dbo.RegistroProducto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IDIngresoProducto, 'Ingreso ' + LTRIM(STR(IDIngresoProducto)) AS Ingreso
+FROM            RegistroProducto
+WHERE        (Estado = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IDIngresoProducto" DataSetColumn="IDIngresoProducto" />
+              <Mapping SourceColumn="Ingreso" DataSetColumn="Ingreso" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CIngreso" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CIngreso" msprop:Generator_UserDSName="CIngreso">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CIngreso" msprop:Generator_TableClassName="CIngresoDataTable" msprop:Generator_TableVarName="tableCIngreso" msprop:Generator_TablePropName="_CIngreso" msprop:Generator_RowDeletingName="CIngresoRowDeleting" msprop:Generator_RowChangingName="CIngresoRowChanging" msprop:Generator_RowEvHandlerName="CIngresoRowChangeEventHandler" msprop:Generator_RowDeletedName="CIngresoRowDeleted" msprop:Generator_UserTableName="CIngreso" msprop:Generator_RowChangedName="CIngresoRowChanged" msprop:Generator_RowEvArgName="CIngresoRowChangeEvent" msprop:Generator_RowClassName="CIngresoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDIngresoProducto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDIngresoProducto" msprop:Generator_ColumnPropNameInRow="IDIngresoProducto" msprop:Generator_ColumnPropNameInTable="IDIngresoProductoColumn" msprop:Generator_UserColumnName="IDIngresoProducto" type="xs:int" />
+              <xs:element name="Ingreso" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIngreso" msprop:Generator_ColumnPropNameInRow="Ingreso" msprop:Generator_ColumnPropNameInTable="IngresoColumn" msprop:Generator_UserColumnName="Ingreso" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CIngreso" />
+      <xs:field xpath="mstns:IDIngresoProducto" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

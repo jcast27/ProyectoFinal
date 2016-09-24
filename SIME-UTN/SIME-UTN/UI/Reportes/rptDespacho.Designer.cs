@@ -33,12 +33,16 @@
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings3 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings4 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             this.dProductoTableAdapter1 = new SIME_UTN.DataSets.Reportes.DArticuloTableAdapters.DProductoTableAdapter();
             this.dArticulo1 = new SIME_UTN.DataSets.Reportes.DArticulo();
             this.localizacionTableAdapter1 = new SIME_UTN.DataSets.Reportes.DLocalizacionTableAdapters.LocalizacionTableAdapter();
             this.dLocalizacion1 = new SIME_UTN.DataSets.Reportes.DLocalizacion();
             this.dFuncionarioTableAdapter1 = new SIME_UTN.DataSets.Reportes.DFuncionarioTableAdapters.DFuncionarioTableAdapter();
             this.dFuncionario1 = new SIME_UTN.DataSets.Reportes.DFuncionario();
+            this.dDespachoTableAdapter1 = new SIME_UTN.DataSets.Reportes.DDespachosTableAdapters.DDespachoTableAdapter();
+            this.dDespachos1 = new SIME_UTN.DataSets.Reportes.DDespachos();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
@@ -67,21 +71,31 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.reporteDespacho1 = new SIME_UTN.DataSets.Reportes.ReporteDespacho();
             this.rDespachoTableAdapter = new SIME_UTN.DataSets.Reportes.ReporteDespachoTableAdapters.RDespachoTableAdapter();
             this.Articulo = new DevExpress.XtraReports.Parameters.Parameter();
             this.Modulo = new DevExpress.XtraReports.Parameters.Parameter();
             this.Funcionario = new DevExpress.XtraReports.Parameters.Parameter();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.SubTotal = new DevExpress.XtraReports.UI.CalculatedField();
+            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.Total = new DevExpress.XtraReports.UI.CalculatedField();
+            this.Despacho = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.dArticulo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dLocalizacion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dFuncionario1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDespachos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reporteDespacho1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -111,6 +125,15 @@
             // 
             this.dFuncionario1.DataSetName = "DFuncionario";
             this.dFuncionario1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dDespachoTableAdapter1
+            // 
+            this.dDespachoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dDespachos1
+            // 
+            this.dDespachos1.DataSetName = "DDespachos";
+            this.dDespachos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Detail
             // 
@@ -374,38 +397,27 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // xrLabel1
+            // xrLabel18
             // 
-            this.xrLabel1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 3.178914E-05F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(63.66668F, 26F);
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "Bodega:";
+            this.xrLabel18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.IDDespacho")});
+            this.xrLabel18.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(115.2917F, 5.250009F);
+            this.xrLabel18.Name = "xrLabel18";
+            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(100F, 25.99999F);
+            this.xrLabel18.StylePriority.UseFont = false;
+            this.xrLabel18.Text = "xrLabel18";
             // 
-            // groupHeaderBand1
+            // xrLabel17
             // 
-            this.groupHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel2,
-            this.xrLabel1});
-            this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("Bodega", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.groupHeaderBand1.HeightF = 36F;
-            this.groupHeaderBand1.Level = 1;
-            this.groupHeaderBand1.Name = "groupHeaderBand1";
-            // 
-            // xrLabel2
-            // 
-            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Bodega")});
-            this.xrLabel2.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(63.66668F, 0F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.Text = "xrLabel2";
+            this.xrLabel17.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(24.54166F, 5.250009F);
+            this.xrLabel17.Name = "xrLabel17";
+            this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel17.SizeF = new System.Drawing.SizeF(90.75002F, 26F);
+            this.xrLabel17.StylePriority.UseFont = false;
+            this.xrLabel17.Text = "Despacho #";
             // 
             // reporteDespacho1
             // 
@@ -462,11 +474,24 @@
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLine3,
             this.xrLabel16,
+            this.xrLine3,
             this.xrLabel15});
             this.GroupFooter1.HeightF = 33.33333F;
             this.GroupFooter1.Name = "GroupFooter1";
+            // 
+            // xrLabel16
+            // 
+            this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Cantidad")});
+            this.xrLabel16.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(536.9999F, 10.33332F);
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(107.0002F, 23F);
+            this.xrLabel16.StylePriority.UseFont = false;
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrLabel16.Summary = xrSummary1;
             // 
             // xrLine3
             // 
@@ -474,19 +499,6 @@
             this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(36F, 0F);
             this.xrLine3.Name = "xrLine3";
             this.xrLine3.SizeF = new System.Drawing.SizeF(613.9999F, 8.416667F);
-            // 
-            // xrLabel16
-            // 
-            this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Cantidad")});
-            this.xrLabel16.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(536.9999F, 10.00001F);
-            this.xrLabel16.Name = "xrLabel16";
-            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(107.0001F, 23F);
-            this.xrLabel16.StylePriority.UseFont = false;
-            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrLabel16.Summary = xrSummary1;
             // 
             // xrLabel15
             // 
@@ -497,8 +509,108 @@
             this.xrLabel15.SizeF = new System.Drawing.SizeF(117.876F, 22.99998F);
             this.xrLabel15.StylePriority.UseFont = false;
             this.xrLabel15.StylePriority.UseTextAlignment = false;
-            this.xrLabel15.Text = "Total:";
+            this.xrLabel15.Text = "SubTotal:";
             this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // GroupHeader1
+            // 
+            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel1,
+            this.xrLabel2,
+            this.xrLabel19,
+            this.xrLabel20});
+            this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("Bodega", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.GroupHeader1.HeightF = 36.00005F;
+            this.GroupHeader1.Level = 2;
+            this.GroupHeader1.Name = "GroupHeader1";
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 10.00001F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(90.75002F, 26F);
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.Text = "Bodega:";
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Bodega")});
+            this.xrLabel2.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(100.75F, 10.00001F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 26F);
+            this.xrLabel2.StylePriority.UseFont = false;
+            this.xrLabel2.Text = "xrLabel2";
+            // 
+            // xrLabel19
+            // 
+            this.xrLabel19.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(223.2005F, 13.00004F);
+            this.xrLabel19.Name = "xrLabel19";
+            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(99.21613F, 22.99998F);
+            this.xrLabel19.StylePriority.UseFont = false;
+            this.xrLabel19.StylePriority.UseTextAlignment = false;
+            this.xrLabel19.Text = "Total:";
+            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // xrLabel20
+            // 
+            this.xrLabel20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "RDespacho.Cantidad")});
+            this.xrLabel20.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(322.4167F, 13.00004F);
+            this.xrLabel20.Name = "xrLabel20";
+            this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(113.0002F, 23F);
+            this.xrLabel20.StylePriority.UseFont = false;
+            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrLabel20.Summary = xrSummary2;
+            // 
+            // GroupHeader2
+            // 
+            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel17,
+            this.xrLabel18});
+            this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("IDDespacho", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.GroupHeader2.HeightF = 31.25001F;
+            this.GroupHeader2.Level = 1;
+            this.GroupHeader2.Name = "GroupHeader2";
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.DataMember = "RDespacho";
+            this.SubTotal.Name = "SubTotal";
+            // 
+            // ReportFooter
+            // 
+            this.ReportFooter.HeightF = 43.75003F;
+            this.ReportFooter.Name = "ReportFooter";
+            // 
+            // Total
+            // 
+            this.Total.DataMember = "RDespacho";
+            this.Total.Name = "Total";
+            // 
+            // Despacho
+            // 
+            this.Despacho.Description = "Despacho";
+            dynamicListLookUpSettings4.DataAdapter = this.dDespachoTableAdapter1;
+            dynamicListLookUpSettings4.DataMember = null;
+            dynamicListLookUpSettings4.DataSource = this.dDespachos1;
+            dynamicListLookUpSettings4.DisplayMember = "DDespacho.Despacho";
+            dynamicListLookUpSettings4.FilterString = null;
+            dynamicListLookUpSettings4.ValueMember = "DDespacho.IDDespacho";
+            this.Despacho.LookUpSettings = dynamicListLookUpSettings4;
+            this.Despacho.MultiValue = true;
+            this.Despacho.Name = "Despacho";
+            this.Despacho.Type = typeof(int);
             // 
             // rptDespacho
             // 
@@ -506,20 +618,26 @@
             this.Detail,
             this.TopMargin,
             this.BottomMargin,
-            this.groupHeaderBand1,
             this.groupHeaderBand2,
             this.pageFooterBand1,
             this.reportHeaderBand1,
-            this.GroupFooter1});
+            this.GroupFooter1,
+            this.GroupHeader1,
+            this.GroupHeader2,
+            this.ReportFooter});
+            this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
+            this.SubTotal,
+            this.Total});
             this.DataAdapter = this.rDespachoTableAdapter;
             this.DataMember = "RDespacho";
             this.DataSource = this.reporteDespacho1;
             this.FilterString = "[IDProducto] In (?Articulo) And [IDUbicacion] In (?Modulo) And [IDFuncionario] In" +
-    " (?Funcionario)";
+    " (?Funcionario) And [IDDespacho] In (?Despacho)";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.Articulo,
             this.Modulo,
-            this.Funcionario});
+            this.Funcionario,
+            this.Despacho});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
@@ -530,6 +648,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dArticulo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dLocalizacion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dFuncionario1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDespachos1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reporteDespacho1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -558,9 +677,6 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.XRLabel lblUser;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
-        private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DataSets.Reportes.ReporteDespacho reporteDespacho1;
         private DataSets.Reportes.ReporteDespachoTableAdapters.RDespachoTableAdapter rDespachoTableAdapter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
@@ -581,7 +697,21 @@
         private DevExpress.XtraReports.Parameters.Parameter Funcionario;
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
         private DevExpress.XtraReports.UI.XRLine xrLine3;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel17;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader2;
+        private DevExpress.XtraReports.UI.CalculatedField SubTotal;
+        private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel20;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel19;
+        private DevExpress.XtraReports.UI.CalculatedField Total;
+        private DataSets.Reportes.DDespachos dDespachos1;
+        private DataSets.Reportes.DDespachosTableAdapters.DDespachoTableAdapter dDespachoTableAdapter1;
+        private DevExpress.XtraReports.Parameters.Parameter Despacho;
     }
 }

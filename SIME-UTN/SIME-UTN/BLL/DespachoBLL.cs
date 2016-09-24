@@ -20,5 +20,9 @@ namespace SIME_UTN.BLL
             return DespachoDAL.GuardarDespacho(idBodega, user, descripcion, funcionario, ubicacion);
         }
 
+        internal static List<Despacho> ObtenerDespachos()
+        {
+            return DespachoDAL.ObtenerDespachos();
+        }
     }
 }

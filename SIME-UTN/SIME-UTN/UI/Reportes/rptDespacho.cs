@@ -23,30 +23,40 @@ namespace SIME_UTN.UI.Reportes
             List<Producto> listaP = new List<Producto>();
             List<Ubicacion> listaU = new List<Ubicacion>();
             List<Funcionario> listaF = new List<Funcionario>();
-            List<int> ids = new List<int>();
+            List<Despacho> listaD = new List<Despacho>();
+            List<int> idsistaP = new List<int>();
+            List<int> idslistaU = new List<int>();
+            List<int> idslistaF = new List<int>();
+            List<int> idlistaD = new List<int>();
             GestorProducto gP = new GestorProducto();
             GestorUbicacion gU = new GestorUbicacion();
             GestorFuncionario gF = new GestorFuncionario();
+            GestorDespacho gD = new GestorDespacho();
             listaP = gP.ObtenerProductos();
             listaU = gU.ObtenerUbicacion();
             listaF = gF.ObtenerFuncionarios();
+            listaD = gD.ObtenerDespachos();
             foreach (Producto p in listaP)
             {
-                ids.Add(p.idProducto);
+                idsistaP.Add(p.idProducto);
             }
-            e.ParametersInformation[0].Parameter.Value = ids;
-            ids.Clear();
+            e.ParametersInformation[0].Parameter.Value = idsistaP;
             foreach (Ubicacion u in listaU)
             {
-                ids.Add(u.idUbicacion);
+                idslistaU.Add(u.idUbicacion);
             }
-            e.ParametersInformation[1].Parameter.Value = ids;
-            ids.Clear();
+            e.ParametersInformation[1].Parameter.Value = idslistaU;
             foreach (Funcionario f in listaF)
             {
-                ids.Add(f.idFuncionario);
+                idslistaF.Add(f.idFuncionario);
             }
-            e.ParametersInformation[2].Parameter.Value = ids;
+            e.ParametersInformation[2].Parameter.Value = idslistaF;
+            foreach (Despacho D in listaD)
+            {
+                idlistaD.Add(D.idDespacho);
+            }
+            e.ParametersInformation[3].Parameter.Value = idlistaD;
+
         }
     }
 }

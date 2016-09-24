@@ -354,6 +354,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetItem.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\Reportes\BBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\CIngreso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CIngreso.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\Reportes\DArticulo.cs">
       <DependentUpon>DArticulo.xsd</DependentUpon>
     </Compile>
@@ -361,6 +371,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DDespachos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDespachos.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\Reportes\DFuncionario.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -414,6 +429,7 @@
     <Compile Include="DTOs\RegistroIngresoProductoDTO.cs" />
     <Compile Include="DTOs\TrasladoProductoInterDTO.cs" />
     <Compile Include="Entities\Activo.cs" />
+    <Compile Include="Entities\Despacho.cs" />
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\PBodega.cs" />
     <Compile Include="Entities\Categoria.cs" />
@@ -1516,6 +1532,28 @@
     <None Include="DataSets\Formulario\DataSetItem.xss">
       <DependentUpon>DataSetItem.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\Reportes\BBodega.xsc">
+      <DependentUpon>BBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\BBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\BBodega.xss">
+      <DependentUpon>BBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\CIngreso.xsc">
+      <DependentUpon>CIngreso.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\CIngreso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CIngreso.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\CIngreso.xss">
+      <DependentUpon>CIngreso.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\Reportes\DArticulo.xsc">
       <DependentUpon>DArticulo.xsd</DependentUpon>
     </None>
@@ -1526,6 +1564,17 @@
     </None>
     <None Include="DataSets\Reportes\DArticulo.xss">
       <DependentUpon>DArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DDespachos.xsc">
+      <DependentUpon>DDespachos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DDespachos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DDespachos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DDespachos.xss">
+      <DependentUpon>DDespachos.xsd</DependentUpon>
     </None>
     <None Include="DataSets\Reportes\DFuncionario.xsc">
       <DependentUpon>DFuncionario.xsd</DependentUpon>

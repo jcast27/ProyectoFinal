@@ -42,6 +42,11 @@ namespace SIME_UTN.Gestores
             TrasladoProductoBLL.GuardarTraslado(trasladop, usuarioLogueadop);
         }
 
+        internal List<TrasladoProducto> ObtenerTraslados()
+        {
+            return TrasladoProductoBLL.ObtenerTraslados();
+        }
+
         internal void AceptarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
         {
             TrasladoProductoBLL.AceptarTraslado(trasladoEstatico, usuarioLogueadop);

@@ -12,14 +12,14 @@
               <DbSource ConnectionRef="SIMEUTNConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Producto.IDProducto,Ubicacion.IDUbicacion,Funcionario.IDFuncionario,Producto.CodigoAvatar, Producto.Nombre, RegistroBodega.Nombre AS Bodega, DespachoProducto.Cantidad, Ubicacion.Nombre AS Modulo, Funcionario.Nombre AS Funcionario
-FROM            Despacho AS Despacho INNER JOIN
-                         DespachoProducto AS DespachoProducto ON DespachoProducto.IDDespacho = Despacho.IDDespacho INNER JOIN
-                         Funcionario AS Funcionario ON Funcionario.IDFuncionario = Despacho.IDFuncionario INNER JOIN
-                         Ubicacion AS Ubicacion ON Ubicacion.IDUbicacion = Despacho.IDUbicacion INNER JOIN
-                         Producto AS Producto ON Producto.IDProducto = DespachoProducto.IDProducto INNER JOIN
-                         RegistroBodega AS RegistroBodega ON RegistroBodega.IDRegistroBodega = Despacho.IDBodega INNER JOIN
-                         TipoBodega AS TipoBodega ON TipoBodega.IDTipoBodega = RegistroBodega.Tipo
+                    <CommandText>SELECT  Despacho.IDDespacho,Producto.IDProducto,Ubicacion.IDUbicacion,Funcionario.IDFuncionario,Producto.CodigoAvatar, Producto.Nombre, RegistroBodega.Nombre AS Bodega, DespachoProducto.Cantidad, Ubicacion.Nombre AS Modulo, Funcionario.Nombre AS Funcionario
+FROM     Despacho AS Despacho INNER JOIN
+DespachoProducto AS DespachoProducto ON DespachoProducto.IDDespacho = Despacho.IDDespacho INNER JOIN
+Funcionario AS Funcionario ON Funcionario.IDFuncionario = Despacho.IDFuncionario INNER JOIN
+Ubicacion AS Ubicacion ON Ubicacion.IDUbicacion = Despacho.IDUbicacion INNER JOIN
+Producto AS Producto ON Producto.IDProducto = DespachoProducto.IDProducto and Producto.IDUnidadMedida&lt;&gt;10 INNER JOIN 
+RegistroBodega AS RegistroBodega ON RegistroBodega.IDRegistroBodega = Despacho.IDBodega INNER JOIN
+TipoBodega AS TipoBodega ON TipoBodega.IDTipoBodega = RegistroBodega.Tipo
 WHERE        (DespachoProducto.Estado &lt;&gt; 0) AND (TipoBodega.IDTipoBodega = 2)
 ORDER BY DespachoProducto.Cantidad DESC</CommandText>
                     <Parameters />
@@ -37,6 +37,7 @@ ORDER BY DespachoProducto.Cantidad DESC</CommandText>
               <Mapping SourceColumn="IDProducto" DataSetColumn="IDProducto" />
               <Mapping SourceColumn="IDUbicacion" DataSetColumn="IDUbicacion" />
               <Mapping SourceColumn="IDFuncionario" DataSetColumn="IDFuncionario" />
+              <Mapping SourceColumn="IDDespacho" DataSetColumn="IDDespacho" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -90,6 +91,7 @@ ORDER BY DespachoProducto.Cantidad DESC</CommandText>
               <xs:element name="IDProducto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDProducto" msprop:Generator_ColumnPropNameInRow="IDProducto" msprop:Generator_ColumnPropNameInTable="IDProductoColumn" msprop:Generator_UserColumnName="IDProducto" type="xs:int" />
               <xs:element name="IDUbicacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDUbicacion" msprop:Generator_ColumnPropNameInRow="IDUbicacion" msprop:Generator_ColumnPropNameInTable="IDUbicacionColumn" msprop:Generator_UserColumnName="IDUbicacion" type="xs:int" />
               <xs:element name="IDFuncionario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDFuncionario" msprop:Generator_ColumnPropNameInRow="IDFuncionario" msprop:Generator_ColumnPropNameInTable="IDFuncionarioColumn" msprop:Generator_UserColumnName="IDFuncionario" type="xs:int" />
+              <xs:element name="IDDespacho" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDDespacho" msprop:Generator_ColumnPropNameInRow="IDDespacho" msprop:Generator_ColumnPropNameInTable="IDDespachoColumn" msprop:Generator_UserColumnName="IDDespacho" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

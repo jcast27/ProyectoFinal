@@ -125,6 +125,7 @@
        "TrasladoProducto"."FechaTraslado" as "Fecha",
        "Usuario"."Usuario",
        "EstadoTraslado"."Descripcion" as "Estado",
+	   "RegistroBodega"."IDRegistroBodega" as "IDRegistroBodega",
        "RegistroBodega"."Nombre" as "Bodega Origen",
        "RegistroBodega_1"."Nombre" as "Bodega Destino"
   from (((("dbo"."TrasladoProducto" "TrasladoProducto"
@@ -139,7 +140,7 @@
   where "TrasladoProducto"."IDEstadoTraslado" &gt; 1 and "TrasladoProducto"."FechaTraslado" between @FechaInicio and @FechaFin</value>
   </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRyYXNsYWRvUHJvZHVjdG8iPjxGaWVsZCBOYW1lPSJOwrAgVHJhc2xhZG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkVzdGFkbyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EgT3JpZ2VuIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkJvZGVnYSBEZXN0aW5vIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRyYXNsYWRvUHJvZHVjdG8iPjxGaWVsZCBOYW1lPSJOwrAgVHJhc2xhZG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGZWNoYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc3VhcmlvIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkVzdGFkbyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJJRFJlZ2lzdHJvQm9kZWdhIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQm9kZWdhIE9yaWdlbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCb2RlZ2EgRGVzdGlubyIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -221,4 +222,10 @@
         Mn3mc6+w8T5nh16XF1544YWz8OvX/wGzSwO+QJ7aSAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="bBodega1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="bbodegA_RegistroBodega_AllTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
 </root>

@@ -36,9 +36,9 @@ namespace SIME_UTN.DAL
                         unUbicacion.idUbicacion = Convert.ToInt32(dr["IDUbicacion"].ToString());
                         unUbicacion.nombre = dr["Nombre"].ToString();
                         unUbicacion.otraSennas = dr["OtrasSennas"].ToString();
-                        unUbicacion.area = dr["Area"].ToString();
+                        //unUbicacion.area = dr["Area"].ToString();
                         unUbicacion.Departamento = DepartamentoDAL.ObtenerDepartamentoID(Convert.ToInt32(dr["IDDepartamento"].ToString()));
-                        unUbicacion.estado = dr["Estado"].ToString().Equals("True") ? 1 : 0;
+                        //unUbicacion.estado = dr["Estado"].ToString().Equals("True") ? 1 : 0;
                         lista.Add(unUbicacion);
                     }
                     catch (Exception)

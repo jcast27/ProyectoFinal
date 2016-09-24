@@ -10,6 +10,27 @@ namespace SIME_UTN.DAL
 {
     class DespachoDAL
     {
+        internal static List<Despacho> ObtenerDespachos()
+        {
+            List<Despacho> listaDespachos = new List<Despacho>();
+            SqlCommand comando = new SqlCommand("sp_SELECT_Despacho_All");
+            comando.CommandType = CommandType.StoredProcedure;
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Despacho despacho = new Despacho();
+                    despacho.idDespacho = Convert.ToInt32(dr["IDDespacho"].ToString());
+
+                    listaDespachos.Add(despacho);
+                }
+            }
+
+            return listaDespachos;
+        }
         public static void guardarDespachoDetalle(int idDespacho, PBodega Bodegap)
         {
             SqlCommand comando = new SqlCommand("sp_INSERT_DespachoDetalle");

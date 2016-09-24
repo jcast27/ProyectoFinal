@@ -11,6 +11,29 @@ namespace SIME_UTN.DAL
 {
     class RegistroProductoDAL
     {
+        internal static List<RegistroProducto> ObtenerIngresos()
+        {
+            List<RegistroProducto> listaIngresos = new List<RegistroProducto>();
+            SqlCommand comando = new SqlCommand("sp_SELECT_RegistroProducto_All");
+            comando.CommandType = CommandType.StoredProcedure;
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    RegistroProducto Ingreso = new RegistroProducto();
+                    Ingreso.idIngresoProducto = Convert.ToInt32(dr["idingresoproducto"].ToString());
+                    Ingreso.descripcion = dr["descripcion"].ToString();
+                    Ingreso.solicitudAvatar = dr["solicitudavatar"].ToString();
+                    Ingreso.fechaIngreso = dr["fechaingreso"].ToString();
+                    listaIngresos.Add(Ingreso);
+                }
+            }
+
+            return listaIngresos;
+        }
         static RegistroProducto viejoRegProducto = null;
         internal static int GuardarRegistroProducto(RegistroProducto unRegProd, string usuarioLogueadop)
         {

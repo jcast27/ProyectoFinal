@@ -20,17 +20,17 @@ namespace SIME_UTN.DataSets.Reportes {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ReporteDespacho")]
+    [global::System.Xml.Serialization.XmlRootAttribute("BBodega")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ReporteDespacho : global::System.Data.DataSet {
+    public partial class BBodega : global::System.Data.DataSet {
         
-        private RDespachoDataTable tableRDespacho;
+        private BBODEGADataTable tableBBODEGA;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ReporteDespacho() {
+        public BBodega() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SIME_UTN.DataSets.Reportes {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ReporteDespacho(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected BBodega(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SIME_UTN.DataSets.Reportes {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["RDespacho"] != null)) {
-                    base.Tables.Add(new RDespachoDataTable(ds.Tables["RDespacho"]));
+                if ((ds.Tables["BBODEGA"] != null)) {
+                    base.Tables.Add(new BBODEGADataTable(ds.Tables["BBODEGA"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SIME_UTN.DataSets.Reportes {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public RDespachoDataTable RDespacho {
+        public BBODEGADataTable BBODEGA {
             get {
-                return this.tableRDespacho;
+                return this.tableBBODEGA;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SIME_UTN.DataSets.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ReporteDespacho cln = ((ReporteDespacho)(base.Clone()));
+            BBodega cln = ((BBodega)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SIME_UTN.DataSets.Reportes {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["RDespacho"] != null)) {
-                    base.Tables.Add(new RDespachoDataTable(ds.Tables["RDespacho"]));
+                if ((ds.Tables["BBODEGA"] != null)) {
+                    base.Tables.Add(new BBODEGADataTable(ds.Tables["BBODEGA"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SIME_UTN.DataSets.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableRDespacho = ((RDespachoDataTable)(base.Tables["RDespacho"]));
+            this.tableBBODEGA = ((BBODEGADataTable)(base.Tables["BBODEGA"]));
             if ((initTable == true)) {
-                if ((this.tableRDespacho != null)) {
-                    this.tableRDespacho.InitVars();
+                if ((this.tableBBODEGA != null)) {
+                    this.tableBBODEGA.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SIME_UTN.DataSets.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ReporteDespacho";
+            this.DataSetName = "BBodega";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ReporteDespacho.xsd";
+            this.Namespace = "http://tempuri.org/BBodega.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableRDespacho = new RDespachoDataTable();
-            base.Tables.Add(this.tableRDespacho);
+            this.tableBBODEGA = new BBODEGADataTable();
+            base.Tables.Add(this.tableBBODEGA);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeRDespacho() {
+        private bool ShouldSerializeBBODEGA() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SIME_UTN.DataSets.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ReporteDespacho ds = new ReporteDespacho();
+            BBodega ds = new BBodega();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,39 +270,31 @@ namespace SIME_UTN.DataSets.Reportes {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void RDespachoRowChangeEventHandler(object sender, RDespachoRowChangeEvent e);
+        public delegate void BBODEGARowChangeEventHandler(object sender, BBODEGARowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class RDespachoDataTable : global::System.Data.TypedTableBase<RDespachoRow> {
+        public partial class BBODEGADataTable : global::System.Data.TypedTableBase<BBODEGARow> {
             
-            private global::System.Data.DataColumn columnCodigoAvatar;
+            private global::System.Data.DataColumn columnidregistrobodega;
             
-            private global::System.Data.DataColumn columnNombre;
+            private global::System.Data.DataColumn columnnombre;
             
-            private global::System.Data.DataColumn columnBodega;
+            private global::System.Data.DataColumn columndescripcion;
             
-            private global::System.Data.DataColumn columnCantidad;
+            private global::System.Data.DataColumn columnIDLocalizacion;
             
-            private global::System.Data.DataColumn columnModulo;
+            private global::System.Data.DataColumn columntipo;
             
-            private global::System.Data.DataColumn columnFuncionario;
-            
-            private global::System.Data.DataColumn columnIDProducto;
-            
-            private global::System.Data.DataColumn columnIDUbicacion;
-            
-            private global::System.Data.DataColumn columnIDFuncionario;
-            
-            private global::System.Data.DataColumn columnIDDespacho;
+            private global::System.Data.DataColumn columnestado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RDespachoDataTable() {
-                this.TableName = "RDespacho";
+            public BBODEGADataTable() {
+                this.TableName = "BBODEGA";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -310,7 +302,7 @@ namespace SIME_UTN.DataSets.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RDespachoDataTable(global::System.Data.DataTable table) {
+            internal BBODEGADataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -327,88 +319,56 @@ namespace SIME_UTN.DataSets.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected RDespachoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected BBODEGADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CodigoAvatarColumn {
+            public global::System.Data.DataColumn idregistrobodegaColumn {
                 get {
-                    return this.columnCodigoAvatar;
+                    return this.columnidregistrobodega;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
+            public global::System.Data.DataColumn nombreColumn {
                 get {
-                    return this.columnNombre;
+                    return this.columnnombre;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BodegaColumn {
+            public global::System.Data.DataColumn descripcionColumn {
                 get {
-                    return this.columnBodega;
+                    return this.columndescripcion;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CantidadColumn {
+            public global::System.Data.DataColumn IDLocalizacionColumn {
                 get {
-                    return this.columnCantidad;
+                    return this.columnIDLocalizacion;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModuloColumn {
+            public global::System.Data.DataColumn tipoColumn {
                 get {
-                    return this.columnModulo;
+                    return this.columntipo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FuncionarioColumn {
+            public global::System.Data.DataColumn estadoColumn {
                 get {
-                    return this.columnFuncionario;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDProductoColumn {
-                get {
-                    return this.columnIDProducto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDUbicacionColumn {
-                get {
-                    return this.columnIDUbicacion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDFuncionarioColumn {
-                get {
-                    return this.columnIDFuncionario;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDDespachoColumn {
-                get {
-                    return this.columnIDDespacho;
+                    return this.columnestado;
                 }
             }
             
@@ -423,61 +383,57 @@ namespace SIME_UTN.DataSets.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RDespachoRow this[int index] {
+            public BBODEGARow this[int index] {
                 get {
-                    return ((RDespachoRow)(this.Rows[index]));
+                    return ((BBODEGARow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RDespachoRowChangeEventHandler RDespachoRowChanging;
+            public event BBODEGARowChangeEventHandler BBODEGARowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RDespachoRowChangeEventHandler RDespachoRowChanged;
+            public event BBODEGARowChangeEventHandler BBODEGARowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RDespachoRowChangeEventHandler RDespachoRowDeleting;
+            public event BBODEGARowChangeEventHandler BBODEGARowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RDespachoRowChangeEventHandler RDespachoRowDeleted;
+            public event BBODEGARowChangeEventHandler BBODEGARowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddRDespachoRow(RDespachoRow row) {
+            public void AddBBODEGARow(BBODEGARow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RDespachoRow AddRDespachoRow(string CodigoAvatar, string Nombre, string Bodega, double Cantidad, string Modulo, string Funcionario) {
-                RDespachoRow rowRDespachoRow = ((RDespachoRow)(this.NewRow()));
+            public BBODEGARow AddBBODEGARow(string nombre, string descripcion, int IDLocalizacion, int tipo, bool estado) {
+                BBODEGARow rowBBODEGARow = ((BBODEGARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        CodigoAvatar,
-                        Nombre,
-                        Bodega,
-                        Cantidad,
-                        Modulo,
-                        Funcionario,
                         null,
-                        null,
-                        null,
-                        null};
-                rowRDespachoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRDespachoRow);
-                return rowRDespachoRow;
+                        nombre,
+                        descripcion,
+                        IDLocalizacion,
+                        tipo,
+                        estado};
+                rowBBODEGARow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBBODEGARow);
+                return rowBBODEGARow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RDespachoRow FindByIDProducto(int IDProducto) {
-                return ((RDespachoRow)(this.Rows.Find(new object[] {
-                            IDProducto})));
+            public BBODEGARow FindByidregistrobodega(int idregistrobodega) {
+                return ((BBODEGARow)(this.Rows.Find(new object[] {
+                            idregistrobodega})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                RDespachoDataTable cln = ((RDespachoDataTable)(base.Clone()));
+                BBODEGADataTable cln = ((BBODEGADataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -485,102 +441,71 @@ namespace SIME_UTN.DataSets.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new RDespachoDataTable();
+                return new BBODEGADataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnCodigoAvatar = base.Columns["CodigoAvatar"];
-                this.columnNombre = base.Columns["Nombre"];
-                this.columnBodega = base.Columns["Bodega"];
-                this.columnCantidad = base.Columns["Cantidad"];
-                this.columnModulo = base.Columns["Modulo"];
-                this.columnFuncionario = base.Columns["Funcionario"];
-                this.columnIDProducto = base.Columns["IDProducto"];
-                this.columnIDUbicacion = base.Columns["IDUbicacion"];
-                this.columnIDFuncionario = base.Columns["IDFuncionario"];
-                this.columnIDDespacho = base.Columns["IDDespacho"];
+                this.columnidregistrobodega = base.Columns["idregistrobodega"];
+                this.columnnombre = base.Columns["nombre"];
+                this.columndescripcion = base.Columns["descripcion"];
+                this.columnIDLocalizacion = base.Columns["IDLocalizacion"];
+                this.columntipo = base.Columns["tipo"];
+                this.columnestado = base.Columns["estado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnCodigoAvatar = new global::System.Data.DataColumn("CodigoAvatar", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigoAvatar);
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
-                this.columnBodega = new global::System.Data.DataColumn("Bodega", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBodega);
-                this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCantidad);
-                this.columnModulo = new global::System.Data.DataColumn("Modulo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModulo);
-                this.columnFuncionario = new global::System.Data.DataColumn("Funcionario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFuncionario);
-                this.columnIDProducto = new global::System.Data.DataColumn("IDProducto", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDProducto);
-                this.columnIDUbicacion = new global::System.Data.DataColumn("IDUbicacion", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDUbicacion);
-                this.columnIDFuncionario = new global::System.Data.DataColumn("IDFuncionario", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDFuncionario);
-                this.columnIDDespacho = new global::System.Data.DataColumn("IDDespacho", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDDespacho);
+                this.columnidregistrobodega = new global::System.Data.DataColumn("idregistrobodega", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidregistrobodega);
+                this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombre);
+                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion);
+                this.columnIDLocalizacion = new global::System.Data.DataColumn("IDLocalizacion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDLocalizacion);
+                this.columntipo = new global::System.Data.DataColumn("tipo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo);
+                this.columnestado = new global::System.Data.DataColumn("estado", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnIDProducto}, true));
-                this.columnCodigoAvatar.MaxLength = 30;
-                this.columnNombre.MaxLength = 30;
-                this.columnBodega.MaxLength = 30;
-                this.columnModulo.AllowDBNull = false;
-                this.columnModulo.MaxLength = 150;
-                this.columnFuncionario.MaxLength = 30;
-                this.columnIDProducto.AutoIncrement = true;
-                this.columnIDProducto.AutoIncrementSeed = -1;
-                this.columnIDProducto.AutoIncrementStep = -1;
-                this.columnIDProducto.AllowDBNull = false;
-                this.columnIDProducto.ReadOnly = true;
-                this.columnIDProducto.Unique = true;
-                this.columnIDUbicacion.AutoIncrement = true;
-                this.columnIDUbicacion.AutoIncrementSeed = -1;
-                this.columnIDUbicacion.AutoIncrementStep = -1;
-                this.columnIDUbicacion.AllowDBNull = false;
-                this.columnIDUbicacion.ReadOnly = true;
-                this.columnIDFuncionario.AutoIncrement = true;
-                this.columnIDFuncionario.AutoIncrementSeed = -1;
-                this.columnIDFuncionario.AutoIncrementStep = -1;
-                this.columnIDFuncionario.AllowDBNull = false;
-                this.columnIDFuncionario.ReadOnly = true;
-                this.columnIDDespacho.AutoIncrement = true;
-                this.columnIDDespacho.AutoIncrementSeed = -1;
-                this.columnIDDespacho.AutoIncrementStep = -1;
-                this.columnIDDespacho.AllowDBNull = false;
-                this.columnIDDespacho.ReadOnly = true;
+                                this.columnidregistrobodega}, true));
+                this.columnidregistrobodega.AutoIncrement = true;
+                this.columnidregistrobodega.AutoIncrementSeed = -1;
+                this.columnidregistrobodega.AutoIncrementStep = -1;
+                this.columnidregistrobodega.AllowDBNull = false;
+                this.columnidregistrobodega.ReadOnly = true;
+                this.columnidregistrobodega.Unique = true;
+                this.columnnombre.MaxLength = 30;
+                this.columndescripcion.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RDespachoRow NewRDespachoRow() {
-                return ((RDespachoRow)(this.NewRow()));
+            public BBODEGARow NewBBODEGARow() {
+                return ((BBODEGARow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new RDespachoRow(builder);
+                return new BBODEGARow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(RDespachoRow);
+                return typeof(BBODEGARow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.RDespachoRowChanged != null)) {
-                    this.RDespachoRowChanged(this, new RDespachoRowChangeEvent(((RDespachoRow)(e.Row)), e.Action));
+                if ((this.BBODEGARowChanged != null)) {
+                    this.BBODEGARowChanged(this, new BBODEGARowChangeEvent(((BBODEGARow)(e.Row)), e.Action));
                 }
             }
             
@@ -588,8 +513,8 @@ namespace SIME_UTN.DataSets.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.RDespachoRowChanging != null)) {
-                    this.RDespachoRowChanging(this, new RDespachoRowChangeEvent(((RDespachoRow)(e.Row)), e.Action));
+                if ((this.BBODEGARowChanging != null)) {
+                    this.BBODEGARowChanging(this, new BBODEGARowChangeEvent(((BBODEGARow)(e.Row)), e.Action));
                 }
             }
             
@@ -597,8 +522,8 @@ namespace SIME_UTN.DataSets.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.RDespachoRowDeleted != null)) {
-                    this.RDespachoRowDeleted(this, new RDespachoRowChangeEvent(((RDespachoRow)(e.Row)), e.Action));
+                if ((this.BBODEGARowDeleted != null)) {
+                    this.BBODEGARowDeleted(this, new BBODEGARowChangeEvent(((BBODEGARow)(e.Row)), e.Action));
                 }
             }
             
@@ -606,14 +531,14 @@ namespace SIME_UTN.DataSets.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.RDespachoRowDeleting != null)) {
-                    this.RDespachoRowDeleting(this, new RDespachoRowChangeEvent(((RDespachoRow)(e.Row)), e.Action));
+                if ((this.BBODEGARowDeleting != null)) {
+                    this.BBODEGARowDeleting(this, new BBODEGARowChangeEvent(((BBODEGARow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveRDespachoRow(RDespachoRow row) {
+            public void RemoveBBODEGARow(BBODEGARow row) {
                 this.Rows.Remove(row);
             }
             
@@ -622,7 +547,7 @@ namespace SIME_UTN.DataSets.Reportes {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ReporteDespacho ds = new ReporteDespacho();
+                BBodega ds = new BBodega();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -640,7 +565,7 @@ namespace SIME_UTN.DataSets.Reportes {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "RDespachoDataTable";
+                attribute2.FixedValue = "BBODEGADataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -684,210 +609,166 @@ namespace SIME_UTN.DataSets.Reportes {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class RDespachoRow : global::System.Data.DataRow {
+        public partial class BBODEGARow : global::System.Data.DataRow {
             
-            private RDespachoDataTable tableRDespacho;
+            private BBODEGADataTable tableBBODEGA;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RDespachoRow(global::System.Data.DataRowBuilder rb) : 
+            internal BBODEGARow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableRDespacho = ((RDespachoDataTable)(this.Table));
+                this.tableBBODEGA = ((BBODEGADataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CodigoAvatar {
+            public int idregistrobodega {
+                get {
+                    return ((int)(this[this.tableBBODEGA.idregistrobodegaColumn]));
+                }
+                set {
+                    this[this.tableBBODEGA.idregistrobodegaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nombre {
                 get {
                     try {
-                        return ((string)(this[this.tableRDespacho.CodigoAvatarColumn]));
+                        return ((string)(this[this.tableBBODEGA.nombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodigoAvatar\' in table \'RDespacho\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'nombre\' in table \'BBODEGA\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRDespacho.CodigoAvatarColumn] = value;
+                    this[this.tableBBODEGA.nombreColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
+            public string descripcion {
                 get {
                     try {
-                        return ((string)(this[this.tableRDespacho.NombreColumn]));
+                        return ((string)(this[this.tableBBODEGA.descripcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre\' in table \'RDespacho\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'descripcion\' in table \'BBODEGA\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRDespacho.NombreColumn] = value;
+                    this[this.tableBBODEGA.descripcionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Bodega {
+            public int IDLocalizacion {
                 get {
                     try {
-                        return ((string)(this[this.tableRDespacho.BodegaColumn]));
+                        return ((int)(this[this.tableBBODEGA.IDLocalizacionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Bodega\' in table \'RDespacho\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDLocalizacion\' in table \'BBODEGA\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRDespacho.BodegaColumn] = value;
+                    this[this.tableBBODEGA.IDLocalizacionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Cantidad {
+            public int tipo {
                 get {
                     try {
-                        return ((double)(this[this.tableRDespacho.CantidadColumn]));
+                        return ((int)(this[this.tableBBODEGA.tipoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cantidad\' in table \'RDespacho\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'tipo\' in table \'BBODEGA\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRDespacho.CantidadColumn] = value;
+                    this[this.tableBBODEGA.tipoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Modulo {
-                get {
-                    return ((string)(this[this.tableRDespacho.ModuloColumn]));
-                }
-                set {
-                    this[this.tableRDespacho.ModuloColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Funcionario {
+            public bool estado {
                 get {
                     try {
-                        return ((string)(this[this.tableRDespacho.FuncionarioColumn]));
+                        return ((bool)(this[this.tableBBODEGA.estadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Funcionario\' in table \'RDespacho\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'estado\' in table \'BBODEGA\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRDespacho.FuncionarioColumn] = value;
+                    this[this.tableBBODEGA.estadoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int IDProducto {
-                get {
-                    return ((int)(this[this.tableRDespacho.IDProductoColumn]));
-                }
-                set {
-                    this[this.tableRDespacho.IDProductoColumn] = value;
-                }
+            public bool IsnombreNull() {
+                return this.IsNull(this.tableBBODEGA.nombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int IDUbicacion {
-                get {
-                    return ((int)(this[this.tableRDespacho.IDUbicacionColumn]));
-                }
-                set {
-                    this[this.tableRDespacho.IDUbicacionColumn] = value;
-                }
+            public void SetnombreNull() {
+                this[this.tableBBODEGA.nombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int IDFuncionario {
-                get {
-                    return ((int)(this[this.tableRDespacho.IDFuncionarioColumn]));
-                }
-                set {
-                    this[this.tableRDespacho.IDFuncionarioColumn] = value;
-                }
+            public bool IsdescripcionNull() {
+                return this.IsNull(this.tableBBODEGA.descripcionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int IDDespacho {
-                get {
-                    return ((int)(this[this.tableRDespacho.IDDespachoColumn]));
-                }
-                set {
-                    this[this.tableRDespacho.IDDespachoColumn] = value;
-                }
+            public void SetdescripcionNull() {
+                this[this.tableBBODEGA.descripcionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCodigoAvatarNull() {
-                return this.IsNull(this.tableRDespacho.CodigoAvatarColumn);
+            public bool IsIDLocalizacionNull() {
+                return this.IsNull(this.tableBBODEGA.IDLocalizacionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCodigoAvatarNull() {
-                this[this.tableRDespacho.CodigoAvatarColumn] = global::System.Convert.DBNull;
+            public void SetIDLocalizacionNull() {
+                this[this.tableBBODEGA.IDLocalizacionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNombreNull() {
-                return this.IsNull(this.tableRDespacho.NombreColumn);
+            public bool IstipoNull() {
+                return this.IsNull(this.tableBBODEGA.tipoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNombreNull() {
-                this[this.tableRDespacho.NombreColumn] = global::System.Convert.DBNull;
+            public void SettipoNull() {
+                this[this.tableBBODEGA.tipoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsBodegaNull() {
-                return this.IsNull(this.tableRDespacho.BodegaColumn);
+            public bool IsestadoNull() {
+                return this.IsNull(this.tableBBODEGA.estadoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetBodegaNull() {
-                this[this.tableRDespacho.BodegaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCantidadNull() {
-                return this.IsNull(this.tableRDespacho.CantidadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCantidadNull() {
-                this[this.tableRDespacho.CantidadColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFuncionarioNull() {
-                return this.IsNull(this.tableRDespacho.FuncionarioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFuncionarioNull() {
-                this[this.tableRDespacho.FuncionarioColumn] = global::System.Convert.DBNull;
+            public void SetestadoNull() {
+                this[this.tableBBODEGA.estadoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -895,22 +776,22 @@ namespace SIME_UTN.DataSets.Reportes {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class RDespachoRowChangeEvent : global::System.EventArgs {
+        public class BBODEGARowChangeEvent : global::System.EventArgs {
             
-            private RDespachoRow eventRow;
+            private BBODEGARow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RDespachoRowChangeEvent(RDespachoRow row, global::System.Data.DataRowAction action) {
+            public BBODEGARowChangeEvent(BBODEGARow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RDespachoRow Row {
+            public BBODEGARow Row {
                 get {
                     return this.eventRow;
                 }
@@ -926,7 +807,7 @@ namespace SIME_UTN.DataSets.Reportes {
         }
     }
 }
-namespace SIME_UTN.DataSets.Reportes.ReporteDespachoTableAdapters {
+namespace SIME_UTN.DataSets.Reportes.BBodegaTableAdapters {
     
     
     /// <summary>
@@ -938,7 +819,7 @@ namespace SIME_UTN.DataSets.Reportes.ReporteDespachoTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class RDespachoTableAdapter : global::System.ComponentModel.Component {
+    public partial class BBODEGA_RegistroBodega_AllTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -952,7 +833,7 @@ namespace SIME_UTN.DataSets.Reportes.ReporteDespachoTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public RDespachoTableAdapter() {
+        public BBODEGA_RegistroBodega_AllTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1049,17 +930,13 @@ namespace SIME_UTN.DataSets.Reportes.ReporteDespachoTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "RDespacho";
-            tableMapping.ColumnMappings.Add("CodigoAvatar", "CodigoAvatar");
-            tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("Bodega", "Bodega");
-            tableMapping.ColumnMappings.Add("Cantidad", "Cantidad");
-            tableMapping.ColumnMappings.Add("Modulo", "Modulo");
-            tableMapping.ColumnMappings.Add("Funcionario", "Funcionario");
-            tableMapping.ColumnMappings.Add("IDProducto", "IDProducto");
-            tableMapping.ColumnMappings.Add("IDUbicacion", "IDUbicacion");
-            tableMapping.ColumnMappings.Add("IDFuncionario", "IDFuncionario");
-            tableMapping.ColumnMappings.Add("IDDespacho", "IDDespacho");
+            tableMapping.DataSetTable = "BBODEGA";
+            tableMapping.ColumnMappings.Add("idregistrobodega", "idregistrobodega");
+            tableMapping.ColumnMappings.Add("nombre", "nombre");
+            tableMapping.ColumnMappings.Add("descripcion", "descripcion");
+            tableMapping.ColumnMappings.Add("IDLocalizacion", "IDLocalizacion");
+            tableMapping.ColumnMappings.Add("tipo", "tipo");
+            tableMapping.ColumnMappings.Add("estado", "estado");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1076,24 +953,16 @@ namespace SIME_UTN.DataSets.Reportes.ReporteDespachoTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT  Despacho.IDDespacho,Producto.IDProducto,Ubicacion.IDUbicacion,Funcionario.IDFuncionario,Producto.CodigoAvatar, Producto.Nombre, RegistroBodega.Nombre AS Bodega, DespachoProducto.Cantidad, Ubicacion.Nombre AS Modulo, Funcionario.Nombre AS Funcionario
-FROM     Despacho AS Despacho INNER JOIN
-DespachoProducto AS DespachoProducto ON DespachoProducto.IDDespacho = Despacho.IDDespacho INNER JOIN
-Funcionario AS Funcionario ON Funcionario.IDFuncionario = Despacho.IDFuncionario INNER JOIN
-Ubicacion AS Ubicacion ON Ubicacion.IDUbicacion = Despacho.IDUbicacion INNER JOIN
-Producto AS Producto ON Producto.IDProducto = DespachoProducto.IDProducto and Producto.IDUnidadMedida<>10 INNER JOIN 
-RegistroBodega AS RegistroBodega ON RegistroBodega.IDRegistroBodega = Despacho.IDBodega INNER JOIN
-TipoBodega AS TipoBodega ON TipoBodega.IDTipoBodega = RegistroBodega.Tipo
-WHERE        (DespachoProducto.Estado <> 0) AND (TipoBodega.IDTipoBodega = 2)
-ORDER BY DespachoProducto.Cantidad DESC";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "dbo.sp_SELECT_RegistroBodega_All";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ReporteDespacho.RDespachoDataTable dataTable) {
+        public virtual int Fill(BBodega.BBODEGADataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1106,9 +975,9 @@ ORDER BY DespachoProducto.Cantidad DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ReporteDespacho.RDespachoDataTable GetData() {
+        public virtual BBodega.BBODEGADataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ReporteDespacho.RDespachoDataTable dataTable = new ReporteDespacho.RDespachoDataTable();
+            BBodega.BBODEGADataTable dataTable = new BBodega.BBODEGADataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1182,7 +1051,7 @@ ORDER BY DespachoProducto.Cantidad DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(ReporteDespacho dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(BBodega dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1192,7 +1061,7 @@ ORDER BY DespachoProducto.Cantidad DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(ReporteDespacho dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(BBodega dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1202,7 +1071,7 @@ ORDER BY DespachoProducto.Cantidad DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(ReporteDespacho dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(BBodega dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1236,7 +1105,7 @@ ORDER BY DespachoProducto.Cantidad DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(ReporteDespacho dataSet) {
+        public virtual int UpdateAll(BBodega dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

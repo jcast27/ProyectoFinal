@@ -30,10 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBodegaNumero));
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
-            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            this.reporteBodegaTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
-            this.reporteBodega2 = new SIME_UTN.DataSets.Reportes.ReporteBodega();
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             this.articuloTableAdapter1 = new SIME_UTN.DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter();
             this.reporteArticulo1 = new SIME_UTN.DataSets.Reportes.ReporteArticulo();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -65,25 +63,18 @@
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.reporteBodega1 = new SIME_UTN.DataSets.Reportes.ReporteBodega();
             this.reporteBodegaTableAdapter = new SIME_UTN.DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter();
-            this.Bodega = new DevExpress.XtraReports.Parameters.Parameter();
             this.Articulo = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega2)).BeginInit();
+            this.bBodega1 = new SIME_UTN.DataSets.Reportes.BBodega();
+            this.bbodegA_RegistroBodega_AllTableAdapter1 = new SIME_UTN.DataSets.Reportes.BBodegaTableAdapters.BBODEGA_RegistroBodega_AllTableAdapter();
+            this.Bodega = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.reporteArticulo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reporteBodega1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bBodega1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // reporteBodegaTableAdapter1
-            // 
-            this.reporteBodegaTableAdapter1.ClearBeforeFill = true;
-            // 
-            // reporteBodega2
-            // 
-            this.reporteBodega2.DataSetName = "ReporteBodega";
-            this.reporteBodega2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // articuloTableAdapter1
             // 
@@ -359,30 +350,16 @@
             // 
             this.reporteBodegaTableAdapter.ClearBeforeFill = true;
             // 
-            // Bodega
-            // 
-            this.Bodega.Description = "Bodega";
-            dynamicListLookUpSettings1.DataAdapter = this.reporteBodegaTableAdapter1;
-            dynamicListLookUpSettings1.DataMember = "ReporteBodega";
-            dynamicListLookUpSettings1.DataSource = this.reporteBodega2;
-            dynamicListLookUpSettings1.DisplayMember = "ReporteBodega.RegistroBodega_Nombre";
-            dynamicListLookUpSettings1.FilterString = null;
-            dynamicListLookUpSettings1.ValueMember = "ReporteBodega.IDRegistroBodega";
-            this.Bodega.LookUpSettings = dynamicListLookUpSettings1;
-            this.Bodega.MultiValue = true;
-            this.Bodega.Name = "Bodega";
-            this.Bodega.Type = typeof(int);
-            // 
             // Articulo
             // 
             this.Articulo.Description = "Articulo";
-            dynamicListLookUpSettings2.DataAdapter = this.articuloTableAdapter1;
-            dynamicListLookUpSettings2.DataMember = "Articulo";
-            dynamicListLookUpSettings2.DataSource = this.reporteArticulo1;
-            dynamicListLookUpSettings2.DisplayMember = "Articulo.Nombre";
-            dynamicListLookUpSettings2.FilterString = null;
-            dynamicListLookUpSettings2.ValueMember = "Articulo.IDProducto";
-            this.Articulo.LookUpSettings = dynamicListLookUpSettings2;
+            dynamicListLookUpSettings1.DataAdapter = this.articuloTableAdapter1;
+            dynamicListLookUpSettings1.DataMember = "Articulo";
+            dynamicListLookUpSettings1.DataSource = this.reporteArticulo1;
+            dynamicListLookUpSettings1.DisplayMember = "Articulo.Nombre";
+            dynamicListLookUpSettings1.FilterString = null;
+            dynamicListLookUpSettings1.ValueMember = "Articulo.IDProducto";
+            this.Articulo.LookUpSettings = dynamicListLookUpSettings1;
             this.Articulo.MultiValue = true;
             this.Articulo.Name = "Articulo";
             this.Articulo.Type = typeof(int);
@@ -429,6 +406,29 @@
             this.xrLine3.Name = "xrLine3";
             this.xrLine3.SizeF = new System.Drawing.SizeF(623.9999F, 8.416667F);
             // 
+            // bBodega1
+            // 
+            this.bBodega1.DataSetName = "BBodega";
+            this.bBodega1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bbodegA_RegistroBodega_AllTableAdapter1
+            // 
+            this.bbodegA_RegistroBodega_AllTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Bodega
+            // 
+            this.Bodega.Description = "Bodega";
+            dynamicListLookUpSettings2.DataAdapter = this.bbodegA_RegistroBodega_AllTableAdapter1;
+            dynamicListLookUpSettings2.DataMember = "BBODEGA";
+            dynamicListLookUpSettings2.DataSource = this.bBodega1;
+            dynamicListLookUpSettings2.DisplayMember = "nombre";
+            dynamicListLookUpSettings2.FilterString = null;
+            dynamicListLookUpSettings2.ValueMember = "idregistrobodega";
+            this.Bodega.LookUpSettings = dynamicListLookUpSettings2;
+            this.Bodega.MultiValue = true;
+            this.Bodega.Name = "Bodega";
+            this.Bodega.Type = typeof(int);
+            // 
             // rptBodegaNumero
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -443,10 +443,10 @@
             this.DataAdapter = this.reporteBodegaTableAdapter;
             this.DataMember = "ReporteBodega";
             this.DataSource = this.reporteBodega1;
-            this.FilterString = "[IDRegistroBodega] In (?Bodega) And [IDProducto] In (?Articulo)";
+            this.FilterString = "[IDProducto] In (?Articulo) And [IDRegistroBodega] In (?Bodega)";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.Bodega,
-            this.Articulo});
+            this.Articulo,
+            this.Bodega});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
@@ -454,9 +454,9 @@
             this.DataField});
             this.Version = "15.2";
             this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.rptBodegaNumero_ParametersRequestBeforeShow);
-            ((System.ComponentModel.ISupportInitialize)(this.reporteBodega2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reporteArticulo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reporteBodega1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bBodega1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -492,9 +492,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DataSets.Reportes.ReporteBodega reporteBodega2;
-        private DataSets.Reportes.ReporteBodegaTableAdapters.ReporteBodegaTableAdapter reporteBodegaTableAdapter1;
-        private DevExpress.XtraReports.Parameters.Parameter Bodega;
         private DataSets.Reportes.ReporteArticulo reporteArticulo1;
         private DataSets.Reportes.ReporteArticuloTableAdapters.ArticuloTableAdapter articuloTableAdapter1;
         private DevExpress.XtraReports.Parameters.Parameter Articulo;
@@ -502,5 +499,8 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
         private DevExpress.XtraReports.UI.XRLine xrLine3;
+        private DataSets.Reportes.BBodega bBodega1;
+        private DataSets.Reportes.BBodegaTableAdapters.BBODEGA_RegistroBodega_AllTableAdapter bbodegA_RegistroBodega_AllTableAdapter1;
+        private DevExpress.XtraReports.Parameters.Parameter Bodega;
     }
 }

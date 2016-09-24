@@ -15,6 +15,31 @@ namespace SIME_UTN.DAL
     {
         static TrasladoProducto viejoTraslado = null;
 
+        internal static List<TrasladoProducto> ObtenerTraslados()
+        {
+            List<TrasladoProducto> listaTraslados = new List<TrasladoProducto>();
+            SqlCommand comando = new SqlCommand("sp_SELECT_TrasladoProducto_All");
+            comando.CommandType = CommandType.StoredProcedure;
+            using (DataBase db = DataBaseFactory.CreateDataBase("default", UsuarioDB.GetInstance().usuario, UsuarioDB.GetInstance().contrasenna))
+            {
+                DataSet ds = db.ExecuteReader(comando, "consulta");
+
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    TrasladoProducto traslado = new TrasladoProducto();
+
+                    traslado.idTraslado = Convert.ToInt32(dr["idtraslado"].ToString());
+
+
+                    listaTraslados.Add(traslado);
+                }
+            }
+
+            return listaTraslados;
+        }
+
+
         /// <summary>
         /// Metodo que declina un traslado
         /// </summary>

@@ -34,6 +34,11 @@ namespace SIME_UTN.BLL
             }
         }
 
+        internal static List<TrasladoProducto> ObtenerTraslados()
+        {
+            return TrasladoProductoDAL.ObtenerTraslados();
+        }
+
         internal static void AceptarTraslado(TrasladoProducto trasladoEstatico, string usuarioLogueadop)
         {
             DAL.TrasladoProductoDAL.AceptarTraslado(trasladoEstatico, usuarioLogueadop);
