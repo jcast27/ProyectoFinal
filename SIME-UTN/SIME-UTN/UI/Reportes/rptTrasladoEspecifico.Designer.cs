@@ -119,20 +119,20 @@
             // 
             this.xrLabel20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TrasladoProducto.Presentacion")});
-            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(266.3118F, 9.999911F);
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(243.1451F, 9.999911F);
             this.xrLabel20.Name = "xrLabel20";
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel20.SizeF = new System.Drawing.SizeF(96.45831F, 18F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(125.6251F, 18F);
             this.xrLabel20.Text = "xrLabel20";
             // 
             // xrLabel18
             // 
             this.xrLabel18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TrasladoProducto.Unidades")});
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(107.1923F, 9.999911F);
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(113.1923F, 9.999911F);
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(159.1195F, 18F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(129.9528F, 18F);
             this.xrLabel18.StylePriority.UseTextAlignment = false;
             this.xrLabel18.Text = "xrLabel18";
             this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
@@ -142,10 +142,10 @@
             this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TrasladoProducto.Producto")});
             this.xrLabel16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 9.999911F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 9.999879F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(101.1923F, 18.00003F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(103.1923F, 18.00003F);
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.Text = "xrLabel16";
             // 
@@ -163,10 +163,10 @@
             // 
             this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TrasladoProducto.Fecha")});
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(362.7701F, 9.999974F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(368.7701F, 9.999974F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(96.45831F, 18F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(96.45837F, 18F);
             this.xrLabel10.Text = "xrLabel10";
             // 
             // xrLabel12
@@ -174,10 +174,10 @@
             this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TrasladoProducto.Usuario")});
             this.xrLabel12.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(459.2284F, 9.999974F);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(465.2285F, 9.999974F);
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(102.8077F, 18F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(96.80762F, 18F);
             this.xrLabel12.StylePriority.UseFont = false;
             this.xrLabel12.Text = "xrLabel12";
             // 
@@ -231,10 +231,10 @@
             // xrLabel8
             // 
             this.xrLabel8.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 7.999992F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 10.00001F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(96.80769F, 28.00001F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(96.80771F, 25.99999F);
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.Text = "Traslado #:";
             // 
@@ -243,7 +243,7 @@
             this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TrasladoProducto.Bodega Destino")});
             this.xrLabel4.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(390.4784F, 9.999974F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(368.7701F, 9.999974F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 26.00001F);
@@ -255,7 +255,7 @@
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TrasladoProducto.Bodega Origen")});
             this.xrLabel2.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(129.625F, 10.00001F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(125.625F, 9.999974F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(99.99999F, 26.00001F);
@@ -264,7 +264,7 @@
             // 
             // xrLabel1
             // 
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 10.00001F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 9.999974F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(119.625F, 25.99999F);
@@ -273,7 +273,7 @@
             // 
             // xrLabel3
             // 
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(270.0617F, 10.00001F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(248.3535F, 10.00001F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(120.4167F, 25.99999F);
@@ -297,18 +297,18 @@
             // 
             // xrLabel19
             // 
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(272.3118F, 12.00002F);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(243.1451F, 12.00002F);
             this.xrLabel19.Name = "xrLabel19";
             this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(96.45834F, 18F);
-            this.xrLabel19.Text = "Presentacion";
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(125.6251F, 18F);
+            this.xrLabel19.Text = "Presentación";
             // 
             // xrLabel17
             // 
             this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(113.1923F, 12.00002F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel17.SizeF = new System.Drawing.SizeF(159.1195F, 18F);
+            this.xrLabel17.SizeF = new System.Drawing.SizeF(129.9528F, 18F);
             this.xrLabel17.Text = "Unidades Trasladadas";
             // 
             // xrLabel15
@@ -400,7 +400,7 @@
             this.xrLabel13.SizeF = new System.Drawing.SizeF(290.8748F, 46F);
             this.xrLabel13.StyleName = "Title";
             this.xrLabel13.StylePriority.UseFont = false;
-            this.xrLabel13.Text = "Traslado Especifico";
+            this.xrLabel13.Text = "Traslado Específico";
             // 
             // xrPageInfo3
             // 
@@ -484,7 +484,7 @@
             this.xrLabel4});
             this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.GroupHeader1.HeightF = 36.00005F;
+            this.GroupHeader1.HeightF = 36.00006F;
             this.GroupHeader1.Level = 1;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
