@@ -72,10 +72,8 @@ namespace SIME_UTN.UI
                 gestor = GestorUsuarioTable.GetInstance();
                 UsuarioTable oUsuario = new UsuarioTable();
                 UsuarioDB oUsuario1 = UsuarioDB.GetInstance();
-
                 oUsuario1.usuario = ConfigurationManager.AppSettings["admin"];
                 oUsuario1.contrasenna = ConfigurationManager.AppSettings["psw"];
-
                 Encriptar encriptar = new Encriptar();
                 oUsuario = gestor.ValidarUsuarioPorUsuario(txtUsuario.Text.Trim());
 
