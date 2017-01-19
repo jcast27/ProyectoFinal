@@ -1,0 +1,1796 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB1CB28D-060A-4684-B111-B0754C40BE0E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIME_UTN</RootNamespace>
+    <AssemblyName>SIME-UTN</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v15.2.UI, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v15.2.Drawing, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPdfViewer.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\ActivoBLL.cs" />
+    <Compile Include="BLL\BodegaBLL.cs" />
+    <Compile Include="BLL\CategoriaItemBLL.cs" />
+    <Compile Include="BLL\CategoriaBLL.cs" />
+    <Compile Include="BLL\DepartamentoBLL.cs" />
+    <Compile Include="BLL\DespachoBLL.cs" />
+    <Compile Include="BLL\DetalleFormularioBLL.cs" />
+    <Compile Include="BLL\EmpresaBLL.cs" />
+    <Compile Include="BLL\FormularioBLL.cs" />
+    <Compile Include="BLL\FuncionarioBLL.cs" />
+    <Compile Include="BLL\ItemBLL.cs" />
+    <Compile Include="BLL\LoginBLL.cs" />
+    <Compile Include="BLL\MezclaBLL.cs" />
+    <Compile Include="BLL\MezclaProductoBLL.cs" />
+    <Compile Include="BLL\ProductoBLL.cs" />
+    <Compile Include="BLL\RegistroBodegaBLL.cs" />
+    <Compile Include="BLL\RegistroIngresoProductoBLL.cs" />
+    <Compile Include="BLL\RegistroMezclaBLL.cs" />
+    <Compile Include="BLL\RegistroProductoBLL.cs" />
+    <Compile Include="BLL\TrasladoProductoBLL.cs" />
+    <Compile Include="BLL\TrasladoProductoInterBLL.cs" />
+    <Compile Include="BLL\UbicacionBLL.cs" />
+    <Compile Include="BLL\UnidadMedidaBLL.cs" />
+    <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="DAL\DespachoDAL.cs" />
+    <Compile Include="DAL\BodegaDAL.cs" />
+    <Compile Include="DAL\DepartamentoDAL.cs" />
+    <Compile Include="DAL\ActivoDAL.cs" />
+    <Compile Include="DAL\CategoriaItemDAL.cs" />
+    <Compile Include="DAL\CategoriaDAL.cs" />
+    <Compile Include="DAL\DetalleFormularioDAL.cs" />
+    <Compile Include="DAL\EmpresaDAL.cs" />
+    <Compile Include="DAL\FormularioDAL.cs" />
+    <Compile Include="DAL\FuncionarioDAL.cs" />
+    <Compile Include="DAL\ItemDAL.cs" />
+    <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\MezclaDAL.cs" />
+    <Compile Include="DAL\MezclaProductoDAL.cs" />
+    <Compile Include="DAL\ProductoDAL.cs" />
+    <Compile Include="DAL\RegistroBodegaDAL.cs" />
+    <Compile Include="DAL\RegistroIngresoProductoDAL.cs" />
+    <Compile Include="DAL\RegistroMezclaDAL.cs" />
+    <Compile Include="DAL\RegistroProductoDAL.cs" />
+    <Compile Include="DAL\TipoBodegaDAL.cs" />
+    <Compile Include="DAL\TrasladoProductoDAL.cs" />
+    <Compile Include="DAL\TrasladoProductoInterDAL.cs" />
+    <Compile Include="DAL\UbicacionDAL.cs" />
+    <Compile Include="DAL\UnidadMedidaDAL.cs" />
+    <Compile Include="DAL\UsuarioDAL.cs" />
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBodegaUbicacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMezclaCategoria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetBodegas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBodegas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRBodegaNombre.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBodegaDespacho.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetProducto.cs">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetCategorias.cs">
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetCategorias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRegistrarUbicacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRMezclas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRMezclas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetUnidadMedida.cs">
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Inventarios\DataSetInventario.Designer.cs" />
+    <Compile Include="DataSets\Bodega\Inventarios\DataSetInventario1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Inventarios\DataSetInventarioActual.Designer.cs" />
+    <Compile Include="DataSets\Bodega\Inventarios\DataSetInventarioActual1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRegistroBodega.cs">
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetRegistroBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetTipoBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTipoBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaCMB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTipoBodegaCMB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaDespacho.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTipoBodegaDespacho.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetTipoTraslado1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTipoTraslado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetUnidadMedida.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Admistracion\DataSetTBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.cs">
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPTipoTraslado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSetUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetActivo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetActivo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetCategoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCategoria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetCategoriaPertenencia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetCMBEmpresa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCMBEmpresa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetEmpresa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEmpresa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetFUbicacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFUbicacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\DataSetItem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetItem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Formulario\FormulariosCategoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormulariosCategoria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\BBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\CIngreso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CIngreso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DArticulo.cs">
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DArticulo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DDespachos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDespachos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DFuncionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\DLocalizacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DLocalizacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\ReporteArticulo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\ReporteBodega.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteBodega.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\ReporteCostos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCostos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\ReporteDespacho.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDespacho.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\TETraslados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TETraslados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\TEUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Reportes\TUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTOs\MezclaProductoUnidaMedidaDTO.cs" />
+    <Compile Include="DTOs\ProductoCategoriaUnidadMedidaDTO.cs" />
+    <Compile Include="DTOs\ProductoDTO.cs" />
+    <Compile Include="DTOs\RegistroBodegaTipoBodegaDTO.cs" />
+    <Compile Include="DTOs\RegistroIngresoProductoDTO.cs" />
+    <Compile Include="DTOs\TrasladoProductoInterDTO.cs" />
+    <Compile Include="Entities\Activo.cs" />
+    <Compile Include="Entities\Despacho.cs" />
+    <Compile Include="Entities\Empresa.cs" />
+    <Compile Include="Entities\PBodega.cs" />
+    <Compile Include="Entities\Categoria.cs" />
+    <Compile Include="Entities\CategoriaItem.cs" />
+    <Compile Include="Entities\Departamento.cs" />
+    <Compile Include="Entities\DetalleFormulario.cs" />
+    <Compile Include="Entities\Encriptar.cs" />
+    <Compile Include="Entities\EstadoTraslado.cs" />
+    <Compile Include="Entities\Formulario.cs" />
+    <Compile Include="Entities\Funcionario.cs" />
+    <Compile Include="Entities\InventarioProducto.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\Mezcla.cs" />
+    <Compile Include="Entities\MezclaProducto.cs" />
+    <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\RegistroBodega.cs" />
+    <Compile Include="Entities\RegistroIngresoProducto.cs" />
+    <Compile Include="Entities\RegistroProducto.cs" />
+    <Compile Include="Entities\TipoBodega.cs" />
+    <Compile Include="Entities\TipoTraslado.cs" />
+    <Compile Include="Entities\TrasladoProducto.cs" />
+    <Compile Include="Entities\TrasladoProductoInter.cs" />
+    <Compile Include="Entities\Ubicacion.cs" />
+    <Compile Include="Entities\UnidadMedida.cs" />
+    <Compile Include="Entities\UsuarioDB.cs" />
+    <Compile Include="Entities\UsuarioTable.cs" />
+    <Compile Include="Enum\Pertenece.cs" />
+    <Compile Include="Enum\EstadoMantenimiento.cs" />
+    <Compile Include="Factories\FactoryUsuarioTable.cs" />
+    <Compile Include="Gestores\GestorDespacho.cs" />
+    <Compile Include="Gestores\GestorActivo.cs" />
+    <Compile Include="Gestores\GestorBodega.cs" />
+    <Compile Include="Gestores\GestorDepartamento.cs" />
+    <Compile Include="Gestores\GestorDetalleFormulario.cs" />
+    <Compile Include="Gestores\GestorEmpresa.cs" />
+    <Compile Include="Gestores\GestorFormulario.cs" />
+    <Compile Include="Gestores\GestorFuncionario.cs" />
+    <Compile Include="Gestores\GestorMezcla.cs" />
+    <Compile Include="Gestores\GestorMezclaProducto.cs" />
+    <Compile Include="Gestores\GestorRegistroBodega.cs" />
+    <Compile Include="Gestores\GestorRegistroIngresoProducto.cs" />
+    <Compile Include="Gestores\GestorRegistroProducto.cs" />
+    <Compile Include="Gestores\GestorTrasladoProducto.cs" />
+    <Compile Include="Gestores\GestorTrasladoProductoInter.cs" />
+    <Compile Include="Gestores\GestorUbicacion.cs" />
+    <Compile Include="Gestores\GestorUnidadMedida.cs" />
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AcercaDe.Designer.cs">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdMezclas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdMezclas.Designer.cs">
+      <DependentUpon>frmAdMezclas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUsuario.Designer.cs">
+      <DependentUpon>frmAdUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdProducto.Designer.cs">
+      <DependentUpon>frmAdProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUbicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUbicaciones.Designer.cs">
+      <DependentUpon>frmUbicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmDepartamentos.Designer.cs">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmMezclas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmMezclas.Designer.cs">
+      <DependentUpon>frmMezclas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUbicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUbicaciones.Designer.cs">
+      <DependentUpon>frmAdUbicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdDepartamento.Designer.cs">
+      <DependentUpon>frmAdDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmModTrasladoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmModTrasladoProductos.Designer.cs">
+      <DependentUpon>frmModTrasladoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioActual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioActual.Designer.cs">
+      <DependentUpon>frmInventarioActual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMaximo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMaximo.Designer.cs">
+      <DependentUpon>frmInventarioMaximo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMinimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Inventarios\frmInventarioMinimo.Designer.cs">
+      <DependentUpon>frmInventarioMinimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTPRegistroBodegaD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdDespacho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdDespacho.Designer.cs">
+      <DependentUpon>frmAdDespacho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdTrasladoProductos.Designer.cs">
+      <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmBodegaReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmBodegaReporte.Designer.cs">
+      <DependentUpon>frmBodegaReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmTrasladosDeProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmTrasladosDeProductos.Designer.cs">
+      <DependentUpon>frmTrasladosDeProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.Designer.cs">
+      <DependentUpon>frmAdUnidadDeMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUnidadesDeMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUnidadesDeMedida.Designer.cs">
+      <DependentUpon>frmUnidadesDeMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdBodega.Designer.cs">
+      <DependentUpon>frmAdBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmBodegas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmBodegas.Designer.cs">
+      <DependentUpon>frmBodegas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestores\GestorProducto.cs" />
+    <Compile Include="UI\Bodega\Administracion\frmAdFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmAdFuncionario.Designer.cs">
+      <DependentUpon>frmAdFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdRegistroProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmAdRegistroProducto.Designer.cs">
+      <DependentUpon>frmAdRegistroProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmFiltroProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmFiltroProductos.Designer.cs">
+      <DependentUpon>frmFiltroProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmRegistroProducto.Designer.cs">
+      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmFuncionarios.Designer.cs">
+      <DependentUpon>frmFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestores\GestorCategoriaItem.cs" />
+    <Compile Include="Gestores\GestorCategoria.cs" />
+    <Compile Include="Gestores\GestorItem.cs" />
+    <Compile Include="UI\Formulario\Administracion\frmAdActivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdActivo.Designer.cs">
+      <DependentUpon>frmAdActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdItem.Designer.cs">
+      <DependentUpon>frmAdItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdCategoria.Designer.cs">
+      <DependentUpon>frmAdCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmActivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmActivo.Designer.cs">
+      <DependentUpon>frmActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmAdEmpresas.Designer.cs">
+      <DependentUpon>frmAdEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmCategoria.Designer.cs">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmItem.Designer.cs">
+      <DependentUpon>frmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\restoreDB.cs" />
+    <Compile Include="UI\Formulario\Administracion\frmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Administracion\frmEmpresa.Designer.cs">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormulario.Designer.cs">
+      <DependentUpon>frmFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmForms.Designer.cs">
+      <DependentUpon>frmForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormsCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormsCategoria.Designer.cs">
+      <DependentUpon>frmFormsCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoEspecifico.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoEspecifico.Designer.cs">
+      <DependentUpon>rptTrasladoEspecifico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptCostosPorBodega.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptCostosPorBodega.Designer.cs">
+      <DependentUpon>rptCostosPorBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptCostos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptCostos.Designer.cs">
+      <DependentUpon>rptCostos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCambioContrasenna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCambioContrasenna.Designer.cs">
+      <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCambioUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCambioUsuario.Designer.cs">
+      <DependentUpon>frmCambioUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmDespachoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmDespachoProducto.Designer.cs">
+      <DependentUpon>frmDespachoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmFiltroBodegas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Procesos\frmFiltroBodegas.Designer.cs">
+      <DependentUpon>frmFiltroBodegas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmSplashRestaurar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSplashRestaurar.Designer.cs">
+      <DependentUpon>frmSplashRestaurar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestores\GestorUsuarioTable.cs" />
+    <Compile Include="Persistencia\DataBase.cs" />
+    <Compile Include="Persistencia\DataBaseFactory.cs" />
+    <Compile Include="UI\Bodega\frmMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\frmMDI.Designer.cs">
+      <DependentUpon>frmMDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Bodega\Administracion\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Bodega\Administracion\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\frmMDIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\frmMDIForm.Designer.cs">
+      <DependentUpon>frmMDIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formulario\Procesos\frmFormReporte.Designer.cs">
+      <DependentUpon>frmFormReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Ayuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Ayuda.Designer.cs">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\frmReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\frmReporte.Designer.cs">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptActivo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptActivo.Designer.cs">
+      <DependentUpon>rptActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptBodegaNumero.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptBodegaNumero.Designer.cs">
+      <DependentUpon>rptBodegaNumero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptDespacho.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptDespacho.Designer.cs">
+      <DependentUpon>rptDespacho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptFormulario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptFormulario.Designer.cs">
+      <DependentUpon>rptFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptImprimirForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptImprimirForm.Designer.cs">
+      <DependentUpon>rptImprimirForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptItem.Designer.cs">
+      <DependentUpon>rptItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptInv.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptInv.Designer.cs">
+      <DependentUpon>rptInv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptMinimo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptMinimo.Designer.cs">
+      <DependentUpon>rptMinimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoFecha.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\rptTrasladoFecha.Designer.cs">
+      <DependentUpon>rptTrasladoFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AcercaDe.resx">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdMezclas.resx">
+      <DependentUpon>frmAdMezclas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdUsuario.resx">
+      <DependentUpon>frmAdUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdProducto.resx">
+      <DependentUpon>frmAdProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmUbicaciones.resx">
+      <DependentUpon>frmUbicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmDepartamentos.resx">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmMezclas.resx">
+      <DependentUpon>frmMezclas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdUbicaciones.resx">
+      <DependentUpon>frmAdUbicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdDepartamento.resx">
+      <DependentUpon>frmAdDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmModTrasladoProductos.resx">
+      <DependentUpon>frmModTrasladoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioActual.resx">
+      <DependentUpon>frmInventarioActual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioMaximo.resx">
+      <DependentUpon>frmInventarioMaximo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Inventarios\frmInventarioMinimo.resx">
+      <DependentUpon>frmInventarioMinimo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdDespacho.resx">
+      <DependentUpon>frmAdDespacho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdTrasladoProductos.resx">
+      <DependentUpon>frmAdTrasladoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmBodegaReporte.resx">
+      <DependentUpon>frmBodegaReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmTrasladosDeProductos.resx">
+      <DependentUpon>frmTrasladosDeProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdUnidadDeMedida.resx">
+      <DependentUpon>frmAdUnidadDeMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmUnidadesDeMedida.resx">
+      <DependentUpon>frmUnidadesDeMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdBodega.resx">
+      <DependentUpon>frmAdBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmBodegas.resx">
+      <DependentUpon>frmBodegas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmAdFuncionario.resx">
+      <DependentUpon>frmAdFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmAdRegistroProducto.resx">
+      <DependentUpon>frmAdRegistroProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmFiltroProductos.resx">
+      <DependentUpon>frmFiltroProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmRegistroProducto.resx">
+      <DependentUpon>frmRegistroProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmFuncionarios.resx">
+      <DependentUpon>frmFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmAdActivo.resx">
+      <DependentUpon>frmAdActivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmAdItem.resx">
+      <DependentUpon>frmAdItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmAdCategoria.resx">
+      <DependentUpon>frmAdCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmActivo.resx">
+      <DependentUpon>frmActivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmAdEmpresas.resx">
+      <DependentUpon>frmAdEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmCategoria.resx">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmItem.resx">
+      <DependentUpon>frmItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Administracion\frmEmpresa.resx">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmFormulario.resx">
+      <DependentUpon>frmFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmForms.resx">
+      <DependentUpon>frmForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmFormsCategoria.resx">
+      <DependentUpon>frmFormsCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptTrasladoEspecifico.resx">
+      <DependentUpon>rptTrasladoEspecifico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptCostosPorBodega.resx">
+      <DependentUpon>rptCostosPorBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptCostos.resx">
+      <DependentUpon>rptCostos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCambioContrasenna.resx">
+      <DependentUpon>frmCambioContrasenna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCambioUsuario.resx">
+      <DependentUpon>frmCambioUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmDespachoProducto.resx">
+      <DependentUpon>frmDespachoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Procesos\frmFiltroBodegas.resx">
+      <DependentUpon>frmFiltroBodegas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSplashRestaurar.resx">
+      <DependentUpon>frmSplashRestaurar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\frmMDI.resx">
+      <DependentUpon>frmMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Bodega\Administracion\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\frmMDIForm.resx">
+      <DependentUpon>frmMDIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formulario\Procesos\frmFormReporte.resx">
+      <DependentUpon>frmFormReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Ayuda.resx">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\frmReporte.resx">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptActivo.resx">
+      <DependentUpon>rptActivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptBodegaNumero.resx">
+      <DependentUpon>rptBodegaNumero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptDespacho.resx">
+      <DependentUpon>rptDespacho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptFormulario.resx">
+      <DependentUpon>rptFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptImprimirForm.resx">
+      <DependentUpon>rptImprimirForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptItem.resx">
+      <DependentUpon>rptItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptInv.resx">
+      <DependentUpon>rptInv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptMinimo.resx">
+      <DependentUpon>rptMinimo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptTrasladoFecha.resx">
+      <DependentUpon>rptTrasladoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XRDesignRibbonControllerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.xsc">
+      <DependentUpon>DataSetBodegaUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBodegaUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaUbicacion.xss">
+      <DependentUpon>DataSetBodegaUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xsc">
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFuncionario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetFuncionario.xss">
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.xsc">
+      <DependentUpon>DataSetMezclaCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMezclaCategoria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetMezclaCategoria.xss">
+      <DependentUpon>DataSetMezclaCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetBodegas.xsc">
+      <DependentUpon>DataSetBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetBodegas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBodegas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetBodegas.xss">
+      <DependentUpon>DataSetBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.xsc">
+      <DependentUpon>DataSetRBodegaNombre.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRBodegaNombre.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRBodegaNombre.xss">
+      <DependentUpon>DataSetRBodegaNombre.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.xsc">
+      <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRegistroProducto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetRegistroProducto.xss">
+      <DependentUpon>DataSetRegistroProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSDepartamento.xsc">
+      <DependentUpon>DataSDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSDepartamento.xss">
+      <DependentUpon>DataSDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.xsc">
+      <DependentUpon>DataSetBodegaDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBodegaDespacho.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetBodegaDespacho.xss">
+      <DependentUpon>DataSetBodegaDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetDepartamento.xsc">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetDepartamento.xss">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetProducto.xsc">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProducto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetProducto.xss">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetProductos.xsc">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetProductos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProductos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetProductos.xss">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetCategorias.xsc">
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetCategorias.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCategorias.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetCategorias.xss">
+      <DependentUpon>DataSetCategorias.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.xsc">
+      <DependentUpon>DataSetRDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRDepartamento.xss">
+      <DependentUpon>DataSetRDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.xsc">
+      <DependentUpon>DataSetRegistrarUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRegistrarUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistrarUbicacion.xss">
+      <DependentUpon>DataSetRegistrarUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRMezclas.xsc">
+      <DependentUpon>DataSetRMezclas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRMezclas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRMezclas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRMezclas.xss">
+      <DependentUpon>DataSetRMezclas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.xsc">
+      <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRUnidadM.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRUnidadM.xss">
+      <DependentUpon>DataSetRUnidadM.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.xsc">
+      <DependentUpon>DataSetUDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUDepartamento.xss">
+      <DependentUpon>DataSetUDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Inventarios\DataSetInventario.xsc">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Inventarios\DataSetInventario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInventario1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Inventarios\DataSetInventario.xss">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Inventarios\DataSetInventarioActual.xsc">
+      <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Inventarios\DataSetInventarioActual.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInventarioActual1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Inventarios\DataSetInventarioActual.xss">
+      <DependentUpon>DataSetInventarioActual.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistroBodega.xsc">
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistroBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRegistroBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetRegistroBodega.xss">
+      <DependentUpon>DataSetRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodega.xsc">
+      <DependentUpon>DataSetTipoBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTipoBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodega.xss">
+      <DependentUpon>DataSetTipoBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaCMB.xsc">
+      <DependentUpon>DataSetTipoBodegaCMB.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaCMB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTipoBodegaCMB.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaCMB.xss">
+      <DependentUpon>DataSetTipoBodegaCMB.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaDespacho.xsc">
+      <DependentUpon>DataSetTipoBodegaDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaDespacho.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTipoBodegaDespacho.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoBodegaDespacho.xss">
+      <DependentUpon>DataSetTipoBodegaDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoTraslado.xsc">
+      <DependentUpon>DataSetTipoTraslado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoTraslado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTipoTraslado1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTipoTraslado.xss">
+      <DependentUpon>DataSetTipoTraslado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUbicacion.xsc">
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUbicacion.xss">
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUnidadMedida.xsc">
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUnidadMedida.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUnidadMedida.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetUnidadMedida.xss">
+      <DependentUpon>DataSetUnidadMedida.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTBodega.xsc">
+      <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTBodega.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTBodega.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Bodega\Admistracion\DataSetTBodega.xss">
+      <DependentUpon>DataSetTBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.xsc">
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPRegistroBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodega.xss">
+      <DependentUpon>DataSetTPRegistroBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.xsc">
+      <DependentUpon>DataSetTPTipoTraslado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPTipoTraslado.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPTipoTraslado.xss">
+      <DependentUpon>DataSetTPTipoTraslado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPUsuario.xsc">
+      <DependentUpon>DataSetTPUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPUsuario.xss">
+      <DependentUpon>DataSetTPUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.xsc">
+      <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTrasladoProducto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTrasladoProducto.xss">
+      <DependentUpon>DataSetTrasladoProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetUbicacion.xsc">
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetUbicacion.xss">
+      <DependentUpon>DataSetUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetUsuario.xsc">
+      <DependentUpon>DataSetUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetUsuario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUsuario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\DataSetUsuario.xss">
+      <DependentUpon>DataSetUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetActivo.xsc">
+      <DependentUpon>DataSetActivo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetActivo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetActivo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetActivo.xss">
+      <DependentUpon>DataSetActivo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoria.xsc">
+      <DependentUpon>DataSetCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCategoria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoria.xss">
+      <DependentUpon>DataSetCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xsc">
+      <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCategoriaPertenencia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCategoriaPertenencia.xss">
+      <DependentUpon>DataSetCategoriaPertenencia.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCMBEmpresa.xsc">
+      <DependentUpon>DataSetCMBEmpresa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCMBEmpresa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCMBEmpresa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetCMBEmpresa.xss">
+      <DependentUpon>DataSetCMBEmpresa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetEmpresa.xsc">
+      <DependentUpon>DataSetEmpresa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetEmpresa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEmpresa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetEmpresa.xss">
+      <DependentUpon>DataSetEmpresa.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFUbicacion.xsc">
+      <DependentUpon>DataSetFUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFUbicacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFUbicacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFUbicacion.xss">
+      <DependentUpon>DataSetFUbicacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFuncionario.xsc">
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFuncionario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFuncionario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\Formulario\DataSetFuncionario.xss">
+      <DependentUpon>DataSetFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetItem.xsc">
+      <DependentUpon>DataSetItem.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\DataSetItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetItem.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\DataSetItem.xss">
+      <DependentUpon>DataSetItem.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\FormulariosCategoria.xsc">
+      <DependentUpon>FormulariosCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Formulario\FormulariosCategoria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FormulariosCategoria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Formulario\FormulariosCategoria.xss">
+      <DependentUpon>FormulariosCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\BBodega.xsc">
+      <DependentUpon>BBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\BBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\BBodega.xss">
+      <DependentUpon>BBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\CIngreso.xsc">
+      <DependentUpon>CIngreso.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\CIngreso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CIngreso.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\CIngreso.xss">
+      <DependentUpon>CIngreso.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DArticulo.xsc">
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DArticulo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DArticulo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DArticulo.xss">
+      <DependentUpon>DArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DDespachos.xsc">
+      <DependentUpon>DDespachos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DDespachos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DDespachos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DDespachos.xss">
+      <DependentUpon>DDespachos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DFuncionario.xsc">
+      <DependentUpon>DFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DFuncionario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DFuncionario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DFuncionario.xss">
+      <DependentUpon>DFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DLocalizacion.xsc">
+      <DependentUpon>DLocalizacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\DLocalizacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DLocalizacion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\DLocalizacion.xss">
+      <DependentUpon>DLocalizacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteArticulo.xsc">
+      <DependentUpon>ReporteArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteArticulo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteArticulo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteArticulo.xss">
+      <DependentUpon>ReporteArticulo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteBodega.xsc">
+      <DependentUpon>ReporteBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteBodega.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteBodega.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteBodega.xss">
+      <DependentUpon>ReporteBodega.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteCostos.xsc">
+      <DependentUpon>ReporteCostos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteCostos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteCostos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteCostos.xss">
+      <DependentUpon>ReporteCostos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteDespacho.xsc">
+      <DependentUpon>ReporteDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\ReporteDespacho.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteDespacho.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\ReporteDespacho.xss">
+      <DependentUpon>ReporteDespacho.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TETraslados.xsc">
+      <DependentUpon>TETraslados.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TETraslados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TETraslados.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\TETraslados.xss">
+      <DependentUpon>TETraslados.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TEUsuario.xsc">
+      <DependentUpon>TEUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TEUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TEUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\TEUsuario.xss">
+      <DependentUpon>TEUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TUsuario.xsc">
+      <DependentUpon>TUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Reportes\TUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Reportes\TUsuario.xss">
+      <DependentUpon>TUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.xsc">
+      <DependentUpon>DataSetTPRegistroBodegaD.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTPRegistroBodegaD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Bodega\Procesos\DataSetTPRegistroBodegaD.xss">
+      <DependentUpon>DataSetTPRegistroBodegaD.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xrPictureBox1.Image.png" />
+    <None Include="Resources\agency.png" />
+    <Content Include="Resources\alpha-dista-grey-icon-19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\boton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Ayuda.pdf" />
+    <None Include="Resources\utn128x99.png" />
+    <None Include="Resources\warehouse.png" />
+    <None Include="Resources\fondoCambioUser.png" />
+    <None Include="Resources\fondoCambioUser1.png" />
+    <None Include="Resources\Forward_32x32.png" />
+    <None Include="Resources\form.png" />
+    <None Include="Resources\funcionarios.png" />
+    <None Include="Resources\Departamento.png" />
+    <None Include="Resources\gency.ico" />
+    <None Include="Resources\categories.png" />
+    <Content Include="Resources\gnome_panel_force_quit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\gnome_panel_force_quit1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\inven.jpg" />
+    <None Include="Resources\Icono.ico" />
+    <None Include="Resources\item.png" />
+    <Content Include="Resources\items.png" />
+    <None Include="Resources\Localizacion.png" />
+    <Content Include="Resources\login.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\login1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\productos1.jpg" />
+    <None Include="Resources\registroProducto.jpg" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\usuarios.png" />
+    <None Include="Resources\productos.png" />
+    <None Include="Resources\registro.png" />
+    <None Include="Resources\unidadMedida.png" />
+    <None Include="Resources\max.PNG" />
+    <None Include="Resources\min.PNG" />
+    <None Include="Resources\mezclas.png" />
+    <None Include="Resources\Reporte.png" />
+    <None Include="Resources\Logo.png" />
+    <Content Include="Resources\usuarios1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\utn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\utn1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>2.0</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
