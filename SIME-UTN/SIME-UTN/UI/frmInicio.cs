@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using SIME_UTN.Gestores;
 using SIME_UTN.Entities;
+using System.Configuration;
 
 namespace SIME_UTN.UI
 {
@@ -71,8 +72,8 @@ namespace SIME_UTN.UI
                 gestor = GestorUsuarioTable.GetInstance();
                 UsuarioTable oUsuario = new UsuarioTable();
                 UsuarioDB oUsuario1 = UsuarioDB.GetInstance();
-                oUsuario1.usuario = "sa";
-                oUsuario1.contrasenna = "sa1";
+                oUsuario1.usuario = ConfigurationManager.AppSettings["admin"];
+                oUsuario1.contrasenna = ConfigurationManager.AppSettings["psw"];
                 Encriptar encriptar = new Encriptar();
                 oUsuario = gestor.ValidarUsuarioPorUsuario(txtUsuario.Text.Trim());
 
