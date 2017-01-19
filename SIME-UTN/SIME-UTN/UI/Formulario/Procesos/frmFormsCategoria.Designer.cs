@@ -186,17 +186,16 @@
             // 
             // coldescripcion
             // 
+            this.coldescripcion.Caption = "Descripción";
             this.coldescripcion.FieldName = "descripcion";
             this.coldescripcion.Name = "coldescripcion";
             this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 1;
+            this.coldescripcion.VisibleIndex = 0;
             // 
             // colpertenencia
             // 
             this.colpertenencia.FieldName = "pertenencia";
             this.colpertenencia.Name = "colpertenencia";
-            this.colpertenencia.Visible = true;
-            this.colpertenencia.VisibleIndex = 0;
             // 
             // colestado
             // 
